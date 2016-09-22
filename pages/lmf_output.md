@@ -136,6 +136,9 @@ use depending on settings in **EXPRESS_autobas**.
 To see what the tokens in **autobas** do, invoke `lmf --input`
 and search for autobas in the output.
 
+Look [here](/docs/outputs/lmf_output/#help-with-finding-tokens:-the---input-switch)
+
+
 {::nomarkdown}</div>{:/}
 
 #### Header information

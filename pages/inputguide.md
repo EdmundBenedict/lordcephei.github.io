@@ -143,6 +143,10 @@ Files other than _ctrl.ext_{: style="color: green"} are first parsed by the prep
 _____________________________________________________________
 
 ### 2. _Help with finding tokens: the --input switch_
+{::comment}
+/docs/outputs/lmf_output/#help-with-finding-tokens:-the---input-switch
+{:/comment}
+
 
 To see what a particular tool would try to read, without actually reading
 anything, run your executable code with `--input`, e.g.
@@ -201,20 +205,19 @@ Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.
 or **SITE_ATOM_XPOS**.  (Note: if this data is given through a site file, 
 all the tags in the **SITE** category will be ignored).
 
+____________________________________________________________
 
-_____________________________________________________________
+### 3. _Displaying tags read by a program_
 
-### 3. _Displaying tags read or substituted_
-
-To see what a particular tool actually takes as input, either
-from parsing the input file or substituting defaults,
-run your executable code with `--show=2` or `--show`, e.g.
+To see what a particular tool actually accepts as input, run your executable code with `--show=2` or `--show`, e.g.
 
 ~~~
-  lmchk --show=2
+$ lmchk --show=2
 ~~~
-This switch causes the parser to print to standard output the values
-of all the tags it looks for.
+This switch causes the parser to print values for all the tags it looks for.
+The output will tell you whether data was read from tags or defaults were substituted.
+See the [annotation of lmf output](/docs/outputs/lmf_output/#display-of-tags-parsed-in-the-input-file)
+for how to interpret the information `--show` provides.
 
 _____________________________________________________________
 
