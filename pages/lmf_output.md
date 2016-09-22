@@ -134,9 +134,9 @@ If both are present **lmf**{: style="color: blue"} decides on which to
 use depending on settings in **EXPRESS_autobas**.
 
 To see what the tokens in **autobas** do, invoke `lmf --input`
-and search for autobas in the output.
-
-Look [here](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch)
+and search for autobas in the output.  
+[This page](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch)
+explains what the `--input` tells you about the tags it will look for.
 
 {::nomarkdown}</div>{:/}
 
