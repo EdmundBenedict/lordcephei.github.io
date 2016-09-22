@@ -41,7 +41,7 @@
     - name: "Annotated Output Files"
       prefix: "/outputs"
       content:
-      - title: "lmf standard out"
+      - title: "lmf standard output"
         url: "/lmf_output/"
     - name: "Command Line Options"
       prefix: "/commandline"

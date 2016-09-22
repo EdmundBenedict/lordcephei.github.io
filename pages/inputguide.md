@@ -144,7 +144,7 @@ _____________________________________________________________
 
 ### 2. _Help with finding tokens: the --input switch_
 {::comment}
-/docs/outputs/lmf_output/#help-with-finding-tokens:-the---input-switch
+/docs/input/inputfile/#help-with-finding-tokens:-the---input-switch
 {:/comment}
 
 

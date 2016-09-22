@@ -87,7 +87,7 @@ Compare to the original _ctrl.pbte_{: style="color: green"}.
 {:/comment}
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see how to display what lmf reads.</div>
+Click here to see how to determine what input lmf reads.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 
 After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.  By default this
@@ -136,8 +136,7 @@ use depending on settings in **EXPRESS_autobas**.
 To see what the tokens in **autobas** do, invoke `lmf --input`
 and search for autobas in the output.
 
-Look [here](/docs/outputs/lmf_output/#help-with-finding-tokens:-the---input-switch)
-
+Look [here](/docs/input/inputfile/#help-with-finding-tokens:-the---input-switch)
 
 {::nomarkdown}</div>{:/}
 
