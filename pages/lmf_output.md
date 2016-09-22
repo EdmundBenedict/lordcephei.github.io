@@ -35,7 +35,7 @@ explains a block approximately in the order they are made.
 {:/comment}
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for a description.</div>
+Click here to see the action of the preprocessor.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/} 
 
 **lmf**{: style="color: blue"} begins by running the ctrl file through
@@ -87,7 +87,7 @@ Compare to the original _ctrl.pbte_{: style="color: green"}.
 {:/comment}
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see how to determine what input lmf reads.</div>
+Click here to see how to display tags reads by lmf</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 
 After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.  By default this
