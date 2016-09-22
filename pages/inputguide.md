@@ -201,9 +201,24 @@ Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.
 or **SITE_ATOM_XPOS**.  (Note: if this data is given through a site file, 
 all the tags in the **SITE** category will be ignored).
 
+
 _____________________________________________________________
 
-### 3. _The EXPRESS category_
+### 3. _Displaying tags read or substituted_
+
+To see what a particular tool actually takes as input, either
+from parsing the input file or substituting defaults,
+run your executable code with `--show=2` or `--show`, e.g.
+
+~~~
+  lmchk --show=2
+~~~
+This switch causes the parser to print to standard output the values
+of all the tags it looks for.
+
+_____________________________________________________________
+
+### 4. _The EXPRESS category_
 
 Section 4 provides some description of the input and purpose of tags in each category.
 
@@ -224,7 +239,7 @@ Thus in using **EXPRESS_file** all structural data is supplied through the site 
 
 _____________________________________________________________
 
-### 4. _Input File Categories_
+### 5. _Input File Categories_
 
 This section details the various categories and tokens used in the input file.
 
