@@ -94,11 +94,11 @@ Such lines interpreted as a directive to do something. They will not appear in t
 
 The following keywords are directives supported by _rdfiln_{: style="color: green"}:
 <pre>
-   const cconst cvar udef var vec 
-         char char0 cchar getenv vfind   &larr; allocate variables and assigns values
-   if ifdef ifndef iffile else elseif elseifd endif               &larr; branching constructs for conditional reading of lines
-   while repeat end                                               &larr; looping constructs for repeated looping of lines
-   echo exit include includo macro save show stop trace udef      &larr; miscellaneous other constructs
+   const cconst cvar udef var vec                     &larr; allocate and assign numerical variables
+   char char0 cchar getenv vfind                      &larr; allocate and assign character variables
+   if ifdef ifndef iffile else elseif elseifd endif   &larr; branching construct
+   while repeat end  echo exit                        &larr; looping constructs
+   include includo macro save show stop trace udef    &larr; miscellaneous
 </pre>
 	
 ### 3. _Expression Substitution_
