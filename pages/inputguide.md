@@ -207,17 +207,16 @@ all the tags in the **SITE** category will be ignored).
 
 ____________________________________________________________
 
-### 3. _Displaying tags read by a program_
+### 3. _Displaying input_
 
-To see what a particular tool actually accepts as input, run your executable code with `--show=2` or `--show`, e.g.
+To see what is actually read by a particular tool, run your executable code with `--show=2` or `--show`, e.g.
 
 ~~~
 $ lmchk --show=2
 ~~~
-This switch causes the parser to print values for all the tags it looks for.
-The output will tell you whether data was read from tags or defaults were substituted.
+The parser will print values each tags as it read (or if not read what default was substituted).
 See the [annotation of lmf output](/docs/outputs/lmf_output/#display-of-tags-parsed-in-the-input-file)
-for how to interpret the information `--show` provides.
+for an example.
 
 _____________________________________________________________
 
