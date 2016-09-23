@@ -94,87 +94,87 @@ The following keywords are directives supported by _rdfiln_{: style="color: gree
 
 By enclosing a string in curly brackets, _viz_ **{strn}**, you instruct the preprocessor to
 parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something else.
-
 **strn** must take one of the following syntactical forms.
 If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
-Thus these form are ordered by the precedence they take:
+These four forms are arranged by the precedence they take:
 
-1. (_string substitution_) **strn** is name of a **character variable**.  The value of the variable is substituted.\\
+1. (_string substitution_)&nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
-2. (_conditional substitution_) **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
-3. (_vector substitution_) **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
-4. (_expression substitution_) **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
+2. (_conditional substitution_)&nbsp; **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
+3. (_vector substitution_)&nbsp; **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
+4. (_expression substitution_)&nbsp; **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
 
-The rules for each of the four kinds are syntax are as follows:
+In more detail, the rules are as follows:
 
-1. **strn** consists of (or begins with) a character variable, say **myvar**.
+1. **strn** consists of (or begins with) a character variable, say **mychar**.
 
    a. **strn** is a character variable.
-       _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**.\\
-       _Example_: If myvar='foo bar', **{myvar} &rarr; **foo bar**.
+       _rdfiln_{: style="color: green"} replaces **{mychar}** with contents of **mychar**.\\
+       _Example_: If mychar='foo bar', **{mychar} &rarr; foo bar**.
 
-   b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
+   b. **strn** is a character variable followed by a qualifier (...),
        which must be one of the following:
 
-      * **(integer1,integer2)** returns a substring of &nbsp;**strn**.
-       {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.\\
-       _Example_: If myvar="foo bar", **{myvar(2,3)}** &rarr; **oo**.
+      * **(integer1,integer2)** (substring of &nbsp;**strn**).
+       **{mychar(n1,n2)}** is replaced by the (**n1:n2**) substring of **{mychar}**.\\
+       _Example_: If mychar="foo bar", **{mychar(2,3)}** &rarr; **oo**.
 
-      * **(charlst,n)** returns a number indicating the location where **charlst** occurs.\\
-       **charlst** is a sequence of characters; the contents of **myvar** is parsed for any character in **charlst**.\\
-       _Example_:  let myvar="foo bar" and charlst='abc'.
+      * **(charlst,n)** (index to charlst). **{mychar(charlst,n)}** returns in index an position in **{mychar}**
+       **charlst** is a sequence of characters; **{mychar}** is parsed for characters in **charlst**, returning the index to the **n**1<sup>th</sup> occurrence.
+       _Example_:  let mychar="foo bar" and charlst='abc'.
        Note that "foo bar" contains characters 'b' and 'a'.\\
-       **{myvar('abc',2)} &rarr; **6** , the index in "foo bar" with the second occurrence of a character in [abc].\\
-       Note: **n** is optional: if omitted, the preprocessor uses **n=1**.
+       **{mychar('abc',2)} &rarr; 6**, because the 6<sup>th</sup> character contains the second occurence of [abc].
+       **n** is optional: if omitted, the preprocessor uses **n=1**.
 
-      * (:e) returns an integer marking last nonblank character.\\
-         _Example_: If myvar='foo bar', {myvar(:e)} &rarr; 7.
+      * **(:e)** returns an index marking last nonblank character in **{mychar}**.\\
+         _Example_: If mychar='foo bar', **{mychar(:e)} &rarr; 7**.
 
-      * (/'**strn1**'/'**strn2**'/,**n**1,**n**2) substitutes **strn2** for **strn1**.\\
-       Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.
+      * **(/'strn1'/'strn2'/,n1,n2)** substitutes **strn2** for **strn1**.\\
+       Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.\\
+       _Example_ If **mychar="foo bar"**, then **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
-       _Example_ If **myvar="foo boor"**, then {myvar(/'oo'/a/,2,2)} &rarr; "foo bar"
 
-2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  (the '~' can be any character).\\
+2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  &nbsp; (the '~' can be any character).\\
        **expr** is an algebraic expression; **strn1** and **strn2** are strings.
-       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**\\
+       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**.\\
        If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
-       _Example_ {?~(n<2)~n is less than 2~n is at least 2}.  **{...}** is replaced by:\\
-         &nbsp;&nbsp;**n is less than 2**&nbsp;&nbsp; if **n<2** otherwise by 
+       _Example_ **{?~(n<2)~n is less than 2~n is at least 2}** :\\
+           **{...}** becomes &nbsp;&nbsp;"**n is less than 2**"&nbsp;&nbsp; if _n_<2;  otherwise it becomes
          **&nbsp;&nbsp;"n is at least 2"&nbsp;&nbsp;**
 
 3. **strn** is name of a vector variable, say **myvec**..
-       _rdfiln_{: style="color: green"} replaces  {myvec}  with a sequence of numbers separated
-       by one space, which are the contents of **myvec**..
-       **Example** : suppose a **myvec**. <A href="#vectordef">has been declared</A> as a 5-element quantity:
-         % vec myvec[5] 6-1 6-2 5-2 5-3 4-3
-       Then
-         {myvec}
-       is turned into
-         5 4 3 2 1
-       You can also substitute a single element.  Thus
-         {myvec(2)}
-       becomes
+       _rdfiln_{: style="color: green"} replaces  **{myvec}** with a sequence of numbers separated
+       by one space, which are the contents of **myvec**.\\
+       _Example_ : suppose **myvec**. has been declared as a 5-element quantity:\\
+         % vec myvec[5] 6-1 6-2 5-2 5-3 4-3\\
+       Then\\
+         {myvec}\\
+       is turned into\\
+         5 4 3 2 1\\
+       You can also substitute a single element.  Thus\\
+         {myvec(2)}\\
+       becomes\\
          4
 
-   a. **strn** is an algebraic expression composed of, numbers, <A href="#variabledecl">scalar variables</A>,
-       elements of <A href="#vectordef">vector variables</A>, and <A href="#macrodef">macros</A>, combined with unary and binary operators.
-       The <A href="#exprsyntax">syntax is very similar to C</A>.
-       rdfiln parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
-       substitutes the result in place of &nbsp;**strn**.
+4. **strn** is an algebraic expression composed of numbers, scalar variables,
+       vector variables, and macros, combined with unary and binary operators.
 
-   b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of assignments of variables to expressions.
-       The assignment may be a simple one (`<FONT size="+1"><tt>=</tt></FONT>') or <A href="#assignmentops">involve an arithmetic operation</A>.
-       Members of the sequence separated by commas.  For each member a variable is assigned to an expression.
-       rdfiln returns the value of the last expression.
-         **Examples**:
+   a.  The syntax is very similar to the C programming language.
+       _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
+       substitutes the result.
+
+   b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of expresions with assignments.
+       Members of the sequence separated by commas.  For expression a variable is assigned.
+       Assignment may simple one (**=**) or involve an arithmetic operation
+       _rdfiln_{: style="color: green"} returns the value of the last expression.
+       _Examples_
+<pre>
          {x=3}               &larr;  assigns x to 3 and returns '3'
          {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
          {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
-
-       The last expression need not have an <A href="#assignmentops">assignment operator</A>.  Thus
-
          {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
+</pre>
+       The last expression need not have an assignment operator, as the last example shows
 
 #### Further properties of curly brackets
 
@@ -202,16 +202,12 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 #### Syntax of Algebraic Expressions
 
 The general syntax for an expression is a sequence of one or more expressions of the form
-<pre>
-   {<i>var</i> <i>assignment-op</i> <i>expr</i> [, ... ]}.
-</pre>
 
-{::comment}
+~~~
+   {<b>var</b> <i>assignment-op</i> <b>expr</b> [, ... ]}.
+~~~
 
-
-
-
-Commas separate expressions in the sequence.
+Commas separate declarations.
 The final may (and typically does) consist of <i>expr</i> only,
 omitting the <FONT size="+1"><tt><i>var <A href="#assignmentops">assignment-op</A></i></tt></FONT> part.
 
