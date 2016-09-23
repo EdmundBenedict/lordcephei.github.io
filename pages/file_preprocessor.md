@@ -97,10 +97,10 @@ parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something el
 
 **strn** must have one of the following syntax:
 
-1. begin with the name of a character variable
-2. begin with a **?**
-3. be a the name of a declared vector or
-4. be an algebraic expression.  Expressions use C-like syntax.
+1. it begins with the name of a character variable
+2. it begins with a "**?**"
+3. is the name of a declared vector or
+4. is an algebraic expression.  Expressions use C-like syntax.
 
 When it encounters &nbsp;**{strn}**&nbsp; _rdfiln_{: style="color: green"} makes one of the following transformations,
 listed in order of precedence:
@@ -122,46 +122,47 @@ The syntax for string, vector, and algebraic substitutions is explained by rules
 _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
 
 
-1. a. **strn** is the name of a character variable, say **myvar**.
-       _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**..\\
-       This rule takes precedence if a character variable **myvar** exists.\\
+1. **strn** consists of (or begins with) a character variable, say **myvar**.
+
+   a. **strn** is a character variable.
+       _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**.\\
+       This rule takes precedence if a character variable **myvar** exists.
 
    b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
        which must be one of the following:
 
-      *(integer1,integer2) returns a substring of &nbsp;**strn**.
-       {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.
-         <i>Example</i>: If myvar="foo bar", "{myvar(2,3)}" &rarr; "oo".
+      * **(integer1,integer2)** returns a substring of &nbsp;**strn**.
+       {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.\\
+       _Example_: If myvar="foo bar", **{myvar(2,3)}** &rarr; **oo**.
 
-      *('<i>chrlst</i>',<i>n</i>) marks a position in contents of **myvar**.
-       '<i>chrlst</i>' is a sequence of characters, equivalent to regular expression [<i>chrlst</i>].
-       {myvar('<i>chrlst</i>',<i>n</i>)} causes rdfiln to search the contents of myvar for any character in '<i>chrlst</i>'.
-       For definiteness let myvar="foo bar" and chrlst='abc'.
-       Note that "foo bar" contains characters 'b' and 'a' and
-       {myvar('abc',<b>n</b>)} will return the index position in "foo bar" that contains
-       the <i>n</i><sup>th</sup> occurrence of 'a' or 'b'.
-         <i>Example</i>: If myvar="foo bar", {myvar('abc',2)} &rarr; 6.
-       because myvar(6:6) is the second occurrence of a character in 'abc'.
-       <i>n</i> is optional: if omitted, the preprocessor uses <i>n</i>=1.
+      * **(chrlst,n)** returns a number indicating the location where **chrlst** is found.
+       **chrlst** is a sequence of characters, equivalent to regular expression [**chrlst**]:
+       the contents of **myvar** is parsed for any character in **chrlst**.\\
+       _Example_:  let myvar="foo bar" and chrlst='abc'.
+       Note that "foo bar" contains characters 'b' and 'a' so
+       **{myvar('abc',2)} &rarr; **6** , which is the index in "foo bar" that contains 
+       the second occurrence of a character in [abc].\\
+       Note: **n** is optional: if omitted, the preprocessor uses **n=1**.
 
-      *(:e) returns an integer marking last nonblank character.
-         <i>Example</i>: If myvar='foo bar', {myvar(:e)} &rarr; 7.
+      *(:e) returns an integer marking last nonblank character.\\
+         _Example_: If myvar='foo bar', {myvar(:e)} &rarr; 7.
 
-      *(/'<i>strn1</i>'/'<i>strn2</i>'/,<i>n</i>1,<i>n</i>2) substitutes <i>strn2</i> for <i>strn1</i>.
-         <i>Example</i>: If myvar="foo boor", {myvar(/'oo'/a/,2,2)} &rarr; "foo bar"
-       Substitutions are made for the <i>n</i>1<sup>th</sup> to <i>n</i>2<sup>th</sup> occurrence of <i>strn1</i>.
-       <i>n</i>1 and <i>n</i>2 are optional, as are the quotation marks.
+      *(/'**strn1**'/'**strn2**'/,**n**1,**n**2) substitutes **strn2** for **strn1**.\\
+       _Example_ If **myvar="foo boor"**, then {myvar(/'oo'/a/,2,2)} &rarr; "foo bar"
+       Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.
+       **n**1 and **n**2 are optional, as are the quotation marks.
 
-   1c. The following format returns either <i>strn1</i> or <i>strn2</i>, depending on the result of <i>expr</i>:
-         {?~<i>expr</i>~<i>strn1</i>~<i>strn2</i>}    &larr;  the '~' can be any character.
-       <i>expr</i> is an algebraic expression; <i>strn1</i> and <i>strn2</i> are strings.
-       If <i>expr</i> evaluates to nonzero, {...} is replaced by <i>strn1</i>.
-       If <i>expr</i> evaluates to zero, {...} is replaced by <i>strn2</i>.
+2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  (the '~' can be any character).
+       **expr** is an algebraic expression; **strn1** and **strn2** are strings.
+       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**:
+         {?~**expr**~**strn1**~**strn2**}    &larr;  
+       + If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.
+       + If **expr** evaluates to zero, **{...}** is replaced by **strn2**.
 
-    2. **strn** is name of a vector variable, say **myvec**..
+3. **strn** is name of a vector variable, say **myvec**..
        _rdfiln_{: style="color: green"} replaces  {myvec}  with a sequence of numbers separated
        by one space, which are the contents of **myvec**..
-       <i>Example</i> : suppose a **myvec**. <A href="#vectordef">has been declared</A> as a 5-element quantity:
+       **Example** : suppose a **myvec**. <A href="#vectordef">has been declared</A> as a 5-element quantity:
          % vec myvec[5] 6-1 6-2 5-2 5-3 4-3
        Then
          {myvec}
@@ -182,7 +183,7 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
        The assignment may be a simple one (`<FONT size="+1"><tt>=</tt></FONT>') or <A href="#assignmentops">involve an arithmetic operation</A>.
        Members of the sequence separated by commas.  For each member a variable is assigned to an expression.
        rdfiln returns the value of the last expression.
-         <i>Examples</i>:
+         **Examples**:
          {x=3}               &larr;  assigns x to 3 and returns '3'
          {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
          {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
