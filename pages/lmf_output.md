@@ -46,35 +46,49 @@ Adapting the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tuto
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8 --showp
 ~~~
 
-the result is
+the result below compares side by side the original **ctrl.pbte**{: style="color: green"},
+and its transformation after the preprocessor (the original **ctrl.pbte**{: style="color: green"} was edited slightly)
 
 ~~~
-VERS  LM:7 FP:7
-IO    SHOW=f HELP=f IACTIV=f VERBOS=35,35  OUTPUT=*
-EXPRESS
-  file=   site
+% const nit=10
+% const met=5
+% const so=0 nsp=so?2:1
+% const lxcf=2 lxcf1=0 lxcf2=0
+% const pwmode=0 pwemax=3
+% const nkabc=0 gmax=0
 
-  gmax=   7.8
-  autobas[pnu=1 loc=1 lmto=5 mto=4 gw=0]
-
-  nit=    10
-  mix=    B2,b=.3,k=7
-  conv=   1e-5
-  convc=  3e-5
-
-  nkabc=  6
-  metal=  5
-
-  nspin=  1
-  so=     0
-  xcfun=  2,0,0
-
-HAM
-      PWMODE=0 PWEMIN=0 PWEMAX=3
-      FORCES=1 ELIND=-0.7
-SPEC
-  ATOM=Pb         Z= 82  R= 3.044814  LMX=3  LMXA=4
-  ATOM=Te         Z= 52  R= 3.028689  LMX=3  LMXA=3
+VERS  LM:7 FP:7 # ASA:7                          |  VERS  LM:7 FP:7
+IO    SHOW=f HELP=f IACTIV=f VERBOS=35,35        |  IO    SHOW=f HELP=f IACTIV=f VERBOS=35,35
+EXPRESS                                          |  EXPRESS
+# Lattice vectors and site positions             |
+  file=   site                                   |    file=   site  
+                                                 |  
+# Basis set                                      |
+  gmax=   {gmax}                                 |    gmax=   0
+  autobas[pnu=1 loc=1 lmto=5 mto=4 gw=0]         |    autobas[pnu=1 loc=1 lmto=5 mto=4 gw=0]
+                                                 |
+# Self-consistency                               |
+  nit=    {nit}                                  |    nit=    10
+  mix=    B2,b=.3,k=7                            |    mix=    B2,b=.3,k=7
+  conv=   1e-5                                   |    conv=   1e-5
+  convc=  3e-5                                   |    convc=  3e-5
+                                                 |
+# Brillouin zone                                 |
+  nkabc=  {nkabc}                                |    nkabc=  0
+  metal=  {met}                                  |    metal=  5
+                                                 |
+# Potential                                      |
+  nspin=  {nsp}                                  |    nspin=  1
+  so=     {so}                                   |    so=     0
+  xcfun=  {lxcf},{lxcf1},{lxcf2}                 |    xcfun=  2,0,0
+                                                 |
+#SYMGRP i*r3(1,1,-1) r4x                         |
+HAM                                              |  HAM
+    PWMODE={pwmode} PWEMIN=0 PWEMAX={pwemax}     |      PWMODE=0 PWEMIN=0 PWEMAX=3
+    FORCES={so==0} ELIND=-0.7                    |      FORCES=1 ELIND=-0.7
+SPEC                                             |  SPEC
+  ATOM=Pb  Z= 82  R= 3.044814  LMX=3  LMXA=4     |    ATOM=Pb  Z= 82  R= 3.044814  LMX=3  LMXA=4
+  ATOM=Te  Z= 52  R= 3.028689  LMX=3  LMXA=3     |    ATOM=Te  Z= 52  R= 3.028689  LMX=3  LMXA=3
 ~~~
 
 Compare to the original _ctrl.pbte_{: style="color: green"}.
@@ -87,7 +101,7 @@ Compare to the original _ctrl.pbte_{: style="color: green"}.
 {:/comment}
 
 To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.  [This web
-page](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch) interprets
+page](/docs/input/inputfile/#help-with-finding-tokens) interprets
 what `--input` gives you.
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">

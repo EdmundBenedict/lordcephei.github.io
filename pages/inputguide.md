@@ -142,22 +142,21 @@ Files other than _ctrl.ext_{: style="color: green"} are first parsed by the prep
 
 _____________________________________________________________
 
-### 2. _Help with finding tokens: the --input switch_
+### 2. _Help with finding tokens_
 {::comment}
-/docs/input/inputfile/#help-with-finding-tokens:-the---input-switch
+/docs/input/inputfile/#help-with-finding-tokens
 {:/comment}
 
-It is often the case that you want to input some information but don't
+Seeing that tags the parser seeks
+: It is often the case that you want to input some information but don't
 know the tag name you need.
-
-You can get list each tag a particular tool looks for and a synopsis
+: You can get list each tag a particular tool looks for and a synopsis
 of its function by adding `--input` to the command-line.  You can
 usually find what you need by searching for keywords in the text.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here to see --input does.</button>
+<button type="button" class="button tiny radius">Click here to see how --input works.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/} 
-
 
 ~~~
   lmchk --input
