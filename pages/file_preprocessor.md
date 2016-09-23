@@ -105,31 +105,32 @@ parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something el
 When it encounters &nbsp;**{strn}**&nbsp; _rdfiln_{: style="color: green"} makes one of the following transformations,
 listed in order of precedence:
 
-1. _string substitution_: If the contets of **{strn}**&nbsp; is a
-     **character variable**, contents of the variable are substituted.\\
-  The variable _may8 be followed by a qualification (see 1a and 1b below).
-2. _conditional string substitution_: If the first character of &nbsp;**{strn}**&nbsp; is &nbsp;**?**&nbsp;
-     it treats the contents as a C-like conditional expression.  See 1c below.
-3. _vector variable substitution_ If the contets of **{strn}**&nbsp; is a
-     **vector variable**, &nbsp;**{strn}**&nbsp; is replaced by a
+1. _string substitution_: If  &nbsp;**strn**&nbsp; is a
+     **character variable**, the value of the variable is substituted.\\
+    The variable _may_ be followed by a qualification (see 1a and 1b below).
+2. _conditional string substitution_: If the first character of &nbsp;**strn**&nbsp; is &nbsp;"**?**"&nbsp;
+     it treats &nbsp;**strn**&nbsp; as a C-like conditional expression.  See 1c below.
+3. _vector variable substitution_ If &nbsp;**strn**&nbsp; is a
+     **vector variable**, &nbsp;**strn**&nbsp; is replaced by a
      character representation of the vector. See 2 below.
-4. _algebraic expression substitution_ **{strn}** is parsed as an algebraic expression, or a sequence
+4. _algebraic expression substitution_ &nbsp;**strn**&nbsp; is parsed as an algebraic expression, or a sequence
       of expressions, and is replaced by a character representation of
       the numerical value of the (last) expression. See 3a and 3b below.
 
 
 The syntax for string, vector, and algebraic substitutions is explained in sections 1, 2, 3 below, listing them in order of precedence.
-_rdfiln_{: style="color: green"} parses **{strn}** as follows:
+_rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
+
 
 ~~~
    1a. **strn** is the name of a character variable, say **myvar**.
        _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**..\\
        This rule takes precedence if a character variable **myvar** exists
 
-   1b. Similar to (1a), but **strn** is followed by a qualifier (...),
+   1b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
        which must be one of the following:
 
-      *(integer1,integer2) returns a substring of **strn**.
+      *(integer1,integer2) returns a substring of &nbsp;**strn**.
        {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.
          <i>Example</i>: If myvar="foo bar", "{myvar(2,3)}" &rarr; "oo".
 
@@ -190,7 +191,7 @@ _rdfiln_{: style="color: green"} parses **{strn}** as follows:
        The last expression need not have an <A href="#assignmentops">assignment operator</A>.  Thus
 
          {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-</pre>
+~~~
 
 <h3><A name="nesting"></A>Further properties of curly brackets {...} </h3>
 
