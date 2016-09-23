@@ -94,11 +94,11 @@ Such lines interpreted as a directive to do something. They will not appear in t
 
 The following keywords are directives supported by _rdfiln_{: style="color: green"}:
 <pre>
-   const cconst cvar udef var vec                     &larr; allocate and assign numerical variables
-   char char0 cchar getenv vfind                      &larr; allocate and assign character variables
-   if ifdef ifndef iffile else elseif elseifd endif   &larr; branching construct
-   while repeat end  echo exit                        &larr; looping constructs
-   include includo macro save show stop trace udef    &larr; miscellaneous
+   const cconst cvar udef var vec                        &larr; allocate and assign numerical variables
+   char char0 cchar getenv vfind                         &larr; allocate and assign character variables
+   if ifdef ifndef iffile else elseif elseifd endif      &larr; branching construct
+   while repeat end   exit                               &larr; looping and terminating constructs
+   echo include includo macro save show stop trace udef  &larr; miscellaneous
 </pre>
 	
 ### 3. _Expression Substitution_
@@ -110,7 +110,8 @@ By enclosing a string in curly brackets, _viz_ **{strn}**, you instruct the prep
 parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something else.
 **strn** must take one of the following syntactical forms.
 If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
-These four forms are arranged by the precedence they take:
+(If it can't match any it aborts).
+These four forms are arranged in the order of precedence
 
 1. (_string substitution_)&nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
