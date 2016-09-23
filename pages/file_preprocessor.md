@@ -411,7 +411,7 @@ _Example:_  the input segment
    A=2 B=9 C=4 D=-1
    A=2 B=9 C=4 D=-1
 </pre>
-**a* is unchanged from its initial assignment while **d** changes.
+**a** is unchanged from its initial assignment while **d** changes.
 
 Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
 instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
