@@ -158,7 +158,7 @@ In more detail, the rules are as follows:
        substitutes the result.
 
    b. is an extension of a.  **strn**&nbsp; may consist of a sequence of expressions, separated by commas.  For each expression a variable is assigned.
-       Assignment may simple one (**=**) or involve an arithmetic operation as the examples show.
+       Assignment may simple one (**=**) or involve an arithmetic operation, and the last expression need not have an assignment operator, as the examples show.
        _rdfiln_{: style="color: green"} returns the value of the last expression.
        _Examples:_
 <pre>
@@ -166,8 +166,7 @@ In more detail, the rules are as follows:
      {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
      {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
      {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-</pre>\\
-     The last expression need not have an assignment operator, as the last example shows
+</pre>
 
 #### Further properties of curly brackets
 
@@ -196,17 +195,14 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>
-   {<b>name=expr[,expr...]</b>}
+   {<b>name=expr[,name=expr...]</b>}
 </pre>
-Commas separate declarations.  Operators can be use in lace of assignment (**=**), for example
+Commas separate declarations.  Arithmetic operators can be use in place of assignment (**=**), for example
 &nbsp;**{x=3,y=4,x*=y,x*2}**.
 
 The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
 
-<P> <FONT size="+1"><tt><i>expr**</tt></FONT>&nbsp; is a algebraic expression, with a syntax very similar to C.  
-
-
-It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
+**expr** has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
        <i>Unary</i> operators take first precedence:
        1.   - arithmetic negative
