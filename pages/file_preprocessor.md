@@ -355,9 +355,9 @@ Recognized keywords are
 </pre>
 does two things:
 
-1. adds **myvar** to the scalar variables symbols table if it is not there already.
+a. adds **myvar** to the scalar variables symbols table if it is not there already.
       **const** and **var** are equivalent in this respect.
-2. assigns the result of <i>expr</i> to it, if <i>either</i>
+b. assigns the result of <i>expr</i> to it, if <i>either</i>
       * you use the **var** directive  <i>or</i>
       * you use the **const** directive <i>and</i> the variable had not yet been created.
 
@@ -379,9 +379,9 @@ _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, add
 <pre>
    myvar*=expr  myvar/=expr  myvar+=expr  myvar-=expr  myvar^=expr
 </pre>
-These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;`**const**'&nbsp; and &nbsp;`**var**'&nbsp; directives.
+These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-2. **cconst**&nbsp; and &nbsp;cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
+2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
  % cconst <i>test-expr</i> myvar=<i>expr</i>
 </pre>
@@ -389,11 +389,11 @@ These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;`**const**'&nbsp; an
 that evaluates to zero or nonzero. <br>
 If **<i>test-expr</i>** evaluates to nonzero, the remainder
 of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
-If **<i>test-expr</i>** evaluates to zero, no further action is taken.
+Otherwise, no further action is taken.
 
-<br>&nbsp;&nbsp;&nbsp;<i>Example</i>:  the input segment
+_Example:_  the input segment
 <pre>
-   % const a = 2 b=3 c=4 d=5
+   % const a=2 b=3 c=4 d=5
    A={a} B={b} C={c} D={d}
    % const a=3
    % var d=-1
@@ -411,9 +411,9 @@ If **<i>test-expr</i>** evaluates to zero, no further action is taken.
    A=2 B=9 C=4 D=-1
    A=2 B=9 C=4 D=-1
 </pre>
-<i>a</i> is unchanged from its initial assignment while <i>d</i> changes.
+**a* is unchanged from its initial assignment while **d** changes.
 
-<P> Compare the two &nbsp;**cconst**&nbsp; directives. <i>b</i> and <i>c</i> are altered in the first
+Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
 instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
 the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
