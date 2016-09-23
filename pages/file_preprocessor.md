@@ -89,12 +89,13 @@ You can conditionally read certain lines of a file, or loop over lines multiple 
 The preprocessor treats the following specially.
 
 + Lines which begin with **#** are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
-+ Lines beginning with **% directive** are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.\\
-  Such lines interpreted as a directive to do something. They will not appear in the preprocessor's output.
++ Lines beginning with **% directive** are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.
+Such lines interpreted as a directive to do something. They will not appear in the preprocessor's output.
 
 The following keywords are directives supported by _rdfiln_{: style="color: green"}:
 <pre>
-   const cconst cvar udef var vec char char0 cchar getenv vfind   &larr; allocate variables and assigns values
+   const cconst cvar udef var vec 
+         char char0 cchar getenv vfind   &larr; allocate variables and assigns values
    if ifdef ifndef iffile else elseif elseifd endif               &larr; branching constructs for conditional reading of lines
    while repeat end                                               &larr; looping constructs for repeated looping of lines
    echo exit include includo macro save show stop trace udef      &larr; miscellaneous other constructs
