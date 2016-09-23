@@ -123,6 +123,9 @@ Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) a
 Some tags are required; others are optional; still others (in fact most) may not be used at all by a particular program. If a code needs site data, **SITE_ATOM_POS** is required, but **SITE_ATOM_RELAX** is probably optional, or not read at all.  
 
 ##### _Preprocessor_
+{::comment}
+/docs/input/inputfile/#preprocessor
+{:/comment}
 
 Input lines are passed through a preprocessor, which provides a wide flexibility in how input files are structured. The preprocessor has many features in common with a programming language, including the ability to declare variables, evaluate algebraic expressions; and it has constructs for branching and looping, to make possible multiple or conditional reading of input lines.  
 
