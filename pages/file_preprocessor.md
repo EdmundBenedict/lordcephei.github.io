@@ -204,9 +204,10 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 
 #### Syntax of Algebraic Expressions
 
+
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>
-   {% **var** <i>assignment-op</i> **expr** [, ... ]}.
+   {<i>var</i> <i>assignment-op</i> <i>expr</i> [, ... ]}.
 </pre>
 Commas separate expressions in the sequence.
 The final may (and typically does) consist of <i>expr</i> only,
