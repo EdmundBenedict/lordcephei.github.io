@@ -493,19 +493,10 @@ If no match is found, **svar**&nbsp; is set to zero.
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **if ifdef ifndef iffile else elseif elseifd endif**
 
-<P> These branching constructs have a function similar to the C constructs
-<br> &nbsp;&nbsp; **if {text ;} else if {text ;} else {text ;}**&nbsp;
-<br> or Fortran constructs
-<br> &nbsp;&nbsp; **if (<i>expr</i>) then;  ... elseif (<i>expr</i>) then; ... else; ... endif**&nbsp;
+Branching constructs have a function similar to the C constructs.
 
-<OL>
-<LI> **if <i>expr</i>**&nbsp;,&nbsp;
-**elseif <i>expr</i>**&nbsp;,&nbsp;
-**else**&nbsp;&nbsp; and &nbsp;
-**endif**&nbsp;&nbsp; are conditional read blocks.  Lines between these directives are read or not,
-depending on the value of &nbsp;**<i>expr</i>**&nbsp;.
-
-<br>&nbsp;&nbsp;<i>Example</i>:
+1. **if <i>expr</i>**,&nbsp;**elseif <i>expr</i>**,&nbsp;**else**&nbsp; and &nbsp;**endif**&nbsp; are conditional read blocks.
+Lines between these directives are read or not, depending on the value of &nbsp;**<i>expr</i>**.  <i>Example</i>:
 <pre>
  % if Quartz
   is clear
@@ -515,16 +506,14 @@ depending on the value of &nbsp;**<i>expr</i>**&nbsp;.
   neither is right
  % endif
 </pre>
-generate the line
-<br> &nbsp;**is clear**&nbsp;
-<br> if **Quartz**&nbsp; evaluates to nonzero; otherwise
-<br> &nbsp;**is bright**&nbsp;
-<br> if **Ag**&nbsp; evaluates to zero; otherwise
-<br> &nbsp;**neither is right**&nbsp;
+generates this line\\
+  **is clear**\\
+if &nbsp;**Quartz**&nbsp; evaluates to nonzero; otherwise\\
+  &nbsp;**is bright**&nbsp;\\
+if &nbsp;**Ag**&nbsp; evaluates to zero; otherwise\\
+  &nbsp;**neither is right**&nbsp;
 
-<LI>
-
-**ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
+2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
 constitutes an expression.
 
 <UL>
@@ -564,24 +553,24 @@ over &nbsp;**|**&nbsp;.
 
 </UL>
 
-<LI> **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**&nbsp;.
+3. **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**&nbsp;.
 
-<LI> **ifndef <i>expr</i>**&nbsp; ... is the mirror image of &nbsp;**ifdef <i>expr</i>**&nbsp;.
+4. **ifndef <i>expr</i>**&nbsp; ... is the mirror image of &nbsp;**ifdef <i>expr</i>**&nbsp;.
 Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
 
-<LI> **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
+5. **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
 <br> The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.
 
-</OL>
-
-<FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-**if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
+_Note:_{: style="color: red"} **if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
 and &nbsp;**ifndef**&nbsp;&nbsp;  constructs may be nested to a depth of **mxlev**&nbsp;.
-The codes are distributed with **mxlev=6**&nbsp; (see subroutine <b>rdfile</b>).
+The codes are distributed with **mxlev=6*.
 
+#### Looping constructs
+{::comment}
+looping-constructs
+{:/comment}
 
-#### Looping constructs</h3>
-&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**&nbsp;
+&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**
 
 <OL>
 <LI>**while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
