@@ -217,18 +217,13 @@ all the tags in the **SITE** category will be ignored).
 {::nomarkdown}</div>{:/}
 
 Displaying tags read by the parser
-: To see what is actually read by a particular tool, run your tool with `--show=2` or `--show`, e.g.
-
-~~~
-$ lmchk --show=2
-~~~
-The parser will print values each tags as it read (or if not read what default was substituted).
+: To see what is actually read by a particular tool, run your tool with `--show=2` or `--show`.\\
 See the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file)
 for an example.
 
 _____________________________________________________________
 
-### 4. _The EXPRESS category_
+### 3. _The EXPRESS category_
 
 Section 4 provides some description of the input and purpose of tags in each category.
 
@@ -249,7 +244,7 @@ Thus in using **EXPRESS_file** all structural data is supplied through the site 
 
 _____________________________________________________________
 
-### 5. _Input File Categories_
+### 4. _Input File Categories_
 
 This section details the various categories and tokens used in the input file.
 

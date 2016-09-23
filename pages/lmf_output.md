@@ -99,27 +99,24 @@ SPEC                                             |  SPEC
 /docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file
 {:/comment}
 
-To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.\\
+To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.
 [This web page](/docs/input/inputfile/#help-with-finding-tokens) explains
 what `--input` gives you.
 
-To see what tags **lmf**{: style="color: blue"} actually reads, use
-`lmf --show=2` or `lmf --show`.
+After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.
+To see what tags **lmf**{: style="color: blue"} actually reads, use `lmf --show=2` or `lmf --show`.  `--show=2` causes
+**lmf**{: style="color: blue"} to stop after displaying tags.  It is useful if you want to see if **lmf**{:
+style="color: blue"} is doing what you expect.  Use `--show` to proceed with the calculation after display.  It is
+useful if you want to record the input conditions in the output.
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 {::comment}
-Click here to see how to display and interpret what is read from the ctrl file.
+Click here for interpretation of --show.
 {:/comment}
 
-After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.  By default this
-reading is silent.  You can see what **lmf**{: style="color: blue"} reads (or assigns as defaults) by in inserting a command-line argument
-`lmf --show=2 ...` or `lmf --show ...` . In the former case **lmf**{: style="color: blue"} prints values for all the tags it parses or
-substitutes and stops.  In the latter **lmf**{: style="color: blue"} proceeds with the calculation as normal
-and is useful if you want to save detailed documentation of the input conditions.
-
-Example:
+From the PbTe tutorial:
 
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8 --show=2
