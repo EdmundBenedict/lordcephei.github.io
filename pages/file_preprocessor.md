@@ -118,23 +118,22 @@ listed in order of precedence:
       the numerical value of the (last) expression. See 3a and 3b below.
 
 
-The syntax for string, vector, and algebraic substitutions is explained in sections 1, 2, 3 below, listing them in order of precedence.
+The syntax for string, vector, and algebraic substitutions is explained by rules 1, 2, 3 below, listing them in order of precedence.
 _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
 
 
-~~~
-   1a. **strn** is the name of a character variable, say **myvar**.
+1. a. **strn** is the name of a character variable, say **myvar**.
        _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**..\\
-       This rule takes precedence if a character variable **myvar** exists
+       This rule takes precedence if a character variable **myvar** exists.\\
 
-   1b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
+   b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
        which must be one of the following:
 
       *(integer1,integer2) returns a substring of &nbsp;**strn**.
        {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.
          <i>Example</i>: If myvar="foo bar", "{myvar(2,3)}" &rarr; "oo".
 
-      *('<i>chrlst</i>',<i>n</i>) marks a position in contents of `myvar.'
+      *('<i>chrlst</i>',<i>n</i>) marks a position in contents of **myvar**.
        '<i>chrlst</i>' is a sequence of characters, equivalent to regular expression [<i>chrlst</i>].
        {myvar('<i>chrlst</i>',<i>n</i>)} causes rdfiln to search the contents of myvar for any character in '<i>chrlst</i>'.
        For definiteness let myvar="foo bar" and chrlst='abc'.
@@ -159,10 +158,10 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
        If <i>expr</i> evaluates to nonzero, {...} is replaced by <i>strn1</i>.
        If <i>expr</i> evaluates to zero, {...} is replaced by <i>strn2</i>.
 
-    2. **strn** is name of a vector variable, say `myvec'.
+    2. **strn** is name of a vector variable, say **myvec**..
        _rdfiln_{: style="color: green"} replaces  {myvec}  with a sequence of numbers separated
-       by one space, which are the contents of `myvec'.
-       <i>Example</i> : suppose a `myvec' <A href="#vectordef">has been declared</A> as a 5-element quantity:
+       by one space, which are the contents of **myvec**..
+       <i>Example</i> : suppose a **myvec**. <A href="#vectordef">has been declared</A> as a 5-element quantity:
          % vec myvec[5] 6-1 6-2 5-2 5-3 4-3
        Then
          {myvec}
@@ -191,7 +190,6 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
        The last expression need not have an <A href="#assignmentops">assignment operator</A>.  Thus
 
          {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-~~~
 
 <h3><A name="nesting"></A>Further properties of curly brackets {...} </h3>
 
