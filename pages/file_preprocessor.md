@@ -161,14 +161,13 @@ In more detail, the rules are as follows:
        Assignment may simple one (**=**) or involve an arithmetic operation as the examples show.
        _rdfiln_{: style="color: green"} returns the value of the last expression.
        _Examples:_
-
-~~~
+<pre>
      {x=3}               &larr;  assigns x to 3 and returns '3'
      {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
      {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
      {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-~~~
-       The last expression need not have an assignment operator, as the last example shows
+</pre>\\
+     The last expression need not have an assignment operator, as the last example shows
 
 #### Further properties of curly brackets
 
