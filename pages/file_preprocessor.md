@@ -349,7 +349,7 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-1. **const**&nbsp; and &nbsp;var**&nbsp; load or alter the variables table.  <i>Example</i>:
+1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
 <pre>
  % const  myvar=<i>expr</i>
 </pre>
@@ -361,38 +361,35 @@ does two things:
       * you use the **var** directive  <i>or</i>
       * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-In other words, if &nbsp;<FONT size="+1"><tt>myvar</tt></FONT>&nbsp;
-already exists prior to the directive,
-&nbsp;<FONT size="+1"><tt>const</tt></FONT>&nbsp; will not alter its value but
-&nbsp;<FONT size="+1"><tt>var</tt></FONT>&nbsp; will.  Thus the lines
+In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
+&nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
 <pre>
    % const a=2
    % const a=3</pre>
-incorporate <i>a</i> into the symbols table with value 2, while
+incorporate **a** into the symbols table with value 2, while
 <pre>
    % const a=2
    % var a=3
 </pre>
-does the same but assigns 3 to <i>a</i>.
+does the same but assigns 3 to **a**.
 
-<P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-<FONT size="+1"><tt><i>expr</i></tt></FONT> may be multiplied into, divided into, added into,
+_Note:_{: style="color: red"} **expr** may be multiplied into, divided into, added into,
  subtracted from or exponentiated into an already-declared variable
  using one of the following C-like syntax:
 <pre>
    myvar*=expr  myvar/=expr  myvar+=expr  myvar-=expr  myvar^=expr
 </pre>
-These operators modify &nbsp;<FONT size="+1"><tt>myvar</tt></FONT>&nbsp; for both &nbsp;`<FONT size="+1"><tt>const</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>var</tt></FONT>'&nbsp; directives.
+These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;`**const**'&nbsp; and &nbsp;`**var**'&nbsp; directives.
 
 2. **cconst**&nbsp; and &nbsp;cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
  % cconst <i>test-expr</i> myvar=<i>expr</i>
 </pre>
-<FONT size="+1"><tt><i>test-expr</i></tt></FONT>&nbsp; is an algebraic expression (e.g., <FONT size="+1"><tt>i==3</tt></FONT>)
+**<i>test-expr</i>**&nbsp; is an algebraic expression (e.g., **i==3**)
 that evaluates to zero or nonzero. <br>
-If <FONT size="+1"><tt><i>test-expr</i></tt></FONT> evaluates to nonzero, the remainder
-of the directive proceeds as &nbsp;<FONT size="+1"><tt>const</tt></FONT>&nbsp; or &nbsp;<FONT size="+1"><tt>var</tt></FONT>&nbsp; do.<br>
-If <FONT size="+1"><tt><i>test-expr</i></tt></FONT> evaluates to zero, no further action is taken.
+If **<i>test-expr</i>** evaluates to nonzero, the remainder
+of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
+If **<i>test-expr</i>** evaluates to zero, no further action is taken.
 
 <br>&nbsp;&nbsp;&nbsp;<i>Example</i>:  the input segment
 <pre>
@@ -416,9 +413,9 @@ If <FONT size="+1"><tt><i>test-expr</i></tt></FONT> evaluates to zero, no furthe
 </pre>
 <i>a</i> is unchanged from its initial assignment while <i>d</i> changes.
 
-<P> Compare the two &nbsp;<FONT size="+1"><tt>cconst</tt></FONT>&nbsp; directives. <i>b</i> and <i>c</i> are altered in the first
-instance, since the condition &nbsp;<FONT size="+1"><tt>b==6</tt></FONT>&nbsp; evaluates to 1, while they do not change in
-the second instance, since now &nbsp;<FONT size="+1"><tt>b==6</tt></FONT>&nbsp; evaluates to zero.
+<P> Compare the two &nbsp;**cconst**&nbsp; directives. <i>b</i> and <i>c</i> are altered in the first
+instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
+the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
 3. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
@@ -431,7 +428,7 @@ loads the character table as follows:
     2 a                               whole
     3 blank
 </pre>
-The last declaration can omit an associated string, in which case its value is a blank, as &nbsp;<FONT size="+1"><tt>blank</tt></FONT>&nbsp; is in this case.
+The last declaration can omit an associated string, in which case its value is a blank, as &nbsp;**blank**&nbsp; is in this case.
 <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
 Re-declaration of any previously defined variable will change the contents of the variable.
 
