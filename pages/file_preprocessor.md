@@ -7,10 +7,10 @@ header: no
 
 ### _Purpose_
 
-This page documents the functioning of the preprocessor, to which many
-input files in this package (e.g. the main input file
-_ctrl.ext_{: style="color: green"} are passed through
-before data is read.
+This page documents the functioning of the preprocessor.
+Many files in the Questaal suite (e.g. the main input file
+_ctrl.ext_{: style="color: green"}) are read through the prepocessor
+before they are used.
 
 _____________________________________________________________
 
@@ -27,14 +27,18 @@ The preprocessor allows you to declare variables and evaluate expressions. It al
 programming language capability, with branching control to skip or loop over a selected block of
 lines.
 
-Source code, _rdfiln.f_{: style="color: green"} performs the preprocessor functions.
+the preprocesor is build into 
+the source code, _rdfiln.f_{: style="color: green"}.
 Comments at the beginning of _rdfiln.f_{: style="color: green"}
-document directives it can process.
+document directives it can process.  Here we use _rdfiln_{: style="color: green"}
+as a name for the preprocessor.
 
 #### String Substitution
 
-The preprocessor treats text inside brackets **{...}** specially and substitutes the contents for **something-else**.
-Typically **{...}*** will contain an algebraic expression, which is evaluated as a binary number and rendered back as an ASCII string.
+_rdfiln_{: style="color: green"} curly brackets **{...}** specially and substitutes 
+it for for **something-else**.
+Typically **{...}** will contain an algebraic expression, which is evaluated as a binary number and rendered back as an ASCII 
+representation of the number.
 
 Thus the line
 
@@ -50,89 +54,83 @@ becomes
 
 _Note:_{: style="color: red"}
 The substitution <FONT size="+1"><tt>{...}</tt></FONT>&rarr;<FONT size="+1"><tt><i>string</i></tt></FONT>
-may increase the length of the line.  If the modified line exceeds the maximum allowed size it is truncated.
+may increase the length of the line.  If the modified line exceeds the maximum size it is truncated.
 This maximum length is controlled by parameter **recln0** in the main program.
 Source codes are distributed with **recln0=120**.
 
 #### Variables
 
-_rdfiln_{: style="color: green"} permits three kinds of variables, floating point scalar,
+_rdfiln_{: style="color: green"} permits three kinds of variables: floating point scalar,
 floating-point vector, and strings.  They can be declared with preprocessor directives
-and also on the command-line, e.g. `-vnam=expr`.  Symbol tables are maintained for each kind
-of variable (scalar, vector, and strings).  
+and also on the command-line using, e.g. `-vnam=expr`.  Symbol tables are maintained for each of the three kinds
+of variables
 
 Scalar variables and vector elements can be used in algebraic expressions.
 
-_Note:_{: style="color: red"}
-As _rdfiln_{: style="color: green"} parses a file, it may create new variables thus
-enlarging the symbols table is enlarged.  The variables allocated
-this way are temporary, however.  When _rdfiln_{: style="color: green"} has finished with whatever file it is reading,
-it destroys variables created by preprocessor directives
-You can preserve variables for future use (e.g. in parsing expressions after the preprocessor has returned the transformed input)
-with the **% save** directive
+_Note:_{: style="color: red"} As _rdfiln_{: style="color: green"} parses a file, it may create new variables, thus enlarging the symbols
+table.  Variables allocated this way are temporary, however.  When _rdfiln_{: style="color: green"} has finished with whatever it is
+reading, it destroys variables created by preprocessor directives. You can preserve variables for future use with the **% save** directive.
 
 #### Variables Preprocessor Directives
 
 The preprocessor treats the following specially.
 
-+ Lines which begin with **#* are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
-+ Lines beginning with **% directive** are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.
++ Lines which begin with **#** are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
++ Lines beginning with **% directive** are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.\\
+  Such lines interpreted as a directive to do something. They will not appear in the preprocessor's output.
 
-The following directives are supported
-is one of the following keywords:
+The following keywords are directives supported by _rdfiln_{: style="color: green"}:
 <pre>
-   <A href="#variabledecl">const cconst cvar udef var vec char char0 cchar getenv vfind</A>   &larr; allocate variables and assigns values
-   <A href="#branching">if ifdef ifndef iffile else elseif elseifd endif</A>               &larr; branching constructs for conditional reading of lines
-   <A href="#loops">while repeat end</A>                                               &larr; looping constructs for repeated looping of lines
-   <A href="#misc">echo exit include includo macro save show stop trace udef</A>      &larr; miscellaneous other constructs
+   const cconst cvar udef var vec char char0 cchar getenv vfind   &larr; allocate variables and assigns values
+   if ifdef ifndef iffile else elseif elseifd endif               &larr; branching constructs for conditional reading of lines
+   while repeat end                                               &larr; looping constructs for repeated looping of lines
+   echo exit include includo macro save show stop trace udef      &larr; miscellaneous other constructs
 </pre>
 	
-Such lines interpreted as a directive to do something. They will not appear in the preprocessor's output.
-
 ### _Expression Substitution_
 {::comment}
 /docs/input/preprocessor/#expression-substitution
 {:/comment}
 
-By enclosing a string in curly brackets, <i>viz</i>
-<FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>, you instruct the preprocessor to
-parse the contents of &nbsp;<FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; and substitute it with something else.
+By enclosing a string in curly brackets, _viz_ **{strn}**, you instruct the preprocessor to
+parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something else.
 
-<FONT size="+1"><tt><i>strn</i></tt></FONT> must :
+**strn** must have one of the following syntax:
+
 1. begin with the name of a character variable
 2. begin with a **?**
 3. be a the name of a declared vector or
 4. be an algebraic expression.  Expressions use C-like syntax.
 
-When it encounters &nbsp;<FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; _rdfiln_{: style="color: green"} does the following,
-in the following the order of precedence:
+When it encounters &nbsp;**{strn}**&nbsp; _rdfiln_{: style="color: green"} makes one of the following transformations,
+listed in order of precedence:
 
-* _string substitution_. If the contets of <FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; is a
+1. _string substitution_: If the contets of **{strn}**&nbsp; is a
      **character variable**, contents of the variable are substituted.\\
-  The character variable my be followed by a qualification (see 1a and 1b below).
-* _conditional string substitution_ If the first character of &nbsp;<FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; is **?**
-     it treats the contents as a C-like expression.  See 1c below.
-* _vector variable_ If the contets of <FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; is a
-     **vector variable**, &nbsp;<FONT size="+1"><tt>{<i>strn</i>}</tt></FONT>&nbsp; is replaced by a
+  The variable _may8 be followed by a qualification (see 1a and 1b below).
+2. _conditional string substitution_: If the first character of &nbsp;**{strn}**&nbsp; is &nbsp;**?**&nbsp;
+     it treats the contents as a C-like conditional expression.  See 1c below.
+3. _vector variable substitution_ If the contets of **{strn}**&nbsp; is a
+     **vector variable**, &nbsp;**{strn}**&nbsp; is replaced by a
      character representation of the vector. See 2 below.
-* _algebraic expression_ <FONT size="+1"><tt>{<i>strn</i>}</tt></FONT> is parsed as an algebraic expression, or a sequence
+4. _algebraic expression substitution_ **{strn}** is parsed as an algebraic expression, or a sequence
       of expressions, and is replaced by a character representation of
       the numerical value of the (last) expression. See 3a and 3b below.
 
 
 The syntax for string, vector, and algebraic substitutions is explained in sections 1, 2, 3 below, listing them in order of precedence.
-_rdfiln_{: style="color: green"} parses <FONT size="+1"><tt>{<i>strn</i>}</tt></FONT> as follows:
+_rdfiln_{: style="color: green"} parses **{strn}** as follows:
 
-<pre>
-   1a. <i>strn</i> is the name of a character variable, say `myvar'
-       _rdfiln_{: style="color: green"} replaces `{myvar}' with contents of `myvar'.
-       This rule takes precedence if a character variable `myvar' exists
+~~~
+   1a. **strn** is the name of a character variable, say **myvar**.
+       _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**..\\
+       This rule takes precedence if a character variable **myvar** exists
 
-   1b. Similar to (1a), but <i>strn</i> is followed by a qualifier (...),
+   1b. Similar to (1a), but **strn** is followed by a qualifier (...),
        which must be one of the following:
 
-      *(integer1,integer2) returns a substring of <i>strn</i>.
-       {myvar(n1,n2)} is replaced by the (n1:n2) substring of `myvar'.
+      *(integer1,integer2) returns a substring of **strn**.
+       {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.
          <i>Example</i>: If myvar="foo bar", "{myvar(2,3)}" &rarr; "oo".
 
       *('<i>chrlst</i>',<i>n</i>) marks a position in contents of `myvar.'
@@ -160,7 +158,7 @@ _rdfiln_{: style="color: green"} parses <FONT size="+1"><tt>{<i>strn</i>}</tt></
        If <i>expr</i> evaluates to nonzero, {...} is replaced by <i>strn1</i>.
        If <i>expr</i> evaluates to zero, {...} is replaced by <i>strn2</i>.
 
-    2. <i>strn</i> is name of a vector variable, say `myvec'.
+    2. **strn** is name of a vector variable, say `myvec'.
        _rdfiln_{: style="color: green"} replaces  {myvec}  with a sequence of numbers separated
        by one space, which are the contents of `myvec'.
        <i>Example</i> : suppose a `myvec' <A href="#vectordef">has been declared</A> as a 5-element quantity:
@@ -174,13 +172,13 @@ _rdfiln_{: style="color: green"} parses <FONT size="+1"><tt>{<i>strn</i>}</tt></
        is transformed into
          4
 
-   3a. <i>strn</i> is an algebraic expression composed of, numbers, <A href="#variabledecl">scalar variables</A>,
+   3a. **strn** is an algebraic expression composed of, numbers, <A href="#variabledecl">scalar variables</A>,
        elements of <A href="#vectordef">vector variables</A>, and <A href="#macrodef">macros</A>, combined with unary and binary operators.
        The <A href="#exprsyntax">syntax is very similar to C</A>.
-       rdfiln parses &nbsp;<i>strn</i>&nbsp; to obtain a binary number, renders the result in ASCII form, and
-       substitutes the result in place of &nbsp;<i>strn</i>.
+       rdfiln parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
+       substitutes the result in place of &nbsp;**strn**.
 
-   3b. is an extension of 3a.  <i>strn</i>&nbsp; may consist of a sequence of assignments of variables to expressions.
+   3b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of assignments of variables to expressions.
        The assignment may be a simple one (`<FONT size="+1"><tt>=</tt></FONT>') or <A href="#assignmentops">involve an arithmetic operation</A>.
        Members of the sequence separated by commas.  For each member a variable is assigned to an expression.
        rdfiln returns the value of the last expression.
@@ -395,7 +393,7 @@ Recognized keywords are
 </pre>
 does two things:
 <pre>
-  (1) add `myvar' to the scalar variables symbols table if it is not there already.
+  (1) add **myvar** to the scalar variables symbols table if it is not there already.
       `const' and `var' are equivalent in this respect.
 
   (2) assign the result of <i>expr</i> to it, if <i>either</i>
