@@ -126,7 +126,7 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
 
    a. **strn** is a character variable.
        _rdfiln_{: style="color: green"} replaces **{myvar}** with contents of **myvar**.\\
-       This rule takes precedence if a character variable **myvar** exists.
+       _Example_: If myvar='foo bar', **{myvar} &rarr; **foo bar**.
 
    b. Similar to (1a), but &nbsp;**strn**&nbsp; is followed by a qualifier (...),
        which must be one of the following:
@@ -135,29 +135,28 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
        {myvar(n1,n2)} is replaced by the (n1:n2) substring of **myvar**.\\
        _Example_: If myvar="foo bar", **{myvar(2,3)}** &rarr; **oo**.
 
-      * **(chrlst,n)** returns a number indicating the location where **chrlst** is found.
-       **chrlst** is a sequence of characters, equivalent to regular expression [**chrlst**]:
-       the contents of **myvar** is parsed for any character in **chrlst**.\\
-       _Example_:  let myvar="foo bar" and chrlst='abc'.
-       Note that "foo bar" contains characters 'b' and 'a' so
-       **{myvar('abc',2)} &rarr; **6** , which is the index in "foo bar" that contains 
-       the second occurrence of a character in [abc].\\
+      * **(charlst,n)** returns a number indicating the location where **charlst** occurs.\\
+       **charlst** is a sequence of characters; the contents of **myvar** is parsed for any character in **charlst**.\\
+       _Example_:  let myvar="foo bar" and charlst='abc'.
+       Note that "foo bar" contains characters 'b' and 'a'.\\
+       **{myvar('abc',2)} &rarr; **6** , the index in "foo bar" with the second occurrence of a character in [abc].\\
        Note: **n** is optional: if omitted, the preprocessor uses **n=1**.
 
-      *(:e) returns an integer marking last nonblank character.\\
+      * (:e) returns an integer marking last nonblank character.\\
          _Example_: If myvar='foo bar', {myvar(:e)} &rarr; 7.
 
-      *(/'**strn1**'/'**strn2**'/,**n**1,**n**2) substitutes **strn2** for **strn1**.\\
-       _Example_ If **myvar="foo boor"**, then {myvar(/'oo'/a/,2,2)} &rarr; "foo bar"
+      * (/'**strn1**'/'**strn2**'/,**n**1,**n**2) substitutes **strn2** for **strn1**.\\
        Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.
        **n**1 and **n**2 are optional, as are the quotation marks.
+       _Example_ If **myvar="foo boor"**, then {myvar(/'oo'/a/,2,2)} &rarr; "foo bar"
 
-2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  (the '~' can be any character).
+2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  (the '~' can be any character).\\
        **expr** is an algebraic expression; **strn1** and **strn2** are strings.
-       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**:
-         {?~**expr**~**strn1**~**strn2**}    &larr;  
-       + If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.
-       + If **expr** evaluates to zero, **{...}** is replaced by **strn2**.
+       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**\\
+       If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
+       _Example_ {?~(n<2)~n is less than 2~n is at least 2}.  **{...}** is replaced by:\\
+         &nbsp;&nbsp;**n is less than 2**&nbsp;&nbsp; if **n<2** otherwise by 
+         **&nbsp;&nbsp;"n is at least 2"&nbsp;&nbsp;**
 
 3. **strn** is name of a vector variable, say **myvec**..
        _rdfiln_{: style="color: green"} replaces  {myvec}  with a sequence of numbers separated
@@ -170,16 +169,16 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
          5 4 3 2 1
        You can also substitute a single element.  Thus
          {myvec(2)}
-       is transformed into
+       becomes
          4
 
-   3a. **strn** is an algebraic expression composed of, numbers, <A href="#variabledecl">scalar variables</A>,
+   a. **strn** is an algebraic expression composed of, numbers, <A href="#variabledecl">scalar variables</A>,
        elements of <A href="#vectordef">vector variables</A>, and <A href="#macrodef">macros</A>, combined with unary and binary operators.
        The <A href="#exprsyntax">syntax is very similar to C</A>.
        rdfiln parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
        substitutes the result in place of &nbsp;**strn**.
 
-   3b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of assignments of variables to expressions.
+   b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of assignments of variables to expressions.
        The assignment may be a simple one (`<FONT size="+1"><tt>=</tt></FONT>') or <A href="#assignmentops">involve an arithmetic operation</A>.
        Members of the sequence separated by commas.  For each member a variable is assigned to an expression.
        rdfiln returns the value of the last expression.
@@ -192,9 +191,9 @@ _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
 
          {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
 
-<h3><A name="nesting"></A>Further properties of curly brackets {...} </h3>
+#### Further properties of curly brackets
 
-Brackets <FONT size="+1"><tt>{..}</tt></FONT> may be <FONT color="#0000bb"><I>nested</I></FONT>.
+Brackets may be nested.
 _rdfiln_{: style="color: green"} will work recursively
 through deeper levels of bracketing, substituting <FONT size="+1"><tt>{..}</tt></FONT> at each level with
 a result before returning to the higher level.  <br>
@@ -212,23 +211,14 @@ If _rdfiln_{: style="color: green"} cannot evaluate <FONT size="+1"><tt>{my2bar}
  {  ...  my2bar}
 </pre>
 
-<P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the syntactical difference between <FONT size="+1"><tt>{..}</tt></FONT> and
-<FONT size="+1"><tt>(..)</tt></FONT>.  The latter applies to only algebraic expressions, while the former offers other possibilities
-as we have noted.  But even when <FONT size="+1"><tt>{..}</tt></FONT> contains an algebraic expression its effect can be a little different from
-<FONT size="+1"><tt>(..)</tt></FONT>. Curly brackets put _rdfiln_{: style="color: green"} in a special mode where it replaces <FONT size="+1"><tt>{..}</tt></FONT> with
-another string.  Thus &nbsp;<FONT size="+1"><tt>{pi-3}</tt></FONT>&nbsp; is replaced by
-<A href="#sourcecodes">&nbsp;<FONT size="+1"><tt>.14159265</tt></FONT></A>&nbsp;, whereas
-&nbsp;<FONT size="+1"><tt>(pi-3)</tt></FONT>&nbsp; is kept in a binary representation of
-&nbsp;<FONT size="+1"><tt>&pi;-3</tt></FONT>, with about 16 decimal digits precision.
-Note moreover that you can use expressions <FONT size="+1"><tt>(..)</tt></FONT> either <i>inside</i> curly brackets, in which case they form
-part of an expression that will be rendered in ASCII form as a modification of the input, or <i>outside</i> curly brackets.  The input system
-(which reads whatever the preprocessor returns) can also parse algebraic expressions.
+_Note:_{: style="color: red"} there is a syntactical difference between **{expr}** and the value of **expr** itself, because
+**{expr}** returns an ASCII representation of **expr**, and precision is lost. Thus &nbsp;**{pi-3}**&nbsp; is replaced by **.141592654**
 
-<h3><A name="exprsyntax"></A>Syntax of Algebraic Expressions</h3>
+#### Syntax of Algebraic Expressions
 
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>
-   {<i>var</i> <i>assignment-op</i> <i>expr</i> [, ... ]}.
+   {% **var** <i>assignment-op</i> **expr** [, ... ]}.
 </pre>
 Commas separate expressions in the sequence.
 The final may (and typically does) consist of <i>expr</i> only,
