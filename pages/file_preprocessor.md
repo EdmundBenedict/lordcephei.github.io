@@ -95,32 +95,20 @@ The following keywords are directives supported by _rdfiln_{: style="color: gree
 By enclosing a string in curly brackets, _viz_ **{strn}**, you instruct the preprocessor to
 parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something else.
 
-**strn** must have one of the following syntax:
+**strn** must take one of the following syntactical forms.
+If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
+Thus these form are ordered by the precedence they take:
 
-1. it begins with the name of a character variable
-2. it begins with a "**?**"
-3. is the name of a declared vector or
-4. is an algebraic expression.  Expressions use C-like syntax.
+1. (_string substitution_) **strn** is name of a **character variable**.  The value of the variable is substituted.\\
+   The variable _may_ be followed by a qualification (see 1a and 1b below).   
+2. **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
+3. **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
+4. **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
 
-When it encounters &nbsp;**{strn}**&nbsp; _rdfiln_{: style="color: green"} makes one of the following transformations,
-listed in order of precedence:
-
-1. _string substitution_: If  &nbsp;**strn**&nbsp; is a
-     **character variable**, the value of the variable is substituted.\\
-    The variable _may_ be followed by a qualification (see 1a and 1b below).
-2. _conditional string substitution_: If the first character of &nbsp;**strn**&nbsp; is &nbsp;"**?**"&nbsp;
-     it treats &nbsp;**strn**&nbsp; as a C-like conditional expression.  See 1c below.
-3. _vector variable substitution_ If &nbsp;**strn**&nbsp; is a
-     **vector variable**, &nbsp;**strn**&nbsp; is replaced by a
-     character representation of the vector. See 2 below.
-4. _algebraic expression substitution_ &nbsp;**strn**&nbsp; is parsed as an algebraic expression, or a sequence
-      of expressions, and is replaced by a character representation of
-      the numerical value of the (last) expression. See 3a and 3b below.
+{::comment}
 
 
-The syntax for string, vector, and algebraic substitutions is explained by rules 1, 2, 3 below, listing them in order of precedence.
-_rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; as follows:
-
+The rules for each of the four kinds are syntax are as follows:
 
 1. **strn** consists of (or begins with) a character variable, say **myvar**.
 
@@ -856,3 +844,5 @@ is turned into <FONT size="+1"><tt>1.2345679e-8</tt></FONT>.
 <BR><BR><BR><BR><BR><BR><BR><BR>
 <BR><BR><BR><BR><BR><BR><BR><BR>
 </HTML>
+
+{:/comment}
