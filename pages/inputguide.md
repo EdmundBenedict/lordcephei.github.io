@@ -169,7 +169,7 @@ Example:
 This switch tells the parser not to try and read anything, but print
 out information about what it would would try to read.  Several useful bits
 of information are given, including a brief description of each tag
-in the following format (only a snippet of the output is reproduced here):
+in the following format.  A snippet of the output is reproduced below:
 
 ~~~
  Tag                    Input   cast  (size,min)
@@ -203,19 +203,21 @@ default values are 35 and 0, respectively.
 A single integer will be read from the latter tag, and
 between one and five integers will be read from **IO_VERBOS**.
 
-There is a brief description explaining the functions of each, and
-in these particular cases alternative means to perform equivalent functions
+There is a brief synopsis explaining the functions of each.
+For these particular cases, the output gives alternative means to perform equivalent functions
 through command-line switches.
 
-**STRUC_FILE=fname** is optional.  **fname** indicates the name
-_fname.ext_{: style="color: green"} of the site file.  If you do use
-this tags, other tags in the **STRUC** category (**NBAS**, **PLAT**,
-**ALAT**) may be omitted.
-Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.
+**STRUC_FILE=fname** is optional.  Here **fname** is a character string: it should be the site file name _fname.ext_{: style="color: green"}
+from which lattice information is read. If you do use this tag, other tags in the **STRUC** category (**NBAS**, **PLAT**, **ALAT**) may be omitted.
+Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.\\
+The synopsis also tells you that you can specify the same information using **EXPRESS_file=fname** (see **EXPRESS** category below).
 
-**SITE_ATOM_POS** is required input (reqd\*) in the sense that you must supply either it
-or **SITE_ATOM_XPOS**.  (Note: if this data is given through a site file, 
-all the tags in the **SITE** category will be ignored).
+**SITE_ATOM_POS** is required input in the sense that you must supply either it
+or **SITE_ATOM_XPOS**.  The \* in reqd\* indicates that you can supply the information in **SITE_ATOM_POS** 
+by an alternate tag -- **SITE_ATOM_XPOS** in this case. 
+
+_Note:_{: style="color: red"} if site data is given through a site file, 
+all the other tags in the **SITE** category will be ignored.
 
 {::nomarkdown}</div>{:/}
 
@@ -379,6 +381,10 @@ RPAD | r | | Y | 0 | Scale rcutoff by RPAD when lattice vectors padded in oblong
 {::nomarkdown}</div>{:/}
 
 ##### _HAM_
+{::comment}
+/docs/input/inputfile/#ham
+{:/comment}
+
 This category contains parameters defining the one-particle hamiltonian.  
 
 Pportions of HAM are read by these codes: 

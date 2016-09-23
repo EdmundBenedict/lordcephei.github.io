@@ -140,8 +140,8 @@ basis set information from the basp file.  Tokens in
 Click here for a description.
 {:/comment}
 
-Basis information (envelope function parmeters, _P_ parameters and information
-about local orbitals) from _basp.pbte_{: style="color: green"}.
+_basp.pbte_{: style="color: green"} supplies basis information (envelope function parmeters, _P_ parameters and information
+about local orbitals).
 
 ~~~
  rdctrl: reading basis parameters from file basp
@@ -152,12 +152,11 @@ about local orbitals) from _basp.pbte_{: style="color: green"}.
 
 You can also supply this information in the ctrl file.
 If both are present **lmf**{: style="color: blue"} decides on which to
-use depending on settings in **EXPRESS_autobas**.
+use depending on settings in **EXPRESS_autobas** or **HAM_AUTOBAS**
 
-To see what the tokens in **autobas** do, invoke `lmf --input`
-and search for autobas in the output.  
-[This page](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch)
-explains what the `--input` tells you about the tags it will look for.
+To see a synopsis of tokens in **AUTOBAS**, 
+[invoke `lmf --input`](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch)
+and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/input/inputfile/#ham).
 
 {::nomarkdown}</div>{:/}
 
