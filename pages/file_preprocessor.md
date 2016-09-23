@@ -147,14 +147,8 @@ In more detail, the rules are as follows:
        by one space, which are the contents of **myvec**.\\
        _Example_ : suppose **myvec**. has been declared as a 5-element quantity:\\
          % vec myvec[5] 6-1 6-2 5-2 5-3 4-3\\
-       Then\\
-         {myvec}\\
-       is turned into\\
-         5 4 3 2 1\\
-       You can also substitute a single element.  Thus\\
-         {myvec(2)}\\
-       becomes\\
-         4
+       Then &nbsp;**{myvec}**&nbsp; is turned into **5 4 3 2 1** \\
+       You can also substitute a single element.  Thus &nbsp;**{myvec(2)}**&nbsp; becomes **4**.
 
 4. **strn** is an algebraic expression composed of numbers, scalar variables,
        vector variables, and macros, combined with unary and binary operators.
@@ -163,17 +157,17 @@ In more detail, the rules are as follows:
        _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
        substitutes the result.
 
-   b. is an extension of 3a.  **strn**&nbsp; may consist of a sequence of expresions with assignments.
-       Members of the sequence separated by commas.  For expression a variable is assigned.
-       Assignment may simple one (**=**) or involve an arithmetic operation
+   b. is an extension of a.  **strn**&nbsp; may consist of a sequence of expressions, separated by commas.  For each expression a variable is assigned.
+       Assignment may simple one (**=**) or involve an arithmetic operation as the examples show.
        _rdfiln_{: style="color: green"} returns the value of the last expression.
-       _Examples_
-<pre>
-         {x=3}               &larr;  assigns x to 3 and returns '3'
-         {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
-         {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
-         {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-</pre>
+       _Examples:_
+
+~~~
+     {x=3}               &larr;  assigns x to 3 and returns '3'
+     {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
+     {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
+     {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
+~~~
        The last expression need not have an assignment operator, as the last example shows
 
 #### Further properties of curly brackets
@@ -202,20 +196,18 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 #### Syntax of Algebraic Expressions
 
 The general syntax for an expression is a sequence of one or more expressions of the form
+<pre>
+   {<b>name=expr[,expr...]</b>}
+</pre>
+Commas separate declarations.  Operators can be use in lace of assignment (**=**), for example
+&nbsp;**{x=3,y=4,x*=y,x*2}**.
 
-~~~
-   {<b>var</b> <i>assignment-op</i> <b>expr</b> [, ... ]}.
-~~~
+The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
 
-Commas separate declarations.
-The final may (and typically does) consist of <i>expr</i> only,
-omitting the <FONT size="+1"><tt><i>var <A href="#assignmentops">assignment-op</A></i></tt></FONT> part.
+<P> <FONT size="+1"><tt><i>expr**</tt></FONT>&nbsp; is a algebraic expression, with a syntax very similar to C.  
 
-<P> <FONT size="+1"><tt><i>expr</i></tt></FONT>&nbsp; is a algebraic expression, 
-with a syntax very similar to C.  
-<FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> <i>expr</i> may not contain any blanks or tabs.
-<br>It is composed of numbers, <A href="#variabledecl">scalar variables</A>,
-elements of <A href="#vectordef">vector variables</A>, and <A href="#macrodef">macros</A>, combined with unary and binary operators.
+
+It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
        <i>Unary</i> operators take first precedence:
        1.   - arithmetic negative
@@ -231,9 +223,11 @@ elements of <A href="#vectordef">vector variables</A>, and <A href="#macrodef">m
        5.   <  (.lt.); > (.gt.); = (.eq.); <> (.ne.); <= (.le.);  >= (.ge.)
        6.   &  (.and.)
        7.   |  (.or.)
-       8&9  ?: conditional operators, used as: <i>test</i>?<i>expr1</i>:<i>expr2</i>
+       8&9  ?: conditional operators, used as: **test**?**expr1**:**expr2**
        10&11 () parentheses 
 </pre>
+
+_Note:_{: style="color: red"} **expr** may not contain any whitespace.
 
 <P> The &nbsp;`<FONT size="+1"><tt>?:</tt></FONT>'&nbsp; pair of operators follow a C-like syntax.
 <FONT size="+1"><tt><i>test</i></tt></FONT>, <FONT size="+1"><tt><i>expr1</i></tt></FONT>, and <FONT size="+1"><tt><i>expr2</i></tt></FONT>,
