@@ -381,6 +381,8 @@ _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, add
 </pre>
 These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
+{::comment}
+
 2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
  % cconst <i>test-expr</i> myvar=<i>expr</i>
@@ -417,6 +419,8 @@ Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered i
 instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
 the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
+{:/comment}
+
 3. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
  % char  c half     a whole      blank
@@ -429,8 +433,8 @@ loads the character table as follows:
     3 blank
 </pre>
 The last declaration can omit an associated string, in which case its value is a blank, as &nbsp;**blank**&nbsp; is in this case.
-<br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-Re-declaration of any previously defined variable will change the contents of the variable.
+
+_Note:_{: style="color: red"} Re-declaration of any previously defined variable will change the contents of the variable.
 
 4. **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
 variable is ignored.  Thus &nbsp;**char0**&nbsp; is to &nbsp;**const**&nbsp; as &nbsp;**char**&nbsp; is to &nbsp;**var**&nbsp;.
