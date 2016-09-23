@@ -349,13 +349,12 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-<OL>
-
-<LI> **const**&nbsp; and &nbsp;var**&nbsp; load or alter the variables table.  <i>Example</i>:
+1. **const**&nbsp; and &nbsp;var**&nbsp; load or alter the variables table.  <i>Example</i>:
 <pre>
  % const  myvar=<i>expr</i>
 </pre>
 does two things:
+
 1. adds **myvar** to the scalar variables symbols table if it is not there already.
       **const** and **var** are equivalent in this respect.
 2. assigns the result of <i>expr</i> to it, if <i>either</i>
@@ -385,9 +384,8 @@ does the same but assigns 3 to <i>a</i>.
 </pre>
 These operators modify &nbsp;<FONT size="+1"><tt>myvar</tt></FONT>&nbsp; for both &nbsp;`<FONT size="+1"><tt>const</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>var</tt></FONT>'&nbsp; directives.
 
-<LI> `<FONT size="+1"><tt>cconst</tt></FONT>' and `<FONT size="+1"><tt>cvar</tt></FONT>' <i>conditionally</i> load or alter the variables table.
+2. **cconst**&nbsp; and &nbsp;cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
- <i>Example</i>:
  % cconst <i>test-expr</i> myvar=<i>expr</i>
 </pre>
 <FONT size="+1"><tt><i>test-expr</i></tt></FONT>&nbsp; is an algebraic expression (e.g., <FONT size="+1"><tt>i==3</tt></FONT>)
@@ -422,8 +420,7 @@ If <FONT size="+1"><tt><i>test-expr</i></tt></FONT> evaluates to zero, no furthe
 instance, since the condition &nbsp;<FONT size="+1"><tt>b==6</tt></FONT>&nbsp; evaluates to 1, while they do not change in
 the second instance, since now &nbsp;<FONT size="+1"><tt>b==6</tt></FONT>&nbsp; evaluates to zero.
 
-<LI> `<FONT size="+1"><tt>char</tt></FONT>' loads or alters the character table.
-<br>&nbsp;&nbsp;<i>Example</i>:
+3. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
  % char  c half     a whole      blank
 </pre>
@@ -438,79 +435,76 @@ The last declaration can omit an associated string, in which case its value is a
 <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
 Re-declaration of any previously defined variable will change the contents of the variable.
 
-<LI> `<FONT size="+1"><tt>char0</tt></FONT>' is the same as `<FONT size="+1"><tt>char</tt></FONT>', except re-assignment of an existing
-variable is ignored.  Thus `<FONT size="+1"><tt>char0</tt></FONT>' is to `<FONT size="+1"><tt>const</tt></FONT>' as `<FONT size="+1"><tt>char</tt></FONT>' is to `<FONT size="+1"><tt>var</tt></FONT>'.
+4. **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
+variable is ignored.  Thus &nbsp;**char0**&nbsp; is to &nbsp;**const**&nbsp; as &nbsp;**char**&nbsp; is to &nbsp;**var**&nbsp;.
 
-<LI> `<FONT size="+1"><tt>cchar</tt></FONT>' is similar to &nbsp;`<FONT size="+1"><tt>char</tt></FONT>'&nbsp; but tests are made
+5. **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
 to enable different strings to be loaded depending on the results of the tests.
 The syntax is
 <pre>
  % cchar nam  <i>expr1 str1 expr2 str2</i> ...
 </pre>
-`<FONT size="+1"><tt>nam</tt></FONT>'&nbsp; is the name of the character variable;
- <FONT size="+1"><tt><i>expr1 expr2</i></tt></FONT> etc are algebraic expressions.
+**nam**&nbsp;&nbsp; is the name of the character variable;
+ **<i>expr1 expr2</i>**&nbsp; etc are algebraic expressions.
 
-<br> `<FONT size="+1"><tt>nam</tt></FONT>'&nbsp; takes the
-value &nbsp;<FONT size="+1"><tt><i>str1</i></tt></FONT>&nbsp; if &nbsp;<FONT size="+1"><tt><i>expr1</i></tt></FONT>&nbsp; evaluates to nonzero, the value &nbsp;<FONT size="+1"><tt><i>str2</i></tt></FONT>&nbsp; if &nbsp;<FONT size="+1"><tt><i>expr2</i></tt></FONT>&nbsp; evaluates to nonzero, etc.
+<br> **nam**&nbsp;&nbsp; takes the
+value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
 
-<LI> `<FONT size="+1"><tt>getenv</tt></FONT>' has a function similar to `<FONT size="+1"><tt>char</tt></FONT>'.
+6. **getenv**&nbsp; has a function similar to **char**&nbsp;.
  Only the contents of the variable are read from the unix environment variables table.  Thus
 <pre>
 % getenv myhome HOME
 </pre>
- puts the string of your home directory into variable `<FONT size="+1"><tt>myhome</tt></FONT>.'
+ puts the string of your home directory into variable **myhome**&nbsp;.'
 
-
-<LI>`<FONT size="+1"><tt>vec</tt></FONT>' loads or alters elements in the table of vector variables.
+7. **vec**&nbsp; loads or alters elements in the table of vector variables.
 <pre>
  % vec v[n]                      &larr; creates a vector variable of length n
  % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
 </pre>
- Once `<FONT size="+1"><tt>v</tt></FONT>' has been declared, individual elements of &nbsp;<FONT size="+1"><tt>v</tt></FONT>&nbsp; may be set with
+ Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with
  the following syntax
 <pre>
  % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
  % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
 </pre>
- There must be exactly <FONT size="+1"><tt><i>in&minus;i1</i>+1</tt></FONT> elements <FONT size="+1"><tt><i>n1 ... nn</i></tt></FONT>.
+ There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
 <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
- if `<FONT size="+1"><tt>v</tt></FONT>' is already declared, it is an error to re-declare it.
+ if **v**&nbsp; is already declared, it is an error to re-declare it.
 
-<LI> `<FONT size="+1"><tt>vfind</tt></FONT>' finds which element in a vector that matches a specified value.
+8. **vfind**&nbsp; finds which element in a vector that matches a specified value.
 The syntax is
 <pre>
  % vfind v(i1:i2)  svar  <i>match-value</i>
 </pre>
-`<FONT size="+1"><tt>svar</tt></FONT>' is a scalar variable and
-`<FONT size="+1"><tt><i>match-value</i></tt></FONT>' a number or expression.
-Elements &nbsp;<FONT size="+1"><tt>v(i1:i2)</tt></FONT>&nbsp; are parsed.
-&nbsp;<FONT size="+1"><tt>svar</tt></FONT>&nbsp; is
+**svar**&nbsp; is a scalar variable and
+**<i>match-value</i>**&nbsp; a number or expression.
+Elements &nbsp;**v(i1:i2)**&nbsp;&nbsp; are parsed.
+&nbsp;**svar**&nbsp;&nbsp; is
 assigned to the the first instance i for which
-&nbsp;<FONT size="+1"><tt><tt>v(i)</tt>=<i>match-value</i></tt></FONT>.
-If no match is found, `<FONT size="+1"><tt>svar</tt></FONT>' is set to zero.
+&nbsp;**<tt>v(i)</tt>=<i>match-value</i>**&nbsp;.
+If no match is found, **svar**&nbsp; is set to zero.
 <br>&nbsp;&nbsp;<i>Example</i>:
 <pre>
  % vec  a[3] 101 2002 30003
  % vfind a(1:3) k 2002           &larr; sets k=2
  % vfind a(1:3) k 10             &larr; sets k=0
 </pre>
-</OL>
 
-
-#### Branching constructs</h3>
-&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>if ifdef ifndef iffile else elseif elseifd endif</tt></FONT>
+#### Branching constructs
+&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **if ifdef ifndef iffile else elseif elseifd endif**&nbsp;
 
 <P> These branching constructs have a function similar to the C constructs
-<br> &nbsp;&nbsp; <FONT size="+1"><tt>if {text ;} else if {text ;} else {text ;}</tt></FONT>
+<br> &nbsp;&nbsp; **if {text ;} else if {text ;} else {text ;}**&nbsp;
 <br> or Fortran constructs
-<br> &nbsp;&nbsp; <FONT size="+1"><tt>if (<i>expr</i>) then;  ... elseif (<i>expr</i>) then; ... else; ... endif</tt></FONT>
+<br> &nbsp;&nbsp; **if (<i>expr</i>) then;  ... elseif (<i>expr</i>) then; ... else; ... endif**&nbsp;
 
 <OL>
-<LI> `<FONT size="+1"><tt>if <i>expr</i></tt></FONT>',&nbsp;
-`<FONT size="+1"><tt>elseif <i>expr</i></tt></FONT>',&nbsp;
-`<FONT size="+1"><tt>else</tt></FONT>'&nbsp; and &nbsp;
-`<FONT size="+1"><tt>endif</tt></FONT>'&nbsp; are conditional read blocks.  Lines between these directives are read or not,
-depending on the value of &nbsp;<FONT size="+1"><tt><i>expr</i></tt></FONT>.
+<LI> **if <i>expr</i>**&nbsp;,&nbsp;
+**elseif <i>expr</i>**&nbsp;,&nbsp;
+**else**&nbsp;&nbsp; and &nbsp;
+**endif**&nbsp;&nbsp; are conditional read blocks.  Lines between these directives are read or not,
+depending on the value of &nbsp;**<i>expr</i>**&nbsp;.
 
 <br>&nbsp;&nbsp;<i>Example</i>:
 <pre>
@@ -523,36 +517,36 @@ depending on the value of &nbsp;<FONT size="+1"><tt><i>expr</i></tt></FONT>.
  % endif
 </pre>
 generate the line
-<br> &nbsp;<FONT size="+1"><tt>is clear</tt></FONT>
-<br> if <FONT size="+1"><tt>Quartz</tt></FONT> evaluates to nonzero; otherwise
-<br> &nbsp;<FONT size="+1"><tt>is bright</tt></FONT>
-<br> if <FONT size="+1"><tt>Ag</tt></FONT> evaluates to zero; otherwise
-<br> &nbsp;<FONT size="+1"><tt>neither is right</tt></FONT>
+<br> &nbsp;**is clear**&nbsp;
+<br> if **Quartz**&nbsp; evaluates to nonzero; otherwise
+<br> &nbsp;**is bright**&nbsp;
+<br> if **Ag**&nbsp; evaluates to zero; otherwise
+<br> &nbsp;**neither is right**&nbsp;
 
 <LI>
 
-`<FONT size="+1"><tt>ifdef</tt></FONT>' is similar to `<FONT size="+1"><tt>if</tt></FONT>', but has a more general idea of what
+**ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
 constitutes an expression.
 
 <UL>
 
-<LI> `<FONT size="+1"><tt>if <i>expr</i></tt></FONT>'&nbsp; requires that <FONT size="+1"><tt><i>expr</i></tt></FONT> be a valid
-expression, while &nbsp;`<FONT size="+1"><tt>ifdef <i>expr</i></tt></FONT>' evaluates <FONT size="+1"><tt><i>expr</i></tt></FONT>
+<LI> **if <i>expr</i>**&nbsp;&nbsp; requires that **<i>expr</i>**&nbsp; be a valid
+expression, while &nbsp;**ifdef <i>expr</i>**&nbsp; evaluates **<i>expr</i>**&nbsp;
 as false if it invalid (e.g. it contains an undefined variable).
 
 <LI>
-<FONT size="+1"><tt><i>expr</i></tt></FONT>&nbsp; can be an algebraic expression, or
+**<i>expr</i>**&nbsp;&nbsp; can be an algebraic expression, or
 a sequence of expressions separated by
-&nbsp;`<FONT size="+1"><tt>&</tt></FONT>'&nbsp; or &nbsp;&nbsp;`<FONT size="+1"><tt>|</tt></FONT>'&nbsp;
+&nbsp;**&**&nbsp;&nbsp; or &nbsp;&nbsp;**|**&nbsp;&nbsp;
 (<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
 <pre>
   % ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...
 </pre>
-If any of &nbsp;<FONT size="+1"><tt><i>expr1</i></tt></FONT>&nbsp;, &nbsp;<FONT size="+1"><tt><i>expr2</i></tt></FONT>&nbsp;, ... evaluate to nonzero, the result
+If any of &nbsp;**<i>expr1</i>**&nbsp;&nbsp;, &nbsp;**<i>expr2</i>**&nbsp;&nbsp;, ... evaluate to nonzero, the result
 is nonzero, whether or not preceding expressions are valid.
 <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
-&nbsp;<FONT size="+1"><tt><i>expr1</i>|<i>expr2</i></tt></FONT>&nbsp; cannot be evaluated unless both &nbsp;<FONT size="+1"><tt><i>expr1</i></tt></FONT>&nbsp; and &nbsp;<FONT size="+1"><tt><i>expr2</i></tt></FONT>&nbsp; are valid expressions, while &nbsp;<FONT size="+1"><tt><i>expr1</i> | <i>expr2</i></tt></FONT>&nbsp; may be nonzero if either is valid.
-<LI> `<FONT size="+1"><tt>ifdef</tt></FONT>'&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
+&nbsp;**<i>expr1</i>|<i>expr2</i>**&nbsp;&nbsp; cannot be evaluated unless both &nbsp;**<i>expr1</i>**&nbsp;&nbsp; and &nbsp;**<i>expr2</i>**&nbsp;&nbsp; are valid expressions, while &nbsp;**<i>expr1</i> | <i>expr2</i>**&nbsp;&nbsp; may be nonzero if either is valid.
+<LI> **ifdef**&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
 <pre>
    char-variable            &larr; T if char-variable exists, otherwise F
    char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i>
@@ -561,54 +555,54 @@ is nonzero, whether or not preceding expressions are valid.
 <pre>
 % ifdef  x1==2 & atom=='Mg' | x1===1
 </pre>
-is nonzero if scalar &nbsp;<FONT size="+1"><tt>x1</tt></FONT>&nbsp; is 2 <i>and</i> if character variable &nbsp;`<FONT size="+1"><tt>atom</tt></FONT>'&nbsp; is equal to "Mg",
-<i>or</i> if scalar &nbsp;<FONT size="+1"><tt>x1</tt></FONT>&nbsp; is 1.
+is nonzero if scalar &nbsp;**x1**&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;**atom**&nbsp;&nbsp; is equal to "Mg",
+<i>or</i> if scalar &nbsp;**x1**&nbsp;&nbsp; is 1.
 
 <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> binary operators
-&nbsp;`<FONT size="+1"><tt>&</tt></FONT>'&nbsp; and &nbsp;&nbsp;`<FONT size="+1"><tt>|</tt></FONT>'&nbsp; 
-are evaluated left to right: &nbsp;`<FONT size="+1"><tt>&</tt></FONT>'&nbsp; does not take precedence
-over &nbsp;`<FONT size="+1"><tt>|</tt></FONT>'.
+&nbsp;**&**&nbsp;&nbsp; and &nbsp;&nbsp;**|**&nbsp;&nbsp; 
+are evaluated left to right: &nbsp;**&**&nbsp;&nbsp; does not take precedence
+over &nbsp;**|**&nbsp;.
 
 </UL>
 
-<LI> `<FONT size="+1"><tt>elseifd</tt></FONT>'&nbsp; is to &nbsp;`<FONT size="+1"><tt>elseif</tt></FONT>'&nbsp; as &nbsp;`<FONT size="+1"><tt>ifdef</tt></FONT>'&nbsp; is to &nbsp;`<FONT size="+1"><tt>if</tt></FONT>'.
+<LI> **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**&nbsp;.
 
-<LI> `<FONT size="+1"><tt>ifndef <i>expr</i></tt></FONT>' ... is the mirror image of &nbsp;`<FONT size="+1"><tt>ifdef <i>expr</i></tt></FONT>'.
-Lines following this construct are read only if &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; evaluates to 0.
+<LI> **ifndef <i>expr</i>**&nbsp; ... is the mirror image of &nbsp;**ifdef <i>expr</i>**&nbsp;.
+Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
 
-<LI> `<FONT size="+1"><tt>iffile filename</tt></FONT>'&nbsp; is a construct analogous to &nbsp;`<FONT size="+1"><tt>%if</tt></FONT>'&nbsp; or &nbsp;`<FONT size="+1"><tt>%ifdef</tt></FONT>'&nbsp; for conditional reading of input lines.  
-<br> The test condition is set not by an expression, but whether file &nbsp;`<FONT size="+1"><tt>filename</tt></FONT>'&nbsp; exists or not.
+<LI> **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
+<br> The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.
 
 </OL>
 
 <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-`<FONT size="+1"><tt>if</tt></FONT>'&nbsp;, &nbsp;`<FONT size="+1"><tt>ifdef</tt></FONT>'&nbsp;,
-and &nbsp;`<FONT size="+1"><tt>ifndef</tt></FONT>'&nbsp;  constructs may be nested to a depth of <FONT size="+1"><tt>mxlev</tt></FONT>.
-The codes are distributed with <FONT size="+1"><tt>mxlev=6</tt></FONT> (see subroutine <b>rdfile</b>).
+**if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
+and &nbsp;**ifndef**&nbsp;&nbsp;  constructs may be nested to a depth of **mxlev**&nbsp;.
+The codes are distributed with **mxlev=6**&nbsp; (see subroutine <b>rdfile</b>).
 
 
 #### Looping constructs</h3>
-&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>while repeat end</tt></FONT>
+&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**&nbsp;
 
 <OL>
-<LI>`<FONT size="+1"><tt>while</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>end</tt></FONT>'&nbsp; mark the beginning and end of a looping construct.
+<LI>**while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
 Lines inside the loop are repeatedly read until a test expression evaluates to 0.
 
-<br> The &nbsp;`<FONT size="+1"><tt>while ... end</tt></FONT>'&nbsp; construct has the syntax
+<br> The &nbsp;**while ... end**&nbsp;&nbsp; construct has the syntax
 <pre>
   % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                             &larr; skip to `% end' if <i>exprn</i> is 0
     ...                                                       &larr; these lines become part of the input while <i>exprn</i> is nonzero
   % end                                                       &larr; return to the `% while' directive unless <i>exprn</i> is 0
 </pre>
-The (optional) expressions `<FONT size="+1"><tt>[<i>expr1</i> <i>expr2</i> ...]</tt></FONT>'
-follow the rules of the &nbsp;`<FONT size="+1"><tt></tt></FONT>'&nbsp; directive.  That is,
+The (optional) expressions **[<i>expr1</i> <i>expr2</i> ...]**&nbsp;
+follow the rules of the &nbsp;****&nbsp;&nbsp; directive.  That is,
 <UL>
-<LI> Each of <FONT size="+1"><tt><i>expr1</i></tt></FONT>, <FONT size="+1"><tt><i>expr2</i></tt></FONT>, ... take the form
-&nbsp;`<FONT size="+1"><tt>nam = <i>expr</i></tt></FONT>'&nbsp; or &nbsp;`<FONT size="+1"><tt>nam op= <i>expr</i></tt></FONT>'.
-<LI> A simple assignment &nbsp;`<FONT size="+1"><tt>nam=<i>expr</i></tt></FONT>'&nbsp;
-has effect only when &nbsp;`<FONT size="+1"><tt>nam</tt></FONT>'&nbsp;
-has not yet been loaded into the variables table.  Thus it has effect on the first pass through the &nbsp;<FONT size="+1"><tt>while</tt></FONT>&nbsp; loop
-(provided &nbsp;`<FONT size="+1"><tt>nam</tt></FONT>'&nbsp; isn't declared yet) but not subsequent passes.
+<LI> Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form
+&nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**&nbsp;.
+<LI> A simple assignment &nbsp;**nam=<i>expr</i>**&nbsp;&nbsp;
+has effect only when &nbsp;**nam**&nbsp;&nbsp;
+has not yet been loaded into the variables table.  Thus it has effect on the first pass through the &nbsp;**while**&nbsp;&nbsp; loop
+(provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
 </UL>
 These rules make it very convenient to construct loops, as the following shows.
 <br><i>Example</i>
@@ -624,32 +618,32 @@ generates
   this is db=3
 </pre>
 On the <i>first</i> pass, &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
-&nbsp;`<FONT size="+1"><tt>db+=2</tt></FONT>'&nbsp; increments &nbsp;<FONT size="+1"><tt>db</tt></FONT>&nbsp; to 1.
-Condition &nbsp;<FONT size="+1"><tt>db<=3</tt></FONT>&nbsp; evaluates to 1 and the loop proceeds.
+&nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
+Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.
 <br> On the <i>second</i> pass, &nbsp;**db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
-&nbsp;`<FONT size="+1"><tt>db+=2</tt></FONT>' increments &nbsp;<FONT size="+1"><tt>db</tt></FONT>&nbsp; to 3.
-<br> On the <i>third</i> pass, &nbsp;`<FONT size="+1"><tt>db</tt></FONT>'&nbsp; increments to 5 causing the condition
-&nbsp;<FONT size="+1"><tt>db<=3</tt></FONT>&nbsp; to become 0.  The loop terminates.
+&nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 3.
+<br> On the <i>third</i> pass, &nbsp;**db**&nbsp;&nbsp; increments to 5 causing the condition
+&nbsp;**db<=3**&nbsp;&nbsp; to become 0.  The loop terminates.
 
 <LI>
-`<FONT size="+1"><tt>% repeat</tt></FONT>'&nbsp; ... &nbsp;`<FONT size="+1"><tt>% end</tt></FONT>'&nbsp; is another looping construct with the syntax
+**% repeat**&nbsp;&nbsp; ... &nbsp;**% end**&nbsp;&nbsp; is another looping construct with the syntax
 <pre>
    % repeat varnam <i>list</i>
     ...                             &larr; lines parsed for each element in list
    % end
 </pre>
-As with the &nbsp;`<FONT size="+1"><tt>while</tt></FONT>'&nbsp;
+As with the &nbsp;**while**&nbsp;&nbsp;
 construct, multiple passes are made through the input lines.
-&nbsp;<FONT size="+1"><tt><i>list</i></tt></FONT>&nbsp; generates a sequence of integers
-(see <A href="Integer-list-syntax.html">&nbsp;<FONT size="+1"><tt>this page</tt></FONT></A> for the syntax),
-For each member of the sequence &nbsp;`<FONT size="+1"><tt>varnam</tt></FONT>'&nbsp; takes its value
+&nbsp;**<i>list</i>**&nbsp;&nbsp; generates a sequence of integers
+(see <A href="Integer-list-syntax.html">&nbsp;**this page**&nbsp;</A> for the syntax),
+For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
 and the body of the loop passed through.
-&nbsp;<FONT size="+1"><tt><i>list</i></tt></FONT>&nbsp; can be just an integer (e.g. &nbsp;`<FONT size="+1"><tt>7</tt></FONT>') or define a
+&nbsp;**<i>list</i>**&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
 more complex sequence,
-e.g. &nbsp;`<FONT size="+1"><tt>1:3,6,2</tt></FONT>'&nbsp;
-<A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;`<FONT size="+1"><tt>1 2 3 6 2</tt></FONT>'.
+e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
+<A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**&nbsp;.
 
-<br><i>Example</i> of nested &nbsp;`<FONT size="+1"><tt>while</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>repeat</tt></FONT>' loops (the &nbsp;`<FONT size="+1"><tt>while</tt></FONT>'&nbsp; loop was used above):
+<br><i>Example</i> of nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops (the &nbsp;**while**&nbsp;&nbsp; loop was used above):
 <pre>
  % const nm=-3 nn=4
  % while db=-1 db+=2 db<=3
@@ -676,11 +670,11 @@ The nested loops are expanded into:
 #### Other directives</h3>
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;
-<FONT size="+1"><tt>echo exit include includo macro save show stop trace udef</tt></FONT>
+**echo exit include includo macro save show stop trace udef**&nbsp;
 
 <OL>
 
-<LI> `<FONT size="+1"><tt>echo <i>contents</i></tt></FONT>'&nbsp; echoes &nbsp;`<FONT size="+1"><tt><i>contents</i></tt></FONT>'&nbsp; to standard output.
+<LI> **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
 <br><i>Example</i> :
 <pre>
   % echo hello world
@@ -689,35 +683,35 @@ prints
 <pre>
   #rf    <i>##</i>: hello world
 </pre>
-where &nbsp;<FONT size="+1"><tt><i>##</i></tt></FONT>&nbsp; is the current line number.
+where &nbsp;**<i>##</i>**&nbsp;&nbsp; is the current line number.
 
-<LI> `<FONT size="+1"><tt>exit [<i>expr</i>]</tt></FONT>'&nbsp; causes the program to stop parsing the input file, as though it encountered an <FONT size="+1"><tt>end-of-file</tt></FONT>.
-<br> If &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
-<br> If &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; evaluates to 0 the directive has no effect.
-<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;`<FONT size="+1"><tt>stop</tt></FONT>'&nbsp; directive.
+<LI> **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**&nbsp;.
+<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
+<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
+<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
 
-<LI> `<FONT size="+1"><tt>include filename</tt></FONT>'&nbsp; causes
+<LI> **include filename**&nbsp;&nbsp; causes
 _rdfiln_{: style="color: green"} to include the contents file
-&nbsp;`<FONT size="+1"><tt>filename</tt></FONT>'&nbsp; into the input.
+&nbsp;**filename**&nbsp;&nbsp; into the input.
 
-If &nbsp;`<FONT size="+1"><tt>filename</tt></FONT>' exists,
+If &nbsp;**filename**&nbsp; exists,
 _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
 At that point file pointer returns to the original file.
-If &nbsp;`<FONT size="+1"><tt>filename</tt></FONT>' does not exist, the directive has no effect.
+If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
 <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-`<FONT size="+1"><tt>%include</tt></FONT>'&nbsp; may be nested to a depth of 10.
+**%include**&nbsp;&nbsp; may be nested to a depth of 10.
 
 <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
 looping and branching constructs <i>must</i> reside in the
 same file.
 
-<LI> `<FONT size="+1"><tt>includo filename</tt></FONT>'&nbsp; is identical to &nbsp;`<FONT size="+1"><tt>include</tt></FONT>', except that
-<i>rdfiln</i> aborts if &nbsp;`<FONT size="+1"><tt>filename</tt></FONT>'&nbsp; does not exist.
+<LI> **includo filename**&nbsp;&nbsp; is identical to &nbsp;**include**&nbsp;, except that
+<i>rdfiln</i> aborts if &nbsp;**filename**&nbsp;&nbsp; does not exist.
 
 
-<LI> `<FONT size="+1"><tt>macro(arg1,arg2,..) <i>expr</i></tt></FONT>'&nbsp; defines a macro which acts in a manner similar to a function.
-<FONT size="+1"><tt>arg1,arg2,...</tt></FONT> are substituted into `<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; before it is evaluated.
+<LI> **macro(arg1,arg2,..) <i>expr</i>**&nbsp;&nbsp; defines a macro which acts in a manner similar to a function.
+**arg1,arg2,...**&nbsp; are substituted into **<i>expr</i>**&nbsp;&nbsp; before it is evaluated.
 <br><i>Example</i> :
 <pre>
   % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
@@ -740,16 +734,16 @@ generates
   The result of xp(1,2,3,3+1) is 27
   The result of xp(1,2,3,(3+1)) is 30
 </pre>
-`<FONT size="+1"><tt>macro</tt></FONT>'&nbsp; merely substitutes 1,2,3,.. for &nbsp;<FONT size="+1"><tt>x1,x2,x3,x4</tt></FONT>&nbsp; in &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; as follows:
+**macro**&nbsp;&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp;&nbsp; in &nbsp;**<i>expr</i>**&nbsp;&nbsp; as follows:
 <pre>
   1+2*2+3*3+4*4              &larr xp(1,2,3,4)
   1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
   1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
 </pre>
-Because operator order matters, &nbsp;`<FONT size="+1"><tt>4</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>3+1</tt></FONT>'&nbsp; behave differently.
-By using &nbsp;`<FONT size="+1"><tt>(3+1)</tt></FONT>'&nbsp; in the fourth argument, operator precedence is maintained.
+Because operator order matters, &nbsp;**4**&nbsp;&nbsp; and &nbsp;**3+1**&nbsp;&nbsp; behave differently.
+By using &nbsp;**(3+1)**&nbsp;&nbsp; in the fourth argument, operator precedence is maintained.
 
-<LI> `<FONT size="+1"><tt>save</tt></FONT>'&nbsp; preserves variables after the preprocessor exits.
+<LI> **save**&nbsp;&nbsp; preserves variables after the preprocessor exits.
 The syntax is:
 <pre>
  % save                       &larr; preserves all variables defined to this point
@@ -758,21 +752,21 @@ The syntax is:
 Only variables in the scalar symbols table are saved.
 
 
-<LI> `<FONT size="+1"><tt>show ...</tt></FONT>'&nbsp; prints various things to standard output:
+<LI> **show ...**&nbsp;&nbsp; prints various things to standard output:
 <pre>
  % show vars        prints out the state of the variables table
  % show lines       echos each line generated to the screen until:
  % show stop        is encountered
 </pre>
 <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-because the vector variables can have arbitrary length, &nbsp;`<FONT size="+1"><tt>show</tt></FONT>'&nbsp; prints only the size of the vector and the first and last entries.  
+because the vector variables can have arbitrary length, &nbsp;**show**&nbsp;&nbsp; prints only the size of the vector and the first and last entries.  
 
-<LI> `<FONT size="+1"><tt>stop [<i>expr</i> msg</tt></FONT>]' : causes the program to stop execution.
-<br> If &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;`<FONT size="+1"><tt>msg</tt></FONT>', if present, is printed to standard out before aborting).
-<br> If &nbsp;`<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; evaluates to 0 the directive has no effect.
-<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;`<FONT size="+1"><tt>exit</tt></FONT>'&nbsp; directive.
+<LI> **stop [<i>expr</i> msg**&nbsp;]' : causes the program to stop execution.
+<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
+<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp;&nbsp; directive.
 
-<LI> `<FONT size="+1"><tt>trace</tt></FONT>'&nbsp;
+<LI> **trace**&nbsp;&nbsp;
 turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
 <pre>
 'trace 0' turns the tracing off
@@ -784,10 +778,10 @@ turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standar
 'trace  ' (no argument) toggles whether it is on or off.
 </pre>
 
-<LI> `<FONT size="+1"><tt>udef [&minus;f]</tt></FONT> <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
-If the &nbsp;`<FONT size="+1"><tt>&minus;f</tt></FONT>'&nbsp;
+<LI> **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
+If the &nbsp;**&minus;f**&nbsp;&nbsp;
 is omitted, _rdfiln_{: style="color: green"} aborts with error if you remove a nonexistent variable.
-If &nbsp;`<FONT size="+1"><tt>&minus;f</tt></FONT>'&nbsp; is included, removing
+If &nbsp;**&minus;f**&nbsp;&nbsp; is included, removing
 nonexistent variable does not generate an error.
 Only scalar and character variables may be deleted.
 
@@ -798,7 +792,7 @@ Only scalar and character variables may be deleted.
 <FN ID=sourcecodes><P>
 
 Source codes the preprocessor uses are found in
-the &nbsp;<FONT size="+1"><tt>slatsm</tt></FONT>&nbsp; directory:
+the &nbsp;**slatsm**&nbsp;&nbsp; directory:
 
 <pre>
    rdfiln.f  The source code for the preprocessor.
@@ -820,8 +814,8 @@ The reader also maintains a table of character variables.  It is kept in the cha
 
 <P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> The ASCII representation of an expression
 is represented to 8 to 9 decimal places; thus ASCII representation of a floating point number has
-less precision than the binary form.  Thus <FONT size="+1"><tt>'{1.2345678987654e-8}'</tt></FONT>
-is turned into <FONT size="+1"><tt>1.2345679e-8</tt></FONT>.
+less precision than the binary form.  Thus **'{1.2345678987654e-8}'**&nbsp;
+is turned into **1.2345679e-8**&nbsp;.
 
 
 {:/comment}
