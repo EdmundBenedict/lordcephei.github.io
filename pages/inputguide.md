@@ -143,8 +143,8 @@ for an example.
 
 The preprocessor's programming language makes it possible for a single file to serve as input for many materials systems in the manner of a database; or as documentation. Also you can easily vary input conditions in a parameteric fashion.  
 
-Other files, not just _ctrl.ext_{: style="color: green"} are first parsed by the preprocessor ---
-files for site positions, Euler angles for noncollinear magnetism, among others.  
+Other files besides _ctrl.ext_{: style="color: green"} are first parsed by the preprocessor ---
+files for site positions, Euler angles for noncollinear magnetism are read through the preprocessor, among others.  
 
 _____________________________________________________________
 

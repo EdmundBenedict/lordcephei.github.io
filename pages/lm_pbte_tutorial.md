@@ -100,8 +100,8 @@ Now the only thing left to do is to rename _actrl.pbte_{: style="color: green"} 
 
 _Note_{: style="color: red"}
 
-+ Lines which begin with ‘#’ are comment lines and are ignored. (More generally, text following a `#’ in any line is ignored).
-+ Lines beginning with ‘%’ are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.
++ Lines which begin with **#* are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
++ Lines beginning with **%** directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.
 
 ##### _2\.Building the input file_
 If you used **blm**{: style="color: blue"} as above to find the empty spheres (ES) you can skip section 2.1 below. It is included here to explain how to add empty spheres to an already existing ctrl file.

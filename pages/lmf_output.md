@@ -34,7 +34,7 @@ explains a block approximately in the order they are made.
 /docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
-The preprocessor [modifies the ctrl file](/docs/input/inputfile/#preprocessor) before it it is parsed for tags.
+The [preprocessor](/docs/input/preprocessor/) [modifies the ctrl file](/docs/input/inputfile/#preprocessor) before it it is parsed for tags.
 Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
