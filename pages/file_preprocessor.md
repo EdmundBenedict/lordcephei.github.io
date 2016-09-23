@@ -101,12 +101,9 @@ Thus these form are ordered by the precedence they take:
 
 1. (_string substitution_) **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
-2. **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
-3. **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
-4. **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
-
-{::comment}
-
+2. (_conditional substitution_) **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
+3. (_vector substitution_) **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
+4. (_expression substitution_) **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
 
 The rules for each of the four kinds are syntax are as follows:
 
@@ -204,11 +201,16 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 
 #### Syntax of Algebraic Expressions
 
-
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>
    {<i>var</i> <i>assignment-op</i> <i>expr</i> [, ... ]}.
 </pre>
+
+{::comment}
+
+
+
+
 Commas separate expressions in the sequence.
 The final may (and typically does) consist of <i>expr</i> only,
 omitting the <FONT size="+1"><tt><i>var <A href="#assignmentops">assignment-op</A></i></tt></FONT> part.
