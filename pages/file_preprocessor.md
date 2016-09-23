@@ -219,9 +219,7 @@ _Note:_{: style="color: red"} **expr** may not contain any whitespace.
 
 The &nbsp;**?:**&nbsp; pair of operators follow a C-like syntax:
 **test**, **expr1**, and **expr2** are all algebraic expressions.  
-If **test** is nonzero,
-**expr1**  is evaluated and becomes the result.  
-Otherwise **expr1** is evaluated and becomes the result.  
+If **test** is nonzero, **expr1**  is evaluated and becomes the result.  Otherwise **expr1** is evaluated and becomes the result.  
 
 #### Assignment Operators
 
@@ -330,8 +328,9 @@ It is STRONGLY ADVISED that you never alter any of these variables.
 /docs/input/preprocessor/#preprocessor-directives
 {:/comment}
 
-+ Lines beginning with **% keyword** are be interpreted as preprocessor directives.  Such lines are not part of the the post-processed input.
-+ Lines which begin with **#** are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
+
++ Lines beginning with &nbsp;**% keyword**&nbsp; are be interpreted as preprocessor directives.  Such lines are not part of the the post-processed input.
++ Lines which begin with &nbsp;**#**&nbsp; are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
 
 Recognized keywords are
 <pre>
@@ -345,27 +344,24 @@ Recognized keywords are
 
 #### Variable declarations and assignments
 {::comment}
-variable-declarations=and-assignments
+/docs/input/preprocessor/#variable-declarations=and-assignments
 {:/comment}
 
-&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>const cconst cvar udef var vec char char0 cchar getenv vfind</tt></FONT>
+&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
 <OL>
 
-<LI> `<FONT size="+1"><tt>const</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>var</tt></FONT>'&nbsp; load or alter the variables table.
+<LI> **const**&nbsp; and &nbsp;var**&nbsp; load or alter the variables table.  <i>Example</i>:
 <pre>
- <i>Example</i>
  % const  myvar=<i>expr</i>
 </pre>
 does two things:
-<pre>
-  (1) add **myvar** to the scalar variables symbols table if it is not there already.
-      `const' and `var' are equivalent in this respect.
+1. adds **myvar** to the scalar variables symbols table if it is not there already.
+      **const** and **var** are equivalent in this respect.
+2. assigns the result of <i>expr</i> to it, if <i>either</i>
+      * you use the **var** directive  <i>or</i>
+      * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-  (2) assign the result of <i>expr</i> to it, if <i>either</i>
-      * you use the `var' directive  <i>or</i>
-      * you use the `const' directive <i>and</i> the variable had not yet been created.
-</pre>
 In other words, if &nbsp;<FONT size="+1"><tt>myvar</tt></FONT>&nbsp;
 already exists prior to the directive,
 &nbsp;<FONT size="+1"><tt>const</tt></FONT>&nbsp; will not alter its value but
@@ -627,10 +623,10 @@ generates
   this is db=1
   this is db=3
 </pre>
-On the <i>first</i> pass, &nbsp;`db'&nbsp; is created and assigned the value &minus;1; then
+On the <i>first</i> pass, &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
 &nbsp;`<FONT size="+1"><tt>db+=2</tt></FONT>'&nbsp; increments &nbsp;<FONT size="+1"><tt>db</tt></FONT>&nbsp; to 1.
 Condition &nbsp;<FONT size="+1"><tt>db<=3</tt></FONT>&nbsp; evaluates to 1 and the loop proceeds.
-<br> On the <i>second</i> pass, &nbsp;`db'&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
+<br> On the <i>second</i> pass, &nbsp;**db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
 &nbsp;`<FONT size="+1"><tt>db+=2</tt></FONT>' increments &nbsp;<FONT size="+1"><tt>db</tt></FONT>&nbsp; to 3.
 <br> On the <i>third</i> pass, &nbsp;`<FONT size="+1"><tt>db</tt></FONT>'&nbsp; increments to 5 causing the condition
 &nbsp;<FONT size="+1"><tt>db<=3</tt></FONT>&nbsp; to become 0.  The loop terminates.
