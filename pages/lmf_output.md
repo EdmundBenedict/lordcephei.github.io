@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Annotation of standard output, program lmf"
+title: "Annotated standard output, program lmf"
 subheadline: ""
 show_meta: false
 teaser: ""
@@ -31,7 +31,7 @@ explains a block approximately in the order they are made.
 
 #### Preprocessor's transformation of the input file
 {::comment}
-/docs/outputs/lmf_output/#preprocessor's-transformation-of-the-input-file
+/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
 The preprocessor modifies the ctrl file before it it is parsed for tags.
@@ -103,11 +103,10 @@ To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`
 [This web page](/docs/input/inputfile/#help-with-finding-tokens) explains
 what `--input` gives you.
 
-After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.
-To see what tags **lmf**{: style="color: blue"} actually reads, use `lmf --show=2` or `lmf --show`.  `--show=2` causes
-**lmf**{: style="color: blue"} to stop after displaying tags.  It is useful if you want to see if **lmf**{:
-style="color: blue"} is doing what you expect.  Use `--show` to proceed with the calculation after display.  It is
-useful if you want to record the input conditions in the output.
+After transformation by the preprocessor, **lmf**{: style="color: blue"} parses for tags and substitutes default values for tags it does not
+find.  To see the value of tags **lmf**{: style="color: blue"} parses, use `lmf --show` or `lmf --show=2`.  The latter causes **lmf**{:
+style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmf**{: style="color: blue"} is doing what
+you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>

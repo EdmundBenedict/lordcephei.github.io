@@ -134,11 +134,14 @@ is parsed and turned in to:
 
         RMAX=3.25
  
-The preprocessor treats text inside brackets {...} as an expression (usually an algebraic expression), which is evaluated and rendered back as an ASCII string.  
+The preprocessor treats text inside brackets {...} as an expression (usually an algebraic expression), which is evaluated and rendered back as an ASCII string.
+See the [annotated lmf output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
+for an example.
 
-The preprocessor’s programming language makes it possible for a single file to serve as input for many materials systems in the manner of a database; or as documentation. Also you can easily vary input conditions in a parameteric fashion.  
+The preprocessor's programming language makes it possible for a single file to serve as input for many materials systems in the manner of a database; or as documentation. Also you can easily vary input conditions in a parameteric fashion.  
 
-Files other than _ctrl.ext_{: style="color: green"} are first parsed by the preprocessor: files for site positions, Euler angles for noncollinear magnetism, among others.  
+Other files, not just _ctrl.ext_{: style="color: green"} are first parsed by the preprocessor ---
+files for site positions, Euler angles for noncollinear magnetism, among others.  
 
 _____________________________________________________________
 
@@ -150,9 +153,9 @@ _____________________________________________________________
 Finding that tags the parser seeks
 : It is often the case that you want to input some information but don't
 know the name of the tag you need.
-: You can get list each tag a particular tool looks for and a synopsis
-of its function by adding `--input` to the command-line.  You can
-usually find what you need by searching for keywords in the text.
+: You can list each tag a particular tool sees with a synopsis
+of its function, by adding `--input` to the command-line.  
+Search for keywords in the text to find what you need.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here to see how --input works.</button>
