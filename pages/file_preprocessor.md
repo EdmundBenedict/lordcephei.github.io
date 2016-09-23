@@ -21,7 +21,10 @@ _____________________________________________________________
 
 _____________________________________________________________
 
-### _Main Features_
+### 1. _Main Features_
+{::comment}
+/docs/input/preprocessor/#main-features
+{:/comment}
 
 The preprocessor allows you to declare variables and evaluate expressions. It also possesses some
 programming language capability, with branching control to skip or loop over a selected block of
@@ -33,10 +36,10 @@ Comments at the beginning of _rdfiln.f_{: style="color: green"}
 document directives it can process.  Here we use _rdfiln_{: style="color: green"}
 as a name for the preprocessor.
 
-#### String Substitution
+#### Contents of curly brackets are substituted
 
-_rdfiln_{: style="color: green"} curly brackets **{...}** specially and substitutes 
-it for for **something-else**.
+_rdfiln_{: style="color: green"} treas curly brackets **{...}** specially and substitutes 
+its contents for for **something-else**.
 Typically **{...}** will contain an algebraic expression, which is evaluated as a binary number and rendered back as an ASCII 
 representation of the number.
 
@@ -71,7 +74,17 @@ _Note:_{: style="color: red"} As _rdfiln_{: style="color: green"} parses a file,
 table.  Variables allocated this way are temporary, however.  When _rdfiln_{: style="color: green"} has finished with whatever it is
 reading, it destroys variables created by preprocessor directives. You can preserve variables for future use with the **% save** directive.
 
-#### Variables Preprocessor Directives
+#### Branching and looping constructs
+{::comment}
+branching-and-looping-constructs
+{:/comment}
+
+You can conditionally read certain lines of a file, or loop over lines multiple times.
+
+### 2. Preprocessor Directives
+{::comment}
+/docs/input/preprocessor/#preprocessor-directives
+{:/comment}
 
 The preprocessor treats the following specially.
 
@@ -87,7 +100,7 @@ The following keywords are directives supported by _rdfiln_{: style="color: gree
    echo exit include includo macro save show stop trace udef      &larr; miscellaneous other constructs
 </pre>
 	
-### _Expression Substitution_
+### 3. _Expression Substitution_
 {::comment}
 /docs/input/preprocessor/#expression-substitution
 {:/comment}
@@ -199,8 +212,9 @@ The general syntax for an expression is a sequence of one or more expressions of
 </pre>
 Commas separate declarations.  Arithmetic operators can be use in place of assignment (**=**), for example
 &nbsp;**{x=3,y=4,x*=y,x*2}**.
-
 The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
+
+_Note:_{: style="color: red"} **expr** may not contain any whitespace.
 
 **expr** has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
@@ -209,7 +223,7 @@ The final expression may (and typically does) consist of an expression only omit
             ~ logical negative (.not.)
               functions abs(), exp(), log(), sin(), asin(), sinh(), cos(), acos()
                         cosh(), tan(), atan(), tanh(), flor(), ceil(), erfc(), sqrt()
-              (flor() rounds to the next lowest integer; ceil() rounds up)
+              Note: flor() rounds to the next lowest integer; ceil() rounds up.
 
        The remaining operators are <i>binary</i>, listed here in order of precedence with associativity
        2.   ^  (exponentiation)
@@ -222,29 +236,27 @@ The final expression may (and typically does) consist of an expression only omit
        10&11 () parentheses 
 </pre>
 
-_Note:_{: style="color: red"} **expr** may not contain any whitespace.
-
-<P> The &nbsp;`<FONT size="+1"><tt>?:</tt></FONT>'&nbsp; pair of operators follow a C-like syntax.
+The &nbsp;**?:**&nbsp; pair of operators follow a C-like syntax.
 <FONT size="+1"><tt><i>test</i></tt></FONT>, <FONT size="+1"><tt><i>expr1</i></tt></FONT>, and <FONT size="+1"><tt><i>expr2</i></tt></FONT>,
 are all algebraic expressions.  
 <br> If &nbsp;<FONT size="+1"><tt><i>test</i></tt></FONT>&nbsp; is nonzero,
 &nbsp;<FONT size="+1"><tt><i>expr1</i></tt></FONT>&nbsp; is evaluated and becomes the result.  
 Otherwise &nbsp;<FONT size="+1"><tt><i>expr2</i></tt></FONT>&nbsp; is evaluated and becomes the result.
 
-<h4><A name="assignmentops"></A>Assignment Operators</h4>
+#### Assignment Operators
 
 The following are the allowed assignment operators:
 <pre>
-       assignment-op         function
-         '='            simple assignment
-         '*='           replace 'var' by var*expr
-         '/='           replace 'var' by var/expr
-         '+='           replace 'var' by var+expr
-         '-='           replace 'var' by var-expr
-         '^-'           replace 'var' by var^expr
+  assignment-op         function
+       '='            simple assignment
+       '*='           replace 'var' by var*expr
+       '/='           replace 'var' by var/expr
+       '+='           replace 'var' by var+expr
+       '-='           replace 'var' by var-expr
+       '^-'           replace 'var' by var^expr
 </pre>
 
-<h3><A name="exprsamples"></A>Examples of expressions</h3>
+#### Examples of expressions
 
 Suppose that the variables table looks like:
 <pre>
@@ -264,8 +276,7 @@ Suppose that the variables table looks like:
     3 blank
 </pre>
 
-<P>
- You can print out the tables of current variables with the &nbsp;`<FONT size="+1"><tt><A href="#showdef">show</A></tt></FONT>'&nbsp; directive.
+_Note:_{: style="color: red"} You can print out the current variables table with the **% show** directive.
  As described in more detail <A href="#variabledecl">below</A>, such a variables table can be created with the following directives:
 <pre>
  % const a=2
@@ -287,7 +298,7 @@ whereas the line
 <pre>
   one quarter is .25</pre>
 
-The following illustrates substitution of character substrings:
+_Example_: character substrings
 <pre>
  % char c half a whole
   To {c(1,3)}ve a cave is to make a {a(2,5)}!
@@ -297,7 +308,7 @@ The following illustrates substitution of character substrings:
   To halve a cave is to make a hole!
 </pre>
 
-The following line illustrates substitution of vector name
+_Example_: vector substitution
 <pre>
   {firstnums}, I caught a hare alive, {nextnums} I let him go again ...
 </pre>
@@ -306,8 +317,9 @@ becomes
   1 2 3 4 5, I caught a hare alive, 6 7 8 9 10  I let him go again ...
 </pre>
 
-The following illustrates nesting of <FONT size="+1"><tt>{...}</tt></FONT>.
-The innermost block s substituted first, as the following illustrates.
+_Example_: Nesting
+The following illustrates nesting to three levels.
+The innermost block is substituted first.
 <pre>
     % const xx{1{2+{3+4}1}} = 2
 </pre>
@@ -330,9 +342,8 @@ or, if <FONT size="+1"><tt><i>k</i></tt></FONT> is zero:
     MODE=C3
 </pre>
 
-<P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the scalar variables table is always initialized with predefined variables
-&nbsp;<FONT size="+1"><tt>t=1</tt></FONT>, &nbsp;<FONT size="+1"><tt>f=0</tt></FONT> and &nbsp;<FONT size="+1"><tt>pi=</tt></FONT>&pi;.  It is STRONGLY ADVISED that you never alter any of these variables.
-
+_Note:_{: style="color: red"} the scalar variables table is always initialized with predefined variables **t=1** and **f=0** and **pi=&pi;.
+It is STRONGLY ADVISED that you never alter any of these variables.
 
 <h2><A name="directives"></A>Preprocessor directives</h2>
 
