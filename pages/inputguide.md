@@ -147,9 +147,17 @@ _____________________________________________________________
 /docs/input/inputfile/#help-with-finding-tokens:-the---input-switch
 {:/comment}
 
+It is often the case that you want to input some information but don't
+know the tag name you need.
 
-To see what a particular tool would try to read, without actually reading
-anything, run your executable code with `--input`, e.g.
+You can get list each tag a particular tool looks for and a synopsis
+of its function by adding `--input` to the command-line.  You can
+usually find what you need by searching for keywords in the text.
+
+<div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click here to see --input does.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/} 
+
 
 ~~~
   lmchk --input
@@ -205,11 +213,10 @@ Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.
 or **SITE_ATOM_XPOS**.  (Note: if this data is given through a site file, 
 all the tags in the **SITE** category will be ignored).
 
-____________________________________________________________
+{::nomarkdown}</div>{:/}
 
-### 3. _Displaying input_
-
-To see what is actually read by a particular tool, run your executable code with `--show=2` or `--show`, e.g.
+Displaying tags read by the parser
+: To see what is actually read by a particular tool, run your tool with `--show=2` or `--show`, e.g.
 
 ~~~
 $ lmchk --show=2

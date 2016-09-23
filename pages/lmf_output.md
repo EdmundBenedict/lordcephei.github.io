@@ -86,12 +86,16 @@ Compare to the original _ctrl.pbte_{: style="color: green"}.
 /docs/outputs/lmf_output/#display-of-tags-parsed-in-the-input-file
 {:/comment}
 
+To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.  [This web
+page](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch) interprets
+what `--input` gives you.
+
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-{::comment}
-Click here to see how to display and interpret what lmf reads from the ctrl file
-{:/comment}
-<button type="button" class="button tiny radius">Click here to see how to display and interpret what lmf reads from the ctrl file.</button>
+Click here to see how to display and interpret what is read from the ctrl file.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
+{::comment}
+<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
+{:/comment}
 
 After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.  By default this
 reading is silent.  You can see what **lmf**{: style="color: blue"} reads (or assigns as defaults) by in inserting a command-line argument
@@ -118,11 +122,11 @@ basis set information from the basp file.  Tokens in
 **EXPRESS_autobas** or **HAM_AUTOBAS**  control what is read from the basp file.
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click here for a description.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/} 
 {::comment}
 Click here for a description.
 {:/comment}
-<button type="button" class="button tiny radius">Click here for a description.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/} 
 
 Basis information (envelope function parmeters, _P_ parameters and information
 about local orbitals) from _basp.pbte_{: style="color: green"}.
