@@ -357,6 +357,7 @@ does two things:
 
 a. adds **myvar** to the scalar variables symbols table if it is not there already.
       **const** and **var** are equivalent in this respect.
+
 b. assigns the result of <i>expr</i> to it, if <i>either</i>
       * you use the **var** directive  <i>or</i>
       * you use the **const** directive <i>and</i> the variable had not yet been created.
@@ -417,7 +418,7 @@ Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered i
 instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
 the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
-3. **char** loads or alters the character table.  <i>Example</i>:
++ **char** loads or alters the character table.  <i>Example</i>:
 <pre>
  % char  c half     a whole      blank
 </pre>
@@ -432,10 +433,10 @@ The last declaration can omit an associated string, in which case its value is a
 
 _Note:_{: style="color: red"} Re-declaration of any previously defined variable will change the contents of the variable.
 
-4. **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
++ **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
 variable is ignored.  Thus &nbsp;**char0**&nbsp; is to &nbsp;**const**&nbsp; as &nbsp;**char**&nbsp; is to &nbsp;**var**&nbsp;.
 
-5. **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
++ **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
 to enable different strings to be loaded depending on the results of the tests.
 The syntax is
 <pre>
@@ -447,13 +448,13 @@ The syntax is
 **nam**&nbsp;&nbsp; takes the
 value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
 
-6. **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
++ **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
 <pre>
 % getenv myhome HOME
 </pre>
  puts the string of your home directory into variable **myhome**.
 
-7. **vec**&nbsp; loads or alters elements in the table of vector variables.
++ **vec**&nbsp; loads or alters elements in the table of vector variables.
 <pre>
  % vec v[n]                      &larr; creates a vector variable of length n
  % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
@@ -467,7 +468,7 @@ value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; ev
 
 _Note:_{: style="color: red"} if **v**&nbsp; is already declared, it is an error to re-declare it.
 
-8. **vfind**&nbsp; finds which element in a vector that matches a specified value.
++ **vfind**&nbsp; finds which element in a vector that matches a specified value.
 The syntax is
 <pre>
  % vfind v(i1:i2)  svar  <i>match-value</i>
