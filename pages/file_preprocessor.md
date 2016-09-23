@@ -495,7 +495,7 @@ If no match is found, **svar**&nbsp; is set to zero.
 
 Branching constructs have a function similar to the C constructs.
 
-1. **if <i>expr</i>**,&nbsp;**elseif <i>expr</i>**,&nbsp;**else**&nbsp; and &nbsp;**endif**&nbsp; are conditional read blocks.
++ **if <i>expr</i>**,&nbsp;**elseif <i>expr</i>**,&nbsp;**else**&nbsp; and &nbsp;**endif**&nbsp; are conditional read blocks.
 Lines between these directives are read or not, depending on the value of &nbsp;**<i>expr</i>**.  <i>Example</i>:
 <pre>
  % if Quartz
@@ -513,7 +513,7 @@ if &nbsp;**Quartz**&nbsp; evaluates to nonzero; otherwise\\
 if &nbsp;**Ag**&nbsp; evaluates to zero; otherwise\\
   &nbsp;**neither is right**&nbsp;
 
-2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
++ **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
 constitutes an expression.
 
 <UL>
