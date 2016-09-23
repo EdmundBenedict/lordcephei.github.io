@@ -81,27 +81,7 @@ branching-and-looping-constructs
 
 You can conditionally read certain lines of a file, or loop over lines multiple times.
 
-### 2. Preprocessor Directives
-{::comment}
-/docs/input/preprocessor/#preprocessor-directives
-{:/comment}
-
-The preprocessor treats the following specially.
-
-+ Lines which begin with **#** are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
-+ Lines beginning with **% directive** are directives to the preprocessor. Directives can perform various functions similar to a normal programming language, such as assigning variables, evaluating expressions, conditionally readings some lines, and repeated loops over sections of input.
-Such lines interpreted as a directive to do something. They will not appear in the preprocessor's output.
-
-The following keywords are directives supported by _rdfiln_{: style="color: green"}:
-<pre>
-   const cconst cvar udef var vec                        &larr; allocate and assign numerical variables
-   char char0 cchar getenv vfind                         &larr; allocate and assign character variables
-   if ifdef ifndef iffile else elseif elseifd endif      &larr; branching construct
-   while repeat end   exit                               &larr; looping and terminating constructs
-   echo include includo macro save show stop trace udef  &larr; miscellaneous
-</pre>
-	
-### 3. _Expression Substitution_
+### 2. _Expression Substitution_
 {::comment}
 /docs/input/preprocessor/#expression-substitution
 {:/comment}
@@ -111,15 +91,15 @@ parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something el
 **strn** must take one of the following syntactical forms.
 If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
 (If it can't match any it aborts).
-These four forms are arranged in the order of precedence
+These four forms are arranged by the precedence they take
 
 1. (_string substitution_)&nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
-2. (_conditional substitution_)&nbsp; **strn** begins with a "**?**".  The result will be conditional on an expression.  See 2 below.
-3. (_vector substitution_)&nbsp; **strn** is the name of a declared vector.  The contents of the vector replace **strn**.  See 3 below.
+2. (_conditional substitution_)&nbsp; **strn** begins with a "**?**".  An expression is evaluated, which determines what string is substituted.  See 2 below.
+3. (_vector substitution_)&nbsp; **strn** is the name of a vector.  The result is the contents of the vector.  See 3 below.
 4. (_expression substitution_)&nbsp; **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
 
-In more detail, the rules are as follows:
+In more detail, the four rules are as follows:
 
 1. **strn** consists of (or begins with) a character variable, say **mychar**.
 
@@ -134,12 +114,13 @@ In more detail, the rules are as follows:
        **{mychar(n1,n2)}** is replaced by the (**n1:n2**) substring of **{mychar}**.\\
        _Example_: If mychar="foo bar", **{mychar(2,3)}** &rarr; **oo**.
 
-      * **(charlst,n)** (index to charlst). **{mychar(charlst,n)}** returns in index an position in **{mychar}**
-       **charlst** is a sequence of characters; **{mychar}** is parsed for characters in **charlst**, returning the index to the **n**1<sup>th</sup> occurrence.
+      * **(charlst,n)** (index to charlst). **{mychar(charlst,n)}** returns in index to **{mychar}**.
+      **{mychar}** is parsed for characters in **charlst**, returning the index to the **n**1<sup>th</sup> occurrence;
+      **charlst** is a sequence of characters.\\
+      **n** is optional: if omitted, the preprocessor uses **n=1**.\\
        _Example_:  let mychar="foo bar" and charlst='abc'.
        Note that "foo bar" contains characters 'b' and 'a'.\\
        **{mychar('abc',2)} &rarr; 6**, because the 6<sup>th</sup> character contains the second occurence of [abc].
-       **n** is optional: if omitted, the preprocessor uses **n=1**.
 
       * **(:e)** returns an index marking last nonblank character in **{mychar}**.\\
          _Example_: If mychar='foo bar', **{mychar(:e)} &rarr; 7**.
@@ -149,31 +130,29 @@ In more detail, the rules are as follows:
        _Example_ If **mychar="foo bar"**, then **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
 
-2. **strn** takes the form **{?~**expr**~**strn1**~**strn2**}**  &nbsp; (the '~' can be any character).\\
+2. **strn** takes the form **{?~expr~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
        **expr** is an algebraic expression; **strn1** and **strn2** are strings.
        _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**.\\
        If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
-       _Example_ **{?~(n<2)~n is less than 2~n is at least 2}** :\\
-           **{...}** becomes &nbsp;&nbsp;"**n is less than 2**"&nbsp;&nbsp; if _n_<2;  otherwise it becomes
+       _Example:_ &nbsp; **{?~(n<2)~n is less than 2~n is at least 2}** :\\
+           **{...}** &nbsp; becomes &nbsp;&nbsp;"**n is less than 2**"&nbsp;&nbsp; if _n_<2;  otherwise it becomes
          **&nbsp;&nbsp;"n is at least 2"&nbsp;&nbsp;**
 
-3. **strn** is name of a vector variable, say **myvec**..
+3. **strn** is name of a vector variable, say **myvec**.
        _rdfiln_{: style="color: green"} replaces  **{myvec}** with a sequence of numbers separated
        by one space, which are the contents of **myvec**.\\
-       _Example_ : suppose **myvec**. has been declared as a 5-element quantity:\\
-         % vec myvec[5] 6-1 6-2 5-2 5-3 4-3\\
+       _Example_ : suppose **myvec**. has been declared as a 5-element quantity in the following way:\\
+         &nbsp;&nbsp; % vec myvec[5] 6-1 6-2 5-2 5-3 4-3\\
        Then &nbsp;**{myvec}**&nbsp; is turned into **5 4 3 2 1** \\
        You can also substitute a single element.  Thus &nbsp;**{myvec(2)}**&nbsp; becomes **4**.
 
-4. **strn** is an algebraic expression composed of numbers, scalar variables,
-       vector variables, and macros, combined with unary and binary operators.
+4. **strn** is an algebraic expression composed of numbers combined with unary and binary operators. The syntax is very similar to the C programming language.
 
-   a.  The syntax is very similar to the C programming language.
-       _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
+   a.  _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
        substitutes the result.
 
-   b. is an extension of a.  **strn**&nbsp; may consist of a sequence of expressions, separated by commas.  For each expression a variable is assigned.
-       Assignment may simple one (**=**) or involve an arithmetic operation, and the last expression need not have an assignment operator, as the examples show.
+   b.  **strn**&nbsp; may consist of a sequence of expressions, separated by commas.   Variable is assigned to each expression.
+       Assignment may simple (**=**) or involve an arithmetic operation; also the last expression need not have an assignment operator.
        _rdfiln_{: style="color: green"} returns the value of the last expression.
        _Examples:_
 <pre>
@@ -189,7 +168,7 @@ Brackets may be nested.
 _rdfiln_{: style="color: green"} will work recursively
 through deeper levels of bracketing, substituting <FONT size="+1"><tt>{..}</tt></FONT> at each level with
 a result before returning to the higher level.  <br>
-<i>Example</i>: Suppose &nbsp;<FONT size="+1"><tt>{foo}</tt></FONT>&nbsp; evaluates to 2. Then:
+<i>Example</i>: Suppose &nbsp;**{foo}**&nbsp; evaluates to **2**. Then:
 <pre>
   {my{foo}bar}</pre>
 will be transformed into
@@ -220,42 +199,41 @@ _Note:_{: style="color: red"} **expr** may not contain any whitespace.
 
 **expr** has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
-       <i>Unary</i> operators take first precedence:
-       1.   - arithmetic negative
-            ~ logical negative (.not.)
-              functions abs(), exp(), log(), sin(), asin(), sinh(), cos(), acos()
-                        cosh(), tan(), atan(), tanh(), flor(), ceil(), erfc(), sqrt()
-              Note: flor() rounds to the next lowest integer; ceil() rounds up.
+    <i>Unary</i> operators take first precedence:
+    1.   - arithmetic negative
+         ~ logical negative (.not.)
+           functions abs(), exp(), log(), sin(), asin(), sinh(), cos(), acos()
+                     cosh(), tan(), atan(), tanh(), flor(), ceil(), erfc(), sqrt()
+           Note: flor() rounds to the next lowest integer; ceil() rounds up.
 
-       The remaining operators are <i>binary</i>, listed here in order of precedence with associativity
-       2.   ^  (exponentiation)
-       3.   *  (times), / (divide), % (modulus)
-       4.   +  (add), - (subtract)
-       5.   <  (.lt.); > (.gt.); = (.eq.); <> (.ne.); <= (.le.);  >= (.ge.)
-       6.   &  (.and.)
-       7.   |  (.or.)
-       8&9  ?: conditional operators, used as: **test**?**expr1**:**expr2**
-       10&11 () parentheses 
+    The remaining operators are <i>binary</i>, listed here in order of precedence with associativity
+    2.   ^  (exponentiation)
+    3.   *  (times), / (divide), % (modulus)
+    4.   +  (add), - (subtract)
+    5.   <  (.lt.); > (.gt.); = (.eq.); <> (.ne.); <= (.le.);  >= (.ge.)
+    6.   &  (.and.)
+    7.   |  (.or.)
+    8&9  ?: conditional operators, used as: **test**?**expr1**:**expr2**
+    10&11 () parentheses 
 </pre>
 
-The &nbsp;**?:**&nbsp; pair of operators follow a C-like syntax.
-<FONT size="+1"><tt><i>test</i></tt></FONT>, <FONT size="+1"><tt><i>expr1</i></tt></FONT>, and <FONT size="+1"><tt><i>expr2</i></tt></FONT>,
-are all algebraic expressions.  
-<br> If &nbsp;<FONT size="+1"><tt><i>test</i></tt></FONT>&nbsp; is nonzero,
-&nbsp;<FONT size="+1"><tt><i>expr1</i></tt></FONT>&nbsp; is evaluated and becomes the result.  
-Otherwise &nbsp;<FONT size="+1"><tt><i>expr2</i></tt></FONT>&nbsp; is evaluated and becomes the result.
+The &nbsp;**?:**&nbsp; pair of operators follow a C-like syntax:
+**test**, **expr1**, and **expr2** are all algebraic expressions.  
+If **test** is nonzero,
+**expr1**  is evaluated and becomes the result.  
+Otherwise **expr1** is evaluated and becomes the result.  
 
 #### Assignment Operators
 
 The following are the allowed assignment operators:
 <pre>
   assignment-op         function
-       '='            simple assignment
-       '*='           replace 'var' by var*expr
-       '/='           replace 'var' by var/expr
-       '+='           replace 'var' by var+expr
-       '-='           replace 'var' by var-expr
-       '^-'           replace 'var' by var^expr
+    '='            simple assignment
+    '*='           replace 'var' by var*expr
+    '/='           replace 'var' by var/expr
+    '+='           replace 'var' by var+expr
+    '-='           replace 'var' by var-expr
+    '^-'           replace 'var' by var^expr
 </pre>
 
 #### Examples of expressions
@@ -300,7 +278,7 @@ whereas the line
 <pre>
   one quarter is .25</pre>
 
-_Example_: character substrings
+_Character Substrings Example_: 
 <pre>
  % char c half a whole
   To {c(1,3)}ve a cave is to make a {a(2,5)}!
@@ -310,7 +288,7 @@ _Example_: character substrings
   To halve a cave is to make a hole!
 </pre>
 
-_Example_: vector substitution
+_Vector Substitution Example_: 
 <pre>
   {firstnums}, I caught a hare alive, {nextnums} I let him go again ...
 </pre>
@@ -319,27 +297,27 @@ becomes
   1 2 3 4 5, I caught a hare alive, 6 7 8 9 10  I let him go again ...
 </pre>
 
-_Example_: Nesting
+_Nesting Example_: 
 The following illustrates nesting to three levels.
-The innermost block is substituted first.
+The innermost block is substituted first.  Beginning with
 <pre>
     % const xx{1{2+{3+4}1}} = 2
 </pre>
-undergoes substitution in three passes
+substitution takes place in three passes:
 <pre>
     % const xx{1{2+71}} = 2
     % const xx{173} = 2
     % const xx173 = 2
 </pre>
 
-The example below combines nesting and <FONT size="+1"><tt>'{?~expr~strn1~strn2}'</tt></FONT> syntax:
+_ Example of **{?~expr~strn1~strn2}** syntax_
 <pre>
     MODE={?~k~B~C}3</pre>
- evaluates to, if <FONT size="+1"><tt><i>k</i></tt></FONT> is nonzero:
+ evaluates to, if _k_ is nonzero:
 <pre>
     MODE=B3
 </pre>
-or, if <FONT size="+1"><tt><i>k</i></tt></FONT> is zero:
+or, if k_ is zero:
 <pre>
     MODE=C3
 </pre>
@@ -347,24 +325,33 @@ or, if <FONT size="+1"><tt><i>k</i></tt></FONT> is zero:
 _Note:_{: style="color: red"} the scalar variables table is always initialized with predefined variables **t=1** and **f=0** and **pi=&pi;.
 It is STRONGLY ADVISED that you never alter any of these variables.
 
-<h2><A name="directives"></A>Preprocessor directives</h2>
+### 3. Preprocessor Directives
+{::comment}
+/docs/input/preprocessor/#preprocessor-directives
+{:/comment}
 
-Lines beginning with `<FONT size="+1"><tt>% keyword</tt></FONT>' are be interpreted as preprocessor
-directives.  Such lines are not part of the the post-processed input.
++ Lines beginning with **% keyword** are be interpreted as preprocessor directives.  Such lines are not part of the the post-processed input.
++ Lines which begin with **#** are comment lines and are ignored. (More generally, text following a **#** in any line is ignored).
+
 Recognized keywords are
 <pre>
-   <A href="#variabledecl">const cconst cvar udef var vec char char0 cchar getenv vfind</A>   &larr; allocate variables and assigns values
-   <A href="#branching">if ifdef ifndef iffile else elseif elseifd endif</A>               &larr; branching constructs for conditional reading of lines
-   <A href="#loops">while repeat end</A>                                               &larr; looping constructs for repeated looping of lines
-   <A href="#misc">echo exit include includo macro save show stop trace udef</A>      &larr; miscellaneous other constructs
+   const cconst cvar udef var vec                        &larr; allocate and assign numerical variables
+   char char0 cchar getenv vfind                         &larr; allocate and assign character variables
+   if ifdef ifndef iffile else elseif elseifd endif      &larr; branching construct
+   while repeat end   exit                               &larr; looping and terminating constructs
+   echo include includo macro save show stop trace udef  &larr; miscellaneous
 </pre>
+	
 
-<h3><A name="variabledecl"></A>Variable declarations and assignments </h3>
+#### Variable declarations and assignments
+{::comment}
+variable-declarations=and-assignments
+{:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>const cconst cvar udef var vec char char0 cchar getenv vfind</tt></FONT>
 
 <OL>
-<A name="constdef"></A>
+
 <LI> `<FONT size="+1"><tt>const</tt></FONT>'&nbsp; and &nbsp;`<FONT size="+1"><tt>var</tt></FONT>'&nbsp; load or alter the variables table.
 <pre>
  <i>Example</i>
@@ -477,7 +464,7 @@ value &nbsp;<FONT size="+1"><tt><i>str1</i></tt></FONT>&nbsp; if &nbsp;<FONT siz
 </pre>
  puts the string of your home directory into variable `<FONT size="+1"><tt>myhome</tt></FONT>.'
 
-<A name="vectordef"></A>
+
 <LI>`<FONT size="+1"><tt>vec</tt></FONT>' loads or alters elements in the table of vector variables.
 <pre>
  % vec v[n]                      &larr; creates a vector variable of length n
@@ -514,7 +501,7 @@ If no match is found, `<FONT size="+1"><tt>svar</tt></FONT>' is set to zero.
 </OL>
 
 
-<h3><A name="branching"></A>Branching constructs</h3>
+#### Branching constructs</h3>
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>if ifdef ifndef iffile else elseif elseifd endif</tt></FONT>
 
 <P> These branching constructs have a function similar to the C constructs
@@ -604,7 +591,7 @@ and &nbsp;`<FONT size="+1"><tt>ifndef</tt></FONT>'&nbsp;  constructs may be nest
 The codes are distributed with <FONT size="+1"><tt>mxlev=6</tt></FONT> (see subroutine <b>rdfile</b>).
 
 
-<h3><A name="loops"></A>Looping constructs</h3>
+#### Looping constructs</h3>
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; <FONT size="+1"><tt>while repeat end</tt></FONT>
 
 <OL>
@@ -618,7 +605,7 @@ Lines inside the loop are repeatedly read until a test expression evaluates to 0
   % end                                                       &larr; return to the `% while' directive unless <i>exprn</i> is 0
 </pre>
 The (optional) expressions `<FONT size="+1"><tt>[<i>expr1</i> <i>expr2</i> ...]</tt></FONT>'
-follow the rules of the &nbsp;`<FONT size="+1"><tt><A href="#constdef">const</A></tt></FONT>'&nbsp; directive.  That is,
+follow the rules of the &nbsp;`<FONT size="+1"><tt></tt></FONT>'&nbsp; directive.  That is,
 <UL>
 <LI> Each of <FONT size="+1"><tt><i>expr1</i></tt></FONT>, <FONT size="+1"><tt><i>expr2</i></tt></FONT>, ... take the form
 &nbsp;`<FONT size="+1"><tt>nam = <i>expr</i></tt></FONT>'&nbsp; or &nbsp;`<FONT size="+1"><tt>nam op= <i>expr</i></tt></FONT>'.
@@ -690,7 +677,7 @@ The nested loops are expanded into:
 
 </OL>
 
-<h3><A name="misc"></A>Other directives</h3>
+#### Other directives</h3>
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;
 <FONT size="+1"><tt>echo exit include includo macro save show stop trace udef</tt></FONT>
@@ -732,7 +719,7 @@ same file.
 <LI> `<FONT size="+1"><tt>includo filename</tt></FONT>'&nbsp; is identical to &nbsp;`<FONT size="+1"><tt>include</tt></FONT>', except that
 <i>rdfiln</i> aborts if &nbsp;`<FONT size="+1"><tt>filename</tt></FONT>'&nbsp; does not exist.
 
-<A name="macrodef"></A>
+
 <LI> `<FONT size="+1"><tt>macro(arg1,arg2,..) <i>expr</i></tt></FONT>'&nbsp; defines a macro which acts in a manner similar to a function.
 <FONT size="+1"><tt>arg1,arg2,...</tt></FONT> are substituted into `<FONT size="+1"><tt><i>expr</i></tt></FONT>'&nbsp; before it is evaluated.
 <br><i>Example</i> :
@@ -774,7 +761,7 @@ The syntax is:
 </pre>
 Only variables in the scalar symbols table are saved.
 
-<A name="showdef"></A>
+
 <LI> `<FONT size="+1"><tt>show ...</tt></FONT>'&nbsp; prints various things to standard output:
 <pre>
  % show vars        prints out the state of the variables table
@@ -810,7 +797,7 @@ Only scalar and character variables may be deleted.
 
 </OL>
 
-<h2><A name="footnotes"></A>Notes</h2>
+<h2>Notes</h2>
 
 <FN ID=sourcecodes><P>
 
@@ -830,7 +817,7 @@ the &nbsp;<FONT size="+1"><tt>slatsm</tt></FONT>&nbsp; directory:
    bin2a.f   converts a binary number into a character string
              (inverse function to a2bin.f).
    mkilst.f  generates a list of integers for looping constructs,
-             as described below. <A href="Integer-list-syntax.html">This page</A> describes the syntax of integer lists.
+             as described below.  describes the syntax of integer lists.
 </pre>
 The reader also maintains a table of character variables.  It is kept in the character array
 <b>ctbl</b>, and is passed as an argument to _rdfiln_{: style="color: green"}.
@@ -840,10 +827,5 @@ is represented to 8 to 9 decimal places; thus ASCII representation of a floating
 less precision than the binary form.  Thus <FONT size="+1"><tt>'{1.2345678987654e-8}'</tt></FONT>
 is turned into <FONT size="+1"><tt>1.2345679e-8</tt></FONT>.
 
-
-<BR><BR><BR><BR><BR><BR><BR><BR>
-<BR><BR><BR><BR><BR><BR><BR><BR>
-<BR><BR><BR><BR><BR><BR><BR><BR>
-</HTML>
 
 {:/comment}
