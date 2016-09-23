@@ -349,7 +349,7 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
++ **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
 <pre>
  % const  myvar=<i>expr</i>
 </pre>
@@ -381,7 +381,7 @@ _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, add
 </pre>
 These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
++ **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
  % cconst <i>test-expr</i> myvar=<i>expr</i>
 </pre>
