@@ -34,20 +34,21 @@ explains a block approximately in the order they are made.
 /docs/outputs/lmf_output/#preprocessor's-transformation-of-the-input-file
 {:/comment}
 
-<div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see the action of the preprocessor.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/} 
+The preprocessor modifies the ctrl file before it it is parsed for tags.
+Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
 
-**lmf**{: style="color: blue"} begins by running the ctrl file through
-the preprocessor.  Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
-Adapting the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
+<div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">
+Click here to see the action of the preprocessor on ctrl.pbte.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/} 
+
+Add `--input` to the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8 --showp
 ~~~
-
-the result below compares side by side the original **ctrl.pbte**{: style="color: green"},
-and its transformation after the preprocessor (the original **ctrl.pbte**{: style="color: green"} was edited slightly)
+The box below compares side by side the original **ctrl.pbte**{: style="color: green"},
+and its transformation by the preprocessor (the original **ctrl.pbte**{: style="color: green"} was edited slightly)
 
 ~~~
 % const nit=10
@@ -91,24 +92,25 @@ SPEC                                             |  SPEC
   ATOM=Te  Z= 52  R= 3.028689  LMX=3  LMXA=3     |    ATOM=Te  Z= 52  R= 3.028689  LMX=3  LMXA=3
 ~~~
 
-Compare to the original _ctrl.pbte_{: style="color: green"}.
-
 {::nomarkdown}</div>{:/}
 
 #### Display tags parsed in the input file
 {::comment}
-/docs/outputs/lmf_output/#display-of-tags-parsed-in-the-input-file
+/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file
 {:/comment}
 
-To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.  [This web
-page](/docs/input/inputfile/#help-with-finding-tokens) interprets
+To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.\\
+[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains
 what `--input` gives you.
 
+To see what tags **lmf**{: style="color: blue"} actually reads, use
+`lmf --show=2` or `lmf --show`.
+
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see how to display and interpret what is read from the ctrl file.
+<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 {::comment}
-<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
+Click here to see how to display and interpret what is read from the ctrl file.
 {:/comment}
 
 After transformation by the preprocessor, lmf parses for tags and substitutes default values for tags it does not find.  By default this

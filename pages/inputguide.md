@@ -147,16 +147,18 @@ _____________________________________________________________
 /docs/input/inputfile/#help-with-finding-tokens
 {:/comment}
 
-Seeing that tags the parser seeks
+Finding that tags the parser seeks
 : It is often the case that you want to input some information but don't
-know the tag name you need.
+know the name of the tag you need.
 : You can get list each tag a particular tool looks for and a synopsis
 of its function by adding `--input` to the command-line.  You can
 usually find what you need by searching for keywords in the text.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here to see how --input works.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/} 
+</div>{::nomarkdown}<div style="display:none;margin:0px 0px 0px -px;" id="input">{:/} 
+
+Example:
 
 ~~~
   lmchk --input
@@ -221,7 +223,7 @@ Displaying tags read by the parser
 $ lmchk --show=2
 ~~~
 The parser will print values each tags as it read (or if not read what default was substituted).
-See the [annotation of lmf output](/docs/outputs/lmf_output/#display-of-tags-parsed-in-the-input-file)
+See the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file)
 for an example.
 
 _____________________________________________________________
