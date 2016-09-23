@@ -381,8 +381,6 @@ _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, add
 </pre>
 These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-{::comment}
-
 2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
 <pre>
  % cconst <i>test-expr</i> myvar=<i>expr</i>
@@ -419,8 +417,6 @@ Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered i
 instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
 the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
-{:/comment}
-
 3. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
  % char  c half     a whole      blank
@@ -448,30 +444,28 @@ The syntax is
 **nam**&nbsp;&nbsp; is the name of the character variable;
  **<i>expr1 expr2</i>**&nbsp; etc are algebraic expressions.
 
-<br> **nam**&nbsp;&nbsp; takes the
+**nam**&nbsp;&nbsp; takes the
 value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
 
-6. **getenv**&nbsp; has a function similar to **char**&nbsp;.
- Only the contents of the variable are read from the unix environment variables table.  Thus
+6. **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
 <pre>
 % getenv myhome HOME
 </pre>
- puts the string of your home directory into variable **myhome**&nbsp;.'
+ puts the string of your home directory into variable **myhome**.
 
 7. **vec**&nbsp; loads or alters elements in the table of vector variables.
 <pre>
  % vec v[n]                      &larr; creates a vector variable of length n
  % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
 </pre>
- Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with
- the following syntax
+ Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with the following syntax
 <pre>
  % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
  % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
 </pre>
  There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
-<br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
- if **v**&nbsp; is already declared, it is an error to re-declare it.
+
+_Note:_{: style="color: red"} if **v**&nbsp; is already declared, it is an error to re-declare it.
 
 8. **vfind**&nbsp; finds which element in a vector that matches a specified value.
 The syntax is
@@ -493,7 +487,11 @@ If no match is found, **svar**&nbsp; is set to zero.
 </pre>
 
 #### Branching constructs
-&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **if ifdef ifndef iffile else elseif elseifd endif**&nbsp;
+{::comment}
+/docs/input/preprocessor/#branching-constructs
+{:/comment}
+
+&nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **if ifdef ifndef iffile else elseif elseifd endif**
 
 <P> These branching constructs have a function similar to the C constructs
 <br> &nbsp;&nbsp; **if {text ;} else if {text ;} else {text ;}**&nbsp;
