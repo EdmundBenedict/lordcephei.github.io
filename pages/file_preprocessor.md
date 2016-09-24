@@ -577,17 +577,17 @@ looping-constructs
 
 2. x **while**&nbsp and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
-
+   <pre>
        % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
        ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
        % end                                            &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
-
+   </pre>
    does two things:
-   * adds **myvar** to the scalar variables symbols table if it is not there already.
-         **const** and **var** are equivalent in this respect.
-   * assigns the result of <i>expr</i> to it, if <i>either</i>
-     * you use the **var** directive  <i>or</i>
-     * you use the **const** directive <i>and</i> the variable had not yet been created.
+     * adds **myvar** to the scalar variables symbols table if it is not there already.
+           **const** and **var** are equivalent in this respect.
+     * assigns the result of <i>expr</i> to it, if <i>either</i>
+       * you use the **var** directive  <i>or</i>
+       * you use the **const** directive <i>and</i> the variable had not yet been created.
 
 {::comment}
 
