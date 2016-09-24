@@ -526,7 +526,7 @@ Branching constructs have a function similar to the C constructs.
    If any of &nbsp;<i>expr1</i>,&nbsp;&nbsp; &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
 
-   <br><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
+   <br><FONT color="#ff0000"><I>Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
    &nbsp;<i>expr1</i><b>|</b><i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and
    &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i>&nbsp; <b>|</b> &nbsp;<i>expr2</i>&nbsp;&nbsp; may
    be nonzero if either is valid.
@@ -540,13 +540,15 @@ Branching constructs have a function similar to the C constructs.
    is nonzero if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;<b>atom</b>&nbsp;&nbsp; is equal to "Mg",
    <i>or</i> if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 1.
 
-   <br> <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT> binary operators
+   <FONT color="#ff0000"><I>Note</I>&nbsp;</FONT> binary operators
    &nbsp;<b>&</b>&nbsp;&nbsp; and &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp; 
    are evaluated left to right: &nbsp;<b>&</b>&nbsp;&nbsp; does not take precedence
-   over &nbsp;<b>|</b>&nbsp;.
+   over &nbsp;<b>|</b>.
+
+   </UL>
 
 
-3. **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**&nbsp;.
+3. **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**.
 
 4. **ifndef** <i>expr</i>&nbsp; ... is the mirror image of &nbsp;**ifdef** <i>expr</i>.
    Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
@@ -554,7 +556,7 @@ Branching constructs have a function similar to the C constructs.
 5. **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
    The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.\\
    _Note:_{: style="color: red"} **if**,&nbsp;&nbsp; &nbsp;**ifdef**,&nbsp;&nbsp;
-   and &nbsp;**ifndef**&nbsp;&nbsp; constructs may be nested to a depth of _mxlev_&nbsp;.
+   and &nbsp;**ifndef**&nbsp;&nbsp; constructs may be nested to a depth of _mxlev_.
    The codes are distributed with _mxlev=6_.
 
 #### Looping constructs
@@ -576,7 +578,7 @@ looping-constructs
    The (optional) expressions **[<i>expr1</i> <i>expr2</i> ...]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive.  That is,
 
-   * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**&nbsp;.
+   * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**.
    * A simple assignment &nbsp;**nam=<i>expr</i>**&nbsp;&nbsp; has effect only when &nbsp;**nam**&nbsp;&nbsp; has not
    yet been loaded into the variables table.  Thus it has effect on the first pass through the
    &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
@@ -617,7 +619,7 @@ looping-constructs
    &nbsp;**<i>list</i>**&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
    more complex sequence,
    e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
-   <A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**&nbsp;.
+   <A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**.
 
    <br><i>Example</i> of nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops (the &nbsp;**while**&nbsp;&nbsp; loop was used above):
    <pre>
@@ -661,7 +663,7 @@ prints
 </pre>
 where &nbsp;**<i>##</i>**&nbsp;&nbsp; is the current line number.
 
-<LI> **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**&nbsp;.
+<LI> **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
 <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
 <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
 <br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
@@ -791,7 +793,7 @@ The reader also maintains a table of character variables.  It is kept in the cha
 <P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> The ASCII representation of an expression
 is represented to 8 to 9 decimal places; thus ASCII representation of a floating point number has
 less precision than the binary form.  Thus **'{1.2345678987654e-8}'**&nbsp;
-is turned into **1.2345679e-8**&nbsp;.
+is turned into **1.2345679e-8**.
 
 
 {:/comment}
