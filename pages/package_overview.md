@@ -218,7 +218,7 @@ There are other auxiliary programs, such as a formatter for setting up energy ba
 
 All executables use a common input system.  It is a unique system that parses
 input in a largely format-free, tree-structured format.  There is some
-programming language capability: e.g. input lines can be conditionally
+[programming language capability](/docs/input/preprocessor/): input lines can be conditionally
 read, you can declare variables and use algebraic expressions.  Thus the
 input file can be [quite simple](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
 or very detailed, even serving as a database for many materials. [This tutorial](https://lordcephei.github.io/docs/input/inputfile/)
