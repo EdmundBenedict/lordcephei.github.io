@@ -68,7 +68,7 @@ Source codes are distributed with **recln0=120**.
 
 _rdfiln_{: style="color: green"} permits three kinds of variables: floating point scalar,
 floating-point vector, and strings.  They can be declared with 
-[preprocessor directives](/docs/input/preprocessor/#variable-declarations=and-assignments).
+[preprocessor directives](/docs/input/preprocessor/#variable-declarations-and-assignments).
 Scalar and character variables can also be declared the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.  
 Symbol tables are maintained for each of the three kinds of variables.
 
@@ -193,9 +193,7 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 #### Syntax of Algebraic Expressions
 
 The general syntax for an expression is a sequence of one or more expressions of the form
-<pre>
-   {<b>name=</b>expr<b>[,name=</b>expr<b>...]</b>}
-</pre>
+<pre>   {<b>name=</b>expr<b>[,name=</b>expr<b>...]</b>}</pre>
 Commas separate declarations.  Arithmetic operators can be use in place of assignment (**=**), for example
 &nbsp;**{x=3,y=4,x*=y,x*2}**.
 The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
@@ -348,7 +346,7 @@ Recognized keywords are
 
 #### Variable declarations and assignments
 {::comment}
-/docs/input/preprocessor/#variable-declarations=and-assignments
+/docs/input/preprocessor/#variable-declarations-and-assignments
 {:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
