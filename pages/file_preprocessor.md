@@ -21,7 +21,7 @@ _____________________________________________________________
 
 _____________________________________________________________
 
-### 1. _Main Features_
+### _Main Features_
 {::comment}
 /docs/input/preprocessor/#main-features
 {:/comment}
@@ -36,7 +36,10 @@ Comments at the beginning of _rdfiln.f_{: style="color: green"}
 document directives it can process.  Here we use _rdfiln_{: style="color: green"}
 as a name for the preprocessor.
 
-#### Contents of curly brackets are substituted
+#### Curly brackets contain expressions
+{::comment}
+/docs/input/preprocessor/#curly-brackets-contain-expressions
+{:/comment}
 
 _rdfiln_{: style="color: green"} treas curly brackets **{...}** specially and substitutes 
 its contents for for **something-else**.
@@ -81,7 +84,7 @@ branching-and-looping-constructs
 
 You can conditionally read certain lines of a file, or loop over lines multiple times.
 
-### 2. _Expression Substitution_
+### _Expression Substitution_
 {::comment}
 /docs/input/preprocessor/#expression-substitution
 {:/comment}
@@ -323,7 +326,7 @@ or, if k_ is zero:
 _Note:_{: style="color: red"} the scalar variables table is always initialized with predefined variables **t=1** and **f=0** and **pi=&pi;.
 It is STRONGLY ADVISED that you never alter any of these variables.
 
-### 3. Preprocessor Directives
+### _Preprocessor Directives_
 {::comment}
 /docs/input/preprocessor/#preprocessor-directives
 {:/comment}
@@ -747,9 +750,7 @@ Branching constructs have a function similar to the C constructs.
    nonexistent variable does not generate an error.
    Only scalar and character variables may be deleted.
 
-
-
-#### Source codes
+### _Source codes_
 {::comment}
 /docs/input/preprocessor/#source-codes
 {:/comment}

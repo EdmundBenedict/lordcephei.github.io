@@ -32,7 +32,7 @@ Each of the &nbsp; <i>strn1</i>, <i>strn2</i>, ... &nbsp; can assume one of the 
 
         low, low+1, low+2, ... high
 
-3.  Three integer expressions separated by colons, viz
+3.  Three integer expressions separated by colons, _viz_
 
         low:high:step
 
@@ -43,10 +43,10 @@ Each of the &nbsp; <i>strn1</i>, <i>strn2</i>, ... &nbsp; can assume one of the 
 
 _Examples_
 <pre>
-  5+1       becomes a single number, 6.
-  5+1:8+2   becomes a sequence of numbers, 6 7 8 9 10
-  5+1:8+2:2 becomes a sequence of numbers, 6 8 10.
-  1:4,7:11  becomes the sequence 1 2 3 4  7 8 9 10 11.
+  5+1         becomes a single number, 6.
+  5+1:8+2     becomes a sequence of numbers, 6 7 8 9 10
+  5+1:8+2:2   becomes a sequence of numbers, 6 8 10.
+  1:4,7:11    becomes the sequence 1 2 3 4  7 8 9 10 11.
 </pre>
 
 
