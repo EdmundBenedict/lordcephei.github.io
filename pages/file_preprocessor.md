@@ -543,9 +543,7 @@ Branching constructs have a function similar to the C constructs.
    <FONT color="#ff0000"><I>Note</I>&nbsp;</FONT> binary operators
    &nbsp;<b>&</b>&nbsp;&nbsp; and &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp; 
    are evaluated left to right: &nbsp;<b>&</b>&nbsp;&nbsp; does not take precedence
-   over &nbsp;<b>|</b>.
-
-   </UL>
+   over &nbsp;<b>|</b>.\\
 
 
 3. **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**.
