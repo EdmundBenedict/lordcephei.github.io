@@ -377,11 +377,11 @@ Note: kramdown needs 3-space indentation for outside list
 
    does the same but assigns 3 to **a**.
 
-   _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, added into,
-    subtracted from or exponentiated into an already-declared variable
+   _Note:_{: style="color: red"} if **myvar** exists, you can
+    multiply, divide, add, subtract from, or exponentiate it with _expr_, 
     using one of the following C-like syntax:
    <pre>
-      myvar*=expr  myvar/=expr  myvar+=expr  myvar-=expr  myvar^=expr
+      myvar*=<i>expr</i>  myvar/=<i>expr</i>  myvar+=<i>expr</i>  myvar-=<i>expr</i>  myvar^=<i>expr</i>
    </pre>
    These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
@@ -441,53 +441,45 @@ Note: kramdown needs 3-space indentation for outside list
 5. **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
    to enable different strings to be loaded depending on the results of the tests.
    The syntax is
-   <pre>
-    % cchar nam  <i>expr1 str1 expr2 str2</i> ...
-   </pre>
+   <pre>% cchar nam  <i>expr1</i> str1 /i>expr2</i> str2 ... </pre>
    **nam**&nbsp;&nbsp; is the name of the character variable;
-    **<i>expr1 expr2</i>**&nbsp; etc are algebraic expressions.
-
+    <i>expr1 expr2</i>&nbsp; etc are algebraic expressions.\\
    **nam**&nbsp;&nbsp; takes the
-   value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
+   value &nbsp;**str1**&nbsp;&nbsp; if &nbsp;<i>expr1</i>&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**str2**&nbsp;&nbsp; if &nbsp;<i>expr2</i>&nbsp;&nbsp; evaluates to nonzero, etc.
 
 6. **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
-   <pre>
-   % getenv myhome HOME
-   </pre>
+   <pre>% getenv myhome HOME </pre>
     puts the string of your home directory into variable **myhome**.
 
 7. **vec**&nbsp; loads or alters elements in the table of vector variables.
-   <pre>
-    % vec v[n]                      &larr; creates a vector variable of length n
-    % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
-   </pre>
-    Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with the following syntax
-   <pre>
-    % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
-    % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
-   </pre>
-    There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
+
+       % vec v[n]                      &larr; creates a vector variable of length n
+       % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
+
+   Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with the following syntax
+<pre>
+ % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
+ % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
+</pre>
+   There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
 
    _Note:_{: style="color: red"} if **v**&nbsp; is already declared, it is an error to re-declare it.
 
 8. **vfind**&nbsp; finds which element in a vector that matches a specified value.
    The syntax is
-   <pre>
-    % vfind v(i1:i2)  svar  <i>match-value</i>
-   </pre>
+   <pre>% vfind v(i1:i2)  svar  <i>match-value</i> </pre>
    **svar**&nbsp; is a scalar variable and
-   **<i>match-value</i>**&nbsp; a number or expression.
+   <i>match-value</i>&nbsp; a number or expression.
    Elements &nbsp;**v(i1:i2)**&nbsp;&nbsp; are parsed.
    &nbsp;**svar**&nbsp;&nbsp; is
    assigned to the the first instance i for which
-   &nbsp;**<tt>v(i)</tt>=<i>match-value</i>**&nbsp;.
-   If no match is found, **svar**&nbsp; is set to zero.
-   <br>&nbsp;&nbsp;<i>Example</i>:
-   <pre>
-    % vec  a[3] 101 2002 30003
-    % vfind a(1:3) k 2002           &larr; sets k=2
-    % vfind a(1:3) k 10             &larr; sets k=0
-   </pre>
+   &nbsp;**v(i)**=<i>match-value</i>&nbsp;.
+   If no match is found, **svar**&nbsp; is set to zero.\\
+   &nbsp;&nbsp;<i>Example</i>:
+
+       % vec  a[3] 101 2002 30003
+       % vfind a(1:3) k 2002           &larr; sets k=2
+       % vfind a(1:3) k 10             &larr; sets k=0
 
 #### Branching constructs
 {::comment}
