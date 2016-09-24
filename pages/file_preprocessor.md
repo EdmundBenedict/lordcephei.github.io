@@ -136,8 +136,8 @@ In more detail, the four rules are as follows:
 
 2. **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
        _expr_ is an algebraic expression; **strn1** and **strn2** are strings.
-       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**.\\
-       If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
+       _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of _expr_.\\
+       If _expr_ evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
        _Example:_ &nbsp; **{?~(n<2)~n is less than 2~n is at least 2}** :\\
            **{...}** &nbsp; becomes &nbsp;&nbsp;"**n is less than 2**"&nbsp;&nbsp; if _n_<2;  otherwise it becomes
          **&nbsp;&nbsp;"n is at least 2"&nbsp;&nbsp;**
@@ -187,22 +187,22 @@ If _rdfiln_{: style="color: green"} cannot evaluate <FONT size="+1"><tt>{my2bar}
  {  ...  my2bar}
 </pre>
 
-_Note:_{: style="color: red"} there is a syntactical difference between **{expr}** and the value of **expr** itself, because
-**{expr}** returns an ASCII representation of **expr**, and precision is lost. Thus &nbsp;**{pi-3}**&nbsp; is replaced by **.141592654**
+_Note:_{: style="color: red"} there is a syntactical difference between **{expr}** and the value of _expr_ itself, because
+**{expr}** returns an ASCII representation of _expr_, and precision is lost. Thus &nbsp;**{pi-3}**&nbsp; is replaced by **.141592654**
 
 #### Syntax of Algebraic Expressions
 
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>
-   {<b>name=expr[,name=expr...]</b>}
+   {<b>name=</b>expr<b>[,name=</b>expr<b>...]</b>}
 </pre>
 Commas separate declarations.  Arithmetic operators can be use in place of assignment (**=**), for example
 &nbsp;**{x=3,y=4,x*=y,x*2}**.
 The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
 
-_Note:_{: style="color: red"} **expr** may not contain any whitespace.
+_Note:_{: style="color: red"} _expr_ may not contain any whitespace.
 
-**expr** has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
+_expr_ has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
     <i>Unary</i> operators take first precedence:
     1.   - arithmetic negative
