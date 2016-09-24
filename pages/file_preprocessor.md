@@ -365,8 +365,6 @@ Recognized keywords are
 % const a=2
 % const a=3</pre>
   incorporate **a** into the symbols table with value 2, while
-
-
     % const a=2
     % var a=3
 
