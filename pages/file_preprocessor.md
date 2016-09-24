@@ -353,9 +353,9 @@ Recognized keywords are
   **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
   <pre>% const  myvar=<i>expr</i></pre>
   does two things:\\
-  a. adds **myvar** to the scalar variables symbols table if it is not there already.
+  * adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.\\
-  b. assigns the result of <i>expr</i> to it, if <i>either</i>
+  * assigns the result of <i>expr</i> to it, if <i>either</i>
 
     + 
     you use the **var** directive  <i>or</i>
