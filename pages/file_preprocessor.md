@@ -606,7 +606,7 @@ Branching constructs have a function similar to the C constructs.
    As with the &nbsp;**while**&nbsp;&nbsp;
    construct, multiple passes are made through the input lines.
    &nbsp;<i>list</i>&nbsp;&nbsp; generates a sequence of integers
-   (see <A href="Integer-list-syntax.html">&nbsp;**this page**&nbsp;</A> for the syntax),
+   (see the [integer list syntax](/docs/input/integerlists/) web page).
    For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
    and the body of the loop passed through.
    &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
@@ -734,7 +734,7 @@ Branching constructs have a function similar to the C constructs.
    turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing.
      + **trace 0** turns the tracing off
      + **trace 1** turns the tracing on at the lowest level.\\
-               rdfiln traces directives having to do with execution flow
+               _rdfiln_{: style="color: green"} traces directives having to do with execution flow
                (**if-else-endif**, **repeat/while-end**).
      + **trace 2** prints some information about most directives.
      + **trace 4** is the most verbose
@@ -777,7 +777,7 @@ the &nbsp;**slatsm**&nbsp; directory:
 _rdfiln_{: style="color: green"} also maintains a table of character variables.  It is kept in the character array
 <b>ctbl</b>, and is passed as an argument to _rdfiln_{: style="color: green"}.
 
-_Note:_{: style="color: red"}&nbsp; the ASCII representation of an expression
-is represented to 8 to 9 decimal places; thus ASCII representation of a floating point number has
-less precision than the binary form.  Thus **'{1.2345678987654e-8}'**&nbsp;
+_Note:_{: style="color: red"}&nbsp; the ASCII representation of a floating-point expression
+is represented to 8 or 9 decimal places; thus it has
+less precision than the binary form.  For example, **'{1.2345678987654e-8}'**&nbsp;
 is turned into **1.2345679e-8**.
