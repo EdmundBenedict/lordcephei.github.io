@@ -523,12 +523,12 @@ Branching constructs have a function similar to the C constructs.
    &nbsp;<b>&</b>&nbsp;&nbsp; or &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
    (<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
    <pre>% ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...   </pre>
-   If any of &nbsp;<i>expr1</i>&nbsp;&nbsp;, &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
+   If any of &nbsp;<i>expr1</i>,&nbsp;&nbsp; &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
 
-   <i><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> 
+   <br><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> 
    the syntactical significance of the spaces.
-   &nbsp;<i>expr1</i>|<i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i> <b>|</b> <i>expr2</i>&nbsp;&nbsp; may be nonzero if either is valid.
+   &nbsp;<i>expr1</i><b>|</b><i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i> <b>|</b> <i>expr2</i>&nbsp;&nbsp; may be nonzero if either is valid.
 
    <LI> <b>ifdef</b>&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
    <pre>
