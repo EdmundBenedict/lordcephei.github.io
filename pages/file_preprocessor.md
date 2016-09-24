@@ -583,8 +583,6 @@ looping-constructs
        ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
        % end                                            &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
 
-
-
    does two things:
    * adds **myvar** to the scalar variables symbols table if it is not there already.
          **const** and **var** are equivalent in this respect.
