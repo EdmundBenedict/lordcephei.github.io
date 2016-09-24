@@ -593,11 +593,9 @@ looping-constructs
    : &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
    &nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
    Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.
-
    Pass 2
    : **db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
    &nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 3.
-
    Pass 3
    :**db**&nbsp;&nbsp; increments to 5 causing the condition
    &nbsp;**db<=3**&nbsp;&nbsp; to become 0.  The loop terminates.
