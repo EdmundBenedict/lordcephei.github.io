@@ -387,32 +387,32 @@ Note: kramdown needs 3-space indentation for outside list
 
 2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
    <pre>% cconst <i>test-expr</i> myvar=<i>expr</i> </pre>
-   **<i>test-expr</i>**&nbsp; is an algebraic expression (e.g., **i==3**)
+   <i>test-expr</i>&nbsp; is an algebraic expression (e.g., **i==3**)
    that evaluates to zero or nonzero. <br>
-   If **<i>test-expr</i>** evaluates to nonzero, the remainder
+   If <i>test-expr</i> evaluates to nonzero, the remainder
    of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
    Otherwise, no further action is taken.
 
    _Example:_  the input segment
-   <pre>
-      % const a=2 b=3 c=4 d=5
-      A={a} B={b} C={c} D={d}
-      % const a=3
-      % var d=-1
-      % const b*=2 c+=3
-      A={a} B={b} C={c} D={d}
-      % cconst b==6  b+=3 c-=3
-      A={a} B={b} C={c} D={d}
-      % cconst b==6  b+=3 c-=3
-      A={a} B={b} C={c} D={d}
-   </pre>
-    generates four lines:
-   <pre>
-      A=2 B=3 C=4 D=5
-      A=2 B=6 C=7 D=-1
-      A=2 B=9 C=4 D=-1
-      A=2 B=9 C=4 D=-1
-   </pre>
+
+       % const a=2 b=3 c=4 d=5
+       A={a} B={b} C={c} D={d}
+       % const a=3
+       % var d=-1
+       % const b*=2 c+=3
+       A={a} B={b} C={c} D={d}
+       % cconst b==6  b+=3 c-=3
+       A={a} B={b} C={c} D={d}
+       % cconst b==6  b+=3 c-=3
+       A={a} B={b} C={c} D={d}
+
+   generates four lines:
+
+       A=2 B=3 C=4 D=5
+       A=2 B=6 C=7 D=-1
+       A=2 B=9 C=4 D=-1
+       A=2 B=9 C=4 D=-1
+
    **a** is unchanged from its initial assignment while **d** changes.
 
    Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
@@ -420,74 +420,74 @@ Note: kramdown needs 3-space indentation for outside list
    the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
 
-2. **char** loads or alters the character table.  <i>Example</i>:
-<pre>
- % char  c half     a whole      blank
-</pre>
-loads the character table as follows:
-<pre>
-     char symbol                     value
-    1 c                               half
-    2 a                               whole
-    3 blank
-</pre>
-The last declaration can omit an associated string, in which case its value is a blank, as &nbsp;**blank**&nbsp; is in this case.
+3. **char** loads or alters the character table.  <i>Example</i>:
 
-_Note:_{: style="color: red"} Re-declaration of any previously defined variable will change the contents of the variable.
+       % char  c half     a whole      blank
 
-+ **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
-variable is ignored.  Thus &nbsp;**char0**&nbsp; is to &nbsp;**const**&nbsp; as &nbsp;**char**&nbsp; is to &nbsp;**var**&nbsp;.
+   loads the character table as follows:
 
-+ **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
-to enable different strings to be loaded depending on the results of the tests.
-The syntax is
-<pre>
- % cchar nam  <i>expr1 str1 expr2 str2</i> ...
-</pre>
-**nam**&nbsp;&nbsp; is the name of the character variable;
- **<i>expr1 expr2</i>**&nbsp; etc are algebraic expressions.
+        char symbol                     value
+       1 c                               half
+       2 a                               whole
+       3 blank
 
-**nam**&nbsp;&nbsp; takes the
-value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
+   The last declaration can omit an associated string, in which case its value is a blank, as &nbsp;**blank**&nbsp; is in this case.
 
-+ **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
-<pre>
-% getenv myhome HOME
-</pre>
- puts the string of your home directory into variable **myhome**.
+   _Note:_{: style="color: red"} Re-declaration of any previously defined variable will change the contents of the variable.
 
-+ **vec**&nbsp; loads or alters elements in the table of vector variables.
-<pre>
- % vec v[n]                      &larr; creates a vector variable of length n
- % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
-</pre>
- Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with the following syntax
-<pre>
- % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
- % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
-</pre>
- There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
+4. **char0**&nbsp; is the same as &nbsp;**char**&nbsp;, except re-assignment of an existing
+   variable is ignored.  Thus &nbsp;**char0**&nbsp; is to &nbsp;**const**&nbsp; as &nbsp;**char**&nbsp; is to &nbsp;**var**&nbsp;.
 
-_Note:_{: style="color: red"} if **v**&nbsp; is already declared, it is an error to re-declare it.
+5. **cchar**&nbsp; is similar to &nbsp;**char**&nbsp;&nbsp; but tests are made
+   to enable different strings to be loaded depending on the results of the tests.
+   The syntax is
+   <pre>
+    % cchar nam  <i>expr1 str1 expr2 str2</i> ...
+   </pre>
+   **nam**&nbsp;&nbsp; is the name of the character variable;
+    **<i>expr1 expr2</i>**&nbsp; etc are algebraic expressions.
 
-+ **vfind**&nbsp; finds which element in a vector that matches a specified value.
-The syntax is
-<pre>
- % vfind v(i1:i2)  svar  <i>match-value</i>
-</pre>
-**svar**&nbsp; is a scalar variable and
-**<i>match-value</i>**&nbsp; a number or expression.
-Elements &nbsp;**v(i1:i2)**&nbsp;&nbsp; are parsed.
-&nbsp;**svar**&nbsp;&nbsp; is
-assigned to the the first instance i for which
-&nbsp;**<tt>v(i)</tt>=<i>match-value</i>**&nbsp;.
-If no match is found, **svar**&nbsp; is set to zero.
-<br>&nbsp;&nbsp;<i>Example</i>:
-<pre>
- % vec  a[3] 101 2002 30003
- % vfind a(1:3) k 2002           &larr; sets k=2
- % vfind a(1:3) k 10             &larr; sets k=0
-</pre>
+   **nam**&nbsp;&nbsp; takes the
+   value &nbsp;**<i>str1</i>**&nbsp;&nbsp; if &nbsp;**<i>expr1</i>**&nbsp;&nbsp; evaluates to nonzero, the value &nbsp;**<i>str2</i>**&nbsp;&nbsp; if &nbsp;**<i>expr2</i>**&nbsp;&nbsp; evaluates to nonzero, etc.
+
+6. **getenv**&nbsp; has a function similar to **char**&nbsp;, only the contents of the variable are read from the unix environment variables table.  Thus
+   <pre>
+   % getenv myhome HOME
+   </pre>
+    puts the string of your home directory into variable **myhome**.
+
+7. **vec**&nbsp; loads or alters elements in the table of vector variables.
+   <pre>
+    % vec v[n]                      &larr; creates a vector variable of length n
+    % vec v[n] n1 n2 n3 ...         &larr; does the same, also setting the first elements
+   </pre>
+    Once **v**&nbsp; has been declared, individual elements of &nbsp;**v**&nbsp;&nbsp; may be set with the following syntax
+   <pre>
+    % vec v(<i>i</i>) <i>n</i>                    &larr; assigns <i>n</i> to v(<i>i</i>)
+    % vec v(<i>i1</i>:<i>in</i>)  <i>n1</i> <i>n2</i> ... <i>nn</i>    &larr; assigns range of elements <i>i1</i>..<i>in</i> to <i>n1 n2 ... nn</i>
+   </pre>
+    There must be exactly **<i>in&minus;i1</i>+1**&nbsp; elements **<i>n1 ... nn</i>**&nbsp;.
+
+   _Note:_{: style="color: red"} if **v**&nbsp; is already declared, it is an error to re-declare it.
+
+8. **vfind**&nbsp; finds which element in a vector that matches a specified value.
+   The syntax is
+   <pre>
+    % vfind v(i1:i2)  svar  <i>match-value</i>
+   </pre>
+   **svar**&nbsp; is a scalar variable and
+   **<i>match-value</i>**&nbsp; a number or expression.
+   Elements &nbsp;**v(i1:i2)**&nbsp;&nbsp; are parsed.
+   &nbsp;**svar**&nbsp;&nbsp; is
+   assigned to the the first instance i for which
+   &nbsp;**<tt>v(i)</tt>=<i>match-value</i>**&nbsp;.
+   If no match is found, **svar**&nbsp; is set to zero.
+   <br>&nbsp;&nbsp;<i>Example</i>:
+   <pre>
+    % vec  a[3] 101 2002 30003
+    % vfind a(1:3) k 2002           &larr; sets k=2
+    % vfind a(1:3) k 10             &larr; sets k=0
+   </pre>
 
 #### Branching constructs
 {::comment}
