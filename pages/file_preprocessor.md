@@ -357,7 +357,6 @@ Recognized keywords are
 
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.
-
   b. assigns the result of <i>expr</i> to it, if <i>either</i>
         * you use the **var** directive  <i>or</i>
         * you use the **const** directive <i>and</i> the variable had not yet been created.
@@ -382,7 +381,7 @@ Recognized keywords are
   </pre>
   These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-1. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
+2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
   <pre>
    % cconst <i>test-expr</i> myvar=<i>expr</i>
   </pre>
