@@ -613,7 +613,7 @@ Branching constructs have a function similar to the C constructs.
    [more complex sequence](/docs/misc/integerlists/), e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
    generates the sequence &nbsp;**1 2 3 6 2**.
 
-   <i>Example:</i>  nested &nbsp;**while**&nbsp and &nbsp;**repeat**&nbsp; loops
+   <i>Example:</i>  nested &nbsp;**while**&nbsp; and &nbsp;**repeat**&nbsp; loops
    <pre>
    % const nm=-3 nn=4
    % while db=-1 db+=2 db<=3
