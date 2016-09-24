@@ -673,7 +673,7 @@ Branching constructs have a function similar to the C constructs.
 4. **includo filename**&nbsp; is identical to &nbsp;**include**&nbsp;, except that
    _rdfiln_{: style="color: green"} aborts if &nbsp;**filename**&nbsp; does not exist.
 
-5. **macro(arg1,arg2,..)** <i>expr</i>&nbsp; defines a macro which acts in a manner similar to a function.
+5. **macro(arg1,arg2,..)** <i>expr</i>&nbsp; defines a macro.
    **arg1,arg2,...**&nbsp; are substituted into <i>expr</i>&nbsp; before it is evaluated.
    <br><i>Example</i> :
    <pre>
@@ -697,14 +697,14 @@ Branching constructs have a function similar to the C constructs.
    The result of xp(1,2,3,3+1) is 27
    The result of xp(1,2,3,(3+1)) is 30
    </pre>
-   **macro**&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp; in &nbsp;**<i>expr</i>**&nbsp; as follows:
+   **macro**&nbsp; merely substitutes 1,2,3,... for &nbsp;**x1,x2,x3,x4**&nbsp; in &nbsp;**<i>expr</i>**&nbsp; as follows:
    <pre>
-   1+2*2+3*3+4*4              &larr xp(1,2,3,4)
-   1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
-   1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
+   1+2*2+3*3+4*4              &larr; xp(1,2,3,4)
+   1+2*2+3*3+4*3+1            &larr; xp(1,2,3,3+1)
+   1+2*2+3*3+4*(3+1)          &larr; xp(1,2,3,(3+1))
    </pre>
-   Because operator order matters, &nbsp;**4**&nbsp; and &nbsp;**3+1**&nbsp; behave differently.
-   By using &nbsp;**(3+1)**&nbsp; in the fourth argument, operator precedence is maintained.
+   Operator order matters, so &nbsp;**4**&nbsp; and &nbsp;**3+1**&nbsp; behave differently.
+   By enclosing the fourth argument in parenthesis, operator precedence is maintained.
 
 6. **save**&nbsp; preserves variables after the preprocessor exits.
    The syntax is:
