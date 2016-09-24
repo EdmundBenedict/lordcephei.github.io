@@ -353,7 +353,7 @@ Recognized keywords are
    <pre>% const  myvar=<i>expr</i></pre>
    does two things:
    * adds **myvar** to the scalar variables symbols table if it is not there already.
-         **const** and **var** are equivalent in this respect.\\
+         **const** and **var** are equivalent in this respect.
    * assigns the result of <i>expr</i> to it, if <i>either</i>
      * you use the **var** directive  <i>or</i>
      * you use the **const** directive <i>and</i> the variable had not yet been created.
@@ -361,13 +361,13 @@ Recognized keywords are
    In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
    &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
 
-     % const a=2
-     % const a=3
+      % const a=2
+      % const a=3
 
    incorporate **a** into the symbols table with value 2, while
 
-     % const a=2
-     % var a=3
+      % const a=2
+      % var a=3
 
    does the same but assigns 3 to **a**.
 
