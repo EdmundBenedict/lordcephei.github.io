@@ -642,77 +642,71 @@ other-directives
 {:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;
-**echo exit include includo macro save show stop trace udef**&nbsp;
+**echo exit include includo macro save show stop trace udef**
 
 1. **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
    <br><i>Example</i> :
    <pre>
-     % echo hello world
+   % echo hello world
    </pre>
    prints
    <pre>
-     #rf    <i>##</i>: hello world
+   #rf    <i>line-no</i>: hello world
    </pre>
-   where &nbsp;**<i>##</i>**&nbsp;&nbsp; is the current line number.
+   where &nbsp;<i>line-no</i>&nbsp;&nbsp; is the current line number.
 
-2. **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
-   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
-   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
-   <br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
+2. **exit [**<i>expr</i>**]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
+   <br> If &nbsp;<i>expr</i>&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
+   <br> If &nbsp;<i>expr</i>&nbsp;&nbsp; evaluates to 0 the directive has no effect.
+   _Note:_{: style="color: red"}&nbsp; compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
 
-3. **include filename**&nbsp;&nbsp; causes
-   _rdfiln_{: style="color: green"} to include the contents file
-   &nbsp;**filename**&nbsp;&nbsp; into the input.
-
-   If &nbsp;**filename**&nbsp; exists,
+3. **include filename**&nbsp; causes _rdfiln_{: style="color: green"} to include the contents file &nbsp;**filename**&nbsp; into the input.
+   <br> If &nbsp;**filename**&nbsp; exists,
    _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
    At that point file pointer returns to the original file.
    If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
-   <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-   **%include**&nbsp;&nbsp; may be nested to a depth of 10.
+   _Notes:_{: style="color: red"}&nbsp; 
+   : **%include**&nbsp; may be nested to a depth of 10.
+   : looping and branching constructs <i>must</i> reside in the same file.
 
-   <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-   looping and branching constructs <i>must</i> reside in the
-   same file.
+4. **includo filename**&nbsp; is identical to &nbsp;**include**&nbsp;, except that
+   _rdfiln_{: style="color: green"} aborts if &nbsp;**filename**&nbsp; does not exist.
 
-4. **includo filename**&nbsp;&nbsp; is identical to &nbsp;**include**&nbsp;, except that
-   <i>rdfiln</i> aborts if &nbsp;**filename**&nbsp;&nbsp; does not exist.
-
-5. **macro(arg1,arg2,..) <i>expr</i>**&nbsp;&nbsp; defines a macro which acts in a manner similar to a function.
-   **arg1,arg2,...**&nbsp; are substituted into **<i>expr</i>**&nbsp;&nbsp; before it is evaluated.
+5. **macro(arg1,arg2,..)** <i>expr</i>&nbsp; defines a macro which acts in a manner similar to a function.
+   **arg1,arg2,...**&nbsp; are substituted into <i>expr</i>&nbsp; before it is evaluated.
    <br><i>Example</i> :
    <pre>
-     % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
-     The result of xp(1,2,3,4) is {xp(1,2,3,4)}
+   % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
+   The result of xp(1,2,3,4) is {xp(1,2,3,4)}
    </pre>
    generates
    <pre>
-     The result of xp(1,2,3,4) is 30
+   The result of xp(1,2,3,4) is 30
    </pre>
-   <P> <FONT color="#0000bb"><I>*Caution</I>&nbsp;</FONT> macros are not quite identical to function declarations.  The following lines illustrate this:
+   _Note:_{: style="color: red"}&nbsp; macros are not quite identical to function declarations.  The following lines illustrate this:
    <pre>
-     % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
-     The result of xp(1,2,3,4) is {xp(1,2,3,4)}
-     The result of xp(1,2,3,3+1) is {xp(1,2,3,3+1)}
-     The result of xp(1,2,3,(3+1)) is {xp(1,2,3,(3+1))}
+   % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
+   The result of xp(1,2,3,4) is {xp(1,2,3,4)}
+   The result of xp(1,2,3,3+1) is {xp(1,2,3,3+1)}
+   The result of xp(1,2,3,(3+1)) is {xp(1,2,3,(3+1))}
    </pre>
    generates
    <pre>
-     The result of xp(1,2,3,4) is 30
-     The result of xp(1,2,3,3+1) is 27
-     The result of xp(1,2,3,(3+1)) is 30
+   The result of xp(1,2,3,4) is 30
+   The result of xp(1,2,3,3+1) is 27
+   The result of xp(1,2,3,(3+1)) is 30
    </pre>
-   **macro**&nbsp;&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp;&nbsp; in &nbsp;**<i>expr</i>**&nbsp;&nbsp; as follows:
+   **macro**&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp; in &nbsp;**<i>expr</i>**&nbsp; as follows:
    <pre>
      1+2*2+3*3+4*4              &larr xp(1,2,3,4)
      1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
      1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
    </pre>
-   Because operator order matters, &nbsp;**4**&nbsp;&nbsp; and &nbsp;**3+1**&nbsp;&nbsp; behave differently.
-   By using &nbsp;**(3+1)**&nbsp;&nbsp; in the fourth argument, operator precedence is maintained.
+   Because operator order matters, &nbsp;**4**&nbsp; and &nbsp;**3+1**&nbsp; behave differently.
+   By using &nbsp;**(3+1)**&nbsp; in the fourth argument, operator precedence is maintained.
 
-6. **save**&nbsp;&nbsp; preserves variables after the preprocessor exits.
+6. **save**&nbsp; preserves variables after the preprocessor exits.
    The syntax is:
    <pre>
     % save                       &larr; preserves all variables defined to this point
@@ -721,21 +715,21 @@ other-directives
    Only variables in the scalar symbols table are saved.
 
 
-7. **show ...**&nbsp;&nbsp; prints various things to standard output:
+7. **show ...**&nbsp; prints various things to standard output:
    <pre>
     % show vars        prints out the state of the variables table
     % show lines       echos each line generated to the screen until:
     % show stop        is encountered
    </pre>
-   <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-   because the vector variables can have arbitrary length, &nbsp;**show**&nbsp;&nbsp; prints only the size of the vector and the first and last entries.  
+   <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT>
+   because the vector variables can have arbitrary length, &nbsp;**show**&nbsp; prints only the size of the vector and the first and last entries.  
 
 8. **stop [<i>expr</i> msg**&nbsp;]' : causes the program to stop execution.
-   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
-   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
-   <br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp;&nbsp; directive.
+   <br> If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+   <br> If &nbsp;**<i>expr</i>**&nbsp; evaluates to 0 the directive has no effect.
+   <br><FONT color="#ff0000"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp; directive.
 
-9. **trace**&nbsp;&nbsp;
+9. **trace**&nbsp;
    turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
    <pre>
    'trace 0' turns the tracing off
@@ -749,9 +743,9 @@ other-directives
 
 10.
    **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
-   If the &nbsp;**&minus;f**&nbsp;&nbsp;
+   If the &nbsp;**&minus;f**&nbsp;
    is omitted, _rdfiln_{: style="color: green"} aborts with error if you remove a nonexistent variable.
-   If &nbsp;**&minus;f**&nbsp;&nbsp; is included, removing
+   If &nbsp;**&minus;f**&nbsp; is included, removing
    nonexistent variable does not generate an error.
    Only scalar and character variables may be deleted.
 
@@ -762,7 +756,7 @@ other-directives
 <FN ID=sourcecodes><P>
 
 Source codes the preprocessor uses are found in
-the &nbsp;**slatsm**&nbsp;&nbsp; directory:
+the &nbsp;**slatsm**&nbsp; directory:
 
 <pre>
    rdfiln.f  The source code for the preprocessor.
@@ -782,7 +776,7 @@ the &nbsp;**slatsm**&nbsp;&nbsp; directory:
 The reader also maintains a table of character variables.  It is kept in the character array
 <b>ctbl</b>, and is passed as an argument to _rdfiln_{: style="color: green"}.
 
-<P> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> The ASCII representation of an expression
+<P> <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT> The ASCII representation of an expression
 is represented to 8 to 9 decimal places; thus ASCII representation of a floating point number has
 less precision than the binary form.  Thus **'{1.2345678987654e-8}'**&nbsp;
 is turned into **1.2345679e-8**.
