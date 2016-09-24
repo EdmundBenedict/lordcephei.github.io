@@ -72,8 +72,8 @@ floating-point vector, and strings.  They can be declared with
 Scalar and character variables can also be declared the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.
 
   * Scalar variables and vector elements can be used in algebraic expressions.
-  * Character variables can be used in string expressions (see below)
-  * Symbol tables are maintained for each of the three kinds of variables.
+  * Character variables can be used in string expressions (see below).
+  * Separate symbol tables are maintained for each of the three kinds of variables.
 
 
 _Note:_{: style="color: red"} As _rdfiln_{: style="color: green"} parses a file, it may create new variables, thus enlarging the symbols
@@ -82,10 +82,11 @@ reading, it destroys variables created by preprocessor directives. You can prese
 
 #### Branching and looping constructs
 {::comment}
-branching-and-looping-constructs
+/docs/input/preprocessor/branching-and-looping-constructs
 {:/comment}
 
-You can conditionally read certain lines of a file, or loop over lines multiple times.
+You can [conditionally read](/docs/input/preprocessor/#branching-constructs)
+certain lines of a file, or [loop over lines](/docs/input/preprocessor/#looping-constructs) multiple times.
 
 ### _Expression Substitution_
 {::comment}
