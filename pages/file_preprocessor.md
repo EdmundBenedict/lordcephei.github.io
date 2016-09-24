@@ -599,17 +599,17 @@ looping-constructs
 
 2. **% repeat**&nbsp;&nbsp; ... &nbsp;**% end**&nbsp;&nbsp; is another looping construct with the syntax
    <pre>
-      % repeat varnam <i>list</i>
-       ...                             &larr; lines parsed for each element in list
-      % end
+   % repeat varnam <i>list</i>
+    ...                             &larr; lines parsed for each element in list
+   % end
    </pre>
    As with the &nbsp;**while**&nbsp;&nbsp;
    construct, multiple passes are made through the input lines.
-   &nbsp;**<i>list</i>**&nbsp;&nbsp; generates a sequence of integers
+   &nbsp;<i>list</i>&nbsp;&nbsp; generates a sequence of integers
    (see <A href="Integer-list-syntax.html">&nbsp;**this page**&nbsp;</A> for the syntax),
    For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
    and the body of the loop passed through.
-   &nbsp;**<i>list</i>**&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
+   &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
    more complex sequence,
    e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
    <A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**.
