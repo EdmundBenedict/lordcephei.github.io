@@ -573,7 +573,7 @@ looping-constructs
    % end                                      &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive:
-     * Each of <i>expr1</i>,&nbsp; <i>expr2</i>,&nbsp;, ... take the form &nbsp;**nam =** <i>expr</i>&nbsp;&nbsp; or &nbsp;**nam op=** <i>expr</i>.
+     * Each of <i>expr1</i>,&nbsp; <i>expr2</i>,&nbsp;, ... take the form &nbsp;**nam=** <i>expr</i>&nbsp;&nbsp; or &nbsp;**nam op=** <i>expr</i>.
      * A simple assignment &nbsp;**nam=**<i>expr</i>&nbsp;&nbsp; has effect only when &nbsp;**nam**&nbsp;&nbsp; has not
       yet been loaded into the variables table.  Thus it has effect on the first pass through the
      &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
