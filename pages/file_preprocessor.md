@@ -358,29 +358,26 @@ Recognized keywords are
      * you use the **var** directive  <i>or</i>
      * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-  In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
-  &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
+   In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
+   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
 
-{::comment}
+     % const a=2
+     % const a=3
 
+   incorporate **a** into the symbols table with value 2, while
 
-    % const a=2
-    % const a=3
+     % const a=2
+     % var a=3
 
-  incorporate **a** into the symbols table with value 2, while
+   does the same but assigns 3 to **a**.
 
-    % const a=2
-    % var a=3
-
-  does the same but assigns 3 to **a**.
-
-  _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, added into,
-   subtracted from or exponentiated into an already-declared variable
-   using one of the following C-like syntax:
-  <pre>
-     myvar*=expr  myvar/=expr  myvar+=expr  myvar-=expr  myvar^=expr
-  </pre>
-  These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
+   _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, added into,
+    subtracted from or exponentiated into an already-declared variable
+    using one of the following C-like syntax:
+   <pre>
+      myvar*=expr  myvar/=expr  myvar+=expr  myvar-=expr  myvar^=expr
+   </pre>
+   These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
 2.
   **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
