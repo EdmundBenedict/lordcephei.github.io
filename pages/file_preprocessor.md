@@ -578,8 +578,7 @@ looping-constructs
       yet been loaded into the variables table.  Thus it has effect on the first pass through the
      &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
 
-   These rules make it very convenient to construct loops, as the following shows.\\
-   &nbsp;&nbsp;<i>Example</i>:
+   These rules make it very convenient to construct loops, as the following example shows.
 
        % udef -f db                       &larr; removes db from symbols table, if it already exists
        % while db=-1 db+=2 db<=3          &larr; db is initialized to -1 only once
@@ -590,8 +589,6 @@ looping-constructs
 
        this is db=1
        this is db=3
-
-{::comment}
 
    On the <i>first</i> pass, &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
    &nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
