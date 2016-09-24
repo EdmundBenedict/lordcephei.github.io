@@ -568,9 +568,9 @@ looping-constructs
 1. **while**&nbsp; and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>
-       % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>            &larr; skip to `% end' if <i>exprn</i> is 0
-       ...                                        &larr; these lines become part of the input while <i>exprn</i> is nonzero
-       % end                                      &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
+   % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>            &larr; skip to `% end' if <i>exprn</i> is 0
+   ...                                        &larr; these lines become part of the input while <i>exprn</i> is nonzero
+   % end                                      &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive.  That is,
      * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**.
