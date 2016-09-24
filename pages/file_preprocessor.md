@@ -709,8 +709,8 @@ Branching constructs have a function similar to the C constructs.
 6. **save**&nbsp; preserves variables after the preprocessor exits.
    The syntax is:
    <pre>
-    % save                       &larr; preserves all variables defined to this point
-    % save <i>name</i> [<i>name2</i> ...]      &larr; saves only variables named
+   % save                       &larr; preserves all variables defined to this point
+   % save <i>name</i> [<i>name2</i> ...]      &larr; saves only variables named
    </pre>
    Only variables in the scalar symbols table are saved.
 
@@ -731,16 +731,14 @@ Branching constructs have a function similar to the C constructs.
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**exit**&nbsp; directive.
 
 9. **trace**&nbsp;
-   turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
-   <pre>
-   'trace 0' turns the tracing off
-   'trace 1' turns the tracing on at the lowest level.
-             rdfiln traces directives having to do with execution flow
-             (if-else-endif, repeat/while-end).
-   'trace 2' prints some information about most directives.
-   'trace 4' is the most verbose
-   'trace  ' (no argument) toggles whether it is on or off.
-   </pre>
+   turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing.
+     + **trace 0** turns the tracing off
+     + **trace 1** turns the tracing on at the lowest level.
+               rdfiln traces directives having to do with execution flow
+               (**if-else-endif**, **repeat/while-end**).
+     + **trace 2** prints some information about most directives.
+     + **trace 4** is the most verbose
+     + **trace  ** (no argument) toggles whether it is on or off.
 
 10.
    **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
