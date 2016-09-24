@@ -610,11 +610,10 @@ Branching constructs have a function similar to the C constructs.
    For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
    and the body of the loop passed through.
    &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
-   more complex sequence,
-   e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
-   [integer list syntax](/docs/input/integerlists/) &nbsp;**1 2 3 6 2**.
+   [more complex sequence](/docs/input/integerlists/), e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
+   generates the sequence &nbsp;**1 2 3 6 2**.
 
-   <i>Example:</i>  nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops
+   <i>Example:</i>  nested &nbsp;**while**&nbsp and &nbsp;**repeat**&nbsp; loops
    <pre>
    % const nm=-3 nn=4
    % while db=-1 db+=2 db<=3
