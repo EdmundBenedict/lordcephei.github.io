@@ -501,15 +501,18 @@ Branching constructs have a function similar to the C constructs.
         neither is right
        % endif
 
-   generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero\\
-   &nbsp;&nbsp;&nbsp;&nbsp; is clear\\
-   otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero\\
-   &nbsp;&nbsp;&nbsp;&nbsp; is bright\\
+   generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero:\\
+   &nbsp;&nbsp;&nbsp;&nbsp; **is clear**\\
+   otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero*\\
+   &nbsp;&nbsp;&nbsp;&nbsp; **is bright**\\
    and otherwise\\
-   &nbsp;&nbsp;&nbsp;&nbsp; neither is right
+   &nbsp;&nbsp;&nbsp;&nbsp; **neither is right**
 
 2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
    constitutes an expression.
+
+
+{::comment}
 
    <UL>
 
@@ -522,9 +525,7 @@ Branching constructs have a function similar to the C constructs.
    a sequence of expressions separated by
    &nbsp;<b>&</b>&nbsp;&nbsp; or &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
    (<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
-   <pre>
-     % ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...
-   </pre>
+   <pre>% ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...   </pre>
    If any of &nbsp;<i>expr1</i>&nbsp;&nbsp;, &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
 
