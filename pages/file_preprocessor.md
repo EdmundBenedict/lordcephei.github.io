@@ -568,8 +568,8 @@ looping-constructs
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>
    % while [<i>expr1</i> <i>expr2</i> ...] <i>test-expr</i> &larr; skip to `% end' if <i>test-expr</i> is 0
-   ...                                 &larr; these lines become part of the input while <i>test-expr</i> is nonzero
-   % end                               &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
+   ...                              &larr; these lines become part of the input while <i>test-expr</i> is nonzero
+   % end                          &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive:
      * Each of <i>expr1</i>,&nbsp; <i>expr2</i>,&nbsp;, ... take the form &nbsp;**nam=** <i>expr</i>&nbsp;&nbsp; or &nbsp;**nam op=** <i>expr</i>.
@@ -578,26 +578,23 @@ looping-constructs
      &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
 
    These rules make it very convenient to construct loops, as the following example shows.
-
-       % udef -f db                   &larr; removes db from symbols table, if it already exists
-       % while db=-1 db+=2 db<=3      &larr; db is initialized to -1 only once
-       this is db={db}                &larr; the body of the loop that becomes the input
-       % end                          &larr; return file pointer to %while until test db<=3 is 0
+   <pre>
+   % udef -f db                   &larr; removes db from symbols table, if it already exists
+   % while db=-1 db+=2 db<=3      &larr; db is initialized to -1 only once
+   this is db={db}                &larr; the body of the loop that becomes the input
+   % end                          &larr; return file pointer to %while until test db<=3 is 0</pre>
    
    generates
 
        this is db=1
        this is db=3
 
-   Pass 1
-   : &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
+   **Pass 1:** &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
    &nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
-   Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.
-   Pass 2
-   : **db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
+   Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.\\
+   **Pass 2:** &nbsp;**db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
    &nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 3.
-   Pass 3
-   :**db**&nbsp;&nbsp; increments to 5 causing the condition
+   **Pass 3:** On the <i>third</i> pass, &nbsp;**db**&nbsp;&nbsp; increments to 5 causing the condition
    &nbsp;**db<=3**&nbsp;&nbsp; to become 0.  The loop terminates.
 
 2. **% repeat**&nbsp;&nbsp; ... &nbsp;**% end**&nbsp;&nbsp; is another looping construct with the syntax
