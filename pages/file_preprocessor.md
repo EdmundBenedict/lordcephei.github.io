@@ -567,9 +567,9 @@ looping-constructs
 1. **while**&nbsp; and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>
-   % while [<i>expr1</i> <i>expr2</i> ...] <i>test-expr</i>        &larr; skip to `% end' if <i>test-expr</i> is 0
-   ...                                    &larr; these lines become part of the input while <i>test-expr</i> is nonzero
-   % end                                  &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
+   % while [<i>expr1</i> <i>expr2</i> ...] <i>test-expr</i> &larr; skip to `% end' if <i>test-expr</i> is 0
+   ...                                 &larr; these lines become part of the input while <i>test-expr</i> is nonzero
+   % end                               &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive:
      * Each of <i>expr1</i>,&nbsp; <i>expr2</i>,&nbsp;, ... take the form &nbsp;**nam=** <i>expr</i>&nbsp;&nbsp; or &nbsp;**nam op=** <i>expr</i>.
@@ -590,12 +590,16 @@ looping-constructs
        this is db=3
 
    Pass 1
-   : On the <i>first</i> pass, &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
+   : &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
    &nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
    Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.
-   <br> On the <i>second</i> pass, &nbsp;**db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
+
+   Pass 2
+   : **db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
    &nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 3.
-   <br> On the <i>third</i> pass, &nbsp;**db**&nbsp;&nbsp; increments to 5 causing the condition
+
+   Pass 3
+   :**db**&nbsp;&nbsp; increments to 5 causing the condition
    &nbsp;**db<=3**&nbsp;&nbsp; to become 0.  The loop terminates.
 
 2. **% repeat**&nbsp;&nbsp; ... &nbsp;**% end**&nbsp;&nbsp; is another looping construct with the syntax
