@@ -559,7 +559,7 @@ Branching constructs have a function similar to the C constructs.
 
 #### Looping constructs
 {::comment}
-looping-constructs
+/docs/input/preprocessor/#looping-constructs
 {:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**
@@ -638,7 +638,7 @@ looping-constructs
 
 #### Other directives
 {::comment}
-other-directives
+/docs/input/preprocessor/#other-directives
 {:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;
@@ -647,21 +647,17 @@ other-directives
 1. **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
    <br><i>Example</i> :
    <pre>
-   % echo hello world
-   </pre>
+   % echo hello world </pre>
    prints
    <pre>
-   #rf    <i>line-no</i>: hello world
-   </pre>
-   where &nbsp;<i>line-no</i>&nbsp;&nbsp; is the current line number.
+   #rf    <i>line-no</i>: hello world  </pre>
+   <i>line-no</i>&nbsp;&nbsp; is the current line number.
 
 2. **exit [**<i>expr</i>**]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
      * If &nbsp;<i>expr</i>&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
      * If &nbsp;<i>expr</i>&nbsp;&nbsp; evaluates to 0 the directive has no effect.
 
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**stop**&nbsp; directive.
-
-{::comment}
 
 3. **include filename**&nbsp; causes _rdfiln_{: style="color: green"} to include the contents file &nbsp;**filename**&nbsp; into the input.
    <br> If &nbsp;**filename**&nbsp; exists,
@@ -672,6 +668,9 @@ other-directives
    _Notes:_{: style="color: red"}&nbsp
      * **%include**&nbsp; may be nested to a depth of 10.
      * looping and branching constructs <i>must</i> reside in the same file.
+
+{::comment}
+
 
 4. **includo filename**&nbsp; is identical to &nbsp;**include**&nbsp;, except that
    _rdfiln_{: style="color: green"} aborts if &nbsp;**filename**&nbsp; does not exist.
