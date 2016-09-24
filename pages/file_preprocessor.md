@@ -667,13 +667,11 @@ Branching constructs have a function similar to the C constructs.
      * If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
    _Notes:_{: style="color: red"}
-      * **%include**&nbsp; may be nested to a depth of 10.
-      * looping and branching constructs <i>must</i> reside in the same file.
+   **%include**&nbsp; may be nested to a depth of 10.&nbsp;
+   Looping and branching constructs <i>must</i> reside in the same file.
 
 4. **includo filename**&nbsp; is identical to &nbsp;**include**&nbsp;, except that
    _rdfiln_{: style="color: green"} aborts if &nbsp;**filename**&nbsp; does not exist.
-
-{::comment}
 
 5. **macro(arg1,arg2,..)** <i>expr</i>&nbsp; defines a macro which acts in a manner similar to a function.
    **arg1,arg2,...**&nbsp; are substituted into <i>expr</i>&nbsp; before it is evaluated.
