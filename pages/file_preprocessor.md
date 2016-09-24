@@ -65,8 +65,11 @@ This maximum length is controlled by parameter **recln0** in the main program.
 Source codes are distributed with **recln0=120**.
 
 #### Variables
+{::comment}
+/docs/input/preprocessor/#variables
+{:/comment}
 
-_rdfiln_{: style="color: green"} permits three kinds of variables: floating point scalar,
+The preprocessor permits three kinds of variables: floating point scalar,
 floating-point vector, and strings.  They can be declared with 
 [preprocessor directives](/docs/input/preprocessor/#variable-declarations-and-assignments).
 Scalar and character variables can also be declared on the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.

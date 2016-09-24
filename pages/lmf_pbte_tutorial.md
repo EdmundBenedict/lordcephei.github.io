@@ -91,7 +91,7 @@ it uses algebraic variables which can be modified on the command line. Thus `lmf
 Generally:
 
 * Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `#' in any line is ignored).
-* Lines beginning with '**%**' are directives to the preprocessor.  
+* Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
 
 <div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here
 to see how variables can be set and used in the ctrl file.</div>
