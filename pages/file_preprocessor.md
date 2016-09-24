@@ -501,38 +501,37 @@ Branching constructs have a function similar to the C constructs.
         neither is right
        % endif
 
-   generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero
-   <pre>     is clear</pre>
-   otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero
-
-       is bright
-
-   and otherwise
-
-       neither is right
+   generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero\\
+   &nbsp;&nbsp;&nbsp;&nbsp; is clear\\
+   otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero\\
+   &nbsp;&nbsp;&nbsp;&nbsp; is bright\\
+   and otherwise\\
+   &nbsp;&nbsp;&nbsp;&nbsp; neither is right
 
 2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
    constitutes an expression.
 
    <UL>
 
-   <LI> **if <i>expr</i>**&nbsp;&nbsp; requires that **<i>expr</i>**&nbsp; be a valid
-   expression, while &nbsp;**ifdef <i>expr</i>**&nbsp; evaluates **<i>expr</i>**&nbsp;
-   as false if it invalid (e.g. it contains an undefined variable).
+   <LI> <b>if</b> <i>expr</i>&nbsp;&nbsp; requires that <i>expr</i>&nbsp; be a valid
+   expression, while &nbsp;</b>ifdef</b> <i>expr</i>&nbsp; evaluates <i>expr</i>&nbsp;
+   as <b>false</b> if it invalid (e.g. it contains an undefined variable).
 
    <LI>
-   **<i>expr</i>**&nbsp;&nbsp; can be an algebraic expression, or
+   <i>expr</i>&nbsp;&nbsp; can be an algebraic expression, or
    a sequence of expressions separated by
-   &nbsp;**&**&nbsp;&nbsp; or &nbsp;&nbsp;**|**&nbsp;&nbsp;
+   &nbsp;<b>&</b>&nbsp;&nbsp; or &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
    (<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
    <pre>
      % ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...
    </pre>
-   If any of &nbsp;**<i>expr1</i>**&nbsp;&nbsp;, &nbsp;**<i>expr2</i>**&nbsp;&nbsp;, ... evaluate to nonzero, the result
+   If any of &nbsp;<i>expr1</i>&nbsp;&nbsp;, &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
-   <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
-   &nbsp;**<i>expr1</i>|<i>expr2</i>**&nbsp;&nbsp; cannot be evaluated unless both &nbsp;**<i>expr1</i>**&nbsp;&nbsp; and &nbsp;**<i>expr2</i>**&nbsp;&nbsp; are valid expressions, while &nbsp;**<i>expr1</i> | <i>expr2</i>**&nbsp;&nbsp; may be nonzero if either is valid.
-   <LI> **ifdef**&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
+
+   _Note:_{: style="color: red"} the syntactical significance of the spaces.
+   &nbsp;<i>expr1</i>|<i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i> <b>|</b> <i>expr2</i>&nbsp;&nbsp; may be nonzero if either is valid.
+
+   <LI> <b>ifdef</b>&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
    <pre>
       char-variable            &larr; T if char-variable exists, otherwise F
       char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i>
