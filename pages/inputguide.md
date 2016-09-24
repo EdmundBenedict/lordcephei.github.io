@@ -395,7 +395,7 @@ RPAD | r | | Y | 0 | Scale rcutoff by RPAD when lattice vectors padded in oblong
 
 This category contains parameters defining the one-particle hamiltonian.  
 
-Pportions of HAM are read by these codes: 
+Portions of HAM are read by these codes: 
 
 ~~~
 lm

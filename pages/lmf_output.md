@@ -161,7 +161,9 @@ The output is quite verbose so only a snippet from the **SPEC** category is show
 {:/comment}
 
 After parsing the ctrl file, **lmf**{: style="color: blue"} may attempt to read
-basis set information from the basp file.  Tokens in
+basis set information from the basp file.  
+The basp file is [automatically generated](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set)
+by **lmfa**{: style="color: blue"}.  Tokens in
 **EXPRESS_autobas** or **HAM_AUTOBAS**  control what is read from the basp file.
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -171,8 +173,10 @@ basis set information from the basp file.  Tokens in
 Click here for a description.
 {:/comment}
 
-_basp.pbte_{: style="color: green"} supplies basis information (envelope function parmeters, _P_ parameters and information
-about local orbitals).
+_basp.pbte_{: style="color: green"} supplies basis information (parameters **EH** and **RSMH** defining the 
+shape of the envelope functions, 
+["continuous principal quantum numbers](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/) _P_
+and information about local orbitals).
 
 ~~~
  rdctrl: reading basis parameters from file basp
