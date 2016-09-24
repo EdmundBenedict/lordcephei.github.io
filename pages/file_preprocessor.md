@@ -356,6 +356,7 @@ Recognized keywords are
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.\\
   b. assigns the result of <i>expr</i> to it, if <i>either</i>
+
         * you use the **var** directive  <i>or</i>
         * you use the **const** directive <i>and</i> the variable had not yet been created.
 
