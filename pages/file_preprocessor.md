@@ -130,11 +130,11 @@ In more detail, the four rules are as follows:
        **{mychar('abc',2)} &rarr; 6**, because the 6<sup>th</sup> character contains the second occurence of [abc].
 
       * **(:e)** returns an index marking last nonblank character in **{mychar}**.\\
-         _Example_: If mychar='foo bar', **{mychar(:e)} &rarr; 7**.
+         _Example_: If mychar='foo bar',&nbsp;&nbsp; **{mychar(:e)} &rarr; 7**.
 
       * **(/'strn1'/'strn2'/,n1,n2)** substitutes **strn2** for **strn1**.\\
        Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.\\
-       _Example_ If **mychar="foo bar"**, then **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
+       _Example_ If **mychar="foo bar"**, then &nbsp; **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
 
 2. **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
@@ -176,12 +176,10 @@ _rdfiln_{: style="color: green"} will work recursively
 through deeper levels of bracketing, substituting <FONT size="+1"><tt>{..}</tt></FONT> at each level with
 a result before returning to the higher level.  <br>
 <i>Example</i>: Suppose &nbsp;**{foo}**&nbsp; evaluates to **2**. Then:
-<pre>
-  {my{foo}bar}</pre>
+<pre>  {my{foo}bar}</pre>
 will be transformed into
-<pre>
-  {my2bar}</pre>
-and finally the result of &nbsp;<FONT size="+1"><tt>{my2bar}</tt></FONT>&nbsp; evaluated.
+<pre>  {my2bar}</pre>
+and finally the result of &nbsp;**{my2bar}**&nbsp; evaluated.
 
 If _rdfiln_{: style="color: green"} cannot evaluate <FONT size="+1"><tt>{my2bar}</tt></FONT> it will abort with a message similar to this one:
 <pre>
