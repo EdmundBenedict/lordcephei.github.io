@@ -19,21 +19,27 @@ The syntax is a sequence of strings separated by commas:
        <i>strn1</i>,<i>strn2</i>,...
 </pre>
 
-Each of the &nbsp <i>strn1</i>, <i>strn2</i>, ... &nbsp; assumes one of the following three forms:
+Each of the &nbsp; <i>strn1</i>, <i>strn2</i>, ... &nbsp; can assume one of the following three forms:
 
-<pre>
-   (a)   a single integer or algebraic expression
 
-   (b)   two integer expressions separated by a colon, viz
-            low:high
-         It gets expanded into:
-            low, low+1, low+2, ... high
+1.  a single integer or algebraic expression
 
-   (c)   Three integer expressions separated by colons, viz 
-            low:high:step
-         It gets expanded into:
-            low, low+step, low+2*step, ... high
-</pre>
+2.  two integer expressions separated by a colon, viz\\
+
+        low:high
+
+    gets expanded into:
+
+        low, low+1, low+2, ... high
+
+3.  Three integer expressions separated by colons, viz
+
+        low:high:step
+
+    gets expanded into:
+
+        low, low+step, low+2*step, ... high
+
 
 _Examples_
 <pre>

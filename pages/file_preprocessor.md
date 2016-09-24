@@ -612,7 +612,7 @@ Branching constructs have a function similar to the C constructs.
    &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
    more complex sequence,
    e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
-   <A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**.
+   [integer list syntax](/docs/input/integerlists/) &nbsp;**1 2 3 6 2**.
 
    <i>Example:</i>  nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops
    <pre>
