@@ -97,11 +97,11 @@ If _rdfiln_{: style="color: green"} cannot match the first form, it tries the se
 (If it can't match any it aborts).
 These four forms are as follows, arranged by the precedence they assume
 
-1 (_string substitution_): &nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
+  1 (_string substitution_): &nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
-2 (_conditional substitution_): &nbsp; **strn** begins with a "**?**".  An expression is evaluated, which determines what string is substituted.  See 2 below.
-3 (_vector substitution_): &nbsp; **strn** is the name of a vector.  The result is the contents of the vector.  See 3 below.
-4 (_expression substitution_): &nbsp; **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
+  2 (_conditional substitution_): &nbsp; **strn** begins with a "**?**".  An expression is evaluated, which determines what string is substituted.  See 2 below.
+  3 (_vector substitution_): &nbsp; **strn** is the name of a vector.  The result is the contents of the vector.  See 3 below.
+  4 (_expression substitution_): &nbsp; **strn** an algebraic expression.  Expressions use C-like syntax.  See 4 below.
 
 In more detail, the four rules are as follows:
 
