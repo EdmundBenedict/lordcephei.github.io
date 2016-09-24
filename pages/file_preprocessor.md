@@ -349,11 +349,11 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-1  **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
+1.
+  **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
   <pre>
    % const  myvar=<i>expr</i></pre>
-  does two things:
-
+  does two things:\\
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.\\
   b. assigns the result of <i>expr</i> to it, if <i>either</i>
@@ -380,7 +380,8 @@ Recognized keywords are
   </pre>
   These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
+2.
+  **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
   <pre>
    % cconst <i>test-expr</i> myvar=<i>expr</i>
   </pre>
@@ -415,6 +416,8 @@ Recognized keywords are
   Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
   instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
   the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
+
+{::comment}
 
 2. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
