@@ -109,7 +109,7 @@ In more detail, the four rules are as follows:
 
    a. **strn** is a character variable.
        _rdfiln_{: style="color: green"} replaces **{mychar}** with contents of **mychar**.\\
-       _Example_: If mychar='foo bar', **{mychar} &rarr; foo bar**.
+       _Example_: If mychar='foo bar', &nbsp;&nbsp;  **{mychar} &rarr; foo bar**.
 
    b. **strn** is a character variable followed by a qualifier (...),
        which must be one of the following:
@@ -134,8 +134,8 @@ In more detail, the four rules are as follows:
        _Example_ If **mychar="foo bar"**, then **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
 
-2. **strn** takes the form **{?~expr~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
-       **expr** is an algebraic expression; **strn1** and **strn2** are strings.
+2. **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
+       _expr_ is an algebraic expression; **strn1** and **strn2** are strings.
        _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of **expr**.\\
        If **expr** evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
        _Example:_ &nbsp; **{?~(n<2)~n is less than 2~n is at least 2}** :\\
