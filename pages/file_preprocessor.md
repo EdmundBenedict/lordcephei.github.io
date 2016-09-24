@@ -152,19 +152,20 @@ In more detail, the four rules are as follows:
 
 4. **strn** is an algebraic expression composed of numbers combined with unary and binary operators. The syntax is very similar to the C programming language.
 
-   a.  _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
+   _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
        substitutes the result.
 
-   b.  **strn**&nbsp; may consist of a sequence of expressions, separated by commas.   Variable is assigned to each expression.
-       Assignment may simple (**=**) or involve an arithmetic operation; also the last expression need not have an assignment operator.
-       _rdfiln_{: style="color: green"} returns the value of the last expression.
+   **strn**&nbsp; may consist of a sequence of expressions, separated by commas.
+   _rdfiln_{: style="color: green"} returns the value of the last expression.
+   A variable should be assigned to each expression, except possibly the last.
+   Assignment may simple (**=**) or involve an arithmetic operation.
        _Examples:_
-<pre>
+   <pre>
      {x=3}               &larr;  assigns x to 3 and returns '3'
      {x=3,y=4}           &larr;  assigns x to 3 and y to 4, and returns '4'
      {x=3,y=4,x*=y}      &larr;  assigns x to 3*4 and y to 4, and returns '4'
      {x=3,y=4,x*=y,x*2}  &larr;  assigns x to 3*4 and y to 4, and returns '24'
-</pre>
+   </pre>
 
 #### Further properties of curly brackets
 
