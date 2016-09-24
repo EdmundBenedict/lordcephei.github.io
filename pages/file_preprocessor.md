@@ -750,9 +750,10 @@ Branching constructs have a function similar to the C constructs.
 
 
 
-#### Notes
-
-<FN ID=sourcecodes><P>
+#### Source codes
+{::comment}
+/docs/input/preprocessor/#source-codes
+{:/comment}
 
 Source codes the preprocessor uses are found in
 the &nbsp;**slatsm**&nbsp; directory:
@@ -761,7 +762,7 @@ the &nbsp;**slatsm**&nbsp; directory:
    rdfiln.f  The source code for the preprocessor.
              Subroutine <b>rdfile</b> parses an entire file and returns
              a preprocessed one, can be found in rdfiln.f
-             The key subroutine is _rdfiln_{: style="color: green"}, which parses one line of a file.
+             The key subroutine is <b>rdfiln</b>, which parses one line of a file.
    symvar.f  maintains the table of variables for floating point scalars.
    symvec.f  maintains the table of vector variables.
    a2bin.f   evaluates ASCII representations of algebraic expressions using a
@@ -772,13 +773,11 @@ the &nbsp;**slatsm**&nbsp; directory:
    mkilst.f  generates a list of integers for looping constructs,
              as described below.  describes the syntax of integer lists.
 </pre>
-The reader also maintains a table of character variables.  It is kept in the character array
+
+_rdfiln_{: style="color: green"} also maintains a table of character variables.  It is kept in the character array
 <b>ctbl</b>, and is passed as an argument to _rdfiln_{: style="color: green"}.
 
-<P> <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT> The ASCII representation of an expression
+_Note:_{: style="color: red"}&nbsp; the ASCII representation of an expression
 is represented to 8 to 9 decimal places; thus ASCII representation of a floating point number has
 less precision than the binary form.  Thus **'{1.2345678987654e-8}'**&nbsp;
 is turned into **1.2345679e-8**.
-
-
-{:/comment}
