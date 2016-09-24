@@ -349,21 +349,23 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-1.
-  **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
-  <pre>% const  myvar=<i>expr</i></pre>
-  does two things:
-  * adds **myvar** to the scalar variables symbols table if it is not there already.
-        **const** and **var** are equivalent in this respect.\\
-  * assigns the result of <i>expr</i> to it, if <i>either</i>
+1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
+   <pre>% const  myvar=<i>expr</i></pre>
+   does two things:
+   * adds **myvar** to the scalar variables symbols table if it is not there already.
+         **const** and **var** are equivalent in this respect.\\
+   * assigns the result of <i>expr</i> to it, if <i>either</i>
 
-    + 
-    you use the **var** directive  <i>or</i>
-    +
-    you use the **const** directive <i>and</i> the variable had not yet been created.
+     + 
+     you use the **var** directive  <i>or</i>
+     +
+     you use the **const** directive <i>and</i> the variable had not yet been created.
 
   In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
+
+{::comment}
+
 
     % const a=2
     % const a=3
@@ -420,7 +422,6 @@ Recognized keywords are
   instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
   the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
-{::comment}
 
 2. **char** loads or alters the character table.  <i>Example</i>:
 <pre>
