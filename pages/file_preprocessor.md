@@ -675,7 +675,7 @@ Branching constructs have a function similar to the C constructs.
 
 5. **macro(arg1,arg2,..)** <i>expr</i>&nbsp; defines a macro.
    **arg1,arg2,...**&nbsp; are substituted into <i>expr</i>&nbsp; before it is evaluated.
-   <br><i>Example</i> :
+   <i>Example</i> :
    <pre>
    % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
    The result of xp(1,2,3,4) is {xp(1,2,3,4)}
@@ -699,9 +699,9 @@ Branching constructs have a function similar to the C constructs.
    </pre>
    **macro**&nbsp; merely substitutes 1,2,3,... for &nbsp;**x1,x2,x3,x4**&nbsp; in &nbsp;**<i>expr</i>**&nbsp; as follows:
    <pre>
-   1+2*2+3*3+4*4              &larr; xp(1,2,3,4)
-   1+2*2+3*3+4*3+1            &larr; xp(1,2,3,3+1)
-   1+2*2+3*3+4*(3+1)          &larr; xp(1,2,3,(3+1))
+   1+2*2+3*3+4*4            &larr; xp(1,2,3,4)
+   1+2*2+3*3+4*3+1          &larr; xp(1,2,3,3+1)
+   1+2*2+3*3+4*(3+1)        &larr; xp(1,2,3,(3+1))
    </pre>
    Operator order matters, so &nbsp;**4**&nbsp; and &nbsp;**3+1**&nbsp; behave differently.
    By enclosing the fourth argument in parenthesis, operator precedence is maintained.
@@ -709,17 +709,17 @@ Branching constructs have a function similar to the C constructs.
 6. **save**&nbsp; preserves variables after the preprocessor exits.
    The syntax is:
    <pre>
-   % save                       &larr; preserves all variables defined to this point
-   % save <i>name</i> [<i>name2</i> ...]      &larr; saves only variables named
+   % save                   &larr; preserves all variables defined to this point
+   % save <i>name</i> [<i>name2</i> ...]  &larr; saves only variables named
    </pre>
    Only variables in the scalar symbols table are saved.
 
 
 7. **show ...**&nbsp; prints various things to standard output:
    <pre>
-   % show vars        prints out the state of the variables table
-   % show lines       echos each line generated to the screen until:
-   % show stop        is encountered
+   % show vars              &larr; prints out the state of the variables table
+   % show lines             &larr; echos each line generated to the screen until:
+   % show stop              &larr; is encountered
    </pre>
    _Note:_{: style="color: red"}&nbsp;
    because the vector variables can have arbitrary length, &nbsp;**show**&nbsp; prints only the size of the vector and the first and last entries.  
@@ -733,12 +733,12 @@ Branching constructs have a function similar to the C constructs.
 9. **trace**&nbsp;
    turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing.
      + **trace 0** turns the tracing off
-     + **trace 1** turns the tracing on at the lowest level.
+     + **trace 1** turns the tracing on at the lowest level.\\
                rdfiln traces directives having to do with execution flow
                (**if-else-endif**, **repeat/while-end**).
      + **trace 2** prints some information about most directives.
      + **trace 4** is the most verbose
-     + **trace  ** (no argument) toggles whether it is on or off.
+     + **trace** (no argument) toggles whether it is on or off.
 
 10.
    **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
