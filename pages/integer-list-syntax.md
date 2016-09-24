@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Syntax of integer lists" 
-permalink: "/docs/input/integerlists/"
+permalink: "/misc/integerlists/"
 header: no
 ---
 
@@ -9,11 +9,11 @@ header: no
 
 Integer lists are used in a wide variety of contexts, e.g. in the preprocessor
 [**repeat**](/docs/input/preprocessor/#looping-constructs) directive.
+This web page documents the syntax of integer lists.
 
 _____________________________________________________________
 
-
-The syntax is a sequence of strings separated by commas:
+Integer lists consist of a sequence of strings separated by commas:
 
 <pre>
        <i>strn1</i>,<i>strn2</i>,...
@@ -24,11 +24,11 @@ Each of the &nbsp; <i>strn1</i>, <i>strn2</i>, ... &nbsp; can assume one of the 
 
 1.  a single integer or algebraic expression
 
-2.  two integer expressions separated by a colon, viz\\
+2.  two integer expressions separated by a colon, _viz_
 
         low:high
 
-    gets expanded into:
+    gets expanded into
 
         low, low+1, low+2, ... high
 
@@ -51,5 +51,4 @@ _Examples_
 
 
 _Note:_{: style="color: red"}&nbsp; _slatsm/mkilst_{: style="color: green"}
-contains the source the code for generating integer lists
-
+contains the source the code for generating integer lists.
