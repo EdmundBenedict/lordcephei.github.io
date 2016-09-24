@@ -95,7 +95,7 @@ parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something el
 **strn** must take one of the following syntactical forms.
 If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
 (If it can't match any it aborts).
-These four forms are as follows, arranged by the precedence they assume
+These four forms are as follows, arranged by the precedence they assume:
 
   1 (_string substitution_): &nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
    The variable _may_ be followed by a qualification (see 1a and 1b below).   
