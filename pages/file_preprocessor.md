@@ -511,9 +511,6 @@ Branching constructs have a function similar to the C constructs.
 2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
    constitutes an expression.
 
-
-{::comment}
-
    <UL>
 
    <LI> <b>if</b> <i>expr</i>&nbsp;&nbsp; requires that <i>expr</i>&nbsp; be a valid
@@ -529,7 +526,8 @@ Branching constructs have a function similar to the C constructs.
    If any of &nbsp;<i>expr1</i>&nbsp;&nbsp;, &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
 
-   _Note:_{: style="color: red"} the syntactical significance of the spaces.
+   <i><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> 
+   the syntactical significance of the spaces.
    &nbsp;<i>expr1</i>|<i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i> <b>|</b> <i>expr2</i>&nbsp;&nbsp; may be nonzero if either is valid.
 
    <LI> <b>ifdef</b>&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
