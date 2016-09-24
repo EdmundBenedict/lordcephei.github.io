@@ -647,10 +647,12 @@ Branching constructs have a function similar to the C constructs.
 1. **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
    <br><i>Example</i> :
    <pre>
-   % echo hello world </pre>
+   % echo hello world 
+   </pre>
    prints
    <pre>
-   #rf    <i>line-no</i>: hello world  </pre>
+   #rf    <i>line-no</i>: hello world
+   </pre>
    <i>line-no</i>&nbsp;&nbsp; is the current line number.
 
 2. **exit [**<i>expr</i>**]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
@@ -660,10 +662,9 @@ Branching constructs have a function similar to the C constructs.
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**stop**&nbsp; directive.
 
 3. **include filename**&nbsp; causes _rdfiln_{: style="color: green"} to include the contents file &nbsp;**filename**&nbsp; into the input.
-   <br> If &nbsp;**filename**&nbsp; exists,
-   _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
-   At that point file pointer returns to the original file.
-   If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
+     * If &nbsp;**filename**&nbsp; exists, _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until
+       no further lines are to be read.  At that point file pointer returns to the original file.
+     * If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
    _Notes:_{: style="color: red"}&nbsp
      * **%include**&nbsp; may be nested to a depth of 10.
