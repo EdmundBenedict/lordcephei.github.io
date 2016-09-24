@@ -120,7 +120,7 @@ Add `--show=2` to the command from the PbTe tutorial:
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8 --show=2
 ~~~
-The output is quite verbose and only a snippet from the **SPEC** category is shown
+The output is quite verbose so only a snippet from the **SPEC** category is shown
 
 ~~~
  Tag                    Input   cast  (size,min,read,def)     result
@@ -142,13 +142,16 @@ The output is quite verbose and only a snippet from the **SPEC** category is sho
 ...
 ~~~
 
-*  Tags listed are optional execpt for **SPEC_ATOM**, **SPEC_ATOM_Z**, and **SPEC_ATOM_R**;
-   the latter _could_ have been supplied by different tag
+*  Tags are optional except for **SPEC_ATOM**, **SPEC_ATOM_Z**, and **SPEC_ATOM_R**;
+   the latter _could_ have been supplied with equivalent information through a different tag
    (**SPEC_ATOM_R/W** or **SPEC_ATOM_R/A) in this case.
-*  variables may be scalars or vectors, integers, floating-point nubmers, or characters.
-
-
-
+*  Variables are read as scalars or vectors; integers, floating-point numbers, or strings.
+   If strings have spaces you must enclose them in quotes or backets.
+*  Default values were substituted for the optional tags.  In this case, the input
+   file contained none of the optional tags: all values are taken from defaults,
+   except for **EH** which was not assigned any value.
+   **lmf**{: style="color: blue"} requires **EH**; but it will be read independently
+   from the basp file.
 
 {::nomarkdown}</div>{:/}
 
