@@ -502,9 +502,7 @@ Branching constructs have a function similar to the C constructs.
        % endif
 
    generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero
-
-       is clear
-
+   <pre>     is clear</pre>
    otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero
 
        is bright
