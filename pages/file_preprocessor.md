@@ -589,12 +589,12 @@ looping-constructs
        this is db=1
        this is db=3
 
-   **Pass 1:** &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
+   **Pass 1:** &nbsp;**db**&nbsp; is created and assigned the value &minus;1, then
    incremented to 1.
    Condition &nbsp;**db<=3**&nbsp;&nbsp; evaluates to 1 and the loop proceeds.\\
-   **Pass 2:** &nbsp;**db**&nbsp; already exists so &nbsp;`db=-1'&nbsp; has no effect.
-   &nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 3.\\
-   **Pass 3:** On the <i>third</i> pass, &nbsp;**db**&nbsp;&nbsp; increments to 5 causing the condition
+   **Pass 2:** &nbsp;**db**&nbsp; already exists so &nbsp;**db=-1**&nbsp; has no effect.
+   &nbsp;**db+=2**&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to **3**.\\
+   **Pass 3:** &nbsp;**db**&nbsp;&nbsp; increments to **5** causing the condition
    &nbsp;**db<=3**&nbsp;&nbsp; to become 0.  The loop terminates.
 
 2. **% repeat**&nbsp;&nbsp; ... &nbsp;**% end**&nbsp;&nbsp; is another looping construct with the syntax
@@ -614,151 +614,150 @@ looping-constructs
    e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
    <A href="Integer-list-syntax.html">generates the sequence</A> &nbsp;**1 2 3 6 2**.
 
-   <br><i>Example</i> of nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops (the &nbsp;**while**&nbsp;&nbsp; loop was used above):
+   <i>Example:</i>  nested &nbsp;**while**&nbsp;&nbsp; and &nbsp;**repeat**&nbsp; loops
    <pre>
-    % const nm=-3 nn=4
-    % while db=-1 db+=2 db<=3
-    % repeat k= 2,7
-    this is k={k} and db={db}
-    {db+k+nn+nm} is db + k + nn+nm, where nn+nm={nn+nm}
-    % end (loop over k)
-    % end (loop over db)
+   % const nm=-3 nn=4
+   % while db=-1 db+=2 db<=3
+   % repeat k= 2,7
+   this is k={k} and db={db}
+   {db+k+nn+nm} is db + k + nn+nm, where nn+nm={nn+nm}
+   % end (loop over k)
+   % end (loop over db)
    </pre>
    The nested loops are expanded into:
    <pre>
-    this is k=2 and db=1
-    4 is db + k + nn+nm, where nn+nm=1
-    this is k=7 and db=1
-    9 is db + k + nn+nm, where nn+nm=1
-    this is k=2 and db=3
-    6 is db + k + nn+nm, where nn+nm=1
-    this is k=7 and db=3
-    11 is db + k + nn+nm, where nn+nm=1
+   this is k=2 and db=1
+   4 is db + k + nn+nm, where nn+nm=1
+   this is k=7 and db=1
+   9 is db + k + nn+nm, where nn+nm=1
+   this is k=2 and db=3
+   6 is db + k + nn+nm, where nn+nm=1
+   this is k=7 and db=3
+   11 is db + k + nn+nm, where nn+nm=1
    </pre>
 
-</OL>
-
-#### Other directives</h3>
+#### Other directives
+{::comment}
+other-directives
+{:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;
 **echo exit include includo macro save show stop trace udef**&nbsp;
 
-<OL>
+1. **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
+   <br><i>Example</i> :
+   <pre>
+     % echo hello world
+   </pre>
+   prints
+   <pre>
+     #rf    <i>##</i>: hello world
+   </pre>
+   where &nbsp;**<i>##</i>**&nbsp;&nbsp; is the current line number.
 
-<LI> **echo <i>contents</i>**&nbsp;&nbsp; echoes &nbsp;**<i>contents</i>**&nbsp;&nbsp; to standard output.
-<br><i>Example</i> :
-<pre>
-  % echo hello world
-</pre>
-prints
-<pre>
-  #rf    <i>##</i>: hello world
-</pre>
-where &nbsp;**<i>##</i>**&nbsp;&nbsp; is the current line number.
+2. **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
+   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
+   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
+   <br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
 
-<LI> **exit [<i>expr</i>]**&nbsp;&nbsp; causes the program to stop parsing the input file, as though it encountered an **end-of-file**.
-<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, parsing ends.
-<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
-<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**stop**&nbsp;&nbsp; directive.
+3. **include filename**&nbsp;&nbsp; causes
+   _rdfiln_{: style="color: green"} to include the contents file
+   &nbsp;**filename**&nbsp;&nbsp; into the input.
 
-<LI> **include filename**&nbsp;&nbsp; causes
-_rdfiln_{: style="color: green"} to include the contents file
-&nbsp;**filename**&nbsp;&nbsp; into the input.
+   If &nbsp;**filename**&nbsp; exists,
+   _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
+   At that point file pointer returns to the original file.
+   If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
-If &nbsp;**filename**&nbsp; exists,
-_rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
-At that point file pointer returns to the original file.
-If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
+   <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
+   **%include**&nbsp;&nbsp; may be nested to a depth of 10.
 
-<br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-**%include**&nbsp;&nbsp; may be nested to a depth of 10.
+   <br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
+   looping and branching constructs <i>must</i> reside in the
+   same file.
 
-<br><FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-looping and branching constructs <i>must</i> reside in the
-same file.
+4. **includo filename**&nbsp;&nbsp; is identical to &nbsp;**include**&nbsp;, except that
+   <i>rdfiln</i> aborts if &nbsp;**filename**&nbsp;&nbsp; does not exist.
 
-<LI> **includo filename**&nbsp;&nbsp; is identical to &nbsp;**include**&nbsp;, except that
-<i>rdfiln</i> aborts if &nbsp;**filename**&nbsp;&nbsp; does not exist.
+5. **macro(arg1,arg2,..) <i>expr</i>**&nbsp;&nbsp; defines a macro which acts in a manner similar to a function.
+   **arg1,arg2,...**&nbsp; are substituted into **<i>expr</i>**&nbsp;&nbsp; before it is evaluated.
+   <br><i>Example</i> :
+   <pre>
+     % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
+     The result of xp(1,2,3,4) is {xp(1,2,3,4)}
+   </pre>
+   generates
+   <pre>
+     The result of xp(1,2,3,4) is 30
+   </pre>
+   <P> <FONT color="#0000bb"><I>*Caution</I>&nbsp;</FONT> macros are not quite identical to function declarations.  The following lines illustrate this:
+   <pre>
+     % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
+     The result of xp(1,2,3,4) is {xp(1,2,3,4)}
+     The result of xp(1,2,3,3+1) is {xp(1,2,3,3+1)}
+     The result of xp(1,2,3,(3+1)) is {xp(1,2,3,(3+1))}
+   </pre>
+   generates
+   <pre>
+     The result of xp(1,2,3,4) is 30
+     The result of xp(1,2,3,3+1) is 27
+     The result of xp(1,2,3,(3+1)) is 30
+   </pre>
+   **macro**&nbsp;&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp;&nbsp; in &nbsp;**<i>expr</i>**&nbsp;&nbsp; as follows:
+   <pre>
+     1+2*2+3*3+4*4              &larr xp(1,2,3,4)
+     1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
+     1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
+   </pre>
+   Because operator order matters, &nbsp;**4**&nbsp;&nbsp; and &nbsp;**3+1**&nbsp;&nbsp; behave differently.
+   By using &nbsp;**(3+1)**&nbsp;&nbsp; in the fourth argument, operator precedence is maintained.
 
-
-<LI> **macro(arg1,arg2,..) <i>expr</i>**&nbsp;&nbsp; defines a macro which acts in a manner similar to a function.
-**arg1,arg2,...**&nbsp; are substituted into **<i>expr</i>**&nbsp;&nbsp; before it is evaluated.
-<br><i>Example</i> :
-<pre>
-  % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
-  The result of xp(1,2,3,4) is {xp(1,2,3,4)}
-</pre>
-generates
-<pre>
-  The result of xp(1,2,3,4) is 30
-</pre>
-<P> <FONT color="#0000bb"><I>*Caution</I>&nbsp;</FONT> macros are not quite identical to function declarations.  The following lines illustrate this:
-<pre>
-  % macro xp(x1,x2,x3,x4) x1+2*x2+3*x3+4*x4
-  The result of xp(1,2,3,4) is {xp(1,2,3,4)}
-  The result of xp(1,2,3,3+1) is {xp(1,2,3,3+1)}
-  The result of xp(1,2,3,(3+1)) is {xp(1,2,3,(3+1))}
-</pre>
-generates
-<pre>
-  The result of xp(1,2,3,4) is 30
-  The result of xp(1,2,3,3+1) is 27
-  The result of xp(1,2,3,(3+1)) is 30
-</pre>
-**macro**&nbsp;&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp;&nbsp; in &nbsp;**<i>expr</i>**&nbsp;&nbsp; as follows:
-<pre>
-  1+2*2+3*3+4*4              &larr xp(1,2,3,4)
-  1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
-  1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
-</pre>
-Because operator order matters, &nbsp;**4**&nbsp;&nbsp; and &nbsp;**3+1**&nbsp;&nbsp; behave differently.
-By using &nbsp;**(3+1)**&nbsp;&nbsp; in the fourth argument, operator precedence is maintained.
-
-<LI> **save**&nbsp;&nbsp; preserves variables after the preprocessor exits.
-The syntax is:
-<pre>
- % save                       &larr; preserves all variables defined to this point
- % save <i>name</i> [<i>name2</i> ...]      &larr; saves only variables named
-</pre>
-Only variables in the scalar symbols table are saved.
+6. **save**&nbsp;&nbsp; preserves variables after the preprocessor exits.
+   The syntax is:
+   <pre>
+    % save                       &larr; preserves all variables defined to this point
+    % save <i>name</i> [<i>name2</i> ...]      &larr; saves only variables named
+   </pre>
+   Only variables in the scalar symbols table are saved.
 
 
-<LI> **show ...**&nbsp;&nbsp; prints various things to standard output:
-<pre>
- % show vars        prints out the state of the variables table
- % show lines       echos each line generated to the screen until:
- % show stop        is encountered
-</pre>
-<FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
-because the vector variables can have arbitrary length, &nbsp;**show**&nbsp;&nbsp; prints only the size of the vector and the first and last entries.  
+7. **show ...**&nbsp;&nbsp; prints various things to standard output:
+   <pre>
+    % show vars        prints out the state of the variables table
+    % show lines       echos each line generated to the screen until:
+    % show stop        is encountered
+   </pre>
+   <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT>
+   because the vector variables can have arbitrary length, &nbsp;**show**&nbsp;&nbsp; prints only the size of the vector and the first and last entries.  
 
-<LI> **stop [<i>expr</i> msg**&nbsp;]' : causes the program to stop execution.
-<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
-<br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
-<br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp;&nbsp; directive.
+8. **stop [<i>expr</i> msg**&nbsp;]' : causes the program to stop execution.
+   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+   <br> If &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0 the directive has no effect.
+   <br><FONT color="#0000bb"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp;&nbsp; directive.
 
-<LI> **trace**&nbsp;&nbsp;
-turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
-<pre>
-'trace 0' turns the tracing off
-'trace 1' turns the tracing on at the lowest level.
-          rdfiln traces directives having to do with execution flow
-          (if-else-endif, repeat/while-end).
-'trace 2' prints some information about most directives.
-'trace 4' is the most verbose
-'trace  ' (no argument) toggles whether it is on or off.
-</pre>
+9. **trace**&nbsp;&nbsp;
+   turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
+   <pre>
+   'trace 0' turns the tracing off
+   'trace 1' turns the tracing on at the lowest level.
+             rdfiln traces directives having to do with execution flow
+             (if-else-endif, repeat/while-end).
+   'trace 2' prints some information about most directives.
+   'trace 4' is the most verbose
+   'trace  ' (no argument) toggles whether it is on or off.
+   </pre>
 
-<LI> **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
-If the &nbsp;**&minus;f**&nbsp;&nbsp;
-is omitted, _rdfiln_{: style="color: green"} aborts with error if you remove a nonexistent variable.
-If &nbsp;**&minus;f**&nbsp;&nbsp; is included, removing
-nonexistent variable does not generate an error.
-Only scalar and character variables may be deleted.
+10.
+   **udef [&minus;f]**&nbsp; <i>name</i> [<i>name2</i> ...]'&nbsp; remove one or more variables from the symbols table.
+   If the &nbsp;**&minus;f**&nbsp;&nbsp;
+   is omitted, _rdfiln_{: style="color: green"} aborts with error if you remove a nonexistent variable.
+   If &nbsp;**&minus;f**&nbsp;&nbsp; is included, removing
+   nonexistent variable does not generate an error.
+   Only scalar and character variables may be deleted.
 
-</OL>
 
-<h2>Notes</h2>
+
+#### Notes
 
 <FN ID=sourcecodes><P>
 
