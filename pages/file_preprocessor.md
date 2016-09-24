@@ -567,15 +567,14 @@ looping-constructs
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>% const  myvar=<i>expr</i> </pre>
-
    does two things:
-   * adds **myvar** to the scalar variables symbols table if it is not there already.
-         **const** and **var** are equivalent in this respect.
-   * assigns the result of <i>expr</i> to it, if <i>either</i>
-     * you use the **var** directive  <i>or</i>
-     * you use the **const** directive <i>and</i> the variable had not yet been created.
+     * adds **myvar** to the scalar variables symbols table if it is not there already.
+           **const** and **var** are equivalent in this respect.
+     * assigns the result of <i>expr</i> to it, if <i>either</i>
+       * you use the **var** directive  <i>or</i>
+       * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-
+{::comment}
 
 1. **while**&nbsp and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
@@ -593,7 +592,7 @@ looping-constructs
      * you use the **var** directive  <i>or</i>
      * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-{::comment}
+
 
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
