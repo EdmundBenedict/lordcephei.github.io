@@ -62,8 +62,6 @@
     - name: "Auxilliary tools"
       prefix: "/misc"
       content:
-      - title: "The ccomp processor"
-        url: "/ccomp/"
       - title: "The plbnds program"
         url: "/plbnds/"
       - title: "The pldos program"
@@ -74,6 +72,10 @@
         url: "/mccalcdoc/"
       - title: "The pfit program"
         url: "/pfitdoc/"
+      - title: "Integer list syntax"
+        url: "/integerlists/"
+      - title: "The ccomp processor"
+        url: "/ccomp/"
 
 - title: "Tutorials"
   url: ""
