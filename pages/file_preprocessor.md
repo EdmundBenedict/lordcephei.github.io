@@ -568,20 +568,18 @@ looping-constructs
 
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
-
    The &nbsp;**while ... end**&nbsp;&nbsp; construct has the syntax
 <pre>
   % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
     ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
   % end                                             &larr; return to the `% while' directive unless <i>exprn</i> is 0
 </pre>
-   The (optional) expressions **[<i>expr1</i> <i>expr2</i> ...]**&nbsp;
+   The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive.  That is,
-
-   * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**.
-   * A simple assignment &nbsp;**nam=<i>expr</i>**&nbsp;&nbsp; has effect only when &nbsp;**nam**&nbsp;&nbsp; has not
-   yet been loaded into the variables table.  Thus it has effect on the first pass through the
-   &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
+     * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**.
+     * A simple assignment &nbsp;**nam=<i>expr</i>**&nbsp;&nbsp; has effect only when &nbsp;**nam**&nbsp;&nbsp; has not
+      yet been loaded into the variables table.  Thus it has effect on the first pass through the
+     &nbsp;**while**&nbsp;&nbsp; loop (provided &nbsp;**nam**&nbsp;&nbsp; isn't declared yet) but not subsequent passes.
 
    These rules make it very convenient to construct loops, as the following shows.\\
    &nbsp;&nbsp;<i>Example</i>:
