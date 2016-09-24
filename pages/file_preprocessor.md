@@ -564,9 +564,6 @@ looping-constructs
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**
 
-xx
-
-
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>% const  myvar=<i>expr</i> </pre>
@@ -577,9 +574,8 @@ xx
        * you use the **var** directive  <i>or</i>
        * you use the **const** directive <i>and</i> the variable had not yet been created.
 
-{::comment}
 
-1. **while**&nbsp and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
+2. x **while**&nbsp and &nbsp;**end**&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
 
        % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
@@ -593,11 +589,12 @@ xx
      * you use the **var** directive  <i>or</i>
      * you use the **const** directive <i>and</i> the variable had not yet been created.
 
+{::comment}
 
 
-1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
+3. y **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
-<pre>
+  <pre>
   % while [<i>expr1</i> <i>expr2</i> ...] <i>test-expr</i>                   &larr; skip to `% end' if <i>test-expr</i> is 0
     ...                                             &larr; these lines become part of the input while <i>test-expr</i> is nonzero
   % end                                             &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
