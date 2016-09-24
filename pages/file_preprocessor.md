@@ -349,8 +349,14 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
+{::comment}
+Note: kramdown needs 3-space indentation for outside list
+      code blocks 3+4 spaces.
+      nested lists 3+2 spaces
+{:/comment}
+
 1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
-   <pre>% const  myvar=<i>expr</i></pre>
+   <pre>% const  myvar=<i>expr</i> </pre>
    does two things:
    * adds **myvar** to the scalar variables symbols table if it is not there already.
          **const** and **var** are equivalent in this respect.
@@ -359,15 +365,15 @@ Recognized keywords are
      * you use the **const** directive <i>and</i> the variable had not yet been created.
 
    In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
-   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines x
+   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
 
        % const a=2
        % const a=3
 
    incorporate **a** into the symbols table with value 2, while
 
-      % const a=2
-      % var a=3
+       % const a=2
+       % var a=3
 
    does the same but assigns 3 to **a**.
 
@@ -379,42 +385,39 @@ Recognized keywords are
    </pre>
    These operators modify &nbsp;**myvar**&nbsp; for both &nbsp;**const**&nbsp; and &nbsp;**var**&nbsp; directives.
 
-2.
-  **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
-  <pre>
-   % cconst <i>test-expr</i> myvar=<i>expr</i>
-  </pre>
-  **<i>test-expr</i>**&nbsp; is an algebraic expression (e.g., **i==3**)
-  that evaluates to zero or nonzero. <br>
-  If **<i>test-expr</i>** evaluates to nonzero, the remainder
-  of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
-  Otherwise, no further action is taken.
+2. **cconst**&nbsp; and &nbsp;**cvar**&nbsp; _conditionally_ load or alter the variables table.  <i>Example</i>:
+   <pre>% cconst <i>test-expr</i> myvar=<i>expr</i> </pre>
+   **<i>test-expr</i>**&nbsp; is an algebraic expression (e.g., **i==3**)
+   that evaluates to zero or nonzero. <br>
+   If **<i>test-expr</i>** evaluates to nonzero, the remainder
+   of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
+   Otherwise, no further action is taken.
 
-  _Example:_  the input segment
-  <pre>
-     % const a=2 b=3 c=4 d=5
-     A={a} B={b} C={c} D={d}
-     % const a=3
-     % var d=-1
-     % const b*=2 c+=3
-     A={a} B={b} C={c} D={d}
-     % cconst b==6  b+=3 c-=3
-     A={a} B={b} C={c} D={d}
-     % cconst b==6  b+=3 c-=3
-     A={a} B={b} C={c} D={d}
-  </pre>
-   generates four lines:
-  <pre>
-     A=2 B=3 C=4 D=5
-     A=2 B=6 C=7 D=-1
-     A=2 B=9 C=4 D=-1
-     A=2 B=9 C=4 D=-1
-  </pre>
-  **a** is unchanged from its initial assignment while **d** changes.
+   _Example:_  the input segment
+   <pre>
+      % const a=2 b=3 c=4 d=5
+      A={a} B={b} C={c} D={d}
+      % const a=3
+      % var d=-1
+      % const b*=2 c+=3
+      A={a} B={b} C={c} D={d}
+      % cconst b==6  b+=3 c-=3
+      A={a} B={b} C={c} D={d}
+      % cconst b==6  b+=3 c-=3
+      A={a} B={b} C={c} D={d}
+   </pre>
+    generates four lines:
+   <pre>
+      A=2 B=3 C=4 D=5
+      A=2 B=6 C=7 D=-1
+      A=2 B=9 C=4 D=-1
+      A=2 B=9 C=4 D=-1
+   </pre>
+   **a** is unchanged from its initial assignment while **d** changes.
 
-  Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
-  instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
-  the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
+   Compare the two &nbsp;**cconst**&nbsp; directives. **b** and **c** are altered in the first
+   instance, since the condition &nbsp;**b==6**&nbsp; evaluates to 1, while they do not change in
+   the second instance, since now &nbsp;**b==6**&nbsp; evaluates to zero.
 
 
 2. **char** loads or alters the character table.  <i>Example</i>:
