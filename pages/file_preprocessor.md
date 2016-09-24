@@ -564,6 +564,9 @@ looping-constructs
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**
 
+xx
+
+
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>% const  myvar=<i>expr</i> </pre>
