@@ -361,9 +361,9 @@ Recognized keywords are
 
   In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
-  <pre>
-  % const a=2
-  % const a=3</pre>
+<pre>
+% const a=2
+% const a=3</pre>
   incorporate **a** into the symbols table with value 2, while
   <pre>
      % const a=2
