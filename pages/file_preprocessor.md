@@ -393,7 +393,7 @@ Note: kramdown needs 3-space indentation for outside list
    of the directive proceeds as &nbsp;**const**&nbsp; or &nbsp;**var**&nbsp; do.<br>
    Otherwise, no further action is taken.
 
-   _Example:_  the input segment
+      &nbsp;&nbsp;<i>Example</i>: the input segment
 
        % const a=2 b=3 c=4 d=5
        A={a} B={b} C={c} D={d}
@@ -490,75 +490,80 @@ Note: kramdown needs 3-space indentation for outside list
 
 Branching constructs have a function similar to the C constructs.
 
-+ **if <i>expr</i>**,&nbsp;**elseif <i>expr</i>**,&nbsp;**else**&nbsp; and &nbsp;**endif**&nbsp; are conditional read blocks.
-Lines between these directives are read or not, depending on the value of &nbsp;**<i>expr</i>**.  <i>Example</i>:
-<pre>
- % if Quartz
-  is clear
- % elseif Ag
-  is bright
- % else
-  neither is right
- % endif
-</pre>
-generates this line\\
-  **is clear**\\
-if &nbsp;**Quartz**&nbsp; evaluates to nonzero; otherwise\\
-  &nbsp;**is bright**&nbsp;\\
-if &nbsp;**Ag**&nbsp; evaluates to zero; otherwise\\
-  &nbsp;**neither is right**&nbsp;
+1. **if <i>expr</i>**,&nbsp;**elseif <i>expr</i>**,&nbsp;**else**&nbsp; and &nbsp;**endif**&nbsp; are conditional read blocks.
+   Lines between these directives are read or not, depending on the value of &nbsp;**<i>expr</i>**.  <i>Example</i>:
 
-+ **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
-constitutes an expression.
+       % if Quartz
+        is clear
+       % elseif Ag
+        is bright
+       % else
+        neither is right
+       % endif
 
-<UL>
+   generates this line  if &nbsp;**Quartz**&nbsp; evaluates to nonzero
 
-<LI> **if <i>expr</i>**&nbsp;&nbsp; requires that **<i>expr</i>**&nbsp; be a valid
-expression, while &nbsp;**ifdef <i>expr</i>**&nbsp; evaluates **<i>expr</i>**&nbsp;
-as false if it invalid (e.g. it contains an undefined variable).
+       is clear
 
-<LI>
-**<i>expr</i>**&nbsp;&nbsp; can be an algebraic expression, or
-a sequence of expressions separated by
-&nbsp;**&**&nbsp;&nbsp; or &nbsp;&nbsp;**|**&nbsp;&nbsp;
-(<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
-<pre>
-  % ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...
-</pre>
-If any of &nbsp;**<i>expr1</i>**&nbsp;&nbsp;, &nbsp;**<i>expr2</i>**&nbsp;&nbsp;, ... evaluate to nonzero, the result
-is nonzero, whether or not preceding expressions are valid.
-<br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
-&nbsp;**<i>expr1</i>|<i>expr2</i>**&nbsp;&nbsp; cannot be evaluated unless both &nbsp;**<i>expr1</i>**&nbsp;&nbsp; and &nbsp;**<i>expr2</i>**&nbsp;&nbsp; are valid expressions, while &nbsp;**<i>expr1</i> | <i>expr2</i>**&nbsp;&nbsp; may be nonzero if either is valid.
-<LI> **ifdef**&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
-<pre>
-   char-variable            &larr; T if char-variable exists, otherwise F
-   char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i>
-</pre>
-<i>Example</i>:
-<pre>
-% ifdef  x1==2 & atom=='Mg' | x1===1
-</pre>
-is nonzero if scalar &nbsp;**x1**&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;**atom**&nbsp;&nbsp; is equal to "Mg",
-<i>or</i> if scalar &nbsp;**x1**&nbsp;&nbsp; is 1.
+   otherwise this line  if &nbsp;**Ag**&nbsp; evaluates to nonzero
 
-<br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> binary operators
-&nbsp;**&**&nbsp;&nbsp; and &nbsp;&nbsp;**|**&nbsp;&nbsp; 
-are evaluated left to right: &nbsp;**&**&nbsp;&nbsp; does not take precedence
-over &nbsp;**|**&nbsp;.
+       is bright
 
-</UL>
+   and otherwise
+
+       neither is right
+
+2. **ifdef**&nbsp; is similar to **if**&nbsp;, but has a more general idea of what
+   constitutes an expression.
+
+   <UL>
+
+   <LI> **if <i>expr</i>**&nbsp;&nbsp; requires that **<i>expr</i>**&nbsp; be a valid
+   expression, while &nbsp;**ifdef <i>expr</i>**&nbsp; evaluates **<i>expr</i>**&nbsp;
+   as false if it invalid (e.g. it contains an undefined variable).
+
+   <LI>
+   **<i>expr</i>**&nbsp;&nbsp; can be an algebraic expression, or
+   a sequence of expressions separated by
+   &nbsp;**&**&nbsp;&nbsp; or &nbsp;&nbsp;**|**&nbsp;&nbsp;
+   (<i>AND</i> or <i>OR</i> binary operators), <i>viz</i>:
+   <pre>
+     % ifdef <i>expr1</i> | <i>expr2</i> | <i>expr3</i> ...
+   </pre>
+   If any of &nbsp;**<i>expr1</i>**&nbsp;&nbsp;, &nbsp;**<i>expr2</i>**&nbsp;&nbsp;, ... evaluate to nonzero, the result
+   is nonzero, whether or not preceding expressions are valid.
+   <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
+   &nbsp;**<i>expr1</i>|<i>expr2</i>**&nbsp;&nbsp; cannot be evaluated unless both &nbsp;**<i>expr1</i>**&nbsp;&nbsp; and &nbsp;**<i>expr2</i>**&nbsp;&nbsp; are valid expressions, while &nbsp;**<i>expr1</i> | <i>expr2</i>**&nbsp;&nbsp; may be nonzero if either is valid.
+   <LI> **ifdef**&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
+   <pre>
+      char-variable            &larr; T if char-variable exists, otherwise F
+      char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i>
+   </pre>
+   <i>Example</i>:
+   <pre>
+   % ifdef  x1==2 & atom=='Mg' | x1===1
+   </pre>
+   is nonzero if scalar &nbsp;**x1**&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;**atom**&nbsp;&nbsp; is equal to "Mg",
+   <i>or</i> if scalar &nbsp;**x1**&nbsp;&nbsp; is 1.
+
+   <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> binary operators
+   &nbsp;**&**&nbsp;&nbsp; and &nbsp;&nbsp;**|**&nbsp;&nbsp; 
+   are evaluated left to right: &nbsp;**&**&nbsp;&nbsp; does not take precedence
+   over &nbsp;**|**&nbsp;.
+
+   </UL>
 
 3. **elseifd**&nbsp;&nbsp; is to &nbsp;**elseif**&nbsp;&nbsp; as &nbsp;**ifdef**&nbsp;&nbsp; is to &nbsp;**if**&nbsp;.
 
 4. **ifndef <i>expr</i>**&nbsp; ... is the mirror image of &nbsp;**ifdef <i>expr</i>**&nbsp;.
-Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
+   Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
 
 5. **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
-<br> The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.
+   <br> The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.
 
-_Note:_{: style="color: red"} **if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
-and &nbsp;**ifndef**&nbsp;&nbsp;  constructs may be nested to a depth of **mxlev**&nbsp;.
-The codes are distributed with **mxlev=6*.
+   _Note:_{: style="color: red"} **if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
+   and &nbsp;**ifndef**&nbsp;&nbsp;  constructs may be nested to a depth of **mxlev**&nbsp;.
+   The codes are distributed with **mxlev=6*.
 
 #### Looping constructs
 {::comment}
