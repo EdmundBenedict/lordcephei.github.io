@@ -540,7 +540,7 @@ Branching constructs have a function similar to the C constructs.
    is nonzero if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;<b>atom</b>&nbsp;&nbsp; is equal to "Mg",
    <i>or</i> if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 1.
 
-   <br> <FONT color="#bb0000"><I>*Note</I>&nbsp;</FONT> binary operators
+   <br> <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT> binary operators
    &nbsp;<b>&</b>&nbsp;&nbsp; and &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp; 
    are evaluated left to right: &nbsp;<b>&</b>&nbsp;&nbsp; does not take precedence
    over &nbsp;<b>|</b>&nbsp;.
@@ -552,10 +552,9 @@ Branching constructs have a function similar to the C constructs.
    Lines following this construct are read only if &nbsp;**<i>expr</i>**&nbsp;&nbsp; evaluates to 0.
 
 5. **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
-   The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.
-
-   _Note:_{: style="color: red"} **if**&nbsp;&nbsp;, &nbsp;**ifdef**&nbsp;&nbsp;,
-   and &nbsp;**ifndef**&nbsp;&nbsp;  constructs may be nested to a depth of **mxlev**&nbsp;.
+   The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.\\
+   _Note:_{: style="color: red"} **if**,&nbsp;&nbsp; &nbsp;**ifdef**,&nbsp;&nbsp;
+   and &nbsp;**ifndef**&nbsp;&nbsp; constructs may be nested to a depth of _mxlev_&nbsp;.
    The codes are distributed with _mxlev=6_.
 
 #### Looping constructs
