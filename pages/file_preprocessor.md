@@ -666,7 +666,7 @@ Branching constructs have a function similar to the C constructs.
        no further lines are to be read.  At that point file pointer returns to the original file.
      * If &nbsp;**filename**&nbsp; does not exist, the directive has no effect.
 
-   _Notes:_{: style="color: red"}
+   _Notes:_{: style="color: red"}&nbsp;
    **%include**&nbsp; may be nested to a depth of 10.&nbsp;
    Looping and branching constructs <i>must</i> reside in the same file.
 
@@ -699,9 +699,9 @@ Branching constructs have a function similar to the C constructs.
    </pre>
    **macro**&nbsp; merely substitutes 1,2,3,.. for &nbsp;**x1,x2,x3,x4**&nbsp; in &nbsp;**<i>expr</i>**&nbsp; as follows:
    <pre>
-     1+2*2+3*3+4*4              &larr xp(1,2,3,4)
-     1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
-     1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
+   1+2*2+3*3+4*4              &larr xp(1,2,3,4)
+   1+2*2+3*3+4*3+1            &larr xp(1,2,3,3+1)
+   1+2*2+3*3+4*(3+1)          &larr xp(1,2,3,(3+1))
    </pre>
    Because operator order matters, &nbsp;**4**&nbsp; and &nbsp;**3+1**&nbsp; behave differently.
    By using &nbsp;**(3+1)**&nbsp; in the fourth argument, operator precedence is maintained.
@@ -717,17 +717,18 @@ Branching constructs have a function similar to the C constructs.
 
 7. **show ...**&nbsp; prints various things to standard output:
    <pre>
-    % show vars        prints out the state of the variables table
-    % show lines       echos each line generated to the screen until:
-    % show stop        is encountered
+   % show vars        prints out the state of the variables table
+   % show lines       echos each line generated to the screen until:
+   % show stop        is encountered
    </pre>
-   <FONT color="#ff0000"><I>*Note</I>&nbsp;</FONT>
+   _Note:_{: style="color: red"}&nbsp;
    because the vector variables can have arbitrary length, &nbsp;**show**&nbsp; prints only the size of the vector and the first and last entries.  
 
-8. **stop [<i>expr</i> msg**&nbsp;]' : causes the program to stop execution.
-   <br> If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
-   <br> If &nbsp;**<i>expr</i>**&nbsp; evaluates to 0 the directive has no effect.
-   <br><FONT color="#ff0000"><I>*Compare to</I>&nbsp;</FONT> the &nbsp;**exit**&nbsp; directive.
+8. **stop [**<i>expr</i> **msg**]&nbsp; : causes the program to stop execution.
+     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to 0 the directive has no effect.
+
+   _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**exit**&nbsp; directive.
 
 9. **trace**&nbsp;
    turns on debugging printout.  _rdfiln_{: style="color: green"} prints to standard output information about what it is doing
