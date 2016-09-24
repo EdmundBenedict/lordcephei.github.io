@@ -566,8 +566,11 @@ looping-constructs
 
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
-   <pre>% const  myvar=<i>expr</i> </pre>
-   does two things:
+<pre>
+  % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
+    ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
+  % end                                             &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
+   x does two things:
    * adds **myvar** to the scalar variables symbols table if it is not there already.
          **const** and **var** are equivalent in this respect.
    * assigns the result of <i>expr</i> to it, if <i>either</i>
