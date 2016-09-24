@@ -69,7 +69,7 @@ Source codes are distributed with **recln0=120**.
 _rdfiln_{: style="color: green"} permits three kinds of variables: floating point scalar,
 floating-point vector, and strings.  They can be declared with 
 [preprocessor directives](/docs/input/preprocessor/#variable-declarations-and-assignments).
-Scalar and character variables can also be declared the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.
+Scalar and character variables can also be declared on the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.
 
   * Scalar variables and vector elements can be used in algebraic expressions.
   * Character variables can be used in string expressions (see below).
@@ -151,7 +151,7 @@ In more detail, the four rules are as follows:
        _Example_ : suppose **myvec**. has been declared as a 5-element quantity in the following way:\\
          &nbsp;&nbsp; % vec myvec[5] 6-1 6-2 5-2 5-3 4-3\\
        **{myvec}**&nbsp; will be turned into **5 4 3 2 1** \\
-       A single element of a vector acts like a scalar.  Thus &nbsp;**{myvec(2)}**&nbsp; becomes **4**.
+       A single element of a vector acts like a scalar.  Thus &nbsp;**{3*myvec(2)-2}**&nbsp; becomes **10**.
 
 4. **strn** is an algebraic expression composed of numbers combined with unary and binary operators. The syntax is very similar to the C programming language.
    _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
