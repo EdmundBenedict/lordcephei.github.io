@@ -351,9 +351,7 @@ Recognized keywords are
 
 1.
   **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
-  x
-  <pre>
-   % const  myvar=<i>expr</i></pre>
+  <pre>% const  myvar=<i>expr</i></pre>
   does two things:\\
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.\\
@@ -364,8 +362,8 @@ Recognized keywords are
   In other words, if &nbsp;**myvar**&nbsp; already exists prior to the directive,
   &nbsp;**const**&nbsp; will not alter its value but &nbsp;**var**&nbsp; will.  Thus the lines
   <pre>
-     % const a=2
-     % const a=3</pre>
+  % const a=2
+  % const a=3</pre>
   incorporate **a** into the symbols table with value 2, while
   <pre>
      % const a=2
