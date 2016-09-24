@@ -553,7 +553,7 @@ Branching constructs have a function similar to the C constructs.
 
 5. **iffile filename**&nbsp;&nbsp; is a construct analogous to &nbsp;**%if**&nbsp;&nbsp; or &nbsp;**%ifdef**&nbsp;&nbsp; for conditional reading of input lines.  
    The test condition is set not by an expression, but whether file &nbsp;**filename**&nbsp;&nbsp; exists or not.\\
-   _Note:_{: style="color: red"} **if**,&nbsp;&nbsp; &nbsp;**ifdef**,&nbsp;&nbsp;
+   _Note:_{: style="color: red"}&nbsp; **if**,&nbsp;&nbsp; &nbsp;**ifdef**,&nbsp;&nbsp;
    and &nbsp;**ifndef**&nbsp;&nbsp; constructs may be nested to a depth of _mxlev_.
    The codes are distributed with _mxlev=6_.
 
@@ -564,7 +564,8 @@ looping-constructs
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **while repeat end**
 
-1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
+1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
+   Lines inside the loop are repeatedly read until a test expression evaluates to 0.
    <pre>% const  myvar=<i>expr</i> </pre>
    does two things:
    * adds **myvar** to the scalar variables symbols table if it is not there already.
@@ -578,8 +579,7 @@ looping-constructs
 <pre>
   % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
     ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
-  % end                                             &larr; return to the `% while' directive unless <i>exprn</i> is 0
-</pre>
+  % end                                             &larr; return to the `% while' directive unless <i>exprn</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive.  That is,
      * Each of **<i>expr1</i>**&nbsp;, **<i>expr2</i>**&nbsp;, ... take the form &nbsp;**nam = <i>expr</i>**&nbsp;&nbsp; or &nbsp;**nam op= <i>expr</i>**.
