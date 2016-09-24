@@ -566,7 +566,6 @@ looping-constructs
 
 1. **while**&nbsp;&nbsp; and &nbsp;**end**&nbsp;&nbsp; mark the beginning and end of a looping construct.
    Lines inside the loop are repeatedly read until a test expression evaluates to 0.
-   The &nbsp;**while ... end**&nbsp;&nbsp; construct has the syntax
 <pre>
   % while [<i>expr1</i> <i>expr2</i> ...] <i>exprn</i>                   &larr; skip to `% end' if <i>exprn</i> is 0
     ...                                             &larr; these lines become part of the input while <i>exprn</i> is nonzero
@@ -591,6 +590,8 @@ looping-constructs
 
        this is db=1
        this is db=3
+
+{::comment}
 
    On the <i>first</i> pass, &nbsp;**db**&nbsp; is created and assigned the value &minus;1; then
    &nbsp;**db+=2**&nbsp;&nbsp; increments &nbsp;**db**&nbsp;&nbsp; to 1.
