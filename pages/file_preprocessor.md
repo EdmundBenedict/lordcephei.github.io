@@ -67,9 +67,10 @@ Source codes are distributed with **recln0=120**.
 #### Variables
 
 _rdfiln_{: style="color: green"} permits three kinds of variables: floating point scalar,
-floating-point vector, and strings.  They can be declared with preprocessor directives
-and also on the command-line using, e.g. `-vnam=expr`.  Symbol tables are maintained for each of the three kinds
-of variables
+floating-point vector, and strings.  They can be declared with 
+[preprocessor directives](/docs/input/preprocessor/#variable-declarations=and-assignments).
+Scalar and character variables can also be declared the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.  
+Symbol tables are maintained for each of the three kinds of variables.
 
 Scalar variables and vector elements can be used in algebraic expressions.
 
