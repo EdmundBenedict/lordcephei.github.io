@@ -661,6 +661,8 @@ other-directives
 
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**stop**&nbsp; directive.
 
+{::comment}
+
 3. **include filename**&nbsp; causes _rdfiln_{: style="color: green"} to include the contents file &nbsp;**filename**&nbsp; into the input.
    <br> If &nbsp;**filename**&nbsp; exists,
    _rdfiln_{: style="color: green"} opens it and the file pointer is transferred to this file until no further lines are to be read.
