@@ -351,8 +351,10 @@ Recognized keywords are
 
 1.
   **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
-  <pre>
-   % const  myvar=<i>expr</i></pre>
+
+  ~~~
+   % const  myvar=<i>expr</i>
+  ~~~
   does two things:\\
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
         **const** and **var** are equivalent in this respect.\\
