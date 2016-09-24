@@ -46,7 +46,7 @@ original basis set that makes Hankel functions short ranged.
 **Note**{: style="color: red"} There is also a non self-consistent
 implementation of Anderen's most recent basis, the `NMTO'.  This code
 should largely be regarded as experimental, as there are practical
-pitfalls associated that haven't been fully worked out.
+pitfalls associated with it that haven't been fully worked out.
 
 ### _The ASA Suite_
 
@@ -127,7 +127,7 @@ condition at the augmentation radius _s_.  More precisely, <i>&phi;<sub>l</sub><
 to the full Schrodinger equation.  Partial waves must be matched to the envelope function at the augmentation sphere radius; the condition
 that all partial waves match smoothly and differentiably at all surfaces is the quantization condition that determines allowed eigenvalues.
 [Linear methods](/docs/package_overview/#linear-methods-in-band-theory) in fact require the partial wave $$\phi$$ and its energy derivative
-$$\dot\phi$$ (or possibly $$\phi$$ at two different linearization energies).
+$$\dot\phi$$ (or possibly $$\phi$$ at two different linearization energies.
 
 The boundary condition can be given through the "logarithmic derivative function"
 
@@ -272,18 +272,18 @@ Click here for for a discussion of the (in part competing) criteria for the sele
 {::nomarkdown}<div style="display:none;padding:0px;" id="sphereradii">{:/} 
 
 Geometry violation of overlapping spheres
-: Overlapping spheres count some parts of space twice and others not at all.  The full-potential code is has a unique augmentation,
-constructed so that the sphere contributions vanish quadratically for radii approaching the MT radius.  Overlap errors tend to be small until
-overlaps reach about 10% of the internuclear distance.  It has been found empirically, however, that self-consistency proceeds more slowly
+: Overlapping spheres count some parts of space twice and others not at all. The full-potential code has a unique augmentation,
+constructed so that the sphere contributions vanish quadratically for radii approaching the MT radius. Overlap errors tend to be small until
+overlaps reach about 10% of the internuclear distance. It has been found empirically, however, that self-consistency proceeds more slowly
 when spheres overlap.  _Note:_{: style="color: red"} the current _GW_ implemntation doesn't have this property: there, spheres should _not_ overlap.
 
-: The ASA band code **lm**{: style="color: blue"}, has a "combined correction" term that partially undoes this
-error, but not completely.  The Green's function codes **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"}
+: The ASA band code **lm**{: style="color: blue"}, has a "combined correction" term that partially reverses this
+error, but not completely. The Green's function codes **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"}
 do not have this term.
 
 ASA Requirement for space-filling spheres
 : The ASA functional requires that the sum-of-sphere volumes equals the cell volume.  More precisely, the density is carried by
-the spheres (superposition of spherically symmetrical sphere densities).   This crition mitigates directly against the preceding one.
+the spheres (superposition of spherically symmetrical sphere densities).   This criterion mitigates directly against the preceding one.
 The more closely packed a system is the better suited the ASA.  For open systems, you must add "empty spheres:" fictitious atoms of zero atomic number that
 enable space to be filled without too large a geometry violation.
 
@@ -292,13 +292,13 @@ Large sphere radii assign more volume to augmented functions
   by them the more reliable the basis set.
 
 _l_-convergence is most rapid for small sphere radii
-: The larger the sphere radius, slower the convergence with _l_, because
+: The larger the sphere radius, the slower the convergence with _l_, because
 the angular momentum increases rapidly with _l_.
 
 Larger spheres better contain shallow semicore states
 : Ideally the core is completely localized within augmentation spheres.
 Particularly in the full-potential case where spheres overlap less
-than in the ASA, shallow semicore states can be an issue.  In the FP case, 
+than in the ASA, shallow semicore states can be an issue. In the FP case, 
 you can always add 
 [a local orbital](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/)
 to address this problem.
@@ -306,9 +306,9 @@ to address this problem.
 MT potentials are exactly solvable
 : The KKR method is essentially exact for a MT potential, i.e. one
   that is spherical inside augmentation spheres and approximately flat in the
-  interstitial.  The LMTO basis starts from the KKR basis; thus a
+  interstitial. The LMTO basis starts from the KKR basis; thus a
   partitioning of space which best resembles a MT potential is the
-  best choice.  The automatic sphere radii algorithms try to select
+  best choice. The automatic sphere radii algorithms try to select
   radii that make the intersitial potential flat.
 
 {::nomarkdown}</div>{:/}
@@ -321,8 +321,8 @@ MT potentials are exactly solvable
 The ideal choice of sphere radii best approximates a potential that is spherical within the augmentation spheres and flat outside.  
 **blm**{: style="color: blue"} and **lmchk**{: style="color: blue"} use an algorithm that makes a reasonable initial choice: they compute the
 (electrostatic) potential obtained from overlapping free-atom densities along all connecting vectors between a given site and its relatively
-near neighbors.  The augmentation radius is taken as the first potential maximum along any ray.  This choice is a pretty reasonable estimate for the
-potential being approximately spherical inside.  Also, for a completely symmetric bond, the potential maximum will fall exactly midway
+near neighbors. The augmentation radius is taken as the first potential maximum along any ray. This choice is a pretty reasonable estimate for the
+potential being approximately spherical inside. Also, for a completely symmetric bond, the potential maximum will fall exactly midway
 between the bond, so for that case the two sphere radii will exactly touch and have equal potentials.  
 
 + **blm**{: style="color: blue"} uses this algorithm automatically
@@ -337,8 +337,8 @@ between the bond, so for that case the two sphere radii will exactly touch and h
 
 _Note:_{: style="color: red"} this should be moved to an **lmchk**{: style="color: blue"} tutorial.
 
-Questaal programs can scale sphere radii as large as possible within constraints you supply.  This option iteratively adjusts sphere radii
-as large as it can within certain constraints, or or until the aggregate sphere volumes equals the target you set.  To autoscale sphere
+Questaal programs can scale sphere radii as large as possible within constraints you supply. This option iteratively adjusts sphere radii
+as large as it can within certain constraints, or until the aggregate sphere volumes equal the target you set. To autoscale sphere
 radii, set **SPEC_SCLWSR**=_f_, where _f_ is the target aggregate sphere volumes as a fraction of the cell volume.  For the ASA, _f_ should
 be 1.  You can use it for the FP codes too, but it usually isn't necessary.
 
@@ -387,7 +387,7 @@ on a different footing from real atoms.
    The scaling is done using radii of size zero for all empty spheres.
    After this initial scaling, the resizer will proceed rescaling
    all the spheres.
-+ Add 20 to **SPEC_SCLWSR** is similar to adding 10.  However, The final
++ Add 20 to **SPEC_SCLWSR** is similar to adding 10.  However, the final
   rescaling applies only to the empty spheres; the real atoms' spheres
   change only in the first scaling, without reference to the empty
   spheres.
@@ -415,7 +415,7 @@ We include in this documentation a
 explaining in some detail how downfolding is implemented 
 into the **lm**{: style="color: blue"} code.
 
-One way to look at the scheme is the following. When an electron
+One way to look at the scheme is the following.  When an electron
 encounters an atomic sphere, the scattering it experiences can be
 described in terms of its phase shift, <i>&eta;<sub>l</sub></i>. 
 The tangent of the phase shift is a property of the scattering potential and the
@@ -436,7 +436,7 @@ $$ 1 / P_l(E) = \Delta_l / ( E  -  C_l )  +  \gamma  \hspace{1cm}   (1)  $$
 
 which is correct to second order in $$(E - C_l)$$.  Potential parameters *C* and &Delta; are readily identified by comparing the two
 equations: &Delta; is the width *W* of the resonance, and *C* is the band center. &gamma; is the second order distortion parameter, which
-can be seen to add a constant background to the phase shift. In practice one also include third order terms using the small parameter _p_;
+can be seen to add a constant background to the phase shift. In practice, one can also include third order terms using the small parameter _p_;
 see Varenna notes.
 
 _Note:_{: style="color: red"} In (1), <i>P<sub>l</sub></i> is indeed Andersen's "potential function,"
