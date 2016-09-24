@@ -514,7 +514,7 @@ Branching constructs have a function similar to the C constructs.
    <UL>
 
    <LI> <b>if</b> <i>expr</i>&nbsp;&nbsp; requires that <i>expr</i>&nbsp; be a valid
-   expression, while &nbsp;</b>ifdef</b> <i>expr</i>&nbsp; evaluates <i>expr</i>&nbsp;
+   expression, while &nbsp;<b>ifdef</b> <i>expr</i>&nbsp; evaluates <i>expr</i>&nbsp;
    as <b>false</b> if it invalid (e.g. it contains an undefined variable).
 
    <LI>
@@ -526,26 +526,24 @@ Branching constructs have a function similar to the C constructs.
    If any of &nbsp;<i>expr1</i>,&nbsp;&nbsp; &nbsp;<i>expr2</i>,&nbsp;&nbsp; ... evaluate to nonzero, the result
    is nonzero, whether or not preceding expressions are valid.
 
-   <br><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> 
-   the syntactical significance of the spaces.
-   &nbsp;<i>expr1</i><b>|</b><i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i> <b>|</b> <i>expr2</i>&nbsp;&nbsp; may be nonzero if either is valid.
+   <br><FONT color="#bb0000"><I>Note</I>&nbsp;</FONT> the syntactical significance of the spaces.
+   &nbsp;<i>expr1</i><b>|</b><i>expr2</i>&nbsp;&nbsp; cannot be evaluated unless both &nbsp;<i>expr1</i>&nbsp;&nbsp; and
+   &nbsp;<i>expr2</i>&nbsp;&nbsp; are valid expressions, while &nbsp;<i>expr1</i>&nbsp; <b>|</b> &nbsp;<i>expr2</i>&nbsp;&nbsp; may
+   be nonzero if either is valid.
 
    <LI> <b>ifdef</b>&nbsp;&nbsp; allows a limited use of character variables in expressions. Either of the following are permissible expressions:
    <pre>
       char-variable            &larr; T if char-variable exists, otherwise F
-      char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i>
-   </pre>
+      char-variable=='<i>string</i>'  &larr; T ifchar-variable has the value <i>string</i> </pre>
    <i>Example</i>:
-   <pre>
-   % ifdef  x1==2 & atom=='Mg' | x1===1
-   </pre>
-   is nonzero if scalar &nbsp;**x1**&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;**atom**&nbsp;&nbsp; is equal to "Mg",
-   <i>or</i> if scalar &nbsp;**x1**&nbsp;&nbsp; is 1.
+   <pre> % ifdef  x1==2 & atom=='Mg' | x1===1  </pre>
+   is nonzero if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 2 <i>and</i> if character variable &nbsp;<b>atom</b>&nbsp;&nbsp; is equal to "Mg",
+   <i>or</i> if scalar &nbsp;<b>x1</b>&nbsp;&nbsp; is 1.
 
    <br> <FONT color="#0000bb"><I>*Note</I>&nbsp;</FONT> binary operators
-   &nbsp;**&**&nbsp;&nbsp; and &nbsp;&nbsp;**|**&nbsp;&nbsp; 
-   are evaluated left to right: &nbsp;**&**&nbsp;&nbsp; does not take precedence
-   over &nbsp;**|**&nbsp;.
+   &nbsp;<b>&</b>&nbsp;&nbsp; and &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp; 
+   are evaluated left to right: &nbsp;<b>&</b>&nbsp;&nbsp; does not take precedence
+   over &nbsp;<b>|</b>&nbsp;.
 
    </UL>
 
