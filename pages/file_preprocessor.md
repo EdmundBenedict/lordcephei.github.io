@@ -349,11 +349,9 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
-1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
-
-  ~~~
-   % const  myvar=<i>expr</i>
-  ~~~
+1  **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
+  <pre>
+   % const  myvar=<i>expr</i></pre>
   does two things:
 
   a. adds **myvar** to the scalar variables symbols table if it is not there already.
