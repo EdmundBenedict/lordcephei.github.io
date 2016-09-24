@@ -366,10 +366,10 @@ Recognized keywords are
 % const a=3</pre>
   incorporate **a** into the symbols table with value 2, while
 
-  ~~~
-   % const a=2
-   % var a=3
-  ~~~
+
+    % const a=2
+    % var a=3
+
   does the same but assigns 3 to **a**.
 
   _Note:_{: style="color: red"} **expr** may be multiplied into, divided into, added into,
