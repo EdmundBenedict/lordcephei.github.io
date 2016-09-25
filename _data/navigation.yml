@@ -139,6 +139,8 @@
     - name: "Miscellaneous"
       prefix: "/misc"
       content:
+      - title: "Optics using lm and lmf"
+        url: "/docs-equ-optics/"
       - title: "Adding external Zeeman field to the potential"
         url: "/extbfield/"
       - title: "Generating a Fermi surface in spin polarized Fe"
