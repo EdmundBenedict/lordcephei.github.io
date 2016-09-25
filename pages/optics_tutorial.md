@@ -1,7 +1,10 @@
 ---
 layout: page-fullwidth
-title: "Optics Tutorial"
-permalink: "/tutorial/application/optics/
+title: "Self-Consistent LDA calculation for PbTe"
+subheadline: ""
+show_meta: false
+teaser: ""
+permalink: "/tutorial/application/optics/"
 header: no
 ---
 
