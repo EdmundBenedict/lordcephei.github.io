@@ -75,7 +75,7 @@ Richard Martin's book, _Electronic Structure_.
 <div onclick="elm = document.getElementById('linear'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">
 Click here for a brief description of the linear method and its extension using local orbitals.
-</div>{::nomarkdown}<div style="display:none;margin:0px 0px 0px -px;" id="linear">{:/} 
+{::nomarkdown}<div style="display:none;padding:0px;" id="linear">{:/}
 
 The linear approximation rests on the fact that a partial wave
 $$\phi_l(\varepsilon,r)$$ for an atom centered at the origin varies
