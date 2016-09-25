@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "The Atomic Spheres Approximation"
-permalink: "/docs/asaoverview/"
+permalink: "/docs/code/asaoverview/"
 sidebar: "left"
 header: no
 ---
@@ -92,7 +92,7 @@ point contacts.
 
 ### _Structure of the ASA_
 {::comment}
-/docs/asaoverview/#structure-of-the-asa/
+/docs/code/asaoverview/#structure-of-the-asa/
 {:/comment}
 
 The ASA is like other [augmented wave methods](/docs/package_overview/#augmented-wave-methods) which divide into an
@@ -115,7 +115,7 @@ specifying potential parameters, or with the atomic part, specifying the moments
 
 ### _Augmentation sphere boundary conditions and continuous principal quantum numbers_
 {::comment}
-/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/
+/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/
 {:/comment}
 
 [Linear augmented wave](/docs/package_overview/#linear-methods-in-band-theory) methods almost invariably construct the basis set inside
@@ -153,7 +153,7 @@ It is unfortunate that these distinct but related functions have the same symbol
 
 ##### _Continuous principal quantum number for core levels and free electrons_
 {::comment}
-/docs/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons/
+/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons/
 {:/comment}
 
 
@@ -185,7 +185,7 @@ in a continous way, acquiring an extra integer each time a new node appears.
 
 ### _Generation of the sphere potential and energy moments Q_
 {::comment}
-/docs/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q/
+/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q/
 {:/comment}
 
 
@@ -218,7 +218,7 @@ by the requirement that <i>&phi;</i> is integrable.
 
 _Potential Parameters_
 {::comment}
-/docs/asaoverview/#potential-parameters/
+/docs/code/asaoverview/#potential-parameters/
 {:/comment}
 
 Once a potential is specified (implicitly through <i>P, Q</i><sub>0,1,2</sub>%nbsp;),
@@ -233,7 +233,7 @@ and the bandwidth &Delta;<i><sub>l</sub></i>.
 + <i>C<sub>l</sub></i> describes the band center, and is the analog of the on-site matrix element (or atomic level in the free atom)
 + &Delta;<i><sub>l</sub></i> characterises the width of the partial, i.e. approximately the maximum and minimum values a partial wave would take in the absence of hybridization with other atoms.
 
-For a connection between _C_ and &Delta; and scattering phase shifts, see [downfolding](/docs/asaoverview/#downfolding-in-the-asa/) below.
+For a connection between _C_ and &Delta; and scattering phase shifts, see [downfolding](/docs/code/asaoverview/#downfolding-in-the-asa/) below.
 Another useful quantity is the "small parameter" _p_, which tells you the energy window over which the 
 [partial wave is well described by the linear method](/docs/package_overview/#linear-methods-in-band-theory "linear methods")
 
@@ -241,11 +241,11 @@ To generate bands and an output charge density (in the form of moments <i>Q</i><
 Nevertheless it is more common to start from the moments because rough values for them can easily be guessed.  The ASA codes will assume default
 values (<i>Q</i><sub>0</sub> = occupation of the free atom, <i>Q</i><sub>1</sub> = <i>Q</i><sub>2</sub> = 0), which most of the time is good
 enough to reach self-consistency.  These codes also have a lookup table for default values of _P_ described
-[above](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+[above](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 
 ### _Selection of Sphere Radii_
 {::comment}
-/docs/asaoverview/#selection-of-sphere-radii/
+/docs/code/asaoverview/#selection-of-sphere-radii/
 {:/comment}
 
 One of the biggest nuisances for augmented-wave programs is the choice
@@ -317,7 +317,7 @@ MT potentials are exactly solvable
 
 #### _Algorithm to automatically determine sphere radii_
 {::comment}
-/docs/asaoverview/#algorithm-to-automatically-determine-sphere-radii/
+/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii/
 {:/comment}
 
 The ideal choice of sphere radii best approximates a potential that is spherical within the augmentation spheres and flat outside.  
@@ -334,7 +334,7 @@ between the bond, so for that case the two sphere radii will exactly touch and h
 
 #### _Autoscaling of sphere radii_
 {::comment}
-/docs/asaoverview/#autoscaling-of-sphere-radii/
+/docs/code/asaoverview/#autoscaling-of-sphere-radii/
 {:/comment}
 
 _Note:_{: style="color: red"} this should be moved to an **lmchk**{: style="color: blue"} tutorial.
@@ -359,7 +359,7 @@ Maximum sphere radius
 
 #### _Finding empty spheres_
 {::comment}
-/docs/asaoverview/#finding-empty-spheres/
+/docs/code/asaoverview/#finding-empty-spheres/
 {:/comment}
 
 You can use "empty spheres" as a device to fill space.  The ASA constraint that
@@ -375,7 +375,7 @@ See [this tutorial](/tutorial/asa/lm_pbte_tutorial).
 
 ##### Assigning lower priority to resizing empty spheres
 {::comment}
-/docs/asaoverview/#assigning-lower-priority-to-resizing-empty-spheres/
+/docs/code/asaoverview/#assigning-lower-priority-to-resizing-empty-spheres/
 {:/comment}
 
 Particularly in the ASA, empty spheres are often needed to get
@@ -396,7 +396,7 @@ on a different footing from real atoms.
 
 ### _Downfolding in the ASA_
 {::comment}
-/docs/asaoverview/#downfolding-in-the-asa/
+/docs/code/asaoverview/#downfolding-in-the-asa/
 {:/comment}
 
 The **lm**{: style="color: blue"} and **lmgf**{: style="color: blue"} codes
@@ -443,7 +443,7 @@ can be seen to add a constant background to the phase shift. In practice, one ca
 see Varenna notes.
 
 _Note:_{: style="color: red"} In (1), <i>P<sub>l</sub></i> is indeed Andersen's "potential function,"
-_not_ the ["continuously varying principal quantum number"!](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+_not_ the ["continuously varying principal quantum number"!](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 1/_P_ is the LMTO analogue of the tangent of the phase shift in multiple scattering and KKR theories.
 
 For electrons that scatter only weakly, one can further

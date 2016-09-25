@@ -140,7 +140,7 @@ Such a basis has significant advantages: basis sets are much smaller for a given
 also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves -- another unique
 feature of this package.
 
-**Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/asaoverview/); they use LMTO basis sets.
+**Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/code/asaoverview/); they use LMTO basis sets.
 
 _____________________________________________________________
 

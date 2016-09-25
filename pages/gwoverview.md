@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Implementation of the _GW_ Approximation"
-permalink: "/docs/gwoverview/"
+permalink: "/docs/code/gwoverview/"
 sidebar: "left"
 header: no
 ---

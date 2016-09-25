@@ -169,7 +169,7 @@ Before a self consistent calculation can be performed the real-space structure c
 
     $ lmstr ctrl.pbte
 
-The penultimate step, is to generate a starting potential.  In the ASA, the potential is determined [through multipole moments](/docs/asaoverview/) $$Q_0$$, $$Q_1$$, $$Q_2$$. For this we first change the nkabc variable within the control file to (**nkabc=4**, this variable represents the k-mesh density). Use your text editor to change:
+The penultimate step, is to generate a starting potential.  In the ASA, the potential is determined [through multipole moments](/docs/code/asaoverview/) $$Q_0$$, $$Q_1$$, $$Q_2$$. For this we first change the nkabc variable within the control file to (**nkabc=4**, this variable represents the k-mesh density). Use your text editor to change:
 
     % const nkabc=0
 	

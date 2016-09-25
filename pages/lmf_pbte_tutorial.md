@@ -307,7 +307,7 @@ The three numbers following **PZ**
 correspond to specifications for local orbitals in the _s_, _p_, and _d_ channels.  Zero indicates "no local orbital;"
 there is only a _d_ orbital here.
 
-**15.934** is actually a compound of **10** and the "[continuous principal quantum number](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)"
+**15.934** is actually a compound of **10** and the "[continuous principal quantum number](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)"
 **5.934**. The 10's digit tells **lmf**{: style="color: blue"}
 to use an "enhanced" local orbital as opposed to the usual variety found in most
 density-functional codes.  Enhanced orbitals append a tail so that the
@@ -315,8 +315,8 @@ density from the orbital spills into the interstitial.
 You can specify a "traditional" local orbital by omitting the 10, but this kind is more accurate, and there is no advantage to doing so.
 
 The continuous principal quantum number (**5.934**) specifies the [number of nodes and boundary
-condition](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).  The large fractional part
-of _P_ is [large for core states](/docs/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons), typically
+condition](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).  The large fractional part
+of _P_ is [large for core states](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons), typically
 around 0.93 for shallow cores.  **lmfa**{: style="color: blue"} determines the proper value for the atomic potential.  In the
 self-consistency cycle the potential will change and **lmf**{: style="color: blue"} will update this value.
 
@@ -434,7 +434,7 @@ relativistic Dirac treatment.
 **lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
 
 + finding estimates for parameters **RSMH** and **EH** that define the shape of envelope functions 
-+ finding suitable [boundary conditions](/docs/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) for linearization energies
++ finding suitable [boundary conditions](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) for linearization energies
 + deciding on which high-lying cores should be included as local orbitals
 
 <div onclick="elm = document.getElementById('lmfaoutput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -463,7 +463,7 @@ The first lines show the augmentation radius and radial mesh parameters.  It use
 
 $$ r_i = b[exp^{a(i-1)}-1] $$
 
-The **Pl** are the [continuous principal quantum numbers](/docs/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers).
+The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers).
 Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
 
 You can specify the charges **Ql** in the ctrl file; if you do not it has a lookup table of default values for every atom.
