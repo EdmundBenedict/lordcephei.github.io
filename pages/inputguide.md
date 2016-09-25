@@ -23,8 +23,10 @@ _____________________________________________________________
 
 Here is a sample input file for the compound Bi$$_2$$Te$$_3$$ written for the **lmf**{: style="color: blue"} package.
 
-<div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click to show.</div>
-{::nomarkdown}<div style="display:none;padding:25px;" id="sampleinput">{:/} 
+<div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">
+Click to show.
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
 
         categories                  tokens
         ↓                            ↓
