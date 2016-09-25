@@ -23,6 +23,21 @@ It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) bu
 
 _____________________________________________________________
 
+### _Table of Contents_
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}  
+
+_____________________________________________________________
+
+### _Preliminaries_
+
+Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
+
+Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path. 
+
+_____________________________________________________________
+
 ### _Command summary_     
 
 The tutorial starts under the heading "Tutorial"; you can see a synopsis of the commands by clicking on the box below.
@@ -38,21 +53,6 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
     ... to be finished
 
 {::nomarkdown}</div>{:/}
-
-_____________________________________________________________
-
-### _Table of Contents_
-{:.no_toc}
-*  Auto generated table of contents
-{:toc}  
-
-_____________________________________________________________
-
-### _Preliminaries_
-
-Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
-
-Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path. 
 
 ____________________________________________________________
 

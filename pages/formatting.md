@@ -5,14 +5,17 @@ permalink: "/formatting/"
 header: no
 ---
 
+### _Purpose_
+{:.no_toc}
+_____________________________________________________________
+Should you wish to add to or edit the tutorials and documentation on this website, this guide will cover the site-wide formatting in use to maintain consitency. Syntax specific to the site will also be outlined in the relevant sections.
+
+{:toc}  
+
 ### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}  
-
-### _Purpose_
-_____________________________________________________________
-Should you wish to add to or edit the tutorials and documentation on this website, this guide will cover the site-wide formatting in use to maintain consitency. Syntax specific to the site will also be outlined in the relevant sections.
 
 ### _Preliminaries_
 _____________________________________________________________
@@ -32,6 +35,7 @@ An 'Issues or Comments' section can be included with contact details should the 
 Tutorials, unless they are very involved (e.g. the DMFT tutorial) should have a "Command Summary" section that assembles all the commands in the tutorial together in one place, for quick reference.   Thus tutorials generally should contain the following sections, in order shown.  You can use the [basic lmf tutorial](https://github.com/lordcephei/lordcephei.github.io/blob/master/pages/fpintrotut.md) for a template.
 
     Purpose
+    Table of Contents (optional)
     Preliminaries
     Command summary (optional)
     Tutorial/Documentation
