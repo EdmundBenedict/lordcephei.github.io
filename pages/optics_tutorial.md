@@ -52,11 +52,11 @@ the category above describes all neccessery information needed to calculate the 
 
 To preform this calculation simply add the text above to the ctrl file (in this tutorial we will use **lm**{: style="color: blue"} and GaAs) and invoke:
 
-    lm -vnit=1 ctrl.pbte
+    $ lm -vnit=1 ctrl.pbte
 
 or equevilantly for the FP implementation
 
-   lmf -vnit=1 ctrl.gas
+    $ lmf -vnit=1 ctrl.gas
 
 (**NOTE**: the **START** category is not used in full-potential calculations and hence can be ignored)additional switches are added to restrict the number of iteration to one, it is also recomended to include the switch  **- -rs=1,0** for FP calculations which will read the saved density from disk but will not update the electron density; this insures that all calculations after self-consistent calculation are preformed on the same density.
 
