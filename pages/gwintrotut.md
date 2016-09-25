@@ -1,10 +1,10 @@
 ---
 layout: page-fullwidth
-title: "LM Tutorial"
+title: "QSGW Tutorial"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/tutorial/gw/lmtut/"
+permalink: "/tutorial/gw/qsgw/"
 sidebar: "left"
 header: no
 ---

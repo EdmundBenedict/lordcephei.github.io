@@ -110,8 +110,10 @@
     - name: "GW"
       prefix: "/gw"
       content:
-      - title: "Basic GW Tutorial"
-        url: "/lmtut/"
+      - title: "POSCAR to QSGW"
+        url: "/poscar_qsgw/"
+      - title: "QSGW Tutorial"
+        url: "/qsgw/"
     - name: "lmgf"
       prefix: "/lmgf"
       content:
