@@ -1,15 +1,10 @@
 ---
 layout: page-fullwidth
-title: "Building A TBE Ctrl File"
+title: "Empirical tight-binding program TBE"
 permalink: "/tutorial/tbe/tbectrl/"
 header: no
 
 ---
-
-### _Table of Contents_
-{:.no_toc}
-*  Auto generated table of contents
-{:toc}  
 
 ### _Purpose_
 ________________________________________
@@ -17,6 +12,11 @@ ________________________________________
 The purpose of this tutorial is to outline the steps to produce very simple cells within TBE, first a bcc unit cell and then a more complex super-cell containing a vacancy, and show generally what the output will look like. 
 All of the tokens and categories are defined and explained in the LMTO [tokens](http://www.lmsuite.org/lm-suite-tutorials/input-reference/) page, and so will not be explained fully here. More information specific to TBE is given in the [TBE](http://www.lmsuite.org/lm-suite-tutorials/tbe/) page
 
+
+### _Table of Contents_
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}  
 
 #### Producing the ctrl file
 ________________________________________
@@ -30,7 +30,9 @@ Constants used elsewhere in the file may be defined as follows:
 
          %const amass=1.09716d-3 r0=5.423516
 
-Each subsequent line of constants must start with *% const*, or they may be defined in the [CONST](http://www.lmsuite.org/lm-suite-tutorials/input-reference/#CONSTcat) category, but will then be referenced without {} brackets. They can then be used in the subsequent categories.
+Constants declared by **% const** are [variables parsed by the preprocessor](/docs/input/preprocessor/#variable-declarations-and-assignments).
+Alternatively they may be defined in the [**CONST**](/docs/input/inputfile/#const") category, but will then are separate from the preprocessor and
+are referenced without *{}* brackets. They can then be used in the subsequent categories.
 
          STRUC   ALAT={r0} NBAS=2
                  PLAT= 1.0 0.0 0.0   0.0 1.0 0.0   0.0 0.0 1.0

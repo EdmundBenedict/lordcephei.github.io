@@ -168,7 +168,7 @@ The family consists of the following:
 
 + **blm**{: style="color: blue"}: an input file generator, given structural information.  [Many of the tutorials](tutorial/lmf/lmf_pbte_tutorial/) use **blm**{: style="color: blue"}.
 
-**cif2init**{: style="color: blue"} and **cif2site**{: style="color: blue"}: convert structural information contained in _cif_{: style="color: green"} files to a form readable by Questaal. **poscar2init**{: style="color: blue"} and **poscar2site**{: style="color: blue"}: perform a similar function, reading VASP _POSCAR_{: style="color: green"} files.
++ **cif2init**{: style="color: blue"} and **cif2site**{: style="color: blue"}: convert structural information contained in _cif_{: style="color: green"} files to a form readable by Questaal. **poscar2init**{: style="color: blue"} and **poscar2site**{: style="color: blue"}: perform a similar function, reading VASP _POSCAR_{: style="color: green"} files.
 
 + **lmf**{: style="color: blue"}: the [standard full-potential LDA band program](/docs/code/fpoverview/). It has a companion program **lmfa**{: style="color: blue"} to calculate starting wave functions for free atoms and supply parameters for the shape of envelope functions.  See [this page](/tutorial/lmf/lmf_tutorial/) for a basic tutorial.
 There is an MPI version, **lmf-MPIK**{: style="color: blue"}.
@@ -189,9 +189,11 @@ There is also an MPI version, **lmpg-MPIK**{: style="color: blue"}.
 
 + **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutoria
 
-+ **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consistent calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
++ **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consisten
+t calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
+**tbe**{: style="color: blue"} has a [tutorial](/tutorial/tbe/tbectrl/)
 
-+ **lmdos**{: style="color: blue"}: generates partial densities of states. It is run as a postprocessor after
++ **lmdos**{: style="color: blue"}: generates partial densities of states. It is run as a post-processing step after
      execution of **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, or **tbe**{: style="color: blue"}.
 
 + **lmfgws**{: style="color: blue"}: a postprocessing code run after a _GW_ calculation to analyze spectral functions.

@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "ASA Green's function package tutorial"
+title: "lmgf tutorial"
 subheadline: ""
 show_meta: false
 teaser: ""

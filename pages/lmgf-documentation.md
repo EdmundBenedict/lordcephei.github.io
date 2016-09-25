@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "lmgf Documentation"
+title: "The ASA Green's function program lmgf"
 subheadline: ""
 show_meta: false
 teaser: ""

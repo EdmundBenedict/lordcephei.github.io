@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "POSCAR to QSGW"
+title: "Introductory tutorial to QSGW"
 subheadline: ""
 show_meta: false
 teaser: ""
@@ -8,11 +8,21 @@ permalink: "/tutorial/gw/poscar_qsgw/"
 sidebar: "left"
 header: no
 ---
-<hr style="height:5pt; visibility:hidden;" />
-# POSCAR to QSGW 
 
-To perform a basic QSGW calculation and set up for more accurate/specific calculations starting from a POSCAR file the following steps can be used as a basic tutorial and guide. In particular cases certain steps may be amended or ommitted. 
+_____________________________________________________________
+
+### _Purpose_
+{:.no_toc}
+
+To perform a basic QSGW calculation and set up for more accurate/specific calculations starting from a POSCAR file the following steps can be used as a basic tutorial and guide. In particular cases certain steps may be amended or omitted. 
 <hr style="height:5pt; visibility:hidden;" />
+
+_____________________________________________________________
+
+### Preliminaries
+
+... Needs filling in
+
 ### _Step 1: Crystal structure_  
 
 The first step is to extract the site/crystal structure from the POSCAR file. This can be achieved in two methods using ”*poscar2init*{: style="color: green"}” or ”*poscar2site*{: style="color: green"}”, both write output as *stdout*{: style="color: blue"} while ”*poscar2site*{: style="color: green"}” also creates a file named ”*site*{: style="color: green"}”. To use just execute in the directory with the POSCAR file. The output of the two executables are very similar, ”Site” file is more convenient when the *ctrl.ext*{: style="color: blue"} file has been prepared and only the ”*site.ext*{: style="color: green"}” is needed, while *init.ext*{: style="color: green"} can be used to create a simple template input file (hence recommended for 1st runs).
