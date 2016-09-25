@@ -4,12 +4,31 @@ title: "Optics Tutorial"
 permalink: "/tutorial/misc/docs-equ-optics/
 header: no
 ---
+
 _____________________________________________________________
 
-### _Prerequisite_
+### _Purpose_
 
-To calculate the optical and electronic properties through the **OPTICS** mode a full selfc-consistent calculation is needed.
-For this tutorials the **lm**{: style="color: blue"} or  **lmf**{: style="color: blue"} are needed (the same executable as for the self-consistent calculation should be used). For this tutorial PbTe will be used for the porpuses of demonstration, instruction for self-consistent calculation for PbTe can be found [here](/tutorial/asa/lm_pbte_tutorial/).
+To calculate optical and related properties using the **lmf**{: style="color: blue"} or **lm**{: style="color: blue"} code.
+
+_____________________________________________________________
+
+### _Table of Contents_
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}  
+
+_____________________________________________________________
+
+### _Preliminaries_
+
+This tutorial calculates optical properties of PbTe using **lm**{: style="color: blue"} or **lm**{: style="color: blue"}.  
+There is a [full potential tutorial](/tutorial/lmf/lmf_pbte_tutorial/)
+for PbTe as well as an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/).
+See either of those tutorials to build the self-consistent density.
+
+You can begin this tutorial once you have the self-consistent density in hand.
+
 _____________________________________________________________
 
 ### _Tutorial_
