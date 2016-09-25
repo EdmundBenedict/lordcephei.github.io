@@ -8,7 +8,7 @@ _____________________________________________________________
 
 ### _Prerequisite_
 
-To calculate the optical and electronic properties which can be accessed through the **OPTICS** mode a full selfc-consistent calculation is needed.
+To calculate the optical and electronic properties through the **OPTICS** mode a full selfc-consistent calculation is needed.
 For this tutorials the **lm**{: style="color: blue"} or  **lmf**{: style="color: blue"} are needed (the same executable as for the self-consistent calculation should be used). For this tutorial PbTe will be used for the porpuses of demonstration, instruction for self-consistent calculation for PbTe can be found [here](/tutorial/asa/lm_pbte_tutorial/).
 _____________________________________________________________
 
@@ -16,7 +16,7 @@ _____________________________________________________________
 
 #### _Introduction_
 
-The full-optential (FP) and the atomic spherical approximation (ASA) implementations of the code executed through  **lmf**{: style="color: blue"} and  **lm**{: style="color: blue"} respectivily have the capacity to preform a number of equlibrium and non-equlibrim optical and electronic calculations. This tutorial will only focus on the equilibrium calculation for optical properties and the joint density of states (JDOS), non-equlibrium modes will be covered here(HYPERLINKTHIS).
+The full-optential (FP) and the atomic spherical approximation (ASA) implementations of the code executed through  **lmf**{: style="color: blue"} and  **lm**{: style="color: blue"} respectivily, have the capacity to preform a number of equlibrium and non-equlibrim optical and electronic calculations. This tutorial will only focus on the equilibrium calculation for optical properties and the joint density of states (JDOS), non-equlibrium modes will be covered here(HYPERLINKTHIS).
 
 #### _Input File_
 
