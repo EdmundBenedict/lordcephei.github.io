@@ -138,6 +138,11 @@
         url: "/maxent1/"
       - title: "The self-energy loop and the dynamical double-counting"
         url: "/dmft7/"
+    - name: "Physical Application"
+      prefix: "/application"
+      content:
+      - title: "Optics using lm and lmf"
+        url: "/optics/"
     - name: "Miscellaneous"
       prefix: "/misc"
       content:
