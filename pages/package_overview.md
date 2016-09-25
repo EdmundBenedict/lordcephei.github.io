@@ -161,8 +161,8 @@ _____________________________________________________________
 /docs/package_overview/#executable-codes-in-the-questaal-suite
 {:/comment}
 
-The Questaal family of executable programs share a common, elegant [input system](https://lordcephei.github.io/pages/input-file-style.html),
-and have some elements of a programming language.  A reference defining the syntax of categories and tokens can be found in [this pdf file](https://lordcephei.github.io/pages/input.pdf)(update link lvs).
+The Questaal family of executable programs share a common, elegant [input system](/docs/input/inputfile/)
+and has features of a [programming language](/docs/input/preprocessor/).  A reference defining the syntax of categories and tokens can be found in [this pdf file](https://lordcephei.github.io/pages/input.pdf)(update link lvs).
 
 The family consists of the following:
 
