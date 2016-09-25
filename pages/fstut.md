@@ -1,10 +1,10 @@
 ---
 layout: page-fullwidth
-title: "LM Suite - Fermi Surface Tutorial"
+title: "Making a Fermi Surface in spin polarized Fe"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/tutorial/misc/fstut/"
+permalink: "/tutorial/application/fstut/"
 header: no
 ---
 

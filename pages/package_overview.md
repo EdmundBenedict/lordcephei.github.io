@@ -178,8 +178,8 @@ There is an MPI version, **lmf-MPIK**{: style="color: blue"}.
 + **lm**{: style="color: blue"}: a density functional band program [based on the Atomic Spheres Approximation](/docs/code/asaoverview/) (ASA).  It requires a companion program **lmstr**{: style="color: blue"} to make structure constants for it.  A basic tutorial can be found [here](/tutorial/asa/lm_pbte_tutorial/).
 There is an MPI version, **lm-MPIK**{: style="color: blue"}.
 
-+ **lmgf**{: style="color: blue"}: a density functional band program based on the ASA, using a Green's function formalism.
-Its unique contribution to the suite is that it permits the calculation of magnetic exchange interactions, and has an implementation of the coherent potential approximation to treat chemical and/or spin disorder. A basic tutorial can be found [here](/tutorial/lmgf/lmgf/).
++ **lmgf**{: style="color: blue"}: a density functional [Green's function code based on the ASA](/docs/code/lmgf/).
+Its unique contribution to the suite is that it permits the calculation of magnetic exchange interactions, and has an implementation of the coherent potential approximation to treat chemical and/or spin disorder. A tutorial can be found [here](/tutorial/lmgf/lmgf/).
 There is an MPI version, **lmgf-MPIK**{: style="color: blue"}.
 
 + **lmpg**{: style="color: blue"}: a program similar to **lmgf**{: style="color: blue"}, but it is designed for layered structures with periodic boundary conditions in
@@ -187,7 +187,7 @@ There is an MPI version, **lmgf-MPIK**{: style="color: blue"}.
 [a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf/)(update link lvs), though it is somewhat out of date.
 There is also an MPI version, **lmpg-MPIK**{: style="color: blue"}.
 
-+ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.
++ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutoria
 
 + **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consistent calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
 
@@ -219,8 +219,8 @@ All executables use a common input system.  It is a unique system that parses
 input in a largely format-free, tree-structured format.  There is some
 [programming language capability](/docs/input/preprocessor/): input lines can be conditionally
 read, you can declare variables and use algebraic expressions.  Thus the
-input file can be [quite simple](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
-or very detailed, even serving as a database for many materials. [This tutorial](https://lordcephei.github.io/docs/input/inputfile/)
+input file can be quite simple as it is in this [introductory tutorial](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
+or very detailed, even serving as a database for many materials. [This page](https://lordcephei.github.io/docs/input/inputfile/)
 explains how an input file is structured, and how input is organized by _categories_ and _tokens_. 
 
 ### _Other Resources_
@@ -266,7 +266,7 @@ _All-electron self-consistent _GW_ approximation: Application to Si, MnO, and Ni
 [Phys. Rev. Lett. 93, 126406 (2004)](http://link.aps.org/doi/10.1103/PhysRevLett.93.126406);  
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Quasiparticle self-consistent_ GW _theory_,
-[Phys. Rev. Lett. 96, 226402 (2006)](http://link.aps.org/abstract/PRL/v96/e226402)(update link lvs)
+[Phys. Rev. Lett. 96, 226402 (2006)](http://link.aps.org/abstract/PRL/v96/e226402)
 
 8. Questaal's _GW_ implementation is based on this paper:  
 Takao Kotani, M. van Schilfgaarde, S. V. Faleev,
@@ -276,7 +276,7 @@ _Quasiparticle self-consistent GW  method: a basis for the independent-particle 
 9. This paper shows results from LDA-based GW, and its limitations:  
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Adequacy of Approximations in <i>GW</i> Theory_,
-[Phys. Rev. B74, 245125 (2006)](http://link.aps.org/abstract/PRB/v74/e245125)(update link lvs)
+[Phys. Rev. B74, 245125 (2006)](http://link.aps.org/abstract/PRB/v74/e245125)
 
 10. This book explains the ASA-Green's function formalism, including the coherent potential approximation:  
 I. Turek et al., Electronic strucure of disordered alloys, surfaces and interfaces (Kluwer, Boston, 1996).
