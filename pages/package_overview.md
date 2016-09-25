@@ -35,8 +35,8 @@ Questaal's unique features, in particular the ability to carry out
 quasiparticle self-consistent calculations.
 
 Questaal codes have been written mainly by M. van Schilfgaarde, though [many people have made important
-contributions](https://lordcephei.github.io/lmf_tutorial/)(update link lvs).  Download the package [here](https://bitbucket.org/lmto/lm)
-and see [this web page](https://lordcephei.github.io/install/) (update link lvs)to install the package.
+contributions](https://lordcephei.github.io/developers/).  Download the package [here](https://bitbucket.org/lmto/lm)
+and see [the installation page](https://lordcephei.github.io/docs/install/) to install the package.
 
 _____________________________________________________________
 
@@ -51,7 +51,7 @@ solve Schrodinger's equation consist of a family of smooth envelope functions wh
 must be orthogonalized to core states.
 
 Augmented-wave methods consist of an "atomic" part and a "band" part. The former takes as input a density and finds the 
-[partial waves $$\phi(\varepsilon,r)$$](/docs/package_overview/#linear-methods-in-band-theory/) on a numerical radial mesh inside each augmentation sphere and makes the
+[partial waves](/docs/package_overview/#linear-methods-in-band-theory/) $$\phi(\varepsilon,r)$$ on a numerical radial mesh inside each augmentation sphere and makes the
 relevant matrix elements needed, e.g. for the hamiltonian or some other property (e.g. optics).  The "band'' part constructs the hamiltonian
 and diagonalizes the secular matrix made by joining the partial waves to the envelopes.
 
@@ -133,7 +133,7 @@ envelope functions. They are convolutions of a Hankel and Gaussian functions cen
 in contrast to ordinary Hankel functions (the envelope functions of the LMTO method) which are singular at the origin,
 they resemble Gaussian functions for small _r_ and are smooth everywhere. For large _r_ they behave like ordinary Hankel functions
 and are better approximations to the wave function than Gaussian orbitals.  The mathematical properties of
-these functions are described in some detail in [this paper](http://scitation.aip.org/content/aip/journal/jmp/39/6/10.1063/1.532437)
+these functions are described in some detail in [this paper.](http://scitation.aip.org/content/aip/journal/jmp/39/6/10.1063/1.532437)
 
 Such a basis has significant advantages: basis sets are much smaller for a given level of precision, but they are
 also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves -- another unique

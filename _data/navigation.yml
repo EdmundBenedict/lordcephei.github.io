@@ -23,7 +23,7 @@
   - title: "Installation"
     url: "/install/"
   - program:
-    - name: "Overview by code"
+    - name: "Description by code"
       prefix: "/code"
       content:
       - title: "Full Potential Overview"
