@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Self-Consistent LDA calculation for PbTe"
+title: "Dielectric function and other optical properties"
 subheadline: ""
 show_meta: false
 teaser: ""
