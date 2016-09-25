@@ -158,7 +158,8 @@ It is unfortunate that these distinct but related functions have the same symbol
 
 
 <div onclick="elm = document.getElementById('corep'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for a description of P for two limiting cases: core levels and free electrons.</div>
+<button type="button" class="button tiny radius">
+Click here for a description of <i>P</i> for two limiting cases: core levels and free electrons.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="corep">{:/} 
 
 _Core levels_
@@ -268,6 +269,7 @@ Finding sphere radii automatically is relatively straightforward in the FP case;
 because of the space-filling requirement.
 
 <div onclick="elm = document.getElementById('sphereradii'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">
 Click here for for a discussion of the (in part competing) criteria for the selection of sphere radii.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="sphereradii">{:/} 
 
@@ -402,6 +404,7 @@ have procedures for constructing minimal basis by downfolding orbitals whose
 center of gravity is far above the Fermi level.
 
 <div onclick="elm = document.getElementById('downfolding'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">
 Click here for a discussion of downfolding in the ASA band program.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="downfolding">{:/} 
 

@@ -72,9 +72,10 @@ method](http://dx.doi.org/10.1103/PhysRevB.12.3060) pioneered by O.K. Andersen. 
 expanding them in a Taylor series to first order about some "linearization energy."  This is explained in detail in
 Richard Martin's book, _Electronic Structure_.
 
-<div onclick="elm = document.getElementById('linear'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click 
-here for a brief description of the linear method and its extension using local orbitals.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="linear">{:/} 
+<div onclick="elm = document.getElementById('linear'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">
+Click here for a brief description of the linear method and its extension using local orbitals.
+</div>{::nomarkdown}<div style="display:none;margin:0px 0px 0px -px;" id="linear">{:/} 
 
 The linear approximation rests on the fact that a partial wave
 $$\phi_l(\varepsilon,r)$$ for an atom centered at the origin varies
@@ -139,8 +140,7 @@ Such a basis has significant advantages: basis sets are much smaller for a given
 also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves -- another unique
 feature of this package.
 
-**Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](https://lordcephei.github.io/lmto_asa_doc.md/);(update link lvs)
-they use LMTO basis sets.
+**Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/asaoverview/); they use LMTO basis sets.
 
 _____________________________________________________________
 
