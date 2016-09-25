@@ -115,7 +115,7 @@ fplot
   -lblu .5,-.02 cd 'Charge density in bcc Chromium (10^\{-3} a.u.)'
 ~~~
 
-Run **fplot**{: style="color: blue"} with
+In this example commands are read from script _fplot.cr_{: style="color: green"}. Run **fplot**{: style="color: blue"} with
 
     $ fplot -f plot.cr
 
@@ -123,8 +123,6 @@ Run **fplot**{: style="color: blue"} with
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/} 
 ![Example 2.2](https://lordcephei.github.io/assets/img/fplot2.svg)
 {::nomarkdown}</div>{:/}
-
-In this example commands are read from script _fplot.cr_{: style="color: green"}.
 
 + Argument `-f` tells **fplot**{: style="color: blue"} that the next argument
   _fplot.cr_{: style="color: green"} is not a command but a file containing a script.
