@@ -75,23 +75,23 @@ The following will plot this function in the interval (0,2), with the abscissa s
 Some useful points to note:
 
 + A square box is drawn around the figure.  You can select the width and height of the box; see `-frme` below, or try  
-  `fplot -frme .1,.9,.3,.7 -ord ...`
+  `$ fplot -frme .1,.9,.3,.7 -ord ...`
 + For log scales modify `-frme` with `:lx` or `:ly` or both, e.g.  
-  `fplot -frme:ly 0,1,0,1 -ord ...`
+  `$ fplot -frme:ly 0,1,0,1 -ord ...`
 + By default all four edges of the box are drawn.  You can draw any combination of the four (`-frmt`) or shade the box; e.g.  
-  `fplot -frmt th=6,1,1 -ord ...`  or  `fplot -frmt col=.8,.9,.9,th=0 -ord ...`
+  `$ fplot -frmt th=6,1,1 -ord ...`  or  `fplot -frmt col=.8,.9,.9,th=0 -ord ...`
 + You can also draw the abscissa and ordinate through some middle point (`-frme:xor` and `-frme:yab`), e.g.  
-  `fplot -frme:xor=.5:yab=.675 0,1,0,1 -ord ...`
+  `$ fplot -frme:xor=.5:yab=.675 0,1,0,1 -ord ...`
 + You have considerable flexibility in controlling major and minor tic marks on the abscissa and ordinate (`-tmx` and `-tmy`), e.g.  
-  `fplot -tmx '.25;1~.02' -tmy '.1:5' -ord ...`
+  `$ fplot -tmx '.25;1~.02' -tmy '.1:5' -ord ...`
 + There is considerable flexibility in controlling the tic mark numbering, font (`-font`) 
   and format (`-fmtnx` and `-fmtny`) of the numbers, whether they are suppressed (`-noxn` and `-noyn`) and where they are placed (`-xn` and `-yn`)  
-  `fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
+  `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
 + You can control many aspects of the line type (`-lt`), e.g.  
-  `fplot -lt 3,bold=4,col=1,0,0 -ord ...`
+  `$ fplot -lt 3,bold=4,col=1,0,0 -ord ...`
 + The abscissa ranges from -0.1 to 2.1; the ordinate from -0.033 to +0.71. They were found automatically by finding the largest and smallest
   values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.  
-  `fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
+  `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 
