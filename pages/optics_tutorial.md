@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Optics Tutorial"
-permalink: "/tutorial//tutorial/application/optics/
+permalink: "/tutorial/application/optics/
 header: no
 ---
 
