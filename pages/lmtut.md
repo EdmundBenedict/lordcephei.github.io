@@ -1,10 +1,10 @@
 ---
 layout: page-fullwidth
-title: "LM Tutorial"
+title: "POSCAR to QSGW"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/tutorial/gw/lmtut/"
+permalink: "/tutorial/gw/poscar_qsgw/"
 sidebar: "left"
 header: no
 ---
