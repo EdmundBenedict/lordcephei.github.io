@@ -69,14 +69,14 @@ The input file offers a very flexible free format: tags identify data to be read
 
         W=.01
 
-reads a parameter (.01) from token **W=**. In this case **W=** belongs to the **BZ**{: style="color: red"} category, so the full tag name is **BZ**{: style="color: red"}\_**W**{: style="color: blue"}.
+reads a number (.01) from token **W=**. In this case **W=** belongs to the **BZ**{: style="color: red"} category, so the full tag name is **BZ**{: style="color: red"}\_**W**{: style="color: blue"}.
 
 A category holds information for a family of data, for example **BZ**{: style="color: red"} contains parameters associated with Brillouin zone integration. The entire input system has at present a grand total of 17 categories, though any one program uses only a subset of them.  
 
-<div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 {::comment}
 <button type="button" class="button tiny radius">Click here for a more detailed description of the input file's syntax.</button>
 {:/comment}
+<div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Click here for a more detailed description of the input file's syntax<button type="button" class="button tiny radius">.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
 
