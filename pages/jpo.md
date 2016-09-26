@@ -167,9 +167,11 @@ $${\mathbf{r}}_2$$, can be integrated in closed form.  The result a sum
 of other $$H_{pL}$$, evaluated at the connecting vector
 $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
-\begin{eqnarray}
+
+$$
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = (2\pi)^{-3} \int H^{*}
-\end{eqnarray}
+$$
+
 and the fact that
 $$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
 be expressed as a linear combination of other
