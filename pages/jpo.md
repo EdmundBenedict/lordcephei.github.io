@@ -156,9 +156,22 @@ This shows that $$H_{pL}$$ is the solution to the Helmholz operator $$\Delta+\va
 in response to a source term smeared out in the form of a gaussian.  A 
 conventional Hankel function is the response a point multipole at the
 origin (see I, Eq.~6.14).  $$H_{pL}$$ is also the solution to the
-Schr\"odinger equation for a potential that has an approximately
-gaussian dependence on $$r$$ (Ref.\cite{smhankelpap}, Eq.~6.30).
+Schrodinger equation for a potential that has an approximately
+gaussian dependence on $$r$$ (Ref I, Eq.~6.30).
 
+### Two-center integrals of smoothed Hankels
+
+One extremely useful property of the $$H_{pL}$$ is that the product
+of two of them, centered at different sites $${\mathbf{r}}_1$$ and
+$${\mathbf{r}}_2$$, can be integrated in closed form.  The result a sum
+of other $$H_{pL}$$, evaluated at the connecting vector
+$${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
+of Fourier transforms
+\begin{eqnarray}
+\int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
+(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) \widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)}
+d^3q
+\end{eqnarray}
 
 ### _Other Resources_
 {::comment}
