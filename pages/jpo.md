@@ -318,7 +318,9 @@ We can define for any energy
 \begin{equation}
 \bar\kappa = -i \kappa .
 \end{equation}
-Then $$\bar\kappa$$ is real and positive if $$\varepsilon < 0$$, while
+Then $$\bar\kappa$$ is real and positive if 
+$$\varepsilon > 0$$.
+$$\varepsilon < 0$$, while
 $$\kappa$$ is real and positive if $$\varepsilon > 0$$.
 
 ### _Other Resources_
