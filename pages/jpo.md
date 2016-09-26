@@ -172,7 +172,7 @@ of Fourier transforms
 (2\pi)^{-3} \int {\widehat{H}}^*_1({\mathbf{q}}) 
 \end{eqnarray}
 {::comment}
-(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
+(2\pi)^{-3}\int \widehat{H}^{*}
 \widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 {:/comment}
 and the fact that
@@ -209,6 +209,7 @@ spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 \frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}
 \right]
 \end{eqnarray}
+
 {::comment}
 
 \\
