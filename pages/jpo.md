@@ -277,9 +277,9 @@ Eq.~(XXX) simplifies to
 
 $$
 \widehat{\dot{H}}_{pL}
-\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}
-\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}
 $$
+
 
 and the two-center integral simplifies to
 
