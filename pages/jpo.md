@@ -204,17 +204,6 @@ $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
  
-\frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
-=\frac{1}{\varepsilon_1-\varepsilon_2}
-\left[\frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}\right]
-$$
-
-&\mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
-\frac{1}{(\varepsilon_1-q^2)^2}
-\label{eq:expandemqb}
-\end{eqnarray}
-
-
 ### _Other Resources_
 {::comment}
 /docs/code/jpos/#other-resources/
