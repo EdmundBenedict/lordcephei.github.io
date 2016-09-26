@@ -22,12 +22,12 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
     $ mkdir si; cd si                               #create working directory and move into it
-    $ cp lm/doc/demos/qsgw-si/init.si .             #copy init file     
+    $ nano init.si                                  #copy and paste init file from box   
     $ blm init.si --express                         #use blm tool to create actrl and site files
     $ cp actrl.si ctrl.si                           #copy actrl to recognised ctrl prefix
     $ lmfa ctrl.si                                  #use lmfa to make basp file, atm file and to get gmax
     $ cp basp0.si basp.si                           #copy basp0 to recognised basp prefix   
-    $ nano ctrl.si                                    #set iterations number nit, k mesh nkabc and gmax
+    $ nano ctrl.si                                  #set iterations number nit, k mesh nkabc and gmax
     $ lmf ctrl.si > out.lmfsc                       #make self-consistent
 
 {::nomarkdown}</div>{:/}
@@ -42,15 +42,12 @@ _____________________________________________________________
 
 ### _Tutorial_
 
-To get started, create a new working directory and move into it, here we will call it "si".
-Then copy the silicon init file _init.si_{: style="color: green"} from the source directory to your working directory
+To get started, create a new working directory and move into it; here we will call it "si".
 
     $ mkdir si 
     $ cd si
-    $ cp lm/doc/demos/qsgw-si/init.si .
-
-
-Or alternatively cut and paste the contents of the box below to _init.si_{: style="color: green"}.
+    
+Now cut and paste the contents of the box below to _init.si_{: style="color: green"}.
 
     # Init file for Silicon
     LATTICE
@@ -59,7 +56,7 @@ Or alternatively cut and paste the contents of the box below to _init.si_{: styl
     SITE
        ATOM=Si X=0 0 0
 
-Si forms in the diamond cubic structure, space group 227 as you can readily determine from, e.g. [this web page](http://www.periodictable.com/Properties/A/SpaceGroupNumber.html).  Space group 227 is Fd-3m which has an underlying fcc Bravais lattice.  The init file equally allows you to supply the space group as **SPCGRP=Fd-3m**, or supply the lattice vectors directly, with a tag **PLAT**, _viz_
+Si forms in the diamond cubic structure, space group 227 as you can readily determine from, e.g. [this web page](http://www.periodictable.com/Properties/A/SpaceGroupNumber.html).  Space group 227 is Fd-3m which has an underlying fcc Bravais lattice.  The init file equally allows you to supply the space group as **SPCGRP=Fd-3m**, or supply the lattice vectors directly, with a token **PLAT**, _viz_
 
       PLAT=  0.0    0.5    0.5
              0.5    0.0    0.5
@@ -67,10 +64,9 @@ Si forms in the diamond cubic structure, space group 227 as you can readily dete
 
 Lattice vectors are given in Cartesian coordinates in units of the lattice constant **A**.
 You supply them in row format (i.e. the first row contains the x, y and z components of the first lattice vector and so forth).
-**UNITS=A** tells **blm**{: style="color: blue"} that **A** is in &#x212B;.  If you do not specify the units, **A** is given in atomic units. (This code uses Atomic Rydberg units.)
+**UNITS=A** tells **blm**{: style="color: blue"} that **A** is in &#x212B;.  If you do not specify the units, **A** is given in atomic units. (Questaal uses Atomic Rydberg units.)
 
-Lattice vectors, lattice constant and the position of the basis vectors place in **SITE** is all that is needed to fix the structural information.  Atomic
-numbers for each atom is inferred from the symbol (Si). Tag **X=** specifies that the coordinates are in "direct" representation, that is, as fractional multiples of lattice vectors. It doesn't matter in this case, but you can use Cartesian coordinates : use **POS=** instead of **X** (see additional exercises below).  In such a case positions are given in Cartesian coordinates in units of **ALAT**.  So are the lattice vectors, if you supply them instead of the space group number.
+Lattice vectors, lattice constant and the position of the basis vectors place in **SITE** is all that is needed to fix the structural information.  Atomic numbers for each atom is inferred from the symbol (Si). Token **X=** specifies that the coordinates are in "direct" representation, that is, as fractional multiples of lattice vectors. It doesn't matter in this case, but you can use Cartesian coordinates : use **POS=** instead of **X** (see additional exercises below).  In such a case positions are given in Cartesian coordinates in units of **ALAT**.  So are the lattice vectors, if you supply them instead of the space group number.
 
 In order to run the DFT program **lmf**{: style="color: blue"}, you need an input file along with structural information. The **blm**{: style="color: blue"} tool read the init file as input and creates a template input file _actrl.si_{: style="color: green"} and structure file _site.si_{: style="color: green"}. The Questaal package recognises certain names as file types (such as "ctrl" for input file and "site" for structure file). **blm**{: style="color: blue"} writes
 _actrl.si_{: style="color: green"} rather than _ctrl.si_{: style="color: green"} to prevent overwriting of an existing ctrl file. Extension "si" labels the materials system; it is something you choose.  Most files read by or generated by Questaal programs will append this extension.  
@@ -88,11 +84,11 @@ Next take a look at the input file _ctrl.si_{: style="color: green"}.
 
 The first few lines are just header information, then you have a number of basic parameters for a calculation. We won't talk about these values now but a full description is provided on the ctrl file page. Defaults are provided by **blm**{: style="color: blue"} for most of the variables except **gmax** and **nkabc**, which are left as "NULL". The "nkabc" specifies the k mesh. There is no sensible way for blm to select a default value, as it depends on the bandgap or details of the Fermi surface, and also the precision needed for the physical property you need. The "gmax" value specifies how fine a real space mesh is used for the interstitial charge density and this depends on the basis set as described below. 
 
-We now need a basis set, which will give us an estimate for gmax. This can done automatically by using the **lmfa**{: style="color: blue"} tool. **lmfa**{: style="color: blue"} also calculates free atom wavefunctions and densities. The latter will be used later to make a trial density for the crystal calculation; the free atom wavefunctions are used to fit the basis set parameters. Note that in the all electron approach, space is partitioned in two kinds of regions: an augmentation sphere part (around each atom) and an interstitial part (region between spheres). In the augmentation spheres, the basis set is composed of local atomic functions, tabulated numerically. In the interstitial regions, the basis consists of analytic, smooth-Hankel functions, characterised by their smoothing radius (**RSMH**) and Hankel energies (**EH**). The number of interstitial functions and their parameters (**RSMH** and **EH**) are defined in the basp file (the size of which is determined by parameters in the ctrl file). There are a few more subtleties to the code's basis set but we will leave further details to the theory pages and the input file pages. Run the following command:
+We now need a basis set, which will give us an estimate for **gmax**. This can done automatically by using the **lmfa**{: style="color: blue"} tool. **lmfa**{: style="color: blue"} also calculates free atom wavefunctions and densities. The latter will be used later to make a trial density for the crystal calculation; the free atom wavefunctions are used to fit the basis set parameters. Note that in the all electron approach, space is partitioned in two kinds of regions: an augmentation sphere part (around each atom) and an interstitial part (region between spheres). In the augmentation spheres, the basis set is composed of local atomic functions, tabulated numerically. In the interstitial regions, the basis consists of analytic, smooth-Hankel functions, characterised by their smoothing radius (**RSMH**) and Hankel energies (**EH**). The number of interstitial functions and their parameters (**RSMH** and **EH**) are defined in the basp file (the size of which is determined by parameters in the ctrl file). There are a few more subtleties to the code's basis set but we will leave further details to the theory pages and the input file pages. Run the following command:
 
     $ lmfa ctrl.si
 
-Again the output shows some structural information and then details about finding the free atom density, basis set fitting and, at the end an estimate of gmax is printed out. Note that the Barth-Hedin exchange-correlation functional is used, as indicated by "XC:BH", this was specified by "**xcfun**=2" in the ctrl file (the default). We won't go into more detail now, but a full description can be found on the **lmfa**{: style="color: blue"} page. One thing to note is a recommended value for **gmax**  given towards the end: "GMAX=5.0". Now that we have a gmax value, open up the ctrl file and change the default NULL value to 5.0.
+Again the output shows some structural information and then details about finding the free atom density, basis set fitting and, at the end an estimate of **gmax** is printed out. Note that the Barth-Hedin exchange-correlation functional is used, as indicated by "XC:BH", this was specified by "**xcfun**=2" in the ctrl file (the default). We won't go into more detail now, but a full description can be found on the **lmfa**{: style="color: blue"} page. One thing to note is a recommended value for **gmax**  given towards the end: "GMAX=5.0". Now that we have a gmax value, open up the ctrl file and change the default NULL value to 5.0.
 
     $ nano ctrl.si
 
@@ -107,7 +103,7 @@ Check the contents of your working directory and you will find two new files _at
 
     $ cp basp0.si basp.si
 
-The second unknown parameter is the k-mesh.  A 4x4x4 k mesh is sufficient for Si.  Set this value in your text editor by simply changing "nkabc=NULL" to "nkabc=4" (4 is automatically used for each mesh dimension, you could equivlaently use "nkabc=4 4 4").  Take a look at the last line, it contains information about the different atoms in the system (here we only have silicon) and their associated augmentation spheres.
+The second unknown parameter is the k-mesh.  A 4x4x4 k mesh is sufficient for Si. Set this value in your text editor by simply changing "nkabc=NULL" to "nkabc=4" (4 is automatically used for each mesh dimension, you could equivlaently use "nkabc=4 4 4").  Take a look at the last line, it contains information about the different atoms in the system (here we only have silicon) and their associated augmentation spheres.
 
     $ nano ctrl.si
 
