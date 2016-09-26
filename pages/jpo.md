@@ -103,15 +103,31 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general
    $$L$$ we can define the family of generalized Gaussian functions
+
    $$
     G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
                          &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
                               \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
    $$
    where
+
    $$
     g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}e^{-r^2/r_s^2}
    $$
+
+Comparing cases i and ii with Eq.~(\ref{eq:defhlq}), evidently
+$$\widehat{H}_L({\bf{}q})$$ is proportional to the product of the Fourier
+transforms of a conventional spherical Hankel function of the first kind,
+and a gaussian.  By the convolution theorem, $${H_L}({\bf{}r})$$ is a
+convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
+$${H_L}({\bf{}r})$$ behaves as a Hankel function and asymptotically tends to
+$$H_L({\bf{}r})\to r^{-l-1}\exp(-\sqrt{-\varepsilon}r)Y_L(\hat{\bf{}r})$$.
+For $$r\ll r_s$$ it has structure of a gaussian; it is therefore analytic and
+regular at the origin, varying as $$r^lY_L(\hat{\bf{}r})$$.  Thus, the
+$$r^{-l-1}$$ singularity of the Hankel function is smoothed out, with $$r_s$$
+determining the radius for transition from Gaussian-like to Hankel-like
+behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
+$$H_L$$, and also the width of generalized gaussians $$G_L$$.
 
 
 
