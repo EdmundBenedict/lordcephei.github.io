@@ -171,16 +171,17 @@ of Fourier transforms
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
 (2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
 \end{eqnarray}
-
-{::comment}
-
-\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
-
 and the fact that
 $$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
 be expressed as a linear combination of other
 $$\widehat{H}_{pL}({\mathbf{q}})$$, or their energy derivatives.  This is
 readily done from the identity
+
+
+{::comment}
+
+\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 &=&\frac{1}{\varepsilon_1-\varepsilon_2}
