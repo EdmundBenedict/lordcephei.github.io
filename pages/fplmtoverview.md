@@ -24,7 +24,7 @@ _____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel functions, the smoothed versions — convolutions of ordinary Hankel functions and Gaussian functions — are regular at the origin. They are a significantly better choice of basis than the customary **LMTO** basis set. However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel. The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO** methods; thus wave functions are evaluated by Ewald summation. A real-space version using screened envelope functions is in progress.
 
-![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.jpg)
+![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.png)
 
 #### *Local Orbitals*
 _____________________________________________
@@ -58,4 +58,4 @@ _____________________________________________
 
 + **lmfa** makes each species self-consistent for the free atom and writes the local density, plus a fit to the tail beyond the **MT** radius (fit as a linear combination of smooth Hankel functions) to file "atm". Also appended to file "atm" is a fit to the free-atom wave functions for r>rmt. In version 6.9n, this is where the envelope wave functions are specified, and as the functions are an excellent choice for a free atom, they are not tailored to the solid, and you are encouraged to tinker with the basis (described in the next Section) before proceeding to carry out full calculations.
 
-The FP suite also is part of the <b><i>GW</b></i> and **DMFT** packages.  Several other executables are built to interface to these extensions.
+The FP suite also is part of the <b><i>GW</i></b> and **DMFT** packages.  Several other executables are built to interface to these extensions.
