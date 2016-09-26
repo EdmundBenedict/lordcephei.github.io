@@ -77,10 +77,13 @@ H_{pL}({\mathbf{r}}) &=& \Delta^p H_{L}({\mathbf{r}})
 
 In real space $$H_{pL}$$ must be generated recursively from $$h$$.
 However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35):
-\begin{eqnarray}
+
+$$
 \widehat{H}_{L}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})\,e^{r_s^2(\varepsilon-q^2)/4}
-\end{eqnarray}
+$$
+
+The generalization to $$\widehat{H}_{pL}$$ is
 \begin{eqnarray}
 \widehat{H}_{pL}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
@@ -256,12 +259,12 @@ Differentiation of $$\widehat{H}_{pL}$$ Eq.~(XXX) with respect to energy results
 $$
 \widehat{\dot{H}}_{pL} \equiv
 \frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = 
+-\frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
 $$
 
 {::commment}
-\frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = 
 -\frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
-\end{eqnarray}
+
 
 
 ### _Other Resources_
