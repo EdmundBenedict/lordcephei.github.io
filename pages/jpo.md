@@ -48,12 +48,28 @@ Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) = \sum_M C_{KLM} Y_M({\hat{\mathbf{r}
 \begin{eqnarray}
 \Upsilon_K({\mathbf{r}})\Upsilon_L({\mathbf{r}}) = \sum_M C_{KLM} r^{k+\ell-m} \Upsilon_M({\mathbf{r}})
 \end{eqnarray}
-
-
-
 $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
 the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
 
+Functions $$H_{L}({\bf{}r})$$ are defined through the radial function $$h(r)$$
+(I,~Eq.~6.5):
+\begin{eqnarray}
+H_{L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
+\end{eqnarray}
+\begin{eqnarray}
+h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varepsilon,r_s;r)\right)
+\end{eqnarray}
+\begin{eqnarray}
+u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp\akap{}r}\left[1-{\rm{erf}}\left(\frac{r_s\akap}{2}\mp{}\frac{r}{r_s}\right)\right]
+\varepsilon &=& -\akap^2
+\end{eqnarray}
+$$H_{L}$$ is parameterized by energy $$\varepsilon$$ and smoothing radius
+$$r_s$$; their significance will will become clear shortly.
+The extended family $$H_{pL}({\bf{}r})$$ is defined through powers of
+the laplacian acting on $$H_{L}({\bf{}r})$$:
+\begin{eqnarray}
+H_{pL}({\bf{}r}) &=& \Delta^p H_{L}({\bf{}r})
+\end{eqnarray}
 
 
 
