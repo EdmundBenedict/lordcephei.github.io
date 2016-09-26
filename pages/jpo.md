@@ -137,7 +137,7 @@ G_{pL}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^p g(\varepsilon,r_s;r)\\
 \end{eqnarray}
 \begin{eqnarray}
-\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = 
+\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = x
       \Upsilon_L(-i{\mathbf{q}})(-q^2)^p \, e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 
