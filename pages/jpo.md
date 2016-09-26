@@ -81,7 +81,7 @@ The differential operator becomes a multiplicative operator
 in the reciprocal space so
 \begin{eqnarray}
 \widehat{H}_{pL}(\varepsilon,r_s;\mathbf{q}) &=& 
--\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
+-\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
@@ -259,14 +259,18 @@ $$
 
 Eq.~(XX) is modified to read
 \begin{eqnarray}
-\int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
-{H_{p_2L_2}}(\varepsilon,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
+\int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
+\end{eqnarray}
+
+{::comment}
+
+{H_{p_2L_2}}(\varepsilon,r_{s_2};\mathbf{r}-{\mathbf{r}_2})\, d^3r
 =
 (-1)^{\ell_1}{4\pi}
 \sum_M C_{L_1L_2M} \times
 \big[
-    {\ {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
-{- \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
+    {\ {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)}
+{- \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)}
 \ \big]
 \end{eqnarray}
 
