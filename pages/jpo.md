@@ -323,6 +323,10 @@ $$
 \bar\kappa = -i \kappa \hbox{ and therefore}
 $$
 
+so that $$\bar\kappa$$ is real and positive if $$\varepsilon<0$$ while
+$$kappa$$ is real and positive if $$\varepsilon>0$$
+
+
 {::comment}
 
 \begin{cases}
