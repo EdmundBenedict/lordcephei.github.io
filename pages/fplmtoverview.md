@@ -52,14 +52,14 @@ This turns out to be an extremely useful way to carry out the augmentation proce
 #### *Connection to the ASA packages*
 _____________________________________________
 
-The full-potential program builds on the [ASA package](/docs/code/asaoverview/) which contains an implementation of a tight-binding **LMTO**
+The full-potential program builds on the [ASA suite](/docs/code/asaoverview/) which contains an implementation of a tight-binding **LMTO**
 program in the Atomic Spheres Approximation (**ASA**), and shares most things in common with it, including a number of 
 [auxiliary programs](/docs/package_overview/#executable-codes-in-the-questaal-suite) useful to both **ASA** and **FP**. 
-For example, both methods are linear augmented-wave methods, and the wave functions inside the augmentation spheres are equivalent in the two cases. 
-You may find that the [ASA overview](/docs/code/asaoverview/) is helpful even if you will not be using the ASA code.
+For example, both methods are [linear augmented-wave methods](/docs/package_overview/#linear-methods-in-band-theory/), and the wave functions inside the augmentation spheres are equivalent in the two cases. 
+You may find that the ASA overview is helpful even if you will not be using the ASA package.
 Most input is common to both methods.  The FP code requires some additional information, but most of it can be generated automatically,
 as explained in [the introductory tutorial](/tutorial/lmf/lmf_tutorial/)
-or in more detail in [this tutorial](/tutorial/asa/lmf_pbte_tutorial/) for PbTe.
+or in more detail in [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) for PbTe.
 It is interesting to compare that tutorial with [an ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same material.
 
 A description of the input system and tags needed for each method are found in the [input file guide](/docs/input/inputfile/).
