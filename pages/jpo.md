@@ -101,9 +101,9 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
    \begin{eqnarray}
-    G_{0L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
-                         &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
-
+    G_{0L}(\varepsilon,r_s;{\mathbf{r}}) = \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+                         =  \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}
+                              \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
    \end{eqnarray}
 
 {::comment}
