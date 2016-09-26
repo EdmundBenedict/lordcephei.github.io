@@ -128,19 +128,22 @@ $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 By analogy with Eq.~(XXXX) we can extend the $$G_{L}$$ family with the
 laplacian operator:
 \begin{eqnarray}
-G_{pL}(\varepsilon,r_s;{\mathbf{r}}) &=& 
-      \Delta^p\, G_{0L}(\varepsilon,r_s;{\mathbf{r}})
+G_{pL}(\varepsilon,r_s;{\mathbf{r}}) = 
+      \Delta^p\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla) \Delta^p g(\varepsilon,r_s;r)
 \end{eqnarray}
 \begin{eqnarray}
-G_{pL}(\varepsilon,r_s;{\mathbf{r}}) &=& 
+G_{pL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^p g(\varepsilon,r_s;r)\\
 \end{eqnarray}
 \begin{eqnarray}
-\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) &=& 
+\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = 
+\end{eqnarray}
+
+{::comment}
       \Upsilon_L(-i{\mathbf{q}})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
-The second Equatoin shows that $$G_{pL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
+The second Equation shows that $$G_{pL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
 Comparing the last form Eq.~(\ref{eq:defgplq}) to Eq.~(\ref{eq:defhplq})
 and the definition of $$H_{pL}$$ Eq.~(\ref{eq:defhpl}), we obtain the useful relations
 \begin{eqnarray}
