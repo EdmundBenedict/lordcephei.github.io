@@ -307,18 +307,28 @@ also apply for positive energy.  We demonstrate that here, and
 show that the difference between the conventional and smooth
 Hankel functions are real functions.
 
-Ref. I defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
-\[ {\bar\kappa}^2 = -\varepsilon \hbox{\quad with }{\bar\kappa}>0\]
+Ref. 1 defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
+
+$$
+{\bar\kappa}^2 = -\varepsilon \hbox{\quad with }{\bar\kappa}>0
+$$
+
 and restricts $$\varepsilon < 0$$.
 According to usual conventions $$\kappa$$ is defined as 
-\[ \kappa = \sqrt\varepsilon \hbox{, \quad Im}(\kappa) >= 0.\]
+
+$$
+ \kappa = \sqrt\varepsilon \hbox{, \quad Im}(\kappa) >= 0.
+$$
+
 We can define for any energy
-\[ {\bar\kappa} = -i \kappa \hbox{,\quad and therefore}
+
+$$
+{\bar\kappa} = -i \kappa \hbox{,\quad and therefore}
 \begin{cases}
 {\bar\kappa}  \hbox{ real and positive, } \varepsilon<0\\
 \kappa \hbox{ real and positive, } \varepsilon>0
 \end{cases}
-\]
+$$
 
 
 ### _Other Resources_
