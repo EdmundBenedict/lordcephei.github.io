@@ -169,7 +169,9 @@ $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
 
 $$
-\int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = (2\pi)^{-3} \int H^{*}
+\int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r =
+(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
+\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 $$
 
 and the fact that
