@@ -105,24 +105,13 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
                          =  \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}
                               \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
    \end{eqnarray}
-
-{::comment}
-
-
-   $$
-    G_{0L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
-                         &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
-                              \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
-   $$
-
    where
-
-   $$
-    g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}e^{-r^2/r_s^2}
-   $$
+   \begin{eqnarray}
+    g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}e^{-r^2/r_s^2}
+   \end{eqnarray}
 
 Comparing cases i and ii with Eq. (XXX), evidently
-$$\widehat{H}_L({\bf{}q})$$ is proportional to the product of the Fourier
+$$\widehat{H}_L({\mathbf{q}})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
 convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
@@ -134,7 +123,6 @@ $$r^{-l-1}$$ singularity of the Hankel function is smoothed out, with $$r_s$$
 determining the radius for transition from Gaussian-like to Hankel-like
 behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
 $$H_L$$, and also the width of generalized gaussians $$G_L$$.
-
 
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
