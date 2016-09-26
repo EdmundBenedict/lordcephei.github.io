@@ -238,19 +238,8 @@ $$
 e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 $$
 
-{::comment}
-
-
-
-\frac{1}{(2\pi)^3}
-\int
-{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
-{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
-e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
+This can be written as
 $$
-
-$$
-=
 (-1)^{\ell_1}\frac{4\pi}{\varepsilon_1-\varepsilon_2}
 \sum_M C_{L_1L_2M} \times
 \big[
@@ -258,6 +247,17 @@ $$
 {- e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}{H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon_2,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
 \ \big]
 $$
+
+The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
+be handled using the second identity, Eq.~(\ref{eq:expandemqb}).
+Differentiation of $$\widehat{{H}}_{pL}$$ Eq.~(\ref{eq:defhplq})
+with respect to energy results in
+\begin{eqnarray}
+\widehat{\dot{H}}_{pL} \equiv
+\frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = -
+\frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
+\label{eq:defhpldot}
+\end{eqnarray}
 
 
 ### _Other Resources_
