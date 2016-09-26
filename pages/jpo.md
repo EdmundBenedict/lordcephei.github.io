@@ -169,7 +169,7 @@ $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
 \begin{eqnarray}
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
-(2\pi)^{-3} \int {\widehat{H}}
+(2\pi)^{-3} \int {\widehat{H}}^*_1({\mathbf{q}}) 
 \end{eqnarray}
 {::comment}
 (2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
@@ -202,16 +202,15 @@ $$\Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})$$
 is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
-
-
-
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 &=&\frac{1}{\varepsilon_1-\varepsilon_2}
 \left[
 \frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}
 \right]
-\label{eq:expandemq}
+\end{eqnarray}
+{::comment}
+
 \\
 &\mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
