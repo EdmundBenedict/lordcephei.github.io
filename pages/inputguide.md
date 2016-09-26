@@ -77,7 +77,7 @@ A category holds information for a family of data, for example **BZ**{: style="c
 <button type="button" class="button tiny radius">Click here for a more detailed description of the input file's syntax.</button>
 {:/comment}
 <div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for a more detailed description of the input file's syntax<button type="button" class="button tiny radius">.</button>
+Click here for a more detailed description of the input file's tree structured syntax.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
 
 Consider the Brillouin zone integration category. You plan to carry out the BZ integration using the Methfessel-Paxton sampling method.
