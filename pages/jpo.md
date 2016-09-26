@@ -262,6 +262,20 @@ $$
 -\frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
 $$
 
+Eq.~(XX) is modified to read
+\begin{eqnarray}
+\int{{H}^*_{p_1L_1}}(\varepsilon,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
+{{H}_{p_2L_2}}(\varepsilon,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
+=
+(-1)^{\ell_1}{4\pi}
+\sum_M C_{L_1L_2M} \times
+\big[
+    {\ {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
+{- \frac{r_s^2}{4} {{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
+\ \big]
+\end{eqnarray}
+
+
 ### _Other Resources_
 {::comment}
 /docs/code/jpos/#other-resources/
