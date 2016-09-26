@@ -10,7 +10,7 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-This tutorial explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ approximation
+This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ approximation.
 
 _____________________________________________________________
 

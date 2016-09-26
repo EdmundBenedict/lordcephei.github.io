@@ -5,18 +5,21 @@ permalink: "/docs/code/fpoverview/"
 header: no
 ---
 
+### _Purpose_
+{:.no_toc}
+
 The **lmf**{: style="color: blue"} program is an all-electron implementation of the local-density approximation, with a basis consisting of generalized (smoothed) Hankel functions, or **LAPWs**, or some combination of the two.
 
 _____________________________________________________________
 
-#### _Table of Contents_
+### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
 _____________________________________________________________
 
-#### *Overview of the full-potential method*
+### *Overview of the full-potential method*
 _____________________________________________
 
 The full-potential program **lmf**{: style="color: blue"} was originally adapted from a program **nfp**{: style="color: blue"} written by M. Methfessel and M. van Schilfgaarde. The method is described in some detail in the following reference :
@@ -27,19 +30,19 @@ There is also a manual written for the original 1997 code. The present code is a
 
 The following features are unique to this method:
 
-#### *Smoothed Hankel functions*
+### *Smoothed Hankel functions*
 _____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel functions, the smoothed versions — convolutions of ordinary Hankel functions and Gaussian functions — are regular at the origin. They are a significantly better choice of basis than the customary **LMTO** basis set. However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel. The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO** methods; thus wave functions are evaluated by Ewald summation. A real-space version using screened envelope functions is in progress.
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
-#### *Local Orbitals*
+### *Local Orbitals*
 _____________________________________________
 
 This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. Augmented methods substitute radial solutions of the Schrödinger equation with combinations of partial waves of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the reliable **LDA** band gap in GaAs, as the Ga *3d* and *4d* partial waves are both important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/)
 
-#### *Augmented Plane Waves*
+### *Augmented Plane Waves*
 _____________________________________________
 
 In July 2008 Takao Kotani added **APW**s as additional envelope functions, which can increase the flexibility of the basis. 
@@ -50,7 +53,7 @@ energy cutoff of **APW**s. Alternatively, it can be viewed as an extension of th
 systematic and reliable manner, to almost arbitrarily high accuracy. This is particularly important when reliable eigenvalues far above the
 Fermi level are needed, and to check the accuracy of a given **MTO** basis. To include **APW**s in the basis, see [here](need link) for a tutorial.
 
-#### *Augmentation and Representation of the charge density*
+### *Augmentation and Representation of the charge density*
 _____________________________________________
 
 The charge density representation is unique to this method. It consists of three parts: a smooth density <i>n</i><sub>0</sub> carried on a
@@ -61,7 +64,7 @@ expressed as in the “threefold representation” <i>n</i> = <i>n</i><sub>0</su
 
 This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly in the *l*-truncation in the augmentation sphere than occurs in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
 
-#### *Connection to the ASA packages*
+### *Connection to the ASA packages*
 _____________________________________________
 
 The full-potential program builds on the [ASA suite](/docs/code/asaoverview) which contains an implementation of a tight-binding **LMTO**
@@ -83,7 +86,7 @@ One important difference between the **ASA** and **FP** methods is that the **FP
 A second important difference is that the basis set is more complicated, and in its current form, the user must choose parameters defining
 the basis. This complication is the most onerous part of the present method (a new "Jigsaw Puzzle Orbital basis" will automatically tailor the basis set shape to the given potential)  but at present it is the basis set is determined by hand, or only semi-automatically. 
 
-#### *Primary executables in the FP suite*
+### *Primary executables in the FP suite*
 _____________________________________________
 
 + **lmf**{: style="color: blue"} is the program used for self-consistent full-potential calculations. It requires a starting density, which it obtains either from a binary restart file *rst.ext*{: style="color: green"} (typically generated by a prior invocation of **lmf**{: style="color: blue"}) or an equivalent version *rsta.ext*{: style="color: green"} in **ASCII** format, from a superposition of free-atom densities (*file atm.ext*{: style="color: green"}), which is created as follows.
