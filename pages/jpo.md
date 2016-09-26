@@ -21,16 +21,16 @@ Methfessel's class of functions $$H_{pL}$$, are a superset of
 generalized (smoothed) Hankel functions, and the family of 
 (polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/jpos/#other-resources)
 (which we refer to as I), and many of
-their properties derived there.  The $$H_{pL}({\bf{}r})$$ are a
+their properties derived there.  The $$H_{pL}({\mathbf{r}})$$ are a
 family of functions with $$p=0,1,2,...$$ and angular momentum
 $$L$$. ($$L$$ is a shorthand for $$\ell{}m$$ quantum numbers.)
-The $$H_{pL}({\bf{}r})$$ are members of the general class of functions
-$$F_L({\bf{}r})$$ which are determined from a single radial
+The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
+$$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\bf{}r}) = \Upsilon_L(-\nabla) f(r)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)
 \end{eqnarray}
-$$\Upsilon_L({\bf{}r}),\ {\bf{}r}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
+$$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
 It is written in terms of
 conventional spherical harmonics as
@@ -51,10 +51,10 @@ Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) = \sum_M C_{KLM} Y_M({\hat{\mathbf{r}
 $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
 the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
 
-Functions $$H_{L}({\bf{}r})$$ are defined through the radial function $$h(r)$$
+Functions $$H_{L}({\mathbf{r}})$$ are defined through the radial function $$h(r)$$
 (I,~Eq.~6.5):
 \begin{eqnarray}
-H_{L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
+H_{L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
 \end{eqnarray}
 \begin{eqnarray}
 h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varepsilon,r_s;r)\right)
@@ -67,10 +67,10 @@ u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp{\bar\kappa}{}r}\left[1-{\rm{erf}}\left(\fr
 \end{eqnarray}
 $$H_{L}$$ is parameterized by energy $$\varepsilon$$ and smoothing radius
 $$r_s$$; their significance will will become clear shortly.
-The extended family $$H_{pL}({\bf{}r})$$ is defined through powers of
-the laplacian acting on $$H_{L}({\bf{}r})$$:
+The extended family $$H_{pL}({\mathbf{r}})$$ is defined through powers of
+the laplacian acting on $$H_{L}({\mathbf{r}})$$:
 \begin{eqnarray}
-H_{pL}({\bf{}r}) &=& \Delta^p H_{L}({\bf{}r})
+H_{pL}({\mathbf{r}}) &=& \Delta^p H_{L}({\mathbf{r}})
 \end{eqnarray}
 
 In real space $$H_{pL}$$ must be generated recursively from $$h$$.
@@ -92,23 +92,25 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
-   general $$L$$ the relation is x
+   general $$L$$ the relation is
    \begin{eqnarray}
-     H_{L}(\varepsilon,0;{\bf{}r})=H_{0L}(\varepsilon,0;{\bf{}r})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\bf{}r})
+     H_{L}(\varepsilon,0;{\mathbf{r}})=H_{0L}(\varepsilon,0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
 
 2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
    \begin{eqnarray}
-    G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+    G_{0L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+                         &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
+
    \end{eqnarray}
 
 {::comment}
 
 
    $$
-    G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+    G_{0L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
                          &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
                               \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
    $$
@@ -122,12 +124,12 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 Comparing cases i and ii with Eq. (XXX), evidently
 $$\widehat{H}_L({\bf{}q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
-and a gaussian.  By the convolution theorem, $${H_L}({\bf{}r})$$ is a
+and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
 convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
-$${H_L}({\bf{}r})$$ behaves as a Hankel function and asymptotically tends to
-$$H_L({\bf{}r})\to r^{-l-1}\exp(-\sqrt{-\varepsilon}r)Y_L(\hat{\bf{}r})$$.
+$${H_L}({\mathbf{r}})$$ behaves as a Hankel function and asymptotically tends to
+$$H_L({\mathbf{r}})\to r^{-l-1}\exp(-\sqrt{-\varepsilon}r)Y_L(\hat{\mathbf{r}})$$.
 For $$r\ll r_s$$ it has structure of a gaussian; it is therefore analytic and
-regular at the origin, varying as $$r^lY_L(\hat{\bf{}r})$$.  Thus, the
+regular at the origin, varying as $$r^lY_L(\hat{\mathbf{r}})$$.  Thus, the
 $$r^{-l-1}$$ singularity of the Hankel function is smoothed out, with $$r_s$$
 determining the radius for transition from Gaussian-like to Hankel-like
 behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
@@ -143,7 +145,7 @@ $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 /docs/code/jpos/#other-resources/
 {:/comment}
 
-1. The mathematics of smoothed Hankel functions that form the **lmf**{: style="color: blue"} basis set
+1. Many mathematical properties of the of smoothed Hankel functions that form the **lmf**{: style="color: blue"} basis set
 are described in this paper:  
 E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
