@@ -223,7 +223,7 @@ which can be written as
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
 Eq.~(XXX) is a linear combination of
-$$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(XXXX)
+$$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(XXXX).
 Using the power theorem the two-center integrals can be directly evaluated:
 
 
@@ -231,6 +231,11 @@ $$
 \int{H^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
 {H_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
 =
+\frac{1}{(2\pi)^3}
+\int
+{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
+{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
+e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 $$
 
 {::comment}
