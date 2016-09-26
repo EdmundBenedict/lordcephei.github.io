@@ -294,11 +294,8 @@ $$
 H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
 
-When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{pL}$$ are generalized
-Gaussian functions of the type Eq.~(xxx), scaled by
-$$(-4\pi)$$; see Eq.~(xxx).  Eq.~(xx)
-is then suitable for two-center integrals of generalized Gaussian
-functions.
+When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{pL}$$ are generalized Gaussian functions of the type Eq.~(xxx), scaled by $$-4\pi$$; see
+Eq.~(xxx).  Eq.~(xx) is then suitable for two-center integrals of generalized Gaussian functions.
 
 ### _Smoothed Hankels for positive energy_
 
@@ -310,25 +307,28 @@ Hankel functions are real functions.
 Ref. 1 defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
 
 $$
-{\bar\kappa}^2 = -\varepsilon \hbox{\ with }{\bar\kappa}>0
+{\bar\kappa}^2 = -\varepsilon \hbox{  with  }{\bar\kappa}>0
 $$
 
 and restricts $$\varepsilon < 0$$.
 According to usual conventions $$\kappa$$ is defined as 
 
 $$
- \kappa = \sqrt\varepsilon \hbox{, \quad Im}(\kappa) >= 0.
+ \kappa = \sqrt\varepsilon \hbox{,     Im}(\kappa) >= 0.
 $$
 
 We can define for any energy
 
 $$
-{\bar\kappa} = -i \kappa \hbox{,\quad and therefore}
+\bar\kappa = -i \kappa \hbox{ and therefore}
+$$
+
+{::comment}
+
 \begin{cases}
 {\bar\kappa}  \hbox{ real and positive, } \varepsilon<0\\
 \kappa \hbox{ real and positive, } \varepsilon>0
 \end{cases}
-$$
 
 
 ### _Other Resources_
