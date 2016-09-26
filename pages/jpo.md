@@ -302,7 +302,7 @@ functions.
 
 ### _Smoothed Hankels for positive energy_
 
-The smooth Hankel functions defined in I for negative energy
+The smooth Hankel functions defined in Ref. 1 for negative energy
 also apply for positive energy.  We demonstrate that here, and
 show that the difference between the conventional and smooth
 Hankel functions are real functions.
@@ -310,7 +310,7 @@ Hankel functions are real functions.
 Ref. 1 defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
 
 $$
-{\bar\kappa}^2 = -\varepsilon \hbox{\quad with }{\bar\kappa}>0
+{\bar\kappa}^2 = -\varepsilon \hbox{\ with }{\bar\kappa}>0
 $$
 
 and restricts $$\varepsilon < 0$$.
