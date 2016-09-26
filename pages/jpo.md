@@ -93,10 +93,9 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
    general $$L$$ the relation is
-
-   $$
+   \begin{eqnarray}
      H_{L}(\varepsilon,0;{\bf{}r})=H_{0L}(\varepsilon,0;{\bf{}r})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\bf{}r})
-   $$
+   \end{eqnarray}
 
 2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
@@ -114,7 +113,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
     g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}e^{-r^2/r_s^2}
    $$
 
-Comparing cases i and ii with Eq.~(\ref{eq:defhlq}), evidently
+Comparing cases i and ii with Eq. (XXX), evidently
 $$\widehat{H}_L({\bf{}q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\bf{}r})$$ is a
