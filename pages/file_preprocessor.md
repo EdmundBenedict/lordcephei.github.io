@@ -74,10 +74,9 @@ floating-point vector, and strings.  They can be declared with
 [preprocessor directives](/docs/input/preprocessor/#variable-declarations-and-assignments).
 Scalar and character variables can also be declared on the command-line using, e.g. `-vsnam=expr` or `-vcnam=string`.
 
+  * Separate symbol tables are maintained for each of the three kinds of variables.
   * Scalar variables and vector elements can be used in algebraic expressions.
   * Character variables can be used in string expressions (see below).
-  * Separate symbol tables are maintained for each of the three kinds of variables.
-
 
 _Note:_{: style="color: red"} As _rdfiln_{: style="color: green"} parses a file, it may create new variables, thus enlarging the symbols
 table.  Variables allocated this way are temporary, however.  When _rdfiln_{: style="color: green"} has finished with whatever it is
@@ -575,7 +574,7 @@ Branching constructs have a function similar to the C constructs.
    <pre>
    % while [<i>expr1</i> <i>expr2</i> ...] <i>test-expr</i> &larr; skip to `% end' if <i>test-expr</i> is 0
    ...                              &larr; these lines become part of the input while <i>test-expr</i> is nonzero
-   % end                          &larr; return to the `% while' directive unless <i>test-expr</i> is 0</pre>
+   % end                            &larr; return to the `% while' directive until <i>test-expr</i> is 0</pre>
    The (optional) expressions **[**<i>expr1</i> <i>expr2</i> ...**]**&nbsp;
    follow the rules of the &nbsp;**const**&nbsp;&nbsp; directive:
      * Each of <i>expr1</i>,&nbsp; <i>expr2</i>,&nbsp;, ... take the form &nbsp;**nam=** <i>expr</i>&nbsp;&nbsp; or &nbsp;**nam op=** <i>expr</i>.

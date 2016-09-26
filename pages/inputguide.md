@@ -64,6 +64,10 @@ which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{:
 
 
 ##### _Tags, Categories and Tokens_
+{::comment}
+/docs/input/inputfile/#tags-categories-and-tokens
+{:/comment}
+
 
 The input file offers a very flexible free format: tags identify data to be read by a program, e.g.
 

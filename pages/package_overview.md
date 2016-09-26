@@ -93,9 +93,9 @@ Matrix elements of the partial waves are calculated in the full, nonspherical po
 
 The linear approximation is usually quite accurate over an energy window where the valence partial wave is "active."
 (1 or a few Ry for typical _s_ and _p_ states, a few eV for _d_ states of the transition metals).
-An estimate for this window is given by 1/_p_ where potential parameter $$p == \int_{\rm sphere} \dot\phi^2 d^3r$$ is 
+An estimate for this window is given by 1/_p_ where potential parameter $$p_l = \int_{\rm sphere} \dot\phi_l^2 d^3r$$ is 
 called the "small parameter."
-Linearization greatly simplifies the secular matrix : the eigenvalue problem becomes a linear algebraic eigenvalue
+Linearization greatly simplifies the secular matrix : it reduces to a linear algebraic eigenvalue
 problem, which greatly simplifies practical solutions of the Schrodinger equation.  
 
 Some elements possess partial waves
@@ -106,20 +106,20 @@ To obtain accurate calculations a third partial wave must be included.
 In practice additional partial waves are incorporated by turning them into _local orbitals_ which are confined to the
 augmentation sphere.  This is accomplished by adding a judicious amount of $$\phi_l(\varepsilon_\nu,r)$$ and
 $$\dot\phi_l(\varepsilon_\nu,r)$$ to the third partial wave, so that its value and slope vanish at the augmentation
-radius and not spill out into the interstitial.  These modified waves are called <i>&phi;<sub>z</sub></i> in the
+radius and not spill out into the interstitial.  These modified waves are called <i>&phi;<sup>z</sup></i> in the
 Questaal suite.
 
 Extension of the linear method through local orbitals ensures that the eigenvalue problem remains a linear one, at the
 expense of an increase in the rank of the hamiltonian.
 
-The importance of the linear method to electronic structure cannot be overstated.  It, together with
-Slater's X-&alpha; method to approximate the difficult Fock exchange with a simpler functional of the density, and which was
+The importance of the linear method to electronic structure cannot be overstated.  
+Slater's X-&alpha; method to approximate the difficult Fock exchange with a simpler functional of the density, which was
 subsequently formalized into rigorous [density-functional
-theory](http://journals.aps.org/pr/abstract/10.1103/PhysRev.136.B864) by Hohenberg and Kohn, forms the basis for most of the
+theory](http://journals.aps.org/pr/abstract/10.1103/PhysRev.136.B864) by Hohenberg and Kohn, 
+in combination of the linear method, form the backbone for most of the
 practical modern electronic structure methods in condensed matter.
 
 {::nomarkdown}</div>{:/}
-
 
 _____________________________________________________________
 
@@ -163,7 +163,6 @@ _____________________________________________________________
 
 The Questaal family of executable programs share a common, elegant [input system](/docs/input/inputfile/)
 and has features of a [programming language](/docs/input/preprocessor/).  A reference defining the syntax of categories and tokens can be found in [this pdf file](https://lordcephei.github.io/pages/input.pdf)(update link lvs).
-
 The family consists of the following:
 
 + **blm**{: style="color: blue"}: an input file generator, given structural information.  [Many of the tutorials](tutorial/lmf/lmf_pbte_tutorial/) use **blm**{: style="color: blue"}.
@@ -218,12 +217,13 @@ There are other auxiliary programs, such as a formatter for setting up energy ba
 {:/comment}
 
 All executables use a common input system.  It is a unique system that parses
-input in a largely format-free, tree-structured format.  There is some
-[programming language capability](/docs/input/preprocessor/): input lines can be conditionally
+input in a largely format-free, tree-structured format.  Input is read through a preprocessor with
+[programming language capability](/docs/input/preprocessor/): lines can be conditionally
 read, you can declare variables and use algebraic expressions.  Thus the
 input file can be quite simple as it is in this [introductory tutorial](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
 or very detailed, even serving as a database for many materials. [This page](https://lordcephei.github.io/docs/input/inputfile/)
-explains how an input file is structured, and how input is organized by _categories_ and _tokens_. 
+explains how an input file is structured, and how input is organized by 
+[_categories_ and _tokens_](/docs/input/inputfile/#tags-categories-and-tokens).
 
 ### _Other Resources_
 {::comment}
