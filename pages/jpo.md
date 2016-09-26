@@ -46,7 +46,7 @@ so can the product of two spherical harmonic polynomials:
 Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) = \sum_M C_{KLM} Y_M({\hat{\mathbf{r}}})
 \end{eqnarray}
 \begin{eqnarray}
-\Upsilon_K({\mathbf{r}})\Upsilon_L({\mathbf{r}}) = x
+\Upsilon_K({\mathbf{r}})\Upsilon_L({\mathbf{r}}) = \sum_M C_{KLM} r^{k+\ell-m} \Upsilon_M({\mathbf{r}})
 \end{eqnarray}
 
 
