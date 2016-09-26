@@ -208,11 +208,10 @@ $$
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
-\end{eqnarray}
 $$
 
 $$\frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
-\left[
+= \left[
 \frac{e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}e^{(r_{s_2}^2+r_{s_1}^2)(\varepsilon_2-q^2)/4}}{\varepsilon_2-q^2}-
 \frac{e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}e^{(r_{s_1}^2+r_{s_2}^2)(\varepsilon_1-q^2)/4}}{\varepsilon_1-q^2}
 \right]\times 
