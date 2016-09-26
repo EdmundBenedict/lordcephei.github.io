@@ -222,12 +222,12 @@ which can be written as
 \end{equation}
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
+Eq.~(XXX) is a linear combination of
+$$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(\ref{eq:avgrs}).
+Using the power theorem the two-center integrals can be directly evaluated:
+
 {::comment}
 
-Eq.~(\ref{eq:prodhplq}) is a linear combination of
-$$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(\ref{eq:avgrs}).
-Using Eq.~(\ref{eq:powertheorem})
-the two-center integrals can be directly evaluated:
 
 $$
 \int{H^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
