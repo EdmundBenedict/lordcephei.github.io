@@ -60,8 +60,10 @@ H_{L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
 h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varepsilon,r_s;r)\right)
 \end{eqnarray}
 \begin{eqnarray}
-u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp\akap{}r}\left[1-{\rm{erf}}\left(\frac{r_s\akap}{2}\mp{}\frac{r}{r_s}\right)\right]
-\varepsilon &=& -\akap^2
+u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp{\bar\kappa}{}r}\left[1-{\rm{erf}}\left(\frac{r_s{\bar\kappa}}{2}\mp{}\frac{r}{r_s}\right)\right]
+\end{eqnarray}
+\begin{eqnarray}
+\varepsilon &=& -{\bar\kappa}^2
 \end{eqnarray}
 $$H_{L}$$ is parameterized by energy $$\varepsilon$$ and smoothing radius
 $$r_s$$; their significance will will become clear shortly.
