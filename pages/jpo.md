@@ -36,6 +36,22 @@ so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
 It is written in terms of
 conventional spherical harmonics as
 
+\begin{eqnarray}
+\Upsilon_L({\bf{}r}) = r^\ell Y_L (\hat{\bf{}r})
+\label{eq:defshpoly}
+\end{eqnarray}
+Just as the product of two spherical harmonics can be expanded in
+Clebsh Gordan coefficients $$C_{KLM}$$ and spherical harmonics,
+so can the product of two spherical harmonic polynomials:
+\begin{eqnarray}
+Y_K(\hat{\bf{}r})Y_L(\hat{\bf{}r}) &=& \sum_M C_{KLM} Y_M({\hat{\bf{}r}}) \\
+\Upsilon_K({\bf{}r})\Upsilon_L({\bf{}r}) &=& \sum_M C_{KLM}\, r^{k+\ell-m} \, \Upsilon_M({{\bf{}r}})
+\label{eq:expandsharm}
+\end{eqnarray}
+$$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
+the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
+
+
 
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
