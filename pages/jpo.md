@@ -295,8 +295,8 @@ H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
 
 When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{pL}$$ are generalized
-Gaussian functions of the type Eq.~(\ref{eq:defgpl}), scaled by
-$$(-4\pi)$$; see Eq.~(\ref{eq:recurhpl}).  Eq.~(\ref{eq:pairintc})
+Gaussian functions of the type Eq.~(xxx), scaled by
+$$(-4\pi)$$; see Eq.~(xxx).  Eq.~(xx)
 is then suitable for two-center integrals of generalized Gaussian
 functions.
 
