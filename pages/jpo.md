@@ -168,8 +168,7 @@ of other $$H_{pL}$$, evaluated at the connecting vector
 $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
 \begin{eqnarray}
-\int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
-(2\pi)^{-3} \int {\widehat{H}}^{*}
+\int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = (2\pi)^{-3} \int H^{*}
 \end{eqnarray}
 and the fact that
 $$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
@@ -198,15 +197,10 @@ $$\Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})$$
 is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
-
-{::comment}
-
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
-&=&\frac{1}{\varepsilon_1-\varepsilon_2}
-\left[
-\frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}
-\right]
+=\frac{1}{\varepsilon_1-\varepsilon_2}
+\left[\frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}\right]
 \end{eqnarray}
 
 {::comment}
