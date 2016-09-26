@@ -89,7 +89,7 @@ By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 
 1. $$p=0$$ and $$r_s=0$$:
-   $$\ftrns{H}_{00}(\varepsilon,0;{\bf{}q})=-{4\pi/(\varepsilon-q^2)}$$\\
+   $$\widehat{H}_{00}(\varepsilon,0;{\bf{}q})=-{4\pi/(\varepsilon-q^2)}$$\\
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
@@ -99,16 +99,19 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
      H_{L}(\varepsilon,0;{\bf{}r})=H_{0L}(\varepsilon,0;{\bf{}r})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\bf{}r})
    $$
 
-2. $$p=1$$ and $$\varepsilon=0$$: $$\ftrns{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
+2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general
    $$L$$ we can define the family of generalized Gaussian functions
- \begin{eqnarray}
- G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)\\
-                      &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
-                           \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} \\
- g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}e^{-r^2/r_s^2}
- \end{eqnarray}
+   $$
+    G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+                         &=&  \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}
+                              \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
+   $$
+   where
+   $$
+    g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi{}r_s^2}\right)^{3/2} e^{\varepsilon{}r_s^2/4}e^{-r^2/r_s^2}
+   $$
 
 
 
