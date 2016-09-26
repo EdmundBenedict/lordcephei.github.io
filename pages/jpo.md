@@ -294,12 +294,31 @@ $$
 H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
 
+When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{pL}$$ are generalized
+Gaussian functions of the type Eq.~(\ref{eq:defgpl}), scaled by
+$$(-4\pi)$$; see Eq.~(\ref{eq:recurhpl}).  Eq.~(\ref{eq:pairintc})
+is then suitable for two-center integrals of generalized Gaussian
+functions.
+
 ### _Smoothed Hankels for positive energy_
 
 The smooth Hankel functions defined in I for negative energy
 also apply for positive energy.  We demonstrate that here, and
 show that the difference between the conventional and smooth
 Hankel functions are real functions.
+
+Ref. I defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
+\[ {\bar\kappa}^2 = -\varepsilon \hbox{\quad with }{\bar\kappa}>0\]
+and restricts $$\varepsilon < 0$$.
+According to usual conventions $$\kappa$$ is defined as 
+\[ \kappa = \sqrt\varepsilon \hbox{, \quad Im}(\kappa) >= 0.\]
+We can define for any energy
+\[ {\bar\kappa} = -i \kappa \hbox{,\quad and therefore}
+\begin{cases}
+{\bar\kappa}  \hbox{ real and positive, } \varepsilon<0\\
+\kappa \hbox{ real and positive, } \varepsilon>0
+\end{cases}
+\]
 
 
 ### _Other Resources_
