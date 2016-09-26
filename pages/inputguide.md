@@ -58,7 +58,7 @@ Each element of data follows a _token_{: style="color: blue"}. The token tells t
 Each token belongs to a _category_{: style="color: red"}. **VERS**{: style="color: red"}, **ITER**{: style="color: red"}, **BZ**{: style="color: red"}, **STRUC**{: style="color: red"}, **SPEC**{: style="color: red"}, **SITE**{: style="color: red"} are categories that organize the input by topic.  
 Any text that begins in the first column is a category.  
 
-The full identifier (_tag_){: style="color: brown"} consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
+The full identifier (_tag_{: style="color: brown"}) consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
 The leading component (trunk) is the *category*{: style="color: red"}; the last is the *token*{: style="color: blue"},
 which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}. 
 
@@ -77,7 +77,7 @@ A category holds information for a family of data, for example **BZ**{: style="c
 <button type="button" class="button tiny radius">Click here for a more detailed description of the input file's syntax.</button>
 {:/comment}
 <div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for a more detailed description of the input file's tree structured syntax.
+Click here for a more detailed description of how a tag's tree structured syntax is represented.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
 
 Consider the Brillouin zone integration category. You plan to carry out the BZ integration using the Methfessel-Paxton sampling method.
@@ -137,7 +137,8 @@ which provides a wide flexibility in how input files are structured.
 The preprocessor has many features in common with a programming language, including the ability to 
 [declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions; 
 and it has constructs for 
-[branching and looping](/docs/input/preprocessor/#branching-constructs), to make possible multiple or conditional reading of input lines.
+[branching](/docs/input/preprocessor/#branching-constructs) and
+[looping](/docs/input/preprocessor/#looping-constructs), to make possible multiple or conditional reading of input lines.
 
 For example, supposing through a prior preprocessor instruction you have declared a variable *range*, and it has been assigned the value 3. This line in the input file:
 
