@@ -5,9 +5,17 @@ permalink: "/docs/code/fpoverview/"
 header: no
 ---
 
-The **lmf**{: style="color: blue"} program is an all-electron implementation of the local-density approximation, with a basis consisting of generalized linear muffin tin orbitals, or **LAPWs**, or some combination of the two.
+The **lmf**{: style="color: blue"} program is an all-electron implementation of the local-density approximation, with a basis consisting of generalized (smoothed) Hankel functions, or **LAPWs**, or some combination of the two.
 
-<hr style="height:5pt; visibility:hidden;" />
+_____________________________________________________________
+
+#### _Table of Contents_
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}
+
+_____________________________________________________________
+
 #### *Overview of the full-potential method*
 _____________________________________________
 
