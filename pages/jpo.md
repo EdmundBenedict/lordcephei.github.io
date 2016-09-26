@@ -138,7 +138,7 @@ G_{pL}(\varepsilon,r_s;{\mathbf{r}}) =
 \end{eqnarray}
 \begin{eqnarray}
 \widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = 
-      \Upsilon_L(-i{\mathbf{q}})(-q^2)^p e^{r_s^2(\varepsilon-q^2)/4}
+      \Upsilon_L(-i{\mathbf{q}})(-q^2)^p \, e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 
 {::comment}
@@ -168,7 +168,7 @@ gaussian dependence on $$r$$ (Ref.\cite{smhankelpap}, Eq.~6.30).
 /docs/code/jpos/#other-resources/
 {:/comment}
 
-1. Many mathematical properties of the of smoothed Hankel functions and $$H_{pL}$$
+1. Many mathematical properties of smoothed Hankel functions and the $$H_{pL}$$ family
 are described in this paper:  
 E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
