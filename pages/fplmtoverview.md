@@ -49,20 +49,26 @@ expressed as in the “threefold representation” <i>n</i> = <i>n</i><sub>0</su
 
 This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly in the *l*-truncation in the augmentation sphere than occurs in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
 
+#### *Connection to the ASA packages*
+_____________________________________________
+
 The full-potential program builds on the [ASA package](/docs/code/asaoverview/) which contains an implementation of a tight-binding **LMTO**
 program in the Atomic Spheres Approximation (**ASA**), and shares most things in common with it, including a number of 
 [auxiliary programs](/docs/package_overview/#executable-codes-in-the-questaal-suite) useful to both **ASA** and **FP**. 
 For example, both methods are linear augmented-wave methods, and the wave functions inside the augmentation spheres are equivalent in the two cases. 
 You may find that the [ASA overview](/docs/code/asaoverview/) is helpful even if you will not be using the ASA code.
-A description of tokens available to this method are documented
-[here](/inputguide/); which specifies which tokens can and cannot be used with this and other methods within the package. There is also a
-description of tokens specific to this method located in Section 3. See the [input file tutorial](/inputguide/) or the [FP
-tutorial](/fpnew/) for a tutorial that helps you build an input file, and explains the output, and the [**ASA** tutorial](/asadoc/) for a
-corresponding tutorial for the **ASA** programs.
+Most input is common to both methods.  The FP code requires some additional information, but most of it can be generated automatically,
+as explained in [the introductory tutorial](/tutorial/lmf/lmf_tutorial/)
+or in more detail in [this tutorial](/tutorial/asa/lmf_pbte_tutorial/) for PbTe.
+It is interesting to compare that tutorial with [an ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same material.
 
-One important difference between the **ASA** and **FP** methods is that the **FP** method has no neat parametrization of total density in terms of the **ASA** energy moments <i>Q</i><sub>0</sub>, <i>Q</i><sub>1</sub>, <i>Q</i><sub>2</sub>, or the representation of the potential by a few potential parameters, as in the **ASA** (see **ASA** overview in [here](/asadoc/)). However, the basis within the augmentation spheres is defined from the spherical average of the potential, just as in the **ASA**, and the linearization proceeds in the same way. Both use the “[continuously variable principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/)” *P* to establish a mapping between the linearization energy and logarithmic derivative at the **MT** boundary, and to float the linearization energy to band center-of-gravity.
+A description of the input system and tags needed for each method are found in the [input file guide](/docs/input/inputfile/).
 
-A second important difference is that the basis set is more complicated, and in its current form, the user must choose parameters defining the basis. This complication is the most onerous part of the present method, and there are plans for redesign; but at present it is necessary to treat the interstitial region reliably. The inputs are described below; see also [this](/fpoptbas/) for a tutorial about choosing the basis optimally. Note also with the incorporation of the **APW** basis, other options are available.
+One important difference between the **ASA** and **FP** methods is that the **FP** method has no simple parametrization of total density in terms of the **ASA** energy moments <i>Q</i><sub>0</sub>, <i>Q</i><sub>1</sub>, <i>Q</i><sub>2</sub>, or the representation of the potential by a few potential parameters, as in the **ASA** (see **ASA** overview in [here](/asadoc/)). However, the basis within the augmentation spheres is defined from the spherical average of the potential, just as in the **ASA**, and the linearization proceeds in the same way. Both use the “[continuously variable principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/)” *P* to establish a mapping between the linearization energy and logarithmic derivative at the **MT** boundary, and to float the linearization energy to band center-of-gravity.
+
+A second important difference is that the basis set is more complicated, and in its current form, the user must choose parameters defining
+the basis. This complication is the most onerous part of the present method (a new "jigsaw puzzle orbital basis" will automatically tailor the basis set shape to the given potential)  but at present it is the basis set is determined by hand, or only semi-automatically. 
+It is also possible include the **APW**'s in the basis, as described in [this paper](http://dx.doi.org/10.1103/PhysRevB.81.125117).
 
 #### *Primary executables in FP package*
 _____________________________________________
@@ -71,5 +77,5 @@ _____________________________________________
 
 + **lmfa**{: style="color: blue"} makes each species self-consistent for the free atom and writes the local density, plus a fit to the tail beyond the **MT** radius (fit as a linear combination of smooth Hankel functions) to file "atm". Also appended to file "atm" is a fit to the free-atom wave functions for *r* outside the augmentation radius. **lmfa**{: style="color: blue"} also serves as an automatic generator of parameters for the basis set, as explained in [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set).
 
-The FP suite is needed to connect to the <b><i>GW</i></b> and **DMFT** packages.  Scripts and other executables (e.g. **lmfgwd**{: style="color: blue"}
+The FP suite is needed to connect to the <b><i>GW</i></b> and **DMFT** packages.  Scripts and other executables (e.g. **lmfgwd**{: style="color: blue"} and
 **lmfdmft**{: style="color: blue"}) make interfaces to these extensions.

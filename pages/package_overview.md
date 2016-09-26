@@ -112,11 +112,11 @@ Questaal suite.
 Extension of the linear method through local orbitals ensures that the eigenvalue problem remains a linear one, at the
 expense of an increase in the rank of the hamiltonian.
 
-The importance of the linear method to electronic structure cannot be overstated.  
+The importance of the linear method to electronic structure cannot be overstated.
 Slater's X-&alpha; method to approximate the difficult Fock exchange with a simpler functional of the density, which was
 subsequently formalized into rigorous [density-functional
 theory](http://journals.aps.org/pr/abstract/10.1103/PhysRev.136.B864) by Hohenberg and Kohn, 
-in combination of the linear method, form the backbone for most of the
+taken in combination of the linear method, form the backbone for most of the
 practical modern electronic structure methods in condensed matter.
 
 {::nomarkdown}</div>{:/}
