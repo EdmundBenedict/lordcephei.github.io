@@ -137,13 +137,13 @@ which provides a wide flexibility in how input files are structured.
 The preprocessor has many features in common with a programming language, including the ability to 
 [declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions; 
 and it has constructs for 
-[branching and looping](/docs/input/preprocessor/branching-and-looping-constructs), to make possible multiple or conditional reading of input lines.
+[branching and looping](/docs/input/preprocessor/#branching-constructs), to make possible multiple or conditional reading of input lines.
 
 For example, supposing through a prior preprocessor instruction you have declared a variable *range*, and it has been assigned the value 3. This line in the input file:
 
         RMAX={range+1/4}
 
-is parsed and turned in to:
+is turned in to:
 
         RMAX=3.25
  

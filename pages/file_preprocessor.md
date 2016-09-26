@@ -85,7 +85,7 @@ reading, it destroys variables created by preprocessor directives. You can prese
 
 #### Branching and looping constructs
 {::comment}
-/docs/input/preprocessor/branching-and-looping-constructs
+/docs/input/preprocessor/#branching-and-looping-constructs
 {:/comment}
 
 You can [conditionally read](/docs/input/preprocessor/#branching-constructs)
