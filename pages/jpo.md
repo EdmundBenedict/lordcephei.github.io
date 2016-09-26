@@ -76,25 +76,18 @@ H_{pL}({\mathbf{r}}) &=& \Delta^p H_{L}({\mathbf{r}})
 \end{eqnarray}
 
 In real space $$H_{pL}$$ must be generated recursively from $$h$$.
-However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35):
-
-$$
-\widehat{H}_{L}(\varepsilon,r_s;\mathbf{q}) = 
--\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,e^{r_s^2(\varepsilon-q^2)/4}
-$$
-
-{::comment}
-
-The generalization to $$\widehat{H}_{pL}$$ is
+However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35).
+The differential operator becomes a multiplicative operator
+in the reciprocal space so
 \begin{eqnarray}
-\widehat{H}_{pL}(\varepsilon,r_s;{\mathbf{q}}) &=& 
--\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\mathbf{q}})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
+\widehat{H}_{pL}(\varepsilon,r_s;\mathbf{q}) &=& 
+-\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 
 1. $$p=0$$ and $$r_s=0$$:
-   $$\widehat{H}_{00}(\varepsilon,0;{\mathbf{q}})=-{4\pi/(\varepsilon-q^2)}$$\\
+   $$\widehat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
@@ -103,7 +96,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
      H_{L}(\varepsilon,0;{\mathbf{r}})=H_{0L}(\varepsilon,0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
 
-2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;{\mathbf{q}})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
+2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
    \begin{eqnarray}
@@ -117,7 +110,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    \end{eqnarray}
 
 Comparing cases i and ii with Eq. (XXX), evidently
-$$\widehat{H}_L({\mathbf{q}})$$ is proportional to the product of the Fourier
+$$\widehat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
 convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
@@ -142,8 +135,8 @@ G_{pL}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^p g(\varepsilon,r_s;r)\\
 \end{eqnarray}
 \begin{eqnarray}
-\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = 
-      \Upsilon_L(-i{\mathbf{q}})(-q^2)^p e^{r_s^2(\varepsilon-q^2)/4}
+\widehat{G}_{pL}(\varepsilon,r_s;\mathbf{q}) = 
+      \Upsilon_L(-i\mathbf{q})(-q^2)^p e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 
 The second Equation shows that $$G_{pL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
@@ -175,14 +168,14 @@ of Fourier transforms
 
 $$
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r =
-(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
-\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+(2\pi)^{-3}\int \widehat{H}^*_1(\mathbf{q}) 
+\widehat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 $$
 
 and the fact that
-$$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
+$$\widehat{H}^*_{p_1L_1}(\mathbf{q})\widehat{H}_{p_2L_2}(\mathbf{q})$$ can
 be expressed as a linear combination of other
-$$\widehat{H}_{pL}({\mathbf{q}})$$, or their energy derivatives.  This is
+$$\widehat{H}_{pL}(\mathbf{q})$$, or their energy derivatives.  This is
 readily done from the identity
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
@@ -195,21 +188,21 @@ readily done from the identity
 \end{eqnarray}
 
 Comparing the first identity and the form Eq.~(\ref{eq:defhplq})
-of $$\widehat{H}_{p0}({\mathbf{q}})$$, it can be immediately seen that
-the product of two $$\widehat{H}_{p0}({\mathbf{q}})$$ with different
+of $$\widehat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
+the product of two $$\widehat{H}_{p0}(\mathbf{q})$$ with different
 energies can be expressed as a linear combination of two
-$$\widehat{H}_{p0}({\mathbf{q}})$$.  The second identity applies when the
-$$\widehat{H}_{p0}({\mathbf{q}})$$ have the same energy; the product will
-involve the energy derivative of some $$\widehat{H}_{p0}({\mathbf{q}})$$.
+$$\widehat{H}_{p0}(\mathbf{q})$$.  The second identity applies when the
+$$\widehat{H}_{p0}(\mathbf{q})$$ have the same energy; the product will
+involve the energy derivative of some $$\widehat{H}_{p0}(\mathbf{q})$$.
 For higher $$L$$,
-$$\Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})$$ 
+$$\Upsilon^*_{L_1}(-i\mathbf{q})\Upsilon_{L_2}(-i\mathbf{q})$$ 
 is expanded as a linear combination of
-$$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
+$$\Upsilon^*_{M}(-i\mathbf{q})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
 $$
-{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
-{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}}) =
+{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
+{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
