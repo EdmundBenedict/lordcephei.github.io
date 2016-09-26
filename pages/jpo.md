@@ -92,7 +92,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
-   general $$L$$ the relation is
+   general $$L$$ the relation is x
    \begin{eqnarray}
      H_{L}(\varepsilon,0;{\bf{}r})=H_{0L}(\varepsilon,0;{\bf{}r})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\bf{}r})
    \end{eqnarray}
@@ -100,6 +100,12 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 2. $$p=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
+   \begin{eqnarray}
+    G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
+   \end{eqnarray}
+
+{::comment}
+
 
    $$
     G_{0L}(\varepsilon,r_s;{\bf{}r}) &=& \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
