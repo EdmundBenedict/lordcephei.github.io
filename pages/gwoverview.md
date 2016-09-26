@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Implementation of the _GW_ Approximation"
+title: "Implementation of the <i>GW</i> Approximation"
 permalink: "/docs/code/gwoverview/"
 sidebar: "left"
 header: no
