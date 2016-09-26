@@ -222,6 +222,8 @@ which can be written as
 \end{equation}
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
+{::comment}
+
 Eq.~(\ref{eq:prodhplq}) is a linear combination of
 $$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(\ref{eq:avgrs}).
 Using Eq.~(\ref{eq:powertheorem})
