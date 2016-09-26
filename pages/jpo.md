@@ -169,7 +169,7 @@ $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
 \begin{eqnarray}
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
-(2\pi)^{-3} 
+(2\pi)^{-3} \int {\widehat{H}}
 \end{eqnarray}
 and the fact that
 $$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
@@ -185,6 +185,19 @@ readily done from the identity
 \mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
 \end{eqnarray}
+
+Comparing the first identity and the form Eq.~(\ref{eq:defhplq})
+of $$\widehat{H}_{p0}({\mathbf{q}})$$, it can be immediately seen that
+the product of two $$\widehat{H}_{p0}({\mathbf{q}})$$ with different
+energies can be expressed as a linear combination of two
+$$\widehat{H}_{p0}({\mathbf{q}})$$.  The second identity applies when the
+$$\widehat{H}_{p0}({\mathbf{q}})$$ have the same energy; the product will
+involve the energy derivative of some $$\widehat{H}_{p0}({\mathbf{q}})$$.
+For higher $$L$$,
+$$\Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})$$ 
+is expanded as a linear combination of
+$$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
+spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
 {::comment}
 
