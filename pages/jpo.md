@@ -239,6 +239,7 @@ e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 $$
 
 This can be written as
+
 $$
 (-1)^{\ell_1}\frac{4\pi}{\varepsilon_1-\varepsilon_2}
 \sum_M C_{L_1L_2M} \times
@@ -253,6 +254,9 @@ be handled using the second identity, Eq.~(XXX).
 Differentiation of $$\widehat{H}_{pL}$$ Eq.~(XXX) with respect to energy results in
 \begin{eqnarray}
 \widehat{\dot{H}}_{pL} \equiv
+\end{eqnarray}
+
+{::commment}
 \frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = -
 \frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
 \end{eqnarray}
