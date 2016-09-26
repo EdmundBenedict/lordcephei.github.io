@@ -24,7 +24,7 @@ _____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel functions, the smoothed versions — convolutions of ordinary Hankel functions and Gaussian functions — are regular at the origin. They are a significantly better choice of basis than the customary **LMTO** basis set. However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel. The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO** methods; thus wave functions are evaluated by Ewald summation. A real-space version using screened envelope functions is in progress.
 
-![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.png)
+![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
 #### *Local Orbitals*
 _____________________________________________
