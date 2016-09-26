@@ -58,7 +58,7 @@ Each element of data follows a _token_{: style="color: blue"}. The token tells t
 Each token belongs to a _category_{: style="color: red"}. **VERS**{: style="color: red"}, **ITER**{: style="color: red"}, **BZ**{: style="color: red"}, **STRUC**{: style="color: red"}, **SPEC**{: style="color: red"}, **SITE**{: style="color: red"} are categories that organize the input by topic.  
 Any text that begins in the first column is a category.  
 
-The full identifier (_tag_) consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
+The full identifier (_tag_){: style="color: brown"} consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
 The leading component (trunk) is the *category*{: style="color: red"}; the last is the *token*{: style="color: blue"},
 which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}. 
 
