@@ -73,6 +73,33 @@ the laplacian acting on $$H_{L}({\bf{}r})$$:
 H_{pL}({\bf{}r}) &=& \Delta^p H_{L}({\bf{}r})
 \end{eqnarray}
 
+In real space $$H_{pL}$$ must be generated recursively from $$h$$.
+However, the Fourier transform of $$H_{pL}$$ has a closed
+form (I, Eq. 6.35):
+\begin{eqnarray}
+\label{eq:defhlq}
+\ftrns{H}_{L}(\varepsilon,r_s;{\bf{}q}) &=& 
+-\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})\,e^{r_s^2(\varepsilon-q^2)/4}
+\end{eqnarray}
+\begin{eqnarray}
+\ftrns{H}_{pL}(\varepsilon,r_s;{\bf{}q}) &=& 
+-\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
+\end{eqnarray}
+By taking limiting cases we can see the connection with familiar
+functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
+
+1. $$p=0$$ and $$r_s=0$$:
+   $$\ftrns{H}_{00}(\varepsilon,0;{\bf{}q})=-{4\pi/(\varepsilon-q^2)}$$\\
+   This is the Fourier transform of
+   $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
+   $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
+   general $$L$$ the relation is.
+   \begin{eqnarray}
+     H_{L}(\varepsilon,0;{\bf{}r})=H_{0L}(\varepsilon,0;{\bf{}r})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\bf{}r})
+   \end{eqnarray}
+
+2. $$p=1$$ and $$\varepsilon=0$$: $$\ftrns{H}_{10}(0,r_s;{\bf{}q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
+
 
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
