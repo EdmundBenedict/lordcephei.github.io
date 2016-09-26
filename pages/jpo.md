@@ -306,31 +306,20 @@ Hankel functions are real functions.
 
 Ref. 1 defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\kappa$$
 
-$$
+\begin{equation}
 {\bar\kappa}^2 = -\varepsilon \hbox{  with  }{\bar\kappa}>0
-$$
-
+\end{equation}
 and restricts $$\varepsilon < 0$$.
 According to usual conventions $$\kappa$$ is defined as 
 \begin{equation}
  \kappa = \sqrt\varepsilon \hbox{,     Im}(\kappa) >= 0.
 \end{equation}
-
 We can define for any energy
 \begin{equation}
 \bar\kappa = -i \kappa
 \end{equation}
 so that $$\bar\kappa$$ is real and positive if $$\varepsilon<0$$ while
 $$kappa$$ is real and positive if $$\varepsilon>0$$
-
-
-{::comment}
-
-\begin{cases}
-{\bar\kappa}  \hbox{ real and positive, } \varepsilon<0\\
-\kappa \hbox{ real and positive, } \varepsilon>0
-\end{cases}
-
 
 ### _Other Resources_
 {::comment}
