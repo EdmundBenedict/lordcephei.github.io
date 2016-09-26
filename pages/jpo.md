@@ -273,11 +273,19 @@ $$
 $$
 
 If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$,
-Eq.~(\ref{eq:defhpldot}) simplifies to
-\begin{eqnarray}
-\widehat{\dot{H}}_{pL} ...
-\mathop=\limits^{\varepsilon\to 0} - \frac{1}{-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}
-\end{eqnarray}
+Eq.~(XXX) simplifies to
+and the two-center integral simplifies to
+
+$$
+\int
+{H}^*_{p_1L_1}(0,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
+{H}_{p_2L_2}(0,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
+=
+(-1)^{\ell_1}(-{4\pi})
+\sum_M C_{L_1L_2M} \times
+H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
+$$
+
 
 ### _Other Resources_
 {::comment}
