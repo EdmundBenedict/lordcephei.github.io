@@ -20,7 +20,7 @@ _____________________________________________________________
 ### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
-{:toc}  
+{:toc}
 
 The output documented here is mostly taken from the **lmf**{: style="color: blue"} 
 [tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
@@ -37,9 +37,11 @@ explains a block approximately in the order they are made.
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
 Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
 
+{::comment}
+<button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
+{:/comment}
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">
-Click here to see the action of the preprocessor on ctrl.pbte.</button>
+Click here to see the action of the preprocessor on ctrl.pbte.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/} 
 
 Add `--input` to the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
@@ -108,14 +110,14 @@ find.  To see the value of tags **lmf**{: style="color: blue"} parses, use `lmf 
 style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmf**{: style="color: blue"} is doing what
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
-<div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 {::comment}
-Click here for interpretation of --show.
+<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
 {:/comment}
+<div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Click here for an interpretation of the action of <tt>--show</tt>.
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/} 
 
-Add `--show=2` to the command from the PbTe tutorial:
+Add `--show=2` to the **lmf**{: style="color: blue"} command from the PbTe tutorial:
 
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8 --show=2
