@@ -15,7 +15,6 @@ Jigsaw Puzzle Orbitals.
 _____________________________________________
 
 The FP basis functions are built around smooth Hankel functions.
-
 These are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 
 Methfessel's class of functions $$H_{pL}$$, are a superset of 
@@ -37,15 +36,15 @@ It is written in terms of
 conventional spherical harmonics as
 
 \begin{eqnarray}
-\Upsilon_L({\bf{}r}) = r^\ell Y_L (\hat{\bf{}r})
+\Upsilon_L({\mathbf{r}}) = r^\ell Y_L (\hat{\mathbf{r}})
 \label{eq:defshpoly}
 \end{eqnarray}
 Just as the product of two spherical harmonics can be expanded in
 Clebsh Gordan coefficients $$C_{KLM}$$ and spherical harmonics,
 so can the product of two spherical harmonic polynomials:
 \begin{eqnarray}
-Y_K(\hat{\bf{}r})Y_L(\hat{\bf{}r}) &=& \sum_M C_{KLM} Y_M({\hat{\bf{}r}}) \\
-\Upsilon_K({\bf{}r})\Upsilon_L({\bf{}r}) &=& \sum_M C_{KLM}\, r^{k+\ell-m} \, \Upsilon_M({{\bf{}r}})
+Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) &=& \sum_M C_{KLM} Y_M({\hat{\mathbf{r}}}) \\
+\Upsilon_K({\mathbf{r}})\Upsilon_L({\mathbf{r}}) &=& \sum_M C_{KLM}\, r^{k+\ell-m} \, \Upsilon_M({{\mathbf{r}}})
 \label{eq:expandsharm}
 \end{eqnarray}
 $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
