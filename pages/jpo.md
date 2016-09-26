@@ -17,6 +17,8 @@ _____________________________________________
 The FP basis functions are built around smooth Hankel functions.
 These are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 
+![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
+
 Methfessel's class of functions $$H_{pL}$$, are a superset of 
 generalized (smoothed) Hankel functions, and the family of 
 (polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/jpos/#other-resources)
@@ -79,7 +81,6 @@ However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35):
 \widehat{H}_{L}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
-
 \begin{eqnarray}
 \widehat{H}_{pL}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
@@ -105,7 +106,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
                          =  \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}
                               \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
    \end{eqnarray}
-   where
+   where _g_ is a simple gaussian with an extra normalization:
    \begin{eqnarray}
     g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}e^{-r^2/r_s^2}
    \end{eqnarray}
@@ -124,8 +125,38 @@ determining the radius for transition from Gaussian-like to Hankel-like
 behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
 $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 
-
-![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
+By analogy with Eq.~(XXXX) we can extend the $$G_{L}$$ family with the
+laplacian operator:
+\begin{eqnarray}
+G_{pL}(\varepsilon,r_s;{\mathbf{r}}) &=& 
+      \Delta^p\, G_{0L}(\varepsilon,r_s;{\mathbf{r}})
+      \Upsilon_L(-\nabla) \Delta^p g(\varepsilon,r_s;r)
+\end{eqnarray}
+\begin{eqnarray}
+G_{pL}(\varepsilon,r_s;{\mathbf{r}}) &=& 
+      \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^p g(\varepsilon,r_s;r)\\
+\end{eqnarray}
+\begin{eqnarray}
+\widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) &=& 
+      \Upsilon_L(-i{\mathbf{q}})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
+\end{eqnarray}
+The second Equatoin shows that $$G_{pL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
+Comparing the last form Eq.~(\ref{eq:defgplq}) to Eq.~(\ref{eq:defhplq})
+and the definition of $$H_{pL}$$ Eq.~(\ref{eq:defhpl}), we obtain the useful relations
+\begin{eqnarray}
+H_{p+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{pL}(\varepsilon,r_s;{\mathbf{r}})
+=-4\pi G_{pL}(\varepsilon,r_s;{\mathbf{r}})\\
+\end{eqnarray}
+\begin{eqnarray}
+\left(\Delta+\varepsilon\right)H_{pL}(\varepsilon,r_s;{\mathbf{r}})
+=-4\pi G_{pL}(\varepsilon,r_s;{\mathbf{r}})
+\end{eqnarray}
+This shows that $$H_{pL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
+in response to a source term smeared out in the form of a gaussian.  A 
+conventional Hankel function is the response a point multipole at the
+origin (see I, Eq.~6.14).  $$H_{pL}$$ is also the solution to the
+Schr\"odinger equation for a potential that has an approximately
+gaussian dependence on $$r$$ (Ref.\cite{smhankelpap}, Eq.~6.30).
 
 
 ### _Other Resources_
@@ -133,7 +164,7 @@ $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 /docs/code/jpos/#other-resources/
 {:/comment}
 
-1. Many mathematical properties of the of smoothed Hankel functions that form the **lmf**{: style="color: blue"} basis set
+1. Many mathematical properties of the of smoothed Hankel functions and $$H_{pL}$$
 are described in this paper:  
 E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
