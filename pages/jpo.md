@@ -210,8 +210,8 @@ $$
 (-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
 $$
 
+which can be written as
 \begin{equation}
-=
 \frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
 \left[
 \frac{e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}e^{(r_{s_2}^2+r_{s_1}^2)(\varepsilon_2-q^2)/4}}{\varepsilon_2-q^2}-
@@ -220,7 +220,6 @@ $$
 (-q^2)^{p_1+p_2} i^{2\ell_1}
 \sum_M C_{L_1L_2M} \Upsilon_{M}(-i{\mathbf{q}}) (-q^2)^{(\ell_1+\ell_2-m)/2}
 \end{equation}
- 
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
 Eq.~(\ref{eq:prodhplq}) is a linear combination of
