@@ -210,8 +210,10 @@ $$
 (-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
 $$
 
-$$\frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
-= \left[
+$$
+=
+\frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
+\left[
 \frac{e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}e^{(r_{s_2}^2+r_{s_1}^2)(\varepsilon_2-q^2)/4}}{\varepsilon_2-q^2}-
 \frac{e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}e^{(r_{s_1}^2+r_{s_2}^2)(\varepsilon_1-q^2)/4}}{\varepsilon_1-q^2}
 \right]\times 
@@ -219,6 +221,8 @@ $$\frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
 \sum_M C_{L_1L_2M} \Upsilon_{M}(-i{\mathbf{q}}) (-q^2)^{(\ell_1+\ell_2-m)/2}
 $$
  
+where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
+
 ### _Other Resources_
 {::comment}
 /docs/code/jpos/#other-resources/
