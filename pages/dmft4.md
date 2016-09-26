@@ -28,7 +28,7 @@ cp itN_qmcrun/Sig.out.brd sigfreq0/sig.inp              # copy converged Sig.out
 cd sigfreq0
 ln -sf sig.inp Sig.out.brd                                 # mk_siginp-freq0.py looks for Sig.out.brd
 python mk_siginp-freq0.py                                  # 1. interpolate Sig.out.brd to zero frequency
-vi ctrl.ni                                                 # Set nkabc = nkgw 
+vi ctrl.ni                                                 # Ensure that nkabc = nkgw 
 lmfdmft ni --ldadc=71.85 -job=1 -vbxc0=1                   # 2. embed+symmetrise sig.inp.f0 to sig.inp.f0.emb
 lmfdmft ni --ldadc=71.85 -job=1 -vbxc0=1 --makesigqp       # 3. write sig.inp.f0.emb on quasiparticle basis sigm1.ni
 ```
@@ -37,20 +37,14 @@ lmfdmft ni --ldadc=71.85 -job=1 -vbxc0=1 --makesigqp       # 3. write sig.inp.f0
 
 + First interpolate _Sig.inp.out.brd_{: style="color: green"} to zero frequency. You can use the program **mk_siginp-freq0.py**{: style="color: blue"} downloadable at [this link](https://lordcephei.github.io/assets/download/inputfiles/mk_siginp-freq0.py). The output file _sif.inp.f0_{: style="color: green"} is the static limit of the impurity self-energy (you can check the quality of the extrapolation by plotting *Sig.out.brd*{: style="color: green"} and *Sig.out.brd.extrap*{: style="color: green"}).
 
-+ In the same folder, you can launch **lmfdmft**{: style="color: blue"} using the same flags as your last run, but you have to pay attention to the k-point grid. **Warning: You have to set nkabc equal to nkgw in this and the following run!**{: style="color: red"} The program will automatically find _sig.inp.f0_{: style="color: green"}, it will embed it and symmetrise it before exiting. The output *sig.inp.f0.emb*{: style="color: green"} is a text file. 
++ In the same folder, you can launch **lmfdmft**{: style="color: blue"} using the same flags as your last run, but you have to pay attention to the k-point grid. **Warning: You have to set nkabc equal to nkgw in this and the following run!**{: style="color: red"} The program will automatically find _sig.inp.f0_{: style="color: green"}, it will embed it and symmetrise it, producing the output *sig.inp.f0.emb*{: style="color: green"} before exiting.
 At the bottom of the *log*{: style="color: green"} file you should find the line
  
   ```
   Exit 0 File sig.inp.f0 embedded successfully and recorded in sig.inp.f0.emb
   ```
 
-+ Still in the same folder you can run again **lmfdmft**{: style="color: blue"}, adding **\-\-makesigqp**{: style="color: blue"} to the command line. This will
-
-   * subtract the average self-energy component to the whole matrix hence keeping only the magnetic part and
-   * project the resulting matrix in the quasiparticle basis.
-
-  The result will be saved in the *sigm1.ni*{: style="color: green"} file. 
-  At the bottom of the *log*{: style="color: green"} file you should finde the line 
++ Still in the same folder you can run again **lmfdmft**{: style="color: blue"}, adding **\-\-makesigqp**{: style="color: blue"} to the command line. This will i) subtract the average self-energy component to the whole matrix hence keeping only the magnetic part and ii) project the resulting matrix in the quasiparticle basis. The result will be saved in the *sigm1.ni*{: style="color: green"} file. At the bottom of the *log*{: style="color: green"} you should find the line 
 
   ```
   Exit 0 wrote embedded sigma (orbital basis) to file sigm1
@@ -59,17 +53,16 @@ At the bottom of the *log*{: style="color: green"} file you should find the line
 {::nomarkdown}</div>{:/}
 
  
-### Adding charge and static-magnetic components 
-**WARNING: There's a bug here. I can not merge the two sigm files anymore.  TO BE SOLVED!!!**{: style="color: red"}
+### Adding charge and static-magnetic components
 
-You now have a static magnetic-only potential produced by DMFT. This has to be added to the charge-only (LDA or QSGW) potential.
+You now have a static magnetic-only obtained from a fully converged DMFT loop. This has to be added to the charge-only (LDA or QSGW) potential you started from. In the same folder as before run
 
 ``` 
 lmf ni --wsig --mixsig=1,1   # add sigm and sigm1 to get sigm2   
 ```
 
 As a result files *sigm.ni*{: style="color: green"} and *sigm1.ni*{: style="color: green"} are summed together and exported in *sigm2.ni*{: style="color: green"}. 
-Check that among the last lines of the *log*{: style="color: green"} you find lines 
+Check that among the last lines of the *log*{: style="color: green"} you find
 
 ```
 Use for sigma: 1*(file sigm) + 1*(file sigm1)
