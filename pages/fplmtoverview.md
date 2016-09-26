@@ -82,5 +82,4 @@ _____________________________________________
 
 + **lmfa**{: style="color: blue"} makes each species self-consistent for the free atom and writes the local density, plus a fit to the tail beyond the the augmentation sphere radius (fit as a linear combination of smooth Hankel functions) to the atm file. Also appended to *atm.ext*{: style="color: green"} is a fit to the free-atom wave functions for *r* outside the augmentation radius. This is used to overlap atomic densities to make a trial density for the crystal.  Not least important, **lmfa**{: style="color: blue"} serves as an automatic generator of parameters for the basis set, as explained in [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set).
 
-The FP suite is needed to connect to the <b><i>GW</i></b> and **DMFT** packages.  Scripts and other executables (e.g. **lmfgwd**{: style="color: blue"} and
-**lmfdmft**{: style="color: blue"}) make interfaces to these extensions.
+The FP suite is needed to connect to the [<b><i>GW</i></b>](/docs/code/gwoverview) and [**DMFT**](/tutorial/qsgw_dmft/dmft0) implementations.  Scripts and other executables (e.g. **lmfgwd**{: style="color: blue"} and **lmfdmft**{: style="color: blue"}) make interfaces to these extensions.
