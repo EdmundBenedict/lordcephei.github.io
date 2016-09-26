@@ -43,7 +43,8 @@ Just as the product of two spherical harmonics can be expanded in
 Clebsh Gordan coefficients $$C_{KLM}$$ and spherical harmonics,
 so can the product of two spherical harmonic polynomials:
 \begin{eqnarray}
-Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) = \sum_M C_{KLM} Y_M({\hat{\mathbf{r}}}) 
+Y_K(\hat{\mathbf{r}})Y_L(\hat{\mathbf{r}}) &=& \sum_M C_{KLM} Y_M({\hat{\mathbf{r}}}) \\
+ a &=& b
 \end{eqnarray}
 $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
 the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
