@@ -244,7 +244,7 @@ enough to reach self-consistency.  These codes also have a lookup table for defa
 
 ### _Selection of Sphere Radii_
 {::comment}
-/docs/code/asaoverview/#selection-of-sphere-radii/
+/docs/code/asaoverview/#selection-of-sphere-radii
 {:/comment}
 
 One of the biggest nuisances for augmented-wave programs is the choice
