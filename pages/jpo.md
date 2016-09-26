@@ -171,6 +171,10 @@ of Fourier transforms
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r = 
 (2\pi)^{-3} \int {\widehat{H}}
 \end{eqnarray}
+{::comment}
+(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
+\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+{:/comment}
 and the fact that
 $$\widehat{H}^*_{p_1L_1}({\mathbf{q}})\widehat{H}_{p_2L_2}({\mathbf{q}})$$ can
 be expressed as a linear combination of other
@@ -199,10 +203,7 @@ is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
-{::comment}
 
-(2\pi)^{-3}\int \widehat{H}^*_1({\mathbf{q}}) 
-\widehat{H}_2({\mathbf{q}}) e^{i{\mathbf{q}}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
