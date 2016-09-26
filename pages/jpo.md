@@ -138,6 +138,7 @@ G_{pL}(\varepsilon,r_s;{\mathbf{r}}) =
 \end{eqnarray}
 \begin{eqnarray}
 \widehat{G}_{pL}(\varepsilon,r_s;{\mathbf{q}}) = 
+      \Upsilon_L(-i{\mathbf{q}})(-q^2)^p e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 
 {::comment}
