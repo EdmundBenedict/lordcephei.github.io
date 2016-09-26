@@ -253,8 +253,8 @@ Differentiation of $$\widehat{H}_{pL}$$ Eq.~(XXX) with respect to energy results
 
 $$
 \widehat{\dot{H}}_{pL} \equiv
-\frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = 
--\frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
+\frac{\partial\widehat{H}_{pL}}{\partial\varepsilon} = 
+-\frac{1}{\varepsilon-q^2}\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}.
 $$
 
 Eq.~(XX) is modified to read
@@ -277,8 +277,8 @@ Eq.~(XXX) simplifies to
 
 $$
 \widehat{\dot{H}}_{pL}
-\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{pL} + \frac{r_s^2}{4} \widehat{H}_{pL}
-= - \widehat{H}_{p-1,L} + \frac{r_s^2}{4} {\widehat{H}}_{pL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}
+= - \widehat{H}_{p-1,L} + (r_s^2/4)\widehat{H}_{pL}
 $$
 
 
@@ -293,6 +293,13 @@ $$
 \sum_M C_{L_1L_2M} \times
 H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
+
+### _Smoothed Hankels for positive energy_
+
+The smooth Hankel functions defined in I for negative energy
+also apply for positive energy.  We demonstrate that here, and
+show that the difference between the conventional and smooth
+Hankel functions are real functions.
 
 
 ### _Other Resources_
