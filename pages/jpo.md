@@ -258,9 +258,10 @@ $$
 $$
 
 Eq.~(XX) is modified to read
-\begin{eqnarray}
+
+$$
 \int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
-\end{eqnarray}
+$$
 
 {::comment}
 
