@@ -274,6 +274,12 @@ $$
 
 If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$,
 Eq.~(XXX) simplifies to
+
+$$
+\widehat{\dot{H}}_{pL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}
+$$
+
 and the two-center integral simplifies to
 
 $$
