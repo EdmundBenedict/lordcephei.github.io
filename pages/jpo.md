@@ -249,14 +249,12 @@ $$
 $$
 
 The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
-be handled using the second identity, Eq.~(\ref{eq:expandemqb}).
-Differentiation of $$\widehat{{H}}_{pL}$$ Eq.~(\ref{eq:defhplq})
-with respect to energy results in
+be handled using the second identity, Eq.~(XXX).
+Differentiation of $$\widehat{H}_{pL}$$ Eq.~(XXX) with respect to energy results in
 \begin{eqnarray}
 \widehat{\dot{H}}_{pL} \equiv
 \frac{\partial{\widehat{H}}_{pL}}{\partial\varepsilon} = -
 \frac{1}{\varepsilon-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}.
-\label{eq:defhpldot}
 \end{eqnarray}
 
 
