@@ -187,9 +187,8 @@ readily done from the identity
 \right]
 \mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
-\mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}
-\frac{1}{(\varepsilon_1-q^2)^2}
 \end{eqnarray}
+
 Comparing the first identity and the form Eq.~(\ref{eq:defhplq})
 of $$\widehat{H}_{p0}({\mathbf{q}})$$, it can be immediately seen that
 the product of two $$\widehat{H}_{p0}({\mathbf{q}})$$ with different
@@ -203,14 +202,23 @@ is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
-$$
+\begin{eqnarray}
 {\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
 {\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}}) =
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
-$$
+\end{eqnarray}
 
+\begin{eqnarray}
+\frac{(4\pi)^2}{\varepsilon_1-\varepsilon_2}
+\left[
+\frac{e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}e^{(r_{s_2}^2+r_{s_1}^2)(\varepsilon_2-q^2)/4}}{\varepsilon_2-q^2}-
+\frac{e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}e^{(r_{s_1}^2+r_{s_2}^2)(\varepsilon_1-q^2)/4}}{\varepsilon_1-q^2}
+\right]\times 
+(-q^2)^{p_1+p_2} i^{2\ell_1}
+\sum_M C_{L_1L_2M} \Upsilon_{M}(-i{\mathbf{q}}) (-q^2)^{(\ell_1+\ell_2-m)/2}
+\end{eqnarray}
  
 ### _Other Resources_
 {::comment}
