@@ -83,6 +83,8 @@ $$
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\mathbf{q}})\,e^{r_s^2(\varepsilon-q^2)/4}
 $$
 
+{::comment}
+
 The generalization to $$\widehat{H}_{pL}$$ is
 \begin{eqnarray}
 \widehat{H}_{pL}(\varepsilon,r_s;{\mathbf{q}}) &=& 
