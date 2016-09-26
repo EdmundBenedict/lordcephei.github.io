@@ -187,8 +187,9 @@ readily done from the identity
 \right]
 \mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
+\mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}
+\frac{1}{(\varepsilon_1-q^2)^2}
 \end{eqnarray}
-
 Comparing the first identity and the form Eq.~(\ref{eq:defhplq})
 of $$\widehat{H}_{p0}({\mathbf{q}})$$, it can be immediately seen that
 the product of two $$\widehat{H}_{p0}({\mathbf{q}})$$ with different
@@ -201,15 +202,13 @@ $$\Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})$$
 is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i{\mathbf{q}})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
-\begin{eqnarray}
+
+ 
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 =\frac{1}{\varepsilon_1-\varepsilon_2}
 \left[\frac{1}{\varepsilon_2-q^2} - \frac{1}{\varepsilon_1-q^2}\right]
-\end{eqnarray}
+$$
 
-{::comment}
-
-\\
 &\mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
 \label{eq:expandemqb}
