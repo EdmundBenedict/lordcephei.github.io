@@ -262,18 +262,25 @@ Eq.~(XX) is modified to read
 $$
 \int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
 H_{p_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
-= (-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times
+= (-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times ...
 $$
+
+$$
+... \big[
+    {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+   - \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+\big]
+$$
+
 
 {::comment}
 
 
-=
 
 \big[
-    {\ {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)}
-{- \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)}
-\ \big]
+    {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+   - \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+\big]
 \end{eqnarray}
 
 If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$,
