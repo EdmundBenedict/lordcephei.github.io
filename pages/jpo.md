@@ -261,11 +261,12 @@ Eq.~(XX) is modified to read
 
 $$
 \int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
+H_{p_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
 $$
 
 {::comment}
 
-{H_{p_2L_2}}(\varepsilon,r_{s_2};\mathbf{r}-{\mathbf{r}_2})\, d^3r
+
 =
 (-1)^{\ell_1}{4\pi}
 \sum_M C_{L_1L_2M} \times
@@ -275,6 +276,11 @@ $$
 \ \big]
 \end{eqnarray}
 
+If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$,
+Eq.~(\ref{eq:defhpldot}) simplifies to
+\begin{eqnarray}
+\widehat{\dot{H}}_{pL} ...
+\end{eqnarray}
 
 ### _Other Resources_
 {::comment}
