@@ -276,7 +276,7 @@ If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$
 Eq.~(\ref{eq:defhpldot}) simplifies to
 \begin{eqnarray}
 \widehat{\dot{H}}_{pL} ...
-\mathop=\limits^{\varepsilon\to{}0} - \frac{1}{-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}
+\mathop=\limits^{\varepsilon\to 0} - \frac{1}{-q^2}{\widehat{H}}_{pL} + (r_s^2/4) {\widehat{H}}_{pL}
 \end{eqnarray}
 
 ### _Other Resources_
