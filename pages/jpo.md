@@ -74,15 +74,14 @@ H_{pL}({\bf{}r}) &=& \Delta^p H_{L}({\bf{}r})
 \end{eqnarray}
 
 In real space $$H_{pL}$$ must be generated recursively from $$h$$.
-However, the Fourier transform of $$H_{pL}$$ has a closed
-form (I, Eq. 6.35):
+However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35):
 \begin{eqnarray}
 \label{eq:defhlq}
-\ftrns{H}_{L}(\varepsilon,r_s;{\bf{}q}) &=& 
+\widehat{H}_{L}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 \begin{eqnarray}
-\ftrns{H}_{pL}(\varepsilon,r_s;{\bf{}q}) &=& 
+\widehat{H}_{pL}(\varepsilon,r_s;{\bf{}q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\bf{}q})(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 By taking limiting cases we can see the connection with familiar
