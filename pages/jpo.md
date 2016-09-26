@@ -79,8 +79,7 @@ In real space $$H_{pL}$$ must be generated recursively from $$h$$.
 However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35):
 
 $$
-\widehat{H}_{L}(\varepsilon,r_s;{\mathbf{q}}) &=& 
--\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i{\mathbf{q}})\,e^{r_s^2(\varepsilon-q^2)/4}
+\widehat{H}_{L}(\varepsilon,r_s;\mathbf{q}) = 
 $$
 
 {::comment}
