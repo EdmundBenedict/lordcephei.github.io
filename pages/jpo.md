@@ -318,11 +318,9 @@ $$
 $$
 
 We can define for any energy
-
-$$
-\bar\kappa = -i \kappa \hbox{ and therefore}
-$$
-
+\begin{equation}
+\bar\kappa = -i \kappa
+\end{equation}
 so that $$\bar\kappa$$ is real and positive if $$\varepsilon<0$$ while
 $$kappa$$ is real and positive if $$\varepsilon>0$$
 
