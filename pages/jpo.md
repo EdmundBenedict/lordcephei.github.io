@@ -316,10 +316,10 @@ According to usual conventions $$\kappa$$ is defined as
 \end{equation}
 We can define for any energy
 \begin{equation}
-\bar\kappa = -i \kappa
+\bar\kappa = -i \kappa .
 \end{equation}
-so that $$\bar\kappa$$ is real and positive if $$\varepsilon<0$$ while
-$$kappa$$ is real and positive if $$\varepsilon>0$$
+Then $$\bar\kappa$$ is real and positive if $$\varepsilon<0$$, while
+$$kappa$$ is real and positive if $$\varepsilon>0$$.
 
 ### _Other Resources_
 {::comment}
