@@ -312,7 +312,7 @@ Ref. 1 defines $${\bar\kappa}$$ in contradistinction to usual convention for $$\
 and restricts $$\varepsilon < 0$$.
 According to usual conventions $$\kappa$$ is defined as 
 \begin{equation}
- \kappa = \sqrt\varepsilon \hbox{,     Im}(\kappa) >= 0.
+ \kappa = \sqrt\varepsilon \hbox{,     Im}(\kappa) \ge 0.
 \end{equation}
 We can define for any energy
 \begin{equation}
