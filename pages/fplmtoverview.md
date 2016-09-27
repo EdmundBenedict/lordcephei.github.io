@@ -43,8 +43,6 @@ However, the smoothing introduces complications because the augmentation of a sm
 The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO**
 methods; thus wave functions are evaluated by Ewald summation. A real-space version using screened envelope functions is in progress.
 
-![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
-
 ### *Local Orbitals*
 _____________________________________________
 
