@@ -49,26 +49,26 @@ thus Hankel functions are exact solutions of the Schrodinger equation in a flat 
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ as
 _r_&rarr;0. 
 
-Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
+Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankel functions as the basis set.
 
-Smooth Hankel functions are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions (dashed lines) to smooth ones for $$\varepsilon=-0.5$$.
-Red, green, and blue correspond to $\ell=0,1,2$$.
+Smooth Hankel functions are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions (dashed lines) to smooth ones for $$\varepsilon{=}-0.5$$.
+Red, green, and blue correspond to $$\ell=0,1,2$$.
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
 Methfessel's class of functions $$H_{kL}$$, are a superset of 
-generalized (smoothed) Hankel functions, and the family of 
-(polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/smhankels/#other-resources), and many of
+smoothed Hankel functions $$H_L$$; they also incorporate the family of 
+(polynomial)$$\times$$(gaussians).  The $$H_L$$ and the $$H_{kL}$$
+ are defined in [reference 1](/docs/code/smhankels/#other-resources), and many of
 their properties derived there.  The $$H_{kL}({\mathbf{r}})$$ are a
 family of functions with $$k=0,1,2,...$$ and angular momentum
-$$L$$. ($$L$$ is a shorthand for $$\ell{}m$$ quantum numbers.)
-The $$H_{kL}({\mathbf{r}})$$ are members of the general class of functions
+$$L$$.  They $$H_{kL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) \, f(r)  \quad\quad\quad\quad (2)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) \, f(r)  \quad\quad\quad\quad (4)
 \end{eqnarray}
-$$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
+$$\Upsilon_L({\mathbf{r}})$$, with $${\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
 It is written in terms of
 conventional spherical harmonics as
