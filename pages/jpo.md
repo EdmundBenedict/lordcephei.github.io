@@ -334,8 +334,10 @@ U_{\pm} = e^{\pm i\kappa r}\, \mathrm{erfc}\left(r/r_s\pm{i\kappa r_s}/2\right)
 \end{equation}
 The following relations are useful:
 \begin{equation}
-\mathrm{erfc}(-x^*) = 2-\mathrm{erfc}^*(x) \hbox{ and } \mathrm{erfc}(x^*)  = \mathrm{erfc}^*(x)
+\mathrm{erfc}(-x^*) = 2 - \mathrm{erfc}^*(x) 
 \end{equation}
+
+
 
 Then for $$\varepsilon \lt 0$$, $$i\kappa$$ is real and 
 \begin{equation}
@@ -375,3 +377,5 @@ E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
 [J. Math. Phys. 39, 3393 (1998)](http://dx.doi.org/10.1063/1.532437)
 
+{::comment}
+\mathrm{erfc}(-x^*) = 2-\mathrm{erfc}^*(x) \hbox{ and } \mathrm{erfc}(x^*)  = \mathrm{erfc}^*(x)
