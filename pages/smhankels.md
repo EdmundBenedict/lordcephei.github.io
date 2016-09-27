@@ -291,7 +291,7 @@ $$
 
 The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
 be handled using the limiting form of Eq. (18).
-Differentiation of $$\widehat{H}_{kL}$$ (Eq. 10) with respect to energy results in
+Differentiation of Eq. (10) with respect to energy results in
 
 $$
 \widehat{\dot{H}}_{kL} \equiv
@@ -324,6 +324,7 @@ $$
 \widehat{\dot{H}}_{kL}
 \mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}
 = - \widehat{H}_{k-1,L} + (r_s^2/4)\widehat{H}_{kL}
+\quad\quad\quad\quad (23)
 $$
 
 
@@ -336,11 +337,12 @@ $$
 =
 (-1)^{\ell_1}(-{4\pi})
 \sum_M C_{L_1L_2M} \times
-H_{k_1+k_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
+H_{k_1+k_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2).
+\quad\quad (24)
 $$
 
 When $$\varepsilon=0$$ and $$k\ge 1$$ the $$H_{kL}$$ are generalized Gaussian functions of the type Eq. (12), scaled by $$-4\pi$$; see
-Eq.~(xxx).  Eq.~(xx) is then suitable for two-center integrals of generalized Gaussian functions.
+Eq. (16).  Eq. (24) is then suitable for two-center integrals of generalized Gaussian functions.
 
 ### _Smoothed Hankels for positive energy_
 
@@ -422,7 +424,3 @@ are described in this paper:
 E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
 [J. Math. Phys. 39, 3393 (1998)](http://dx.doi.org/10.1063/1.532437)
-
-{::comment}
-
-
