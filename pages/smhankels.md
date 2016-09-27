@@ -124,8 +124,9 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
    general $$L$$ the relation is
    \begin{eqnarray}
-     H_{L}(\varepsilon,0;{\mathbf{r}})=H_{0L}(\varepsilon,0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+     H_{0L}(\varepsilon,0;{\mathbf{r}})=H_{L}(\varepsilon,0;{\mathbf{r}})=\bar H_{L}(\varepsilon,{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
+   Compare to Eq. 2.
 
 2. $$k=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
