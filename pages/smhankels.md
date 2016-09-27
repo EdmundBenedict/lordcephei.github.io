@@ -40,7 +40,7 @@ The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  \ \ \ \ \quad (1)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  \quad\quad\quad\quad (1)
 \end{eqnarray}
 $$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
