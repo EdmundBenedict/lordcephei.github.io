@@ -324,36 +324,35 @@ while $$\kappa$$ is real and positive if $$\varepsilon \gt 0$$.
 
 The smoothed Hankel _s_ orbitals for $$\ell=0$$ and $$\ell=-1$$ are real
 \begin{eqnarray}
-h^s_0 (r) &=& (u_+ - u_-) / 2r {\hbox and }
+h^s_0 (r) &=& (u_+ - u_-) / 2r \hbox{ and }
 h^s_{-1}(r) &=& (u_+ + u_-) / 2{\bar\kappa} 
 \end{eqnarray}
 
 To extend the definition to any energy we define $$U_{\pm}$$ as:
 \begin{eqnarray*}
-U_{\pm} = e^{\pm i\kappa r}\, {\rm{erfc}}\left(r/r_s\pm{i\kappa r_s}/2\right)
+U_{\pm} = e^{\pm i\kappa r}\, \mathrm{erfc}\left(r/r_s\pm{i\kappa r_s}/2\right)
 \end{eqnarray*}
 The following relations are useful:
 \begin{eqnarray*}
-\hbox{erfc}(-x^*) &=& 2-\hbox{erfc}^*(x) {\hbox and } \hbox{erfc}(x^*)  &=& \hbox{erfc}^*(x)
+\hbox{erfc}(-x^*) &=& 2-\hbox{erfc}^*(x) \hbox{ and } \hbox{erfc}(x^*)  &=& \hbox{erfc}^*(x)
 \end{eqnarray*}
 
 Then for $$\varepsilon \lt 0$$, $$i\kappa$$ is real and 
-\begin{eqnarray*}
-U_{+} &=& 2e^{i\kappa r} - u_{+} {\hbox and } U_{-} &=& u_{-}
-\end{eqnarray*}
+\begin{equation}
+U_+ &=& 2e^{i\kappa r} - u_+ \hbox{ and } U_- &=& u_-
+\end{equation}
 are also real.
 
 
 The difference in ordinary and smoothed Hankels is
-
-\begin{eqnarray*}
+\begin{equation}
 h_0  - h^s_0  	  = [e^{i \kappa r} - u_+/2 + u_-/2] /r
               	  = [U_+/2 + U_-/2] /r
-\end{eqnarray*}
-\begin{eqnarray*}
+\end{equation}
+\begin{equation}
 h_{-1} - h^s_{-1} = [e^{i \kappa r} - u_+/2 - u_-/2] /{\bar\kappa}
               	  = [U_+/2 - U_-/2] /(-i \kappa)
-\end{eqnarray*}
+\end{equation}
 
 For $$\varepsilon>0$$, $$\kappa$$ is real and $$U_+$$ = $$U_-^*$$.
 The difference in ordinary and smoothed Hankels is
