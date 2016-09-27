@@ -25,19 +25,20 @@ _____________________________________________________________
 _____________________________________________
 
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
-Ordinary Hankel and Bessel functions are solutions of the Helmholtz wave equation
+Ordinary Hankel functions are solutions of the Helmholtz wave equation
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)\bar H_L(\varepsilon,{\mathbf{r}})
 =-4\pi \delta({\mathbf{r}})  \quad\quad\quad\quad (1)
 \end{eqnarray}
 Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\mathbf{r}})$$,
 Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
-Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
+Radial functions are spherical Hankel or Bessel functions.  We will focus on the Hankel functions:
 \begin{eqnarray}
 \bar H_L(\varepsilon;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
 \quad\hbox{ where }\quad {\bar\kappa}^2 = -\varepsilon 
 \quad\quad\quad\quad (2)
 \end{eqnarray}
+where $$h_\ell^{(1)}(z)$$ is the spherical Hankel function of the first kind.
 Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
 thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ when
@@ -86,7 +87,7 @@ Functions $$H_{L}({\mathbf{r}})$$ are defined through the radial function $$h(r)
 (Ref 1, Eq. 6.5):
 \begin{eqnarray}
 H_{L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
-\quad\quad\quad\quad (6)
+\quad\quad\quad\quad\quad\quad (6)
 \end{eqnarray}
 \begin{eqnarray}
 h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varepsilon,r_s;r)\right)
@@ -110,7 +111,7 @@ However, the Fourier transform of $$H_{kL}$$ has a closed form (Ref 1, Eq. 6.35)
 The differential operator becomes a multiplicative operator
 in the reciprocal space so
 \begin{eqnarray}
-\widehat{H}_{kL}(\varepsilon,r_s;\mathbf{q}) &=& 
+\hat{H}_{kL}(\varepsilon,r_s;\mathbf{q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,(-q^2)^k\,e^{r_s^2(\varepsilon-q^2)/4}
 \quad\quad\quad\quad (10)
 \end{eqnarray}
@@ -118,17 +119,17 @@ By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 
 1. $$k=0$$ and $$r_s=0$$:
-   $$\widehat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
+   $$\hat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
-   $$\ell=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
+   $$\ell=0$$ spherical Hankel function of the first kind, $$h_0^{(1)}(z)$$.  For
    general $$L$$ the relation is
    \begin{eqnarray}
      H_{0L}(\varepsilon,0;{\mathbf{r}})=H_{L}(\varepsilon,0;{\mathbf{r}})=\bar H_{L}(\varepsilon,{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
    which is Eq. 2.
 
-2. $$k=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
+2. $$k=1$$ and $$\varepsilon=0$$: $$\hat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
    \begin{eqnarray}
@@ -143,7 +144,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    \end{eqnarray}
 
 Comparing cases 1 and 2 with Eq. (10), evidently
-$$\widehat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
+$$\hat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
 convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
@@ -170,7 +171,7 @@ G_{kL}(\varepsilon,r_s;{\mathbf{r}}) =
 \quad\quad\quad\quad (13)
 \end{eqnarray}
 \begin{eqnarray}
-\widehat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
+\hat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
       \Upsilon_L(-i\mathbf{q})(-q^2)^k e^{r_s^2(\varepsilon-q^2)/4}
 \quad\quad\quad\quad (14)
 \end{eqnarray}
@@ -206,15 +207,15 @@ of Fourier transforms
 
 $$
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r =
-(2\pi)^{-3}\int \widehat{H}^*_1(\mathbf{q}) 
-\widehat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+(2\pi)^{-3}\int \hat{H}^*_1(\mathbf{q}) 
+\hat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 \quad\quad\quad\quad (17)
 $$
 
 and the fact that
-$$\widehat{H}^*_{k_1L_1}(\mathbf{q})\widehat{H}_{k_2L_2}(\mathbf{q})$$ can
+$$\hat{H}^*_{k_1L_1}(\mathbf{q})\hat{H}_{k_2L_2}(\mathbf{q})$$ can
 be expressed as a linear combination of other
-$$\widehat{H}_{kL}(\mathbf{q})$$, or their energy derivatives.  This is
+$$\hat{H}_{kL}(\mathbf{q})$$, or their energy derivatives.  This is
 readily done from the identity
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
@@ -228,12 +229,12 @@ readily done from the identity
 \end{eqnarray}
 
 Comparing the first identity and the form Eq.~(10)
-of $$\widehat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
-the product of two $$\widehat{H}_{p0}(\mathbf{q})$$ with different
+of $$\hat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
+the product of two $$\hat{H}_{p0}(\mathbf{q})$$ with different
 energies can be expressed as a linear combination of two
-$$\widehat{H}_{p0}(\mathbf{q})$$.  The second identity applies when the
-$$\widehat{H}_{p0}(\mathbf{q})$$ have the same energy; the product will
-involve the energy derivative of some $$\widehat{H}_{p0}(\mathbf{q})$$.
+$$\hat{H}_{p0}(\mathbf{q})$$.  The second identity applies when the
+$$\hat{H}_{p0}(\mathbf{q})$$ have the same energy; the product will
+involve the energy derivative of some $$\hat{H}_{p0}(\mathbf{q})$$.
 For higher $$L$$,
 $$\Upsilon^*_{L_1}(-i\mathbf{q})\Upsilon_{L_2}(-i\mathbf{q})$$ 
 is expanded as a linear combination of
@@ -241,8 +242,8 @@ $$\Upsilon^*_{M}(-i\mathbf{q})$$ using the expansion theorem for
 spherical harmonics, Eq. (5).  In detail,
 
 $$
-{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
-{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
+{\hat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
+{\hat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{k_1+k_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
@@ -272,8 +273,8 @@ $$
 =
 \frac{1}{(2\pi)^3}
 \int
-{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
-{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
+{\hat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
+{\hat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
 e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 \quad\quad (20)
 $$
@@ -294,9 +295,9 @@ be handled using the limiting form of Eq. (18).
 Differentiation of Eq. (10) with respect to energy results in
 
 $$
-\widehat{\dot{H}}_{kL} \equiv
-\frac{\partial\widehat{H}_{kL}}{\partial\varepsilon} = 
--\frac{1}{\varepsilon-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}.
+\hat{\dot{H}}_{kL} \equiv
+\frac{\partial\hat{H}_{kL}}{\partial\varepsilon} = 
+-\frac{1}{\varepsilon-q^2}\hat{H}_{kL} + (r_s^2/4) \hat{H}_{kL}.
 \quad\quad\quad\quad (21)
 $$
 
@@ -321,9 +322,9 @@ If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$
 Eq. (22) simplifies to
 
 $$
-\widehat{\dot{H}}_{kL}
-\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}
-= - \widehat{H}_{k-1,L} + (r_s^2/4)\widehat{H}_{kL}
+\hat{\dot{H}}_{kL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\hat{H}_{kL} + (r_s^2/4) \hat{H}_{kL}
+= - \hat{H}_{k-1,L} + (r_s^2/4)\hat{H}_{kL}
 \quad\quad\quad\quad (23)
 $$
 
