@@ -290,18 +290,20 @@ $$
 The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
 be handled using the limiting form of Eq. (15).
 Differentiation of $$\widehat{H}_{kL}$$ (Eq. 10) with respect to energy results in
-\begin{equation}
+
+$$
 \widehat{\dot{H}}_{kL} \equiv
 \frac{\partial\widehat{H}_{kL}}{\partial\varepsilon} = 
 -\frac{1}{\varepsilon-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}.
-\end{equation}
+$$
 
 The two-center integral now becomes
-\begin{equation}
-\int{H^*_{k_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
+
+$$
+\int{H^*_{k_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-\mathbf{r}_1)
 H_{k_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
 = (-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times 
-\end{equation}
+$$
 
 $$
 \big[
