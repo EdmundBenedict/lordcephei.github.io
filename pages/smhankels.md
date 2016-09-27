@@ -35,7 +35,7 @@ Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 
 $$
-\bar H_L
+\bar H_L(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
 $$
 
 where
@@ -410,4 +410,4 @@ _Nonsingular Hankel functions as a new basis for electronic structure calculatio
 
 {::comment}
 
-(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+
