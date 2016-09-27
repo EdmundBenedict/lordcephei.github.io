@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Smooth Hankel Function
+title: "Smooth Hankel Functions"
 permalink: "/docs/code/smhankels/"
 header: no
 ---
@@ -8,8 +8,18 @@ header: no
 ### _Purpose_
 {:.no_toc}
 
-To describe a some of the properties of Smooth Hankel functions and
-Jigsaw Puzzle Orbitals.
+To describe a some of the properties of Smooth Hankel functions.
+These functions form the basis set of the **lmf**{: style="color: blue"} code,
+and are used for other properties, e.g. in the calculation of the electrostic potential.
+They also form the backbone of the new "Jigsaw Puzzle Orbitals" basis.
+
+_____________________________________________________________
+
+### _Table of Contents_
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}
+
 
 ### *Smoothed Hankel functions*
 _____________________________________________
