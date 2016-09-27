@@ -27,15 +27,17 @@ _____________________________________________
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 Ordinary Hankel and Bessel functions are solutions of the Helmholtz wave equation
 \begin{eqnarray}
-\left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,{\mathbf{r}})
+\left(\Delta+\varepsilon\right)H_L(\varepsilon,{\mathbf{r}})
 =-4\pi \delta({\mathbf{r}})  \quad\quad\quad\quad (1)
 \end{eqnarray}
 Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\mathbf{r}})$$,
 Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
-\begin{eqnarray}
-\bar H _L
-\end{eqnarray}
+
+$$
+\bar H_L
+$$
+
 where
 \begin{eqnarray}
 \varepsilon &=& -{\bar\kappa}^2
