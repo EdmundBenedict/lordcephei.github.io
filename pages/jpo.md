@@ -330,7 +330,7 @@ h^s_{-1}(r) &=& (u_+ + u_-) / 2{\bar\kappa}
 
 To extend the definition to any energy we define $$U_{\pm}$$ as:
 \begin{eqnarray*}
-U_{\pm} = e^{\pm{}i\kappa{}r}\, {\rm{erfc}}\left({r}/{r_s}\pm{{i}\kappa{r_s}}/{2}\right)
+U_{\pm} = e^{\pm i\kappa r}\, {\rm{erfc}}\left(r/r_s\pm{i\kappa r_s}/2\right)
 \end{eqnarray*}
 The following relations are useful:
 \begin{eqnarray*}
@@ -339,7 +339,7 @@ The following relations are useful:
 
 Then for $$\varepsilon \lt 0$$, $$i\kappa$$ is real and 
 \begin{eqnarray*}
-U_{+} &=& 2e^{i\kappa{}r} - u_{+} {\hbox and } U_{-} &=& u_{-}
+U_{+} &=& 2e^{i\kappa r} - u_{+} {\hbox and } U_{-} &=& u_{-}
 \end{eqnarray*}
 are also real.
 
