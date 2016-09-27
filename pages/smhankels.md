@@ -35,13 +35,8 @@ Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 \begin{eqnarray}
 \bar H_L(\varepsilon;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+\hbox{where}\quad\quad \varepsilon = -{\bar\kappa}^2
 \quad\quad\quad\quad (2)
-\end{eqnarray}
-
-where
-\begin{eqnarray}
-\varepsilon &=& -{\bar\kappa}^2
-\quad\quad\quad\quad (3)
 \end{eqnarray}
 Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
 thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
