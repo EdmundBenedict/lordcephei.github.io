@@ -35,7 +35,7 @@ Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 \begin{eqnarray}
 \bar H_L(\varepsilon;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
-\hbox{ where }\quad\quad {\bar\kappa}^2 = -\varepsilon 
+\quad\hbox{ where }\quad {\bar\kappa}^2 = -\varepsilon 
 \quad\quad\quad\quad (2)
 \end{eqnarray}
 Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
@@ -45,7 +45,7 @@ _r_&rarr;0.
 
 Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankel functions as the basis set.
 
-Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
+Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
 Red, green, and blue correspond to $$\ell=0,1,2$$.
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
