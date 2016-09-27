@@ -33,11 +33,10 @@ Ordinary Hankel and Bessel functions are solutions of the Helmholtz wave equatio
 Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\mathbf{r}})$$,
 Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
-
-$$
+\begin{eqnarray}
 \bar H_L(\varepsilon;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
 \quad\quad\quad\quad (2)
-$$
+\end{eqnarray}
 
 where
 \begin{eqnarray}
