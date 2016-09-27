@@ -329,13 +329,13 @@ h^s_{-1}(r) &=& (u_+ + u_-) / 2{\bar\kappa}
 \end{eqnarray}
 
 To extend the definition to any energy we define $$U_{\pm}$$ as:
-\begin{eqnarray*}
+\begin{equation}
 U_{\pm} = e^{\pm i\kappa r}\, \mathrm{erfc}\left(r/r_s\pm{i\kappa r_s}/2\right)
-\end{eqnarray*}
+\end{equation}
 The following relations are useful:
-\begin{eqnarray*}
+\begin{equation}
 \hbox{erfc}(-x^*) &=& 2-\hbox{erfc}^*(x) \hbox{ and } \hbox{erfc}(x^*)  &=& \hbox{erfc}^*(x)
-\end{eqnarray*}
+\end{equation}
 
 Then for $$\varepsilon \lt 0$$, $$i\kappa$$ is real and 
 \begin{equation}
@@ -356,12 +356,12 @@ h_{-1} - h^s_{-1} = [e^{i \kappa r} - u_+/2 - u_-/2] /{\bar\kappa}
 
 For $$\varepsilon>0$$, $$\kappa$$ is real and $$U_+$$ = $$U_-^*$$.
 The difference in ordinary and smoothed Hankels is
-\begin{eqnarray*}
+\begin{equation}
 h_0  - h^s_0      = [U_+/2 + U_-/2] /r = \hbox{Re}(U_+) /r 
-\end{eqnarray*}
-\begin{eqnarray*}
+\end{equation}
+\begin{equation}
 h_{-1} - h^s_{-1} = [U_+/2 - U_-/2] / (-i \kappa) = -\hbox{Im} (U_+) / \kappa
-\end{eqnarray*}
+\end{equation}
 Both are real, though $$h_0$$ and $$h_{-1}$$ are complex.
 
 ### _Other Resources_
