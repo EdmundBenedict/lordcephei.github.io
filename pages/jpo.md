@@ -30,7 +30,7 @@ The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  {\hbox\hskip 2em} (1)
 \end{eqnarray}
 $$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
@@ -54,7 +54,7 @@ $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
 the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
 
 Functions $$H_{L}({\mathbf{r}})$$ are defined through the radial function $$h(r)$$
-(I,~Eq.~6.5):
+(I, Eq. 6.5):
 \begin{eqnarray}
 H_{L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
 \end{eqnarray}
@@ -109,7 +109,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
     g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}e^{-r^2/r_s^2}
    \end{eqnarray}
 
-Comparing cases i and ii with Eq. (XXX), evidently
+Comparing cases 1 and 2 with Eq. (XXX), evidently
 $$\widehat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
