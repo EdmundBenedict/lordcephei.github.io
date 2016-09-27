@@ -181,17 +181,19 @@ and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
 H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})\\
+\quad\quad\quad\quad (15)
 \end{eqnarray}
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
+\quad\quad\quad\quad (16)
 \end{eqnarray}
 This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 
-conventional Hankel function is the response a point multipole at the
-origin (see I, Eq.~6.14).  $$H_{kL}$$ is also the solution to the
+conventional Hankel function is the response to a point multipole at the
+origin (see Ref 1, Eq. 6.14).  $$H_{kL}$$ is also the solution to the
 Schrodinger equation for a potential that has an approximately
-gaussian dependence on $$r$$ (Ref I, Eq.~6.30).
+gaussian dependence on _r_ (Ref 1, Eq. 6.30).
 
 ### Two-center integrals of smoothed Hankels
 
@@ -206,6 +208,7 @@ $$
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r =
 (2\pi)^{-3}\int \widehat{H}^*_1(\mathbf{q}) 
 \widehat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+\quad\quad\quad\quad (17)
 $$
 
 and the fact that
@@ -221,6 +224,7 @@ readily done from the identity
 \right]
 \mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
+\quad\quad\quad\quad (15)
 \end{eqnarray}
 
 Comparing the first identity and the form Eq.~(10)
@@ -256,10 +260,10 @@ which can be written as
 \end{equation}
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
-Eq.~(XXX) is a linear combination of
-$$H_{kL}$$ with smoothing radius $$r_s$$ given by Eq.~(XXXX).
-Using the power theorem the two-center integrals can be directly evaluated:
+This last equation is a linear combination of
+$$H_{kL}$$ with smoothing radius $$r_s$$ given as shown.
 
+Using the power theorem the two-center integrals can be directly evaluated:
 
 $$
 \int{H^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
