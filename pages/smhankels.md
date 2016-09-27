@@ -25,15 +25,34 @@ _____________________________________________________________
 _____________________________________________
 
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
-An ordinary Hankel function
+Ordinary Hankel and Bessel functions are solutions of the Helmholtz wave equation
+\begin{eqnarray}
+\left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,{\mathbf{r}})
+=-4\pi \delta({\mathbf{r}})  \quad\quad\quad\quad (1)
+\end{eqnarray}
+Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\mathbf{r}})$$,
+Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
+Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
+\begin{eqnarray}
+\bar{H}_{L}(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+\end{eqnarray}
+where
+\begin{eqnarray}
+\varepsilon &=& -{\bar\kappa}^2
+\end{eqnarray}
+Hankel (Bessel) functions are regular (irregular) as _r_&;rarr;&infin;;
+thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
+For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$
+_r_&;rarr;0. 
+
+Augmenting space with partial waves in spheres around atoms the irregular part of _H_ is eliminated so augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
 
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
 Methfessel's class of functions $$H_{kL}$$, are a superset of 
 generalized (smoothed) Hankel functions, and the family of 
-(polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/smhankels/#other-resources)
-(which we refer to as I), and many of
+(polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/smhankels/#other-resources), and many of
 their properties derived there.  The $$H_{kL}({\mathbf{r}})$$ are a
 family of functions with $$k=0,1,2,...$$ and angular momentum
 $$L$$. ($$L$$ is a shorthand for $$\ell{}m$$ quantum numbers.)
@@ -41,7 +60,7 @@ The $$H_{kL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  \quad\quad\quad\quad (1)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) \, f(r)  \quad\quad\quad\quad (2)
 \end{eqnarray}
 $$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
@@ -65,7 +84,7 @@ $$C_{KLM}$$ is nonzero only when $${k+\ell-m}$$ is an even integer, so
 the r.h.s. is also a polynomial in $$(x,y,z)$$, as it must be.
 
 Functions $$H_{L}({\mathbf{r}})$$ are defined through the radial function $$h(r)$$
-(I, Eq. 6.5):
+(Ref 1, Eq. 6.5):
 \begin{eqnarray}
 H_{L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
 \end{eqnarray}
@@ -74,9 +93,6 @@ h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varep
 \end{eqnarray}
 \begin{eqnarray}
 u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp{\bar\kappa}{}r}\left[1-{\rm{erf}}\left(\frac{r_s{\bar\kappa}}{2}\mp{}\frac{r}{r_s}\right)\right]
-\end{eqnarray}
-\begin{eqnarray}
-\varepsilon &=& -{\bar\kappa}^2
 \end{eqnarray}
 $$H_{L}$$ is parameterized by energy $$\varepsilon$$ and smoothing radius
 $$r_s$$; their significance will will become clear shortly.
@@ -87,7 +103,7 @@ H_{kL}({\mathbf{r}}) &=& \Delta^k H_{L}({\mathbf{r}})
 \end{eqnarray}
 
 In real space $$H_{kL}$$ must be generated recursively from $$h$$.
-However, the Fourier transform of $$H_{kL}$$ has a closed form (I, Eq. 6.35).
+However, the Fourier transform of $$H_{kL}$$ has a closed form (Ref 1, Eq. 6.35).
 The differential operator becomes a multiplicative operator
 in the reciprocal space so
 \begin{eqnarray}
