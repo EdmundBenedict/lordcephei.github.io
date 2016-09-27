@@ -121,12 +121,12 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    $$\widehat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
-   $$l=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
+   $$\ell=0$$ spherical Hankel function of the first kind, $$h_\ell^{(1)}(z)$$.  For
    general $$L$$ the relation is
    \begin{eqnarray}
      H_{0L}(\varepsilon,0;{\mathbf{r}})=H_{L}(\varepsilon,0;{\mathbf{r}})=\bar H_{L}(\varepsilon,{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
-   Compare to Eq. 2.
+   which is Eq. 2.
 
 2. $$k=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
@@ -134,14 +134,15 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    \begin{eqnarray}
     G_{0L}(\varepsilon,r_s;{\mathbf{r}}) = \Upsilon_L(-\nabla) g(\varepsilon,r_s;r)
                          =  \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}
-                              \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} 
+                              \left(2r_s^{-2}\right)^l e^{-r^2/r_s^2} Y_L(\hat{\mathbf{r}})
    \end{eqnarray}
-   where _g_ is a simple gaussian with an extra normalization:
+    _g_ is a simple gaussian with an extra normalization:
    \begin{eqnarray}
     g(\varepsilon,r_s;r) &=& \left(\frac{1}{\pi r_s^2}\right)^{3/2} e^{\varepsilon r_s^2/4}e^{-r^2/r_s^2}
+   \quad\quad\quad\quad (11)
    \end{eqnarray}
 
-Comparing cases 1 and 2 with Eq. (XXX), evidently
+Comparing cases 1 and 2 with Eq. (10), evidently
 $$\widehat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
@@ -155,25 +156,28 @@ determining the radius for transition from Gaussian-like to Hankel-like
 behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
 $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 
-By analogy with Eq.~(XXXX) we can extend the $$G_{L}$$ family with the
+By analogy with Eq. (9) we can extend the $$G_{L}$$ family with the
 laplacian operator:
 \begin{eqnarray}
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Delta^k\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla) \Delta^k g(\varepsilon,r_s;r)
+\quad\quad\quad\quad (12)
 \end{eqnarray}
 \begin{eqnarray}
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^k g(\varepsilon,r_s;r)\\
+\quad\quad\quad\quad (13)
 \end{eqnarray}
 \begin{eqnarray}
 \widehat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
       \Upsilon_L(-i\mathbf{q})(-q^2)^k e^{r_s^2(\varepsilon-q^2)/4}
+\quad\quad\quad\quad (14)
 \end{eqnarray}
 
 The second Equation shows that $$G_{kL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
-Comparing the last form Eq.~(\ref{eq:defgplq}) to Eq.~(\ref{eq:defhplq})
-and the definition of $$H_{kL}$$ Eq.~(\ref{eq:defhpl}), we obtain the useful relations
+Comparing the last form Eq. (14) to Eq. (10)
+and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
 H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})\\
@@ -219,7 +223,7 @@ readily done from the identity
 \frac{1}{(\varepsilon_1-q^2)^2}
 \end{eqnarray}
 
-Comparing the first identity and the form Eq.~(\ref{eq:defhplq})
+Comparing the first identity and the form Eq.~(10)
 of $$\widehat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
 the product of two $$\widehat{H}_{p0}(\mathbf{q})$$ with different
 energies can be expressed as a linear combination of two
@@ -230,7 +234,7 @@ For higher $$L$$,
 $$\Upsilon^*_{L_1}(-i\mathbf{q})\Upsilon_{L_2}(-i\mathbf{q})$$ 
 is expanded as a linear combination of
 $$\Upsilon^*_{M}(-i\mathbf{q})$$ using the expansion theorem for
-spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
+spherical harmonics, Eq. (5).  In detail,
 
 $$
 {\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
