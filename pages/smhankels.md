@@ -157,7 +157,7 @@ behavior.  Thus, the smoothing radius $$r_s$$ determines the smoothness of
 $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 
 By analogy with Eq. (9) we can extend the $$G_{L}$$ family with the
-laplacian operator:
+Laplacian operator:
 \begin{eqnarray}
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Delta^k\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
@@ -224,7 +224,7 @@ readily done from the identity
 \right]
 \mathop{\longrightarrow}\limits^{\varepsilon_2\to\varepsilon_1}&
 \frac{1}{(\varepsilon_1-q^2)^2}
-\quad\quad\quad\quad (15)
+\quad\quad\quad\quad (18)
 \end{eqnarray}
 
 Comparing the first identity and the form Eq.~(10)
@@ -246,6 +246,7 @@ $$
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{k_1+k_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
+\quad\quad (19)
 $$
 
 which can be written as
@@ -274,6 +275,7 @@ $$
 {\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
 {\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
 e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
+\quad\quad (20)
 $$
 
 This can be written as
@@ -288,13 +290,14 @@ $$
 $$
 
 The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
-be handled using the limiting form of Eq. (15).
+be handled using the limiting form of Eq. (18).
 Differentiation of $$\widehat{H}_{kL}$$ (Eq. 10) with respect to energy results in
 
 $$
 \widehat{\dot{H}}_{kL} \equiv
 \frac{\partial\widehat{H}_{kL}}{\partial\varepsilon} = 
 -\frac{1}{\varepsilon-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}.
+\quad\quad\quad\quad (21)
 $$
 
 The two-center integral now becomes
@@ -302,18 +305,20 @@ The two-center integral now becomes
 $$
 \int{H^*_{k_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-\mathbf{r}_1)
 H_{k_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
-= (-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times 
+= 
 $$
 
 $$
+(-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times
 \big[
     {\dot{H}_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
-   - \frac{r_s^2}{4} {H_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+   - (r_s^2/4) {H_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
 \big]
+\quad\quad\quad\quad (22)
 $$
 
 If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$,
-Eq.~(XXX) simplifies to
+Eq. (22) simplifies to
 
 $$
 \widehat{\dot{H}}_{kL}
@@ -334,7 +339,7 @@ $$
 H_{k_1+k_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
 
-When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{kL}$$ are generalized Gaussian functions of the type Eq.~(xxx), scaled by $$-4\pi$$; see
+When $$\varepsilon=0$$ and $$k\ge 1$$ the $$H_{kL}$$ are generalized Gaussian functions of the type Eq. (12), scaled by $$-4\pi$$; see
 Eq.~(xxx).  Eq.~(xx) is then suitable for two-center integrals of generalized Gaussian functions.
 
 ### _Smoothed Hankels for positive energy_
