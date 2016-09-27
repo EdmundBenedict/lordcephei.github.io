@@ -24,19 +24,20 @@ _____________________________________________________________
 ### *Smoothed Hankel functions*
 _____________________________________________
 
-The FP basis functions are built around smooth Hankel functions.
-These are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
+Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
+An ordinary Hankel function
+
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
-Methfessel's class of functions $$H_{pL}$$, are a superset of 
+Methfessel's class of functions $$H_{kL}$$, are a superset of 
 generalized (smoothed) Hankel functions, and the family of 
 (polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/smhankels/#other-resources)
 (which we refer to as I), and many of
-their properties derived there.  The $$H_{pL}({\mathbf{r}})$$ are a
-family of functions with $$p=0,1,2,...$$ and angular momentum
+their properties derived there.  The $$H_{kL}({\mathbf{r}})$$ are a
+family of functions with $$k=0,1,2,...$$ and angular momentum
 $$L$$. ($$L$$ is a shorthand for $$\ell{}m$$ quantum numbers.)
-The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
+The $$H_{kL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
@@ -79,19 +80,19 @@ u_{\pm}(\varepsilon,r_s;r) &=& e^{\mp{\bar\kappa}{}r}\left[1-{\rm{erf}}\left(\fr
 \end{eqnarray}
 $$H_{L}$$ is parameterized by energy $$\varepsilon$$ and smoothing radius
 $$r_s$$; their significance will will become clear shortly.
-The extended family $$H_{pL}({\mathbf{r}})$$ is defined through powers of
+The extended family $$H_{kL}({\mathbf{r}})$$ is defined through powers of
 the laplacian acting on $$H_{L}({\mathbf{r}})$$:
 \begin{eqnarray}
-H_{pL}({\mathbf{r}}) &=& \Delta^p H_{L}({\mathbf{r}})
+H_{kL}({\mathbf{r}}) &=& \Delta^k H_{L}({\mathbf{r}})
 \end{eqnarray}
 
-In real space $$H_{pL}$$ must be generated recursively from $$h$$.
-However, the Fourier transform of $$H_{pL}$$ has a closed form (I, Eq. 6.35).
+In real space $$H_{kL}$$ must be generated recursively from $$h$$.
+However, the Fourier transform of $$H_{kL}$$ has a closed form (I, Eq. 6.35).
 The differential operator becomes a multiplicative operator
 in the reciprocal space so
 \begin{eqnarray}
-\widehat{H}_{pL}(\varepsilon,r_s;\mathbf{q}) &=& 
--\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,(-q^2)^p\,e^{r_s^2(\varepsilon-q^2)/4}
+\widehat{H}_{kL}(\varepsilon,r_s;\mathbf{q}) &=& 
+-\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,(-q^2)^k\,e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
@@ -136,43 +137,43 @@ $$H_L$$, and also the width of generalized gaussians $$G_L$$.
 By analogy with Eq.~(XXXX) we can extend the $$G_{L}$$ family with the
 laplacian operator:
 \begin{eqnarray}
-G_{pL}(\varepsilon,r_s;{\mathbf{r}}) = 
-      \Delta^p\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
-      \Upsilon_L(-\nabla) \Delta^p g(\varepsilon,r_s;r)
+G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
+      \Delta^k\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
+      \Upsilon_L(-\nabla) \Delta^k g(\varepsilon,r_s;r)
 \end{eqnarray}
 \begin{eqnarray}
-G_{pL}(\varepsilon,r_s;{\mathbf{r}}) = 
-      \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^p g(\varepsilon,r_s;r)\\
+G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
+      \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^k g(\varepsilon,r_s;r)\\
 \end{eqnarray}
 \begin{eqnarray}
-\widehat{G}_{pL}(\varepsilon,r_s;\mathbf{q}) = 
-      \Upsilon_L(-i\mathbf{q})(-q^2)^p e^{r_s^2(\varepsilon-q^2)/4}
+\widehat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
+      \Upsilon_L(-i\mathbf{q})(-q^2)^k e^{r_s^2(\varepsilon-q^2)/4}
 \end{eqnarray}
 
-The second Equation shows that $$G_{pL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
+The second Equation shows that $$G_{kL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
 Comparing the last form Eq.~(\ref{eq:defgplq}) to Eq.~(\ref{eq:defhplq})
-and the definition of $$H_{pL}$$ Eq.~(\ref{eq:defhpl}), we obtain the useful relations
+and the definition of $$H_{kL}$$ Eq.~(\ref{eq:defhpl}), we obtain the useful relations
 \begin{eqnarray}
-H_{p+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{pL}(\varepsilon,r_s;{\mathbf{r}})
-=-4\pi G_{pL}(\varepsilon,r_s;{\mathbf{r}})\\
+H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mathbf{r}})
+=-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})\\
 \end{eqnarray}
 \begin{eqnarray}
-\left(\Delta+\varepsilon\right)H_{pL}(\varepsilon,r_s;{\mathbf{r}})
-=-4\pi G_{pL}(\varepsilon,r_s;{\mathbf{r}})
+\left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
+=-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
 \end{eqnarray}
-This shows that $$H_{pL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
+This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 
 conventional Hankel function is the response a point multipole at the
-origin (see I, Eq.~6.14).  $$H_{pL}$$ is also the solution to the
+origin (see I, Eq.~6.14).  $$H_{kL}$$ is also the solution to the
 Schrodinger equation for a potential that has an approximately
 gaussian dependence on $$r$$ (Ref I, Eq.~6.30).
 
 ### Two-center integrals of smoothed Hankels
 
-One extremely useful property of the $$H_{pL}$$ is that the product
+One extremely useful property of the $$H_{kL}$$ is that the product
 of two of them, centered at different sites $${\mathbf{r}}_1$$ and
 $${\mathbf{r}}_2$$, can be integrated in closed form.  The result a sum
-of other $$H_{pL}$$, evaluated at the connecting vector
+of other $$H_{kL}$$, evaluated at the connecting vector
 $${\mathbf{r}}_1-{\mathbf{r}}_2$$.  This can be seen from the power theorem
 of Fourier transforms
 
@@ -183,9 +184,9 @@ $$
 $$
 
 and the fact that
-$$\widehat{H}^*_{p_1L_1}(\mathbf{q})\widehat{H}_{p_2L_2}(\mathbf{q})$$ can
+$$\widehat{H}^*_{k_1L_1}(\mathbf{q})\widehat{H}_{k_2L_2}(\mathbf{q})$$ can
 be expressed as a linear combination of other
-$$\widehat{H}_{pL}(\mathbf{q})$$, or their energy derivatives.  This is
+$$\widehat{H}_{kL}(\mathbf{q})$$, or their energy derivatives.  This is
 readily done from the identity
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
@@ -211,11 +212,11 @@ $$\Upsilon^*_{M}(-i\mathbf{q})$$ using the expansion theorem for
 spherical harmonics, Eq.~(\ref{eq:expandsharm}).  In detail,
 
 $$
-{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
-{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
+{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
+{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
-(-q^2)^{p_1+p_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
+(-q^2)^{k_1+k_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
 $$
 
 which can be written as
@@ -225,24 +226,24 @@ which can be written as
 \frac{e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}e^{(r_{s_2}^2+r_{s_1}^2)(\varepsilon_2-q^2)/4}}{\varepsilon_2-q^2}-
 \frac{e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}e^{(r_{s_1}^2+r_{s_2}^2)(\varepsilon_1-q^2)/4}}{\varepsilon_1-q^2}
 \right]\times 
-(-q^2)^{p_1+p_2} i^{2\ell_1}
+(-q^2)^{k_1+k_2} i^{2\ell_1}
 \sum_M C_{L_1L_2M} \Upsilon_{M}(-i{\mathbf{q}}) (-q^2)^{(\ell_1+\ell_2-m)/2}
 \end{equation}
 where $$r_{s}^2=r_{s_1}^2+r_{s_2}^2$$.
 
 Eq.~(XXX) is a linear combination of
-$$H_{pL}$$ with smoothing radius $$r_s$$ given by Eq.~(XXXX).
+$$H_{kL}$$ with smoothing radius $$r_s$$ given by Eq.~(XXXX).
 Using the power theorem the two-center integrals can be directly evaluated:
 
 
 $$
-\int{H^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
-{H_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
+\int{H^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
+{H_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
 =
 \frac{1}{(2\pi)^3}
 \int
-{\widehat{H}^*_{p_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
-{\widehat{H}_{p_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
+{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
+{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
 e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 $$
 
@@ -252,33 +253,33 @@ $$
 (-1)^{\ell_1}\frac{4\pi}{\varepsilon_1-\varepsilon_2}
 \sum_M C_{L_1L_2M} \times
 \big[
-    {\ e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}{H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon_1,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
-{- e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}{H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon_2,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
+    {\ e^{r_{s_2}^2(\varepsilon_2-\varepsilon_1)/4}{H_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon_1,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
+{- e^{r_{s_1}^2(\varepsilon_1-\varepsilon_2)/4}{H_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon_2,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)}
 \ \big]
 $$
 
 The special case $$\varepsilon_1=\varepsilon_2=\varepsilon$$ must
 be handled using the second identity, Eq.~(XXX).
-Differentiation of $$\widehat{H}_{pL}$$ Eq.~(XXX) with respect to energy results in
+Differentiation of $$\widehat{H}_{kL}$$ Eq.~(XXX) with respect to energy results in
 
 $$
-\widehat{\dot{H}}_{pL} \equiv
-\frac{\partial\widehat{H}_{pL}}{\partial\varepsilon} = 
--\frac{1}{\varepsilon-q^2}\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}.
+\widehat{\dot{H}}_{kL} \equiv
+\frac{\partial\widehat{H}_{kL}}{\partial\varepsilon} = 
+-\frac{1}{\varepsilon-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}.
 $$
 
 Eq.~(XX) is modified to read
 
 $$
-\int{H^*_{p_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
-H_{p_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
+\int{H^*_{k_1L_1}}(\varepsilon,r_{s_1};\mathbf{r}-{\mathbf{r}_1})
+H_{k_2L_2}(\varepsilon,r_{s_2};\mathbf{r}-\mathbf{r}_2)\, d^3r
 = (-1)^{\ell_1}{4\pi} \sum_M C_{L_1L_2M} \times 
 $$
 
 $$
 \big[
-    {\dot{H}_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
-   - \frac{r_s^2}{4} {H_{p_1+p_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+    {\dot{H}_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
+   - \frac{r_s^2}{4} {H_{k_1+k_2+{(\ell_1+\ell_2-m)/2},M}}(\varepsilon,r_{s};\mathbf{r}_1-\mathbf{r}_2)
 \big]
 $$
 
@@ -286,9 +287,9 @@ If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$
 Eq.~(XXX) simplifies to
 
 $$
-\widehat{\dot{H}}_{pL}
-\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{pL} + (r_s^2/4) \widehat{H}_{pL}
-= - \widehat{H}_{p-1,L} + (r_s^2/4)\widehat{H}_{pL}
+\widehat{\dot{H}}_{kL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}
+= - \widehat{H}_{k-1,L} + (r_s^2/4)\widehat{H}_{kL}
 $$
 
 
@@ -296,15 +297,15 @@ and the two-center integral simplifies to
 
 $$
 \int
-{H}^*_{p_1L_1}(0,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
-{H}_{p_2L_2}(0,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
+{H}^*_{k_1L_1}(0,r_{s_1};{\mathbf{r}}-{\mathbf{r}_1})
+{H}_{k_2L_2}(0,r_{s_2};{\mathbf{r}}-{\mathbf{r}_2})\, d^3r
 =
 (-1)^{\ell_1}(-{4\pi})
 \sum_M C_{L_1L_2M} \times
-H_{p_1+p_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
+H_{k_1+k_2-1+{(\ell_1+\ell_2-m)/2},M}(0,r_{s};{\mathbf{r}}_1-{\mathbf{r}}_2)
 $$
 
-When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{pL}$$ are generalized Gaussian functions of the type Eq.~(xxx), scaled by $$-4\pi$$; see
+When $$\varepsilon=0$$ and $$p\ge{}1$$ the $$H_{kL}$$ are generalized Gaussian functions of the type Eq.~(xxx), scaled by $$-4\pi$$; see
 Eq.~(xxx).  Eq.~(xx) is then suitable for two-center integrals of generalized Gaussian functions.
 
 ### _Smoothed Hankels for positive energy_
@@ -382,7 +383,7 @@ Both are real, though $$h_0$$ and $$h_{-1}$$ are complex.
 /docs/code/smhankels/#other-resources/
 {:/comment}
 
-1. Many mathematical properties of smoothed Hankel functions and the $$H_{pL}$$ family
+1. Many mathematical properties of smoothed Hankel functions and the $$H_{kL}$$ family
 are described in this paper:  
 E. Bott, M. Methfessel, W. Krabs, and P. C. Schmid,
 _Nonsingular Hankel functions as a new basis for electronic structure calculations_,
