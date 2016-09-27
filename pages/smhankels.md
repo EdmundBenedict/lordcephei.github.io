@@ -42,10 +42,10 @@ where
 \begin{eqnarray}
 \varepsilon &=& -{\bar\kappa}^2
 \end{eqnarray}
-Hankel (Bessel) functions are regular (irregular) as _r_&;rarr;&infin;;
+Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
 thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$
-_r_&;rarr;0. 
+_r_&rarr;0. 
 
 Augmenting spheres around atoms with partial waves, the irregular part of _H_ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
 
