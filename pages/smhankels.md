@@ -34,7 +34,7 @@ Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\m
 Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 \begin{eqnarray}
-\bar{H}_L
+\bar H _L
 \end{eqnarray}
 where
 \begin{eqnarray}
