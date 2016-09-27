@@ -34,7 +34,7 @@ Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\m
 Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 \begin{eqnarray}
-\bar{H}_{L}(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+\bar{H}_L
 \end{eqnarray}
 where
 \begin{eqnarray}
@@ -45,8 +45,9 @@ thus Hankel functions are exact solutions of the Schrodinger equation in a flat 
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$
 _r_&;rarr;0. 
 
-Augmenting space with partial waves in spheres around atoms the irregular part of _H_ is eliminated so augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
+Augmenting spheres around atoms with partial waves, the irregular part of _H_ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
 
+Smooth Hankel functions are regular both for large and small _r_.  The Figure below shows
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
@@ -406,5 +407,5 @@ _Nonsingular Hankel functions as a new basis for electronic structure calculatio
 [J. Math. Phys. 39, 3393 (1998)](http://dx.doi.org/10.1063/1.532437)
 
 {::comment}
-\mathrm{erfc}(-x^*) = 2 - \mathrm{erfc}^*(x) 
-\mathrm{erfc}(-x^*) = 2-\mathrm{erfc}^*(x) \hbox{ and } \mathrm{erfc}(x^*)  = \mathrm{erfc}^*(x)
+
+(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
