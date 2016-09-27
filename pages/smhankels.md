@@ -31,7 +31,7 @@ These are convolutions of ordinary Hankel functions and Gaussian functions and a
 
 Methfessel's class of functions $$H_{pL}$$, are a superset of 
 generalized (smoothed) Hankel functions, and the family of 
-(polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/jpos/#other-resources)
+(polynomial)$$\times$$(gaussians).  They are defined in [reference 1](/docs/code/smhankels/#other-resources)
 (which we refer to as I), and many of
 their properties derived there.  The $$H_{pL}({\mathbf{r}})$$ are a
 family of functions with $$p=0,1,2,...$$ and angular momentum
@@ -40,7 +40,7 @@ The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  {\hbox\hskip 2em} (1)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  {\hbox \ \ \ \ } (1)
 \end{eqnarray}
 $$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
@@ -379,7 +379,7 @@ Both are real, though $$h_0$$ and $$h_{-1}$$ are complex.
 
 ### _Other Resources_
 {::comment}
-/docs/code/jpos/#other-resources/
+/docs/code/smhankels/#other-resources/
 {:/comment}
 
 1. Many mathematical properties of smoothed Hankel functions and the $$H_{pL}$$ family
