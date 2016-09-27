@@ -8,9 +8,9 @@ header: no
 ### _Purpose_
 {:.no_toc}
 
-To describe a some of the properties of Smooth Hankel functions.
-These functions form the basis set of the **lmf**{: style="color: blue"} code,
-and are used for other properties, e.g. in the calculation of the electrostic potential.
+To describe a some of the properties of smooth Hankel functions.
+They form the basis set of the **lmf**{: style="color: blue"} code,
+and they are used for other properties, e.g. in the calculation of the electrostic potential.
 They also form the backbone of the new "Jigsaw Puzzle Orbitals" basis.
 
 _____________________________________________________________
@@ -40,7 +40,7 @@ The $$H_{pL}({\mathbf{r}})$$ are members of the general class of functions
 $$F_L({\mathbf{r}})$$ which are determined from a single radial
 function by 
 \begin{eqnarray}
-F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  \hbox{\hskip 48pt \ \ \ \ } (1)
+F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) f(r)  \ \ \ \  (1)
 \end{eqnarray}
 $$\Upsilon_L({\mathbf{r}}),\ {\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
