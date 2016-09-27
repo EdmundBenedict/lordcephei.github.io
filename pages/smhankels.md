@@ -48,7 +48,7 @@ Augmenting spheres around atoms with partial waves, the irregular part of $$\bar
 Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
 Red, green, and blue correspond to $$\ell=0,1,2$$.
 
-![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
+![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.png)
 
 Methfessel's class of functions $$H_{kL}$$, are a superset of 
 smoothed Hankel functions $$H_L$$; they also incorporate the family of 
