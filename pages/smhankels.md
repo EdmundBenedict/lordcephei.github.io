@@ -27,7 +27,7 @@ _____________________________________________
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 Ordinary Hankel and Bessel functions are solutions of the Helmholtz wave equation
 \begin{eqnarray}
-\left(\Delta+\varepsilon\right)H_L(\varepsilon,{\mathbf{r}})
+\left(\Delta+\varepsilon\right)\bar H_L(\varepsilon,{\mathbf{r}})
 =-4\pi \delta({\mathbf{r}})  \quad\quad\quad\quad (1)
 \end{eqnarray}
 Solutions are products of radial functions and spherical harmonics $$Y_L(\hat{\mathbf{r}})$$,
@@ -35,21 +35,24 @@ Here $$L$$ is a compound index for the $$\ell{}m$$ quantum numbers.
 Radial functions are Hankel or Bessel functions.  We will focus on the Hankel functions
 
 $$
-\bar H_L(\varepsilon;0;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+\bar H_L(\varepsilon;{\mathbf{r}})=-i^\ell{\bar\kappa}^{\ell+1}h_\ell^{(1)}(i{\bar\kappa}{}r)Y_L(\hat{\mathbf{r}})
+\quad\quad\quad\quad (2)
 $$
 
 where
 \begin{eqnarray}
 \varepsilon &=& -{\bar\kappa}^2
+\quad\quad\quad\quad (3)
 \end{eqnarray}
 Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
 thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
-For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$
+For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ as
 _r_&rarr;0. 
 
-Augmenting spheres around atoms with partial waves, the irregular part of _H_ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
+Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankels as the basis set.
 
-Smooth Hankel functions are regular both for large and small _r_.  The Figure below shows
+Smooth Hankel functions are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions (dashed lines) to smooth ones for $$\varepsilon=-0.5$$.
+Red, green, and blue correspond to $\ell=0,1,2$$.
 
 ![Ordinary and Smooth Hankel functions](https://lordcephei.github.io/assets/img/smhankels.svg)
 
