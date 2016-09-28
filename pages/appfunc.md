@@ -14,7 +14,7 @@ ____________________________________________________________
 
 ### _Purpose_
 _____________________________________________________________
-This page serves as a list of the capabilities of the suite sorted by physical application. A detailed explanation of the capabilities of each package within the suite can be found on the [package page](https://lordcephei.github.io/codefunc/).
+This page serves as a list of the capabilities of the suite sorted by physical application. A detailed explanation of the capabilities of each package within the suite can be found on the [package page](/docs/package_overview/).
 
 ### _Physical Applications_
 _____________________________________________________________
@@ -72,7 +72,7 @@ The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or C
 For Mulliken analysis and CLS respectively, these should be used with the _lmf_ command. A full usage guide for Mulliken analysis, including how the switch is actually used, can be found [here](https://lordcephei.github.io/tutorial/lmf/lmf_mulliken/). A usage guide for the _cls_ switch will be created shortly.
 
 ###### _lm_
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](https://lordcephei.github.io/asa_dos/)
+A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
 
 {::nomarkdown}</div>{:/}
 
