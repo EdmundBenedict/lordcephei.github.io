@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "LMF band-edge: finding extremal points in k-space"
+title: "Finding extremal points in k-space"
 permalink: "/tutorial/lmf/lmf_bandedge/"
 sidebar: "left"
 header: no
@@ -10,7 +10,7 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-This tutorial is a simple introduction to finding extremal points in k-space using the band-edge program. We will use silicon as
+This tutorial demonstrates how to find extremal points in k-space using the band-edge program. This is done for silicon and the starting point is a self-consistent LDA density.
 
 _____________________________________________________________
 
@@ -29,6 +29,8 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
     $ cp basp0.si basp.si                           #copy basp0 to recognised basp prefix   
     $ nano ctrl.si                                  #set iterations number nit, k mesh nkabc and gmax
     $ lmf ctrl.si > out.lmfsc                       #make self-consistent
+    
+    $ band-edge part
 
 {::nomarkdown}</div>{:/}
 
@@ -36,13 +38,13 @@ _____________________________________________________________
 
 ### _Preliminaries_
 
-Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.  The source code for all Questaal executables can be found [here](https://bitbucket.org/lmto/lm).
+The starting point is a self-consistent LDA density. 
 
 _____________________________________________________________
 
 ### _Tutorial_
 
-To get started, create a new working directory and move into it; here we will call it "si".
+The starting point is a self-consistent LDA calculation. You may want to review the [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/). A summary 
 
     $ mkdir si 
     $ cd si
