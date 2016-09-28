@@ -50,9 +50,14 @@ The starting point is a self-consistent LDA calculation, you may want to review 
 
 Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
-#### 1. _Float step: rough search by moving to low-energy point_
+#### 1. _Float to low-energy point_
+The band-edge script has a 'float' option that is useful for doing a quick search to find a low-energy region of k-space. You specify a starting point, then the script creates a cluster of points around it and checks what is the lowest energy point. It then uses the lowest energy point as the new central point, creates a new set of points around it and again moves to the lowest energy one. This process is repeated until the central point is the lowest energy point. Let's start at the point half-way between &Gamma and X (0.5, 0.0, 0.0). Run the following command:
 
-#### 2. _Gradients minimisation stepAccurate search using minimisation_
+    $ band-edge -floatmn -maxit=20 --bin -r=.1 -band=5 -q0=0.5,0,0 si
+
+The 'floatmn' switch specifies that you are looking for the minimum energy point (see additional exercises for an example using the highest energy point). The 'maxit' switch...
+
+#### 2. _Gradient minimization_
 
 #### 3. _Calculate effective mass_
 
