@@ -37,10 +37,10 @@ through this the program will write a new file name popt.pbte. The format of thi
                  0.754321     0.391577     0.955750     1.069400     0.564346     0.374508
 
 0.400000|0.000000     0.514493     0.754321     0.391577     0.955750     1.069400
--|-
--|0.564346     0.374508     0.000000     0.514493     0.754321     0.391577
--|0.955750     1.069400     0.564346     0.374508     0.000000     0.514493
--|0.754321     0.391577     0.955750     1.069400     0.564346     0.374508
+        |-
+        |0.564346     0.374508     0.000000     0.514493     0.754321     0.391577
+        |0.955750     1.069400     0.564346     0.374508     0.000000     0.514493
+        |0.754321     0.391577     0.955750     1.069400     0.564346     0.374508
     
 
 In the excerpt  above the first value 0.400000 is the energy in Rydbergs, the next 8 numbers correspond to the 8 irreducible k-points and the electric field orientated along x, while the next 8 correspond to electric field orientated along y followed by the z counterpart.
