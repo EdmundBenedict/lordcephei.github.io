@@ -6,28 +6,26 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
 {:.no_toc}
 
 To describe a some of the properties of Jigsaw Puzzle orbitals.
 They form the next-generation basis set of the **lmf**{: style="color: blue"} code.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+______________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________
-
 ### *Special properties of Jigsaw Puzzle Orbitals*
+________________________________________________________________
 {::comment}
 /docs/code/jpos/#special-properties-of-jigsaw-puzzle-orbitals
 {:/comment}
 
-_____________________________________________
-
 ### _Other Resources_
+______________________________________________________________
 {::comment}
 /docs/code/jpos/#other-resources/
 {:/comment}
