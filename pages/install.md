@@ -6,12 +6,13 @@ header: no
 ---
 
 ### Table of Contents
+________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
 ### Prerequisites
-
+________________________________________________________________________________________________
 + Modern C and Fortran compilers (GCC v4.7+ and Intel v11.1+ are known to work).
 + BLAS, LAPACK and fftw3 libraries.
 + Python v2.5+ (2.4 might work too but is not tested)
@@ -22,7 +23,7 @@ MPI, BLACS, SCALAPACK etc.. are optional.
 Since v7.10d libxc (v2.2+) is also a requirement. The enviroment variable LIBXCPATH should be set to the libxc installation path or the library path can be manually specified in the flags.mk file (discussed below).
 
 ### Installation Procedure
-
+________________________________________________________________________________________________
 For installation of the package the repository should first be cloned on the local machine in the path of your choice. This location will be referred to from here on by `/path/to/lm`. In an empty folder, create *flags.mk* file containing the necessary variables. A working template with annotations can be produced with the included *genflags.py* utility e.g.:
 
 `/path/to/lm/genflags.py intel opt > flags.mk      # if using intel compilers`
@@ -44,7 +45,7 @@ Just as the build itself, multiple tests can be run simultaneously with the `-j 
 `scons -Y /path/to/lm/ checks`
 
 ### Notes
-
+________________________________________________________________________________________________
 If compiler optimisations cause erroneous results one may wish to set lower level of optimisations for certain sensitive files only or have a number of different flags applying to different groups of files. If such is the case the *flags.mk* file may be modified to contain the the special flags for a group of files in a variable beginning with lessflags and ending in a word of one's choosing. Then a variable beginning with lessfiles and ending in the word chosen for the lessflags variable, must be defined containing the questionable file names relative to the `lm/` path. Many pairs of special flags/sensitive files groups are allowed so long as the contents of the lesserfiles variables do not overlap.
 
 To obtain an example containing special flags try `genflags.py intel opt`
@@ -53,7 +54,7 @@ On CRAY installations it is advisable to use cray's compiler wrappers cc, ftn an
 The executables (and possibly other files in future) can be installed in a path defined in a variable named 'prefix' in the *flags.mk* file. Subsequent `scons -Y /path/to/lm/ install` will copy only the binaries already build, without introducing any additional dependencies.
 
 ### Known problems and bugs
-
+________________________________________________________________________________________________
 Apple's darwin operating system:
 
 1. The standard functions diff, zdiff and awk are less versatile than the linux (gnu) equivalents. Some of the testing scripts make use of the extra versatility of gnu versions. Before running the standard checks, please install the gnu versions of diff and awk, e.g. using macports. Also copy zdiff from a linux system and park it in the directory where diff is located.
