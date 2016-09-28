@@ -48,7 +48,7 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ band-edge -cmd='lmf --rs=1,0' -edge2=1 -maxit=20 --bin -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
     $ band-edge -cmd='lmf --rs=1,0' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
-Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between $$\Gamma$$ and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first 'float to a point near the minimum point. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
+Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
 #### 1. _Rough search by floating to low-energy point_
 
