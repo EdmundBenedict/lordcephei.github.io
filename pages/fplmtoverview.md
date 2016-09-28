@@ -6,20 +6,18 @@ header: no
 ---
 
 ### _Purpose_
+________________________________________________________________________________________________
 {:.no_toc}
 
 The **lmf**{: style="color: blue"} program is an all-electron implementation of the local-density approximation, with a basis consisting of generalized (smoothed) Hankel functions, or **LAPWs**, or some combination of the two.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________________________
-
-### *Overview of the full-potential method*
+### _Overview of the full-potential method_
 _____________________________________________
 
 The full-potential program **lmf**{: style="color: blue"} was originally adapted from a program **nfp**{: style="color: blue"} written by M. Methfessel and M. van Schilfgaarde. The method is described in some detail in the following reference :
@@ -31,11 +29,10 @@ There is also a manual written for the original 1997 code. The present code is a
 The following features are unique to this method:
 
 ### *Smoothed Hankel functions*
+________________________________________________________________________________________________
 {::comment}
 /docs/code/fpoverview/#smoothed-hankel-functions
 {:/comment}
-
-_____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel
 functions, the smoothed versions — [convolutions of ordinary Hankel functions and Gaussian functions](/docs/code/smhankels/) — are regular at the origin.
