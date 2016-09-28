@@ -5,26 +5,23 @@ permalink: "/docs/package_overview/"
 sidebar: "left"
 header: no
 ---
-_____________________________________________________________
 
 ### _Purpose_
+________________________________________________________________________________________________
 {:.no_toc}
 
 This page gives an overview of the Questaal suite, a family of codes
 that use augmented-wave methods to solve the Schrodinger equation in solids and
 obtain properties derived from it.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________________________
-
 ### _Introduction_
-
+________________________________________________________________________________________________
 The Questaal suite consists of a collection of electronic structure codes based on the local-density approximation (LDA)
 to density-functional theory (DFT) to solids, with extensions to _GW_ and interface to a Dynamical Mean Field theory
 code (DMFT) written by K. Haule.  Most of the programs in the Questaal suite descended the LMTO methodology developed in
@@ -38,9 +35,8 @@ Questaal codes have been written mainly by M. van Schilfgaarde, though [many peo
 contributions](https://lordcephei.github.io/developers/).  Download the package [here](https://bitbucket.org/lmto/lm)
 and see [the installation page](https://lordcephei.github.io/docs/install/) to install the package.
 
-_____________________________________________________________
-
 ### _Augmented Wave Methods_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#augmented-wave-methods
 {:/comment}
@@ -121,9 +117,8 @@ practical modern electronic structure methods in condensed matter.
 
 {::nomarkdown}</div>{:/}
 
-_____________________________________________________________
-
 ### _Questaal's Basis Functions_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#questaal's-basis-Functions/
 {:/comment}
@@ -142,9 +137,8 @@ also more complex.  It is also possible to take a combination of smoothed Hankel
 
 **Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/code/asaoverview/); they use LMTO basis sets.
 
-_____________________________________________________________
-
 ### _Augmentation_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#augmentation/
 {:/comment}
@@ -154,10 +148,8 @@ somewhat resembles the PAW method, though in the limit of large angular momentum
 that standard augmented-wave methods do.  The advantage to the current scheme is that it converges more rapidly with
 angular momentum cutoff.
 
-_____________________________________________________________
-
-
 ### _Executable codes in the Questaal suite_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#executable-codes-in-the-questaal-suite
 {:/comment}
@@ -213,6 +205,7 @@ floating orbitals may be placed --- important for ASA and some _GW_ calculations
 There are other auxiliary programs, such as a formatter for setting up energy bands and a graphics program similar to gnuplot.
 
 ### _Input System_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#input-system/
 {:/comment}
@@ -227,6 +220,7 @@ explains how an input file is structured, and how input is organized by
 [_categories_ and _tokens_](/docs/input/inputfile/#tags-categories-and-tokens).
 
 ### _Other Resources_
+________________________________________________________________________________________________
 {::comment}
 /docs/package_overview/#other-resources/
 {:/comment}
