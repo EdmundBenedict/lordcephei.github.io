@@ -43,19 +43,19 @@ Smooth Hankels are a significantly better choice of basis than the customary **L
 However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel.
 The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO**
 methods; thus wave functions are evaluated by Ewald summation. A new basis, "[Jigsaw Puzzle Orbitals](/docs/code/jpos/),"  makes use of screening and some other tricks
-to construct a short ranged, minimal basis of envelope functions.  They are highly accurate because they tailored to the potential, and in accomplish 
-level of precision in the interstitial approachng that of the augmented parts.
-
+to construct a short ranged, minimal basis of envelope functions.  They are highly accurate because they tailored to the potential, and accomplish 
+level of precision in the interstitial approachng that of the augmented parts.  Thus in the
+energy window where linearization is valid, the basis set should be close to complete.
 
 ### *Local Orbitals*
 _____________________________________________
 
-This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. [Augmented wave methods](/docs/package_overview/#augmented-wave-methods) substitute radial solutions of the Schrödinger equation with combinations of partial waves of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the reliable **LDA** band gap in GaAs, as the Ga *3d* and *4d* partial waves are both important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/)
+This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. [Augmented wave methods](/docs/package_overview/#augmented-wave-methods) substitute radial solutions of the Schrödinger equation with combinations of partial waves of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the reliable **LDA** band gap in GaAs, as the Ga *3d* and *4d* partial waves are both important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 
 ### *Augmented Plane Waves*
 _____________________________________________
 
-In July 2008 Takao Kotani added **APW**s as additional envelope functions, which can increase the flexibility of the basis. 
+In July 2008 Takao Kotani added augmented plane waves (**APW**s) as additional envelope functions, which can increase the flexibility of the basis. 
 The combination of smooth Hankel functions and APWs is described in this paper on the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
 One can view PMT's as an extension of a conventional **LAPW** method, enabling through the use of a few **MTO**s with much faster convergence in
 energy cutoff of **APW**s. Alternatively, it can be viewed as an extension of the original **MTO** method, A principal advantage of the

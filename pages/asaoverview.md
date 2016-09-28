@@ -232,7 +232,7 @@ and the bandwidth &Delta;<i><sub>l</sub></i>.
 + <i>C<sub>l</sub></i> describes the band center, and is the analog of the on-site matrix element (or atomic level in the free atom)
 + &Delta;<i><sub>l</sub></i> characterises the width of the partial, i.e. approximately the maximum and minimum values a partial wave would take in the absence of hybridization with other atoms.
 
-For a connection between _C_ and &Delta; and scattering phase shifts, see [downfolding](/docs/code/asaoverview/#downfolding-in-the-asa/) below.
+For a connection between _C_ and &Delta; and scattering phase shifts, see [downfolding](/docs/code/asaoverview/#downfolding-in-the-asa) below.
 Another useful quantity is the "small parameter" _p_, which tells you the energy window over which the 
 [partial wave is well described by the linear method](/docs/package_overview/#linear-methods-in-band-theory "linear methods")
 
@@ -301,7 +301,7 @@ Larger spheres better contain shallow semicore states
 Particularly in the full-potential case where spheres overlap less
 than in the ASA, shallow semicore states can be an issue. In the FP case, 
 you can always add 
-[a local orbital](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/)
+[a local orbital](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 to address this problem.
 
 MT potentials are exactly solvable
