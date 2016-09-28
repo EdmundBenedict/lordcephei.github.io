@@ -6,7 +6,6 @@ header: no
 ---
 
 ### _Purpose_
-
 {:.no_toc}
 _____________________________________________________________
 
@@ -14,7 +13,6 @@ To describe a some of the properties of Jigsaw Puzzle orbitals.
 They form the next-generation basis set of the **lmf**{: style="color: blue"} code.
 
 ### _Table of Contents_
-
 {:.no_toc}
 _____________________________________________________________
 *  Auto generated table of contents
