@@ -51,12 +51,12 @@ Augmented-wave methods consist of an "atomic" part and a "band" part. The former
 relevant matrix elements needed, e.g. for the hamiltonian or some other property (e.g. optics).  The "band'' part constructs the hamiltonian
 and diagonalizes the secular matrix made by joining the partial waves to the envelopes.
 
-Solutions of the Schrodinger equations are then piecewise: the envelope functions must be joined differentiably onto the partial waves.
-Matching conditions determine a secular matrix, so solution of the Schrodinger equation in the crystal for a given potential reduces to an
+Solutions of the Schr&ouml;dinger equations are then piecewise: the envelope functions must be joined differentiably onto the partial waves.
+Matching conditions determine a secular matrix, so solution of the Schr&ouml;dinger equation in the crystal for a given potential reduces to an
 eigenvalue problem.
 
 The choice of envelope function defines the method (Linear Muffin Tin Orbitals, Linear Augmented Plane Waves, Jigsaw Puzzle Orbitals); while
-partial waves are obtained by integrating the Schrodinger equation numerical on a radial mesh inside the augmentation sphere.
+partial waves are obtained by integrating the Schr&ouml;dinger equation numerical on a radial mesh inside the augmentation sphere.
 
 #### _Linear Methods in Band Theory_
 {::comment}
@@ -92,7 +92,7 @@ The linear approximation is usually quite accurate over an energy window where t
 An estimate for this window is given by 1/_p_ where potential parameter $$p_l = \int_{\rm sphere} \dot\phi_l^2 d^3r$$ is 
 called the "small parameter."
 Linearization greatly simplifies the secular matrix : it reduces to a linear algebraic eigenvalue
-problem, which greatly simplifies practical solutions of the Schrodinger equation.  
+problem, which greatly simplifies practical solutions of the Schr&ouml;dinger equation.  
 
 Some elements possess partial waves of very different energies that are both relevant to the total energy or states near the Fermi level. 
 The classic examples of this are Ga and In: both 3_d_ (4_d_) and

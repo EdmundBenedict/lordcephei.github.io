@@ -431,7 +431,7 @@ lmmag
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NSPIN | i | ALL | Y | 1 | 1 for non-spin-polarized calculations<br>2 for spin-polarized calculations
-REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schrodinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation<br><br>NB: For the magnetic parameters below to be active, HAM_NSPIN must be 2
+REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation<br><br>NB: For the magnetic parameters below to be active, HAM_NSPIN must be 2
 SO | i | ALL | Y | 0 | 0: no SO coupling<br>1: Add L·S to hamiltonian<br>2: Add Lz·Sz only to hamiltonian<br>3: Like 2, but also add L·S−LzSz in an approximate manner that preserves indpendence in the spin channels.<br>See [here](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/spin-orbit-coupling.html) for analysis and description of the different approximations
 NONCOL | l | ASA | Y | F | F: collinear magnetism<br>T: non-collinear magnetism
 SS | 4 r | ASA | Y | 0 | Magnetic spin spiral, direction vector and angle.<br><br>Example: nc/test/test.nc 1

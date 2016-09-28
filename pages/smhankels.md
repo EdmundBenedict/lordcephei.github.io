@@ -20,10 +20,10 @@ _____________________________________________________________
 {:toc}
 
 ### *Unique properties of Smoothed Hankel functions*
-_________________________________________________________
 {::comment}
 /docs/code/smhankels/#unique-properties-of-smoothed-hankel-functions
 {:/comment}
+_____________________________________________________________
 
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 Ordinary Hankel functions $$\bar H_L$$ are solutions of the Helmholtz wave equation
@@ -41,11 +41,11 @@ Radial functions are spherical Hankel or Bessel functions.  We will focus on the
 \end{eqnarray}
 where $$h_\ell^{(1)}(z)$$ is the spherical Hankel function of the first kind.
 Hankel (Bessel) functions are regular (irregular) as <i>r</i>&rarr;&infin;;
-thus Hankel functions are exact solutions of the Schrodinger equation in a flat potential with appropriate boundary conditions for large _r_.
+thus Hankel functions are exact solutions of the Schr&ouml;dinger equation in a flat potential with appropriate boundary conditions for large _r_.
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ when
 _r_&rarr;0. 
 
-When envelope functions are augmented with [partial waves](/docs/package_overview/#linear-methods-in-band-theory) in spheres around atoms, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential. 
+When envelope functions are augmented with [partial waves](/docs/package_overview/#linear-methods-in-band-theory) in spheres around atoms, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schr&ouml;dinger equation in a muffin-tin potential. 
 
 Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
 Red, green, and blue correspond to $$\ell=0,1,2$$.
@@ -220,7 +220,7 @@ This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\va
 in response to a source term smeared out in the form of a gaussian.  A 
 conventional Hankel function is the response to a point multipole at the
 origin (see Ref 1, Eq. 6.14).  $$H_{kL}$$ is also the solution to the
-Schrodinger equation for a potential that has an approximately
+Schr&ouml;dinger equation for a potential that has an approximately
 gaussian dependence on _r_ (Ref 1, Eq. 6.30).
 
 ### _Two-center integrals of smoothed Hankels_

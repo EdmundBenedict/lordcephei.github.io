@@ -118,11 +118,11 @@ ________________________________________________________________________________
 
 [Linear augmented wave](/docs/package_overview/#linear-methods-in-band-theory) methods almost invariably construct the basis set inside
 augmentation spheres from the spherical part of the potential.  (In the ASA the potential is spherical anyway).
-For a fixed spherical potential, the Schrodinger equation separates into an angular part
-(whose solutions are spherical harmonics) and a radial part with quantum number _l_.  Solution to the radial Schrodinger
+For a fixed spherical potential, the Schr&ouml;dinger equation separates into an angular part
+(whose solutions are spherical harmonics) and a radial part with quantum number _l_.  Solution to the radial Schr&ouml;dinger
 equation (aka "partial wave") <i>&phi;<sub>l</sub></i> and its energy are uniquely determined by the boundary
 condition at the augmentation radius _s_.  More precisely, <i>&phi;<sub>l</sub></i> is called a <i>partial wave</i> since it is only a partial solution
-to the full Schrodinger equation.  Partial waves must be matched to the envelope function at the augmentation sphere radius; the condition
+to the full Schr&ouml;dinger equation.  Partial waves must be matched to the envelope function at the augmentation sphere radius; the condition
 that all partial waves match smoothly and differentiably at all surfaces is the quantization condition that determines allowed eigenvalues.
 [Linear methods](/docs/package_overview/#linear-methods-in-band-theory) in fact require the partial wave $$\phi$$ and its energy derivative
 $$\dot\phi$$ (or possibly $$\phi$$ at two different linearization energies.

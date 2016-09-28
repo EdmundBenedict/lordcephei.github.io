@@ -49,7 +49,7 @@ interstitial approachng that of the augmented parts.  Thus the basis set should 
 ### *Local Orbitals*
 _____________________________________________
 
-This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. [Augmented wave methods](/docs/package_overview/#augmented-wave-methods) substitute radial solutions of the Schrödinger equation with combinations of partial waves of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the proper **LDA** band gap in GaAs, both the Ga *3d* and *4d* partial waves are important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
+This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. [Augmented wave methods](/docs/package_overview/#augmented-wave-methods) substitute radial solutions of the Schrödinger equation with combinations of partial wave of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the proper **LDA** band gap in GaAs, both the Ga *3d* and *4d* partial waves are important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 
 ### *Augmented Plane Waves*
 _____________________________________________
@@ -63,6 +63,9 @@ systematic and reliable manner, to almost arbitrarily high accuracy. This is par
 Fermi level are needed, and to check the accuracy of a given **MTO** basis. To include **APW**s in the basis, see [here](need link) for a tutorial.
 
 ### *Augmentation and Representation of the charge density*
+{::comment}
+/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density
+{:/comment}
 _____________________________________________
 
 The charge density representation is unique to this method. It consists of three parts: a smooth density <i>n</i><sub>0</sub> carried on a
