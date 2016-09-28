@@ -11,10 +11,13 @@ header: no
 <hr style="height:5pt; visibility:hidden;" />
 # Introduction to a QSGW calculation
 
+________________________________________________________________________________________________
+
 This tutorial begins with an LDA calculation for Si, starting from an init file. Following this is a demonstration of a quasi-particle self-consistent GW (QSGW) calculation. An example of the 1-shot GW code is provided in a separate tutorial. Click on the 'QSGW' dropdown menu below for a brief description of the QSGW scheme. A complete summary of the commands used throughout is provided in the 'Commands' dropdown menu. Theory notes for GW and QSGW can be found here (add link).  
 
 <hr style="height:5pt; visibility:hidden;" />
 ### QSGW summary
+________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> QSGW - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
@@ -25,6 +28,7 @@ In short, a QSGW calculation consists of the following steps. The starting point
 
 <hr style="height:5pt; visibility:hidden;" />
 ### Command summary
+________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
@@ -50,10 +54,12 @@ In short, a QSGW calculation consists of the following steps. The starting point
 
 <hr style="height:5pt; visibility:hidden;" />
 ### LDA calculation
+________________________________________________________________________________________________
 To carry out a self-consistent LDA calculation, we use the lmf code. Try running the commands below. The steps follow those from the lmf tutorial. Please review this page for more details on the set up and running of commands. 
 
 <hr style="height:5pt; visibility:hidden;" />
 ### LDA commands     
+________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
@@ -77,6 +83,7 @@ Now that we have the input eigenfunctions and eigenvalues, the next step is to c
 
 <hr style="height:5pt; visibility:hidden;" />
 ### Making GWinput
+________________________________________________________________________________________________
 The GW package (both one-shot and QSGW) uses one main user-supplied input file, GWinput. The script lmfgwd can create a template GWinput file for you by running the following command: 
 
     $ echo -1 | lmfgwd si                              #make GWinput file
@@ -93,6 +100,7 @@ The k mesh of 3×3×3 divisions is rough, but it makes the calculation fast and 
 
 <hr style="height:5pt; visibility:hidden;" />
 ### Running QSGW
+________________________________________________________________________________________________
 We are now ready for a QSGW calculation, this is run using the shell script lmgwsc:  
 
     $ lmgwsc --wt --insul=4 --tol=2e-5 --maxit=0 si         #zeroth iteration of QSGW calculation
@@ -153,6 +161,7 @@ Further details can be found in the Additional exercises below.
 
 <hr style="height:5pt; visibility:hidden;" />
 ###Additional exercises
+________________________________________________________________________________________________
 
 - Correct gap:
 This is actually the Γ-X gap; the true gap is 0.44 eV as can be seen by running lmf with a fine k mesh.
