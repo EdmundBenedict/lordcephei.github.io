@@ -56,19 +56,15 @@ Smooth Hankels are superior to ordinary ones, first because real potentials are 
 
 Also the fact that the <i>H<sub>L</sub></i> are everywhere smooth can greatly facilitate their implementation.   In the present Questaal implementation the charge density is kept on a uniform mesh of points.  Sharply peaked functions require finer meshes, and some smoothing would necessary in any case.
 
-They also have the proper asymptotic form, decaying exponentially as real wave functions do at a surface or in a molecule.  Thus they have better shape than gaussian orbitals do.
+Finally also have a sensible asymptotic form, decaying exponentially as real wave functions do when far from an atom.  Thus they have better shape than gaussian orbitals do.
 
-The big drawback of smooth Hankels is that they are more complicated
-to work with.  One center expansions of ordinary Hankels (needed for
-augmentation) are Bessel functions.  A counterpart for smooth Hankels
-does exist, but they are polynomial expansions called
-<i>P<sub>kL</sub></i>.  The expansion is slower and introduces cutoff
-because when the expansion is truncated.  An enormous advantage
-gaussian orbitals have over both ordinary and smooth Hankels is that
-the product of two of them in real space can be expressed as another
-gaussian.  There exist no counterpart, so an intermediate basis must
-be constructed to make the charge density and matrix elements of the
-potential.  The Questaal suite uses plane waves
+Smooth Hankels have two big drawbacks as a basis set.  First, they are more complicated to work with.  One center expansions of
+ordinary Hankels (needed for augmentation) are Bessel functions.  A counterpart one-center expansion does exist for smooth Hankels, but they are polynomial
+expansions called <i>P<sub>kL</sub></i>, related to Laguerre polynomials.  The expansion is cumbersom and introduces an extra cutoff in the polynomial order. 
+
+Second, gaussian orbitals hold an enormous advantage over both ordinary and smooth Hankels, namely that the product of two of them in real space can be
+expressed as another gaussian.  There exist no counterpart for Hankels, so an intermediate basis must be constructed to make the charge density and
+matrix elements of the potential.  The Questaal suite uses plane waves for the charge density.
 
 ### *Smooth Hankel functions and the H<sub>kL</sub> family*
 ____________________________________________________________________
