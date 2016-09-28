@@ -406,7 +406,7 @@ center of gravity is far above the Fermi level.
 
 <div onclick="elm = document.getElementById('downfolding'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">
-Click here for a discussion of downfolding in the ASA band program.</button>
+Click here for a discussion of downfolding in the ASA band program.</button></div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="downfolding">{:/} 
 
 Downfolding is a procedure for constructing minimal basis sets and for
