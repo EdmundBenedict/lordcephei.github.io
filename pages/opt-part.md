@@ -31,10 +31,11 @@ we can preform this calculation just as any other optics calculation, simply inv
 
 through this the program will write a new file name popt.pbte. The format of this file is different to opt.pbte or jdos.pbte which you have previously encountered; here the first number in each row represtnts the energy while the next 3X numbers are the contributions from X ireducible k-points for the three orientation of the electric field. Below you can see a section of the popt.pbte for 4X4X4 k-mesh:
 
-    0.400000     0.000000     0.514493     0.754321     0.391577     0.955750     1.069400
-                 0.564346     0.374508     0.000000     0.514493     0.754321     0.391577
-                 0.955750     1.069400     0.564346     0.374508     0.000000     0.514493
-                 0.754321     0.391577     0.955750     1.069400     0.564346     0.374508
+
+    0.262000     0.000000     1.456862     2.730097     0.665279     0.869784     3.001192
+                 0.064389     1.856153     0.000000     1.456862     2.730097     0.665279
+                 0.869784     3.001192     0.064389     1.856153     0.000000     1.456862
+                 2.730097     0.665279     0.869784     3.001192     0.064389     1.856153
 
 0.400000|0.000000     0.514493     0.754321     0.391577     0.955750     1.069400
         |-
@@ -119,7 +120,10 @@ here the switch "- -pr81"  increases the verbosity setting of the program to pri
      (3,4,2)          -0.500000    1.000000    0.000000     8    4 i*r3(1,1,-1)   
      (4,2,3)          -1.000000    0.000000   -0.500000     8    5 r3(-1,-1,1)   
      (2,4,3)           1.000000    0.000000    0.500000     8    6 i*r3(-1,-1,1)
-{::nomarkdown}</div>{:/}
+     
+     {::nomarkdown}</div>{:/}
+
+
 
 
 ### _Resolving by k-points and band to band contributions_
