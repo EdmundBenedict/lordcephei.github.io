@@ -5,24 +5,21 @@ permalink: "/docs/code/asaoverview/"
 sidebar: "left"
 header: no
 ---
-_____________________________________________________________
 
 ### _Purpose_
+________________________________________________________________________________________________
 {:.no_toc}
 
 To describe Questaal's implementation of the LMTO method in the Atomic Spheres Approximation.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________________________
-
 ### _Introduction_
-
+________________________________________________________________________________________________
 The Questaal package has three codes that implement DFT in the Atomic
 Spheres Approximation (ASA).  Formulated by O. K. Andersen in the
 1970's to handle transition metals, the ASA overlaps the augmentation
@@ -44,12 +41,12 @@ transformation](http://dx.doi.org/10.1103/PhysRevLett.53.2571)" of the
 original basis set that makes Hankel functions short ranged.
 
 **Note**{: style="color: red"} There is also a non self-consistent
-implementation of Anderen's most recent basis, the `NMTO'.  This code
+implementation of Anderen's most recent basis, the 'NMTO'.  This code
 should largely be regarded as experimental, as there are practical
 pitfalls associated with it that haven't been fully worked out.
 
 ### _The ASA Suite_
-
+________________________________________________________________________________________________
 Questaal has three implementations of the ASA:
 
 + **lm**{: style="color: blue"}: a band method whose function is
@@ -91,6 +88,7 @@ transport in devices ranging from magnetic tunnel junctions to atomic
 point contacts.
 
 ### _Structure of the ASA_
+________________________________________________________________________________________________
 {::comment}
 /docs/code/asaoverview/#structure-of-the-asa/
 {:/comment}
@@ -114,6 +112,7 @@ parameters, then moments again until the process converges.  The program can be 
 specifying potential parameters, or with the atomic part, specifying the moments.
 
 ### _Augmentation sphere boundary conditions and continuous principal quantum numbers_
+________________________________________________________________________________________________
 {::comment}
 /docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/
 {:/comment}
@@ -183,6 +182,7 @@ in a continous way, acquiring an extra integer each time a new node appears.
 
 
 ### _Generation of the sphere potential and energy moments Q_
+________________________________________________________________________________________________
 {::comment}
 /docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q/
 {:/comment}
@@ -199,7 +199,7 @@ determined by the first three energy moments <i>Q</i><sub>0</sub>,
 <i>Q</i><sub>1</sub>, and <i>Q</i><sub>2</sub> of the density of states for each <i>l</i>
 channel, which are called the atomic number and the boundary
 conditions at the surface of the sphere.  In some sense these numbers
-are ``fundamental'' to a sphere; the atomic program will generate a
+are ''fundamental'' to a sphere; the atomic program will generate a
 self-consistent potential for a specified set of <i>Q</i><sub>0</sub>,
 <i>Q</i><sub>1</sub>, <i>Q</i><sub>2</sub> and boundary conditions, specified 
 in the Questaal package through the continuous principal quantum number <i>P</i>
@@ -243,6 +243,7 @@ enough to reach self-consistency.  These codes also have a lookup table for defa
 [above](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 
 ### _Selection of Sphere Radii_
+________________________________________________________________________________________________
 {::comment}
 /docs/code/asaoverview/#selection-of-sphere-radii
 {:/comment}
@@ -393,6 +394,7 @@ on a different footing from real atoms.
   spheres.
 
 ### _Downfolding in the ASA_
+________________________________________________________________________________________________
 {::comment}
 /docs/code/asaoverview/#downfolding-in-the-asa/
 {:/comment}
@@ -486,7 +488,7 @@ potentials!)
 {::nomarkdown}</div>{:/}
 
 ### _Other Resources_
-
+________________________________________________________________________________________________
 For an overview of linear methods, and their connection to pseudopotentials,
 see these [lecture notes](xx) given at at CECAM workshop at Oxford in 2013.
 The 2<sup>nd</sup> generation potential parameters this package uses are particularly
