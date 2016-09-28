@@ -50,9 +50,9 @@ The starting point is a self-consistent LDA calculation, you may want to review 
 
 Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
-#### 1. _Rough search by floating to low-energy point_
+#### 1. _Float step: rough search by moving to low-energy point_
 
-#### 2. _Accurate search using minimisation_
+#### 2. _Gradients minimisation stepAccurate search using minimisation_
 
-#### 3. _Calculate the effective mass_
+#### 3. _Calculate effective mass_
 
