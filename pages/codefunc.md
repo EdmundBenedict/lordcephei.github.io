@@ -17,7 +17,7 @@ ____________________________________________________________
 
 ### _Purpose_
 _____________________________________________________________
-This page serves as a list of the capabilities of each package within the suite in relation to physical applications. A list of the overall capabilities of the suite in terms of physical applications can be found at the [applications page](https://lordcephei.github.io/appfunc/).
+This page serves as a list of the capabilities of each package within the suite in relation to physical applications. A list of the overall capabilities of the suite in terms of physical applications can be found at the [applications page](/functionality/application/).
 
 ### _Packages_
 _____________________________________________________________
@@ -37,7 +37,7 @@ The _lm_{: style="color: blue"} partial DOS can be obtained using
 
     command
 
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](https://lordcephei.github.io/asa_dos/)
+A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
 
 {::nomarkdown}</div>{:/}
 
