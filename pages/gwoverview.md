@@ -5,24 +5,21 @@ permalink: "/docs/code/gwoverview/"
 sidebar: "left"
 header: no
 ---
-_____________________________________________________________
 
 ### _Purpose_
+________________________________________________________________________________________________
 {:.no_toc}
 
 This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ approximation.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________________________
-
 ### _Introduction_
-
+________________________________________________________________________________________________
 The _GW_ approximation is implemented in two forms: as a 1-shot perturbation to the LDA and as quasiparticle self-consistent _GW_.
 
 In 1-shot mode, the diagonal part of &Sigma; is evaluated at the
@@ -58,7 +55,7 @@ A detailed description of QS<i>GW</i> theory and the way in which Questaal imple
 can be found in the references in "Other Resources" below.
 
 ### _How the 1-particle and many-particle codes synchronise_
-
+________________________________________________________________________________________________
 The _GW_ package comprise a separate set of codes from the density-functional code, **lmf**{: style="color: blue"}.  It uses the
 single-particle basis set of **lmf**{: style="color: blue"} to calculate the screened coulomb interaction _W_ and the self-energy,
 &Sigma;=_iGW_.
@@ -94,13 +91,13 @@ through tags in this category you can set some of the parameters it writes into
 _GWinput_{: style="color: green"} .
 
 ### _Analysis of many-body spectral functions_
-
+________________________________________________________________________________________________
 A pair of executables **spectral**{: style="color: blue"} and **lmfgws**{: style="color: blue"} 
 are included in the Questaal suite.  They generate spectral functions, derived either
 individual QP levels or integrated over the Brillouin zone to make the interacting density-of-states.
 
 ### _Other Resources_
-
+________________________________________________________________________________________________
 See [this tutorial](https://lordcephei.github.io/lmtut/) for a basic introduction to doing a QS<i>GW</i> calculation.
 
 This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:  
