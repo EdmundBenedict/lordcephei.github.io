@@ -51,7 +51,7 @@ Questaal has three implementations of the ASA:
 
 + **lm**{: style="color: blue"}: a band method whose function is
 similar to the full-potential program **lmf**{: style="color: blue"}.
-It is interesting to compare the ASA band structure to the FP one, e.g. [in PbTe](xx).
+It is interesting to compare the ASA band structure to the FP one, e.g. in PbTe.
 
 + **lmgf**{: style="color: blue"}: is a crystal code similar to
 **lm**{: style="color: blue"}, but it uses a Green's function
@@ -241,7 +241,7 @@ To generate bands and an output charge density (in the form of moments <i>Q</i><
 Nevertheless it is more common to start from the moments because rough values for them can easily be guessed.  The ASA codes will assume default
 values (<i>Q</i><sub>0</sub> = occupation of the free atom, <i>Q</i><sub>1</sub> = <i>Q</i><sub>2</sub> = 0), which most of the time is good
 enough to reach self-consistency.  These codes also have a lookup table for default values of _P_ described
-[above](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+[above](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 
 ### _Selection of Sphere Radii_
 ________________________________________________________________________________________________
@@ -406,7 +406,7 @@ center of gravity is far above the Fermi level.
 
 <div onclick="elm = document.getElementById('downfolding'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">
-Click here for a discussion of downfolding in the ASA band program.</div>
+Click here for a discussion of downfolding in the ASA band program.</button>
 {::nomarkdown}<div style="display:none;padding:0px;" id="downfolding">{:/} 
 
 Downfolding is a procedure for constructing minimal basis sets and for
