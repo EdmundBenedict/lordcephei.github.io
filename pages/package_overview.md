@@ -131,11 +131,11 @@ and are better approximations to the wave function than Gaussian orbitals.  The 
 these functions are described in some detail in this [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437)  paper.
 
 Such a basis has significant advantages: basis sets are much smaller for a given level of precision, but they are
-also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves : the 
+also more complex.  It is also possible to take smoothed Hankels and plane waves in common : the 
 ["Planar Muffin Tin"](http://dx.doi.org/10.1103/PhysRevB.81.125117)
 (PMT) basis is another unique feature of this package.
 
-**Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/code/asaoverview/); they use LMTO basis sets.
+**Note**{: style="color: red"}: some codes in the Questaal suite are based on the [Atomic Spheres Approximation](/docs/code/asaoverview/): they use LMTO basis sets and make shape approximations to the potential.
 
 ### _Augmentation_
 ________________________________________________________________________________________________
@@ -145,8 +145,8 @@ ________________________________________________________________________________
 
 **lmf**{: style="color: blue"} carries out augmentation in a manner different than standard augmented wave methods.  It
 somewhat resembles the PAW method, though in the limit of large angular momentum cutoff it has exactly the same behaviour
-that standard augmented-wave methods do.  The advantage to the current scheme is that it converges more rapidly with
-angular momentum cutoff.
+that standard augmented-wave methods do.  Thus this scheme is a true augmented wave method, with the
+advantage that it converges more rapidly with angular momentum cutoff than the traditional approach.
 
 ### _Executable codes in the Questaal suite_
 ________________________________________________________________________________________________

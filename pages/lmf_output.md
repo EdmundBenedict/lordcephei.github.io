@@ -176,7 +176,7 @@ Click here for a description.
 {:/comment}
 
 _basp.pbte_{: style="color: green"} supplies basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions, 
-["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/) _P_
+["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
 and information about local orbitals).
 
 ~~~
