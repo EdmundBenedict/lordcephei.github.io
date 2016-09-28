@@ -44,9 +44,9 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ lmf --rs=1,0 -vnit=1 --band~fn=syml si               #calculate and plot bands
     $ rdcmd makeplot_scott; evince fplot.ps &
 
-    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -floatmn -maxit=20 --bin -r=.1 -dqmx=.05 -band=5 -q0=0.5,0,0 si  #float
-    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -edge2=1 -maxit=20 --bin -r=.04 -dqmx=.05 -band=5 -gtol=.0001 -q0=0.82,0,0 si  #kmin
-    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si  #mass
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -floatmn -maxit=20 --bin -r=.1 -band=5 -q0=0.5,0,0 si  
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -edge2=1 -maxit=20 --bin -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
 Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between $$\Gamma$$ and X. 
 
