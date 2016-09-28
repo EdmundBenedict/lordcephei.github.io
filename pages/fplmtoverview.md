@@ -39,7 +39,7 @@ Their smoothness is controlled by an extra degree of freedom, the gaussian width
 [This page](/docs/code/smhankels/) defines them and outlines some of their mathematical properties.
 They are described in detail in this [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
 
-Smooth Hankels are a significantly better choice of basis than the customary **LMTO** basis set constructed of normal Hankels.
+Smooth Hankels are a significantly better choice of envelope functions than the customary **LMTO** basis set constructed of normal Hankels.
 However, smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than it is for an ordinary Hankel.
 The envelope functions, while an improvement over the traditional **LMTO** basis are not yet optimal. They are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO** methods; thus wave functions are evaluated by Ewald summation. 
 A new basis, "[Jigsaw Puzzle Orbitals](/docs/code/jpos/)," makes use of screening and some other tricks to construct a short ranged, minimal

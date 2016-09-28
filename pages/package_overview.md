@@ -60,7 +60,7 @@ partial waves are obtained by integrating the Schrodinger equation numerical on 
 
 #### _Linear Methods in Band Theory_
 {::comment}
-/docs/package_overview/#linear-methods-in-band-theory/
+/docs/package_overview/#linear-methods-in-band-theory
 {:/comment}
 
 Nearly all modern electronic structure methods make use of the [linear
@@ -94,8 +94,7 @@ called the "small parameter."
 Linearization greatly simplifies the secular matrix : it reduces to a linear algebraic eigenvalue
 problem, which greatly simplifies practical solutions of the Schrodinger equation.  
 
-Some elements possess partial waves
-of very different energies that are both relevant to the total energy or states near the Fermi level. 
+Some elements possess partial waves of very different energies that are both relevant to the total energy or states near the Fermi level. 
 The classic examples of this are Ga and In: both 3_d_ (4_d_) and
 4_d_ (5_d_) states are relevant.
 To obtain accurate calculations a third partial wave must be included.

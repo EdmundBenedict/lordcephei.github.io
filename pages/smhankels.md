@@ -26,7 +26,7 @@ _________________________________________________________
 {:/comment}
 
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
-Ordinary Hankel functions are solutions of the Helmholtz wave equation
+Ordinary Hankel functions $$\bar H_L$$ are solutions of the Helmholtz wave equation
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)\bar H_L(\varepsilon,{\mathbf{r}})
 =-4\pi \delta({\mathbf{r}})  \quad\quad\quad\quad (1)
@@ -45,7 +45,7 @@ thus Hankel functions are exact solutions of the Schrodinger equation in a flat 
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ when
 _r_&rarr;0. 
 
-Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential. 
+When envelope functions are augmented with [partial waves](/docs/package_overview/#linear-methods-in-band-theory) in spheres around atoms, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential. 
 
 Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
 Red, green, and blue correspond to $$\ell=0,1,2$$.
