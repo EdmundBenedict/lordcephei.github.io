@@ -55,7 +55,7 @@ This package extends the [linear method](/docs/package_overview/#linear-methods-
 ### *Augmented Plane Waves*
 _____________________________________________
 
-In July 2008 Takao Kotani added augmented plane waves (**APW**s) as additional envelope functions, which can increase the flexibility of the basis. 
+In 2008 Takao Kotani added augmented plane waves (<b>APWs</b>) as additional envelope functions, which can increase the flexibility of the basis. 
 The combination of smooth Hankel functions and APWs is described in this paper on the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
 One can view PMT's as an extension of a conventional **LAPW** method, enabling through the use of a few **MTO**s with much faster convergence in
 energy cutoff of **APW**s. Alternatively, it can be viewed as an extension of the original **MTO** method, A principal advantage of the
@@ -70,7 +70,7 @@ The charge density representation is unique to this method. It consists of three
 uniform mesh, defined everywhere in space (<i>n</i><sub>0</sub> is not augmented, as occurs with conventional augmentation), the true
 density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>lm</sub></i> inside each augmentation sphere, and a one-center expansion
 of the smooth density <i>n</i><sub>2</sub>, also expanded in terms of <i>Y<sub>lm</sub></i> inside each augmentation sphere. The total density is
-expressed as in the “threefold representation” <i>n</i> = <i>n</i><sub>0</sub> + <i>n</i><sub>1</sub> – <i>n</i><sub>2</sub>.
+expressed as in a “threefold representation” <i>n</i> = <i>n</i><sub>0</sub> + <i>n</i><sub>1</sub> – <i>n</i><sub>2</sub>.
 
 This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly in the *l*-truncation in the augmentation sphere than occurs in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
 
