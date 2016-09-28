@@ -47,7 +47,7 @@ solve Schrodinger's equation consist of a family of smooth envelope functions wh
 must be orthogonalized to core states.
 
 Augmented-wave methods consist of an "atomic" part and a "band" part. The former takes as input a density and finds the 
-[partial waves](/docs/package_overview/#linear-methods-in-band-theory/) $$\phi(\varepsilon,r)$$ on a numerical radial mesh inside each augmentation sphere and makes the
+[partial waves](/docs/package_overview/#linear-methods-in-band-theory) $$\phi(\varepsilon,r)$$ on a numerical radial mesh inside each augmentation sphere and makes the
 relevant matrix elements needed, e.g. for the hamiltonian or some other property (e.g. optics).  The "band'' part constructs the hamiltonian
 and diagonalizes the secular matrix made by joining the partial waves to the envelopes.
 
