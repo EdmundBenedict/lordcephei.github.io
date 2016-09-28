@@ -8,9 +8,8 @@ permalink: "/tutorial/lmf/lmf_pbte_tutorial/"
 header: no
 ---
 
-_____________________________________________________________
-
 ### _Purpose_
+_____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features.   It:
@@ -21,16 +20,16 @@ It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) bu
 4. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods.
 5. forms the starting point for other tutorials on optics, a QSGW calculation of PbTe, and compares energy bands computed in different ways.
 
+### _Table of Contents_
 _____________________________________________________________
 
-### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}  
 
-_____________________________________________________________
 
 ### _Preliminaries_
+_____________________________________________________________
 
 Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
 

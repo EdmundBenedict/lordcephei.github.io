@@ -59,12 +59,13 @@ Also the fact that the <i>H<sub>L</sub></i> are everywhere smooth can greatly fa
 Finally also have a sensible asymptotic form, decaying exponentially as real wave functions do when far from an atom.  Thus they have better shape than gaussian orbitals do.
 
 Smooth Hankels have two big drawbacks as a basis set.  First, they are more complicated to work with.  One center expansions of
-ordinary Hankels (needed for augmentation) are Bessel functions.  A counterpart one-center expansion does exist for smooth Hankels, but they are polynomial
-expansions called <i>P<sub>kL</sub></i>, related to Laguerre polynomials.  The expansion is cumbersom and introduces an extra cutoff in the polynomial order. 
+ordinary Hankels (needed for augmentation) are Bessel functions.  A counterpart does exist for smooth Hankels, but expansions are polynomials
+related to Laguerre polynomials.  The expansion is cumbersom and introduces an extra cutoff in the polynomial order. 
 
 Second, gaussian orbitals hold an enormous advantage over both ordinary and smooth Hankels, namely that the product of two of them in real space can be
-expressed as another gaussian.  There exist no counterpart for Hankels, so an intermediate basis must be constructed to make the charge density and
-matrix elements of the potential.  The Questaal suite uses plane waves for the charge density.
+expressed as another gaussian (similarly so with plane waves).  
+There exist no counterpart for Hankels, so an auxiliary basis must be constructed to make the charge density and
+matrix elements of the potential.  The Questaal suite uses plane waves for the auxiliary basis.
 
 ### *Smooth Hankel functions and the H<sub>kL</sub> family*
 ____________________________________________________________________
@@ -84,7 +85,7 @@ function by
 \begin{eqnarray}
 F_L({\mathbf{r}}) = \Upsilon_L(-\nabla) \, f(r)  \quad\quad\quad\quad (3)
 \end{eqnarray}
-$$\Upsilon_L({\mathbf{r}})$$, with $${\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
+$$\Upsilon_L({\mathbf{r}})$$ with $${\mathbf{r}}=(x,y,z)$$ is a polynomial in $$(x,y,z)$$, 
 so is meaningful to talk about $$\Upsilon_L(-\nabla)$$.
 It is written in terms of
 conventional spherical harmonics as
