@@ -21,7 +21,7 @@ _____________________________________________
 
 The full-potential program **lmf**{: style="color: blue"} was originally adapted from a program **nfp**{: style="color: blue"} written by M. Methfessel and M. van Schilfgaarde. The method is described in some detail in the following reference :
 
-M. Methfessel, Mark van Schilfgaarde, and R. A. Casali, “A full-potential **LMTO** method based on smooth Hankel functions,” in Electronic Structure and Physical Properties of Solids: The Uses of the **LMTO** Method, *Lecture Notes in Physics 535. H. Dreysse, ed. (Springer-Verlag, Berlin) 2000*.
+M. Methfessel, Mark van Schilfgaarde, and R. A. Casali, “A full-potential **LMTO** method based on smooth Hankel functions,” in Electronic Structure and Physical Properties of Solids: The Uses of the **LMTO** Method, *Lecture Notes in Physics 535. H. Dreysse, ed. (Springer-Verlag, Berlin)* 2000.
 
 There is also a manual written for the original 1997 code. The present code is a descendant of it with many new features and with a different input system. But the underlying mathematical formalism, the novel augmentation method in particular, is basically the same.
 
@@ -37,15 +37,14 @@ The envelope functions are smoothed generalizations of Hankel functions that are
 functions, the smoothed versions — [convolutions of ordinary Hankel functions and Gaussian functions](/docs/code/smhankels/) — are regular at the origin.
 Their smoothness is controlled by an extra degree of freedom, the gaussian width or "smoothing" radius <i>r<sub>s</sub></i>.
 [This page](/docs/code/smhankels/) defines them and outlines some of their mathematical properties.
-They are described in detail in this [J. Math. Phys. (http://dx.doi.org/10.1063/1.532437) paper.
+They are described in detail in this [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
 
 Smooth Hankels are a significantly better choice of basis than the customary **LMTO** basis set constructed of normal Hankels.
-However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel.
-The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO**
-methods; thus wave functions are evaluated by Ewald summation. A new basis, "[Jigsaw Puzzle Orbitals](/docs/code/jpos/),"  makes use of screening and some other tricks
-to construct a short ranged, minimal basis of envelope functions.  They are highly accurate because they tailored to the potential, and accomplish 
-level of precision in the interstitial approachng that of the augmented parts.  Thus in the
-energy window where linearization is valid, the basis set should be close to complete.
+However, smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than it is for an ordinary Hankel.
+The envelope functions, while an improvement over the traditional **LMTO** basis are not yet optimal. They are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO** methods; thus wave functions are evaluated by Ewald summation. 
+A new basis, "[Jigsaw Puzzle Orbitals](/docs/code/jpos/)," makes use of screening and some other tricks to construct a short ranged, minimal
+basis of envelope functions.  They are highly accurate because they tailored to the potential, and accomplish level of precision in the
+interstitial approachng that of the augmented parts.  Thus the basis set should be close to complete in the energy window where linearization is valid.
 
 ### *Local Orbitals*
 _____________________________________________
@@ -67,10 +66,10 @@ Fermi level are needed, and to check the accuracy of a given **MTO** basis. To i
 _____________________________________________
 
 The charge density representation is unique to this method. It consists of three parts: a smooth density <i>n</i><sub>0</sub> carried on a
-uniform mesh, defined everywhere in space (<i>n</i><sub>0</sub> is not augmented, as occurs with conventional augmentation), the true
-density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>lm</sub></i> inside each augmentation sphere, and a one-center expansion
-of the smooth density <i>n</i><sub>2</sub>, also expanded in terms of <i>Y<sub>lm</sub></i> inside each augmentation sphere. The total density is
-expressed as in a “threefold representation” <i>n</i> = <i>n</i><sub>0</sub> + <i>n</i><sub>1</sub> – <i>n</i><sub>2</sub>.
+uniform mesh, defined everywhere in space (<i>n</i><sub>0</sub> is <i>not</i> augmented; inside the augmentation spheres it is present as a "pseudodensity"); the true
+density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>lm</sub></i> inside each augmentation sphere; and finally a one-center expansion
+<i>n</i><sub>2</sub> of the smooth density in <i>Y<sub>lm</sub></i>, inside each augmentation sphere. The total density is
+expressed as a sum of three independent densities: <i>n</i> = <i>n</i><sub>0</sub> + <i>n</i><sub>1</sub> – <i>n</i><sub>2</sub>.
 
 This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly in the *l*-truncation in the augmentation sphere than occurs in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
 
