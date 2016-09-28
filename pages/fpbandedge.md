@@ -10,7 +10,7 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-This tutorial demonstrates how to find extremal points in k-space using the band-edge program. This is done for silicon and the starting point is a self-consistent LDA density.
+This tutorial demonstrates how to find extremal points in k-space using the band-edge program. This is done for silicon starting from a self-consistent LDA density. Silicon is a trivial example as its extremal points are found on lines that pass through high-symmetry points. The band-edge program is particularly useful if you need to find multiple extremal points that do not fall on such high-symmetry lines. 
 
 _____________________________________________________________
 
