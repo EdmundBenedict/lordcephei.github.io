@@ -44,12 +44,18 @@ thus Hankel functions are exact solutions of the Schrodinger equation in a flat 
 For small _r_, the situation is reversed with Bessel functions being regular. Hankel and Bessel functions vary as $$r^{-\ell-1}$$ and $$r^{\ell}$$ when
 _r_&rarr;0. 
 
-Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential.  Real potentials are not flat, of course, so there is scope for improvement on the Hankel functions as the basis set.
+Augmenting spheres around atoms with partial waves, the irregular part of $$\bar H_L$$ is eliminated.  Thus augmented Hankel functions can form exact solutions to the Schrodinger equation in a muffin-tin potential. 
 
 Smooth Hankel functions $$H_L$$ are regular for both large and small _r_.  The Figure below compares ordinary Hankel functions $$\bar H_L(\varepsilon,{\mathbf{r}})$$ (dashed lines) to smooth ones $$H_L$$ for $$\varepsilon{=}-0.5$$.
 Red, green, and blue correspond to $$\ell=0,1,2$$.
 
 ![Ordinary and Smooth Hankel functions](/assets/img/smhankels.svg)
+
+Smooth Hankels are superior to ordinary ones, first because real potentials are not flat so there is scope for improvement on the Hankel functions as the basis set. 
+
+Also the fact that the <i>H<sub>L</sub></i> are everywhere smooth can greatly facilitate their implementation.   In the present Questaal implementation the charge density is kept on a uniform mesh of points.  Sharply peaked functions require finer meshes, and some smoothing would necessary in any case.
+
+### *Smooth Hankel functions and the H<sub>kL</sub> family*
 
 Methfessel's class of functions $$H_{kL}$$, are a superset of 
 smoothed Hankel functions $$H_L$$; they also incorporate the family of 
@@ -87,7 +93,7 @@ Functions $$H_{L}({\mathbf{r}})$$ are defined through the radial function $$h(r)
 (Ref 1, Eq. 6.5):
 \begin{eqnarray}
 H_{L}(\varepsilon,r_s;{\mathbf{r}}) &=& \Upsilon_L(-\nabla) h(\varepsilon,r_s;r)
-\quad\quad\quad\quad\quad\quad (6)
+\quad\quad\quad\quad\quad\quad\quad\quad (6)
 \end{eqnarray}
 \begin{eqnarray}
 h(\varepsilon,r_s;r) &=& \frac{1}{2r}\left(u_+(\varepsilon,r_s;r) - u_{-}(\varepsilon,r_s;r)\right)
@@ -111,7 +117,7 @@ However, the Fourier transform of $$H_{kL}$$ has a closed form (Ref 1, Eq. 6.35)
 The differential operator becomes a multiplicative operator
 in the reciprocal space so
 \begin{eqnarray}
-\hat{H}_{kL}(\varepsilon,r_s;\mathbf{q}) &=& 
+\widehat{H}_{kL}(\varepsilon,r_s;\mathbf{q}) &=& 
 -\frac{4\pi}{\varepsilon-q^2}\Upsilon_L(-i\mathbf{q})\,(-q^2)^k\,e^{r_s^2(\varepsilon-q^2)/4}
 \quad\quad\quad\quad (10)
 \end{eqnarray}
@@ -119,7 +125,7 @@ By taking limiting cases we can see the connection with familiar
 functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
 
 1. $$k=0$$ and $$r_s=0$$:
-   $$\hat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
+   $$\widehat{H}_{00}(\varepsilon,0;\mathbf{q})=-{4\pi/(\varepsilon-q^2)}$$\\
    This is the Fourier transform of
    $$H_{00}(\varepsilon,0;r)=\exp(-{\bar\kappa}{}r)/r$$, and is proportional to the
    $$\ell=0$$ spherical Hankel function of the first kind, $$h_0^{(1)}(z)$$.  For
@@ -129,7 +135,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    \end{eqnarray}
    which is Eq. 2.
 
-2. $$k=1$$ and $$\varepsilon=0$$: $$\hat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
+2. $$k=1$$ and $$\varepsilon=0$$: $$\widehat{H}_{10}(0,r_s;\mathbf{q})=-{4\pi} e^{-r_s^2q^2/4} $$.\\
    This is the Fourier transform of a Gaussian function, whose width is
    defined by $$r_s$$. For general $$L$$ we can define the family of generalized Gaussian functions
    \begin{eqnarray}
@@ -144,7 +150,7 @@ functions, and also the significance of parameters $$\varepsilon$$ and $$r_s$$.
    \end{eqnarray}
 
 Comparing cases 1 and 2 with Eq. (10), evidently
-$$\hat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
+$$\widehat{H}_L(\mathbf{q})$$ is proportional to the product of the Fourier
 transforms of a conventional spherical Hankel function of the first kind,
 and a gaussian.  By the convolution theorem, $${H_L}({\mathbf{r}})$$ is a
 convolution of a Hankel function and a gaussian.  For $$r\gg r_s$$,
@@ -163,7 +169,7 @@ Laplacian operator:
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Delta^k\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla) \Delta^k g(\varepsilon,r_s;r)
-\quad\quad\quad\quad (12)
+\quad\quad (12)
 \end{eqnarray}
 \begin{eqnarray}
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
@@ -171,12 +177,12 @@ G_{kL}(\varepsilon,r_s;{\mathbf{r}}) =
 \quad\quad\quad\quad (13)
 \end{eqnarray}
 \begin{eqnarray}
-\hat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
+\widehat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
       \Upsilon_L(-i\mathbf{q})(-q^2)^k e^{r_s^2(\varepsilon-q^2)/4}
-\quad\quad\quad\quad (14)
+\quad\quad\quad\quad\quad\quad (14)
 \end{eqnarray}
 
-The second Equation shows that $$G_{kL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
+The second equation shows that $$G_{kL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
 Comparing the last form Eq. (14) to Eq. (10)
 and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
@@ -187,7 +193,7 @@ H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mat
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
-\quad\quad\quad\quad (16)
+\quad\quad\quad\quad\quad\quad\quad\quad (16)
 \end{eqnarray}
 This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 
@@ -207,15 +213,15 @@ of Fourier transforms
 
 $$
 \int H^*_1({\mathbf{r}}-{\mathbf{r}}_1) H_2({\mathbf{r}}-{\mathbf{r}}_2) d^3r =
-(2\pi)^{-3}\int \hat{H}^*_1(\mathbf{q}) 
-\hat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
+(2\pi)^{-3}\int \widehat{H}^*_1(\mathbf{q}) 
+\widehat{H}_2(\mathbf{q}) e^{i\mathbf{q}\cdot({\mathbf{r}}_1-{\mathbf{r}}_2)} d^3q
 \quad\quad\quad\quad (17)
 $$
 
 and the fact that
-$$\hat{H}^*_{k_1L_1}(\mathbf{q})\hat{H}_{k_2L_2}(\mathbf{q})$$ can
+$$\widehat{H}^*_{k_1L_1}(\mathbf{q})\widehat{H}_{k_2L_2}(\mathbf{q})$$ can
 be expressed as a linear combination of other
-$$\hat{H}_{kL}(\mathbf{q})$$, or their energy derivatives.  This is
+$$\widehat{H}_{kL}(\mathbf{q})$$, or their energy derivatives.  This is
 readily done from the identity
 \begin{eqnarray}
 \frac{1}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
@@ -229,12 +235,12 @@ readily done from the identity
 \end{eqnarray}
 
 Comparing the first identity and the form Eq.~(10)
-of $$\hat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
-the product of two $$\hat{H}_{p0}(\mathbf{q})$$ with different
+of $$\widehat{H}_{p0}(\mathbf{q})$$, it can be immediately seen that
+the product of two $$\widehat{H}_{p0}(\mathbf{q})$$ with different
 energies can be expressed as a linear combination of two
-$$\hat{H}_{p0}(\mathbf{q})$$.  The second identity applies when the
-$$\hat{H}_{p0}(\mathbf{q})$$ have the same energy; the product will
-involve the energy derivative of some $$\hat{H}_{p0}(\mathbf{q})$$.
+$$\widehat{H}_{p0}(\mathbf{q})$$.  The second identity applies when the
+$$\widehat{H}_{p0}(\mathbf{q})$$ have the same energy; the product will
+involve the energy derivative of some $$\widehat{H}_{p0}(\mathbf{q})$$.
 For higher $$L$$,
 $$\Upsilon^*_{L_1}(-i\mathbf{q})\Upsilon_{L_2}(-i\mathbf{q})$$ 
 is expanded as a linear combination of
@@ -242,8 +248,8 @@ $$\Upsilon^*_{M}(-i\mathbf{q})$$ using the expansion theorem for
 spherical harmonics, Eq. (5).  In detail,
 
 $$
-{\hat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
-{\hat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
+{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};\mathbf{q})
+{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};\mathbf{q}) =
 \frac{(4\pi)^2}{(\varepsilon_1-q^2)(\varepsilon_2-q^2)}
 \Upsilon^*_{L_1}(-i{\mathbf{q}})\Upsilon_{L_2}(-i{\mathbf{q}})
 (-q^2)^{k_1+k_2}\,e^{r_{s_1}^2(\varepsilon_1-q^2)/4+r_{s_2}^2(\varepsilon_2-q^2)/4}
@@ -273,8 +279,8 @@ $$
 =
 \frac{1}{(2\pi)^3}
 \int
-{\hat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
-{\hat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
+{\widehat{H}^*_{k_1L_1}}(\varepsilon_1,r_{s_1};{\mathbf{q}})
+{\widehat{H}_{k_2L_2}}(\varepsilon_2,r_{s_2};{\mathbf{q}})\,
 e^{i{\mathbf{q}}\cdot\left({\mathbf{r}}_1-{\mathbf{r}}_2\right)} d^3q
 \quad\quad (20)
 $$
@@ -295,9 +301,9 @@ be handled using the limiting form of Eq. (18).
 Differentiation of Eq. (10) with respect to energy results in
 
 $$
-\hat{\dot{H}}_{kL} \equiv
-\frac{\partial\hat{H}_{kL}}{\partial\varepsilon} = 
--\frac{1}{\varepsilon-q^2}\hat{H}_{kL} + (r_s^2/4) \hat{H}_{kL}.
+\widehat{\dot{H}}_{kL} \equiv
+\frac{\partial\widehat{H}_{kL}}{\partial\varepsilon} = 
+-\frac{1}{\varepsilon-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}.
 \quad\quad\quad\quad (21)
 $$
 
@@ -322,9 +328,9 @@ If we consider a further limiting case, namely $$\varepsilon_1=\varepsilon_2=0$$
 Eq. (22) simplifies to
 
 $$
-\hat{\dot{H}}_{kL}
-\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\hat{H}_{kL} + (r_s^2/4) \hat{H}_{kL}
-= - \hat{H}_{k-1,L} + (r_s^2/4)\hat{H}_{kL}
+\widehat{\dot{H}}_{kL}
+\mathop{\longrightarrow}\limits^{\varepsilon\to 0} - \frac{1}{-q^2}\widehat{H}_{kL} + (r_s^2/4) \widehat{H}_{kL}
+= - \widehat{H}_{k-1,L} + (r_s^2/4)\widehat{H}_{kL}
 \quad\quad\quad\quad (23)
 $$
 

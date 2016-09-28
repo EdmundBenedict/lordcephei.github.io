@@ -42,7 +42,7 @@ _____________________________________________________________
 
 ### _Augmented Wave Methods_
 {::comment}
-/docs/package_overview/#augmented-wave-methods/
+/docs/package_overview/#augmented-wave-methods
 {:/comment}
 
 Augmented Wave methods, originally developed by Slater, partitions space into spheres enclosing around each atom.  Basis functions used to
@@ -129,7 +129,7 @@ _____________________________________________________________
 {:/comment}
 
 The primary code in the density-functional package (**lmf**{: style="color: blue"}) uses atom-centered functions for
-envelope functions. They are convolutions of a Hankel and Gaussian functions centred at the nucleus.  Thus, 
+envelope functions. They are [convolutions of a Hankel and Gaussian](/docs/code/fpoverview/#smoothed-Hankel-functions) function centred at the nucleus.  Thus, 
 in contrast to ordinary Hankel functions (the envelope functions of the LMTO method) which are singular at the origin,
 they resemble Gaussian functions for small _r_ and are smooth everywhere. For large _r_ they behave like ordinary Hankel functions
 and are better approximations to the wave function than Gaussian orbitals.  The mathematical properties of
