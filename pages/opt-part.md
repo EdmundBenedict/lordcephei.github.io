@@ -22,12 +22,12 @@ Will be comming soon, sorry.
 ### _Resolving by k-points_
 In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the contribution to the optical properites by individual k-points, this calculation can be done by simply adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
 
-  OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 ESCISS=0 LTET=3
-          PART=2
+   OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 ESCISS=0 LTET=3
+           PART=2
 
 we can preform this calculation just as any other optics calculation, simply invoke:
 
-  lm pbte -voptmod=1 -vnit=1
+   lm pbte -voptmod=1 -vnit=1
 
 through this the program will write a new file name popt.pbte. The format of this file is different to opt.pbte or jdos.pbte which you have previously encountered; here the first number in each row represtnts the energy while the next 3X numbers are the contributions from X ireducible k-points for the three orientation of the electric field. Below you can see a section of the popt.pbte for 4X4X4 k-mesh:
 
