@@ -159,7 +159,8 @@ Check your directory and you will see that a large number of files were created.
 
 Further details can be found in the Additional exercises below. 
 
-<hr style="height:5pt; visibility:hidden;" />
+<hr style="height:5pt; visibility:hidden;" />   
+
 
 ###Additional exercises   
 
