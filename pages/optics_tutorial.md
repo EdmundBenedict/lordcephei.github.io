@@ -56,7 +56,7 @@ To preform this calculation simply add the text above to the ctrl file (in this 
 
 or equevilantly for the FP implementation
 
-    $ lmf -vnit=1 ctrl.gas
+    $ lmf -vnit=1 ctrl.pbte
 
 (**NOTE**: the **START** category is not used in full-potential calculations and hence can be ignored)additional switches are added to restrict the number of iteration to one, it is also recomended to include the switch  **- -rs=1,0** for FP calculations which will read the saved density from disk but will not update the electron density; this insures that all calculations after self-consistent calculation are preformed on the same density.
 
