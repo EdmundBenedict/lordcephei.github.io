@@ -43,7 +43,7 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ lmf ctrl.si > out.lmfsc                              #make self-consistent
     $ lmf band calculation                                 #calculate and plot bands
 
-Take a look at the band structure plot. The valence band maximum is at the gamma point while the conduction band minimum is most of the way along the $$\Gamma$$-X line. 
+Take a look at the band structure plot. The valence band maximum is at the gamma point while the conduction band minimum is most of the way along the $$\Gamma-X$$ line. 
 
 Now run fine k-mesh to get 
 
