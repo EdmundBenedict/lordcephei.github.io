@@ -6,7 +6,7 @@ header:
     image_nologo: "banner_grey.jpg"
 ---
 
-If you have any questions or concerns, please post them in the "Issues" section on the programs bitbucket repository.
+If you have any questions or concerns, please post them in the "Issues" section on the program's bitbucket repository.
 
 It can be found [here](https://bitbucket.org/lmto/lm/issues?status=new&status=open) if you have an account.
 
