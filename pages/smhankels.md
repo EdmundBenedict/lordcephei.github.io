@@ -20,9 +20,12 @@ _____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-
-### *Smoothed Hankel functions*
 _____________________________________________
+
+### *Unique properties of Smoothed Hankel functions*
+{::comment}
+/docs/code/smhankels/#unique-properties-of-smoothed-hankel-functions
+{:/comment}
 
 Smooth Hankel functions are convolutions of ordinary Hankel functions and Gaussian functions and are regular at the origin. 
 Ordinary Hankel functions are solutions of the Helmholtz wave equation
@@ -51,11 +54,28 @@ Red, green, and blue correspond to $$\ell=0,1,2$$.
 
 ![Ordinary and Smooth Hankel functions](/assets/img/smhankels.svg)
 
-Smooth Hankels are superior to ordinary ones, first because real potentials are not flat so there is scope for improvement on the Hankel functions as the basis set. 
+Smooth Hankels are superior to ordinary ones, first because real potentials are not flat so there is scope for improvement on the Hankel functions as the basis set.
 
 Also the fact that the <i>H<sub>L</sub></i> are everywhere smooth can greatly facilitate their implementation.   In the present Questaal implementation the charge density is kept on a uniform mesh of points.  Sharply peaked functions require finer meshes, and some smoothing would necessary in any case.
 
+They also have the proper asymptotic form, decaying exponentially as real wave functions do at a surface or in a molecule.  Thus they have better shape than gaussian orbitals do.
+
+The big drawback of smooth Hankels is that they are more complicated
+to work with.  One center expansions of ordinary Hankels (needed for
+augmentation) are Bessel functions.  A counterpart for smooth Hankels
+does exist, but they are polynomial expansions called
+<i>P<sub>kL</sub></i>.  The expansion is slower and introduces cutoff
+because when the expansion is truncated.  An enormous advantage
+gaussian orbitals have over both ordinary and smooth Hankels is that
+the product of two of them in real space can be expressed as another
+gaussian.  There exist no counterpart, so an intermediate basis must
+be constructed to make the charge density and matrix elements of the
+potential.  The Questaal suite uses plane waves
+
 ### *Smooth Hankel functions and the H<sub>kL</sub> family*
+{::comment}
+/docs/code/smhankels/#smooth-hankel-functions-and-the-hsubkLsub-family
+{:/comment}
 
 Methfessel's class of functions $$H_{kL}$$, are a superset of 
 smoothed Hankel functions $$H_L$$; they also incorporate the family of 
@@ -169,7 +189,7 @@ Laplacian operator:
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
       \Delta^k\, G_{0L}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla) \Delta^k g(\varepsilon,r_s;r)
-\quad\quad (12)
+\quad (12)
 \end{eqnarray}
 \begin{eqnarray}
 G_{kL}(\varepsilon,r_s;{\mathbf{r}}) = 
@@ -193,7 +213,7 @@ H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mat
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
-\quad\quad\quad\quad\quad\quad\quad\quad (16)
+\quad\quad\quad\quad\quad\quad\quad (16)
 \end{eqnarray}
 This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 

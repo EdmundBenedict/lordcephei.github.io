@@ -30,7 +30,7 @@ to density-functional theory (DFT) to solids, with extensions to _GW_ and interf
 code (DMFT) written by K. Haule.  Most of the programs in the Questaal suite descended the LMTO methodology developed in
 the 1980's by O.K. Andersen's group in Stuttgart.
 
-[This page](https://lordcephei.github.io/about/) outlines some of
+[This page](/about/) outlines some of
 Questaal's unique features, in particular the ability to carry out
 quasiparticle self-consistent calculations.
 
@@ -133,11 +133,12 @@ envelope functions. They are [convolutions of a Hankel and Gaussian](/docs/code/
 in contrast to ordinary Hankel functions (the envelope functions of the LMTO method) which are singular at the origin,
 they resemble Gaussian functions for small _r_ and are smooth everywhere. For large _r_ they behave like ordinary Hankel functions
 and are better approximations to the wave function than Gaussian orbitals.  The mathematical properties of
-these functions are described in some detail in [this paper.](http://scitation.aip.org/content/aip/journal/jmp/39/6/10.1063/1.532437)
+these functions are described in some detail in [this J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
 
 Such a basis has significant advantages: basis sets are much smaller for a given level of precision, but they are
-also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves -- another unique
-feature of this package.
+also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves : the 
+["Planar Muffin Tin"](http://dx.doi.org/10.1103/PhysRevB.81.125117)
+(PMT) basis is another unique feature of this package.
 
 **Note**{: style="color: red"}: some codes in this package are based on the [Atomic Spheres Approximation](/docs/code/asaoverview/); they use LMTO basis sets.
 

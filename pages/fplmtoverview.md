@@ -41,7 +41,7 @@ The envelope functions are smoothed generalizations of Hankel functions that are
 functions, the smoothed versions — convolutions of ordinary Hankel functions and Gaussian functions — are regular at the origin.
 Their smoothness is controlled by an extra degree of freedom, the gaussian width or "smoothing" radius <i>r<sub>s</sub></i>.
 [This page](/docs/code/smhankels/) defines them and outlines some of their mathematical properties.
-A detailed  description of them can be found in [this paper]([J. Math. Phys. 39, 3393 (1998)](http://dx.doi.org/10.1063/1.532437).
+A detailed  description of them can be found in [this J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
 
 Smooth Hankels are a significantly better choice of basis than the customary **LMTO** basis set constructed of normal Hankels.
 However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel.
