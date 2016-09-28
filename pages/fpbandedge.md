@@ -10,7 +10,7 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-This tutorial demonstrates how to find extremal points in k-space using the band-edge program. This is done for silicon starting from a self-consistent LDA density. Silicon is a trivial example as its extremal points are found on lines that pass through high-symmetry points. The band-edge program is particularly useful when looking for multiple extremal points that do not fall on high-symmetry lines. A more complicated example can be found in the additional exercises.  
+This tutorial demonstrates how to find extremal points in k-space and calcualte effective masses using the band-edge program. This is done for silicon starting from a self-consistent LDA density. Silicon is a trivial example as its extremal points are found on lines that pass through high-symmetry points. The band-edge program is particularly useful when looking for multiple extremal points that do not fall on high-symmetry lines. A more complicated example can be found in the additional exercises.  
 
 _____________________________________________________________
 
@@ -48,8 +48,11 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ band-edge -cmd='lmf --rs=1,0' -edge2=1 -maxit=20 --bin -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
     $ band-edge -cmd='lmf --rs=1,0' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
-Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between $$\Gamma$$ and X. 
+Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between $$\Gamma$$ and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first 'float to a point near the minimum point. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
-Now run fine k-mesh to get 
+#### 1. _Rough search by floating to low-energy point_
 
-The VB is at the gamma point, run fine k mesh for 
+#### 2. _Accurate search using minimisation_
+
+#### 3. _Calculate the effective mass_
+
