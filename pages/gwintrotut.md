@@ -159,13 +159,6 @@ Check your directory and you will see that a large number of files were created.
 
 Further details can be found in the Additional exercises below. 
 
-<hr style="height:5pt; visibility:hidden;" />   
-
-
-###Additional exercises   
-
-________________________________________________________________________________________________
-
 - Correct gap:
 This is actually the Γ-X gap; the true gap is 0.44 eV as can be seen by running lmf with a fine k mesh.
 - Changing k mesh:
