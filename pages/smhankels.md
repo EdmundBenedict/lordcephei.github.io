@@ -6,6 +6,7 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
 {:.no_toc}
 
 To describe a some of the properties of smooth Hankel functions.
@@ -13,16 +14,14 @@ They form the basis set of the **lmf**{: style="color: blue"} code,
 and they are used for other properties, e.g. in the calculation of the electrostic potential.
 They also form the backbone of the new [Jigsaw Puzzle Orbitals](/docs/code/jpos/) basis.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+______________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________
-
 ### *Unique properties of Smoothed Hankel functions*
+_________________________________________________________
 {::comment}
 /docs/code/smhankels/#unique-properties-of-smoothed-hankel-functions
 {:/comment}
@@ -73,6 +72,7 @@ be constructed to make the charge density and matrix elements of the
 potential.  The Questaal suite uses plane waves
 
 ### *Smooth Hankel functions and the H<sub>kL</sub> family*
+____________________________________________________________________
 {::comment}
 /docs/code/smhankels/#smooth-hankel-functions-and-the-hsubkLsub-family
 {:/comment}
@@ -228,8 +228,8 @@ origin (see Ref 1, Eq. 6.14).  $$H_{kL}$$ is also the solution to the
 Schrodinger equation for a potential that has an approximately
 gaussian dependence on _r_ (Ref 1, Eq. 6.30).
 
-### Two-center integrals of smoothed Hankels
-
+### _Two-center integrals of smoothed Hankels_
+_______________________________________________________________
 One extremely useful property of the $$H_{kL}$$ is that the product
 of two of them, centered at different sites $${\mathbf{r}}_1$$ and
 $${\mathbf{r}}_2$$, can be integrated in closed form.  The result a sum
@@ -378,7 +378,7 @@ When $$\varepsilon=0$$ and $$k\ge 1$$ the $$H_{kL}$$ are generalized Gaussian fu
 Eq. (16).  Eq. (24) is then suitable for two-center integrals of generalized Gaussian functions.
 
 ### _Smoothed Hankels for positive energy_
-
+_______________________________________________________________
 The smooth Hankel functions defined in Ref. 1 for negative energy
 also apply for positive energy.  We demonstrate that here, and
 show that the difference between the conventional and smooth
@@ -448,6 +448,7 @@ h_{-1} - h^s_{-1} = [U_+/2 - U_-/2] / (-i \kappa) = -\mathrm{Im} (U_+) / \kappa
 Both are real, though $$h_0$$ and $$h_{-1}$$ are complex.
 
 ### _Other Resources_
+____________________________________________________
 {::comment}
 /docs/code/smhankels/#other-resources/
 {:/comment}
