@@ -32,13 +32,13 @@ The following features are unique to this method:
 
 ### *Smoothed Hankel functions*
 {::comment}
-/docs/code/fpoverview/#smoothed-Hankel-functions
+/docs/code/fpoverview/#smoothed-hankel-functions
 {:/comment}
 
 _____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel
-functions, the smoothed versions — [convolutions of ordinary Hankel functions and Gaussian functions(/docs/code/smhankels/) — are regular at the origin.
+functions, the smoothed versions — [convolutions of ordinary Hankel functions and Gaussian functions](/docs/code/smhankels/) — are regular at the origin.
 Their smoothness is controlled by an extra degree of freedom, the gaussian width or "smoothing" radius <i>r<sub>s</sub></i>.
 [This page](/docs/code/smhankels/) defines them and outlines some of their mathematical properties.
 A detailed  description of them can be found in this [J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).

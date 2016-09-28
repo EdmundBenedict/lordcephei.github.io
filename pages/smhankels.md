@@ -196,13 +196,19 @@ G_{kL}(\varepsilon,r_s;{\mathbf{r}}) =
       \Upsilon_L(-\nabla)\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r\cdot\right)^k g(\varepsilon,r_s;r)\\
 \quad\quad\quad\quad (13)
 \end{eqnarray}
-\begin{eqnarray}
+
+$$
 \widehat{G}_{kL}(\varepsilon,r_s;\mathbf{q}) = 
       \Upsilon_L(-i\mathbf{q})(-q^2)^k e^{r_s^2(\varepsilon-q^2)/4}
 \quad\quad\quad\quad\quad\quad (14)
-\end{eqnarray}
+$$
 
-The second equation shows that $$G_{kL}$$ has the structure (polynomial of order $$p$$ in $$r^2$$)$$\times G_L$$.
+The second equation shows that $$G_{kL}$$ has the structure (polynomial of order $$k$$ in $$r^2$$)$$\times G_L$$.
+These polynomials are related to the generalized Laguerre polynomials of half-integer order in $$r^2$$.
+They obey a recurrence relation (see Ref 1, Eq. 5.19), which is how they are evaluated in practice.
+They are proportional to the polynomials <i>P<sub>kL</sub></i> used in one-center expansions of 
+smoothed Hankels around remote sites (see Ref 1, Eq. 12.7).
+
 Comparing the last form Eq. (14) to Eq. (10)
 and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
