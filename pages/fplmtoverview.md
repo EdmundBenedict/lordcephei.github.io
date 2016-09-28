@@ -6,14 +6,13 @@ header: no
 ---
 
 ### _Purpose_
-________________________________________________________________________________________________
 {:.no_toc}
-
+_____________________________________________________________
 The **lmf**{: style="color: blue"} program is an all-electron implementation of the local-density approximation, with a basis consisting of generalized (smoothed) Hankel functions, or **LAPWs**, or some combination of the two.
 
 ### _Table of Contents_
-________________________________________________________________________________________________
 {:.no_toc}
+_____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
