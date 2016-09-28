@@ -79,7 +79,11 @@ In many respects, JPOs are nearly ideal basis functions.  They do have two impor
  + They are complex objects, complicating their augmentation and assembling of matrix elements.
  + No analytic form for products of two of them as there are for plane waves and guassian orbitals.
 
-### *Mathematical construction of Jigsaw Puzzle Orbitals*
+### *Construction of Jigsaw Puzzle Orbitals*
+______________________________________________________________
+{::comment}
+/docs/code/jpos/#construction-of-jigsaw-puzzle-orbitals
+{:/comment}
 
 ### _Other Resources_
 ______________________________________________________________
