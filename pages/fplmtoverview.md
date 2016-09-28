@@ -38,15 +38,17 @@ The following features are unique to this method:
 _____________________________________________
 
 The envelope functions are smoothed generalizations of Hankel functions that are found in **LMTO** programs. Unlike the normal Hankel
-functions, the smoothed versions — convolutions of ordinary Hankel functions and Gaussian functions — are regular at the origin.
+functions, the smoothed versions — [convolutions of ordinary Hankel functions and Gaussian functions(/docs/code/smhankels/) — are regular at the origin.
 Their smoothness is controlled by an extra degree of freedom, the gaussian width or "smoothing" radius <i>r<sub>s</sub></i>.
 [This page](/docs/code/smhankels/) defines them and outlines some of their mathematical properties.
-A detailed  description of them can be found in [this J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
+A detailed  description of them can be found in this [J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
 
 Smooth Hankels are a significantly better choice of basis than the customary **LMTO** basis set constructed of normal Hankels.
 However, the smoothing introduces complications because the augmentation of a smoothed Hankel function is less straightforward than of a normal Hankel.
 The envelope functions are not screened into a tight-binding representation, as in the second-generation and later generation **LMTO**
-methods; thus wave functions are evaluated by Ewald summation. A real-space version using screened envelope functions is in progress.
+methods; thus wave functions are evaluated by Ewald summation. An new basis, "Jigsaw Puzzle Orbitals,"  makes use of screening and some other tricks
+to construct a highly accurate, short ranged, minimal basis of envelope functions tailored to the potential of the solid.
+
 
 ### *Local Orbitals*
 _____________________________________________
@@ -57,7 +59,7 @@ This package extends the [linear method](/docs/package_overview/#linear-methods-
 _____________________________________________
 
 In July 2008 Takao Kotani added **APW**s as additional envelope functions, which can increase the flexibility of the basis. 
-The combination of smooth Hankel functions and APWs is called the "PMT" method, described in [this paper](http://dx.doi.org/10.1103/PhysRevB.81.125117).
+The combination of smooth Hankel functions and APWs is described in this paper on the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
 One can view PMT's as an extension of a conventional **LAPW** method, enabling through the use of a few **MTO**s with much faster convergence in
 energy cutoff of **APW**s. Alternatively, it can be viewed as an extension of the original **MTO** method, A principal advantage of the
 **APW** basis is that it easier to make complete. Thus **APW**s offer a systematic way of converging the combined **MTO** + **APW** basis

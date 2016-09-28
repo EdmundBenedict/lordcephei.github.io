@@ -34,6 +34,10 @@
         url: "/asaoverview/"
       - title: "ASA Green's function"
         url: "/lmgf/"
+      - title: "Smooth Hankel Functions"
+        url: "/smhankels/"
+      - title: "Jigsaw Puzzle Orbitals"
+        url: "/jpos/"
   - program:
     - name: "Input Files"
       prefix: "/input"

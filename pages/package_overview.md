@@ -133,7 +133,7 @@ envelope functions. They are [convolutions of a Hankel and Gaussian](/docs/code/
 in contrast to ordinary Hankel functions (the envelope functions of the LMTO method) which are singular at the origin,
 they resemble Gaussian functions for small _r_ and are smooth everywhere. For large _r_ they behave like ordinary Hankel functions
 and are better approximations to the wave function than Gaussian orbitals.  The mathematical properties of
-these functions are described in some detail in [this J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
+these functions are described in some detail in this [J. Math. Phys. paper](http://dx.doi.org/10.1063/1.532437).
 
 Such a basis has significant advantages: basis sets are much smaller for a given level of precision, but they are
 also more complex.  It is also possible to take a combination of smoothed Hankels and plane waves : the 
