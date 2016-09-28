@@ -155,6 +155,7 @@ It is unfortunate that these distinct but related functions have the same symbol
 /docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons/
 {:/comment}
 
+<hr style="height:5pt; visibility:hidden;" />
 
 <div onclick="elm = document.getElementById('corep'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here for a description of <i>P</i> for two limiting cases: core levels and free electrons.</button>
