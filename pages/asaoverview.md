@@ -486,7 +486,7 @@ basis). Now try folding down the empty sphere _s_ as well: any
 worse than Harrison's minimal basis? (Try the deformation
 potentials!)
 
-{::nomarkdown}</div>{:/}
+</div>
 
 ### _Other Resources_
 ________________________________________________________________________________________________
