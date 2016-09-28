@@ -41,9 +41,14 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ cp actrl.si ctrl.si                                  #copy actrl to recognised ctrl prefix
     $ lmfa ctrl.si; cp basp0.si basp.si                    #run lmfa and copy basp file
     $ lmf ctrl.si > out.lmfsc                              #make self-consistent
-    $ lmf band calculation                                 #calculate and plot bands
+    $ lmf --rs=1,0 -vnit=1 --band~fn=syml si               #calculate and plot bands
+    $ rdcmd makeplot_scott; evince fplot.ps &
 
-Take a look at the band structure plot. The valence band maximum is at the gamma point while the conduction band minimum is most of the way along the $$\Gamma-X$$ line. 
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -floatmn -maxit=20 --bin -r=.1 -dqmx=.05 -band=5 -q0=0.5,0,0 si  #float
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -edge2=1 -maxit=20 --bin -r=.04 -dqmx=.05 -band=5 -gtol=.0001 -q0=0.82,0,0 si  #kmin
+    $ band-edge -cmd='lmf --rs=1,0 -vnit=1' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si  #mass
+
+Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between $$\Gamma$$ and X. 
 
 Now run fine k-mesh to get 
 
