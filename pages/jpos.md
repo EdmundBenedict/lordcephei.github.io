@@ -24,6 +24,8 @@ ________________________________________________________________
 /docs/code/jpos/#special-properties-of-jigsaw-puzzle-orbitals
 {:/comment}
 
+![s and p JPO's for a 1d 2-centers model](/assets/img/jpo2c.svg)
+
 ### _Other Resources_
 ______________________________________________________________
 {::comment}
