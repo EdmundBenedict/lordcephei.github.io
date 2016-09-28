@@ -6,17 +6,16 @@ header: no
 ---
 
 ### _Purpose_
-_____________________________________________________________
 {:.no_toc}
-
+_____________________________________________________________
 To describe a some of the properties of smooth Hankel functions.
 They form the basis set of the **lmf**{: style="color: blue"} code,
 and they are used for other properties, e.g. in the calculation of the electrostic potential.
 They also form the backbone of the new [Jigsaw Puzzle Orbitals](/docs/code/jpos/) basis.
 
 ### _Table of Contents_
-______________________________________________________
 {:.no_toc}
+_____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
