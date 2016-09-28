@@ -6,9 +6,8 @@ header:
     image_nologo: "banner_grey.jpg"
 ---
 
-Please click <a href="mailto:help.lmto@gmail.com">here</a> to write an email.  
+If you have any questions or concerns, please post them in the "Issues" section on the programs bitbucket repository.
 
-If you do not have a mail system set up on your computer, you can use this
-email address to mail to from a browser: *help.lmto@gmail.com*
+It can be found [here](https://bitbucket.org/lmto/lm/issues?status=new&status=open) if you have an account.
 
-We will try to get back to you as soon as possible.
+If you would be interested in gaining access to the code, or to the repository please send a mail to gergely.kantor@kcl.ac.uk or lewis.christiansen@kcl.ac.uk
