@@ -44,7 +44,7 @@ format; but it is often the case that you need only a subset of the bands or to 
 which **plbnds**{: style="color: blue"} can do efficiently.
 Data for each symmetry line is kept in a separate file.
 
-**plbnds**{: style="color: blue"} may be used in one several contexts:
+**plbnds**{: style="color: blue"} may be used in one of several contexts:
 
 1. To make postscript files of bands directly, without other software.  Very quick but there is no easy way to modify the figure.
 2. To select and formatting data for use with **gnuplot**{: style="color: blue"} or other standard graphics package
