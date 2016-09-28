@@ -123,5 +123,4 @@ here the switch "- -pr81"  increases the verbosity setting of the program to pri
 
 
 ### _Resolving by k-points and band to band contributions_
-
-Will be comming soon, sorry.
+To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and the by k-points.
