@@ -7,14 +7,13 @@ header: no
 ---
 
 ### _Purpose_
-________________________________________________________________________________________________
 {:.no_toc}
-
+_____________________________________________________________
 This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ approximation.
 
 ### _Table of Contents_
-________________________________________________________________________________________________
 {:.no_toc}
+_____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
