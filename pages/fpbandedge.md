@@ -59,9 +59,25 @@ Let's start at the point half-way between &Gamma and X (0.5, 0.0, 0.0) and float
 
 The 'floatmn' switch specifies that you are looking for a minimum-energy point (see additional exercises for a maximum-energy point example). The 'maxit' switch sets the number of iterations (number of times a set of points is created), 'r' is a range that defines how far out the points are generated, 'band' is for the band considered (here conduction band since 4 electrons and spin degenerate) and lastly q0 is the starting k-point. 
 
-Test...
+             start iteration 1 of 20
+             lmf si --band~lst=5~box=.1,n=12+o,q0=0.5,0,0 > out.lmf
+    qnow     :     0.500000     0.000000     0.000000       0.2628584
+    gradient :    -0.231511     0.000000     0.000046       0.231511
+    q*       :     0.925046     0.000000     0.001935
+    use      :     0.589443     0.000000     0.044721
+
+You should get an output similar to the above. Take a look at the line beginning with lmf, this is the command that band-edge uses to run lmf to get the energy of the cluster of points. The qnow line gives the current central k-point (0.5,0,0) and its energy in Rydbergs. The 'use' line prints the lowest-energy k-point from the cluster of points, this will then be used as the central point in the next iteration. The cluster of 13 k-points and their energies are printed to the bnds.si file, take a look and you will see that the point (0.589443, 0.0, 0.044721) is indeed the lowest-energy point.  
+
+Note that the qnow energies are getting smaller as we float to a low-energy region. After 5 iterations, the following is printed: 'cluster center is extremal point ... exiting loop'. The central k-point is the lowest-energy point and the float routine is finished.
 
 #### 2. _Gradient minimization_
+Starting from our low-energy float point, the next step is to do a more refined search using a gradient minimization approach. Band-edge creates a new cluster of points, does a quadratic fit and then traces the gradients to a minimum point. Run the following command:
+
+    $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
+
+The 'edge2' part specifies what gradient minimization algorithm to use (run 'band-edge --h' for more information), the r is the excursion range (step size in minimization), the 'gtol' is the tolerance in the gradient and the q0 is the starting point that we obtained from the float step. 
+
+The output is similar to before but now we will pay attention to the gradient line which prints the x, y and z gradient components and the last column gives the magnitude. Note how the gradient magnitude is decreasing with each step until it falls below the specified tolerance (gtol). At this point, the gradients minimization is converged and the following is printed 'gradient converged to tolerance gtol = .0001'.   
 
 #### 3. _Calculate effective mass_
-
+Now that we have accurately determined the conduction band minimum, we can calculate the effective mass. 
