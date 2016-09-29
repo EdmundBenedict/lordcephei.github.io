@@ -17,7 +17,18 @@ This tutorial follows from the [self-consistent](/tutorial/asa/lm_pbte_tutorial/
 
 ### _Individual band to band contribution _
 
-Will be comming soon, sorry.
+The imaginary part of the dielectric function and denseties can be both resolved  by band to band contribution, to preform  such calculation it is only necessery to set **OPTICS_PART=1** with in the control file, such that
+
+      OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
+              FILBND=9,10 EMPBND=11,12
+              PART=1
+              
+and preform the calculation as befor. 
+        
+      lm -vnit=1 ctrl.pbte
+        
+It is worth noting that caution should be taken with such settings as the output (popt.exe) can become very large. For the exampel above werethe bands are restricted to 2 for conduction and valnce bands there will be 12 values for each energy point. Thes values correspond to contirbution to the imaginary part of the dielectric from band 9 to band 10 for x orientation of electric field followed by y and z counter parts, the next three digits correspond to contributions form transitions from band 9 to 12 (three values for x,y and z) followed by transitions from valence band 10 to conduction band 11 and finaly band 10 to band  12; with a total of 1001 energy point 13013 values the file popt.pbte.
+
 
 ### _Resolving by k-points_
 In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the contribution to the optical properites by individual k-points, this calculation can be done by simply adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
@@ -127,4 +138,10 @@ here the switch "- -pr81"  increases the verbosity setting of the program to pri
 
 
 ### _Resolving by k-points and band to band contributions_
-To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and the by k-points.
+To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and the by k-points. that is for the case below
+
+      OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
+              FILBND=9,10 EMPBND=11,12
+              PART=3
+
+with 8 irreducible k-pointsthere will be 96 values for each energy point. these values are the contributions of the transitions resolved by band to band first ( as described for **OPTICS_PART=1** ) and k-points second (as described for **OPTICS_PART=2**.
