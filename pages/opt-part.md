@@ -20,7 +20,7 @@ This tutorial follows from the [self-consistent](/tutorial/asa/lm_pbte_tutorial/
 The imaginary part of the dielectric function and denseties can be both resolved  by band to band contribution, to preform  such calculation it is only necessery to set **OPTICS_PART=1** with in the control file, such that
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
-              FILBND=9,10 EMPBND=11,12
+              FILBND=4,5 EMPBND=6,6
               PART=1
               
 and preform the calculation as befor. 
@@ -141,7 +141,7 @@ here the switch "- -pr81"  increases the verbosity setting of the program to pri
 To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and the by k-points. that is for the case below
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
-              FILBND=9,10 EMPBND=11,12
+              FILBND=4,5 EMPBND=6,7
               PART=3
 
 with 8 irreducible k-pointsthere will be 96 values for each energy point. these values are the contributions of the transitions resolved by band to band first ( as described for **OPTICS_PART=1** ) and k-points second (as described for **OPTICS_PART=2**.
