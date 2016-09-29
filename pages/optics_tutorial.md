@@ -92,7 +92,7 @@ Both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} offer a ra
 It is possible to perform any of the optics mode calculations described above for a restricted number of bands, this can greatly speed up the calculation and allow for isolation and identification of individual band contributions. To restric the bands involved in the calculation simply provide a range of values for occupied and unoccupied bands through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND** respectively. Below is an example of an optics category which calculates the contribution to  Im$\eps$ from the highest two valence bands and the lowest two conduction bands for silicon:
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
-              FILBND=9,10 EMPBND=11,12
+              FILBND=4,5 EMPBND=6,7
               
 The optics output file generated with restricted bands will have the same name and format as unrestricted band calculations, which has been described previously in this tutorial.
 
