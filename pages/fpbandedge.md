@@ -44,18 +44,20 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ lmf --rs=1,0 -vnit=1 --band~fn=syml si               #calculate and plot bands
     $ rdcmd makeplot_scott; evince fplot.ps &
 
-    $ band-edge -cmd='lmf --rs=1,0' -floatmn -maxit=20 --bin -r=.1 -band=5 -q0=0.5,0,0 si  
-    $ band-edge -cmd='lmf --rs=1,0' -edge2=1 -maxit=20 --bin -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
-    $ band-edge -cmd='lmf --rs=1,0' -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
+    $ band-edge -floatmn -maxit=20 -r=.1 -band=5 -q0=0.5,0,0 si  
+    $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
+    $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
 Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
 #### 1. _Float to low-energy point_
-The band-edge script has a 'float' option that is useful for doing a quick search to find a low-energy region of k-space. You specify a starting point, then the script creates a cluster of points around it and checks what is the lowest energy point. It then uses the lowest energy point as the new central point, creates a new set of points around it and again moves to the lowest energy one. This process is repeated until the central point is the lowest energy point. Let's start at the point half-way between &Gamma and X (0.5, 0.0, 0.0). Run the following command:
+The band-edge script has a 'float' option that is useful for doing a quick search to find a low-energy (or high-energy) region of k-space. You specify a starting point, then the script creates a cluster of points around it and checks what is the lowest-energy point. It then uses the lowest-energy point as the next central point, creates a new set of points around it and again moves to the lowest-energy one. This process is repeated until the central point is the lowest-energy point. Let's start at the point half-way between &Gamma and X (0.5, 0.0, 0.0) and float down in energy. Run the following command:
 
-    $ band-edge -floatmn -maxit=20 --bin -r=.1 -band=5 -q0=0.5,0,0 si
+    $ band-edge -floatmn -maxit=20 -r=.1 -band=5 -q0=0.5,0,0 si
 
-The 'floatmn' switch specifies that you are looking for the minimum energy point (see additional exercises for an example using the highest energy point). The 'maxit' switch...
+The 'floatmn' switch specifies that you are looking for a minimum-energy point (see additional exercises for a maximum-energy point example). The 'maxit' switch sets the number of iterations (number of times a set of points is created), 'r' is a range that defines how far out the points are generated, 'band' is for the band considered (here conduction band since 4 electrons and spin degenerate) and lastly q0 is the starting k-point. 
+
+Test...
 
 #### 2. _Gradient minimization_
 
