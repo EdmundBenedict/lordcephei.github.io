@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Finding extremal points in k-space"
+title: "Extremal points and calculating effective mass"
 permalink: "/tutorial/lmf/lmf_bandedge/"
 sidebar: "left"
 header: no
@@ -46,7 +46,7 @@ The starting point is a self-consistent LDA calculation, you may want to review 
 
     $ band-edge -floatmn -maxit=20 -r=.1 -band=5 -q0=0.5,0,0 si  
     $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
-    $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
+    $ band-edge -mass -alat=10.26 -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
 Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
@@ -80,4 +80,9 @@ The 'edge2' part specifies what gradient minimization algorithm to use (run 'ban
 The output is similar to before but now we will pay attention to the gradient line which prints the x, y and z gradient components and the last column gives the magnitude. Note how the gradient magnitude is decreasing with each step until it falls below the specified tolerance (gtol). At this point, the gradients minimization is converged and the following is printed 'gradient converged to tolerance gtol = .0001'.   
 
 #### 3. _Calculate effective mass_
-Now that we have accurately determined the conduction band minimum, we can calculate the effective mass. 
+Now that we have accurately determined the conduction band minimum, we can calculate the effective mass. This is done by fitting a quadratic form to a set of points around the conduction band minimum. Run the following command:
+
+    $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
+
+The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed to convert from units of 2&pi/a to
+
