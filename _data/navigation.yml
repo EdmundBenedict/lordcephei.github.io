@@ -38,6 +38,8 @@
         url: "/smhankels/"
       - title: "Jigsaw Puzzle Orbitals"
         url: "/jpos/"
+      - title: "CPA Enhancement of the Green's function package"
+        url: "/cpadoc/"
   - program:
     - name: "Input Files"
       prefix: "/input"
