@@ -110,7 +110,7 @@
         url: "/lmf_pdos/"
       - title: "Performing Mulliken Analysis"
         url: "/lmf_mulliken/"
-      - title: "Finding extremal points in k-space"
+      - title: "Extremal points and calculating effective mass"
         url: "/lmf_bandedge/"
     - name: "ASA"
       prefix: "/asa"
