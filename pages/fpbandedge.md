@@ -92,7 +92,7 @@ The last line of the output prints the three effective mass components in atomic
 
 1) Find valence band maximum and calculate effective mass
 
-Try floating from the point (0.25,0,0) then do a gradient minimization and calculate the effective mass. The region around the valence band maximum is flatter so try using a smaller excursion radius such as 0.001. Note that you will have to change floatmn to floatmx and the band number from 5 to 4. 
+Although we know the valence band maximum for silicon is at the &Gamma point, we will use it as an example for finding a maximum point. In the float step, change the floatmn (for minimum) to floatmx (for maximum) and change the band number to 4 (for valence band). Notice the energies are going up. Now do a gradient minimization from the point you floated to, remember to change the band number to 4. The valence band maximum is in a flatter region so try using a smaller excursion radius, say 0.001. Then calculate the effective mass. Your values should be around (-0.33, -0.56, -0.88). The negative signs indicate a maximum point in all three directions. 
 
 2) Find extremal points for ..., they do not lie on high-symmetry lines. 
 
