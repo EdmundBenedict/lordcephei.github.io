@@ -48,7 +48,7 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
     $ band-edge -mass -alat=10.26 -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
-Take a look at the band structure plot. The valence band maximum is at the $$$\Gamma$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
+Take a look at the band structure plot. The valence band maximum is at the $$\Gamma$$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
 #### 1. _Float to low-energy point_
 The band-edge script has a 'float' option that is useful for doing a quick search to find a low-energy (or high-energy) region of k-space. You specify a starting point, then the script creates a cluster of points around it and checks what is the lowest-energy point. It then uses the lowest-energy point as the next central point, creates a new set of points around it and again moves to the lowest-energy one. This process is repeated until the central point is the lowest-energy point. 
@@ -84,7 +84,7 @@ Now that we have accurately determined the conduction band minimum, we can calcu
 
     $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.8458,0,0 si
 
-The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed since the k points are given in units of 2&Pi /a. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
+The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed since the k points are given in units of 2$$\pi$$/a. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
 
 
 
