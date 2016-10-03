@@ -4,7 +4,7 @@ title: "CPA Enhancement of the Green's function package"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/cpa-documentation/"
+permalink: "/docs/code/cpadoc/"
 header: no
 ---
 
