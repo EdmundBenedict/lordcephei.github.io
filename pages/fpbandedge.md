@@ -82,7 +82,11 @@ The output is similar to before but now we will pay attention to the gradient li
 #### 3. _Calculate effective mass_
 Now that we have accurately determined the conduction band minimum, we can calculate the effective mass. This is done by fitting a quadratic form to a set of points around the conduction band minimum. Run the following command:
 
-    $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
+    $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.8458,0,0 si
 
-The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed to convert from units of 2&pi/a to
+The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed since the k points are given in units of 2&Pi /a. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
+
+
+
+
 
