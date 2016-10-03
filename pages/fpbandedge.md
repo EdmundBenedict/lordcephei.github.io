@@ -21,14 +21,18 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-    $ cp lm/doc/demos/qsgw-si/init.si .                    #copy init file to working directory
+    $ cp lm/doc/demos/qsgw-si/{init.si,syml.si} .          #copy init and syml files to working directory
     $ blm init.si --express --gmax=5 --nk=4 --nit=20       #use blm tool to create actrl and site files
     $ cp actrl.si ctrl.si                                  #copy actrl to recognised ctrl prefix
     $ lmfa ctrl.si; cp basp0.si basp.si                    #run lmfa and copy basp file
     $ lmf ctrl.si > out.lmfsc                              #make self-consistent
-    
-    $ band-edge part
+    $ lmf --rs=1,0 -vnit=1 --band~fn=syml si               #calculate and plot bands
+    $ rdcmd makeplot_scott; evince fplot.ps &
 
+    $ band-edge -floatmn -maxit=20 -r=.1 -band=5 -q0=0.5,0,0 si  
+    $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
+    $ band-edge -mass -alat=10.26 -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
+    
 {::nomarkdown}</div>{:/}
 _____________________________________________________________
 
@@ -43,10 +47,6 @@ The starting point is a self-consistent LDA calculation, you may want to review 
     $ lmf ctrl.si > out.lmfsc                              #make self-consistent
     $ lmf --rs=1,0 -vnit=1 --band~fn=syml si               #calculate and plot bands
     $ rdcmd makeplot_scott; evince fplot.ps &
-
-    $ band-edge -floatmn -maxit=20 -r=.1 -band=5 -q0=0.5,0,0 si  
-    $ band-edge -edge2=1 -maxit=20 -r=.04 -band=5 -gtol=.0001 -q0=0.82,0,0 si 
-    $ band-edge -mass -alat=10.26 -r=.0005,.001,.002,.003 -band=5 -q0=0.847,0,0 si
 
 Take a look at the band structure plot. The valence band maximum is at the $$\Gamma$$ point while the conduction band minimum is most of the way along the line between &Gamma and X. We will now use the band-edge script to accurately locate the position of the conduction band minimum and to calculate the effective mass. This is done in three steps, you first do a rough search by 'floating' to a point near the minimum. From here, you do a more refined search by carrying out a minimisation until the gradient is negligibly small. Lastly, you calculate the effective mass around this point. 
 
