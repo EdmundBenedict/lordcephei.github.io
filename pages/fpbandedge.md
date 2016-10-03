@@ -84,9 +84,9 @@ Now that we have accurately determined the conduction band minimum, we can calcu
 
     $ band-edge -mass -alat=10.26 --bin -r=.0005,.001,.002,.003 -band=5 -q0=0.8458,0,0 si
 
-The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed since the k points are given in units of 2$$\pi$$/a. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
+The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed to convert to atomic units since the code reports k-points in units of 2$$\pi$$/alat. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
 
-
+The last line of the output prints the three effective mass components in atomic units. So for silicon, the effective mass is anisotropic with two light masses around 0.19 me and a heavier effective mass along the long axis.      
 
 
 
