@@ -86,7 +86,14 @@ Now that we have accurately determined the conduction band minimum, we can calcu
 
 The mass refers to effective mass calculation and alat is the lattice constant (this can be found in the lmf output or in the site file). The lattice constant is needed to convert to atomic units since the code reports k-points in units of 2$$\pi$$/alat. Here, the r gives the radii of the four clusters of points around the central point. The extra points improve the accuracy of the quadratic fitting. 
 
-The last line of the output prints the three effective mass components in atomic units. So for silicon, the effective mass is anisotropic with two light masses around 0.19 me and a heavier effective mass along the long axis.      
+The last line of the output prints the three effective mass components in atomic units. So for silicon, the effective mass is anisotropic with lighter masses in two directions and a heavier effective mass in the third direction.       
 
+### _Additional Exercises_
 
+1) Find valence band maximum and calculate effective mass
 
+Try floating from the point (0.25,0,0) then do a gradient minimization and calculate the effective mass. The region around the valence band maximum is flatter so try using a smaller excursion radius such as 0.001. Note that you will have to change floatmn to floatmx and the band number from 5 to 4. 
+
+2) Find extremal points for ..., they do not lie on high-symmetry lines. 
+
+Repeat...
