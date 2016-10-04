@@ -6,7 +6,7 @@ header: no
 ---
 
 ### _Purpose_
-This guide aims to detail the structure and use of the input file and related topics. Additionally, the guide details the different categories that the input file uses and the tokens that can be set within each category.
+This guide aims to detail the structure and use of the input file and related topics. Additionally, the guide details the different categories that the input file uses and the tokens that can be set within each category.  A more careful description of the input file's syntax can be found in [this manual](/docs/input/inputfilesyntax/).
 
 _____________________________________________________________
 
@@ -129,7 +129,9 @@ And the scope of the second **SITE_ATOM** is
 
 Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) and as a tag holding tokens within it, in this case **SITE_ATOM_POS** and (for the first site) **SITE_ATOM_RELAX**.  
 
-Some tags are required; others are optional; still others (in fact most) may not be used at all by a particular program. If a code needs site data, **SITE_ATOM_POS** is required, but **SITE_ATOM_RELAX** is probably optional, or not read at all.  
+Some tags are required; others are optional; still others (in fact most) may not be used at all by a particular program. If a code needs site data, **SITE_ATOM_POS** is required, but **SITE_ATOM_RELAX** is probably optional, or not read at all.
+
+_Note:_{: style="color: red"} [this manual](/docs/input/inputfilesyntax/) contains a more careful description of the input file's syntax.
 
 ##### _Preprocessor_
 {::comment}
