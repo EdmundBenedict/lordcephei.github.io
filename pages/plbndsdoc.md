@@ -81,8 +81,9 @@ contains essential information about the contents.  It says that:
 + the Fermi level is -0.02136 Ry
 + the file contains two sets of color weights
 
-strings **col=** and following are not used; they are there for record-keeping.
+Strings **col=** and following are not used; they are there for record-keeping.
 
+##### Example 1
 Enter the following to make and view the postscript file:
 
     $ echo -0.8,0.6,10,15 | plbnds -lbl=M,G,A,L,G,K bnds.co
@@ -99,6 +100,8 @@ Note the following:
 + Bands are plotted as fat dots at the points where they are generated.
 + It is easy to distinguish the dense tangle of flat _d_ bands approximately between -0.3 and +0.1 Ry.  
   The _sp_ bands are highly dispersive and approximately quadratic; see particularly below -0.4 and above +0.1
+
+##### Example 2
 
 For a better and more modifiable figure, run **plbnds**{: style="color: blue"} again with:
 
@@ -148,32 +151,63 @@ Make and view a postscript file with
     $ fplot -f plot.plbnds
     $ open fplot.ps 
 
-The figure is much closer to publication quality.  You can of course customize _plot.plbnds_{: style="color: green"}.
+This figure is much closer to publication quality.  You can of course customize _plot.plbnds_{: style="color: green"}.
 
-The last example uses the color weights to distinguish spin-up and spin-down bands.
+##### Example 3
+
+This example uses the color weights to distinguish spin-up and spin-down bands.
 _bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
-Assuming your source directory is **~/lm**), you can make _bnds.co_{: style="color: green"} yourself with this script
+Assuming your source directory is **~/lm**), you can make _bnds.co_{: style="color: green"} yourself running this script:
 
     $ ~/lm/fp/test/test.fp co 1
 
-The first color selects out the majority _d_ bands; the second the minority _d_ bands.
+The first color selects out the majority bands of _d_ character, the second the minority _d_ bands.
+That is, the orbital wave function is projected onto the Co _d_ channel.  
+A weight is assigned for the first color, 0 being no projection of the eigenfunction onto majority _d_ and 1 being 100\% projection.
+Another weight is assigned for the second color, same convention but minority _d_ are selected out.
 
-
-Run plbnds without `-nocol` but adding a line type 
+Run **plbnds**{: style="color: blue"} as before, exept eliminating `-nocol` and adding a line type:
 
     $ echo -10,8 / | plbnds -fplot -ef=0 -scl=13.6 -lt=1,bold=3,col=0,0,0,colw=.7,0,0,colw2=0,.7,0 -lbl=M,G,A,L,G,K bnds.co
     $ fplot -f plot.plbnds
     $ open fplot.ps 
 
-The line type specifes the line thickness `(bold=3)`; the color of the background (`col=0,0,0`) --- i.e. the color in
-the absence of projection from the first and second weights; colors of the first and second weights (`colw=.7,0,0` and `colw2=0,.7,0`).
-The three numbers correspond to fractions of (red, green, blue).
+The line type specifes a solid line (`-lt=1`), the line thickness (`bold=3`); the color of the background (`col=0,0,0`) which is the line color when
+the first and second weights vanish; colors of the first weight (`colw=.7,0,0`) and second weight `colw2=0,.7,0`), respectively.
+The three numbers correspond to fractions of (red, green, blue).  Thus, if a band has no _d_ character it will be black;
+it will be red with 100% majority _d_ character and green with 100% minority _d_ character.
 
-The figure shows clearly which bands have majority and minority  _d_ character.  Note that the highly dispersive band between &Gamma; and A, in the window (-2,0) eV, is black.
+The figure shows clearly which bands have majority and minority  _d_ character.  The colors nicely elucidate the following points:
+
++ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.
+  You can see traces of it near &Gamma; at around -0.5 eV, it increases as _k_ moves away from &Gamma;.
++ The majority and minority _d_ bands are quite distinct.  This means that <i>s_<sub>z</sub></i> is almost a good quantum number.
+  In the absence of spin-orbit coupling it is a good quantum number.
++ The majority and minority _d_ bands are approximatey the same shape, but split by approximately 1.6 eV.  This is as expected, since in simple models the splitting a simple constant value of <i>I</i>&times;<i>M</i>, where <i>I</i> and <i>M</i> are respectively the Stoner parameter and the magnetic moment.  In 3_d_ transition metals, <i>I</i> is close to 1 eV, and for Co, <i>M</i>=1.6 <i>&mu;</i><sub>B</sub>.
 
 ### 3. _plbnds manual_
 
-... to be completed	
+<pre>
+plbnds [-switches] _filename_{: style="color: green"}
+</pre>
+
+_filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: green"} in this case).  You can also use just the extension
+(_co_{: style="color: green"}).
+
+It reads four numbers from **stdin**:\\
+ `emin, emax, width(cm), height(cm)`
+
+`emin` and `emax` comprise the lower and upper bounds of figure (data is written
+only for bands that fall in this range).  The third and fourth arguments
+are used only when **plbnds**{: style="color: blue"} makes a postscript file,
+and indicate the size of the figure.
+
+Optional switches control the following:
+
++ -help | --help | --h \\
+  prints out a help message and exits
+
++ abc
 
 _____________________________________________________________
 
