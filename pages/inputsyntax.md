@@ -40,17 +40,17 @@ respects:
 
 2. A tree of identifiers completely specifies a particular marker.  The
    full sequence we call a _tag_; it is written as a string of
-   identifers separated by underscores, e.g. **SPEC\_SCLWSR**,
-   **SPEC\_ATOM\_Z**  **ITER\_CONV**.  Thus a tag is analogous to a
-   path in a tree directory structure: **SPEC**, **SPEC\_ATOM**,
-   and **SPEC\_ATOM\_Z**, are tags with successively more
+   identifers separated by underscores, e.g. **SPEC\_SCLWSR**,&nbsp;
+   **SPEC\_ATOM\_Z**,&nbsp;  **ITER\_CONV**.  Thus a tag is analogous to a
+   path in a tree directory structure: **SPEC**,&nbsp; **SPEC\_ATOM**,&nbsp;
+   and **SPEC\_ATOM\_Z**,&nbsp; are tags with successively more
    branches.  The first identifier of the tag is called a _category_;
    the last identifier is called a _token_.
-   Tokens are markers for data, e.g. **NSPIN** is a marker for **2**.
+   Tokens are markers for data, e.g. &nbsp;**NSPIN**&nbsp; is a marker for **2**.
 
    The same identifier may appear in more than one tag; their meaning is
-   distinct.  Thus contents of **NIT** in
-   **STR\_IINV\_NIT** are different from the contents of **NIT** in **ITER\_NIT**.  The next section shows
+   distinct.  Thus contents of &nbsp;**NIT**&nbsp; in
+   &nbsp;**STR\_IINV\_NIT**&nbsp; are different from the contents of &nbsp;**NIT**&nbsp; in &nbsp;**ITER\_NIT**.  The next section shows
    how the structure is implemented for input files, which enables these
    cases to be distinguished.
 
@@ -140,8 +140,6 @@ The Questaal parser reads input structured by the bracket delimiters, as in
 If you are willing to tolerate small ambiguities, you can use format like
 that of **fragment 1** most of the time.  The rules are:
 
-\begin{enumerate}
-
 1.    Categories must start in the first column.  Any character in the
       first column starts a new category and terminates a prior one.
 
@@ -180,13 +178,15 @@ that of **fragment 1** most of the time.  The rules are:
       must be bracketed after the second level.  Any of the following
       are acceptable:
 
-         STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
-         STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]
-         STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
+      ~~~
+      STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
+      STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]
+      STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
+      ~~~
 
-#### _Multiple occurrences of a token_
+#### _When multiple occurrences of a token are needed_
 {::comment}
-/docs/input/inputfilesyntax/#multiple-occurrences-of-a-token
+/docs/input/inputfilesyntax/#when-multiple-occurrences-of-a-token-are-needed
 {:/comment}
 
 Multiple occurences of a token are sometimes required. The two 
