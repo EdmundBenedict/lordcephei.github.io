@@ -18,15 +18,15 @@ _____________________________________________________________
 
 _____________________________________________________________
 
-##### _Introduction_
+### _Introduction_
 
 The input system for the LM program suite is unique in the following
 respects:
 \begin{enumerate}
 
-+ Input files are nearly free-format (there are some mild
+1 Input files are nearly free-format (there are some mild
   exceptions to this; see definition of categories
-  [here](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
+  [below](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
   and input does not need to be arranged
   in a particular order.  Data parsed by identifying _tokens_
   (labels) in the input file, and reading the information following the
@@ -39,9 +39,9 @@ respects:
   associated with it.  Note that a token such as **NSPIN** only acts
   as a marker to locate data: they are not themselves part of the data.
 
-+ A tree of identifiers completely specifies a particular marker.  The
+2 A tree of identifiers completely specifies a particular marker.  The
   full sequence we call a _tag_; it is written as a string of
-  identifers separated by underscores, e.g. {\tt SPEC\_SCLWSR},
+  identifers separated by underscores, e.g. **SPEC\_SCLWSR**,
   **SPEC\_ATOM\_Z**  **ITER\_CONV**.  Thus a tag is analogous to a
   path in a tree directory structure: **SPEC**, **SPEC\_ATOM**,
   and **SPEC\_ATOM\_Z**, are tags with successively more
@@ -50,16 +50,15 @@ respects:
   Tokens are markers for data, e.g. **NSPIN** is a marker for **2**.
 
   The same identifier may appear in more than one tag; their meaning is
-  distinct, as we will see below.  Thus contents of {\tt NIT} in
-  {\tt STR\_IINV\_NIT} are different from the contents of {\tt
-  NIT} in tag {\tt ITER\_NIT}.  Sec.~\ref{sec:input-struct} shows
+  distinct, as we will see below.  Thus contents of **NIT** in
+  **STR\_IINV\_NIT** are different from the contents of **NIT in tag **ITER\_NIT**.  Sec.~\ref{sec:input-struct} shows
   how the structure is implemented for input files, which enables these
   cases to be distinguished.
 
-+ The parser can read algebraic expressions. Variables can be assigned
+3 The parser can read algebraic expressions. Variables can be assigned
   and used in the expressions.
 
-+ The input parser has a limited programming language.  Input files can
+4 The input parser has a limited programming language.  Input files can
   contain directives such as \\
     \indent \qquad {\tt{}\%if (expression)} \\
   that are not part of the input proper, but control what is read into
@@ -68,7 +67,7 @@ respects:
   calculations, or as a kind of data base.
 
 
-##### _Input structure: syntax for parsing tokens_
+### _Input structure: syntax for parsing tokens_
 {::comment}
 /docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens
 {:/comment}
@@ -81,8 +80,8 @@ A typical input fragment looks something like:
 	... (fragment 1)
 
 The full path identifier we refer to as a _tag_.  Tags in this
-fragment are: \quad {\tt ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN,
-DYN\_NIT}.\quad (Tags do not explicitly appear in the input, only
+fragment are: \quad **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
+\quad (Tags do not explicitly appear in the input, only
 tokens do.)
 
 \vskip 6pt\noindent A token is the last identifier in the path.  A token's contents
@@ -93,15 +92,15 @@ It is analogous to a file directory structure, where names refer to
 files, or to directories (folders) which contain files or other directories.  
 
 \vskip 6pt\noindent The first or top-level tags we designate as
-_categories_, ({\tt ITER, DYN} in the fragment above). 
+_categories_, (**ITER, DYN** in the fragment above). 
 What designates the scope of a category?  Any string that begins in the
 first column of a line is a category.  A category's contents begin right
 after its name, and end just before the start of the next category.
 In the fragment shown,
-{\tt ITER} contains this string:\\
-\indent `{\tt NIT=2 CONV=0.001 MIX=A,b=3}'\\
+**ITER** contains this string:\\
+\indent `{\tt NIT=2 CONV=0.001 MIX=A,b=3}`\\
 while {\tt DYN} contains\\
-\indent `{\tt NIT=3}'\\
+\indent `{\tt NIT=3}`\\
 Thus categories are treated a little differently from other tokens.  The
 input data structure usually does not rely on line or column information;
 however this use of the first column to mark categories and delimit their
@@ -122,15 +121,14 @@ commas.
 \vskip 6pt\noindent How are the start and end points of a token delineated
 in a general tree structure?  The style shown in the input **fragment 1** does
 not have the ability to handle tree-structured input in general, e.g.
-tags with more than two levels like {\tt STR\_IINV\_NIT}.  You can
-always unambiguously delimit the scope of a token with brackets {\tt
-[$\,$]}, e.g.
-\begin{verbatim}
-ITER[ NIT[2]  CONV[0.001]  MIX=[A,b=3]]
-DYN[NIT[3]]
-STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
-... (fragment 2)
-\end{verbatim}
+tags with more than two levels like **STR\_IINV\_NIT**.  You can
+always unambiguously delimit the scope of a token with brackets {\tt [$\,$]}, e.g.
+
+    ITER[ NIT[2]  CONV[0.001]  MIX=[A,b=3]]
+    DYN[NIT[3]]
+    STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
+    ... (fragment 2)
+
 Tags {\tt ITER} and {\tt STR\_IINV} contain these strings:
 
 `{\tt NIT[2]  CONV[0.001]  MIX=[A,b=3]}' \quad and \quad `{\tt NIT[5] NCUT[20] TOL[1E-4]}'\\
