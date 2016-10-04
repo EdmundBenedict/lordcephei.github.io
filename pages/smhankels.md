@@ -63,7 +63,7 @@ ordinary Hankels (needed for augmentation) are Bessel functions.  A counterpart 
 related to Laguerre polynomials.  The expansion is cumbersom and introduces an extra cutoff in the polynomial order. 
 
 Second, gaussian orbitals hold an enormous advantage over both ordinary and smooth Hankels, namely that the product of two of them in real space can be
-expressed as another gaussian (similarly so with plane waves).  
+expressed as another gaussian (similarly so with plane waves).
 There exist no counterpart for Hankels, so an auxiliary basis must be constructed to make the charge density and
 matrix elements of the potential.  The Questaal suite uses plane waves for the auxiliary basis.
 
