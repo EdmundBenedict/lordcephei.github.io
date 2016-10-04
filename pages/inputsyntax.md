@@ -56,7 +56,7 @@ respects:
    associated with it.  Note that a token such as **NSPIN** only acts
    as a marker to locate data: they are not themselves part of the data.
 
-3. The input file is first passed through a [_preprocessor_](/docs/input/preprocessor), which acts before being read for
+3. The input file is first passed through a [_preprocessor_](/docs/input/preprocessor), which modifies the input file before it is read for
    tags.  The preprocessor provides some programming language capability: input files can contain directives such as
 
    <pre>
@@ -72,9 +72,10 @@ respects:
    and used in the expressions.  Expression syntax is similar to C, and uses essentially the same
    syntax as [algebraic expressions](/docs/input/preprocessor/#syntax-of-algebraic-expressions) in the preprocessor.
 
-   _Note:_{: style="color: red"} the preprocessor
-   parses [expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a
-   string.  The result of the expression substitution is a string, which itself can be part of an expression.  Thus
+   _Note:_{: style="color: red"} the preprocessor parses
+   [expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a string.  An
+   ASCII representation of the expression (string) is substituted for the curly brackets; this string can itself can be part of an
+   expression.  Thus
 
    NSPIN={2+1}-1
 
