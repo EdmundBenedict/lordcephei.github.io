@@ -82,7 +82,7 @@ A typical input fragment looks something like:
 	ITER NIT=2  CONV=0.001
 	     MIX=A,b=3
 	DYN  NIT=3
-	... <b>(fragment 1)</b>
+	... (fragment 1)
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
@@ -147,8 +147,8 @@ that of **fragment 1** most of the time.  The rules are:
 
 2.    When brackets are not used, a token's contents are delimited by the
       end of the category.  Thus the content of **ITER\_CONV** from
-      **fragment 1** is \ `**0.001 MIX=A,b=3**`, while in
-      **fragment 2** it is the more sensible `{\tt{}0.001}`.
+      **fragment 1** is &nbsp;`**0.001 MIX=A,b=3**`, while in
+      **fragment 2** it is the more sensible &nbsp; `0.001`.
 
       In practice this difference matters only occasionally.  Usually
       contents refer to numerical data. The parser will read only as many
@@ -157,13 +157,14 @@ that of **fragment 1** most of the time.  The rules are:
       **CONV** can contain more than one number.  Then the two styles
       might generate a difference.  In practice, the parser can only find
       one number to convert in the contents of **fragment 2**, and that
-      is all it would generate.\footnote{Whether or not reading only one
-      number later produces an error, will depends on whether **CONV**
-      _must_ contain more than one number or it only _may_ do
-      so.  There are instances of both.}  For **fragment 1**, the parser would see a second string
-      `**MIX=...**' but it fail to convert it to a number (it not a
-      valid representation of a number). Thus, the net effect would be the
+      is all it would generate.  For **fragment 1**, the parser would see a second string
+      `MIX=...` but it fail to convert it to a number. Thus, the net effect would be the
       same: only one number would be parsed.
+
+      _Note:_{: style="color: red"} Whether or not reading only one
+      number produces an error, will depends on whether **CONV**
+      _must_ contain more than one number or it only _may_ do
+      so.  There are instances of both.
 
 3.    When a token's contents consist of a string (as distinct from a
       string representation of a number) and brackets are _not_ used,
@@ -177,35 +178,36 @@ that of **fragment 1** most of the time.  The rules are:
 
 4.    Tags containing three or more levels of nesting, e.g **STR\_IINV\_NIT**,
       must be bracketed after the second level.  Any of the following
-      are acceptable:\\
-      ** STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]**\\
-      ** STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]**\\
-      ** STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]**
+      are acceptable:
 
-%      Note: (see below for a possible exception to this rule)
+        STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
+        STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]
+        STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
 
-\end{enumerate}
+#### _Multiple Occurrences of a token_
+{::comment}
+/docs/input/inputfilesyntax/#multiple-occurrences-of-a-token
+{:/comment}
 
-\noindent
-Finally, multiple occurences of a token are sometimes required, for example
-multiple site positions or species data.  The following fragment
+Multiple occurences of a token are sometimes required. The two 
+main instances are site positions and species data.  The following fragment
 illustrates such a case:
-\begin{verbatim}
-SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
-       ATOM[A1  POS= 0          0   5/8  RELAX=0]
-       ATOM[C1  POS= 1/sqrt(3)  0   1/2]
-\end{verbatim}
+
+    SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
+           ATOM[A1  POS= 0          0   5/8  RELAX=0]
+           ATOM[C1  POS= 1/sqrt(3)  0   1/2]
+
 The parser will try to read multiple instances of tag **SITE\_ATOM**, as
 well as its contents\footnote{ Note that token **ATOM** plays a dual
 role: it is simultaneously a marker for input data---the string for
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
 one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).}  The contents of the first and second occurences
-of token **ATOM** are thus: &nbsp; `**C1 POS= 0 0 0 RELAX=1**`
-and &nbsp; `**A1 POS= 0 0 5/8 RELAX=0**`.
+of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
+and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
-The format shown is consistent with rule 4 above.  For historical reasons,
-Questaal programs accept another kind of format for this special case of repeated inputs:
+The format shown is consistent with rule 4 above.
+Questaal programs accept another kind of format for this special case of repeated inputs
 
     SITE    ATOM=C1  POS= 0          0   0    RELAX=1
             ATOM=A1  POS= 0          0   5/8  RELAX=0
