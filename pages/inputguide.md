@@ -409,23 +409,9 @@ This category contains parameters defining the one-particle hamiltonian.
 
 Portions of HAM are read by these codes: 
 
-~~~
-lm
-lmfa
-lmfgwd
-lmfgws
-lmf
-lmmc
-lmgf
-lmdos
-lmchk
-lmscell
-lmstr
-lmctl
-lmpg
-tbe
-lmmag
-~~~
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
+**lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp; 
+**lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmmag**{: style="color: blue"}.
 
 <div onclick="elm = document.getElementById('hamtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="hamtable">{:/}
