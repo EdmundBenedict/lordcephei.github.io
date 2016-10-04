@@ -8,8 +8,8 @@ header: no
 ### _Purpose_
 {:.no_toc}
 This manual describes the syntax of Questaal's input file.
-See [this guide](/docs/input/inputfile/") for an introduction
-to the input system and a description of each kind of input Questaal
+See [this guide](/docs/input/inputfile/) for an introduction
+to the input system and a description of all the tags Questaal
 programs look for.
 
 _____________________________________________________________
@@ -207,12 +207,12 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
-#### _Multiple occurrences of categories and tokens_
+### _Multiple occurrences of categories and tokens_
 {::comment}
 /docs/input/inputfilesyntax/#multiple-occurrences-of-categories-and-tokens
 {:/comment}
 
-_Note:_{: style="color: red"} If multiple categories occur in an input file, only the first category is used.
+_Note:_{: style="color: red"} If multiple categories occur within an input file, only the first one is used.
 
 Similarly, only the first occurrence of a token _within_ a category is read.  There is an important exception to this rule, namely when
 multiple occurences of a token are required. The two main instances are data in **SITE** and **SPEC** categories.
@@ -225,12 +225,12 @@ SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
 ~~~
 
 The contents of the first and second occurences of &nbsp;**ATOM** are: &nbsp; `C1 POS= 0 0 0 RELAX=1` and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
-The parser will try to read as many instances of &nbsp;**SITE\_ATOM**, as well as its contents, as it needs.
+The parser will try to read as many instances of &nbsp;**SITE\_ATOM**, including tokens within it, as it needs.
 
 _Note:_{: style="color: red"} **ATOM** plays a dual
 role here: it is simultaneously a marker (token) for input data---
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
-one level deeper, (e.g. contents of tags &nbsp;**SITE\_ATOM\_POS**&nbsp; and
+one level deeper, (e.g. contents of &nbsp;**SITE\_ATOM\_POS**&nbsp; and
 &nbsp;**SITE\_ATOM\_RELAX**).
 
 The format shown is consistent with rule 4 above.
