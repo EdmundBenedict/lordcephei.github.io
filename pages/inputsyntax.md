@@ -20,9 +20,8 @@ _____________________________________________________________
 
 ### _Introduction_
 
-The input system for the LM program suite is unique in the following
+The input system for the Questaal program suite is unique in the following
 respects:
-\begin{enumerate}
 
 1. Input files are nearly free-format (there are some mild
    exceptions to this; see definition of categories
@@ -84,11 +83,11 @@ A typical input fragment looks something like:
 	... **(fragment 1)**
 
 The full path identifier we refer to as a _tag_.  Tags in this
-fragment are: \quad **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
-\quad (Tags do not explicitly appear in the input, only
+fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
+&nbsp; (Tags do not explicitly appear in the input, only
 tokens do.)
 
-\vskip 6pt\noindent A token is the last identifier in the path.  A token's contents
+A token is the last identifier in the path.  A token's contents
 consist of a string, which may include data (when it is the last link in
 the path, e.g. **NIT**), or other tokens which name links
 further down the tree.
@@ -135,7 +134,7 @@ always unambiguously delimit the scope of a token with brackets **[...]**, e.g.
 
 Tags **ITER** and **STR\_IINV** contain these strings:
 
-`**NIT[2]  CONV[0.001]  MIX=[A,b=3]**` \quad and \quad `**NIT[5] NCUT[20] TOL[1E-4]**`\\
+`**NIT[2]  CONV[0.001]  MIX=[A,b=3]**` &nbsp; and &nbsp; `**NIT[5] NCUT[20] TOL[1E-4]**`\\
 while **ITER\_NIT**, **DYN\_NIT** and **STR\_IINV\_NIT** are all readily distinguished (contents **2, 3**, and
 **5**).
 
@@ -173,10 +172,10 @@ that of **fragment 1** most of the time.  The rules are:
       string representation of a number) and brackets are _not_ used,
       there is an ambiguity in where the string ends.  In this case, the
       parser will delimit strings in one of two ways.  Usually a space
-      delimits the end-of-string, as in \quad **MIX=A,b=3**.\quad
+      delimits the end-of-string, as in &nbsp; **MIX=A,b=3**.&nbsp;
       However, in a few cases the end-of-category delimits the
       end-of-string --- usually when the entire category contains just a
-      string, as in \quad **SYMGRP R4Z M(1,1,0) R3D**.\quad If
+      string, as in &nbsp; **SYMGRP R4Z M(1,1,0) R3D**.&nbsp; If
       you want to be sure, use brackets.
 
 \item Tags containing three or more levels of nesting, e.g **STR\_IINV\_NIT**,
@@ -205,8 +204,8 @@ role: it is simultaneously a marker for input data---the string for
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
 one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).}  The contents of the first and second occurences
-of token **ATOM** are thus: \quad `**C1 POS= 0 0 0 RELAX=1**`
-and \quad `**A1 POS= 0 0 5/8 RELAX=0**`.
+of token **ATOM** are thus: &nbsp; `**C1 POS= 0 0 0 RELAX=1**`
+and &nbsp; `**A1 POS= 0 0 5/8 RELAX=0**`.
 
 The format shown is consistent with rule 4 above.  For historical reasons,
 Questaal programs accept another kind of format for this special case of repeated inputs:
