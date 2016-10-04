@@ -605,20 +605,9 @@ ECUT | r | OPTICS | Y | 0.2 | Energy safety margin for determining (occ,unocc) w
 ##### _OPTIONS_
 Portions of OPTIONS are read by these codes:
 
-~~~
-lm,
-lmfa,
-lmfgwd,
-lmfgws,
-lmf,
-lmmc,
-lmgf,
-lmdos,
-lmstr,
-lmctl,
-lmpg,
-tbe
-~~~
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
+**lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; 
+**lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"}.
 
 <div onclick="elm = document.getElementById('optionstable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="optionstable">{:/}
