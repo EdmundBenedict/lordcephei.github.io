@@ -24,47 +24,49 @@ The input system for the LM program suite is unique in the following
 respects:
 \begin{enumerate}
 
-1 Input files are nearly free-format (there are some mild
-  exceptions to this; see definition of categories
-  [below](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
-  and input does not need to be arranged
-  in a particular order.  Data parsed by identifying _tokens_
-  (labels) in the input file, and reading the information following the
-  token.  In the string:
+1. Input files are nearly free-format (there are some mild
+   exceptions to this; see definition of categories
+   [below](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
+   and input does not need to be arranged
+   in a particular order.  Data parsed by identifying _tokens_
+   (labels) in the input file, and reading the information following the
+   token.  In the string:
 
-    
-     NSPIN=2
+     
+      NSPIN=2
 
-  token **NSPIN** tells the input parser where to find the contents **2**
-  associated with it.  Note that a token such as **NSPIN** only acts
-  as a marker to locate data: they are not themselves part of the data.
+   token **NSPIN** tells the input parser where to find the contents **2**
+   associated with it.  Note that a token such as **NSPIN** only acts
+   as a marker to locate data: they are not themselves part of the data.
 
-2 A tree of identifiers completely specifies a particular marker.  The
-  full sequence we call a _tag_; it is written as a string of
-  identifers separated by underscores, e.g. **SPEC\_SCLWSR**,
-  **SPEC\_ATOM\_Z**  **ITER\_CONV**.  Thus a tag is analogous to a
-  path in a tree directory structure: **SPEC**, **SPEC\_ATOM**,
-  and **SPEC\_ATOM\_Z**, are tags with successively more
-  branches.  The first identifier of the tag is called a _category_;
-  the last identifier is called a _token_.
-  Tokens are markers for data, e.g. **NSPIN** is a marker for **2**.
+2. A tree of identifiers completely specifies a particular marker.  The
+   full sequence we call a _tag_; it is written as a string of
+   identifers separated by underscores, e.g. **SPEC\_SCLWSR**,
+   **SPEC\_ATOM\_Z**  **ITER\_CONV**.  Thus a tag is analogous to a
+   path in a tree directory structure: **SPEC**, **SPEC\_ATOM**,
+   and **SPEC\_ATOM\_Z**, are tags with successively more
+   branches.  The first identifier of the tag is called a _category_;
+   the last identifier is called a _token_.
+   Tokens are markers for data, e.g. **NSPIN** is a marker for **2**.
 
-  The same identifier may appear in more than one tag; their meaning is
-  distinct, as we will see below.  Thus contents of **NIT** in
-  **STR\_IINV\_NIT** are different from the contents of **NIT in tag **ITER\_NIT**.  Sec.~\ref{sec:input-struct} shows
-  how the structure is implemented for input files, which enables these
-  cases to be distinguished.
+   The same identifier may appear in more than one tag; their meaning is
+   distinct.  Thus contents of **NIT** in
+   **STR\_IINV\_NIT** are different from the contents of **NIT in tag **ITER\_NIT**.  The next section shows
+   how the structure is implemented for input files, which enables these
+   cases to be distinguished.
 
-3 The parser can read algebraic expressions. Variables can be assigned
-  and used in the expressions.
+3. The parser can read algebraic expressions. Variables can be assigned
+   and used in the expressions.
 
-4 The input parser has a limited programming language.  Input files can
-  contain directives such as \\
-    \indent \qquad {\tt{}\%if (expression)} \\
-  that are not part of the input proper, but control what is read into
-  the input stream, and what is left out.  Thus input files can serve
-  multiple uses --- containing information for many kinds of
-  calculations, or as a kind of data base.
+4. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
+   which provides some programming language capability.  Input files can contain directives such as
+
+     % if (expression)
+
+   that are not part of the input proper, but control what is read into
+   the input stream, and what is left out.  Thus input files can serve
+   multiple uses --- containing information for many kinds of
+   calculations, or as a kind of data base.
 
 
 ### _Input structure: syntax for parsing tokens_
@@ -98,9 +100,9 @@ first column of a line is a category.  A category's contents begin right
 after its name, and end just before the start of the next category.
 In the fragment shown,
 **ITER** contains this string:\\
-\indent `{\tt NIT=2 CONV=0.001 MIX=A,b=3}`\\
-while {\tt DYN} contains\\
-\indent `{\tt NIT=3}`\\
+\indent `**NIT=2 CONV=0.001 MIX=A,b=3**`\\
+while **DYN** contains\\
+\indent `**NIT=3**`\\
 Thus categories are treated a little differently from other tokens.  The
 input data structure usually does not rely on line or column information;
 however this use of the first column to mark categories and delimit their
@@ -122,24 +124,23 @@ commas.
 in a general tree structure?  The style shown in the input **fragment 1** does
 not have the ability to handle tree-structured input in general, e.g.
 tags with more than two levels like **STR\_IINV\_NIT**.  You can
-always unambiguously delimit the scope of a token with brackets {\tt [$\,$]}, e.g.
+always unambiguously delimit the scope of a token with brackets **[...]**, e.g.
 
     ITER[ NIT[2]  CONV[0.001]  MIX=[A,b=3]]
     DYN[NIT[3]]
     STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
     ... (fragment 2)
 
-Tags {\tt ITER} and {\tt STR\_IINV} contain these strings:
+Tags **ITER** and **STR\_IINV** contain these strings:
 
-`{\tt NIT[2]  CONV[0.001]  MIX=[A,b=3]}' \quad and \quad `{\tt NIT[5] NCUT[20] TOL[1E-4]}'\\
-while {\tt ITER\_NIT}, {\tt DYN\_NIT} and {\tt
-STR\_IINV\_NIT} are all readily distinguished (contents {\tt 2, 3}, and
-{\tt 5}).
+`**NIT[2]  CONV[0.001]  MIX=[A,b=3]**` \quad and \quad `**NIT[5] NCUT[20] TOL[1E-4]**`\\
+while **ITER\_NIT**, **DYN\_NIT** and **STR\_IINV\_NIT** are all readily distinguished (contents **2, 3**, and
+**5**).
 
 The Questaal parser reads input structured by the bracket delimiters, as in
 **fragment 2**.  This format is logically unambiguous but aesthetically horrible.
 If you are willing to tolerate small ambiguities, you can use format like
-that of {\tt fragment 1} most of the time.  The rules are:
+that of **fragment 1** most of the time.  The rules are:
 
 \begin{enumerate}
 
