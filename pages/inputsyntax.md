@@ -182,7 +182,7 @@ that of **fragment 1** most of the time.  The rules are:
       number produces an error depends on how many number the parser _requires_ of a particular token.
       It is an error if the parser requires more numbers than it can read.
       It can hapen or more than one is sought but only one is sufficient.  For example,
-      &nbsp;**BZ_NKABC**&nbsp; has three numbers, but you can supply one only.
+      &nbsp;**BZ_NKABC**&nbsp; expects three numbers, but you can supply only one or two.
       If _more_ numbers are supplied than are sought, only the number sought are parsed, regardless of how many are supplied.
 
 3.    When a token's contents consist of a string (as distinct from a
@@ -210,26 +210,23 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
-_Note:_{: style="color: red"} If multiple categories occur in an input file, only the first is read.  Similarly only the first instance of a
-token within a category is read.  The only exception to this is when multiple occurrences of a token are needed, as described in the next section.
-
-#### _When multiple occurrences of a token are needed_
+#### _Multiple occurrences of categories and tokens
 {::comment}
-/docs/input/inputfilesyntax/#when-multiple-occurrences-of-a-token-are-needed
+/docs/input/inputfilesyntax/#multiple-occurrences-of-categories-and-tokens
 {:/comment}
 
-Multiple occurences of a token are sometimes required. The two 
-main instances are site and species data.  The following fragment
-illustrates such a case:
+_Note:_{: style="color: red"} If multiple categories occur in an input file, only the first category is used.
+
+Similarly, only the first instance of a token _within_ a category is read.  There is an important exception to this rule, namely when
+multiple occurences of a token are required. The two main instances are data in **SITE** and **SPEC** categories.
+The following fragment illustrates such a case:
 
     SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
            ATOM[A1  POS= 0          0   5/8  RELAX=0]
            ATOM[C1  POS= 1/sqrt(3)  0   1/2]
 
-The parser will try to read multiple instances of &nbsp;**SITE\_ATOM**, as
-well as its contents.  The contents of the first and second occurences
-of &nbsp;**ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
-and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
+The contents of the first and second occurences of &nbsp;**ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1` and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
+The parser will try to read as instances of &nbsp;**SITE\_ATOM**, as well as its contents, as it needs.
 
 _Note:_{: style="color: red"} **ATOM** plays a dual
 role here: it is simultaneously a marker (token) for input data---
