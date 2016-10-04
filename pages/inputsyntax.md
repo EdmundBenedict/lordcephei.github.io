@@ -1,13 +1,13 @@
 ---
 layout: page-fullwidth
-title: "The Input File"
+title: "Syntax of the Input File"
 permalink: "/docs/input/inputfilesyntax/"
 header: no
 ---
 
 ### _Purpose_
 {:.no_toc}
-This page defines the syntax of Questaal's input system.
+This page defines the syntax of Questaal's input file.
 
 _____________________________________________________________
 
@@ -23,13 +23,12 @@ _____________________________________________________________
 The input system for the Questaal program suite is unique in the following
 respects:
 
-1. Input files are nearly free-format (there are some mild
-   exceptions to this; see definition of categories
-   [below](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
-   and input does not need to be arranged
-   in a particular order.  Data parsed by identifying _tokens_
-   (labels) in the input file, and reading the information following the
-   token.  In the string:
+1. Input files are nearly free-format and input does not need to be
+   arranged in a particular order.  (There are one or two mild
+   exceptions; e.g. the first column is reserved to makr
+   [categories](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
+   Data parsed by identifying _tokens_ (labels) in the input file, and
+   reading the information following the token.  In the string:
 
      
       NSPIN=2
@@ -184,6 +183,9 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
+      _Note:_{: style="color: red"} that brackets cannot entirely be avoided:  it is the only means to represent tags with three branches.
+
+
 #### _When multiple occurrences of a token are needed_
 {::comment}
 /docs/input/inputfilesyntax/#when-multiple-occurrences-of-a-token-are-needed
@@ -202,14 +204,14 @@ well as its contents.  The contents of the first and second occurences
 of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
 and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
-Note_{: style="color: red"} that token **ATOM** plays a dual
-role: it is simultaneously a marker for input data---the string for
+_Note:_{: style="color: red"} Here **ATOM** plays a dual
+role: it is simultaneously a marker (token) for input data---the string for
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
 one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).
 
 The format shown is consistent with rule 4 above.
-Questaal programs accept the following format for this special case of repeated inputs:
+Questaal programs also accept the following format for this special case of repeated inputs:
 
     SITE    ATOM=C1  POS= 0          0   0    RELAX=1
             ATOM=A1  POS= 0          0   5/8  RELAX=0
