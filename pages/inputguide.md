@@ -499,7 +499,7 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 {::nomarkdown}</div>{:/}
 
 ##### _GW_
-Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the GWinput template when **lmfgwd****{: style="color: blue"} generates it (job −1).
+Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the GWinput template when **lmfgwd**{: style="color: blue"} generates it (job −1).
 
 <div onclick="elm = document.getElementById('gwtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="gwtable">{:/}
@@ -557,16 +557,7 @@ TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree
 The ITER category contains parameters that control the requirements to reach self-consistency.
 
 It applies to all programs that iterate to self-consistency:
-
-~~~
-lm,
-lmfa,
-lmf,
-lmmc,
-lmgf,
-lmpg,
-tbe.
-~~~
+**lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"}.
 
 <div onclick="elm = document.getElementById('itertable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="itertable">{:/}

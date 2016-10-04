@@ -7,10 +7,10 @@ header: no
 
 ### _Purpose_
 {:.no_toc}
+
 This manual describes the syntax of Questaal's input file.
-See [this guide](/docs/input/inputfile/) for an introduction
-to the input system and a description of all the tags Questaal
-programs look for.
+See [this guide](/docs/input/inputfile/) for an introduction to the input system and a description of all the tags Questaal programs look for. 
+See the [preprocessor manual](/docs/input/preprocessor/) for a description of the preprocessor, which acts before the input file is read.
 
 _____________________________________________________________
 
@@ -85,6 +85,7 @@ respects:
    NSPIN=3-1
 
    The contents of **NSPIN** is an algebraic expression &nbsp;**3-1**&nbsp;. This is parsed as an expression so that the value of **NSPIN** is 2.
+   See also documentation of the [**CONST**](/docs/input/inputfile/#const) category.
 
    _Note:_{: style="color: red"} the preprocessor will handle sequences of assignments and expressions such as &nbsp;**{x=3,y=4,x\*=y,x\*2}**;
    the result is the ASCII representation of last expression (**x\*2**).  Expressions remaining after preprocessing cannot contain assignments
