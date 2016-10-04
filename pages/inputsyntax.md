@@ -7,7 +7,7 @@ header: no
 
 ### _Purpose_
 {:.no_toc}
-This page defines the syntax of Questaal's input file.
+This manual defines the syntax of Questaal's input file.
 
 _____________________________________________________________
 
@@ -23,9 +23,25 @@ _____________________________________________________________
 The input system for the Questaal program suite is unique in the following
 respects:
 
-1. Input files are nearly free-format and input does not need to be
+1. A tree of identifiers completely specifies a particular marker.  The
+   [full sequence we call a _tag_](/docs/input/inputfile/#input-file-structure); it is sometimes expressed as a string of
+   identifers separated by underscores, e.g. **SPEC\_SCLWSR**,&nbsp;
+   **SPEC\_ATOM\_Z**,&nbsp;  **ITER\_CONV**.  Thus a tag is analogous to a
+   path in a tree directory structure: **SPEC**,&nbsp; **SPEC\_ATOM**,&nbsp;
+   and **SPEC\_ATOM\_Z**,&nbsp; are tags with successively more
+   branches.  The first identifier of the tag is called a _category_;
+   the last identifier is called a _token_.
+   Tokens are markers for data, e.g. &nbsp;**NSPIN**&nbsp; is a marker for **2**.
+
+   The same identifier may appear in more than one tag; their meaning is
+   distinct.  Thus contents of &nbsp;**NIT**&nbsp; in
+   &nbsp;**STR\_IINV\_NIT**&nbsp; is different from the contents of &nbsp;**NIT**&nbsp; in &nbsp;**ITER\_NIT**.  The next section shows
+   how the structure is implemented for input files, which enables these
+   cases to be distinguished.
+
+2. Input files are nearly free-format and input does not need to be
    arranged in a particular order.  (There are one or two mild
-   exceptions; e.g. the first column is reserved to makr
+   exceptions; e.g. the first column is reserved to demarcate
    [categories](/docs/input/inputfilesyntax/#input-structure-syntax-for-parsing-tokens))
    Data parsed by identifying _tokens_ (labels) in the input file, and
    reading the information following the token.  In the string:
@@ -37,27 +53,11 @@ respects:
    associated with it.  Note that a token such as **NSPIN** only acts
    as a marker to locate data: they are not themselves part of the data.
 
-2. A tree of identifiers completely specifies a particular marker.  The
-   full sequence we call a _tag_; it is written as a string of
-   identifers separated by underscores, e.g. **SPEC\_SCLWSR**,&nbsp;
-   **SPEC\_ATOM\_Z**,&nbsp;  **ITER\_CONV**.  Thus a tag is analogous to a
-   path in a tree directory structure: **SPEC**,&nbsp; **SPEC\_ATOM**,&nbsp;
-   and **SPEC\_ATOM\_Z**,&nbsp; are tags with successively more
-   branches.  The first identifier of the tag is called a _category_;
-   the last identifier is called a _token_.
-   Tokens are markers for data, e.g. &nbsp;**NSPIN**&nbsp; is a marker for **2**.
-
-   The same identifier may appear in more than one tag; their meaning is
-   distinct.  Thus contents of &nbsp;**NIT**&nbsp; in
-   &nbsp;**STR\_IINV\_NIT**&nbsp; are different from the contents of &nbsp;**NIT**&nbsp; in &nbsp;**ITER\_NIT**.  The next section shows
-   how the structure is implemented for input files, which enables these
-   cases to be distinguished.
-
 3. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
    which provides some programming language capability.  Input files can contain directives such as
 
    ~~~
-   % if (expression)
+   % if <i>expression</i>
    ~~~
 
    that are not part of the input proper, but control what is read into
