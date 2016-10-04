@@ -7,7 +7,7 @@ header: no
 
 ### _Purpose_
 
-This page documents the functioning of the preprocessor.
+This manual documents the functioning of Questaal's preprocessor.
 Many files in the Questaal suite (e.g. the main input file
 _ctrl.ext_{: style="color: green"}) are read through the prepocessor
 before they are used.
