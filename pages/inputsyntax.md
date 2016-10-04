@@ -53,8 +53,8 @@ respects:
    associated with it.  Note that a token such as **NSPIN** only acts
    as a marker to locate data: they are not themselves part of the data.
 
-3. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
-   which provides some programming language capability.  Input files can contain directives such as
+3. The input file has a [_preprocessor_](/docs/input/preprocessor), which acts before being read for
+   tags.  The preprocessor provides some programming language capability: input files can contain directives such as
 
    <pre>
    % if <i>expression</i>
@@ -66,21 +66,27 @@ respects:
    calculations, or as a kind of data base.
 
 4. The parser can read algebraic expressions. Variables can be assigned
-   and used in the expressions.  Expression syntax is similar to C, and
-   uses the same rules as the preprocessor.
+   and used in the expressions.  Expression syntax is similar to C, and uses essentially the same
+   syntax as [algebraic expression](/docs/input/preprocessor/#syntax-of-algebraic-expressions) in the preprocessor.
 
    _Note:_{: style="color: red"} the preprocessor
-   [parses expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a
-   string.  The result of the expression substitution is a string, which itself can be part of an expression which is parsed
-   when looking for values of tags.  Thus
+   parses [expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a
+   string.  The result of the expression substitution is a string, which itself can be part of an expression.  Thus
 
-      NSPIN={2+1}-1
+   ~~~
+   NSPIN={2+1}-1
+   ~~~
 
    appears after preprocessing as
 
-     NSPIN=3-1
+   ~~~
+   NSPIN=3-1
+   ~~~
 
-   The contents of **NSPIN** is an algebraic expression, **3-1** which is parsed and becomes 2.
+   The contents of **NSPIN** is an algebraic expression &nbsp;**3-1**&nbsp;. This is parsed as an expression so that the value of **NSPIN** is 2.
+
+   _Note:_{: style="color: red"} the preprocessor can handle sequences of assignments and expressions such as &nbsp;**{x=3,y=4,x*=y,x*2}**;
+   the result is the last expression (**x*2).  The post-preprocessed input file can handle simple expressions only.
 
 ### _Input structure: syntax for parsing tokens_
 {::comment}
@@ -89,10 +95,13 @@ respects:
 
 A typical input fragment looks something like:
 
-	ITER NIT=2  CONV=0.001
-	     MIX=A,b=3
-	DYN  NIT=3
-	... (fragment 1)
+
+<pre>
+ITER NIT=2  CONV=0.001
+     MIX=A,b=3
+DYN  NIT=3
+... <b>(fragment 1)</b>
+</pre>
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
