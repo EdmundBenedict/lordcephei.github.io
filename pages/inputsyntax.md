@@ -86,43 +86,42 @@ A typical input fragment looks something like:
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
-&nbsp; (Tags do not explicitly appear in the input, but are broken into branches as fragment 1 shows.)
-
-A token is the last identifier in the path.  A token's contents
-consist of a string, which may include data (when it is the last link in
-the path, e.g. **NIT**), or other tokens which name links
-further down the tree.
+Full are broken into branches as fragment 1 shows.
+A token is the last identifier in the path.  Its contents consist of 
+a string which may represent input data when it is the last link in
+the path, e.g. **NIT**, or be part of a larger tag, in which case it
+points to branches farther out on the tree.
 It is analogous to a file directory structure, where names refer to
-files, or to directories (folders) which contain files or other directories.  
+files, or to directories (folders) which contain files or other directories.
 
-\vskip 6pt\noindent The first or top-level tags we designate as
-_categories_, (**ITER, DYN** in the fragment above). 
+The first or top-level tags we designate as
+_categories_, (**ITER**, **DYN** in the fragment above). 
 What designates the scope of a category?  Any string that begins in the
 first column of a line is a category.  A category's contents begin right
 after its name, and end just before the start of the next category.
 In the fragment shown,
 **ITER** contains this string:\\
-\indent `**NIT=2 CONV=0.001 MIX=A,b=3**`\\
+`**NIT=2 CONV=0.001 MIX=A,b=3**`\\
 while **DYN** contains\\
-\indent `**NIT=3**`\\
+`**NIT=3**`\\
 Thus categories are treated a little differently from other tokens.  The
 input data structure usually does not rely on line or column information;
 however this use of the first column to mark categories and delimit their
 scope is an exception.
 
-\vskip 6pt\noindent Data associated with a token may consist of logical, integers or
+Data associated with a token may consist of logical, integers or
 real scalars or vectors, or a string. The contents of **NIT**,
 **CONV**, and **MIX** are respectively an integer, a real number, and
 a string.  This fragment illustrate tokens **PLAT** and **NKABC** that
 contain vectors:
-\begin{verbatim}
-STRUC  PLAT= 1 1/2 -1/2    1/2 -1/2 0   1 1 2
-BZ     NKABC=3,3,4
-\end{verbatim}
+
+    STRUC  PLAT= 1 1/2 -1/2    1/2 -1/2 0   1 1 2
+    BZ     NKABC=3,3,4
+
 Numbers (more properly, expressions) may be separated either by spaces or
 commas.
 
-\vskip 6pt\noindent How are the start and end points of a token delineated
+How are the start and end points of a token delineated
 in a general tree structure?  The style shown in the input **fragment 1** does
 not have the ability to handle tree-structured input in general, e.g.
 tags with more than two levels like **STR\_IINV\_NIT**.  You can
@@ -133,10 +132,7 @@ always unambiguously delimit the scope of a token with brackets **[...]**, e.g.
     STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
     ... (fragment 2)
 
-Tags **ITER** and **STR\_IINV** contain these strings:
-
-`**NIT[2]  CONV[0.001]  MIX=[A,b=3]**` &nbsp; and &nbsp; `**NIT[5] NCUT[20] TOL[1E-4]**`\\
-while **ITER\_NIT**, **DYN\_NIT** and **STR\_IINV\_NIT** are all readily distinguished (contents **2, 3**, and
+**ITER\_NIT**, **DYN\_NIT** and **STR\_IINV\_NIT** are all readily distinguished (contents **2, 3**, and
 **5**).
 
 The Questaal parser reads input structured by the bracket delimiters, as in
@@ -146,10 +142,10 @@ that of **fragment 1** most of the time.  The rules are:
 
 \begin{enumerate}
 
-\item Categories must start in the first column.  Any character in the
+1.    Categories must start in the first column.  Any character in the
       first column starts a new category and terminates a prior one.
 
-\item When brackets are not used, a token's contents are delimited by the
+2.    When brackets are not used, a token's contents are delimited by the
       end of the category.  Thus the content of **ITER\_CONV** from
       **fragment 1** is \ `**0.001 MIX=A,b=3**`, while in
       **fragment 2** it is the more sensible `{\tt{}0.001}`.
@@ -169,7 +165,7 @@ that of **fragment 1** most of the time.  The rules are:
       valid representation of a number). Thus, the net effect would be the
       same: only one number would be parsed.
 
-\item When a token's contents consist of a string (as distinct from a
+3.    When a token's contents consist of a string (as distinct from a
       string representation of a number) and brackets are _not_ used,
       there is an ambiguity in where the string ends.  In this case, the
       parser will delimit strings in one of two ways.  Usually a space
@@ -179,7 +175,7 @@ that of **fragment 1** most of the time.  The rules are:
       string, as in &nbsp; **SYMGRP R4Z M(1,1,0) R3D**.&nbsp; If
       you want to be sure, use brackets.
 
-\item Tags containing three or more levels of nesting, e.g **STR\_IINV\_NIT**,
+4.    Tags containing three or more levels of nesting, e.g **STR\_IINV\_NIT**,
       must be bracketed after the second level.  Any of the following
       are acceptable:\\
       ** STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]**\\
