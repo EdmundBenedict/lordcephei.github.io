@@ -7,7 +7,10 @@ header: no
 
 ### _Purpose_
 {:.no_toc}
-This manual defines the syntax of Questaal's input file.
+This manual describes the syntax of Questaal's input file.
+See [this guide](/docs/input/inputfile/") for an introduction
+to the input system and a description of each kind of input Questaal
+programs look for.
 
 _____________________________________________________________
 
@@ -53,7 +56,7 @@ respects:
    associated with it.  Note that a token such as **NSPIN** only acts
    as a marker to locate data: they are not themselves part of the data.
 
-3. The input file has a [_preprocessor_](/docs/input/preprocessor), which acts before being read for
+3. The input file is first passed through a [_preprocessor_](/docs/input/preprocessor), which acts before being read for
    tags.  The preprocessor provides some programming language capability: input files can contain directives such as
 
    <pre>
@@ -65,7 +68,7 @@ respects:
    multiple uses --- containing information for many kinds of
    calculations, or as a kind of data base.
 
-4. The parser can read algebraic expressions. Variables can be assigned
+4. The parser can evaluate algebraic expressions. Variables can be assigned
    and used in the expressions.  Expression syntax is similar to C, and uses essentially the same
    syntax as [algebraic expressions](/docs/input/preprocessor/#syntax-of-algebraic-expressions) in the preprocessor.
 
@@ -101,11 +104,9 @@ DYN  NIT=3
 ... <b>(fragment 1)</b>
 </pre>
 
-The full path identifier we refer to as a _tag_.  Tags in this
-fragment are: &nbsp; **ITER,&nbsp; ITER\_NIT,&nbsp; ITER\_CONV,&nbsp; ITER\_MIX,&nbsp; DYN,&nbsp; DYN\_NIT**.
+Tags in this fragment are: &nbsp; **ITER,&nbsp; ITER\_NIT,&nbsp; ITER\_CONV,&nbsp; ITER\_MIX,&nbsp; DYN,&nbsp; DYN\_NIT**.
 Full tags do not appear explicitly but are split into branches as **fragment 1** shows.
-A token is the last identifier in the path.  Its contents consist of 
-a string which may represent input data when it is the last link in
+A token's contents consists of a string which may represent input data when it is the last link in
 the path, e.g. &nbsp;**NIT**, or be a segment of a larger tag, in which case it
 points to branches farther out on the tree.
 It is analogous to a file directory structure, where names refer to
@@ -151,7 +152,7 @@ STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
 </pre>
 
 
-**ITER\_NIT**, &nbsp;**DYN\_NIT**&nbsp; and &nbsp;**STR\_IINV\_NIT**&nbsp; are all readily distinguished (contents **2, 3**, and
+Note that **ITER\_NIT**, &nbsp;**DYN\_NIT**&nbsp; and &nbsp;**STR\_IINV\_NIT**&nbsp; are all readily distinguished (contents **2, 3**, and
 **5**).
 
 The Questaal parser reads input structured by the bracket delimiters, as in
@@ -167,21 +168,17 @@ that of **fragment 1** most of the time.  The rules are:
       **fragment 1** is &nbsp;`0.001 MIX=A,b=3`, while in
       **fragment 2** it is &nbsp; `0.001`.
 
-      In practice this difference matters only occasionally.  Usually
-      contents refer to numerical data. The parser will read only as many
-      numbers as it needs.  If &nbsp;**CONV**&nbsp; contains only one number, the
-      difference is moot.  On the other hand a suppose associates
-      &nbsp;**CONV**&nbsp; with more than one number.  Then the two styles
-      might generate a difference.  In practice, the parser can only find
-      one number to convert in **fragment 2**, and that
-      is all it would generate.  For **fragment 1**, the parser would see a second string
-      `MIX=...` but it would not be able to convert it to a number. Thus, the net effect would be the
+      In practice this difference matters only occasionally.  Usually contents refer to numerical data. The parser will read only as many
+      numbers as it needs.  If &nbsp;**CONV**&nbsp; contains only one number, the difference is moot.  On the other hand suppose
+      &nbsp;**CONV**&nbsp; may contain more than one number.  Then the two styles might generate a difference.  In this case the parser can
+      only find one number to convert in **fragment 2**, and that is all it would generate.  For **fragment 1**, the parser would see a
+      second string `MIX=...` and attempt to parse it; but it would not be able to convert it to a number. Thus, the net effect would be the
       same: only one number would be parsed.
 
-      _Note:_{: style="color: red"} Whether or not reading only one
-      number produces an error depends on how many number the parser _requires_ of a particular token.
-      It is an error if the parser requires more numbers than it can read.
-      It can hapen or more than one is sought but only one is sufficient.  For example,
+      _Note:_{: style="color: red"} Whether reading fewer numbers than expected produces an error or not,
+      depends on how many number the parser _requires_ of a particular token.
+      An error is generated if the parser requires more numbers than it can read, but 
+      it can happen that more numbers are sought than are available, but the number available are sufficient.  For example,
       &nbsp;**BZ_NKABC**&nbsp; expects three numbers, but you can supply only one or two.
       If _more_ numbers are supplied than are sought, only the number sought are parsed, regardless of how many are supplied.
 
@@ -210,23 +207,25 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
-#### _Multiple occurrences of categories and tokens
+#### _Multiple occurrences of categories and tokens_
 {::comment}
 /docs/input/inputfilesyntax/#multiple-occurrences-of-categories-and-tokens
 {:/comment}
 
 _Note:_{: style="color: red"} If multiple categories occur in an input file, only the first category is used.
 
-Similarly, only the first instance of a token _within_ a category is read.  There is an important exception to this rule, namely when
+Similarly, only the first occurrence of a token _within_ a category is read.  There is an important exception to this rule, namely when
 multiple occurences of a token are required. The two main instances are data in **SITE** and **SPEC** categories.
-The following fragment illustrates such a case:
+For example:
 
-    SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
-           ATOM[A1  POS= 0          0   5/8  RELAX=0]
-           ATOM[C1  POS= 1/sqrt(3)  0   1/2]
+~~~
+SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
+       ATOM[A1  POS= 0          0   5/8  RELAX=0]
+       ATOM[C1  POS= 1/sqrt(3)  0   1/2]
+~~~
 
-The contents of the first and second occurences of &nbsp;**ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1` and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
-The parser will try to read as instances of &nbsp;**SITE\_ATOM**, as well as its contents, as it needs.
+The contents of the first and second occurences of &nbsp;**ATOM** are: &nbsp; `C1 POS= 0 0 0 RELAX=1` and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
+The parser will try to read as many instances of &nbsp;**SITE\_ATOM**, as well as its contents, as it needs.
 
 _Note:_{: style="color: red"} **ATOM** plays a dual
 role here: it is simultaneously a marker (token) for input data---
