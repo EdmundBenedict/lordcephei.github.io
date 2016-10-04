@@ -11,7 +11,7 @@ ________________________________________________________________________________
 {:.no_toc}
 
 This page gives an overview of the Questaal suite, a family of codes
-that use augmented-wave methods to solve the Schrodinger equation in solids and
+that use augmented-wave methods to solve the Schr&ouml;dinger equation in solids and
 obtain properties derived from it.
 
 ### _Table of Contents_
@@ -41,10 +41,10 @@ ________________________________________________________________________________
 /docs/package_overview/#augmented-wave-methods
 {:/comment}
 
-Augmented Wave methods, originally developed by Slater, partitions space into spheres enclosing around each atom.  Basis functions used to
-solve Schrodinger's equation consist of a family of smooth envelope functions which are "augmented" with solutions of the Schrodinger equation
-(aka _partial waves_) inside each sphere.  The reason for augmentation is to enable basis functions to vary rapidly near nuclei where they
-must be orthogonalized to core states.
+Augmented Wave methods, originally developed by Slater, partitions space into spheres enclosing around each nuclues, and an "interstitial"
+region.  Basis functions used to solve Schr&ouml;dinger's equation consist of a family of smooth envelope functions which carry the solution
+in the interstitial, and are "augmented" with solutions of the Schr&ouml;dinger equation (aka _partial waves_) inside each sphere.  The
+reason for augmentation is to enable basis functions to vary rapidly near nuclei where they must be orthogonalized to core states.
 
 Augmented-wave methods consist of an "atomic" part and a "band" part. The former takes as input a density and finds the 
 [partial waves](/docs/package_overview/#linear-methods-in-band-theory) $$\phi(\varepsilon,r)$$ on a numerical radial mesh inside each augmentation sphere and makes the
@@ -80,6 +80,7 @@ about a linearization energy $$\varepsilon_\nu$$
 $$
 \phi_l(\varepsilon,r) \approx \phi_l(\varepsilon_\nu,r) +
 (\varepsilon-\varepsilon_\nu)\dot\phi_l(\varepsilon_\nu,r)
+\quad\quad\quad\quad (1)
 $$
 
 _Note:_{: style="color: red"} in practice the vast majority of methods construct the partial waves
@@ -87,9 +88,9 @@ from the spherical part of the potential, so that _l_ is a good quantum number.
 Then each <i>&phi;<sub>l</sub></i> can be integrated independently of the others.
 Matrix elements of the partial waves are calculated in the full, nonspherical potential.
 
-The linear approximation is usually quite accurate over an energy window where the valence partial wave is "active."
+The linear approximation is usually quite accurate over an energy window where the valence partial wave is "active"
 (1 or a few Ry for typical _s_ and _p_ states, a few eV for _d_ states of the transition metals).
-An estimate for this window is given by 1/_p_ where potential parameter $$p_l = \int_{\rm sphere} \dot\phi_l^2 d^3r$$ is 
+An estimate for this window is given by 1/<i>&p<sub>l</sub></i> where potential parameter $$p_l = \int_{\rm sphere} \dot\phi_l^2 d^3r$$ is 
 called the "small parameter."
 Linearization greatly simplifies the secular matrix : it reduces to a linear algebraic eigenvalue
 problem, which greatly simplifies practical solutions of the Schr&ouml;dinger equation.  
@@ -97,14 +98,14 @@ problem, which greatly simplifies practical solutions of the Schr&ouml;dinger eq
 Some elements possess partial waves of very different energies that are both relevant to the total energy or states near the Fermi level. 
 The classic examples of this are Ga and In: both 3_d_ (4_d_) and
 4_d_ (5_d_) states are relevant.
-To obtain accurate calculations a third partial wave must be included.
+To obtain accurate calculations a third partial wave must be added to the pair in Eq. (1) constituting the linear method.
 In practice additional partial waves are incorporated by turning them into _local orbitals_ which are confined to the
 augmentation sphere.  This is accomplished by adding a judicious amount of $$\phi_l(\varepsilon_\nu,r)$$ and
 $$\dot\phi_l(\varepsilon_\nu,r)$$ to the third partial wave, so that its value and slope vanish at the augmentation
 radius and not spill out into the interstitial.  These modified waves are called <i>&phi;<sup>z</sup></i> in the
 Questaal suite.
 
-Extension of the linear method through local orbitals ensures that the eigenvalue problem remains a linear one, at the
+Extension of the linear approximation through local orbitals ensures that the eigenvalue problem remains a linear one, albeit at the
 expense of an increase in the rank of the hamiltonian.
 
 The importance of the linear method to electronic structure cannot be overstated.
@@ -130,7 +131,7 @@ and are better approximations to the wave function than Gaussian orbitals.  The 
 these functions are described in some detail in this [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437)  paper.
 
 Such a basis has significant advantages: basis sets are much smaller for a given level of precision, but they are
-also more complex.  It is also possible to take smoothed Hankels and plane waves in common : the 
+also more complex.  It is also possible to combine smoothed Hankels and plane waves : the 
 ["Planar Muffin Tin"](http://dx.doi.org/10.1103/PhysRevB.81.125117)
 (PMT) basis is another unique feature of this package.
 
@@ -154,10 +155,9 @@ ________________________________________________________________________________
 {:/comment}
 
 The Questaal family of executable programs share a common, elegant [input system](/docs/input/inputfile/)
-and has features of a [programming language](/docs/input/preprocessor/).  A reference defining the syntax of categories and tokens can be found in [this pdf file](https://lordcephei.github.io/pages/input.pdf)(update link lvs).
-The family consists of the following:
+and has features of a [programming language](/docs/input/preprocessor/).  A reference defining the syntax of categories and tokens can be found in [this manual](/docs/input/inputfile/). The family consists of the following:
 
-+ **blm**{: style="color: blue"}: an input file generator, given structural information.  [Many of the tutorials](tutorial/lmf/lmf_pbte_tutorial/) use **blm**{: style="color: blue"}.
++ **blm**{: style="color: blue"}: an input file generator, given structural information.  [Many of the tutorials](/tutorial/lmf/lmf_tutorial/) use **blm**{: style="color: blue"}.
 
 + **cif2init**{: style="color: blue"} and **cif2site**{: style="color: blue"}: convert structural information contained in _cif_{: style="color: green"} files to a form readable by Questaal. **poscar2init**{: style="color: blue"} and **poscar2site**{: style="color: blue"}: perform a similar function, reading VASP _POSCAR_{: style="color: green"} files.
 
@@ -178,11 +178,11 @@ There is an MPI version, **lmgf-MPIK**{: style="color: blue"}.
 [a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf/)(update link lvs), though it is somewhat out of date.
 There is also an MPI version, **lmpg-MPIK**{: style="color: blue"}.
 
-+ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutoria
++ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutorial
 
 + **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consisten
 t calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
-**tbe**{: style="color: blue"} has a [tutorial](/tutorial/tbe/tbectrl/)
+**tbe**{: style="color: blue"} has a [tutorial](/tutorial/tbe/tbectrl/).
 
 + **lmdos**{: style="color: blue"}: generates partial densities of states. It is run as a post-processing step after
      execution of **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, or **tbe**{: style="color: blue"}.
