@@ -485,7 +485,7 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 {::nomarkdown}</div>{:/}
 
 ##### _GW_
-Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the GWinput template when **lmfgwd**{: style="color: blue"} generates it (job −1).
+Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (job −1).
 
 <div onclick="elm = document.getElementById('gwtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="gwtable">{:/}
