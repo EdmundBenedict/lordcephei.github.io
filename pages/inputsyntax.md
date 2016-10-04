@@ -210,6 +210,9 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
+_Note:_{: style="color: red"} If multiple categories occur in an input file, only the first is read.  Similarly only the first instance of a
+token within a category is read.  The only exception to this is when multiple occurrences of a token are needed, as described in the next section.
+
 #### _When multiple occurrences of a token are needed_
 {::comment}
 /docs/input/inputfilesyntax/#when-multiple-occurrences-of-a-token-are-needed
@@ -225,7 +228,7 @@ illustrates such a case:
 
 The parser will try to read multiple instances of tag **SITE\_ATOM**, as
 well as its contents.  The contents of the first and second occurences
-of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
+of **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
 and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
 _Note:_{: style="color: red"} **ATOM** plays a dual
@@ -235,15 +238,15 @@ one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).
 
 The format shown is consistent with rule 4 above.
-Questaal programs also accept the following format for repeated inputs
-in **SITE** and **SPEC** categories
+You can also use the following format for repeated inputs
+in **SITE** and **SPEC** categories:
 
     SITE    ATOM=C1  POS= 0          0   0    RELAX=1
             ATOM=A1  POS= 0          0   5/8  RELAX=0
             ATOM=C1  POS= 1/sqrt(3)  0   1/2
 
 In the latter format the contents of **SITE\_ATOM** are delimited
-by either the _next_ occurence of this tag, or by the end-of-category,
+by either the _next_ occurence of this tag within the same category, or by the end-of-category,
 whichever occurs first. 
 
 
