@@ -50,14 +50,11 @@ respects:
 
    The same identifier may appear in more than one tag; their meaning is
    distinct.  Thus contents of **NIT** in
-   **STR\_IINV\_NIT** are different from the contents of **NIT** in tag ITER\_NIT**.  The next section shows
+   **STR\_IINV\_NIT** are different from the contents of **NIT** in **ITER\_NIT**.  The next section shows
    how the structure is implemented for input files, which enables these
    cases to be distinguished.
 
-3. The parser can read algebraic expressions. Variables can be assigned
-   and used in the expressions.
-
-4. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
+3. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
    which provides some programming language capability.  Input files can contain directives such as
 
    ~~~
@@ -68,6 +65,11 @@ respects:
    the input stream, and what is left out.  Thus input files can serve
    multiple uses --- containing information for many kinds of
    calculations, or as a kind of data base.
+
+4. The parser can read algebraic expressions. Variables can be assigned
+   and used in the expressions.  Expression syntax is similar to C, and
+   uses the [same rules](/docs/input/preprocessor/#syntax-of-algebraic-expressions)
+   as the preprocessor (without curly brackets).
 
 
 ### _Input structure: syntax for parsing tokens_
@@ -80,12 +82,11 @@ A typical input fragment looks something like:
 	ITER NIT=2  CONV=0.001
 	     MIX=A,b=3
 	DYN  NIT=3
-	... **(fragment 1)**
+	... <b>(fragment 1)</b>
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
-&nbsp; (Tags do not explicitly appear in the input, only
-tokens do.)
+&nbsp; (Tags do not explicitly appear in the input, but are broken into branches as fragment 1 shows.)
 
 A token is the last identifier in the path.  A token's contents
 consist of a string, which may include data (when it is the last link in
