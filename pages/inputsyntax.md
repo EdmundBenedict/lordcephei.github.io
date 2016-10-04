@@ -73,20 +73,18 @@ respects:
    parses [expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a
    string.  The result of the expression substitution is a string, which itself can be part of an expression.  Thus
 
-   ~~~
    NSPIN={2+1}-1
-   ~~~
+
 
    appears after preprocessing as
 
-   ~~~
+
    NSPIN=3-1
-   ~~~
 
    The contents of **NSPIN** is an algebraic expression &nbsp;**3-1**&nbsp;. This is parsed as an expression so that the value of **NSPIN** is 2.
 
-   _Note:_{: style="color: red"} the preprocessor can handle sequences of assignments and expressions such as &nbsp;**{x=3,y=4,x*=y,x*2}**;
-   the result is the last expression (**x*2).  The post-preprocessed input file can handle simple expressions only.
+   _Note:_{: style="color: red"} the preprocessor can handle sequences of assignments and expressions such as &nbsp;**{x=3,y=4,x\*=y,x\*2}**;
+   the result is the ASCII representation of last expression (**x\*2**).  Expressions remaining after preprocessing must be simple expressions only.
 
 ### _Input structure: syntax for parsing tokens_
 {::comment}
@@ -142,14 +140,17 @@ commas.
 
 How are the start and end points of a token delineated
 in a general tree structure?  The style shown in the input **fragment 1** does
-not have the ability to handle tree-structured input in general, e.g.
-tags with more than two levels like **STR\_IINV\_NIT**.  You can
+not have the ability to handle general tree-structured input, notably
+tags with more than two branches such as **STR\_IINV\_NIT**.  You can
 always unambiguously delimit the scope of a token with brackets **[...]**, e.g.
 
-    ITER[ NIT[2]  CONV[0.001]  MIX=[A,b=3]]
-    DYN[NIT[3]]
-    STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
-    ... (fragment 2)
+<pre>
+ITER[ NIT[2]  CONV[0.001]  MIX=[A,b=3]]
+DYN[NIT[3]]
+STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
+... <b>(fragment 2)</b>
+</pre>
+
 
 **ITER\_NIT**, **DYN\_NIT** and **STR\_IINV\_NIT** are all readily distinguished (contents **2, 3**, and
 **5**).
@@ -164,8 +165,8 @@ that of **fragment 1** most of the time.  The rules are:
 
 2.    When brackets are not used, a token's contents are delimited by the
       end of the category.  Thus the content of **ITER\_CONV** from
-      **fragment 1** is &nbsp;`**0.001 MIX=A,b=3**`, while in
-      **fragment 2** it is the more sensible &nbsp; `0.001`.
+      **fragment 1** is &nbsp;`0.001 MIX=A,b=3`, while in
+      **fragment 2** it is &nbsp; `0.001`.
 
       In practice this difference matters only occasionally.  Usually
       contents refer to numerical data. The parser will read only as many
@@ -175,13 +176,14 @@ that of **fragment 1** most of the time.  The rules are:
       might generate a difference.  In practice, the parser can only find
       one number to convert in the contents of **fragment 2**, and that
       is all it would generate.  For **fragment 1**, the parser would see a second string
-      `MIX=...` but it fail to convert it to a number. Thus, the net effect would be the
+      `MIX=...` but it would not be able to convert it to a number. Thus, the net effect would be the
       same: only one number would be parsed.
 
       _Note:_{: style="color: red"} Whether or not reading only one
-      number produces an error, will depends on whether **CONV**
-      _must_ contain more than one number or it only _may_ do
-      so.  There are instances of both.
+      number produces an error, depends on whether the tag (**CONV**)
+      _require_ more than one number or not.  There are instances where
+      only one number is sought, or more than one is sought but only one is sufficient.  For example,
+      **BZ_NKABC** has three numbers, but you can supply one only.
 
 3.    When a token's contents consist of a string (as distinct from a
       string representation of a number) and brackets are _not_ used,
@@ -190,11 +192,16 @@ that of **fragment 1** most of the time.  The rules are:
       delimits the end-of-string, as in &nbsp; **MIX=A,b=3**.&nbsp;
       However, in a few cases the end-of-category delimits the
       end-of-string --- usually when the entire category contains just a
-      string, as in &nbsp; **SYMGRP R4Z M(1,1,0) R3D**.&nbsp; If
-      you want to be sure, use brackets.
+      string, as in 
 
-4.    Tags containing three or more levels of nesting, e.g **STR\_IINV\_NIT**,
-      must be bracketed after the second level.  Any of the following
+      ~~~
+      SYMGRP R4Z M(1,1,0) R3D
+      ~~~
+
+      If you want to be sure, use brackets.
+
+4.    Tags containing three levels of nesting, e.g **STR\_IINV\_NIT**,
+      _must_ be bracketed after the second level.  Any of the following
       are acceptable:
 
       ~~~
@@ -203,16 +210,13 @@ that of **fragment 1** most of the time.  The rules are:
       STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
       ~~~
 
-      _Note:_{: style="color: red"} that brackets cannot entirely be avoided:  it is the only means to represent tags with three branches.
-
-
 #### _When multiple occurrences of a token are needed_
 {::comment}
 /docs/input/inputfilesyntax/#when-multiple-occurrences-of-a-token-are-needed
 {:/comment}
 
 Multiple occurences of a token are sometimes required. The two 
-main instances are site positions and species data.  The following fragment
+main instances are site and species data.  The following fragment
 illustrates such a case:
 
     SITE   ATOM[C1  POS= 0          0   0    RELAX=1]
@@ -224,20 +228,21 @@ well as its contents.  The contents of the first and second occurences
 of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
 and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
-_Note:_{: style="color: red"} Here **ATOM** plays a dual
-role: it is simultaneously a marker (token) for input data---the string for
+_Note:_{: style="color: red"} **ATOM** plays a dual
+role here: it is simultaneously a marker (token) for input data---
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
 one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).
 
 The format shown is consistent with rule 4 above.
-Questaal programs also accept the following format for this special case of repeated inputs:
+Questaal programs also accept the following format for repeated inputs
+in **SITE** and **SPEC** categories
 
     SITE    ATOM=C1  POS= 0          0   0    RELAX=1
             ATOM=A1  POS= 0          0   5/8  RELAX=0
             ATOM=C1  POS= 1/sqrt(3)  0   1/2
 
-In the latter format the contents of tag **SITE\_ATOM** are delimited
+In the latter format the contents of **SITE\_ATOM** are delimited
 by either the _next_ occurence of this tag, or by the end-of-category,
 whichever occurs first. 
 
