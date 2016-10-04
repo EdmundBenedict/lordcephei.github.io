@@ -23,8 +23,8 @@ _____________________________________________________________
 The input system for the Questaal program suite is unique in the following
 respects:
 
-1. A tree of identifiers completely specifies a particular marker.  The
-   [full sequence we call a _tag_](/docs/input/inputfile/#input-file-structure); it is sometimes expressed as a string of
+1. [A tree of identifiers](/docs/input/inputfile/#input-file-structure) completely specifies a particular marker.  The
+   full sequence we call a _tag_; it is sometimes expressed as a string of
    identifers separated by underscores, e.g. **SPEC\_SCLWSR**,&nbsp;
    **SPEC\_ATOM\_Z**,&nbsp;  **ITER\_CONV**.  Thus a tag is analogous to a
    path in a tree directory structure: **SPEC**,&nbsp; **SPEC\_ATOM**,&nbsp;
@@ -56,9 +56,9 @@ respects:
 3. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
    which provides some programming language capability.  Input files can contain directives such as
 
-   ~~~
+   <pre>
    % if <i>expression</i>
-   ~~~
+   </pre>
 
    that are not part of the input proper, but control what is read into
    the input stream, and what is left out.  Thus input files can serve
@@ -67,9 +67,20 @@ respects:
 
 4. The parser can read algebraic expressions. Variables can be assigned
    and used in the expressions.  Expression syntax is similar to C, and
-   uses the [same rules](/docs/input/preprocessor/#syntax-of-algebraic-expressions)
-   as the preprocessor (without curly brackets).
+   uses the same rules as the preprocessor.
 
+   _Note:_{: style="color: red"} the preprocessor
+   [parses expressions inside curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) and returns the result as a
+   string.  The result of the expression substitution is a string, which itself can be part of an expression which is parsed
+   when looking for values of tags.  Thus
+
+      NSPIN={2+1}-1
+
+   appears after preprocessing as
+
+     NSPIN=3-1
+
+   The contents of **NSPIN** is an algebraic expression, **3-1** which is parsed and becomes 2.
 
 ### _Input structure: syntax for parsing tokens_
 {::comment}
@@ -85,13 +96,13 @@ A typical input fragment looks something like:
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: &nbsp; **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
-Full are broken into branches as fragment 1 shows.
+Full tags do not appear explicitly but are split into branches as **fragment 1** shows.
 A token is the last identifier in the path.  Its contents consist of 
 a string which may represent input data when it is the last link in
-the path, e.g. **NIT**, or be part of a larger tag, in which case it
+the path, e.g. **NIT**, or be a segment of a larger tag, in which case it
 points to branches farther out on the tree.
 It is analogous to a file directory structure, where names refer to
-files, or to directories (folders) which contain files or other directories.
+files, or to directories (aka folders) which contain files or other directories.
 
 The first or top-level tags we designate as
 _categories_, (**ITER**, **DYN** in the fragment above). 
