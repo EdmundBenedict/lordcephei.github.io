@@ -51,7 +51,7 @@ respects:
 
    The same identifier may appear in more than one tag; their meaning is
    distinct.  Thus contents of **NIT** in
-   **STR\_IINV\_NIT** are different from the contents of **NIT in tag **ITER\_NIT**.  The next section shows
+   **STR\_IINV\_NIT** are different from the contents of **NIT** in tag ITER\_NIT**.  The next section shows
    how the structure is implemented for input files, which enables these
    cases to be distinguished.
 
@@ -61,7 +61,9 @@ respects:
 4. The input parser has a [_preprocessor_](/docs/input/preprocessor), 
    which provides some programming language capability.  Input files can contain directives such as
 
-     % if (expression)
+   ~~~
+   % if (expression)
+   ~~~
 
    that are not part of the input proper, but control what is read into
    the input stream, and what is left out.  Thus input files can serve
@@ -79,7 +81,7 @@ A typical input fragment looks something like:
 	ITER NIT=2  CONV=0.001
 	     MIX=A,b=3
 	DYN  NIT=3
-	... (fragment 1)
+	... **(fragment 1)**
 
 The full path identifier we refer to as a _tag_.  Tags in this
 fragment are: \quad **ITER, ITER\_NIT, ITER\_CONV, ITER\_MIX, DYN, DYN\_NIT**.
