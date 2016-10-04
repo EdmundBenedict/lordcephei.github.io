@@ -106,11 +106,17 @@ For a better and more modifiable figure, run **plbnds**{: style="color: blue"} a
 
 The new switches indicate the following:
 
-+ `-fplot` tells **plbnds**{: style="color: blue"} to generate data files for each of the five panels
++ `-fplot` tells **plbnds**{: style="color: blue"} to generate data files for each of the five panels, and also a script for the [fplot](/docs/misc/fplot) tool.\\
+   The fplot script is written to a file, _plot.plbnds_{: style="color: green"}.  To interpret the script, see the [fplot manual](/docs/misc/fplot).
+   Data files are called (_bnd[1-5].dat_{: style="color: green"}) (see output below). They are written in a standard Questaal format, which is easily read by other packages.\\
+   The first column is a fractional distance along the symmetry line (0 for starting point, 1 for ending point).\\
+   Remaining columns (26 of ) comprise all energy bands in the window (-10,8) eV.  
 + `-ef=0` tells **plbnds**{: style="color: blue"} to shift the bands by a constant so the Fermi energy falls at 0.\\
    _Note:_{: style="color: red"} in an infinite periodic system the energy zero is ill defined; it can be chosen arbitrarily.
 + `-scl=13.6` scales the energy bands by this factor, converting the raw bands (in Ry) to eV.
-_ `-nocol` tells **plbnds**{: style="color: blue"} to ignore the color weights.
++ `-nocol` tells **plbnds**{: style="color: blue"} to ignore information about color weights.
+
+The energy window is now `-10,8` eV. The last two arguments (formerly `10,15`) are not used in this mode since **plbnds**{: style="color: blue"} makes no figure.
 
 <div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show stdout from plbnds.</button>
@@ -138,13 +144,13 @@ _ `-nocol` tells **plbnds**{: style="color: blue"} to ignore the color weights.
 {::nomarkdown}</div>{:/}
 
 
-+ `-fplot` tells **plbnds**{: style="color: blue"} to prepare data files (_bnd[1-5].dat_{: style="color: green"}) and a script for the [fplot](/docs/misc/fplot) tool.
+
 + An fplot script was generated, _plot.plbnds_{: style="color: green"}.  The arguments in the script are documented in the [fplot manual](/docs/misc/fplot).
 + The energy window is now `-10,8` eV. The last two arguments (formerly `10,15`) are not used with **fplot**{: style="color: blue"}
 + Data files are written in a standard Questaal format, which is easily read by other packages.  
   The first column is a fractional distance along the symmetry line (0 for starting point, 1 for ending point).  
-  Remaining columns (about 26) comprise all energy bands in the window (-10,8) eV.  
-  Data was scaled from Ry to eV (`-scl=13.6`) and the Fermi level shifted to 0 (`-ef=0`).
+  Remaining columns (about 26 of them) comprise all energy bands in the window (-10,8) eV.
+  Data scaled scaled from Ry to eV (`-scl=13.6`) and shifted so that the Fermi level falles at 0 (`-ef=0`).
 + `-nocol` tells **plbnds**{: style="color: blue"} to ignore information about color weights.
 
 Make and view a postscript file with
