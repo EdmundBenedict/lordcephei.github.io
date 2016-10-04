@@ -170,19 +170,20 @@ that of **fragment 1** most of the time.  The rules are:
       In practice this difference matters only occasionally.  Usually
       contents refer to numerical data. The parser will read only as many
       numbers as it needs.  If &nbsp;**CONV**&nbsp; contains only one number, the
-      difference is moot.  On the other hand a suppose the contents of
-      &nbsp;**CONV**&nbsp; can contain more than one number.  Then the two styles
+      difference is moot.  On the other hand a suppose associates
+      &nbsp;**CONV**&nbsp; with more than one number.  Then the two styles
       might generate a difference.  In practice, the parser can only find
-      one number to convert in the contents of **fragment 2**, and that
+      one number to convert in **fragment 2**, and that
       is all it would generate.  For **fragment 1**, the parser would see a second string
       `MIX=...` but it would not be able to convert it to a number. Thus, the net effect would be the
       same: only one number would be parsed.
 
       _Note:_{: style="color: red"} Whether or not reading only one
-      number produces an error, depends on whether the tag (**CONV**)
-      _require_ more than one number or not.  There are instances where
-      only one number is sought, or more than one is sought but only one is sufficient.  For example,
+      number produces an error depends on how many number the parser _requires_ of a particular token.
+      It is an error if the parser requires more numbers than it can read.
+      It can hapen or more than one is sought but only one is sufficient.  For example,
       &nbsp;**BZ_NKABC**&nbsp; has three numbers, but you can supply one only.
+      If _more_ numbers are supplied than are sought, only the number sought are parsed, regardless of how many are supplied.
 
 3.    When a token's contents consist of a string (as distinct from a
       string representation of a number) and brackets are _not_ used,
@@ -197,7 +198,7 @@ that of **fragment 1** most of the time.  The rules are:
       SYMGRP R4Z M(1,1,0) R3D
       ~~~
 
-      If you want to be sure, use brackets.
+      If you want to be sure, use brackets:  `SYMGRP[R4Z M(1,1,0) R3D]`.
 
 4.    Tags containing three levels of nesting, e.g &nbsp;**STR\_IINV\_NIT**,
       _must_ be bracketed after the second level.  Any of the following
