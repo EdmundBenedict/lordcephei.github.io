@@ -156,7 +156,7 @@ ________________________________________________________________________________
 
 The Questaal family of executable programs share a common, elegant [input system](/docs/input/inputfile/)
 and has features of a [programming language](/docs/input/preprocessor/).  
-This [reference manual](/docs/input/inputfile/) defines the syntax of categories and tokens that make up an input file. The family consists of the following:
+This [reference manual](/docs/input/inputfilesyntax/) defines the syntax of categories and tokens that make up an input file. The family consists of the following:
 
 + **blm**{: style="color: blue"}: an input file generator, given structural information.  [Many of the tutorials](/tutorial/lmf/lmf_tutorial/) use **blm**{: style="color: blue"}.
 
