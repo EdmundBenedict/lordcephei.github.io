@@ -180,9 +180,9 @@ that of **fragment 1** most of the time.  The rules are:
       must be bracketed after the second level.  Any of the following
       are acceptable:
 
-        STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
-        STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]
-        STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
+         STR[RMAX[3] IINV[NIT[5] NCUT[20] TOL[1E-4]]]
+         STR[RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]]
+         STR RMAX=3 IINV[NIT=5 NCUT=20 TOL=1E-4]
 
 #### _Multiple occurrences of a token_
 {::comment}
@@ -198,17 +198,15 @@ illustrates such a case:
            ATOM[C1  POS= 1/sqrt(3)  0   1/2]
 
 The parser will try to read multiple instances of tag **SITE\_ATOM**, as
-well as its contents.
+well as its contents.  The contents of the first and second occurences
+of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
+and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
-_Note:_{: style="color: red"} that token **ATOM** plays a dual
+Note_{: style="color: red"} that token **ATOM** plays a dual
 role: it is simultaneously a marker for input data---the string for
 **ATOM**'s label (e.g. **C1**)---and a marker for tokens nested
 one level deeper, (e.g. contents of tags **SITE\_ATOM\_POS** and
 **SITE\_ATOM\_RELAX**).
-
-The contents of the first and second occurences
-of token **ATOM** are thus: &nbsp; `C1 POS= 0 0 0 RELAX=1`
-and &nbsp; `A1 POS= 0 0 5/8 RELAX=0`.
 
 The format shown is consistent with rule 4 above.
 Questaal programs accept the following format for this special case of repeated inputs:
