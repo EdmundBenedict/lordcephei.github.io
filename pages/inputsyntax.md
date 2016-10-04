@@ -87,8 +87,8 @@ respects:
    can coexist, and how to declare variables though &nbsp;**CONST**.
 
    _Note:_{: style="color: red"} the preprocessor will handle sequences of assignments and expressions such as &nbsp;**{x=3,y=4,x\*=y,x\*2}**;
-   the result is the ASCII representation of **x\*2**, the final expression.  Only the preprocessor has this capability; the input file must 
-   consist of a single expression without any variable assignments.
+   the result is the ASCII representation of the final expression, &nbsp;**x\*2**.  This extra capability is only in the preprocessor; the transformed
+   input must consist of a single expression without any variable assignments, as in the example above.
 
 ### _Input structure: syntax for parsing tokens_
 {::comment}

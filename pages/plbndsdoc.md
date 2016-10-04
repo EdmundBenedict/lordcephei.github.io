@@ -39,7 +39,7 @@ files](https://lordcephei.github.io/docs/input/symfile/) are available that grea
 
 Three Questaal tools can make energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{:
 style="color: blue"}, and **tbe**{: style="color: blue"}. They share a common input and output format.  Bands are
-written to file _bnds.ext_{: style="color: green"}.  _bnds.ext_{: style="color: green"} is not written in a friendly
+written to file _bnds.ext_{: style="color: green"}.  This file is not written in a friendly
 format; but it is often the case that you need only a subset of the bands or to provide extra information such as data for color weights,
 which **plbnds**{: style="color: blue"} can do efficiently.
 Data for each symmetry line is kept in a separate file.
@@ -47,18 +47,19 @@ Data for each symmetry line is kept in a separate file.
 **plbnds**{: style="color: blue"} may be used in one of several contexts:
 
 1. To make postscript files of bands directly, without other software.  Very quick but there is no easy way to modify the figure.
-2. To select and formatting data for use with **gnuplot**{: style="color: blue"} or other standard graphics package
-3. Same as 2, but generate a script for [**fplot**{: style="color: blue"}](/docs/misc/fplot), a plotting package built into Questaaal.
+2. To generate a script and formated files for use with **fplot**{: style="color: blue"}, a plotting package built into Questaaal.
+3. Same as 2, but format files ready for use with **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.
 
 **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"} write postscript files to _fplot.ps_{: style="color: green"}.
 
-Tutorials show how to draw figures with either **gnuplot**{: style="color: blue"} or **fplot**{: style="color: blue"}.
+Tutorials show how to draw figures with **fplot**{: style="color: blue"}; once the data files are available you can easily
+use **gnuplot**{: style="color: blue"} or some other package.
 
 **plbnds**{: style="color: blue"} will print information about its usage by typing
 
     $ plbnds --h
 
-Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} works by using an example: the energy bands of Co.
+Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} operates by working through an example (the energy bands of Co).
 
 Section 3 is an operations manual.
 
@@ -67,21 +68,21 @@ _____________________________________________________________
 
 ### 2. _Examples_
 
-Copy [this bands file](/assets/download/inputfiles/bnds.co) to your working directory.
-It contains energy bands for Co joining the symmetry lines M, &Gamma;, A, L, &Gamma;, K.
-Bands were computed in the LDA with spin-orbit coupling, so both spin-up and spin-down bands are present.
+Copy an already generated bands file for Co, [_bnds.co_{: style="color: green"}](/assets/download/inputfiles/bnds.co) to your working directory.
+It contains energy bands along the symmetry lines M, &Gamma;, A, L, &Gamma;, K (5 panels).
+Bands were computed in the LDA with spin-orbit coupling; thus both spin-up and spin-down bands are present.
 
 The first line of the file
 
     36  -0.02136     2  col= 5:9,14:18  col2= 23:27,32:36
 
-contains essential information about the file contents.  It says that:
+contains essential information about the contents.  It says that:
 
 + the file contains 36 bands
 + The Fermi level is -0.02136 Ry
 + The file contains two sets of color weights
 
-The strings following with **col=** are not needed; they are there for record-keeping.
+**col=** and following strings are not used; they are there for record-keeping.
 
 Enter the following to make and view the postscript file:
 
