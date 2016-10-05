@@ -220,7 +220,7 @@ it will be red with 100% majority _d_ character and green with 100% minority _d_
 Colors provide an extremely helpful guide to interpret the bands.  It shows clearly which bands have majority and minority _d_ character.
 
 <div onclick="elm = document.getElementById('cocolorbands'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click to see and interpret the figure</button>
+<button type="button" class="button tiny radius">Click to view and interpret the figure</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="cocolorbands">{:/} 
 
 Your postscript file should like like the figure below.
@@ -267,9 +267,9 @@ Optional switches do the following functions:
 + -spin1 or -spin2\\
   plots only bands of first or second spin (spin pol calculations only)
 
-
-+ -wscl=#[,#]\\
-  scales graphics window by # or (#,#)
++ -wscl=<i>w</i>[,<i>h</i>]\\
+  scales the default figure size by _w_.\\
+  If the second argument is present the width is scaled by _w_, the height by _h_.
 
 _____________________________________________________________
 
