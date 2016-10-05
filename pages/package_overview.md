@@ -176,7 +176,7 @@ There is an MPI version, **lmgf-MPIK**{: style="color: blue"}.
 
 + **lmpg**{: style="color: blue"}: a program similar to **lmgf**{: style="color: blue"}, but it is designed for layered structures with periodic boundary conditions in
  two dimensions.  It can calculate transport using the Landauer-Buttiker formalism, and has a non-equilibrium capability.  There is  
-[a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf/)(update link lvs), though it is somewhat out of date.
+[a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf)(update link lvs), though it is somewhat out of date.
 There is also an MPI version, **lmpg-MPIK**{: style="color: blue"}.
 
 + **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutorial
@@ -186,7 +186,7 @@ t calculations can be done (important for polar compounds), and includes Hubbard
 **tbe**{: style="color: blue"} has a [tutorial](/tutorial/tbe/tbectrl/).
 
 + **lmdos**{: style="color: blue"}: generates partial densities of states. It is run as a post-processing step after
-     execution of **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, or **tbe**{: style="color: blue"}.
+  execution of **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, or **tbe**{: style="color: blue"}.
 
 + **lmfgws**{: style="color: blue"}: a postprocessing code run after a _GW_ calculation to analyze spectral functions.
 

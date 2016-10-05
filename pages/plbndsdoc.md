@@ -107,20 +107,6 @@ For a better and more modifiable figure, run **plbnds**{: style="color: blue"} a
 
     $ echo -10,8 / | plbnds -fplot -ef=0 -scl=13.6 -nocol -lbl=M,G,A,L,G,K bnds.co
 
-The new switches indicate the following:
-
-+ `-fplot` tells **plbnds**{: style="color: blue"} to generate data files for each of the five panels, and also a script for the [fplot](/docs/misc/fplot) tool.\\
-   The fplot script is written to a file, _plot.plbnds_{: style="color: green"}.  To interpret the script, see the [fplot manual](/docs/misc/fplot).\\
-   The five panels are written to files (_bnd[1-5].dat_{: style="color: green"}) (see standard output below). They take a standard Questaal format, which is easily read by other packages.\\
-   The first column is a fractional distance along the symmetry line (0 for starting point, 1 for ending point).\\
-   The remaining 26 columns comprise energy bands in the window (-10,8) eV.
-+ `-ef=0` tells **plbnds**{: style="color: blue"} to shift the bands by a constant so the Fermi energy falls at 0.\\
-   _Note:_{: style="color: red"} in an infinite periodic system the energy zero is ill defined; it can be chosen arbitrarily.
-+ `-scl=13.6` scales the energy bands by this factor, converting the raw bands (in Ry) to eV.
-+ `-nocol` tells **plbnds**{: style="color: blue"} to ignore information about color weights.
-
-The energy window is now `-10,8` eV. The last two arguments from **stdin** (formerly `10,15`) are not used in this mode since **plbnds**{: style="color: blue"} makes no figure.
-
 <div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show stdout from plbnds.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
@@ -146,25 +132,79 @@ The energy window is now `-10,8` eV. The last two arguments from **stdin** (form
 
 {::nomarkdown}</div>{:/}
 
+The new switches indicate the following:
+
++ `-fplot` tells **plbnds**{: style="color: blue"} to generate data files for each of the five panels, and also a script for the [fplot](/docs/misc/fplot) tool.\\
+   The fplot script is written to a file, _plot.plbnds_{: style="color: green"}.\\
+   The five panels are written to files (_bnd_[1-5]_.dat_{: style="color: green"}) (see standard output). They take a standard Questaal format, which is easily read by other packages.\\
+   The first column is a fractional distance along the symmetry line (0 for starting point, 1 for ending point).\\
+   The remaining 26 columns comprise energy bands in the window (-10,8) eV.
++ `-ef=0` tells **plbnds**{: style="color: blue"} to shift the bands by a constant so the Fermi energy falls at 0.\\
+   _Note:_{: style="color: red"} in an infinite periodic system the energy zero is ill defined; it can be chosen arbitrarily.
++ `-scl=13.6` scales the energy bands by this factor, converting the raw bands (in Ry) to eV.
++ `-nocol` tells **plbnds**{: style="color: blue"} to ignore information about color weights.
+
+The energy window is now `-10,8` eV. The last two arguments from **stdin** (formerly `10,15`) are not used in this mode since **plbnds**{: style="color: blue"} makes no figure.
+
 Make and view a postscript file with
 
     $ fplot -f plot.plbnds
     $ open fplot.ps 
 
-This figure is much closer to publication quality.  You can of course customize _plot.plbnds_{: style="color: green"}.
+This figure is much closer to publication quality.  You can of course customize the figure by editing _plot.plbnds_{: style="color: green"}.
+To interpret and customize the script, see the [fplot manual](/docs/misc/fplot).
 
 ##### Example 3
 
-This example uses the color weights to distinguish spin-up and spin-down bands.
-_bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
-Assuming your source directory is **~/lm**), you can make _bnds.co_{: style="color: green"} yourself running this script:
+This example illustrates a very useful feature of the Questaal band plotting capabilities.
+It uses two color weights to distinguish spin-up and spin-down bands.
+The first color selects out the majority bands of _d_ character, the second the minority _d_ bands.
+
+Consider orbital component _i_ of band _n_.  Its wave function has eigenvector element <i>z<sub>in</sub></i>.  The wave function is normalized, and so
+
+$$  \Sum_i \left(z_{in}\right)^{-1} z_{in} = 1 $$
+  
+The sum runs over all of the orbitals in the basis. By "decomposing the norm" of _z_, that is summing over a subset of orbitals _i_, the result is less than unity and is a measure of the fraction that set contributes to the norm.  _Note:_{: style="color: red"} this decomposition is essentially like a Mulliken analysis.
+
+_bnds.co_{: style="color: green"} was generated with two color weights: all _d_ orbitals in the Co majority spin channel were combined for the first weight, and all _d_ orbitals in the Co minority channel the second.  Thus the first color weight is zero if there is 
+no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire eigenfunction is of majority _d_ character.
+The same applies for the second weight for the minority _d_ band.
+
+_Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
+
+<div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click to see how to run and interpret the script.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
+
+
+Assuming your source directory is **~/lm**), you can make do the test yourself running this script:
 
     $ ~/lm/fp/test/test.fp co 1
 
-The first color selects out the majority bands of _d_ character, the second the minority _d_ bands.
-That is, the orbital wave function is projected onto the Co _d_ channel.  
-A weight is assigned for the first color, 0 being no projection of the eigenfunction onto majority _d_ and 1 being 100\% projection.
-Another weight is assigned for the second color, same convention but minority _d_ are selected out.
+The script runs **lmf**{: style="color: blue"} as:
+
+~~~
+lmf  co -vmet=4 -vlmf=1 -vnk=8 -vnit=10 --pr31,20 --no-iactiv -vso=t --band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml
+~~~
+`-vmet=4 -vlmf=1 -vnk=8 -vnit=10` [assign algebraic variables](/docs/input/preprocessor/#variables) which modifies _ctrl.co_{: style="color: green"}.
+They are of secondary interest here. `-vso=t` does the same, but is important in this context because the input file contains
+
+~~~
+HAM   ...  SO={so} 
+~~~
+
+`-vso=t` sets variable **so** to **true** (or **1**); thus the proprocessor transforms `SO={so}` into `SO=1`.  This is how spin orbit coupling is turned on.
+The input file's construction is described [here](/docs/input/inputfile).
+
+`--band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml` tells **lmf**{: style="color: blue"} to draw energy bands with two color weights (`col=..` and `col2=..`)
+Orbitals **5-9** comprise the majority spin _d_ orbitals of the first &kappa;, **14-8** those of the second &kappa;.  
+_Note:_{: style="color: red"} `dup=9` replicates the existing list, adding 9 to each element in the list.)  
+
+States **23-27** are the corresponding _d_ orbital in the minority channel.  The five _d_ states are
+expressed conveniently as **18+5:18+9**.  These are the minority spin counterparts since the entire hamiltonian has 18 orbitals.
+When the hamiltonian is treated relativistically the minority spin orbitals follow the majority spin in the hamiltonian.
+
+{::nomarkdown}</div>{:/}
 
 Run **plbnds**{: style="color: blue"} as before, exept eliminating `-nocol` and adding a line type:
 
@@ -177,7 +217,8 @@ the first and second weights vanish; colors of the first weight (`colw=.7,0,0`) 
 The three numbers correspond to fractions of (red, green, blue).  Thus, if a band has no _d_ character it will be black;
 it will be red with 100% majority _d_ character and green with 100% minority _d_ character.
 
-The figure shows clearly which bands have majority and minority  _d_ character.  The colors nicely elucidate the following points:
+Colors are extremely helpful to interpret the bands in the Figure.  It shows clearly which bands have majority and minority  _d_ character.  
+Note the following points:
 
 + the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.
   You can see traces of it near &Gamma; at around -0.5 eV, it increases as _k_ moves away from &Gamma;.
