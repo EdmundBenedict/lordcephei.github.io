@@ -281,20 +281,16 @@ Optional switches perform the following functions:
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
 
 + -col3:<i>bnds2</i>,<i>fnout</i>\\
-   combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"}.\\
+   combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
+   file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
+
    The Questaal codes are equipped to generate energy bands with only one or two color weights; however **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}
-   has the capability to manage up to three color weights.  `-col3` enables you to merge back-to-back band calculations with a combined three color weights
+   has the capability to manage up to three color weights.  `-col3` enables you to merge back-to-back band calculations with respectively two and one color weights,
    into a single _bnds_{: style="color: green"} file, suitable for processsing by **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}.
    + _bnds.ext_{: style="color: green"} should contain two color weights, _bnds2_{: style="color: green"} one color weight.
-   + The merged data is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).
    + _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
 
 <i> </i>
-
-+ -merge=file2[,file3] or  -mergep=file2[,file3]\\
-   merges two bands file (one for each spin  in the spin-pol case).\\
-   Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
-   `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
   graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
@@ -314,15 +310,19 @@ Optional switches perform the following functions:
   Refer to the [fplot manual](/docs/misc/fplot) to learn about the capabilities and switches in the **fplot**{: style="color: blue"} tool.
 
   Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
-  _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in easily readable standard Questaal form.
+  _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in standard Questaal form, and easily readable format.
 
-The following switches may be used in conjunction with `-fplot`.
-
-+ -dat=<i>ext</i>\\
++ -dat=<i>ext</i> (may be used in conjunction with `-fplot`)\\
    Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands bands into one figure.
-+ -nocol or --nocol\\
-  Ignore information about color weights
+
++ -nocol or --nocol (may be used in conjunction with `-fplot`)\\
+  Ignore information about color weights.
   
++ -merge=file2[,file3] or  -mergep=file2[,file3]\\
+   merges two bands file (one for each spin  in the spin-pol case).\\
+   Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
+   `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
+
 _____________________________________________________________
 
 ### 4. _Other resources_
