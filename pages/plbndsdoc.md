@@ -289,6 +289,8 @@ Optional switches perform the following functions:
    2. The merged data is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).
    3. _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.\\
 
+<BR>
+
 + -merge=file2[,file3] or  -mergep=file2[,file3]\\
    merges two bands file (one for each spin  in the spin-pol case).\\
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
