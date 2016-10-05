@@ -169,7 +169,7 @@ The sum runs over all of the orbitals in the basis. By "decomposing the norm" of
 _bnds.co_{: style="color: green"} was generated with two color weights: all _d_ orbitals in the Co majority spin channel were combined for
 the first weight, and the corresponding _d_ orbitals in the Co minority channel the second.
 Thus the first color weight is zero if there is no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire
-eigenfunction is of majority _d_ character.  The same applies for the second weight, but for the minority _d_ band.
+eigenfunction is of majority _d_ character.  The same applies for the second weight, but for the minority _d_ channel.
 
 _Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
 
@@ -177,8 +177,7 @@ _Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated fr
 <button type="button" class="button tiny radius">Click to see how to run and interpret the script.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="cotest">{:/} 
 
-
-Assuming your source directory is **~/lm**), you can make do the test yourself running this script:
+Assuming your source directory is **~/lm**, you can do the test yourself running this script:
 
     $ ~/lm/fp/test/test.fp co 1
 
@@ -187,23 +186,23 @@ The script runs **lmf**{: style="color: blue"} as:
 ~~~
 lmf  co -vmet=4 -vlmf=1 -vnk=8 -vnit=10 --pr31,20 --no-iactiv -vso=t --band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml
 ~~~
-`-vmet=4 -vlmf=1 -vnk=8 -vnit=10` [assign algebraic variables](/docs/input/preprocessor/#variables) which modifies _ctrl.co_{: style="color: green"}.
-They are of secondary interest here. `-vso=t` does the same, but is important in this context because the input file contains
+`-vmet=4 -vlmf=1 -vnk=8 -vnit=10` [assign algebraic variables](/docs/input/preprocessor/#variables) which will modify _ctrl.co_{: style="color: green"} when
+run through the [preprocessor](/docs/input/preprocessor).  They are of secondary interest here. `-vso=t` does the same, but is important in this context because the input file contains
 
 ~~~
 HAM   ...  SO={so} 
 ~~~
 
-`-vso=t` sets variable **so** to **true** (or **1**); thus the proprocessor transforms `SO={so}` into `SO=1`.  This is how spin orbit coupling is turned on.
-The input file's construction is described [here](/docs/input/inputfile).
+`-vso=t` sets variable **so** to **true** (or **1**). The proprocessor [transforms](/docs/input/preprocessor/#curly-brackets-contain-expressions) `SO={so}` into `SO=1`.
+Token **SO** controls spin orbit coupling (the input file's construction is described [here](/docs/input/inputfile)).
 
 `--band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml` tells **lmf**{: style="color: blue"} to draw energy bands with two color weights (`col=..` and `col2=..`)
-Orbitals **5-9** comprise the majority spin _d_ orbitals of the first &kappa;, **14-8** those of the second &kappa;.  
+Orbitals **5-9** comprise the majority spin _d_ orbitals of the first Hankel energy;, **14-8** those of the second.  
 _Note:_{: style="color: red"} `dup=9` replicates the existing list, adding 9 to each element in the list.)  
 
 States **23-27** are the corresponding _d_ orbital in the minority channel.  The five _d_ states are
-expressed conveniently as **18+5:18+9**.  These are the minority spin counterparts since the entire hamiltonian has 18 orbitals.
-When the hamiltonian is treated relativistically the minority spin orbitals follow the majority spin in the hamiltonian.
+expressed conveniently as **18+5:18+9**.  These are the minority spin counterparts since the entire hamiltonian basis consists of 18 orbitals.
+When the hamiltonian is treated relativistically the Hamiltonian is doubled into a 2&times;2 supermatrix; with spin 1 orbitals occuring first.
 
 {::nomarkdown}</div>{:/}
 
@@ -213,12 +212,21 @@ Run **plbnds**{: style="color: blue"} as before, except eliminating `-nocol` and
     $ fplot -f plot.plbnds
     $ open fplot.ps 
 
-The line type specifes a solid line (`-lt=1`), the line thickness (`bold=3`); the color of the background (`col=0,0,0`) which is the line color when
+The line type specifes a solid line (`-lt=1`), the line thickness (`bold=3`); the default line color (`col=0,0,0`) which is the color when
 the first and second weights vanish; colors of the first weight (`colw=.7,0,0`) and second weight `colw2=0,.7,0`), respectively.
 The three numbers correspond to fractions of (red, green, blue).  Thus, if a band has no _d_ character it will be black;
 it will be red with 100% majority _d_ character and green with 100% minority _d_ character.
 
-Colors are extremely helpful to interpret the bands in the Figure.  It shows clearly which bands have majority and minority  _d_ character.  
+Colors provide an extremely helpful guide to interpret the bands.  It shows clearly which bands have majority and minority _d_ character.
+
+<div onclick="elm = document.getElementById('cocolorbands'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click to see and interpret the figure</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="cocolorbands">{:/} 
+
+Your postscript file should like like the figure below.
+
+![Energy bands for Co](/assets/img/bnds-co.svg)
+
 Note the following points:
 
 + the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.
@@ -226,6 +234,8 @@ Note the following points:
 + The majority and minority _d_ bands are quite distinct.  This means that <i>s_<sub>z</sub></i> is almost a good quantum number.
   In the absence of spin-orbit coupling it is a good quantum number.
 + The majority and minority _d_ bands are approximatey the same shape, but split by approximately 1.6 eV.  This is as expected, since in simple models the splitting a simple constant value of <i>I</i>&times;<i>M</i>, where <i>I</i> and <i>M</i> are respectively the Stoner parameter and the magnetic moment.  In 3_d_ transition metals, <i>I</i> is close to 1 eV, and for Co, <i>M</i>=1.6 <i>&mu;</i><sub>B</sub>.
+
+{::nomarkdown}</div>{:/}
 
 ### 3. _plbnds manual_
 
