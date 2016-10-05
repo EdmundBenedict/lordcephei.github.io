@@ -10,15 +10,16 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-**fplot**{: style="color: blue"} is a general purpose plotting package, with functionality similar to **gnuplot**{: style="color: blue"}.
-It is provided here because the tool synchronises smoothly with the rest of the Questaal codes such as **plbnds**{: style="color: blue"}
-and **pldos**{: style="color: blue"}.  
+**fplot**{: style="color: blue"} is a general purpose plotting package, with functionality roughly similar to **gnuplot**{: style="color: blue"}.
+**fplot**{: style="color: blue"} has its strengths and weaknesses; but for the Questaal suite it is useful because
+it synchronises smoothly with the rest of the Questaal codes such as [**plbnds**{: style="color: blue"}](/docs/misc/plbnds)
+and [**pldos**{: style="color: blue"}](/docs/misc/plbdos).
 
-For standard functions such as plotting bands or densities-of-states, most users will prefer **gnuplot**{: style="color: blue"},
-though some may prefer **fplot**{: style="color: blue"}, as it is designed to synchronise with Questaal;
-and for some purposees **fplot**{: style="color: blue"} provides some functionality not readily obtained in **gnuplot**{: style="color: blue"}, e.g.
-to determine cyclotron masses, plotting bands with color weights, and using the programming language features of the Questaal suite.
-Tutorials are written so you can choose which graphics package to use.
+For some purposees **fplot**{: style="color: blue"} provides some functionality not readily obtained in **gnuplot**{: style="color: blue"}, e.g.
+to determine cyclotron masses, drawing [energy bands with color weights](/docs/misc/plbnds/#example-3), and taking advantage
+of the [programming language features](/docs/input/preprocessor) of the Questaal suite.
+Tutorials that draw bands or densities-of-states are written around **fplot**{: style="color: blue"}; but files are constructed to make it 
+easy to use any graphics package.
 
 _____________________________________________________________
 

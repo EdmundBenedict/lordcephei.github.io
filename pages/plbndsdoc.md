@@ -275,13 +275,13 @@ Optional switches perform the following functions:
   _Note:_{: style="color: red"} G is turned into the Greek character &Gamma;.
 + -tl=<i>title</i>\\
    Adds a title to appear at the top of the figure.
-+ -spin1 or -spin2\\
++ -spin1 | -spin2\\
   plots bands of first or second spin (_bnds.ext_{: style="color: green"} must contain data for two spins).
 + -skip=_lst_\\
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
 
 + -col3:<i>bnds2</i>,<i>fnout</i>\\
-   combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
+   merges the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
    file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
    The Questaal codes are equipped to generate energy bands with only one or two color weights; however **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}
    has the capability to manage up to three color weights.  `-col3` enables you to merge back-to-back band calculations with respectively two and one color weights,
@@ -312,7 +312,7 @@ Optional switches perform the following functions:
   _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in standard Questaal form, and easily readable format.
 
 + -dat=<i>ext</i> (may be used in conjunction with `-fplot`)\\
-   Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands bands into one figure.
+   Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands into one figure.
 
 + -nocol or --nocol (may be used in conjunction with `-fplot`)\\
   Ignore information about color weights.
