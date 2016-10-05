@@ -286,9 +286,9 @@ Optional switches perform the following functions:
      (one file for every panel).
   2. generates a script _plot.plbnds_{: style="color: green"}.
      You can make a postscript figure _fplot.ps_{: style="color: green"} of the bands with
-     
-         $ fplot -f plot.plbnds
-
+     <pre>
+     fplot -f plot.plbnds
+     </pre>
      Customize the figure by editing _plot.plbnds_{: style="color: green"}.\\
      To interpret or customize _plot.plbnds_{: style="color: green"}, see the [fplot manual](/docs/misc/fplot).
 
