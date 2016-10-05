@@ -256,11 +256,11 @@ _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: g
 
 `emin` and `emax` comprise the lower and upper bounds of figure.  Data is written
 only for bands that fall in this range.  The third and fourth arguments, which indicate the size of the figure,
-are used only when **plbnds**{: style="color: blue"} makes a postscript file ([Example 1](/docs/misc/plbnds/#example-1)).
+are used only when **plbnds**{: style="color: blue"} makes a postscript file directly ([Example 1](/docs/misc/plbnds/#example-1)).
 
 Optional switches perform the following functions:
 
-+ -help | --help | --h \\
++ -help | \-\-help | \-\-h \\
   prints out a help message and exits
 + -ef=<i>expr</i>\\
   shifts the energy bands so that the Fermi energy lies at <i>expr</i>
