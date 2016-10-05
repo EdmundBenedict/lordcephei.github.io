@@ -257,10 +257,8 @@ Optional switches do the following functions:
 
 + -help | --help | --h \\
   prints out a help message and exits
-
 + -ef=<i>expr</i>\\
   shifts the energy bands so that the Fermi energy lies at <i>expr</i>
-
 + -scl=<i>expr</i>\\
   scales bands by <i>expr</i>
 
