@@ -253,7 +253,7 @@ _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: g
 only for bands that fall in this range.  The third and fourth arguments, which indicate the size of the figure,
 are used only when **plbnds**{: style="color: blue"} makes a postscript file ([Example 1](/docs/misc/plbnds/#example-1)).
 
-Optional switches do the following functions:
+Optional switches perform the following functions:
 
 + -help | --help | --h \\
   prints out a help message and exits
@@ -265,15 +265,16 @@ Optional switches do the following functions:
   scales the default figure size by _w_.  _w_ is a number or expression.\\
   If the second argument is present the width is scaled by _w_, the height by _h_.
 + -lbl=_a_,_b_,_c_,_d_,...\\
-  Supply _k_ point (symmetry) labels at the points where panels meet.\\
-  For now, labels must be one character each.  Note: G is turned into the Greek &Gamma;.
-  You should supply _n_+1 labels, where _n_ is the number of panels.
+  Supply _k_ point (symmetry) labels at the points where panels meet.  For now, labels must be one character each.
+  You should supply _n_+1 labels, where _n_ is the number of panels.\\
+  _Note:_{: style="color: red"} Note: G is turned into the Greek &Gamma;.
 + -tl=<i>title</i>\\
    Adds a title to appear at the top of the figure.
 + -merge=file2[,file3] or  -mergep=file2[,file3]\\
    merges two bands file, one for each spin (spin-pol case)\\
    Optional **file3** causes plbnds to write merged file to _file3_{: style="color: green"}.\\
    `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
++ -col3:fn2,outfile merges 2 bnds file with 3rd color
 + -spin1 or -spin2\\
   plots only bands of first or second spin (spin polarized calculations only)
 + -skip=_lst_\\
@@ -281,14 +282,12 @@ Optional switches do the following functions:
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
   graphics package.  It does the following:
-  
   1. Writes energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
-  
   2. generates a script _plot.plbnds_{: style="color: green"}.
      You can make a postscript figure _fplot.ps_{: style="color: green"} of the bands with
      
-         fplot -f plot.plbnds
+         $ fplot -f plot.plbnds
 
      Customize the figure by editing _plot.plbnds_{: style="color: green"}.\\
      To interpret or customize _plot.plbnds_{: style="color: green"}, see the [fplot manual](/docs/misc/fplot).
@@ -296,7 +295,7 @@ Optional switches do the following functions:
   The optional **:s** tells plbnds that your bands file has two spins, and to
   draw bands for both spins (to draw spin1 or spin2 only use `-spin1` or `-spin2`).
 
-The folloiwng switches are to be used in conjunction with `-fplot`.
+The following switches are to be used in conjunction with `-fplot`.
 
 + -dat=<i>ext</i>\\
    Substitute _.ext_ for .dat when writing data files.\\
