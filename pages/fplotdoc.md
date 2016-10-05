@@ -161,7 +161,8 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   displays picture in a subshell.
   Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
-  **fplot**{: style="color: blue"} with a viewer available your machine.
+  **fplot**{: style="color: blue"} with a viewer available your machine.\\
+  Customize string **dispfn** near the beginning of **fplot.f**.
 + -plaintext\\
   strings have no non-ASCII characters (superscripts, subscripts, etc).
 + -f <i>script-file</i>\\
