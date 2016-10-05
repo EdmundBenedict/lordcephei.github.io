@@ -258,19 +258,60 @@ Optional switches do the following functions:
 + -help | --help | --h \\
   prints out a help message and exits
 
-+ -ef=#\\
-  shifts the energy bands so that the Fermi energy lies at #
++ -ef=<i>expr</i>\\
+  shifts the energy bands so that the Fermi energy lies at <i>expr</i>
 
-+ -scl=#\\
-  scales bands by #
-
-+ -spin1 or -spin2\\
-  plots only bands of first or second spin (spin pol calculations only)
++ -scl=<i>expr</i>\\
+  scales bands by <i>expr</i>
 
 + -wscl=<i>w</i>[,<i>h</i>]\\
-  scales the default figure size by _w_.\\
+  scales the default figure size by _w_.  _w_ is a number or expression.\\
   If the second argument is present the width is scaled by _w_, the height by _h_.
 
++ -lbl=a,b,c,d,...\\
+  Supply _k_ point labels at the ends of the panel.\\
+  For now, labels must be one character each.  Note: G is turned into the Greek &Gamma;.
+  You should supply _n_+1 labels, where _n_ is the number of panels.
+
++ -tl=<i>title</i>\\
+   creates a title
+
++ -merge=file2[,file3] or  -mergep=file2[,file3]\\
+   merges two bands file, one for each spin (spin-pol case)\\
+   Optional file3 causes plbnds to write merged file to _file3_{: style="color: green"}.\\
+   `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
+
++ -spin1 or -spin2\\
+  plots only bands of first or second spin (spin polarized calculations only)
+
++ -skip=lst skip panels in list, e.g. `-skip=1,3` .  See [this page](/docs/misc/integerlists) for the syntax of integer lists.
+
++ -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
+  graphics package.  It does the following:
+  
+  1. Writes energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
+     (one file for every panel).
+  
+  2. generates a script (_plot.plbnds_{: style="color: green"}).
+     You can make a postscript figure _fplot.ps_{: style="color: green"} of the bands with
+     ~~~
+     fplot -f plot.plbnds
+     ~~~
+     Customize the figure by editing _plot.plbnds_{: style="color: green"}.\\
+     To interpret or customize the script, see the [fplot manual](/docs/misc/fplot).
+
+  The optional **:s** tells plbnds that your bands file has two spins, and to
+  draw bands for both spins (to draw spin1 or spin2 only use `-spin1` or `-spin2`).
+
+The remaining switches are to be used in conjunction with `-fplot`.
+
++ -dat=<i>ext</i>\\
+   Substitute _.ext_ for .dat when writing data files.\\
+   Very useful when merging data from two bands into one figure.
+
++ -nocol or --nocol\\
+  Ignore information about color weights
+  
 _____________________________________________________________
 
 ### 4. _Other resources_
