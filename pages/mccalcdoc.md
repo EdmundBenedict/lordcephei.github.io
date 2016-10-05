@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "The mc calculator"
+title: "The mcx matrix calculator"
 permalink: "/docs/misc/mccalcdoc/"
 header: no
 ---
@@ -10,7 +10,7 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-**mc**{: style="color: blue"} is a matrix calculator that integrates with other components of the Questaal package.
+**mcx**{: style="color: blue"} is a matrix calculator that integrates with other components of the Questaal package.
 In particular it can read files using the programming language features of the input system.
 
 _____________________________________________________________

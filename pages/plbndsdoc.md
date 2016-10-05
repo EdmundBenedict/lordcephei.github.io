@@ -261,18 +261,18 @@ are used only when **plbnds**{: style="color: blue"} makes a postscript file dir
 Optional switches perform the following functions:
 
 + -help | \-\-help | \-\-h \\
-  prints out a help message and exits
+  prints out a help message and exits.
++ -lbl=_a_,_b_,_c_,_d_,...\\
+  _a_,_b_,_c_,_d_,... are _k_ point (symmetry) labels at the points where panels meet.  (See [Example 1](/docs/misc/plbnds/#example-1))\\
+  For now, labels must be one character each.  You should supply _n_+1 labels, where _n_ is the number of panels.\\
+  _Note:_{: style="color: red"} G is turned into the Greek character &Gamma;.
 + -ef=<i>expr</i>\\
-  shifts the energy bands so that the Fermi energy lies at <i>expr</i>
+  shifts the energy bands so that the Fermi energy lies at <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
 + -scl=<i>expr</i>\\
-  scales bands by <i>expr</i>
+  scales bands by <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
 + -wscl=<i>w</i>[,<i>h</i>]\\
   scales the default figure size by _w_.  _w_ is a number or expression.\\
   If the second argument is present the width is scaled by _w_, the height by _h_.
-+ -lbl=_a_,_b_,_c_,_d_,...\\
-  _a_,_b_,_c_,_d_,... are _k_ point (symmetry) labels at the points where panels meet.\\
-  For now, labels must be one character each.  You should supply _n_+1 labels, where _n_ is the number of panels.\\
-  _Note:_{: style="color: red"} G is turned into the Greek character &Gamma;.
 + -tl=<i>title</i>\\
    Adds a title to appear at the top of the figure.
 + -spin1 | -spin2\\
@@ -291,14 +291,16 @@ Optional switches perform the following functions:
 
 <i> </i>
 
-+ -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
-  graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
-  It will generate bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)\\
+
++ -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
+  graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).)\\
   This switch causes **plbnds**{: style="color: blue"} to do the following:
   1. write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
   3. suppress directly creating a postscript file
+  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
+     It will generate bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)
   
   You can create and view a postscript figure of the bands with
 

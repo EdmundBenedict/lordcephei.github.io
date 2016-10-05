@@ -100,7 +100,8 @@ It is usually more convenient to make scripts for fplot, especially when the fig
 This figure shows a contour plot of the charge density of the Cr charge density in (100), (011) plane,
 with quality almost good enough for publication in a journal.
 
-To make this plot you will need to copy [this charge density file](../../../assets/download/inputfiles/chgd.cr) to your working directory,
+In this example commands are read from script _fplot.cr_{: style="color: green"}.
+To make this plot you will need to copy the already-prepared charge density contour file [chgd.cr](../../../assets/download/inputfiles/chgd.cr) to your working directory,
 and cut and paste the script in the box below to _plot.cr_{: style="color: green"}.
 
 ~~~
@@ -116,7 +117,7 @@ fplot
   -lblu .5,-.02 cd 'Charge density in bcc Chromium (10^\{-3} a.u.)'
 ~~~
 
-In this example commands are read from script _fplot.cr_{: style="color: green"}. Run **fplot**{: style="color: blue"} with
+Run **fplot**{: style="color: blue"} with
 
     $ fplot -f plot.cr
 
@@ -142,7 +143,6 @@ _____________________________________________________________
 ### 3. _fplot manual_
 
 ... finish ... when reading data from a file
-
 + Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
   The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
   the file contents.
