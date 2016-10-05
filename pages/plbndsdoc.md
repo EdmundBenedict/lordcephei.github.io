@@ -296,10 +296,11 @@ Optional switches perform the following functions:
 
       $ fplot -f plot.plbnds
       $ open fplot.ps
+
   To interpret or customize _plot.plbnds_{: style="color: green"}, see the [fplot manual](/docs/misc/fplot).
 
   Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
-  These files are in standard Questaal form.
+  _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in standard Questaal form, and easily read
 
 The following switches may be used in conjunction with `-fplot`.
 + -dat=<i>ext</i>\\
