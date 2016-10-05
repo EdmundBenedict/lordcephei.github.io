@@ -270,24 +270,29 @@ Optional switches perform the following functions:
   scales the default figure size by _w_.  _w_ is a number or expression.\\
   If the second argument is present the width is scaled by _w_, the height by _h_.
 + -lbl=_a_,_b_,_c_,_d_,...\\
-  Supply _k_ point (symmetry) labels at the points where panels meet.  For now, labels must be one character each.
-  You should supply _n_+1 labels, where _n_ is the number of panels.\\
-  _Note:_{: style="color: red"} Note: G is turned into the Greek &Gamma;.
+  _k_ point (symmetry) labels at the points where panels meet.\\
+  For now, labels must be one character each.  You should supply _n_+1 labels, where _n_ is the number of panels.\\
+  _Note:_{: style="color: red"} Note: G is turned into the Greek character &Gamma;.
 + -tl=<i>title</i>\\
    Adds a title to appear at the top of the figure.
-+ -merge=file2[,file3] or  -mergep=file2[,file3]\\
-   merges two bands file, one for each spin (spin-pol case)\\
-   Optional **file3** causes plbnds to write merged file to _file3_{: style="color: green"}.\\
-   `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
 + -spin1 or -spin2\\
   plots only bands of first or second spin (spin polarized calculations only)
 + -skip=_lst_\\
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
+
 + -col3:<i>bnds2</i>,<i>fnout</i>\\
-   combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"}.\\
-   _bnds.ext_{: style="color: green"} should contain two color weights; _bnds2_{: style="color: green"} one color weight. 
-   The merged bnds file is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
+   combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"}.
+   The Questaal codes are equipped to generate bands files with only one or two color weights; however **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}
+   has the capability to manage three color weights as well.  `-col3` enables you to merge two separate bands calculations with a combined three color weights
+   into _bnds.ext_{: style="color: green"}, suitable for subsequent processsing.\\
+   _bnds.ext_{: style="color: green"} should contain two color weights; _bnds2_{: style="color: green"} one color weight.\\
+   The merged data is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
    _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
+
++ -merge=file2[,file3] or  -mergep=file2[,file3]\\
+   merges two bands file (one for each spin  in the spin-pol case)\\
+   Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
+   `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
   graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
