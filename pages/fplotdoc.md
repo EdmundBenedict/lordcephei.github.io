@@ -11,11 +11,11 @@ _____________________________________________________________
 {:.no_toc}
 
 **fplot**{: style="color: blue"} is a general purpose plotting package, with functionality roughly similar to **gnuplot**{: style="color: blue"}.
-**fplot**{: style="color: blue"} has its strengths and weaknesses; but for the Questaal suite it is useful because
-it synchronises smoothly with the rest of the Questaal codes such as [**plbnds**{: style="color: blue"}](/docs/misc/plbnds)
+**fplot**{: style="color: blue"} has its particular strengths and weaknesses; for the Questaal suite it is particularly useful because
+it synchronises smoothly with other Questaal executables such as [**plbnds**{: style="color: blue"}](/docs/misc/plbnds)
 and [**pldos**{: style="color: blue"}](/docs/misc/plbdos).
 
-For some purposees **fplot**{: style="color: blue"} provides some functionality not readily obtained in **gnuplot**{: style="color: blue"}, e.g.
+Also **fplot**{: style="color: blue"} provides some functionality not readily obtained in **gnuplot**{: style="color: blue"}, e.g.
 to determine cyclotron masses, drawing [energy bands with color weights](/docs/misc/plbnds/#example-3), and taking advantage
 of the [programming language features](/docs/input/preprocessor) of the Questaal suite.
 Tutorials that draw bands or densities-of-states are written around **fplot**{: style="color: blue"}; but files are constructed to make it 
@@ -140,7 +140,32 @@ Run **fplot**{: style="color: blue"} with
 
 _____________________________________________________________
 
-### 3. _fplot manual_
+### 3. _fplot manual_ (version 3.50)
+
+Usage:
+
+<pre>
+fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ... 
+</pre>
+
+
+INIT switches must occur first:
+
++ \-\-h | \-\-help \\
+  prints out a help message and exits.
+
++ -rot :           rotates frame 90 degrees
++ -pr# :           set the output verbosity to #
++ -disp[:lus] :    displays picture in a subshell
+                   Optional landscape, upside-down, seascape
++ -plaintext :     strings have no super or subscripts
++ -f fnam:         read remaining arguments from file fnam
+
+
+
+
+
+
 
 ... finish ... when reading data from a file
 + Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
