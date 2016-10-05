@@ -284,20 +284,24 @@ Optional switches perform the following functions:
    The two files should contain identical bands generated for the same _k_ points.
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
-  graphics package.  The optional **:s** tells plbnds that your bands file has two spins, and to
-  draw bands for both spins (to draw spin1 or spin2 only use `-spin1` or `-spin2`).\\
-  `-fplot` does the following:
-  1. Writes energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
+  graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
+  It will generate bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)\\
+  This switch causes **plbnds**{: style="color: blue"} to do the following:
+  1. Write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
-  2. generates a script _plot.plbnds_{: style="color: green"}.
+  2. generate a script _plot.plbnds_{: style="color: green"}.
+  3. Not make a postscript file directly.
+  
+  You can create and view a postscript figure of the bands with
 
-  You can make and view a postscript figure of the bands with
       $ fplot -f plot.plbnds
       $ open fplot.ps
   To interpret or customize _plot.plbnds_{: style="color: green"}, see the [fplot manual](/docs/misc/fplot).
 
-The following switches may be used in conjunction with `-fplot`.
+  Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
+  These files are in standard Questaal form.
 
+The following switches may be used in conjunction with `-fplot`.
 + -dat=<i>ext</i>\\
    Substitute _.ext_ for .dat when writing data files.\\
    Very useful when merging data from two bands into one figure.
