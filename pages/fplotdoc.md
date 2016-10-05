@@ -168,15 +168,17 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 + -f <i>script-file</i>\\
   read remaining arguments from file <i>script-file</i>
   
-
 **FORMAT** switches govern frame layout and labels:
 
-+   -frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] _l_,_r_,_b_,_t_ \\
+_Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
+with tic marks and numbering.  These defaults can be modified using the following switches.
+
++   -frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_\\
     starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."
     _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
     box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
     Options:
-    + :lx | :ly | :lxy use logarithmic (base 10) scales in x, or y, or both
+    + **:lx**&nbsp; or &nbsp;**:ly**&nbsp; or &nbsp;**:lx**y&nbsp; : draw abscissa, or ordinate, or both with logarithmic scales.
     + :xor=#    draw vertical axis at x=#
     + :yab=#    draw horizontal axis at y=#
     + :theta=#  angle between abscissa and ordinate (radians)
