@@ -188,26 +188,36 @@ The figure shows clearly which bands have majority and minority  _d_ character. 
 ### 3. _plbnds manual_
 
 <pre>
-plbnds [-switches] _filename_{: style="color: green"}
+plbnds [-switches] <i>filename</i>
 </pre>
 
 _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: green"} in this case).  You can also use just the extension
 (_co_{: style="color: green"}).
 
-It reads four numbers from **stdin**:\\
+**plbnds**{: style="color: blue"} reads four numbers from **stdin**:\\
  `emin, emax, width(cm), height(cm)`
 
-`emin` and `emax` comprise the lower and upper bounds of figure (data is written
-only for bands that fall in this range).  The third and fourth arguments
-are used only when **plbnds**{: style="color: blue"} makes a postscript file,
-and indicate the size of the figure.
+`emin` and `emax` comprise the lower and upper bounds of figure.  Data is written
+only for bands that fall in this range.  The third and fourth arguments, which indicate the size of the figure,
+are used only when **plbnds**{: style="color: blue"} makes a postscript file ([Example 1](/docs/misc/plbnds/#example-1)).
 
-Optional switches control the following:
+Optional switches do the following functions:
 
 + -help | --help | --h \\
   prints out a help message and exits
 
-+ abc
++ -ef=#\\
+  shifts the energy bands so that the Fermi energy lies at #
+
++ -scl=#\\
+  scales bands by #
+
++ -spin1 or -spin2\\
+  plots only bands of first or second spin (spin pol calculations only)
+
+
++ -wscl=#[,#]\\
+  scales graphics window by # or (#,#)
 
 _____________________________________________________________
 
