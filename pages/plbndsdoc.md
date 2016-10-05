@@ -92,14 +92,14 @@ Enter the following to make and view the postscript file:
 Note the following:
 
 + The energy bands are plotted in an energy window `-0.8,0.6` Ry, in 5 panels.
-+ Arguments `10,15` specify the width and height of the entire figure (approximately in cm).
++ Arguments `10,15` specify the width and height of the entire figure (in cm, approximately).
 + The symmetry labels M, &Gamma;, A, L, &Gamma;, K, were extracted from `-lbl=M,G,A,L,G,K`.
-  G is turned into &Gamma;.
+  (G is turned into &Gamma;.)
 + Energy bands are in Ry.
 + The Fermi level is drawn as a dashed line at -0.02136 Ry.
 + Bands are plotted as fat dots at the points where they are generated.
 + It is easy to distinguish the dense tangle of flat _d_ bands approximately between -0.3 and +0.1 Ry.  
-  The _sp_ bands are highly dispersive and approximately quadratic; see particularly below -0.4 and above +0.1
+  The _sp_ bands are highly dispersive and approximately quadratic; see [Example 3](/docs/misc/plbnds/#example-3) for more details.
 
 ##### Example 2
 
@@ -177,7 +177,7 @@ _Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated fr
 <button type="button" class="button tiny radius">Click to see how to run and interpret the script.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="cotest">{:/} 
 
-Assuming your source directory is **~/lm**, you can do the test yourself running this script:
+Assuming your source directory is **~/lm**, you can create the bands yourself running this script:
 
     $ ~/lm/fp/test/test.fp co 1
 
@@ -187,14 +187,14 @@ The script runs **lmf**{: style="color: blue"} as:
 lmf  co -vmet=4 -vlmf=1 -vnk=8 -vnit=10 --pr31,20 --no-iactiv -vso=t --band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml
 ~~~
 `-vmet=4 -vlmf=1 -vnk=8 -vnit=10` [assign algebraic variables](/docs/input/preprocessor/#variables) which will modify _ctrl.co_{: style="color: green"} when
-run through the [preprocessor](/docs/input/preprocessor).  They are of secondary interest here. `-vso=t` does the same, but is important in this context because the input file contains
+run through the [preprocessor](/docs/input/preprocessor).  They are of secondary interest here. `-vso=t` does the same, but is important in this context because the input file contains the following:
 
 ~~~
 HAM   ...  SO={so} 
 ~~~
 
 `-vso=t` sets variable **so** to **true** (or **1**). The proprocessor [transforms](/docs/input/preprocessor/#curly-brackets-contain-expressions) `SO={so}` into `SO=1`.
-Token **SO** controls spin orbit coupling (the input file's construction is described [here](/docs/input/inputfile)).
+Token **SO** [controls spin orbit coupling](/docs/input/inputfile/#ham).
 
 `--band~col=5:9,dup=9~col2=18+5:18+9,dup=9~fn=syml` tells **lmf**{: style="color: blue"} to draw energy bands with two color weights (`col=..` and `col2=..`)
 Orbitals **5-9** comprise the majority spin _d_ orbitals of the first Hankel energy;, **14-8** those of the second.  
@@ -292,10 +292,10 @@ Optional switches perform the following functions:
   graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
   It will generate bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)\\
   This switch causes **plbnds**{: style="color: blue"} to do the following:
-  1. Write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
+  1. write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
-  3. Not make a postscript file directly.
+  3. suppress directly creating a postscript file
   
   You can create and view a postscript figure of the bands with
 
@@ -311,8 +311,7 @@ Optional switches perform the following functions:
 The following switches may be used in conjunction with `-fplot`.
 
 + -dat=<i>ext</i>\\
-   Substitute _.ext_ for .dat when writing data files.\\
-   Very useful when merging data from two bands into one figure.
+   Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands bands into one figure.
 + -nocol or --nocol\\
   Ignore information about color weights
   
