@@ -153,13 +153,20 @@ INIT switches must occur first:
 
 + \-\-h | \-\-help \\
   prints out a help message and exits.
-
-+ -rot :           rotates frame 90 degrees
-+ -pr# :           set the output verbosity to #
-+ -disp[:lus] :    displays picture in a subshell
-                   Optional landscape, upside-down, seascape
-+ -plaintext :     strings have no super or subscripts
-+ -f fnam:         read remaining arguments from file fnam
++ -rot\\
+  rotates frame 90 degrees
++ -pr#\\
+  set the output verbosity to #
++ -disp[:lus]\\
+  displays picture in a subshell.
+  Optional :l or :u or :s draws in landscape, upside-down, seascape.\\
+  _Note:_{: style="color: red"} to use this feature you must compile
+  **fplot**{: style="color: blue"} with a viewer available your machine.
++ -plaintext\\
+  strings have no non-ASCII characters (superscripts, subscripts, etc).
++ -f <i>script-file</i>\\
+  read remaining arguments from file <i>script-file</i>
+  
 
 
 
