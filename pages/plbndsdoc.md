@@ -229,9 +229,9 @@ Your postscript file should look like the figure below.
 
 Note the following points:
 
-+ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band
++ The highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band
   continues on &Gamma;-M line to positive energy. You can also see traces of it on the &Gamma;-K line, starting at &Gamma; near -0.5 eV,
-  The bottom of the band start at around -10 eV at &Gamma;.
+  The bottom of the band starts occurs around -9 eV at &Gamma;.
 + The majority and minority _d_ bands are quite distinct.  This means that <i>s<sub>z</sub></i> is almost a good quantum number.  In the
   absence of spin-orbit coupling it _is_ a good quantum number.  If spin-orbit coupling significantly admixes &uarr; and &darr; character, red and
   green would bleed together, which would appear as yellow.
@@ -287,8 +287,8 @@ Optional switches perform the following functions:
    into a single _bnds_{: style="color: green"} file, suitable for processsing by **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}.
    1. _bnds.ext_{: style="color: green"} should contain two color weights; _bnds2_{: style="color: green"} one color weight.
    2. The merged data is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).
-   3. _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
-  
+   3. _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.\\
+
 + -merge=file2[,file3] or  -mergep=file2[,file3]\\
    merges two bands file (one for each spin  in the spin-pol case).\\
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
