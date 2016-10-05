@@ -283,7 +283,6 @@ Optional switches perform the following functions:
 + -col3:<i>bnds2</i>,<i>fnout</i>\\
    combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
    file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
-
    The Questaal codes are equipped to generate energy bands with only one or two color weights; however **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}
    has the capability to manage up to three color weights.  `-col3` enables you to merge back-to-back band calculations with respectively two and one color weights,
    into a single _bnds_{: style="color: green"} file, suitable for processsing by **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}.
