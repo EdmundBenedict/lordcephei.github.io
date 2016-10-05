@@ -149,7 +149,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 </pre>
 
 
-INIT switches must occur first:
+**INIT** switches must occur first:
 
 + \-\-h | \-\-help \\
   prints out a help message and exits.
@@ -159,7 +159,7 @@ INIT switches must occur first:
   set the output verbosity to #
 + -disp[:lus]\\
   displays picture in a subshell.
-  Optional :l or :u or :s draws in landscape, upside-down, seascape.\\
+  Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
   **fplot**{: style="color: blue"} with a viewer available your machine.
 + -plaintext\\
@@ -168,10 +168,22 @@ INIT switches must occur first:
   read remaining arguments from file <i>script-file</i>
   
 
+**FORMAT** switches govern frame layout and labels:
 
++   -frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] _l_,_r_,_b_,_t_ \\
+    starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."
+    _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
+    box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
+    Options:
+    + :lx | :ly | :lxy use logarithmic (base 10) scales in x, or y, or both
+    + :xor=#    draw vertical axis at x=#
+    + :yab=#    draw horizontal axis at y=#
+    + :theta=#  angle between abscissa and ordinate (radians)
 
++  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
+   -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
 
-
+                     specifies x (y) plot boundaries
 
 
 ... finish ... when reading data from a file
