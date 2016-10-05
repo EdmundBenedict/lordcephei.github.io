@@ -229,14 +229,14 @@ Your postscript file should look like the figure below.
 
 Note the following points:
 
-+ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band contines to
-  positive energy between &Gamma; and M. You can also see the bottom of the band starting at around -10 eV at &Gamma;, and traces of it near
-  on the &Gamma;-K line starting at &Gamma; near -0.5 eV
++ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band
+  continues on &Gamma;-M line to positive energy. You can also see traces of it on the &Gamma;-K line, starting at &Gamma; near -0.5 eV,
+  The bottom of the band start at around -10 eV at &Gamma;.
 + The majority and minority _d_ bands are quite distinct.  This means that <i>s<sub>z</sub></i> is almost a good quantum number.  In the
-  absence of spin-orbit coupling it _is_ a good quantum number.  If spin-orbit coupling significantly admixes &uarr; and &darr; red and
-  green would bleed together.
-+ The majority and minority _d_ bands are approximately the same shape, but split by about 1.6 eV.  This is as expected, since it is known
-  that the spin part of potential is nearly the same for all the _d_ bands.  The bands are spin split by a constant value of
+  absence of spin-orbit coupling it _is_ a good quantum number.  If spin-orbit coupling significantly admixes &uarr; and &darr; character, red and
+  green would bleed together, which would appear as yellow.
++ The majority and minority _d_ bands are approximately the same shape, but split by about 1.6 eV.  It is known
+  that the spin part of potential is similar for all the _d_ orbitals.  The bands are spin split by an approximately constant value of
   <i>I</i>&times;<i>M</i>, where <i>I</i> and <i>M</i> are respectively the Stoner parameter and the magnetic moment.  In 3_d_ transition
   metals Cr, Mn, Fe, Co and Ni, <i>I</i> is close to 1 eV. Also for Co, <i>M</i>=1.6 <i>&mu;</i><sub>B</sub>.
 
@@ -285,8 +285,9 @@ Optional switches perform the following functions:
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
 + -col3:<i>bnds2</i>,<i>fnout</i>\\
    combines the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"}.\\
-   _bnds.ext_{: style="color: green"} should contain two color weights; _bnds2_{: style="color: green"} one color weight.\\
-   The two files should contain identical bands generated for the same _k_ points.
+   _bnds.ext_{: style="color: green"} should contain two color weights; _bnds2_{: style="color: green"} one color weight. 
+   The merged bnds file is written to _fnout_{: style="color: green"}  (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
+   _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for another 
   graphics package.  The optional **:s** tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
