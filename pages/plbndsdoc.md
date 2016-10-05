@@ -223,17 +223,22 @@ Colors provide an extremely helpful guide to interpret the bands.  It shows clea
 <button type="button" class="button tiny radius">Click to view and interpret the figure</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="cocolorbands">{:/} 
 
-Your postscript file should like like the figure below.
+Your postscript file should look like the figure below.
 
 ![Energy bands for Co](/assets/img/bnds-co.svg)
 
 Note the following points:
 
-+ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.
-  You can see traces of it near &Gamma; at around -0.5 eV, it increases as _k_ moves away from &Gamma;.
-+ The majority and minority _d_ bands are quite distinct.  This means that <i>s_<sub>z</sub></i> is almost a good quantum number.
-  In the absence of spin-orbit coupling it is a good quantum number.
-+ The majority and minority _d_ bands are approximatey the same shape, but split by approximately 1.6 eV.  This is as expected, since in simple models the splitting a simple constant value of <i>I</i>&times;<i>M</i>, where <i>I</i> and <i>M</i> are respectively the Stoner parameter and the magnetic moment.  In 3_d_ transition metals, <i>I</i> is close to 1 eV, and for Co, <i>M</i>=1.6 <i>&mu;</i><sub>B</sub>.
++ the highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band contines to
+  positive energy between &Gamma; and M. You can also see the bottom of the band starting at around -10 eV at &Gamma;, and traces of it near
+  on the &Gamma;-K line starting at &Gamma; near -0.5 eV
++ The majority and minority _d_ bands are quite distinct.  This means that <i>s<sub>z</sub></i> is almost a good quantum number.  In the
+  absence of spin-orbit coupling it _is_ a good quantum number.  If spin-orbit coupling significantly admixes &uarr; and &darr; red and
+  green would bleed together.
++ The majority and minority _d_ bands are approximately the same shape, but split by about 1.6 eV.  This is as expected, since it is known
+  that the spin part of potential is nearly the same for all the _d_ bands.  The bands are spin split by a constant value of
+  <i>I</i>&times;<i>M</i>, where <i>I</i> and <i>M</i> are respectively the Stoner parameter and the magnetic moment.  In 3_d_ transition
+  metals Cr, Mn, Fe, Co and Ni, <i>I</i> is close to 1 eV. Also for Co, <i>M</i>=1.6 <i>&mu;</i><sub>B</sub>.
 
 {::nomarkdown}</div>{:/}
 
@@ -297,8 +302,8 @@ Optional switches perform the following functions:
       $ fplot -f plot.plbnds
       $ open fplot.ps
 
-  To customize the figure edit _plot.plbnds_{: style="color: green"}.
-  Refer to the [fplot manual](/docs/misc/fplot) to interpret or see how to modify _plot.plbnds_{: style="color: green"}, 
+  To customize the figure, edit _plot.plbnds_{: style="color: green"}.
+  Refer to the [fplot manual](/docs/misc/fplot) to learn about the capabilities and switches in the **fplot**{: style="color: blue"} tool.
 
   Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
   _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in easily readable standard Questaal form.
