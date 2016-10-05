@@ -26,7 +26,7 @@ _____________________________________________________________
 ### _Preliminaries_
 {:.no_toc}
 
-**fplot**{: style="color: blue"}, is required and is assumed to be in your path. 
+**fplot**{: style="color: blue"} is required and is assumed to be in your path. 
 You will also need a postscript viewer.  This document assumes you are using the apple-style **open**{: style="color: blue"} command to view postscript files.
 
 _____________________________________________________________
@@ -139,7 +139,7 @@ In this example commands are read from script _fplot.cr_{: style="color: green"}
 
 _____________________________________________________________
 
-### 3. _fplot commands_
+### 3. _fplot manual_
 
 ... finish ... when reading data from a file
 
