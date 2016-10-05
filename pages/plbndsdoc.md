@@ -326,5 +326,4 @@ _____________________________________________________________
 
 ### 4. _Other resources_
 
-See the documentation for [fplot](/docs/misc/fplot/) and [pldos](/docs/misc/pldos/).
-
+See the [fplot](/docs/misc/fplot/) and [pldos](/docs/misc/pldos/) manuals.
