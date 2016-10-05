@@ -107,9 +107,9 @@ For a better and more modifiable figure, run **plbnds**{: style="color: blue"} a
 
     $ echo -10,8 / | plbnds -fplot -ef=0 -scl=13.6 -nocol -lbl=M,G,A,L,G,K bnds.co
 
-<div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('stdout'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show stdout from plbnds.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="stdout">{:/} 
 
 ~~~
  plbnds : bands file contains two sets of color weights
@@ -162,19 +162,20 @@ The first color selects out the majority bands of _d_ character, the second the 
 
 Consider orbital component _i_ of band _n_.  Its wave function has eigenvector element <i>z<sub>in</sub></i>.  The wave function is normalized, and so
 
-$$  \Sum_i \left(z_{in}\right)^{-1} z_{in} = 1 $$
+$$  \sum_i z^{-1}_{ni} z_{in} = 1 $$
   
-The sum runs over all of the orbitals in the basis. By "decomposing the norm" of _z_, that is summing over a subset of orbitals _i_, the result is less than unity and is a measure of the fraction that set contributes to the norm.  _Note:_{: style="color: red"} this decomposition is essentially like a Mulliken analysis.
+The sum runs over all of the orbitals in the basis. By "decomposing the norm" of _z_, that is summing over a subset of orbitals _i_, the result is less than unity and is a measure of the contribution of that subset to the unit norm.  _Note:_{: style="color: red"} this decomposition is essentially like a Mulliken analysis.
 
-_bnds.co_{: style="color: green"} was generated with two color weights: all _d_ orbitals in the Co majority spin channel were combined for the first weight, and all _d_ orbitals in the Co minority channel the second.  Thus the first color weight is zero if there is 
-no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire eigenfunction is of majority _d_ character.
-The same applies for the second weight for the minority _d_ band.
+_bnds.co_{: style="color: green"} was generated with two color weights: all _d_ orbitals in the Co majority spin channel were combined for
+the first weight, and the corresponding _d_ orbitals in the Co minority channel the second.
+Thus the first color weight is zero if there is no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire
+eigenfunction is of majority _d_ character.  The same applies for the second weight, but for the minority _d_ band.
 
 _Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
 
-<div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('cotest'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to see how to run and interpret the script.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="cotest">{:/} 
 
 
 Assuming your source directory is **~/lm**), you can make do the test yourself running this script:
@@ -206,7 +207,7 @@ When the hamiltonian is treated relativistically the minority spin orbitals foll
 
 {::nomarkdown}</div>{:/}
 
-Run **plbnds**{: style="color: blue"} as before, exept eliminating `-nocol` and adding a line type:
+Run **plbnds**{: style="color: blue"} as before, except eliminating `-nocol` and adding a line type:
 
     $ echo -10,8 / | plbnds -fplot -ef=0 -scl=13.6 -lt=1,bold=3,col=0,0,0,colw=.7,0,0,colw2=0,.7,0 -lbl=M,G,A,L,G,K bnds.co
     $ fplot -f plot.plbnds
