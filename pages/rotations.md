@@ -23,10 +23,10 @@ separated by commas,
   rot1[,rot2][...]
 </pre>
 
-Each substring rot1, rot2, ...  has the syntax
+Each substring **rot1**, **rot2**, ...  has the syntax
 
 <pre>
-  (x,y,z)angle
+  (<i>x</i>,<i>y</i>,<i>z</i>)<i>angle</i>
 </pre>
 
 Here *x*, *y*, and *z* are three real numbers specifying an axis about which to
@@ -45,21 +45,20 @@ syntax would be
   (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
 </pre>
 
-You can use as a the following strings as shorthands:
-&nbsp;&nbsp;
-  **x:** = shorthand for **(1,0,0)**\\
-&nbsp;&nbsp;
-  **y:** = shorthand for **(0,1,0)**\\
-&nbsp;&nbsp;
-  **z:** = shorthand for **(0,0,1)**\\
+You can use as a the following strings as shorthand:\\
+&nbsp;&nbsp;  **x:** = shorthand for **(1,0,0)**\\
+&nbsp;&nbsp;  **y:** = shorthand for **(0,1,0)**\\
+&nbsp;&nbsp;  **z:** = shorthand for **(0,0,1)**
 
 Thus the rotation above could equally be specified by:\\
-&nbsp;&nbsp;
-  **z:pi/4,y:pi/3,z:pi/2**
+
+~~~
+z:pi/4,y:pi/3,z:pi/2
+~~~
 
 Below are two instances of rotations, especially useful for cubic systems:
 
-<pre>
-  z:pi/4,y:acos(1/sqrt(3))  ;larr For 111 direction
-  z:-pi/4,y:pi/2            ;larr Rotates z to (1,-1,0)
-</pre>
+~~~
+  z:pi/4,y:acos(1/sqrt(3))  &larr; Rotates <i>z</i> to the 111 direction
+  z:-pi/4,y:pi/2            &larr; Rotates <i>z</i> to (1,-1,0)
+~~~
