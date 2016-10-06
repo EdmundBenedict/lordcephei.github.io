@@ -238,12 +238,12 @@ These defaults can be modified with the following switches.
 
 + **-tmx** \| **-tmy &nbsp; spacing[:mt][,pos][;rmt][~rmnt][@mode]**\\
   tic mark specification and attributes.
-  + **spacing**  &nbsp;&nbsp;&nbsp;&nbsp;                                                              spacing between tics (spacing may be modified by **@mode**, below)
-  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. tics per major tic
-  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       position and size of major tic
-  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       size of major tic
-  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                   size of minor tic, relative to major tic
-  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                      1,2,3 for log;  mode=5 => caller specifies tics,
+  + **spacing**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
+  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. tics per major tic
+  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        		 position and size of major tic
+  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       			 size of major tic
+  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                   			 size of minor tic, relative to major tic
+  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                      			 1,2,3 for log;  mode=5 => caller specifies tics,
 
 <i> </i>
 
@@ -257,15 +257,15 @@ These defaults can be modified with the following switches.
     the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
 +  **-p#**\\
    pads bounds of abscissa and ordinate by adding &plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) to the right (left) boundary,
-   and also adding &plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) to the top (bottom) boundary.
+   and &plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) to the top (bottom) boundary.
    The default padding factor is 0.1.\\
    _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
    through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.\\
    _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
-   in contrast to "graphics units" and "medium units." These are intermediate units used to facilitate construction of the figure
+   in contrast to "graphics units" and "medium units." These are intermediate units used to facilitate construction of the figure.
 
 + **-1p**\\
-  skip parsing of remaining args for first pass.  Current values for
+  skip parsing of remaining arguments in the frame for the first pass.  Current values for
    **<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** and **<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>** 
   are frozen.
 
@@ -279,10 +279,13 @@ These defaults can be modified with the following switches.
   Points are shifted by **shy** (**shx**,**shz**).
   Projection is **x** to right, **z** up, **y** normal to paper.
 
-+ **-rotp rot1[,rot2,...]** (used with **-3d**)\\
-  rotates points around an axis, or a succession of axes.\\
-  Example: **--rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2** rotates the points by the Euler angles <i>&pi;</i>/4, <i>&pi;</i>/3, <i>&pi;</i>/2.\\
-  [This document](/docs/misc/rotations/) specifies the general syntax of rotations.
++ **-rotp rot1[,rot2,...]** 
+  rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
+  _Example_
+  
+    --rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
+
+rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
 
 **LABELLING and NUMBERING switches**
@@ -301,13 +304,11 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-{:/comment}
-
 _Example_
 
-    &\{k}_\{~\{\{\136}}}/&\{k}_\{0}
+    &{k}_{~{{\136}}}/&{k}_{0}
 
-gets transformed into <i>k</i><sub>&perp;</sub>
+will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \136 is the postscript symbol for &perp;.)
 
 + **-lbl[um] x,y[:blk] cc[,rot=#] str [tex-string]**\\
   label and attributes.
@@ -318,27 +319,27 @@ gets transformed into <i>k</i><sub>&perp;</sub>
   **tex-string** is the actual (TeX) string and is required;
   **str** is merely a tag needed for latex processing
 
-+ **-lblx xlst y[:blk] cc _lab1_ _lab2_ ...   \| -lbly ylst x[:blk] cc lab1 lab2 ...**\\
-  puts labels _lab1_, _lab2_,  at a list of points on the abscissa (ordinate) for a given
-  ordinate (abscissa)
++ **-lblx xlst y[:blk] cc _lab1_ _lab2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] cc lab1 lab2 ...**\\
+  puts labels **_lab1_**, **_lab2_**,  at a list of points on the abscissa (ordinate) for a given
+  ordinate (abscissa).
 
-+ **-xl str \| -yl str \| -tl str**\\
-  labels the abscissa, ordinate, or title (appears at the top)
++ **-xl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl str**\\
+  labels the abscissa, ordinate, or title (title appears above the frame).
 
-+ **-font t# \| -font h#**\\
-  changes Times (Helvetica) font and size
++ **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
+  changes Times (Helvetica) font and size.
 
 + **-k x,y[:len][,spacing][;style]**\\
-  specifies key position (and length, spacing or style)
+  specifies key position (and length, spacing or style).
 
-+ **-fmtnx:string \| -fmtny:string**\\
-  awrite format for axis label
++ **-fmtnx:string &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:string**\\
+  awrite format for axis label.
 
-+ **-noxn \| -noyn  **\\
-  suppress abscissa (ordinate) axis numbering
++ **-noxn &nbsp;&nbsp;**\|**&nbsp;&nbsp; -noyn  **\\
+  suppress abscissa (ordinate) axis numbering.
 
-+ **-xn:t \| -yn:r**\\
-  place abscissa (ordinate) axis numbering on right (top) side
++ **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
+  place abscissa (ordinate) axis numbering on right (top) side.
 
 _____________________________________________________________
 
