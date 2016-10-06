@@ -49,7 +49,7 @@ Implementation of the fully relativistic Dirac equation into the ASA package, fo
 [Dimitar Pashov](https://kclpure.kcl.ac.uk/portal/dimitar.pashov.html) *(King’s College London, U.K.)*
 Primary developer of the tight-binding package and the Jigsaw Puzzle Orbitals.  Primary Questaal suite maintainer.
 
-[Alena Vishina](alena.vishina@kcl.ac.uk) *(King’s College London, U.K.)*
+[Alena Vishina](https://kclpure.kcl.ac.uk/portal/en/persons/alena-vishina(6775bfd6-5408-478d-97e4-2503368a07c0).html) *(King’s College London, U.K.)*
 Self-consistent fully relativistic Dirac equation; relativistic linear response
 
 [Paolo Pisanti](p.pisanti13@gmail.com) *(King’s College London, U.K.)*
