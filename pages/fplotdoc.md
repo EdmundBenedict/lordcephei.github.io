@@ -165,7 +165,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 </pre>
 
 
-**INIT** switches must occur first:
+#### **INIT** switches must occur first
 
 + **\-\-h | \-\-help**\\
   print out a help message and exits.
@@ -283,12 +283,12 @@ These defaults can be modified with the following switches.
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
   _Example_
   
-      --rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
+    **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
 
-**LABELLING and NUMBERING switches**
+#### **LABELLING and NUMBERING** switches govern labels and axis numbering
 
 Where labels are used, parts inside curly brackets **{..}** may be mapped
 into other fonts, depending on the character preceding the brackets.
@@ -304,7 +304,7 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-_Example_  :   &\{k}_\{~\{\{\136}}}/&\{k}_\{0}
+_Example_  :   &\{k}\_\{~\{\{\136}}}/&\{k}\_\{0}
 
 will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \136 is the postscript symbol for &perp;.)
 
@@ -339,6 +339,8 @@ will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \13
 
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
+
+#### **DATA** switches govern how data are drawn as lines
 
 _____________________________________________________________
 
