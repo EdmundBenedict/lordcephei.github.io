@@ -13,7 +13,7 @@ This page explains how to specify a rotation.
 
 _____________________________________________________________
 
-You can specify a rotation matrix through a
+You specify a rotation by a
 sequence of one or more substrings separated by commas,
 
 <pre>
