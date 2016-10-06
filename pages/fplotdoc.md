@@ -190,28 +190,45 @@ _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws
 with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
 These defaults can be modified with the following switches.
 
+{::comment}
+
 + **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
   starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
 
+
 {::nomarkdown}<div>{:/}
 
 &nbsp; Option | Function
-&nbsp; :lx       | draw abscissa on a logarithmic scale.
-&nbsp; :ly       | draw ordinate on a logarithmic scale.
-&nbsp; :lxy      | draw both abscissa and ordinate on a logarithmic scale.
-&nbsp; :xor=#    | draw vertical axis at x=#.
-&nbsp; :yab=#    | draw horizontal axis at y=#
-&nbsp; :theta=#  | angle between abscissa and ordinate (radians)
+&nbsp; :lx       |
+&nbsp; :ly       |
+&nbsp; :lxy      |
+&nbsp; :xor=#    |
+&nbsp; :yab=#    |
+&nbsp; :theta=#  |
 
 {::nomarkdown}</div>{:/}
+
+{:/comment}
+
++ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
+  starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
+  _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
+  box with that fits on a sheet of A4 or American size paper with comfortable margins.
+  Options:\\
+  + **:lx**          draw abscissa on a logarithmic scale.\\
+  + **:ly**			 draw ordinate on a logarithmic scale.\\
+  + **:lxy**		 draw both abscissa and ordinate on a logarithmic scale.\\
+  + **:xor=#**		 draw vertical axis at x=#.\\
+  + **:yab=#**		 draw horizontal axis at y=#\\
+  + **:theta=#**	 angle between abscissa and ordinate (radians)\\
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> or ordinate \\
     specifies range in abscissa : <i>x</i><sub>1</sub> = left, <i>x</i><sub>2</sub> = right boundary\\
    _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
    Use `-p0` to suppress padding
-   
+
 
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
 
