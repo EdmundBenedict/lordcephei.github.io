@@ -103,7 +103,7 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g.\\
   `$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\136}}}/&{k}_{0}'`\\
-  You should see a label centered at (1.2,0.5) similar to: %nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
+  You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note the subscript and special character &perp;.
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
@@ -313,21 +313,25 @@ _Example_  :   &\{D}&\{k}\_\{~\{\{\136}}}/&\{k}\_\{0} \\
 will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol <b>\136</b> is the postscript symbol for &perp;.)
 
 + **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
-  writes _string_ at (_x_,_y_).
+  writes _string_ at (_x_, _y_).
+  + *-lblu* indicates _x_ and _y_ are in user's units (this is the default) *-lblm* indicates medium units.
   + _cc_  is a sequence of two characters specifying the justification of _string_.\\
-     The first character is one of **l**,**c**,**r**; it is followed by one of **u**,**c**,**d**, e.g. **ld**\\
+     The first character is one of **l**,**c**,**r**; it is followed by one of **u**,**c**,**d**, e.g. **ld**.\\
      **l**,**c**,**r** &nbsp; correspond to left, center, right justification;
-     **u**,**c**,**d** &nbsp; correspond to up, center, down justification.\\
-  + Alternatively, **cc** is **tx,** which flags fplot to run the postscript file through latex with string substitutions.\\
+     **u**,**c**,**d** &nbsp; correspond to up, center, down justification.
+  + Alternatively, *cc* is **tx,** which flags **fplot**{: style="color: blue"} to run the postscript file through latex with string substitutions.\\
     In that case: **_tex-string_** is the actual (TeX) string and is required;  <b>_string_</b> is merely a tag needed for latex processing.
 
-+ **-lblx xlst y[:blk] cc _lab1_ _lab2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] cc lab1 lab2 ...**\\
-  puts labels **_lab1_**, **_lab2_**,  at a list of points on the abscissa (ordinate) for a given
-  ordinate (abscissa).
+<i> </i>
 
-+ **-xl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl str**\\
++ **-lblx _xlst_ _y_[:blk] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] _cc_ str1 str2 ...**\\
+  puts labels **_str1_**, **_lab2_**,  at a list of points on the abscissa (ordinate) for a given
+  ordinate (abscissa).  The number of strings must match the number of elements in _xlst_.
+  + _cc_ has the same meaning as for `-lbl`
+
++ **-xl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl _str_ **\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
-  This switch adds no functionality to **-lbl**.  It is convenient because it picks places the label at a convenient default position.
+  This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
 
 + **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
   Sets the font to Times Roman (Helvetica) font. &nbsp; **#** is the size in points.
@@ -335,18 +339,28 @@ will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Sym
 + **-k x,y[:len][,spacing][;style]**\\
   specifies key position (and length, spacing or style).
 
-+ **-fmtnx:string &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:string**\\
++ **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
   awrite format for axis label.
 
-+ **-noxn &nbsp;&nbsp; \| &nbsp;&nbsp; -noyn **\\
++ <b>-noxn \| -noyn </b>\\
   suppress abscissa (ordinate) axis numbering.
 
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
 
-##### **DATA** switches govern how xy data are plotted
+##### **DATA** switches govern how xy data are depicted
 
-W
+Within a frame zero or more plots of _xy_ data can be drawn.
+_xy_ data is typically read from a file; the syntax is:
+
+<pre>
+    -DATA-switches <i>data-file</i> -DATA-switches <i>data-file</i> 
+</pre>
+
+**-DATA-switches** preceding an instance of <i>data-file</i> apply to that data.
+
+You can, instead of supplying data from a file <i>data-file</i>,
+specify it through switch `-tp`.
 
 + **-lt n[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**
 
@@ -360,7 +374,7 @@ W
 
 + **-itrp x1,x2,dx**
 
-+ **-ins[f] string**
++ **-ins[f] _string_**
 
 + **-sort**
 
