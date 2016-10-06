@@ -217,38 +217,62 @@ These defaults can be modified with the following switches.
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
   Options:\\
-  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
   + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       draw both abscissa and ordinate on a logarithmic scale.
   + **:xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
   + **:yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
   + **:theta=#**     angle between abscissa and ordinate (radians)<br/>
 
-+  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> \\
++  **-x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
     specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
-+  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
-    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>x</i><sub>2</sub> = top edge.\\
++  **-y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
+    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge.\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
-+  -p# pads bounds of abscissa and ordinate by adding or subtracting #&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
-    and adding (subtracting) #&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.\\
-    The padding factor is 0.1 by default.\\
++  **-p#**\\
+   pads bounds of abscissa and ordinate by adding or subtracting (#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
+   and adding (subtracting) (#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.
+   The padding factor is 0.1 by default.\\
    _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
    through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.
 
-+ **-tmx** | **-tmy**
++ **-tmx** \| **-tmy** spacing[:mt][,pos][;rmt][~rmnt][@mode]\\
+  tic mark specification and attributes.
+  + **spacing**   spacing between tics (see mode)
+  + **mt**        no. tics per major tic
+  + **pos**       position and size of major tic
+  + **rmt**       size of major tic
+  + **rmnt**      size of minor tic, relative to major tic
+  + **mode**      1,2,3 for log;  mode=5 => caller specifies tics,
 
-+ **-frmt  [col=#,#,#,][th=#1[,#2,#3]]:\\
 
-+ **-1p :            skip parsing of remaining args for first pass\\
++ **-frmt  [col=#,#,#,][th=#1[,#2,#3]]**\\
+  Parameters governing drawing of frame boundaries.
+  th=#1[,#2,#3line specifications
+    #1 line thickness (default=3; -1 makes no frame)
+    #2 one of 0,1,2,3 to draw bottom and top axis, 
+       or one only, or neither
+    #3 one of 0,1,2,3 to draw left and right axis, 
+       or one only, or neither
 
-+ **-aspect # :      resizes frame to make dy/dx(UU) / dy/dx(MU) = #\\
++ **-1p**\\
+  skip parsing of remaining args for first pass\\
 
-+ **-3d shy[,shx,shz] :\\
++ **-aspect #\\
+  resizes frame to make dy/dx(UU) / dy/dx(MU) = #\\
+
++ **-3d shy[,shx,shz]\\
+  for 3-d perspective drawing.
+  Points are shifted by shy (shx,shz).
+  Projection is x to right, z up, y normal to paper.
 
 + **-rotp rot1[,rot2,...] :\\
+  rotates points (3d only).
+  Example: (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
+  Alternatively: z:pi/4,y:pi/3,z:pi/2
 
 **LABELLING and NUMBERING switches**
 
