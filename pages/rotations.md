@@ -13,22 +13,21 @@ This page explains how to specify a rotation.
 
 _____________________________________________________________
 
-You can specify a rotation matrix through an ASCII string of
-characters, which consists of a sequence of one or more substrings
-separated by commas,
+You can specify a rotation matrix through a
+sequence of one or more substrings separated by commas,
 
 <pre>
   rot1[,rot2][...]
 </pre>
 
-Each substring **rot1**, **rot2**, ...  is the rotation around a particular axis and has the syntax
+Each substring **rot1**, **rot2**, ...  is a rotation around a particular axis and has the syntax
 
 <pre>
   (<i>x</i>,<i>y</i>,<i>z</i>)<i>angle</i>
 </pre>
 
-*x*, *y*, and *z* are three real numbers specifying an axis about which to
-rotate; *angle* is the size of the rotation, in radians.   There should be no spaces in the string.
+*angle* is the size of the rotation, in radians; *x*, *y*, and *z* are three real numbers specifying the rotation axis.
+There should be no spaces in the string.
 
 Each successive substring specifies a rotation about the new coordinate
 system.  As a special case, the Euler angles are defined as a sequence
@@ -49,9 +48,9 @@ You can use as a the following strings as shorthand:\\
 
 Thus the rotation above could equally be specified as:
 
-~~~
+<pre>
 z:pi/4,y:pi/3,z:pi/2
-~~~
+</pre>
 
 Below are two instances of rotations, especially useful for cubic systems:
 
