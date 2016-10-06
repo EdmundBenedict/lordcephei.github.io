@@ -232,18 +232,20 @@ These defaults can be modified with the following switches.
     specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>x</i><sub>2</sub> = top edge.\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in this frame to determine
     the smallest and largest value to be plotted, and use these numbers for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
-+  -p# pads frame boundary
-   _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
-    Use `-p0` to suppress padding.
-
-
-... finish ... when reading data from a file
-+ Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
-  The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
-  the file contents.
++  -p# pads range of abscissa and ordinate by adding or subtracting #&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
+    and adding (subtracting) #&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.\\
+    The padding factor is 0.1 by default.\\
+   _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
+   through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.
 
 _____________________________________________________________
 
 ### 4. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
+
+... finish ... when reading data from a file
++ Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
+  The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
+  the file contents.
+
