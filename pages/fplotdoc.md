@@ -168,25 +168,24 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 **INIT** switches must occur first:
 
 + **\-\-h | \-\-help**\\
-  prints out a help message and exits.
+  print out a help message and exits.
 + **-rot**\\
-  rotates frame 90 degrees
+  rotate figure 90 by degrees
 + **-pr#**\\
-  set the output verbosity to #
+  set the standard output verbosity to #
 + **-disp[:lus]**\\
-  displays picture in a subshell.
+  display picture in a subshell.
   Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
   **fplot**{: style="color: blue"} with a viewer available your machine.\\
   Customize string **dispfn** near the beginning of **fplot.f**.
 + **-plaintext**\\
-  strings have no non-ASCII characters (superscripts, subscripts, etc).
+  assume strings have no non-ASCII characters (superscripts, subscripts, etc).
 + **-f <i>script-file</i>**\\
   read remaining arguments from file <i>script-file</i>
 
 **FORMAT** switches govern frame layout and labels.  A figure is comprised of one or more frames.
-  A new frame overlays anything below it.
-
+Each new frame overlays anything below it.\\
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
 with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
 These defaults can be modified with the following switches.
@@ -194,7 +193,7 @@ These defaults can be modified with the following switches.
 {::comment}
 
 + **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
-  starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
+  creates a new frame in a rectangular box.  _l_,_r_,_b_,_t_ are the left, right, bottom, top edges in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
 
@@ -217,20 +216,20 @@ These defaults can be modified with the following switches.
   starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
-  Options:\\
-  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
-  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       draw both abscissa and ordinate on a logarithmic scale.
+  Options to **-frme**:\\
+  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
   + **:xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
   + **:yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **:theta=#**     angle between abscissa and ordinate (radians)<br/>
+  + **:theta=#**     angle between abscissa and ordinate (radians)<br/><p>
 
 +  **-x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.\\
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (may be modified by padding; see **-p#**).
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
 +  **-y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
-    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge.\\
+    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (may be modified by padding; see **-p#**).
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
 +  **-p#**\\
@@ -240,14 +239,14 @@ These defaults can be modified with the following switches.
    _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
    through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.
 
-+ **-tmx** \| **-tmy** spacing[:mt][,pos][;rmt][~rmnt][@mode]\\
++ **-tmx** \| **-tmy spacing[:mt][,pos][;rmt][~rmnt][@mode]**\\
   tic mark specification and attributes.
-  + **spacing**   spacing between tics (see mode)
-  + **mt**        no. tics per major tic
-  + **pos**       position and size of major tic
-  + **rmt**       size of major tic
-  + **rmnt**      size of minor tic, relative to major tic
-  + **mode**      1,2,3 for log;  mode=5 => caller specifies tics,
+  + **spacing**                                                                              spacing between tics (spacing may be modified by **@mode**, below)
+  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         no. tics per major tic
+  + **\,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        position and size of major tic
+  + **\;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        size of major tic
+  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       size of minor tic, relative to major tic
+  + **\@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       1,2,3 for log;  mode=5 => caller specifies tics,
 
 
 + **-frmt  [col=#,#,#,][th=#1[,#2,#3]]**\\
