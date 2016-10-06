@@ -244,8 +244,11 @@ Note the following points:
 
 ### 3. _plbnds manual_
 
+Invoke **plbnds**{: style="color: blue"} in one of the following ways:
+
 <pre>
 plbnds [-switches] <i>filename</i>
+echo <i>emin</i>, <i>emax</i>, <i>w</i>, <i>h</i> | plbnds [-switches] <i>filename</i>
 </pre>
 
 _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: green"} in this case).  You can also use just the extension
@@ -255,8 +258,8 @@ _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: g
  `emin, emax, width(cm), height(cm)`
 
 `emin` and `emax` comprise the lower and upper bounds of figure.  Data is written
-only for bands that fall in this range.  The third and fourth arguments, which indicate the size of the figure,
-are used only when **plbnds**{: style="color: blue"} makes a postscript file directly ([Example 1](/docs/misc/plbnds/#example-1)).
+only for bands that fall in this range.  The third and fourth arguments determine the size of the figure;
+they are used only when **plbnds**{: style="color: blue"} makes a postscript file directly ([Example 1](/docs/misc/plbnds/#example-1)).
 
 Optional switches perform the following functions:
 
