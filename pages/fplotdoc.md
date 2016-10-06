@@ -194,8 +194,8 @@ These defaults can be modified with the following switches.
 + **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
   starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
-  box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
-  Options:
+  box with that fits on a sheet of A4 or American size paper with comfortable margins.
+
   {::nomarkdown}<div>{:/}
   Option | Function
   - | - 
@@ -205,11 +205,10 @@ These defaults can be modified with the following switches.
   :theta=#  | angle between abscissa and ordinate (radians)
   {::nomarkdown}</div>{:/}
 
-
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
-   -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
+    specifies range in abscissa (left, right boundaries)
 
-                     specifies x (y) plot boundaries
++  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
 
 
 ... finish ... when reading data from a file
