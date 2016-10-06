@@ -217,21 +217,21 @@ These defaults can be modified with the following switches.
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
   Options:\\
-  + **:lx**          draw abscissa on a logarithmic scale.\\
-  + **:ly**			 draw ordinate on a logarithmic scale.\\
-  + **:lxy**		 draw both abscissa and ordinate on a logarithmic scale.\\
-  + **:xor=#**		 draw vertical axis at x=#.\\
-  + **:yab=#**		 draw horizontal axis at y=#\\
-  + **:theta=#**	 angle between abscissa and ordinate (radians)\\
+  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       draw both abscissa and ordinate on a logarithmic scale.
+  + **:xor=#**       &nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
+  + **:yab=#**       &nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
+  + **:theta=#**     angle between abscissa and ordinate (radians)
+
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> or ordinate \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left, <i>x</i><sub>2</sub> = right boundary\\
-   _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
-   Use `-p0` to suppress padding
-
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.
 
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
-
+    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>x</i><sub>2</sub> = top edge.\\
+   _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
+    Use `-p0` to suppress padding.
 
 ... finish ... when reading data from a file
 + Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
