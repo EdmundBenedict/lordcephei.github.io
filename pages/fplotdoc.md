@@ -25,8 +25,14 @@ Questaal codes into easily read files, for use by any graphics package.
 
 _____________________________________________________________
 
-### _Preliminaries_
+### _Table of Contents_
 {:.no_toc}
+*  Auto generated table of contents
+{:toc}
+
+_____________________________________________________________
+
+### _Preliminaries_
 
 **fplot**{: style="color: blue"} is required and is assumed to be in your path.
 You will also need a postscript viewer.  This document assumes you are using the apple-style **open**{: style="color: blue"} command to view postscript files.
@@ -34,13 +40,6 @@ You will also need a postscript viewer.  This document assumes you are using the
 This manual is written for fplot version 3.50.  To see what version you are using, do:
 
     $ fplot --version
-
-_____________________________________________________________
-
-### _Table of Contents_
-{:.no_toc}
-*  Auto generated table of contents
-{:toc}
 
 _____________________________________________________________
 
@@ -199,8 +198,9 @@ These defaults can be modified with the following switches.
 {::nomarkdown}<div>{:/}
 
 &nbsp; Option | Function
-&nbsp; - | - 
-&nbsp; :lx       | cause abscissa, ordinate, both to be drawn on logarithmic scales.
+&nbsp; :lx       | draw abscissa on a logarithmic scale.
+&nbsp; :ly       | draw ordinate on a logarithmic scale.
+&nbsp; :lxy      | draw both abscissa and ordinate on a logarithmic scale.
 &nbsp; :xor=#    | draw vertical axis at x=#.
 &nbsp; :yab=#    | draw horizontal axis at y=#
 &nbsp; :theta=#  | angle between abscissa and ordinate (radians)
