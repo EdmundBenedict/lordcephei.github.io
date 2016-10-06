@@ -168,21 +168,21 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 **INIT** switches must occur first:
 
-+ \-\-h | \-\-help \\
++ **\-\-h | \-\-help**\\
   prints out a help message and exits.
-+ -rot\\
++ **-rot**\\
   rotates frame 90 degrees
-+ -pr#\\
++ **-pr#**\\
   set the output verbosity to #
-+ -disp[:lus]\\
++ **-disp[:lus]**\\
   displays picture in a subshell.
   Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
   **fplot**{: style="color: blue"} with a viewer available your machine.\\
   Customize string **dispfn** near the beginning of **fplot.f**.
-+ -plaintext\\
++ **-plaintext**\\
   strings have no non-ASCII characters (superscripts, subscripts, etc).
-+ -f <i>script-file</i>\\
++ **-f <i>script-file</i>**\\
   read remaining arguments from file <i>script-file</i>
 
 **FORMAT** switches govern frame layout and labels:
@@ -196,36 +196,14 @@ These defaults can be modified with the following switches.
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
   Options:
-  + **:lx**&nbsp; or &nbsp;**:ly**&nbsp; or &nbsp;**:lx**y&nbsp; cause abscissa, ordinate, both to be drawn on logarithmic scales.
-  + **:xor=#**    draw vertical axis at x=#.
-  + **:yab=#**    draw horizontal axis at y=#
-  + **:theta=#**  angle between abscissa and ordinate (radians)
-
-{::nomarkdown}<div>{:/}
-
-Token | Arguments | Program | Optional | Default | Explanation
-- | - | - | - | - | -
-RMAXS | r | all | Y | | Radial cutoff for strux, in a.u.<br>If token is not parsed, attempt to read the following:
-RMAX | r | all | Y | 0 | the maximum sphere radius (in units of the average WSR) over which neighbors will be included in the generation of structure constants. <br>This takes a default value and is not required input. It is an interesting exercise to see how much the structure constants and eigenvalues change when this radius is increased.
-NEIGHB | i | FP | Y | 30 | Minimum number of neighbors in cluster
-ENV\_MODE | i | all | Y | 0 | Type of envelope functions:<br><br>0 2nd generation<br>1 SSSW (3rd generation)<br>2 NMTO<br>3 SSSW and val-lap basis
-ENV\_NEL | i | lm, lmstr | Y | | (NMTO only) Number of NMTO energies
-ENV\_EL | r | lm, lmstr | N | 0 | SSSW of NMTO energies, in a.u.
-DELRX | r | ASA | Y | 3 | Range of screened function beyond last site in cluster
-TOLG | r | FP | Y | 1e-6 | Tolerance in l=0 gaussians, which determines their range
-RVL/R | r | all | Y | 0.7 | Radial cutoff for val-lap basis (this is experimental)
-VLFUN | i | all | Y | 0 | Functions for val-lap basis (this is experimental)<br>0 G0 + G1<br>1 G0 + Hsm<br>2 G0 + Hsm-dot
-MXNBR | i | ASA | Y | 0 | make lmstr allocate enough memory in dimensioning arrays for MXNBR neighbors in the neighbor table. This is rarely needed
-SHOW | 1 | lmstr | Y | F | Show strux after generating them
-EQUIV | 1 | lmstr | Y | F | if true, try to find equivalent neighbor tables, to reduce the computational effort in generating strux.<br>Not generally recommended
-LMAXW | i | lmstr | Y | -1 | l-cutoff for (optional) Watson sphere, used to help localize strux
-DELRW | r | lmstr | Y | 0.1 | range extending beyond cluster radius for Watson sphere
-IINV\_NIT= | i | lmstr | Y | 0 | Number of iterations
-IINV\_NCUT | i | lmstr | Y | 0 | Number of sites for inner block
-IINV\_TOL | r | lmstr | Y | 0 | Tolerance in errors
-
-
-{::nomarkdown}</div>{:/}
+  {::nomarkdown}<div>{:/}
+  Option | Function
+  - | - 
+  :lx       | cause abscissa, ordinate, both to be drawn on logarithmic scales.
+  :xor=#    | draw vertical axis at x=#.
+  :yab=#    | draw horizontal axis at y=#
+  :theta=#  | angle between abscissa and ordinate (radians)
+  {::nomarkdown}</div>{:/}
 
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
