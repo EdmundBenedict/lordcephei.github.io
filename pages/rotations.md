@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Rotation matrices" 
+title: "Specifying Rotations" 
 permalink: "/docs/misc/rotations/"
 header: no
 ---

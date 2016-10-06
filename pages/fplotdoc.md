@@ -228,37 +228,39 @@ These defaults can be modified with the following switches.
 
 + **-frmt &nbsp; [col=_r_,_g_,_b_,][th=#1[,#2,#3]]**\\
   Sets parameters governing the drawing of frame.
-  + col=_r_,_g_,_b_  specify the line color for the frame
-  + th=#1[,#2,#3 specify the line thickness and which lines are drawn:\\
-    **#1** sets line thickness.  &minus;1 draws no frame.  Default value is 3.\\
-    **#2** is one of 0,1,2,3 to draw bottom and top axis, or one only, or neither.\\
-    **#3** is one of 0,1,2,3 to draw left and right axis, or one only, or neither
+  + **col=_r_,_g_,_b_** specify the line color for the frame (red,green,blue)
+  + **th=#1[,#2,#3]** specifies the line thickness and which lines are drawn:\\
+    **#1** sets line thickness. %nbsp; &minus;1 draws no frame.  %nbsp; Default value is 3.\\
+    **#2** set to:  **0** for top and bottom; **1** for bottom only, **2** for top only, **3** for neither.
+    **#3** set to:  **0** for left and right; **1** for left only, **2** for right only, **3** for neither.
 
-+  **-x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (modified by padding **-p#** as described below).
+<i> </i>
+
++  **-x &nbsp; <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (modified by padding **-p#** as described below).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
-+  **-y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
-    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (modified by padding **-p#** as described below).
++  **-y &nbsp; <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
+    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (modified by padding **-p#** as described below).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
 +  **-p#**\\
-   pads bounds of abscissa and ordinate by adding or subtracting (#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
-   and also adding (subtracting) (#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.
+   pads bounds of abscissa and ordinate by adding &plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
+   and also adding &plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.
    The default padding factor is 0.1.\\
    _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
-   through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.
-   _Note:_{: style="color: red"}  <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**, and <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>** are called "user's units"
+   through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.\\
+   _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
    in contrast to "graphics units" and "medium units" which are intermediate units used to facilitate construction
 
 + **-tmx** \| **-tmy &nbsp; spacing[:mt][,pos][;rmt][~rmnt][@mode]**\\
   tic mark specification and attributes.
-  + **spacing**  &nbsp;&nbsp;                                                                   spacing between tics (spacing may be modified by **@mode**, below)
-  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      no. tics per major tic
-  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      position and size of major tic
-  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      size of major tic
-  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                      size of minor tic, relative to major tic
-  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                         1,2,3 for log;  mode=5 => caller specifies tics,
+  + **spacing**  &nbsp;&nbsp;&nbsp;                                                              spacing between tics (spacing may be modified by **@mode**, below)
+  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. tics per major tic
+  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       position and size of major tic
+  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       size of major tic
+  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             size of minor tic, relative to major tic
+  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                1,2,3 for log;  mode=5 => caller specifies tics,
 
 
 + **-1p**\\
@@ -278,9 +280,9 @@ These defaults can be modified with the following switches.
 
 + **-rotp rot1[,rot2,...]** (used with **-3d)\\
   rotates points around an axis, or a succession of axes.\\
-  Example: **--rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2** rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.\\
+  Example: **--rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2** rotates the points by the Euler angles <i>&pi;</i>/4, <i>&pi;</i>/3, <i>&pi;</i>/2.
+  [This document](/docs/misc/rotations/) specifies the general syntax of rotations.
 
-  Alternatively: z:pi/4,y:pi/3,z:pi/2
 
 **LABELLING and NUMBERING switches**
 
