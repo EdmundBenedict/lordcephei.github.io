@@ -41,7 +41,7 @@ _pos.cafeas_{: style="color: green"}.
                     Same as turning on HELP=T in category IO; see
                     HELP= in the description of the IO category.
 	
-    --showp         Prints out input file after after parsing by preprocessor, and exits.
+    --showp         Prints out input file after parsing by preprocessor, and exits.
                     This can be useful because it shows the action of the preprocessor.
 
     --show          Prints the input file parsed by preprocessor, and the value of the 
