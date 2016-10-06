@@ -184,7 +184,8 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 + **-f <i>script-file</i>**\\
   read remaining arguments from file <i>script-file</i>
 
-**FORMAT** switches govern frame layout and labels:
+**FORMAT** switches govern frame layout and labels.  A figure is comprised of one or more frames.
+  A new frame overlays anything below it.
 
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
 with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
@@ -275,6 +276,11 @@ These defaults can be modified with the following switches.
   Alternatively: z:pi/4,y:pi/3,z:pi/2
 
 **LABELLING and NUMBERING switches**
+
+Where strings are referenced below, parts **..** inside **{..}** may be treated specially:
+**\^{..}, \_{..}, \~{..}, \@{..}, \&{..}**, are turned into:
+    superscripts, subscripts, Greek, bold, italic, respectively.
+    Example: "&\{k}_\{~\{\{\136}}}" makes italic k, followed by subscript perp symbol
 
 
 
