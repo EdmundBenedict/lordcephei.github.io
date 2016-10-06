@@ -196,15 +196,13 @@ These defaults can be modified with the following switches.
   starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
-
-# <div onclick="elm = document.getElementById('frmopts'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div> -->
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="frmopts">{:/}
-
   Options:
   + **:lx**&nbsp; or &nbsp;**:ly**&nbsp; or &nbsp;**:lx**y&nbsp; cause abscissa, ordinate, both to be drawn on logarithmic scales.
   + **:xor=#**    draw vertical axis at x=#.
   + **:yab=#**    draw horizontal axis at y=#
   + **:theta=#**  angle between abscissa and ordinate (radians)
+
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="frmopts">{:/}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
