@@ -12,9 +12,9 @@ _____________________________________________________________
 
 **fplot**{: style="color: blue"} is a general purpose plotting package, with functionality roughly similar to **gnuplot**{: style="color: blue"}.
 It is a command-line driven tool; you can also supply the information in a script file.
-**fplot**{: style="color: blue"} has its particular strengths and weaknesses; for the Questaal suite it is particularly useful because
+**fplot**{: style="color: blue"} has its particular strengths and weaknesses, but for the Questaal suite it is particularly useful because
 it synchronises smoothly with other Questaal executables such as [**plbnds**{: style="color: blue"}](/docs/misc/plbnds)
-and [**pldos**{: style="color: blue"}](/docs/misc/pldos/).
+and [**pldos**{: style="color: blue"}](/docs/misc/pldos/), and uses the same file structure for data.
 
 Also **fplot**{: style="color: blue"} provides some functionality not readily obtained in **gnuplot**{: style="color: blue"}, e.g.
 to determine cyclotron masses, drawing [energy bands with color weights](/docs/misc/plbnds/#example-3), and taking advantage
@@ -103,7 +103,7 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g.\\
   `$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\136}}}/&{k}_{0}'`\\
-  You should see a label centered at (1.2,0.5) similar to <b>&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub></b>.\\
+  You should see a label centered at (1.2,0.5) similar to: %nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note the subscript and special character &perp;.
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
@@ -312,14 +312,14 @@ Character  | Function
 _Example_  :   &\{D}&\{k}\_\{~\{\{\136}}}/&\{k}\_\{0} \\
 will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol <b>\136</b> is the postscript symbol for &perp;.)
 
-+ **-lbl[um] x,y[:blk] cc[,rot=#] str [tex-string]**\\
-  label and attributes.
-  puts **str** at (x,y),  centered at cc, in user (medium) units.
-  cc: one of chars l,c,r followed by one of u,c,d, eg **ld**
-  OR: cc is **tx,** which flags ps file will be run through
-  latex with string substitutions.  In which case:
-  **tex-string** is the actual (TeX) string and is required;
-  **str** is merely a tag needed for latex processing
++ **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
+  writes _string_ at (_x_,_y_).
+  + _cc_  is a sequence of two characters specifying the justification of _string_.\\
+     The first character is one of **l**,**c**,**r**; it is followed by one of **u**,**c**,**d**, e.g. **ld**\\
+     **l**,**c**,**r** &nbsp; correspond to left, center, right justification;
+     **u**,**c**,**d** &nbsp; correspond to up, center, down justification.\\
+  + Alternatively, **cc** is **tx,** which flags fplot to run the postscript file through latex with string substitutions.\\
+    In that case: **_tex-string_** is the actual (TeX) string and is required;  <b>_string_</b> is merely a tag needed for latex processing.
 
 + **-lblx xlst y[:blk] cc _lab1_ _lab2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] cc lab1 lab2 ...**\\
   puts labels **_lab1_**, **_lab2_**,  at a list of points on the abscissa (ordinate) for a given
@@ -345,6 +345,8 @@ will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Sym
   place abscissa (ordinate) axis numbering on right (top) side.
 
 ##### **DATA** switches govern how xy data are plotted
+
+W
 
 + **-lt n[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**
 
