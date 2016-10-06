@@ -283,14 +283,14 @@ These defaults can be modified with the following switches.
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
   _Example_
   
-    --rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
+      --rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
 
 **LABELLING and NUMBERING switches**
 
-Where strings are referenced below, parts inside curly brackets **{..}** will be mapped
+Where labels are used, parts inside curly brackets **{..}** may be mapped
 into other fonts, depending on the character preceding the brackets.
 
 {::nomarkdown}<div>{:/}
@@ -304,9 +304,7 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-_Example_
-
-    &{k}_{~{{\136}}}/&{k}_{0}
+_Example_  :   &\{k}_\{~\{\{\136}}}/&\{k}_\{0}
 
 will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \136 is the postscript symbol for &perp;.)
 
@@ -324,10 +322,11 @@ will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \13
   ordinate (abscissa).
 
 + **-xl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl str &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl str**\\
-  labels the abscissa, ordinate, or title (title appears above the frame).
+  supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
+  This switch adds no functionality to **-lbl**.  It is convenient because it picks places the label at a convenient default position.
 
 + **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
-  changes Times (Helvetica) font and size.
+  Sets the font to Times Roman (Helvetica) font. &nbsp; **#** is the size in points.
 
 + **-k x,y[:len][,spacing][;style]**\\
   specifies key position (and length, spacing or style).
@@ -335,7 +334,7 @@ will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \13
 + **-fmtnx:string &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:string**\\
   awrite format for axis label.
 
-+ **-noxn &nbsp;&nbsp;**\|**&nbsp;&nbsp; -noyn  **\\
++ **-noxn &nbsp;&nbsp; ** \| ** &nbsp;&nbsp; -noyn  **\\
   suppress abscissa (ordinate) axis numbering.
 
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
