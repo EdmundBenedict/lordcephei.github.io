@@ -45,7 +45,7 @@ density-of-states, or spectral function, is composed of a superposition of &delt
 Also the eigenvalues acquire an imaginary part, making the QP lifetime finite.
 
 In QS<i>GW</i> theory $$G_0$$ and <i>G</i> are closely linked.  Associated with the two kinds of <i>G</i> are two kinds of density-of-states
-(DOS).  There is "noninteracting" or "coherent" DOS, namely the spectral function of $$G_0$$ which is associated with DOS in one-particle description, is what
+(DOS).  There is "noninteracting" or "coherent" DOS, namely the spectral function of $$G_0$$ which is associated with DOS in one-particle description, and is what
 is typically calculated by a band program such as **lmf**{: style="color: blue"} .  There is also the true DOS (spectral function of <i>G</i>) which is what is
 approximately measured by e.g.  a photoemission experiment.  The <i>GW</i> package has a facility to generate both kinds of DOS; through the
 normal **lmf**{: style="color: blue"} process for the noninteracting DOS or by analyzing the spectral functions for the interacting case.
@@ -59,7 +59,7 @@ The _GW_ package comprise a separate set of codes from the density-functional co
 single-particle basis set of **lmf**{: style="color: blue"} to calculate the screened coulomb interaction _W_ and the self-energy,
 &Sigma;=_iGW_.
 
-Thus the _GW_ package handles the many-body part, **lmf**{: style="color: blue"} the 1-body part.  The two connect through special
+Thus, the _GW_ package handles the many-body part, **lmf**{: style="color: blue"} the 1-body part.  The two connect through special
 purpose interfaces: **lmfgwd**{: style="color: blue"} sets up the inputs needed by GW, supplying information about the wave functions in the
 augmentation spheres and in the interstitial.  The _GW_ part estimates shifts in  QP levels and
 makes the quasiparticlized $$\Sigma^0_{ij}$$. 
@@ -97,12 +97,12 @@ individual QP levels or integrated over the Brillouin zone to make the interacti
 
 ### _Other Resources_
 ________________________________________________________________________________________________
-See [this tutorial](https://lordcephei.github.io/lmtut/) for a basic introduction to doing a QS<i>GW</i> calculation.
+See [this tutorial](https://lordcephei.github.io/lmtut/) for a basic introduction to doing a QS<i>GW</i> calculation. (Links to page not found lvs)
 
 This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:  
 T. Kotani and M. van Schilfgaarde,
 _All-electron <i>GW</i> approximation with the mixed basis expansion based on the full-potential LMTO method_,
- Sol. State Comm. 121, 461 (2002).
+ Sol. State Comm. 121, 461 (2002). (no hyperlink lvs)
 
 These papers established the framework for QuasiParticle Self-Consistent _GW_ theory:  
 Sergey V. Faleev, Mark van Schilfgaarde, Takao Kotani,
@@ -110,7 +110,7 @@ _All-electron self-consistent GW approximation: Application to Si, MnO, and NiO_
 [Phys. Rev. Lett. 93, 126406 (2004)](http://link.aps.org/doi/10.1103/PhysRevLett.93.126406);  
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Quasiparticle self-consistent_ GW _theory_,
-[Phys. Rev. Lett. 96, 226402 (2006)](href=http://link.aps.org/abstract/PRL/v96/e226402)
+[Phys. Rev. Lett. 96, 226402 (2006)](href=http://link.aps.org/abstract/PRL/v96/e226402)(links to page not found lvs)
 
 Questaal's GW implementation is based on this paper:  
 Takao Kotani, M. van Schilfgaarde, S. V. Faleev,
@@ -120,7 +120,7 @@ _Quasiparticle self-consistent GW  method: a basis for the independent-particle 
 This paper shows results from LDA-based GW, and its limitations:  
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Adequacy of Approximations in <i>GW</i> Theory_,
-[Phys. Rev. B74, 245125 (2006)](A href=http://link.aps.org/abstract/PRB/v74/e245125)
+[Phys. Rev. B74, 245125 (2006)](A href=http://link.aps.org/abstract/PRB/v74/e245125) (links to page not found lvs)
 
 
 
