@@ -217,22 +217,25 @@ These defaults can be modified with the following switches.
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
   Options:\\
-  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
-  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       draw both abscissa and ordinate on a logarithmic scale.
-  + **:xor=#**       &nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
-  + **:yab=#**       &nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **:theta=#**     angle between abscissa and ordinate (radians)
+  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       draw both abscissa and ordinate on a logarithmic scale.
+  + **:xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
+  + **:yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
+  + **:theta=#**     angle between abscissa and ordinate (radians)<br/>
 
-<br/>
-
-+  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> or ordinate \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.
-
++  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> \\
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.\\
+    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in this frame to determine
+    the smallest and largest value to be plotted, and use these numbers for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
     specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>x</i><sub>2</sub> = top edge.\\
+    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in this frame to determine
+    the smallest and largest value to be plotted, and use these numbers for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
++  -p# pads frame boundary
    _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
     Use `-p0` to suppress padding.
+
 
 ... finish ... when reading data from a file
 + Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
