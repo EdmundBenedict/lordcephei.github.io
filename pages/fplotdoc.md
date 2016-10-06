@@ -305,8 +305,7 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-_Example_  :   &\{k}\_\{~\{\{\136}}}/&\{k}\_\{0}
-
+_Example_  :   &\{k}\_\{~\{\{\136}}}/&\{k}\_\{0} \\
 will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \136 is the postscript symbol for &perp;.)
 
 + **-lbl[um] x,y[:blk] cc[,rot=#] str [tex-string]**\\
@@ -341,7 +340,7 @@ will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \13
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
 
-##### **DATA** switches govern how data are drawn as lines
+##### **DATA** switches govern how xy data are plotted
 
 _____________________________________________________________
 
