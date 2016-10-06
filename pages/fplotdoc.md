@@ -196,17 +196,18 @@ These defaults can be modified with the following switches.
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
 
-  {::nomarkdown}<div>{:/}
-  Option | Function
-  - | - 
-  :lx       | cause abscissa, ordinate, both to be drawn on logarithmic scales.
-  :xor=#    | draw vertical axis at x=#.
-  :yab=#    | draw horizontal axis at y=#
-  :theta=#  | angle between abscissa and ordinate (radians)
-  {::nomarkdown}</div>{:/}
+{::nomarkdown}<div>{:/}
+Option | Function
+- | - 
+:lx       | cause abscissa, ordinate, both to be drawn on logarithmic scales.
+:xor=#    | draw vertical axis at x=#.
+:yab=#    | draw horizontal axis at y=#
+:theta=#  | angle between abscissa and ordinate (radians)
+{::nomarkdown}</div>{:/}
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
-    specifies range in abscissa (left, right boundaries)
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left, <i>x</i><sub>2</sub> = right boundary\\
+   _Note:_{: style="color: red"} these boundaries may be padded
 
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
 
