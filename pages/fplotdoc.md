@@ -62,6 +62,9 @@ This section develops a couple of examples to give you an intuitive feel of how 
 typically want to control yourself.
 
 #### Example 2.1. &nbsp; plot $$y=20\,x^2\exp(-4x)$$
+{::comment}
+/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x
+{:/comment}
 
 The following will plot this function in the interval (0,2), with the abscissa spaced in intervals of 0.02:
 
@@ -171,17 +174,18 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 **FORMAT** switches govern frame layout and labels:
 
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
-with tic marks and numbering.  These defaults can be modified using the following switches.
+with tic marks and numbering, as [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) shows.
+These defaults can be modified using the following switches.
 
 +   -frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_\\
-    starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."
+    starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
     _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
     box with that fits on a sheet of A4 or American size paper with comfortable margins.\\
     Options:
-    + **:lx**&nbsp; or &nbsp;**:ly**&nbsp; or &nbsp;**:lx**y&nbsp; : draw abscissa, or ordinate, or both with logarithmic scales.
-    + :xor=#    draw vertical axis at x=#
-    + :yab=#    draw horizontal axis at y=#
-    + :theta=#  angle between abscissa and ordinate (radians)
+    + **:lx**&nbsp; or &nbsp;**:ly**&nbsp; or &nbsp;**:lx**y&nbsp; cause abscissa, ordinate, both to be drawn on logarithmic scales.
+    + **:xor=#**    draw vertical axis at x=#.
+    + **:yab=#**    draw horizontal axis at y=#
+    + **:theta=#**  angle between abscissa and ordinate (radians)
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
    -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
