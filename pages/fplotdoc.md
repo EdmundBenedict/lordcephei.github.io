@@ -165,7 +165,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 </pre>
 
 
-#### **INIT** switches must occur first
+##### **INIT** switches must occur first
 
 + **\-\-h | \-\-help**\\
   print out a help message and exits.
@@ -184,8 +184,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 + **-f <i>script-file</i>**\\
   read remaining arguments from file <i>script-file</i>
 
-**FORMAT** switches govern frame layout and labels.  A figure is comprised of one or more frames.
-Each new frame overlays anything below it.\\
+##### **FORMAT** switches govern frame layout and labels.
+
+A figure is comprised of one or more frames. Each new frame overlays anything below it.\\
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
 with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
 These defaults can be modified with the following switches.
@@ -288,7 +289,7 @@ These defaults can be modified with the following switches.
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
 
-#### **LABELLING and NUMBERING** switches govern labels and axis numbering
+##### **LABELLING and NUMBERING** switches govern labels and axis numbering
 
 Where labels are used, parts inside curly brackets **{..}** may be mapped
 into other fonts, depending on the character preceding the brackets.
@@ -340,7 +341,7 @@ will appear as <i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol \13
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
 
-#### **DATA** switches govern how data are drawn as lines
+##### **DATA** switches govern how data are drawn as lines
 
 _____________________________________________________________
 
