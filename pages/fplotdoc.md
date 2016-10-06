@@ -231,8 +231,8 @@ These defaults can be modified with the following switches.
   + **col=_r_,_g_,_b_** specify the line color for the frame (red,green,blue)
   + **th=#1[,#2,#3]** specifies the line thickness and which lines are drawn:\\
     **#1** sets line thickness. &nbsp; &minus;1 draws no frame.  &nbsp; Default value is 3.\\
-    **#2** set to:  **0** for top and bottom; **1** for bottom only, **2** for top only, **3** for neither.\\
-    **#3** set to:  **0** for left and right; **1** for left only, **2** for right only, **3** for neither.
+    **#2** set to:&nbsp;  **0** for top and bottom;&nbsp; **1** for bottom only;&nbsp; **2** for top only;&nbsp; **3** for neither.\\
+    **#3** set to:&nbsp;  **0** for left and right;&nbsp; **1** for left only;&nbsp; **2** for right only;&nbsp; **3** for neither.
 
 <i> </i>
 
@@ -287,14 +287,14 @@ These defaults can be modified with the following switches.
 
 **LABELLING and NUMBERING switches**
 
-Where strings are referenced below, parts **..** inside curly brackets **{..}** may be treated specially
-for certain characters preceding the brackets
+Where strings are referenced below, parts inside curly brackets **{..}** will be mapped
+into other fonts, depending on the character preceding the brackets.
 
 {::nomarkdown}<div>{:/}
 
 Character  | Function
-^{..}      | superscripts
-\_{..}     | subscripts
+^{..}      | superscript
+\_{..}     | subscript
 \~{..}     | Greek
 :@{..}     | bold
 &{..}      | italic
@@ -303,9 +303,42 @@ Character  | Function
 
 {:/comment}
 
-Example: "&\{k}_\{~\{\{\136}}}" gets transformed into <i>k</i><sub>&perp;</sub>
+_Example_
 
+    &\{k}_\{~\{\{\136}}}/&\{k}_\{0}
 
+gets transformed into <i>k</i><sub>&perp;</sub>
+
++ **-lbl[um] x,y[:blk] cc[,rot=#] str [tex-string]**\\
+  label and attributes.
+  puts **str** at (x,y),  centered at cc, in user (medium) units.
+  cc: one of chars l,c,r followed by one of u,c,d, eg **ld**
+  OR: cc is **tx,** which flags ps file will be run through
+  latex with string substitutions.  In which case:
+  **tex-string** is the actual (TeX) string and is required;
+  **str** is merely a tag needed for latex processing
+
++ **-lblx xlst y[:blk] cc _lab1_ _lab2_ ...   \| -lbly ylst x[:blk] cc lab1 lab2 ...**\\
+  puts labels _lab1_, _lab2_,  at a list of points on the abscissa (ordinate) for a given
+  ordinate (abscissa)
+
++ **-xl str \| -yl str \| -tl str**\\
+  labels the abscissa, ordinate, or title (appears at the top)
+
++ **-font t# \| -font h#**\\
+  changes Times (Helvetica) font and size
+
++ **-k x,y[:len][,spacing][;style]**\\
+  specifies key position (and length, spacing or style)
+
++ **-fmtnx:string \| -fmtny:string**\\
+  awrite format for axis label
+
++ **-noxn \| -noyn  **\\
+  suppress abscissa (ordinate) axis numbering
+
++ **-xn:t \| -yn:r**\\
+  place abscissa (ordinate) axis numbering on right (top) side
 
 _____________________________________________________________
 
