@@ -97,30 +97,30 @@ individual QP levels or integrated over the Brillouin zone to make the interacti
 
 ### _Other Resources_
 ________________________________________________________________________________________________
-See [this tutorial](https://lordcephei.github.io/lmtut/) for a basic introduction to doing a QS<i>GW</i> calculation. (Links to page not found lvs)
+See [this tutorial](/tutorial/gw/poscar_qsgw/) for a basic introduction to doing a QS<i>GW</i> calculation.
 
-This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:  
+This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:\
 T. Kotani and M. van Schilfgaarde,
 _All-electron <i>GW</i> approximation with the mixed basis expansion based on the full-potential LMTO method_,
- Sol. State Comm. 121, 461 (2002). (no hyperlink lvs)
+[Sol. State Comm. 121, 461 (2002)](http://www.sciencedirect.com/science/article/pii/S0038109802000285).
 
-These papers established the framework for QuasiParticle Self-Consistent _GW_ theory:  
+These papers established the framework for QuasiParticle Self-Consistent _GW_ theory:\
 Sergey V. Faleev, Mark van Schilfgaarde, Takao Kotani,
 _All-electron self-consistent GW approximation: Application to Si, MnO, and NiO_,
-[Phys. Rev. Lett. 93, 126406 (2004)](http://link.aps.org/doi/10.1103/PhysRevLett.93.126406);  
+[Phys. Rev. Lett. 93, 126406 (2004)](http://link.aps.org/doi/10.1103/PhysRevLett.93.126406);\\
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Quasiparticle self-consistent_ GW _theory_,
-[Phys. Rev. Lett. 96, 226402 (2006)](href=http://link.aps.org/abstract/PRL/v96/e226402)(links to page not found lvs)
+[Phys. Rev. Lett. 96, 226402 (2006)](http://link.aps.org/abstract/PRL/v96/e226402)
 
-Questaal's GW implementation is based on this paper:  
+Questaal's GW implementation is based on this paper:\\
 Takao Kotani, M. van Schilfgaarde, S. V. Faleev,
 _Quasiparticle self-consistent GW  method: a basis for the independent-particle approximation_,
 [Phys. Rev. B76, 165106 (2007)](http://link.aps.org/abstract/PRB/v76/e165106)
 
-This paper shows results from LDA-based GW, and its limitations:  
+This paper shows results from LDA-based GW, and its limitations:\
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Adequacy of Approximations in <i>GW</i> Theory_,
-[Phys. Rev. B74, 245125 (2006)](A href=http://link.aps.org/abstract/PRB/v74/e245125) (links to page not found lvs)
+[Phys. Rev. B74, 245125 (2006)](http://link.aps.org/abstract/PRB/v74/e245125)
 
 
 

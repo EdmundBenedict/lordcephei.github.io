@@ -55,12 +55,12 @@ This package extends the [linear method](/docs/package_overview/#linear-methods-
 _____________________________________________
 
 In 2008 Takao Kotani added augmented plane waves (<b>APWs</b>) as additional envelope functions, which can increase the flexibility of the basis. 
-The combination of smooth Hankel functions and **APW**s is described in this paper on the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
-One can view PMT's as an extension of a conventional **LAPW** method, enabling through the use of a few **MTO**s with much faster convergence in
-energy cutoff of **APW**s. Alternatively, it can be viewed as an extension of the original **MTO** method. A principal advantage of the
-**APW** basis is that it easier to make complete. Thus **APW**s offer a systematic way of converging the combined **MTO** + **APW** basis
-systematic and reliable manner, to an almost arbitrarily high accuracy. This is particularly important when reliable eigenvalues far above the
-Fermi level are needed, and to check the accuracy of a given **MTO** basis. To include **APW**s in the basis, see [here](need link) for a tutorial.
+The combination of smooth Hankel functions and APW's is described in this paper on the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
+One can view PMT's as an extension of a conventional **LAPW** method, enabling through the use of a few MTOs with much faster convergence in APW
+energy cutoff. Alternatively, PMT can be viewed as an extension of the original MTO method. A principal advantage of the
+conventional APW basis is that it easier to make it complete. Here addition of APW's offer a systematic way of converging the combined MTO + APW basis
+in a systematic and reliable manner, to an almost arbitrarily high accuracy. This is particularly important when reliable eigenvalues far above the
+Fermi level are needed, and to check the accuracy of a given MTO basis. To include APW's in the basis, see [here](need link) for a tutorial.
 
 ### *Augmentation and Representation of the charge density*
 {::comment}
@@ -74,7 +74,7 @@ density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>
 <i>n</i><sub>2</sub> of the smooth density in <i>Y<sub>lm</sub></i>, inside each augmentation sphere. The total density is
 expressed as a sum of three independent densities: <i>n</i> = <i>n</i><sub>0</sub> + <i>n</i><sub>1</sub> – <i>n</i><sub>2</sub>.
 
-This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly in the *l*-truncation in the augmentation sphere than occur in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
+This turns out to be an extremely useful way to carry out the augmentation procedure. Quantities converge much more rapidly with *l* than in conventional augmented wave constructions. (The analysis is a little subtle; see the reference at the start of this document.)
 
 ### *Connection to the ASA packages*
 _____________________________________________

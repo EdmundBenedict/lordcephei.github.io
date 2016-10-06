@@ -45,7 +45,7 @@ _pos.cafeas_{: style="color: green"}.
                     This can be useful because it shows the action of the preprocessor.
 
     --show          Prints the input file parsed by preprocessor, and the value of the 
-                    tags parsed default values taken
+                    tags parsed or default values taken.
 			
     --show=2        Same as --show, except program exits after printing out results
                     of parsing the input file.
@@ -85,9 +85,9 @@ Additionally, for any program utilizing site information, the following switches
 					
     --fixpos[:tol=#]
     --fixpos[:#]    tells the symmetry finder to adjust positions
-                    to sites that are ``slightly displaced'', that is that
-                    if they were displaced a small amount, would make the
-                    basis conform to a group operation.  Optional tolerance
+                    to sites that are ``slightly displaced''. That is
+                    if they were displaced a small amount, the basis would
+                     conform to a group operation.  Optional tolerance
                     specifies the maximum amount of adjustment allowed.
                     Example: lmchk --fixpos:tol=.001
 				   
