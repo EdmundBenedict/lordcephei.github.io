@@ -198,16 +198,20 @@ These defaults can be modified with the following switches.
 
 {::nomarkdown}<div>{:/}
 
-Option | Arguments 
-- | - 
-RMAXS | r 
-RMAX | r 
+&nbsp; Option | Function
+&nbsp; - | - 
+&nbsp; :lx       | cause abscissa, ordinate, both to be drawn on logarithmic scales.
+&nbsp; :xor=#    | draw vertical axis at x=#.
+&nbsp; :yab=#    | draw horizontal axis at y=#
+&nbsp; :theta=#  | angle between abscissa and ordinate (radians)
 
 {::nomarkdown}</div>{:/}
 
-+  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>\\
++  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> or ordinate \\
     specifies range in abscissa : <i>x</i><sub>1</sub> = left, <i>x</i><sub>2</sub> = right boundary\\
-   _Note:_{: style="color: red"} these boundaries may be padded
+   _Note:_{: style="color: red"} boundaries are stretched by a padding factor, which is 0.1 by default.
+   Use `-p0` to suppress padding
+   
 
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
 
