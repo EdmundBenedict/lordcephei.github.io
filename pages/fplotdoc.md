@@ -226,17 +226,33 @@ These defaults can be modified with the following switches.
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> \\
     specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.\\
-    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in this frame to determine
-    the smallest and largest value to be plotted, and use these numbers for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
+    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
+    the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
 +  -y <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>\\
     specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>x</i><sub>2</sub> = top edge.\\
-    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in this frame to determine
-    the smallest and largest value to be plotted, and use these numbers for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
-+  -p# pads range of abscissa and ordinate by adding or subtracting #&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
+    If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
+    the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
++  -p# pads bounds of abscissa and ordinate by adding or subtracting #&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) from the right (left) boundary,
     and adding (subtracting) #&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) from the top (bottom) boundary.\\
     The padding factor is 0.1 by default.\\
    _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
    through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.
+
++ **-tmx** | **-tmy**
+
++ **-frmt  [col=#,#,#,][th=#1[,#2,#3]]:\\
+
++ **-1p :            skip parsing of remaining args for first pass\\
+
++ **-aspect # :      resizes frame to make dy/dx(UU) / dy/dx(MU) = #\\
+
++ **-3d shy[,shx,shz] :\\
+
++ **-rotp rot1[,rot2,...] :\\
+
+**LABELLING and NUMBERING switches**
+
+
 
 _____________________________________________________________
 
