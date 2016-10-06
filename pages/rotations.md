@@ -13,32 +13,29 @@ This page explains how to specify a rotation.
 
 _____________________________________________________________
 
-Integer lists consist of a sequence of strings separated by commas:
-
 You can specify a rotation matrix through an ASCII string of
-characters, which consists of a sequence of one or more rotations,
+characters, which consists of a sequence of one or more substrings
 separated by commas,
 
 <pre>
   rot1[,rot2][...]
 </pre>
 
-Each substring **rot1**, **rot2**, ...  has the syntax
+Each substring **rot1**, **rot2**, ...  is the rotation around a particular axis and has the syntax
 
 <pre>
   (<i>x</i>,<i>y</i>,<i>z</i>)<i>angle</i>
 </pre>
 
-Here *x*, *y*, and *z* are three real numbers specifying an axis about which to
-rotate; *angle* is another real number specifying the size of the
-rotation, in radians.   There should be no spaces in the string.
+*x*, *y*, and *z* are three real numbers specifying an axis about which to
+rotate; *angle* is the size of the rotation, in radians.   There should be no spaces in the string.
 
-Each successive rotation specifies a rotation about the new coordinate
+Each successive substring specifies a rotation about the new coordinate
 system.  As a special case, the Euler angles are defined as a sequence
-of three rotations, the first about <i>z</i> by angle &alpha;,
+of three rotations, the first about <i>z</i> by angle <i>&alpha;</i>,
 the second a rotation about the new
-<i>y</i> axis by angle &beta;; the third about the new <i>z</i> axis by
-angle &gamma;.  For the case &alpha;=pi/4, &beta;=pi/3, and &gamma;=pi/2, the
+<i>y</i> axis by angle <i>&beta;</i>; the third about the new <i>z</i> axis by
+angle <i>&gamma;</i>.  For the case <i>&alpha;</i>=<i>&pi;</i>/4, <i>&beta;</i>=<i>&pi;</i>/3, and <i>&gamma;</i>=<i>&pi;</i>/2, the
 syntax would be
 
 <pre>
@@ -50,7 +47,7 @@ You can use as a the following strings as shorthand:\\
 &nbsp;&nbsp;  **y:** = shorthand for **(0,1,0)**\\
 &nbsp;&nbsp;  **z:** = shorthand for **(0,0,1)**
 
-Thus the rotation above could equally be specified by:\\
+Thus the rotation above could equally be specified as:
 
 ~~~
 z:pi/4,y:pi/3,z:pi/2
@@ -58,7 +55,7 @@ z:pi/4,y:pi/3,z:pi/2
 
 Below are two instances of rotations, especially useful for cubic systems:
 
-~~~
-  z:pi/4,y:acos(1/sqrt(3))  &larr; Rotates <i>z</i> to the 111 direction
-  z:-pi/4,y:pi/2            &larr; Rotates <i>z</i> to (1,-1,0)
-~~~
+<pre>
+  z:pi/4,y:acos(1/sqrt(3))  &larr; Rotates <i>z</i> to the (1,1,1) direction
+  z:-pi/4,y:pi/2            &larr; Rotates <i>z</i> to the (1,-1,0) direction
+</pre>
