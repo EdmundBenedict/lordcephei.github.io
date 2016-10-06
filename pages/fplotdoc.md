@@ -224,6 +224,7 @@ These defaults can be modified with the following switches.
   + **:yab=#**       &nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
   + **:theta=#**     angle between abscissa and ordinate (radians)
 
+<br/>
 
 +  -x <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub> or ordinate \\
     specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge.
