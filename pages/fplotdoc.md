@@ -128,6 +128,7 @@ Some useful points to note:
 
   `'a~{{b}} a~{\{b}} a\~{\{b}}'`
   
+   `a~{{{b}}} a\~{{{b}}} a\~\{{{b}}}`
 
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
