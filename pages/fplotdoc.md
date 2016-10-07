@@ -101,16 +101,14 @@ Some useful points to note:
 + The abscissa ranges from -0.1 to 2.1; the ordinate from -0.033 to +0.71. They were found automatically by finding the largest and smallest
   values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
-+ Labels can be added, e.g.\\
-  `$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\\136}}}/&{k}_{0}'`\\
++ Labels can be added, e.g.
+  <pre>
+  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\136}}}/&{k}_{0}'
+  </pre>
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the label has Greek and italic symbols, subscripts and special character &perp;.
 
 
-
-<pre>
-fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
-</pre>
 
 hello &#123; <pre>&#123;&#123;\136&#125;&#125;</pre>
 
@@ -338,9 +336,9 @@ which interprets curly brackets as expressions.  Prepending a **\\** tells the p
 Thus in a script file the above example should read:
 
 + **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
-  writes _string_ at (_x_, _y_).
-  + *-lblu* indicates _x_ and _y_ are in user's units (this is the default) *-lblm* indicates medium units.
-  + _cc_  is a sequence of two characters specifying the justification of _string_.\\
+  writes **_string_** at (**_x_**, **_y_**).
+  + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same) **-lblm** indicates medium units.
+  + _cc_  is a sequence of two characters specifying the justification of **_string_**.\\
      The first character is one of **l**,**c**,**r**; it is followed by one of **u**,**c**,**d**, e.g. **ld**.\\
      **l**,**c**,**r** &nbsp; correspond to left, center, right justification;
      **u**,**c**,**d** &nbsp; correspond to up, center, down justification.
