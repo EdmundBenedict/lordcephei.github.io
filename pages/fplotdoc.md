@@ -103,8 +103,7 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g. try
   <pre>
-  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'
-  </pre>
+  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'  </pre>
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the the string has Greek and italic symbols, subscripts and special character &perp;.
 
@@ -314,10 +313,13 @@ Character  | Function
 _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}
 
 will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
+
 _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must prepend the left bracket with a '**\\**'.
 This is because the script file is run through the [preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions),
-which interprets curly brackets as expressions.  By prepending the **\\**, the preprocessor knows to treat the bracket literally, not as the beginning of an expression.
-Thus in a script file the above example should read &nbsp; \~\{D}&{k}\_\{~\&#123;\&#123;\136&#125;&#125;}/&\{k}\_\{0}
+which interprets curly brackets as expressions.  By prepending the **\\**, the preprocessor knows to treat the bracket literally, not as the beginning of an expression.\\
+The same 
+
+_Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 + **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).
