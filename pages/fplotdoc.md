@@ -327,34 +327,31 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
      The first character is one of &nbsp; **l**, **c**, **r** &nbsp; corresponding to left, center, right justification;\\
      The second is one of &nbsp; **u**, **c**, **d** &nbsp; corresponding to up, center, down justification.
-  + Alternatively, *cc* is **tx,** which flags **fplot**{: style="color: blue"} to run the postscript file through latex with string substitutions.\\
+  + Alternatively, **_cc_** is **tx,** which flags **fplot**{: style="color: blue"} to run the postscript file through latex with string substitutions.\\
     In that case: **_tex-string_** is the actual (TeX) string and is required;  <b>_string_</b> is merely a tag needed for latex processing.
 
 <i> </i>
 
 + **-lblx _xlst_ _y_[:blk] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] _cc_ str1 str2 ...**\\
-  puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**.) of points on the abscissa (ordinate) for a given
-  ordinate (abscissa).  The number of strings must match the number of elements in **_xlst_**.
+  puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points on the **_x_** axis (**_y_** axis) for a given
+  value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
   + **_cc_** has the same meaning as for `-lbl`.
 
-+ **-xl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl _str_ **\\
++ **-xl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -yl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -tl _str_ **\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
   This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
-
-+ **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
-  Sets the font to Times Roman (Helvetica) font. &nbsp; **#** is the size in points.
-
-+ **-k x,y[:len][,spacing][;style]**\\
-  specifies key position (and length, spacing or style).
-
 + **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
-  awrite format for axis label.
-
+  awrite format for _x_ axis or _y_ axis label.
 + <b>-noxn \| -noyn </b>\\
   suppress abscissa (ordinate) axis numbering.
-
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
+
++ **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
+  Sets the font for labels following this switch to Times Roman (Helvetica) font. &nbsp; **#** is the size in points.\\
+
++ **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
+  specifies key position (and length, spacing or style).
 
 ##### **DATA** switches govern how xy data are depicted
 
