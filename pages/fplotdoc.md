@@ -325,17 +325,17 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
   writes **_string_** at (**_x_**, **_y_**).
   + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same);&nbsp; **-lblm** indicates medium units.
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
-     The first character is one of **l**,**c**,**r** &nbsp; corresponding to left, center, right justification;\\
-     The second is one of &nbsp; **u**,**c**,**d** &nbsp; corresponding to up, center, down justification.
+     The first character is one of &nbsp; **l**, **c**, **r** &nbsp; corresponding to left, center, right justification;\\
+     The second is one of &nbsp; **u**, **c**, **d** &nbsp; corresponding to up, center, down justification.
   + Alternatively, *cc* is **tx,** which flags **fplot**{: style="color: blue"} to run the postscript file through latex with string substitutions.\\
     In that case: **_tex-string_** is the actual (TeX) string and is required;  <b>_string_</b> is merely a tag needed for latex processing.
 
 <i> </i>
 
 + **-lblx _xlst_ _y_[:blk] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] _cc_ str1 str2 ...**\\
-  puts labels **_str1_**, **_lab2_**,  at a list of points on the abscissa (ordinate) for a given
-  ordinate (abscissa).  The number of strings must match the number of elements in _xlst_.
-  + _cc_ has the same meaning as for `-lbl`
+  puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**.) of points on the abscissa (ordinate) for a given
+  ordinate (abscissa).  The number of strings must match the number of elements in **_xlst_**.
+  + **_cc_** has the same meaning as for `-lbl`.
 
 + **-xl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yl _str_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -tl _str_ **\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
