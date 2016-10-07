@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Implementation of the <i>GW</i> Approximation"
+title: "Implementation of the _GW_ Approximation"
 permalink: "/docs/code/gwoverview/"
 sidebar: "left"
 header: no
@@ -99,7 +99,7 @@ individual QP levels or integrated over the Brillouin zone to make the interacti
 ________________________________________________________________________________________________
 See [this tutorial](/tutorial/gw/poscar_qsgw/) for a basic introduction to doing a QS<i>GW</i> calculation.
 
-This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:\
+This paper presents the first description of an all-electron _GW_ implementation in a mixed basis set:\\
 T. Kotani and M. van Schilfgaarde,
 _All-electron <i>GW</i> approximation with the mixed basis expansion based on the full-potential LMTO method_,
 [Sol. State Comm. 121, 461 (2002)](http://www.sciencedirect.com/science/article/pii/S0038109802000285).
