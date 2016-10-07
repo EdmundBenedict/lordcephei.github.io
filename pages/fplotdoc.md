@@ -112,6 +112,10 @@ Some useful points to note:
 
   a~{{b}} a~{\{b}} a\~{\{b}}
 
+  a~{{b}} a~{\{b}} a\~{\{b}}
+
+  a~{{{b}}} a~\{{b}}
+
   `a{b} a\{b}`
 
   `a~{b} a~\{b} a\~\{b}`
