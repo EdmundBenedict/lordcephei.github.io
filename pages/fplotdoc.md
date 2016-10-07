@@ -115,15 +115,16 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 hello &#123; <pre>&#123;&#123;\136&#125;&#125;</pre>
 
 hello &#123; 
-
 <pre> &#123;&#123;\136&#125;&#125; </pre>
 
-<pre>&#123;&#123;\136&#125;&#125; </pre>
+hello &#123; <pre> &#123;&#123;\136&#125;&#125;</pre>
 
-<pre> &#123;&#123;\136&#125;&#125;</pre>
+hello &#123; <pre>&#123;&#123;\136&#125;&#125; </pre>
 
+hello &#123; <pre> &#123;&#123;\136&#125;&#125; </pre>
+
+hello &#123; 
 <pre>&#123;&#123;\136&#125;&#125;</pre>
-
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 {::comment}
