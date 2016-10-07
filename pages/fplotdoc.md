@@ -112,6 +112,20 @@ Some useful points to note:
 
   a~{{b}} a~{\{b}} a\~{\{b}}
 
+  `a{b} a\{b}`
+
+  `a~{b} a~\{b} a\~\{b}`
+
+  `a~{{b}} a~{\{b}} a\~{\{b}}`
+  
+  `'a{b} a\{b}'`
+
+  `'a~{b} a~\{b} a\~\{b}'`
+
+  `'a~{{b}} a~{\{b}} a\~{\{b}}'`
+  
+
+
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 {::comment}
 /docs/misc/fplot/#example-22-nbsp-charge-density-contours-in-cr
