@@ -9,7 +9,7 @@ header: no
 ### _Purpose_
 {:.no_toc}
 _____________________________________________________________
-This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ (QS_GW_) approximation.
+This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) approximation.
 
 ### _Table of Contents_
 {:.no_toc}
@@ -19,7 +19,7 @@ _____________________________________________________________
 
 ### _Introduction_
 ________________________________________________________________________________________________
-The _GW_ approximation is implemented in two forms: as a 1-shot perturbation to the LDA and as quasiparticle self-consistent _GW_ (QS_GW_).
+The _GW_ approximation is implemented in two forms: as a 1-shot perturbation to the LDA and as quasiparticle self-consistent _GW_ (QS<i>GW</i>).
 
 In 1-shot mode, the diagonal part of &Sigma; is evaluated at the
 one-particle (usually LDA) energies, yielding a correction to the
