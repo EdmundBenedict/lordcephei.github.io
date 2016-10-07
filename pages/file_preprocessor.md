@@ -56,7 +56,7 @@ becomes
 ~~~
     talk 2 me
 ~~~
-**{...}** can contain other kinds of syntax as well; see [below](/docs/input/preprocessor/#expression-substitution)
+**{...}** can contain other kinds of syntax as well; see [below](/docs/input/preprocessor/#expression-substitution).
 
 _Note:_{: style="color: red"}
 The substitution <FONT size="+1"><tt>{...}</tt></FONT>&rarr;<FONT size="+1"><tt><i>string</i></tt></FONT>

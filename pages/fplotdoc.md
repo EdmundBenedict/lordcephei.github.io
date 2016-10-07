@@ -103,7 +103,7 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g.
   <pre>
-  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\136}}}/&{k}_{0}'
+  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'
   </pre>
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the label has Greek and italic symbols, subscripts and special character &perp;.
@@ -337,7 +337,7 @@ Thus in a script file the above example should read:
 
 + **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).
-  + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same) **-lblm** indicates medium units.
+  + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same);&nbsp; **-lblm** indicates medium units.
   + _cc_  is a sequence of two characters specifying the justification of **_string_**.\\
      The first character is one of **l**,**c**,**r**; it is followed by one of **u**,**c**,**d**, e.g. **ld**.\\
      **l**,**c**,**r** &nbsp; correspond to left, center, right justification;
