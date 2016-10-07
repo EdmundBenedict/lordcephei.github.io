@@ -337,9 +337,12 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
 + **-lblx _xlst_ _y_[:0] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:0] _cc_ str1 str2 ...**\\
   puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points on the **_x_** axis (**_y_** axis) for a given
   value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
+  + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.\\
   + **_cc_** has the same meaning as for `-lbl`.
 
-+ **-xl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -yl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
+<i> </i>
+
++ <b> -xl _str_ &nbsp;&nbsp; </b> \| &nbsp;&nbsp; <b> -yl _str_ </b> &nbsp;&nbsp; \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
   This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
 + **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
@@ -350,7 +353,11 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
   place abscissa (ordinate) axis numbering on right (top) side.
 
 + **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#**\\
-  Sets the font for labels following this switch to Times Roman (Helvetica) font. &nbsp; **#** is the size in points.\\
+  Sets the font for labels following this switch to Times Roman (Helvetica) font. &nbsp;
+  +  If this switch occurs before the frame is drawn, it affects the font of the axis numbering.
+  +  **#** is the size in points.
+
+<i> </i>
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
