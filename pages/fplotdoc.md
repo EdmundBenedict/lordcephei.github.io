@@ -321,9 +321,11 @@ The same
 
 _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
-+ **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
++ **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).
   + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same);&nbsp; **-lblm** indicates medium units.
+  + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.\\
+    By default, a blank space is created before the text is written.
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
      The first character is one of &nbsp; **l**, **c**, **r** &nbsp; corresponding to left, center, right justification;\\
      The second is one of &nbsp; **u**, **c**, **d** &nbsp; corresponding to up, center, down justification.
@@ -332,12 +334,12 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
 
 <i> </i>
 
-+ **-lblx _xlst_ _y_[:blk] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:blk] _cc_ str1 str2 ...**\\
++ **-lblx _xlst_ _y_[:0] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:0] _cc_ str1 str2 ...**\\
   puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points on the **_x_** axis (**_y_** axis) for a given
   value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
   + **_cc_** has the same meaning as for `-lbl`.
 
-+ **-xl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -yl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -tl _str_ **\\
++ **-xl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; ** -yl _str_ &nbsp;&nbsp;** \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
   This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
 + **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
@@ -367,48 +369,66 @@ _xy_ data is typically read from a file; the syntax is:
 You can, instead of supplying data from a file <i>data-file</i>,
 specify it through switch `-tp`.
 
-+ **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**
++ **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
+  line type specification and attributes.
 
-+ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**
++ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**\\
+  symbol specification and attributes.
 
-+ **-l[0]**
++ **-l[0]**\\
+  legend for key. &nbsp; Optional 0 suppresses blanking.
+  
++ **-tp [_nc_~]_xlist_**\\
+  generates a table of points
 
-+ **-tp [_nc_~]_xlist_**
++ **-map [-i _expr_] _list_**\\
+  maps original data array to another set of points defined by "list"
 
-+ **-map [-i _expr_] _list_**
-
-+ **-itrp _x1_,_x2_,_dxz-**
++ **-itrp _x1_,_x2_,_dxz-**\\
+  Optional args x1,x2,dx,ifrat,nord also specifies 
 
 + **-ins[f] _string_**
+  insert string (or file named by string) directly into output file
 
 + **-sort**
+  sorts data in ascending abscissa order (after mapping)
 
-+ **-bs radius[;file-list]**
++ **-bs _radius_[;file-list]**\\
+  (3D only) connects points within radius and file-list.
 
-+ **-con[:opts] _list_**
++ **-con[:opts] _list_**\\
+  special mode for x-y contour plots.
 
 + **-nc=#**
+  stipulate that next matrix read has # cols
 
-+ **-r:switches**
++ **-r:switches**\\
+switches for file reading separated by ':'.  switches are
 
-+ **-qr**
++ **-qr**\\
+  same function as -r:qr
++ **-br**\\
+  same function as -r:br
 
-+ **-br**
++ **-ab  _expr_**\\
+  uses expression "expr" for the abscissa.  Expression
 
-+ **-ab  _expr_**
++ **-abf _expr_**\\
+  maps tic marks on abscissa to expr
 
-+ **-abf _expr_**
++ **-ord _expr_**\\
+  substitutes expression for the ordinate
 
-+ **-ord _expr_**
++ **-col cx,cy[,cw]**\\
+  plots cols cx and cy as abscissa and ordinate
 
-+ **-col cx,cy[,cw]**
++ **-colsy _list_**\\
+  makes series of plots for columns in list
++ **-colsw _list_**\\
+  corresponding list of columns for (color) weights
 
-+ **-colsy _list_**
-
-+ **-colsw _list_**
-
-+ **-ey #[,dx,shfty]**
-
++ **-ey #[,dx,shfty]**\\
+  error bars in y using data from col #
 _____________________________________________________________
 
 ### 4. _Other resources_
