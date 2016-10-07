@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Implementation of the _GW_ Approximation"
+title: "Implementation of the GW Approximation"
 permalink: "/docs/code/gwoverview/"
 sidebar: "left"
 header: no
@@ -9,7 +9,7 @@ header: no
 ### _Purpose_
 {:.no_toc}
 _____________________________________________________________
-This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ approximation.
+This page explains how Questaal implements the _GW_ approximation, and the Quasiparticle Self-Consistent _GW_ (QS_GW_) approximation.
 
 ### _Table of Contents_
 {:.no_toc}
@@ -19,7 +19,7 @@ _____________________________________________________________
 
 ### _Introduction_
 ________________________________________________________________________________________________
-The _GW_ approximation is implemented in two forms: as a 1-shot perturbation to the LDA and as quasiparticle self-consistent _GW_.
+The _GW_ approximation is implemented in two forms: as a 1-shot perturbation to the LDA and as quasiparticle self-consistent _GW_ (QS_GW_).
 
 In 1-shot mode, the diagonal part of &Sigma; is evaluated at the
 one-particle (usually LDA) energies, yielding a correction to the
@@ -104,7 +104,7 @@ T. Kotani and M. van Schilfgaarde,
 _All-electron <i>GW</i> approximation with the mixed basis expansion based on the full-potential LMTO method_,
 [Sol. State Comm. 121, 461 (2002)](http://www.sciencedirect.com/science/article/pii/S0038109802000285).
 
-These papers established the framework for QuasiParticle Self-Consistent _GW_ theory:\
+These papers established the framework for QuasiParticle Self-Consistent _GW_ theory:\\
 Sergey V. Faleev, Mark van Schilfgaarde, Takao Kotani,
 _All-electron self-consistent GW approximation: Application to Si, MnO, and NiO_,
 [Phys. Rev. Lett. 93, 126406 (2004)](http://link.aps.org/doi/10.1103/PhysRevLett.93.126406);\\
@@ -117,7 +117,7 @@ Takao Kotani, M. van Schilfgaarde, S. V. Faleev,
 _Quasiparticle self-consistent GW  method: a basis for the independent-particle approximation_,
 [Phys. Rev. B76, 165106 (2007)](http://link.aps.org/abstract/PRB/v76/e165106)
 
-This paper shows results from LDA-based GW, and its limitations:\
+This paper shows all-electron results from LDA-based GW, and its limitations:\\
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Adequacy of Approximations in <i>GW</i> Theory_,
 [Phys. Rev. B74, 245125 (2006)](http://link.aps.org/abstract/PRB/v74/e245125)
