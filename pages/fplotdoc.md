@@ -106,6 +106,8 @@ Some useful points to note:
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the label has Greek and italic symbols, subscripts and special character &perp;.
 
+ hello &#123;
+
   a{b} a\{b}
 
   a~{b} a~\{b} a\~\{b}
