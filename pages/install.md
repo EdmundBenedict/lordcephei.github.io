@@ -51,7 +51,7 @@ If compiler optimisations cause erroneous results one may wish to set lower leve
 To obtain an example containing special flags try `genflags.py intel opt`
 
 On CRAY installations it is advisable to use cray's compiler wrappers cc, ftn and CC with the intel backend. Assuming the default backend is cray, module swap PrgEnv-cray PrgEnv-intel switch your environment to intel. The wrappers bundle pretty much all standard system libs (BLAS, LAPACK, SCALAPACK, FFTW3, MPI etc..) except libxc. genflags cray opt will give a reasonable starting point for such an endeavour.
-The executables (and possibly other files in future) can be installed in a path defined in a variable named 'prefix' in the *flags.mk* file. Subsequent `scons -Y /path/to/lm/ install` will copy only the binaries already build, without introducing any additional dependencies.
+The executables (and possibly other files in future) can be installed in a path defined in a variable named 'prefix' in the *flags.mk* file. Subsequent `scons -Y /path/to/lm/ install` will copy only the binaries already built, without introducing any additional dependencies.
 
 ### _Known problems and bugs_
 ________________________________________________________________________________________________
