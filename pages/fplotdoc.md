@@ -102,7 +102,7 @@ Some useful points to note:
   values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g.\\
-  `$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{{\136}}}/&{k}_{0}'`\\
+  `$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~{\{\\136}}}/&{k}_{0}'`\\
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note the subscript and special character &perp;.
 
