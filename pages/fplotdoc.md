@@ -367,17 +367,17 @@ _xy_ data is typically read from a file; the syntax is:
 You can, instead of supplying data from a file <i>data-file</i>,
 specify it through switch `-tp`.
 
-+ **-lt n[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**
++ **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**
 
-+ **-s S[:col=#,#,#][clip][bold=#][:fill=#]:syma[,symb ..] for symbol S**
++ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**
 
 + **-l[0]**
 
-+ **-tp [nc~]xlist**
++ **-tp [_nc_~]_xlist_**
 
-+ **-map [-i expr] list**
++ **-map [-i _expr_] _list_**
 
-+ **-itrp x1,x2,dx**
++ **-itrp _x1_,_x2_,_dxz-**
 
 + **-ins[f] _string_**
 
@@ -385,7 +385,7 @@ specify it through switch `-tp`.
 
 + **-bs radius[;file-list]**
 
-+ **-con[:opts] list**
++ **-con[:opts] _list_**
 
 + **-nc=#**
 
@@ -395,17 +395,17 @@ specify it through switch `-tp`.
 
 + **-br**
 
-+ **-ab  expr**
++ **-ab  _expr_**
 
-+ **-abf expr**
++ **-abf _expr_**
 
-+ **-ord expr**
++ **-ord _expr_**
 
 + **-col cx,cy[,cw]**
 
-+ **-colsy list**
++ **-colsy _list_**
 
-+ **-colsw list**
++ **-colsw _list_**
 
 + **-ey #[,dx,shfty]**
 
