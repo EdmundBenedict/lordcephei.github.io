@@ -295,7 +295,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 ##### **LABELLING and NUMBERING** switches govern labels and axis numbering
 
-Where labels are used, parts inside curly brackets **{..}** may be mapped
+Where labels are used, text inside curly brackets **{..}** may be mapped
 into other fonts, depending on the character preceding the brackets.
 
 {::nomarkdown}<div>{:/}
@@ -309,8 +309,13 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-_Example_  :   &\{D}&\{k}\_\{~\{\{\136}}}/&\{k}\_\{0} \\
-will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (Note Symbol <b>\136</b> is the postscript symbol for &perp;.)
+_Example_  :   \~{D}&{k}\_{~}/&{k}\_{0}\\
+
+will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
+_Note:_{: style="color: red"} When using **{..}** in an fplot script file, you must prepend the left bracket with a **\\**.
+This is because the script file is run through the [preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions),
+which interprets curly brackets as expressions.  Prepending a **\\** tells the preprocessor to treat the bracket literally, not as the beginning of an expression.
+Thus in a script file the above example should read:
 
 + **-lbl[um] _x_,_y_[:blk] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes _string_ at (_x_, _y_).
