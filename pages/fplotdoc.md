@@ -475,16 +475,25 @@ plotted in a frame.
 
 <i> </i>
 
-+ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**\\
-  symbol specification and attributes. **_S_** should be one of the strings in the table below, or an index 1-11.
-                   S is one of:x square diamond + polygon circle arrow errbar timelin hist row
-                            or:an index 1-12
-                            or:-1 to read symbol parameters from data file.
-                               In that case, columns must hold:
-                               4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
-                   fill=#, #=  0 do not fill symbol; 1 fill with gray; 2 fill with color
-                   bold=#:     bold for symbol contour. 0 => no contour (just fill symbol)
-                   syma,symb,..attributes that alter size and shape of symbol
++ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_sym1_[,_sym2_ ..] for symbol _S_**\\
+  symbol specification and attributes. **_S_** is one of twelve symbols listed in the table below.\\
+  _Note:_{: style="color: red"} Some symbols (**timeline** and **hist**) require a third column of data.\\
+  Each symbol has one or more optional attributes **_sym1_, _sym2_** that affect the symbol shape.\\
+  Options:
+  + **col=#,#,#** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  line or fill color
+  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols to when they fall outside frame
+  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  line thickness for symbol contour. **bold=_b_** => no contour (just fill symbol)
+  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  how symbol is filled
+    + 0 do not fill symbol
+    + 1 fill symbol with gray
+    + 2 fill symbol with [color **col=#,#,#**](/docs/misc/fplot/#color-specification).
+  + **sym1, sym2,.._** optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
+  **_S_** is specified in one of the following ways:
+  + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
+  + **_S_** is an index 1-12, listed in the table below
+  + **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.
+     Columns of **<i>data-file</i>** must hold:\
+     4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
 
   {::nomarkdown}<div>{:/}
 
