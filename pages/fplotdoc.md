@@ -468,25 +468,24 @@ plotted in a frame.
     + 2 fill the area inside of the curve with color
     + 3 both 1 and 2
   + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
-  + **_la_[,_lb_]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+  + **_la_[,_lb_]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are designed so 1 makes a "typical" dash size.\\
                     **_la_,_lb_** can be repeated, _viz_ **<i>la</i>1,<i>lb</i>1,<i>la</i>2,<i>lb</i>2** to make a [dot-dashed line](/docs/misc/fplot/#further-exercises).
 
 <i> </i>
 
 + **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_sym1_[,_sym2_ ..]** \\
-  Draw a symbol at each point in **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
+  Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches:
-  + **col=#,#,#** &nbsp;&nbsp;                                fill color or color of symbol contour
-  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;&nbsp;&nbsp;                                      line thickness for symbol contour. **bold=_b_** => no contour (just fill symbol)
-  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled
-    + <b>_f_<b>=0</b> do not fill symbol
-    + <b>_f_<b>=1</b> fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_<b>=2</b> fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+  + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
+  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
+  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;                                                  line thickness for symbol contour. **bold=0** => fill symbol without contour.
+  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
+    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
+    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
+    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
-
   **_S_** is specified in one of the following ways:
   + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
   + **_S_** is an index 1-12, listed in the table below
@@ -514,7 +513,7 @@ plotted in a frame.
 
   {::nomarkdown}</div>{:/}
 
-  
+
 
 
 + **-l[0] _legend_**\\
