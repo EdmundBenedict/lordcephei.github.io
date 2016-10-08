@@ -460,18 +460,17 @@ plotted in a frame.
     + **_n_**=1     solid, unbroken line
     + **_n_**=2     dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**.
     + **_n_**=3     dotted line.
-  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
+  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
   + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [line color](/docs/misc/fplot/#color-specification).
-  + **colw=#,#,#**  &nbsp;&nbsp;&nbsp;       First color weight when color weights are given
-  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
-    + 1 color line with color given by **col**
+  + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights
+  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
+    + 1 color lines in symbol with color given by **col**
     + 2 fill the area inside of the curve with color
     + 3 both 1 and 2
-  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts new line if <i>x_<sub>i</sub></i> ><i>x_<sub>i-1</sub></i>
+  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
   + **_la_[,_lb_]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (for dashed lines only) length of dash and space.
                     Dash length units are designed so 1 makes a "typical" dash size.\\
-                    **_la_,_lb_** can be repeated, _viz_ **<i>la</i>1,<i>lb</i>1,<i>la</i>2,<i>lb</i>2**.
-                    This makes a [dot-dashed line](/docs/misc/fplot/#further-exercises).
+                    **_la_,_lb_** can be repeated, _viz_ **<i>la</i>1,<i>lb</i>1,<i>la</i>2,<i>lb</i>2** to make a [dot-dashed line](/docs/misc/fplot/#further-exercises).
 
 <i> </i>
 
@@ -480,19 +479,19 @@ plotted in a frame.
   _Note:_{: style="color: red"} Some symbols (**timeline** and **hist**) require a third column of data.\\
   Each symbol has one or more optional attributes **_sym1_, _sym2_** that affect the symbol shape.\\
   Options:
-  + **col=#,#,#** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  line or fill color
+  + **col=#,#,#** &nbsp;&nbsp                     Symbol contour or fill color
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols to when they fall outside frame
   + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  line thickness for symbol contour. **bold=_b_** => no contour (just fill symbol)
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  how symbol is filled
-    + 0 do not fill symbol
-    + 1 fill symbol with gray
-    + 2 fill symbol with [color **col=#,#,#**](/docs/misc/fplot/#color-specification).
-  + **sym1, sym2,.._** optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
+    + <b>_f_<b>=0 do not fill symbol
+    + <b>_f_<b>=1 fill symbol with gray
+    + <b>_f_<b>=2 fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+  + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:
   + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
   + **_S_** is an index 1-12, listed in the table below
   + **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.
-     Columns of **<i>data-file</i>** must hold:\
+     Columns of **<i>data-file</i>** must hold:\\
      4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
 
   {::nomarkdown}<div>{:/}
