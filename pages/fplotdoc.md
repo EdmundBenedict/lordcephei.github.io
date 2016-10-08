@@ -119,7 +119,7 @@ The quantization condition for wave number _k_ reads:
 
 $$ \frac{\mathrm{cos}^2kL}{k^2L^2} = \frac{\hbar ^2}{2mV_0L^2} \quad\quad\quad\quad (1) $$
 
-It is a nonlinear equation, which must be solved numerically or graphically.  The latter is accomplished by drawing the left and right sides of Eq. (1)
+It is a nonlinear equation in _k_ which must be solved numerically or graphically.  The latter is accomplished by drawing the left and right sides of Eq. (1)
 and seeing where the curves intersect.  It is convenient to work with the dimensionless parameter _x_=_kL_ and the right hand site as a dimensionless constant.
 
 Cut and paste the box below into script file _plot.box_{: style="color: green"}.
@@ -140,10 +140,11 @@ $ open fplot.ps
 ~~~
 
 Points to note:
-+ The script file must contain a line [beginning with **fplot**](/docs/misc/fplot/#init-switches-must-occur-first).  Indented lines after comprise the instructions
+
++ The script file must contain a line [beginning with **fplot**](/docs/misc/fplot/#init-switches-must-occur-first).  Subsequent indented comprise the instructions
   to **fplot**{: style="color: blue"}.
-+ The script file is read through the [file preprocessor](/docs/input/preprocessor/).  In this case there are no special preprocessor instructions.
-+ Multiple _xy_ curves are drawn by stringing together (**DATA-switches data**) pairs.\\
++ The script file is read through the [file preprocessor](/docs/input/preprocessor/).  (In this example there are no special preprocessor instructions.)
++ Multiple _xy_ curves are drawn by stringing together (**DATA-switches data-file**) pairs.\\
   In this case the left hand side of Eq.(1) is drawn in blue-green (**_r_,_g_,_b_ = 0,0.3,0.8**),
   followed by a reddish dashed horizontal line at _y_=0.015.\
   (There are five solutions where the two curves intersect.  As <i>V<sub>0</sub></i> increases the rhs becomes smaller and more solutions appear).
@@ -153,21 +154,13 @@ When commands are read from a script file, some differences can appear.
 + There is no unix wild-card expansion; quotation marks are not necessary.
 + Because scripts are run through the [file preprocessor](/docs/input/preprocessor/), the script system provides programming language capability and string substitution.
 
-This second point
 The last figure in Example 2.1 can be equivalently made by 
 <pre>
 $ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
 $ fplot -f myplot
 </pre>
-Switches appear identical in scripts except that scripts are run through the [file preprocessor](/docs/input/preprocessor/). You must
-[prepend a curly bracket pair](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) with a backslash,
-to tell the [preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions) not to interpret it as an expression.
 
-All lines following 
-
-
-
-
+Note that the label now contains backslashes.  You must include the backslash to [suppress the file preprocessor's string substitution](/docs/misc/fplot/#file-preprocessor).
 
 #### Example 2.3. &nbsp; _Charge density contours in Cr_
 {::comment}
@@ -447,15 +440,13 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 Within a frame zero or more families of _xy_ data can be drawn.
 _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
 <pre>
-    -DATA-switches <i>data-file</i> -DATA-switches <i>data-file</i> 
+DATA-switches <i>data-file</i>\|-tp _list_ [DATA-switches <i>data-file</i>\|-tp _list_ ...]
 </pre>
-**-DATA-switches** preceding **<i>data-file</i>** modify how data is extracted from the file and how it is drawn.
-
-Instead of supplying _xy_ data through a file
-you can specify it through switch **-tp**.  It has an effect similar to 
-**<i>data-file</i>**, in that the data is drawn with whatever conditions have been set up to that point.
-The difference is that data is generated from a list of points following **-tp** rather than a file.
+**DATA-switches** preceding **<i>data-file</i>** control which data is extracted from the file and how it is drawn.
+As an alternative to reading data from a file you can supply it using switch **-tp**.
 Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
+
+For both the abscissa and ordinate you can select which column to use, or take an algebraic combination involving multiple columns of data.
 
 + **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
   line type specification and attributes.
@@ -581,26 +572,42 @@ _____________________________________________________________
 
 Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions).
 
-_Curly brackets_ : the preprocessor interprets curly brackets as expressions and substitutes them.  At the same time **fplot**{:
-style="color: blue"} uses curly brackets to substitute fonts; to keep them as curly brackets you must suppress the preprocessor's expression
-substitution.  Do this by prepending **{strn}** with a backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave
-**{strn}** unaltered.
+_Curly brackets_ : the preprocessor interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions)
+and substitutes them.
+However **fplot**{: style="color: blue"} uses curly brackets to
+[substitute fonts](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in labels.  To keep the curly
+bracket pair and its contents intact, you must suppress the preprocessor's expression substitution.  Do this by prepending **{strn}** with a
+backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
 
 #### Color specification
 
 Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions red,green,blue, expressed as 
 a fraction of the brightest color.  0 is the absence of color, and 1 is the brightest color.
 
+#### Structure of data files
+
+Data files follow a standard Questaal format.  The more secure way to specify the number
+of rows and columns in the file is indicate it in the first column.  The charge density file _chgd.cr_{: style="color: green"} in Example
+[Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) begins with
+
+~~~~
+% rows 101 cols 101
+      0.0570627197      0.0576345670      0.0595726102      0.0628546738
+...
+~~~
+
+
++ Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
+  The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
+  the file contents.
+
+
+
 _____________________________________________________________
 
 ### 5. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
-
-... finish ... when reading data from a file
-+ Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
-  The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
-  the file contents.
 
 
 {::comment}
