@@ -511,6 +511,7 @@ plotted in a frame.
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:
+  +abc
   	+ Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.
   	+ Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.
   	+ Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.
