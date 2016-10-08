@@ -116,7 +116,7 @@ Some useful points to note:
   to [tell the preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions) not to interpret it as an expression.
 + Multiple _xy_ lines are drawn by stringing together (**DATA-switches data**) pairs.
   The following presents a graphical solution to the Schrodinger equation for a particle in a box.\\
-  $$ \frac{{{{\cos}^2}kL}}{{{k^2}{L^2}}} = \frac{{{\hbar ^2}}}{{2m{V_0}{L^2}}} $$
+  $$ \frac&#123;&#123;&#123;&#123;\cos&#125;^2&#125;kL&#125;&#125;&#123;&#123;&#123;k^2&#125;&#123;L^2&#125;&#125;&#125; = \frac&#123;&#123;&#123;\hbar ^2&#125;&#125;&#125;&#123;&#123;2m&#123;V_0&#125;&#123;L^2&#125;&#125;&#125; $$
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 {::comment}
@@ -329,14 +329,12 @@ Character  | Function
 
 {::nomarkdown}</div>{:/}
 
-_Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}
-
-will appear as &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
+_Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
+will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
 _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must prepend the left bracket with a '**\\**'.
 This is because the script file is run through the [preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions),
-which interprets curly brackets as expressions.  By prepending the **\\**, the preprocessor knows to treat the bracket literally, not as the beginning of an expression.\\
-The same 
+which interprets curly brackets as expressions.  The preprocessor treats **\{..}** as **{..}**; it makes no expression substitution.
 
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
