@@ -102,20 +102,21 @@ Some useful points to note:
   values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g. try
-  <pre> <font size="-1">
-  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}' </font>  </pre>
+  <pre><font size="-1">$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</font></pre>
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the string has Greek and italic symbols, subscripts and special character &perp;.
   These are accomplished through curly brackets **{...}**.
 + Commands can be read by a script.  The preceding figure can equivalentely be made this way:
-  <pre> <font size="-1">
+  <pre>
   $ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
-  $ fplot -f myplot </pre>
+  $ fplot -f myplot
+  </pre>
   Switches appear identical in scripts except that scripts are run through the [file preprocessor](/docs/input/preprocessor/). You must
   [prepend a curly bracket pair](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) with a backslash,
   to [tell the preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions) not to interpret it as an expression.
 + Multiple _xy_ lines are drawn by stringing together (**DATA-switches data**) pairs.
   The following presents a graphical solution to the Schrodinger equation for a particle in a box.\\
+
   $$ \frac&#123;&#123;&#123;&#123;\cos&#125;^2&#125;kL&#125;&#125;&#123;&#123;&#123;k^2&#125;&#123;L^2&#125;&#125;&#125; = \frac&#123;&#123;&#123;\hbar ^2&#125;&#125;&#125;&#123;&#123;2m&#123;V_0&#125;&#123;L^2&#125;&#125;&#125; $$
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
