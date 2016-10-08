@@ -479,12 +479,12 @@ plotted in a frame.
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches:
   + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
-  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;                                                  line thickness for symbol contour. **bold=0** => fill symbol without contour.
-  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
-    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
+  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. **bold=0** => fill symbol without contour.
+  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
+    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
+    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
+    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
   **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
@@ -492,25 +492,21 @@ plotted in a frame.
   **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
   Columns of **<i>data-file</i>** must hold:\\
      4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
-
   {::nomarkdown}<div>{:/}
-
-  <b><i>S</i></b> | index | sym1       		| sym2              | sym3               | sym4       | sym5           | sym6      |
-    x             | 1     | width      		| height            |                    |            |                |           |
-    square        | 2     | width      		| height            |                    |            |                |           |
-    diamond       | 3     | width      		| height            |                    |            |                |           |
-    +             | 4     | width      		| height            |                    |            |                |           |
-    polygon       | 5     | size       		| number of sides   | angle              |            |                |           |
-    circle        | 6     | radius     		|                   |                    |            |                |           |
-    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | head angle | _axis proj_    | _shift_   |
-    errbar        | 8     | width      		| height&times;z    |                    |            |                |           |
-    timeline      | 9     | end height 		| line thickness    | end thickness      |            |                |           |
-    hist          | 10    | width      		|                   |                    |            |                |           |
-    row           | 11    | scale      		| offset            |                    |            |                |           |
-    wiggle        | 12    | xtail      		| ytail             | # periods          | excursion  | # pts          | placement |
-
+  <b><i>S</i></b> | index | sym1       		| sym2              | sym3               | sym4       	| sym5           | sym6      |
+    x             | 1     | width      		| height            |                    |            	|                |           |
+    square        | 2     | width      		| height            |                    |            	|                |           |
+    diamond       | 3     | width      		| height            |                    |            	|                |           |
+    +             | 4     | width      		| height            |                    |            	|                |           |
+    polygon       | 5     | size       		| number of sides   | angle              |            	|                |           |
+    circle        | 6     | radius     		|                   |                    |            	|                |           |
+    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | _head angle_ | _axis proj_    | _shift_   |
+    errbar        | 8     | width      		| height&times;_z_  |                    |            	|                |           |
+    timeline      | 9     | end height 		| line thickness    | end thickness      |            	|                |           |
+    hist          | 10    | width      		|                   |                    |            	|                |           |
+    row           | 11    | scale      		| offset            |                    |            	|                |           |
+    wiggle        | 12    | xtail      		| ytail             | # periods          | excursion  	| # pts          | placement |
   {::nomarkdown}</div>{:/}
-
   Notes on the Table:
   + Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.
   + Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.
