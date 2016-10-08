@@ -96,11 +96,15 @@ certain lines of a file, or [loop over lines](/docs/input/preprocessor/#looping-
 /docs/input/preprocessor/#expression-substitution
 {:/comment}
 
-By enclosing a string in curly brackets, _viz_ **{strn}**, you instruct the preprocessor to
+Enclosing a string in curly brackets, _viz_ **{strn}**, instructs the preprocessor to
 parse the contents of &nbsp;**{strn}**&nbsp; and substitute it with something else.
+
+_Note:_{: style="color: red"} To suppress expression substitution, prepend **{strn}** with a backslash, _viz_ **\\{strn}**.
+The preprocessor will remove the backslash but leave **{strn}** unaltered.
+
 **strn** must take one of the following syntactical forms.
 If _rdfiln_{: style="color: green"} cannot match the first form, it tries the second, and so on.
-(If it can't match any it aborts).
+(It is an error if no form can be matched.)
 These four forms are as follows, arranged by the precedence they take in parsing:
 
 + (_string substitution_): &nbsp; **strn** is name of a **character variable**.  The value of the variable is substituted.\\
