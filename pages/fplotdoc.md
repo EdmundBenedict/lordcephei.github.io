@@ -252,6 +252,8 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
     It will read arguments until end-of-file, or a subsequent line begins
     with a character in the first column, or a preprocessor instruction **% exit** is encountered.
 
+  [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides an example.
+
 ##### **FORMAT** switches govern frame layout and labels.
 {::comment}
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
@@ -440,15 +442,17 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 Within a frame zero or more families of _xy_ data can be drawn.
 _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
 <pre>
-DATA-switches <i>data-file</i>\|-tp _list_ [DATA-switches <i>data-file</i>\|-tp _list_ ...]
+DATA-switches <i>data-file</i> | -tp <i>list</i> [DATA-switches <i>data-file</i> | -tp <i>list</i> ...]
 </pre>
 **DATA-switches** preceding **<i>data-file</i>** control which data is extracted from the file and how it is drawn.
-As an alternative to reading data from a file you can supply it using switch **-tp**.
-Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
-
 For both the abscissa and ordinate you can select which column to use, or take an algebraic combination involving multiple columns of data.
 
-+ **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
+As an alternative to reading data from a file you can supply it using switch **-tp**.
+Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
+[Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
+plotted in a frame.
+
++ **-lt _n_[,bold=#][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_[,_lb_]][,_la_[,_lb_]]**\\
   line type specification and attributes.
   + **_n_**         line type
     + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
@@ -456,11 +460,12 @@ For both the abscissa and ordinate you can select which column to use, or take a
     + **_n_**=2     dashed line, or dot-dashed line. Dash lengths are given by **_la_** and **_lb_** below.
     + **_n_**=3     dotted line.
   + **bold=#**      line thickness or dot size **#**.  Allowed values for **#** are 0-9.  Default is 3.
-  + **col=#,#,#:**  line color (rgb)
-  + **colw=#,#,#:** secondary color when weighted by point
-  + **fill=#:**     1 color line  2 fill with color  3 both 1 and 2
-  + **brk=1:**      starts new line if x_i > x_i-1
-  + **la,lb:**      (for dashed lines only) lengths of dash and space
+  + **col=#,#,#**   line color (rgb)
+  + **colw=#,#,#**  secondary color when weighted by point
+  + **fill=#**      1 color line  2 fill with color  3 both 1 and 2
+  + **brk=1**       starts new line if x_i > x_i-1
+  + **_la_[,_lb_]**    (for dashed lines only) lengths of dash and space. **_la_,_lb_** can be repeated, _viz_ **_la_1,_lb_1,_la_2,_lb_2**.
+                    This makes a [dot-dashed line](/docs/misc/fplot/#further-exercises).
 
 <i> </i>
 
@@ -602,10 +607,28 @@ of rows and columns in the file is indicate it in the first column.  The charge 
   the file contents.
 
 
+### 5. _further exercises_
+{::comment}
+/docs/misc/fplot/#further-exercises
+{:/comment}
+
+#### Dot-dashed lines
+
+[Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) made
+a horizontal dashed line.  Try substituting the following line type for the dashed line:
+
+~~~
+-lt 2,bold=4,col=.8,.3,.0,1,.5,.3,.5
+~~~
+
+It should generate a dot-dashed line.  The sequence **1,.5,.3,.5** specifies
+the dot-dashed sequence: **1,.5,** specifies a dash length 1 followed by a dash length 0.5.
+In this case a second sequence (**.3,.5**) is present.  This specifies a (line,space) pair of **1,.5,**
+is followed by a (line,space) pair of **.3,.5,**.  The sequences alternate.
 
 _____________________________________________________________
 
-### 5. _Other resources_
+### 6. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
 
