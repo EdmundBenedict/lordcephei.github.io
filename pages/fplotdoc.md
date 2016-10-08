@@ -115,9 +115,28 @@ Some useful points to note:
   [prepend a curly bracket pair](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) with a backslash,
   to tell the [preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions) not to interpret it as an expression.
 + Multiple _xy_ lines are drawn by stringing together (**DATA-switches data**) pairs.
-  The following presents a graphical solution to the Schrodinger equation for a particle in a box.\\
+  The following presents a graphical solution to the Schrodinger equation for a particle in a box of width _L_ and potential depth <i>V<sub>0</sub></i>.
 
   $$ \frac{\mathrm{cos}^2kL}{k^2L^2} = \frac{\hbar ^2}{2mV_0L^2}\] $$
+
+  Cut and paste the box below into file _plot.box_{: style="color: green"}.
+
+  ~~~
+  fplot
+    -frme 0,1,1,1.5 -frmt th=1,1,1 -tmx 1:1;.04 -noyn -noxn -p0
+    -lt 1,bold=5,col=0,.2,.8 -ord cos(x)*cos(x)/x/x -tp 1.1:15:.01
+    -lt 2,bold=4 -ord .04 -tp 1,10
+    -lt 2,bold=4 -ord .007 -tp 1,15
+    -lbl 14,-.015 cc k
+  ~~~
+
+  Make and view the figure
+
+  ~~~
+  $ fplot -f plot.box
+  $ open fplot.ps
+  ~~~
+
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 {::comment}
@@ -209,10 +228,15 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
 {:/comment}
 
-A figure is comprised of one or more frames. Each new frame overlays anything below it.\\
+A figure is comprised of one or more frames. Each new frame overlays anything below it.
+
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
 with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
-These defaults can be modified with the following switches.
+These defaults can be modified with the switches in this section.
+
+_Note:_{: style="color: red"} some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
+(RBG conventions red,green,blue)
+
 
 {::comment}
 
@@ -252,7 +276,7 @@ These defaults can be modified with the following switches.
 
 + **-frmt &nbsp; [col=_r_,_g_,_b_,][th=#1[,#2,#3]]**\\
   Sets parameters governing the drawing of frame.
-  + **col=_r_,_g_,_b_** specify the line color for the frame (red,green,blue)
+  + **col=_r_,_g_,_b_** specify the line color for the frame (RBG conventions red,green,blue)
   + **th=#1[,#2,#3]** specifies the line thickness and which lines are drawn:\\
     **#1** sets line thickness. &nbsp; &minus;1 draws no frame.  &nbsp; Default value is 3.\\
     **#2** set to:&nbsp;  **0** for top and bottom;&nbsp; **1** for bottom only;&nbsp; **2** for top only;&nbsp; **3** for neither.\\
@@ -264,10 +288,10 @@ These defaults can be modified with the following switches.
   tic mark specification and attributes.
   + **spacing**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
   + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. tics per major tic
-  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        		 position and size of major tic
-  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       			 size of major tic
-  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                   			 size of minor tic, relative to major tic
-  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                      			 1,2,3 for log;  mode=5 => caller specifies tics,
+  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 position and size of major tic
+  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
+  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, relative to major tic
+  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                1,2,3 for log;  mode=5 => caller specifies tics,
 
 <i> </i>
 
@@ -386,29 +410,31 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 {:/comment}
 
 Within a frame zero or more families of _xy_ data can be drawn.
-_xy_ data is typically read from a file; the syntax is:
-
+_xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
 <pre>
     -DATA-switches <i>data-file</i> -DATA-switches <i>data-file</i> 
 </pre>
+**-DATA-switches** preceding **<i>data-file</i>** modify how data is extracted from the file and how it is drawn.
 
-It plots data contained in **<i>data-file</i>**.
-
-**-DATA-switches** preceding **<i>data-file</i>** modify what data is used and how it is drawn.
-
-Instead of supplying _xy_ data through file **<i>data-file</i>**.
+Instead of supplying _xy_ data through a file
 you can specify it through switch **-tp**.  It has an effect similar to 
 **<i>data-file</i>**, in that the data is drawn with whatever conditions have been set up to that point.
+The difference is that data is generated from a list of points following **-tp** rather than a file.
+Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
 
 + **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
   line type specification and attributes.
-  + **n:**          line type (0=none, 1=solid, 2=dashed, 3=dotted)
-  + **bold:**       line thickness (use 0-9; default=3)
+  + **_n_**         line type
+    + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
+    + **_n_**=1     solid, unbroken line
+    + **_n_**=2     dashed line, or dot-dashed line. Dash lengths are given by **_la_** and **_lb_** below.
+    + **_n_**=3     dotted line.
+  + **bold=#**      line thickness or dot size **#**.  Allowed values for **#** are 0-9.  Default is 3.
   + **col=#,#,#:**  line color (rgb)
   + **colw=#,#,#:** secondary color when weighted by point
   + **fill=#:**     1 color line  2 fill with color  3 both 1 and 2
   + **brk=1:**      starts new line if x_i > x_i-1
-  + **la,lb:**      (dashed lines) lengths of dash and space
+  + **la,lb:**      (for dashed lines only) lengths of dash and space
 
 <i> </i>
 
@@ -507,7 +533,17 @@ you can specify it through switch **-tp**.  It has an effect similar to
   (3D only) connects points within radius and file-list.
 
 _____________________________________________________________
-### 4. _Other resources_
+
+### 4. _Additional notes_
+
+##### Color specification
+
+Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions red,green,blue, expressed as 
+a fraction of the brightest color.  0 is the absence of color, and 1 is the brightest color.
+
+_____________________________________________________________
+
+### 5. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
 
