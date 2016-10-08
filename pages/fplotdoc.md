@@ -511,18 +511,22 @@ plotted in a frame.
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  1. Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.\\
-  2. Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
-  3. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
-  4. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
-  5. Symbol 6 uses only one attribute.  Its default value is 1.\\
-  6. Symbol 7 draws arrows putting the arrow tip at (_x_, _y_).  It requires seven attributes:\\
-  	  + &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
-  	  + _head length_ is the size of the head as a fraction of arrow length\\
-  	  + _head angle_ is the angle subtended by the arrowhead\\
-  	  + _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
-  	  + _shift_ shifts the head so that
-
+  1 . Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
+  2. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
+  3. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
+  4. Symbol 6 uses only one attribute.  Its default value is 1.\\
+  5. Symbol 7 draws arrows with the tip at (_x_, _y_).  It requires five attributes:\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; _head length_ is the size of the head as a fraction of arrow length\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; _head angle_ is the angle subtended by the arrowhead\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp; optional _shift_ shifts the head so that ...\\
+  6. Symbol 8 \\
+  7. Symbol 9 requires three numbers _x_, _y_, _z_ for each point.\\
+  8. Symbol 10 requires three numbers _x_, _y_, _z_ for each point.\\
+  9. Symbol 11 \\
+  10. Symbol 12 \\
+  When symbols use three numbers, by default the third number is taken from column 3 of **<i>data-file</i>**.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
