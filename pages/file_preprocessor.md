@@ -612,7 +612,7 @@ Branching constructs have a function similar to the C constructs.
    As with the &nbsp;**while**&nbsp;&nbsp;
    construct, multiple passes are made through the input lines.
    &nbsp;<i>list</i>&nbsp;&nbsp; generates a sequence of integers
-   (see the [integer list syntax](/docs/misc/integerlists/) web page).
+   (see the [integer list syntax](/docs/misc/integerlists/) manual).
    For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
    and the body of the loop passed through.
    &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a

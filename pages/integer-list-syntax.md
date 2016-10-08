@@ -11,6 +11,9 @@ Integer lists are used in a wide variety of contexts, e.g. in the preprocessor
 [**repeat**](/docs/input/preprocessor/#looping-constructs) directive.
 This web page documents the syntax of integer lists.
 
+_Note:_{: style="color: red"} in some contexts elements of the list are real
+numbers, not integers.  The syntax is the same for real numbers.
+
 _____________________________________________________________
 
 Integer lists consist of a sequence of strings separated by commas:

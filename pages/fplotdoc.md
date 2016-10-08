@@ -102,10 +102,21 @@ Some useful points to note:
   values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + Labels can be added, e.g. try
-  <pre>
-  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'  </pre>
+  <pre> <font size="-1">
+  $ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}' </font>  </pre>
   You should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
-  Note that the the string has Greek and italic symbols, subscripts and special character &perp;.
+  Note that the string has Greek and italic symbols, subscripts and special character &perp;.
+  These are accomplished through curly brackets **{...}**.
++ Commands can be read by a script.  The preceding figure can equivalentely be made this way:
+  <pre> <font size="-1">
+  $ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
+  $ fplot -f myplot </pre>
+  Switches appear identical in scripts except that scripts are run through the [file preprocessor](/docs/input/preprocessor/). You must
+  [prepend a curly bracket pair](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) with a backslash,
+  to [tell the preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions) not to interpret it as an expression.
++ Multiple _xy_ lines are drawn by stringing together (**DATA-switches data**) pairs.
+  The following presents a graphical solution to the Schrodinger equation for a particle in a box.\\
+  $$ \frac{{{{\cos}^2}kL}}{{{k^2}{L^2}}} = \frac{{{\hbar ^2}}}{{2m{V_0}{L^2}}} $$
 
 #### Example 2.2. &nbsp; _Charge density contours in Cr_
 {::comment}
@@ -171,6 +182,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 
 ##### **INIT** switches must occur first
+{::comment}
+/docs/misc/fplot/#init-switches-must-occur-first
+{:/comment}
 
 + **\-\-h | \-\-help**\\
   print out a help message and exits.
@@ -190,6 +204,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   read remaining arguments from file <i>script-file</i>
 
 ##### **FORMAT** switches govern frame layout and labels.
+{::comment}
+/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
+{:/comment}
 
 A figure is comprised of one or more frames. Each new frame overlays anything below it.\\
 _Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
@@ -293,8 +310,10 @@ These defaults can be modified with the following switches.
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
-
 ##### **LABELLING and NUMBERING** switches govern labels and axis numbering
+{::comment}
+/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
+{:/comment}
 
 Where labels are used, text inside curly brackets **{..}** may be mapped
 into other fonts, depending on the character preceding the brackets.
@@ -319,7 +338,7 @@ This is because the script file is run through the [preprocessor](/docs/input/pr
 which interprets curly brackets as expressions.  By prepending the **\\**, the preprocessor knows to treat the bracket literally, not as the beginning of an expression.\\
 The same 
 
-_Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
+_Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).
@@ -363,6 +382,9 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
   specifies key position (and length, spacing or style).
 
 ##### **DATA** switches draw one or more families of xy data
+{::comment}
+/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
+{:/comment}
 
 Within a frame zero or more families of _xy_ data can be drawn.
 _xy_ data is typically read from a file; the syntax is:
@@ -381,66 +403,111 @@ you can specify it through switch **-tp**.  It has an effect similar to
 
 + **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
   line type specification and attributes.
+  + **n:**          line type (0=none, 1=solid, 2=dashed, 3=dotted)
+  + **bold:**       line thickness (use 0-9; default=3)
+  + **col=#,#,#:**  line color (rgb)
+  + **colw=#,#,#:** secondary color when weighted by point
+  + **fill=#:**     1 color line  2 fill with color  3 both 1 and 2
+  + **brk=1:**      starts new line if x_i > x_i-1
+  + **la,lb:**      (dashed lines) lengths of dash and space
+
+<i> </i>
 
 + **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**\\
   symbol specification and attributes.
+                   S is one of:x square diamond + polygon circle arrow errbar timelin hist row
+                            or:an index 1-11
+                            or:-1 to read symbol parameters from data file.
+                               In that case, columns must hold:
+                               4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
+                   fill=#, #=  0 do not fill symbol; 1 fill with gray; 2 fill with color
+                   bold=#:     bold for symbol contour. 0 => no contour (just fill symbol)
+                   syma,symb,..attributes that alter size and shape of symbol
+
 
 + **-l[0]**\\
-  legend for key. &nbsp; Optional 0 suppresses blanking.
+  legend to add to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
+  Only operative if key was originally specified.
   
 + **-tp [_nc_~]_xlist_**\\
-  generates a table of points
+  generates a table of points.  Optional **_nc_~** specifies the number columns
+  in the list.
 
 + **-map [-i _expr_] _list_**\\
-  maps original data array to another set of points defined by "list"
+  permutes original data array to another set of points defined by **_list_**.\\
+  Optional **-i _expr_** causes points for which **_expr_=0** to be excluded.\\
+  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).
 
-+ **-itrp _x1_,_x2_,_dxz-**\\
-  Optional args x1,x2,dx,ifrat,nord also specifies 
++ **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
+  interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
+  spaced by **_dx_**, using a polynomial.\\
+  Set optional **_ifrat_** to 1 if to use a rational polynomial instead.\\
+  Optional **_nord_** specifies the polynomial order.
 
-+ **-ins[f] _string_**
-  insert string (or file named by string) directly into output file
++ **-sort**\\
+  sort data in ascending abscissa order (after mapping).
 
-+ **-sort**
-  sorts data in ascending abscissa order (after mapping)
++ **-con[:options] _ylist_ [other DATA-switches] _data-file_**\\
+  special mode for contour plots. **_ylist_** is a list of real numbers.\\
+  This mode draws contours of constant _f_=**#**, interpolating data from **_data-file_**.\\
+  **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
+  on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
+  Elements in a fixed COLUMN contains data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
+  Elements in a fixed ROW contains data on a uniform mesh parallel to ordinate, _f_(<i>x</i>=const,<i>y<sub>i</sub></i>).\\
+  Bottom and top (left and right) edges of frame correspond to first and last columns (rows) of data.\\
+  Options:
+  + **:dup=#1[,#2]** Duplicate row (col) data #1 (#2) times
+  + **:fn=_filename_** writes xy pen moves to file **_filename_**.
+  + **:noclose** suppresses closing contours on boundaries.
+  See [Example 2.2](/docs/misc/fplot/#example-22-nbsp-charge-density-contours-in-cr) above.\\
+  The syntax of lists is described on [this page](/docs/misc/integerlists/).
 
-+ **-bs _radius_[;file-list]**\\
-  (3D only) connects points within radius and file-list.
-
-+ **-con[:opts] _list_**\\
-  special mode for x-y contour plots.
-
-+ **-nc=#**
-  stipulate that next matrix read has # cols
-
-+ **-r:switches**\\
-switches for file reading separated by ':'.  switches are
-
++ **-r:switches [other DATA-switches] _data-file_**\\
+  switches that tell **fplot**{: style="color: blue"} how to manage **_data-file_** where data is read.
+  All **switches** are optional; they are separated by a colon:
+  + **qr**        read with fortran read (fast, no algebra; useful for large files)
+  + **br**        read from binary file
+  + **s=#**       skips # records before reading
+  + **open**      leaves file open after reading
++ **-nc=_n_**\\
+  stipulate that the next **_data-file_** (following the remaining **DATA-switches** has **_n_** columns.
 + **-qr**\\
   same function as -r:qr
 + **-br**\\
   same function as -r:br
 
-+ **-ab  _expr_**\\
-  uses expression "expr" for the abscissa.  Expression
-
-+ **-abf _expr_**\\
-  maps tic marks on abscissa to expr
-
 + **-ord _expr_**\\
-  substitutes expression for the ordinate
-
-+ **-col cx,cy[,cw]**\\
-  plots cols cx and cy as abscissa and ordinate
+  substitute **expr** for the ordinate. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above shows some examples.
++ **-ab  _expr_**\\
+  substitute **expr** for the abscissa.\\
+  Expression can contain variables **x_j_*# where **_j_** is column j
++ **-abf _expr_**\\
+  maps numbering and tic marks on abscissa to **expr**
++ **-col _cx_,_cy_[,_cw_]**\\
+  Use column **_cx_** for the abscissa and column **_cy_** for the ordinate.
 
 + **-colsy _list_**\\
-  makes series of plots for columns in list
+  make a family of _xy_ plots for columns in list.
+  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
+  Thus `fplot -colsy 2 ...` plots the column with row index on the abscissa.
+
 + **-colsw _list_**\\
-  corresponding list of columns for (color) weights
+  corresponding list of columns for (color) weights.
 
 + **-ey #[,dx,shfty]**\\
-  error bars in y using data from col #
-_____________________________________________________________
+  Use this switch to make error bars in _y_ from one column of data. Column **#** contains the error bar.
 
++ **-ins _strn_**\\
+  insert **_strn_** directly into output postscript file.  
+  There is no check that **_strn_** consists of valid postscript ... you are on your own!
++ **-ins[f] _file_**\\
+  insert the contents of **_file_** directly into output postscript file.
+
++ **-bs _radius_[;file-list]**\\
+  (3D only) connects points within radius and file-list.
+
+_____________________________________________________________
 ### 4. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
@@ -449,3 +516,19 @@ See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
 + Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
   The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
   the file contents.
+
+
+{::comment}
+Need to explain
+
+cw in 
++ **-col _cx_,_cy_[,_cw_]**\\
+
++ bs
+
++ more on map.  Eg. variable nr.
+
++ expand on -tp
+
+expand on -map
+{:/comment}
