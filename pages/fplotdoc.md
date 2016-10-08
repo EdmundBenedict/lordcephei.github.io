@@ -245,12 +245,13 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 + **-plaintext**\\
   assume strings have no non-ASCII characters (superscripts, subscripts, etc).
 + **-f <i>script-file</i>**\\
-  read remaining arguments from file <i>script-file</i>.
-  + The input or script file must contain a line beginning with **fplot** in the first column.
-    This plays the role of a _category_ in the Questaal [input system](/docs/input/inputfile/).\\
-  + **fplot**{: style="color: blue"} will skip lines until it finds one beginning with **fplot**.\\
-    It will read arguments until end-of-file, or a subsequent line begins
-    with a character in the first column, or a preprocessor instruction **% exit** is encountered.
+  read remaining arguments from input file <b><i>script-file</i></b>.\\
+  The input or script file must contain a line beginning with **fplot** in the first column.
+  This plays the role of a _category_ in the Questaal [input system](/docs/input/inputfile/).
+  **fplot**{: style="color: blue"} will skip over lines until it finds one beginning with **fplot** in the first column.
+  It will parse arguments as though they are read from the command-line until end-of-file is encountered, or a line begins
+  with a character in the first column, or a preprocessor instruction **% exit** is encountered.\\
+  Note that the script file is [run through the file preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.
 
   [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides an example.
 
@@ -457,14 +458,18 @@ plotted in a frame.
   + **_n_**         line type
     + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
     + **_n_**=1     solid, unbroken line
-    + **_n_**=2     dashed line, or dot-dashed line. Dash lengths are given by **_la_** and **_lb_** below.
+    + **_n_**=2     dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**.
     + **_n_**=3     dotted line.
-  + **bold=#**      line thickness or dot size **#**.  Allowed values for **#** are 0-9.  Default is 3.
-  + **col=#,#,#**   line color (rgb)
-  + **colw=#,#,#**  secondary color when weighted by point
-  + **fill=#**      1 color line  2 fill with color  3 both 1 and 2
-  + **brk=1**       starts new line if x_i > x_i-1
-  + **_la_[,_lb_]**    (for dashed lines only) lengths of dash and space. **_la_,_lb_** can be repeated, _viz_ **_la_1,_lb_1,_la_2,_lb_2**.
+  + **bold=#**      &nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **#**.  Allowed values for **#** are 0-9.  Default is 3.
+  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp; line color (rgb)
+  + **colw=#,#,#**  &nbsp;&nbsp;&nbsp;&nbsp; secondary color when weighted by point
+  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp; fill color.
+    + 1 color line with color given by **col**
+    + 2 fill the area inside of the curve with color
+    + 3 both 1 and 2
+  + **brk=1**       starts new line if <i>x_<sub>i</sub></i> ><i>x_<sub>i-1</sub></i>
+  + **_la_[,_lb_]**    (for dashed lines only) length of dash and space. Dash length units are designed so 1 makes a "typical" dash size.\\
+                    **_la_,_lb_** can be repeated, _viz_ **_la_1,_lb_1,_la_2,_lb_2**.
                     This makes a [dot-dashed line](/docs/misc/fplot/#further-exercises).
 
 <i> </i>
@@ -576,6 +581,7 @@ _____________________________________________________________
 {:/comment}
 
 Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions).
+This provides programming capability in the script files.
 
 _Curly brackets_ : the preprocessor interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions)
 and substitutes them.
@@ -607,7 +613,7 @@ of rows and columns in the file is indicate it in the first column.  The charge 
   the file contents.
 
 
-### 5. _further exercises_
+### 5. _Further exercises_
 {::comment}
 /docs/misc/fplot/#further-exercises
 {:/comment}
@@ -622,7 +628,7 @@ a horizontal dashed line.  Try substituting the following line type for the dash
 ~~~
 
 It should generate a dot-dashed line.  The sequence **1,.5,.3,.5** specifies
-the dot-dashed sequence: **1,.5,** specifies a dash length 1 followed by a dash length 0.5.
+the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash length 0.5.
 In this case a second sequence (**.3,.5**) is present.  This specifies a (line,space) pair of **1,.5,**
 is followed by a (line,space) pair of **.3,.5,**.  The sequences alternate.
 
