@@ -489,30 +489,28 @@ plotted in a frame.
 
   <i> </i>
 
-  **_S_** is specified in one of the following ways:
-  + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
-  + **_S_** is an index 1-12, listed in the table below
-  + **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.
+  **_S_** is specified in one of the following ways:\\
+  **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
+  **_S_** is an index 1-12, listed in the table below\\
+  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
   Columns of **<i>data-file</i>** must hold:\\
-     4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes\\
-
-  _Note:_{: style="color: red"} 
+     4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
 
   {::nomarkdown}<div>{:/}
 
-  <b><i>S</i></b> | index | sym1       | sym2                | sym3               | sym4             | sym5   | sym6      |
-    x             | 1     | width      | height              |                    |                  |        |           |
-    square        | 2     | width      | height              |                    |                  |        |           |
-    diamond       | 3     | width      | height              |                    |                  |        |           |
-    +             | 4     | width      | height              |                    |                  |        |           |
-    polygon       | 5     | size       | number of sides     | angle              |                  |        |           |
-    circle        | 6     | radius     |                     |                    |                  |        |           |
-    arrow         | 7     | <i>dx</i>  | <i>dy</i>           | head length        | head angle (deg) |        |           |
-    errbar        | 8     | width      | height&times;z      |                    |                  |        |           |
-    timeline      | 9     | end height | line thickness      | end thickness      |                  |        |           |
-    hist          | 10    | width      |                     |                    |                  |        |           |
-    row           | 11    | scale      | offset              |                    |                  |        |           |
-    wiggle        | 12    | xtail      | ytail               | # periods          | excursion        | # pts  | placement |
+  <b><i>S</i></b> | index | sym1       		| sym2              | sym3               | sym4       | sym5           | sym6      |
+    x             | 1     | width      		| height            |                    |            |                |           |
+    square        | 2     | width      		| height            |                    |            |                |           |
+    diamond       | 3     | width      		| height            |                    |            |                |           |
+    +             | 4     | width      		| height            |                    |            |                |           |
+    polygon       | 5     | size       		| number of sides   | angle              |            |                |           |
+    circle        | 6     | radius     		|                   |                    |            |                |           |
+    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | head angle | _axis proj_    | _shift_   |
+    errbar        | 8     | width      		| height&times;z    |                    |            |                |           |
+    timeline      | 9     | end height 		| line thickness    | end thickness      |            |                |           |
+    hist          | 10    | width      		|                   |                    |            |                |           |
+    row           | 11    | scale      		| offset            |                    |            |                |           |
+    wiggle        | 12    | xtail      		| ytail             | # periods          | excursion  | # pts          | placement |
 
   {::nomarkdown}</div>{:/}
 
@@ -522,7 +520,12 @@ plotted in a frame.
   + Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.
   + Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.
   + Symbol 6 uses only one attribute.  Its default value is 1.
-  + Symbol 7 expects
+  + Symbol 7 draws arrows putting the arrow tip at (_x_, _y_).  It requires seven attributes:
+    &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
+    _head length_ is the size of the head as a fraction of arrow length\\
+    _head angle_ is the angle subtended by the arrowhead\\
+    _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
+
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
