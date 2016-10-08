@@ -445,8 +445,8 @@ _xy_ data is typically read from a file; the syntax to plot data in **<i>data-fi
 <pre>
 DATA-switches <i>data-file</i> | -tp <i>list</i> [DATA-switches <i>data-file</i> | -tp <i>list</i> ...]
 </pre>
-**DATA-switches** preceding **<i>data-file</i>** control which data is extracted from the file and how it is drawn.
-For both the abscissa and ordinate you can select which column to use, or take an algebraic combination involving multiple columns of data.
+**DATA-switches** preceding **<i>data-file</i>** control how data is extracted from **<i>data-file</i>** and the manner in which data is drawn.
+For either abscissa arnd ordinate you can select a particular column, or take an algebraic combination involving multiple columns of data.
 
 As an alternative to reading data from a file you can supply it using switch **-tp**.
 Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
@@ -454,7 +454,7 @@ Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20
 plotted in a frame.
 
 + **-lt _n_[,bold=_b_][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_[,_lb_]][,_la_[,_lb_]]**\\
-  line type specification and attributes.
+  Line type specification and attributes.
   + **_n_**         line type
     + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
     + **_n_**=1     solid, unbroken line
@@ -474,18 +474,18 @@ plotted in a frame.
 
 <i> </i>
 
-+ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_sym1_[,_sym2_ ..]\\
++ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
-  Each symbol has one or more optional attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
-  Optional attributes:
-  + **col=#,#,#** &nbsp;&nbsp                     Symbol contour or fill color
-  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;                          line thickness for symbol contour. **bold=_b_** => no contour (just fill symbol)
-  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  how symbol is filled
+  Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
+  Optional switches:
+  + **col=#,#,#** &nbsp;&nbsp;                                Symbol contour or fill color
+  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
+  + **bold=_b_**  &nbsp;                                      line thickness for symbol contour. **bold=_b_** => no contour (just fill symbol)
+  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled
     + <b>_f_<b>=0</b> do not fill symbol
-    + <b>_f_<b>=1</b> fill symbol with gray
+    + <b>_f_<b>=1</b> fill symbol with gray.  Specify shading with **col=#**.
     + <b>_f_<b>=2</b> fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
-  + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).\\
+  + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
 
   **_S_** is specified in one of the following ways:
   + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
