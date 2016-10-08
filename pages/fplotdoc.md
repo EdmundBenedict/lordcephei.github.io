@@ -486,6 +486,9 @@ plotted in a frame.
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
+
+  <i> </i>
+
   **_S_** is specified in one of the following ways:
   + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)
   + **_S_** is an index 1-12, listed in the table below
@@ -493,40 +496,43 @@ plotted in a frame.
   Columns of **<i>data-file</i>** must hold:\\
      4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes\\
 
-  _Note:_{: style="color: red"} Some symbols (**timeline** and **hist**) require a third column of data.\\
+  _Note:_{: style="color: red"} 
 
   {::nomarkdown}<div>{:/}
 
   <b><i>S</i></b> | index | sym1   	  | sym2                | sym3 	 		  | sym4  	  		 | sym5   | sym6 	  |
-    x            | 1     | width  	  | height              |      	 		  |       	  		 |        |      	  |
-    square       | 2     | width  	  | height              |      	 		  |       	  		 |        |      	  |
-    diamond      | 3     | width  	  | height              |  	   	 		  |       	  		 |        |      	  |
-    +            | 4     | width  	  | height              |      	 		  |       	  		 |        |      	  |
-    polygon      | 5     | size   	  | number of sides     | angle	 		  |       	  		 |        |      	  |
-    circle       | 6     | radius 	  |                     |      	 		  |       	  		 |        |      	  |
-    arrow        | 7     | xtail  	  | ytail               | head length	  | head angle (deg) |        |      	  |
-    errbar       | 8     | width  	  | height&times;z      |      	 		  |       	  		 |        |      	  |
-    timeline     | 9     | end height | line thickness      | end thickness	  |       	  		 |        |      	  |
-    hist         | 10    | width  	  |                     |      	 		  |       	  		 |        |      	  |
-    row          | 11    | scale  	  | offset              |      	 		  |       	  		 |        |      	  |
-    wiggle       | 12    | xtail  	  | ytail               | No periods	  | excursion 		 | # pts  | placement |
+    x             | 1     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    square        | 2     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    diamond       | 3     | width  	  | height              |  	   	 		  |       	  		 |        |      	  |
+    +             | 4     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    polygon       | 5     | size   	  | number of sides     | angle	 		  |       	  		 |        |      	  |
+    circle        | 6     | radius 	  |                     |      	 		  |       	  		 |        |      	  |
+    arrow         | 7     | xtail  	  | ytail               | head length	  | head angle (deg) |        |      	  |
+    errbar        | 8     | width  	  | height&times;z      |      	 		  |       	  		 |        |      	  |
+    timeline      | 9     | end height | line thickness      | end thickness	  |       	  		 |        |      	  |
+    hist          | 10    | width  	  |                     |      	 		  |       	  		 |        |      	  |
+    row           | 11    | scale  	  | offset              |      	 		  |       	  		 |        |      	  |
+    wiggle        | 12    | xtail  	  | ytail               | No periods	  | excursion 		 | # pts  | placement |
 
   {::nomarkdown}</div>{:/}
 
-
-
+  Notes on the Table:
+  + Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.
+  + Suymbols
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
-  Only operative if a key was originally specified.
+  Switch is operative only if a key was originally specified.
 
 + **-tp [_nc_~]_list_**\\
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).
 
 + **-map [-i _expr_] _list_**\\
-  permutes original data array to another set of points defined by **_list_**.\\
-  Optional **-i _expr_** causes points for which **_expr_=0** to be excluded.\\
-  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).
+  permutes rows original data array defined by **_list_**.\\
+  Optional **-i _expr_** causes points for which **_expr_=0** to be removed from**_list_**.\\
+  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  _Example_ : &nbsp;&nbsp **-map -i 'x<=4' 1,3,5,4**\\
+  This will return a data array of at most 4 rows (rows 1,3,5,4); additionally any of the new list is excluded if the first column is less than or equal to 4.
 
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
