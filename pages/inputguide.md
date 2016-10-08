@@ -18,6 +18,9 @@ _____________________________________________________________
 _____________________________________________________________
 
 ### 1. _Input File Structure_
+{::comment}
+/docs/input/inputfile/#input-file-structure
+{:/comment}
 
 ##### _Introduction_
 
