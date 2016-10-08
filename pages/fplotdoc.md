@@ -510,14 +510,13 @@ plotted in a frame.
 
   {::nomarkdown}</div>{:/}
 
-  Notes on the Table:
-  +abc
-  	+ Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.
-  	+ Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.
-  	+ Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.
-  	+ Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.
-  	+ Symbol 6 uses only one attribute.  Its default value is 1.
-  	+ Symbol 7 draws arrows putting the arrow tip at (_x_, _y_).  It requires seven attributes:
+  Notes on the Table:\\
+  1. Some symbols (**timeline** and **hist**) require three numbers _x_, _y_, _z_ for each point.  By default these points are taken from columns 1,2,3 of **<i>data-file</i>**.\\
+  2. Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
+  3. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
+  4. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
+  5. Symbol 6 uses only one attribute.  Its default value is 1.\\
+  6. Symbol 7 draws arrows putting the arrow tip at (_x_, _y_).  It requires seven attributes:\\
   	  + &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
   	  + _head length_ is the size of the head as a fraction of arrow length\\
   	  + _head angle_ is the angle subtended by the arrowhead\\
