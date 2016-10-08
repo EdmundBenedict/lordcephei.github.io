@@ -487,14 +487,14 @@ plotted in a frame.
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).
 
-  <i> </i>
-
   **_S_** is specified in one of the following ways:\\
-  **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
-  **_S_** is an index 1-12, listed in the table below\\
-  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
+  <ul>
+  <li> **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
+  <li>   **_S_** is an index 1-12, listed in the table below\\
+  <li>   **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
   Columns of **<i>data-file</i>** must hold:\\
      4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
+  </ul> 
 
   {::nomarkdown}<div>{:/}
 
@@ -521,10 +521,11 @@ plotted in a frame.
   + Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.
   + Symbol 6 uses only one attribute.  Its default value is 1.
   + Symbol 7 draws arrows putting the arrow tip at (_x_, _y_).  It requires seven attributes:
-    &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
-    _head length_ is the size of the head as a fraction of arrow length\\
-    _head angle_ is the angle subtended by the arrowhead\\
-    _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
+    + &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
+    + _head length_ is the size of the head as a fraction of arrow length\\
+    + _head angle_ is the angle subtended by the arrowhead\\
+    + _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
+    + _shift_ shifts the head so that
 
 
 + **-l[0] _legend_**\\
