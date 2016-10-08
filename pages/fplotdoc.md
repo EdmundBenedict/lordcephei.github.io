@@ -362,19 +362,22 @@ _Example inside a script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#1
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
 
-##### **DATA** switches govern how xy data are depicted
+##### **DATA** switches draw one or more families of xy data
 
-Within a frame zero or more plots of _xy_ data can be drawn.
+Within a frame zero or more families of _xy_ data can be drawn.
 _xy_ data is typically read from a file; the syntax is:
 
 <pre>
     -DATA-switches <i>data-file</i> -DATA-switches <i>data-file</i> 
 </pre>
 
-**-DATA-switches** preceding an instance of <i>data-file</i> apply to that data.
+It plots data contained in **<i>data-file</i>**.
 
-You can, instead of supplying data from a file <i>data-file</i>,
-specify it through switch `-tp`.
+**-DATA-switches** preceding **<i>data-file</i>** modify what data is used and how it is drawn.
+
+Instead of supplying _xy_ data through file **<i>data-file</i>**.
+you can specify it through switch **-tp**.  It has an effect similar to 
+**<i>data-file</i>**, in that the data is drawn with whatever conditions have been set up to that point.
 
 + **-lt _n_[:bold=#][:col=#,#,#][:colw=#,#,#][:fill=#][:brk=#][:la[,lb]]**\\
   line type specification and attributes.
