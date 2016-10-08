@@ -490,7 +490,7 @@ plotted in a frame.
   **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
   **_S_** is an index 1-12, listed in the table below\\
   **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
-  Columns of **<i>data-file</i>** must hold:   4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
+  Columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
 
   {::nomarkdown}<div>{:/}
 
@@ -501,8 +501,8 @@ plotted in a frame.
     +             | 4     | width      		| height            |                    |            |                |           |
     polygon       | 5     | size       		| number of sides   | angle              |            |                |           |
     circle        | 6     | radius     		|                   |                    |            |                |           |
-    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | head angle | _axis proj_    | _shift_   |
-    errbar        | 8     | width      		| height&times;z    |                    |            |                |           |
+    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | _head angle_ | _axis proj_    | _shift_   |
+    errbar        | 8     | width      		| height&times;z    |                    |            	|                |           |
     timeline      | 9     | end height 		| line thickness    | end thickness      |            |                |           |
     hist          | 10    | width      		|                   |                    |            |                |           |
     row           | 11    | scale      		| offset            |                    |            |                |           |
