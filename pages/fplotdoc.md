@@ -50,7 +50,7 @@ _____________________________________________________________
 for 3D graphics.
 
 **fplot**{: style="color: blue"} is command-line driven and can efficiently generate figures from command-line arguments.  It can also read
-arguments from a file script; this is necessary if the figure is complex.  **fplot**{: style="color: blue"} can make full use of the 
+arguments from a file script; this is necessary if the figure is complex.  **fplot**{: style="color: blue"} can make full use of the
 [programming language capability](/docs/input/preprocessor) it has for reading input files, in both the script and the data files.
 
 Other programs, especially [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/), make **fplot**{: style="color: blue"}
@@ -154,7 +154,7 @@ When commands are read from a script file, some differences can appear.
 + There is no unix wild-card expansion; quotation marks are not necessary.
 + Because scripts are run through the [file preprocessor](/docs/input/preprocessor/), the script system provides programming language capability and string substitution.
 
-The last figure in Example 2.1 can be equivalently made by 
+The last figure in Example 2.1 can be equivalently made by
 <pre>
 $ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
 $ fplot -f myplot
@@ -346,7 +346,7 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 
 + **-1p**\\
   skip parsing of remaining arguments in the frame for the first pass.  Current values for
-   **<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** and **<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>** 
+   **<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** and **<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**
   are frozen.
 
 {::comment}
@@ -359,10 +359,10 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
   Points are shifted by **shy** (**shx**,**shz**).
   Projection is **x** to right, **z** up, **y** normal to paper.
 
-+ **-rotp rot1[,rot2,...]** 
++ **-rotp rot1[,rot2,...]**
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
   _Example_
-  
+
     **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
@@ -389,7 +389,7 @@ Character  | Function
 _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
-_Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must 
+_Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
 [prepend the left bracket with a '**\\**'.](/docs/misc/fplot/#file-preprocessor) to avoid substitution by the preprocessor.
 
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
@@ -453,16 +453,16 @@ Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20
 [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
 plotted in a frame.
 
-+ **-lt _n_[,bold=#][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_[,_lb_]][,_la_[,_lb_]]**\\
++ **-lt _n_[,bold=_b_][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_[,_lb_]][,_la_[,_lb_]]**\\
   line type specification and attributes.
   + **_n_**         line type
     + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
     + **_n_**=1     solid, unbroken line
     + **_n_**=2     dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**.
     + **_n_**=3     dotted line.
-  + **bold=#**      &nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **#**.  Allowed values for **#** are 0-9.  Default is 3.
-  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp; line color (rgb)
-  + **colw=#,#,#**  &nbsp;                   secondary color when weighted by point
+  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
+  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [line color](/docs/misc/fplot/#color-specification).
+  + **colw=#,#,#**  &nbsp;&nbsp;&nbsp;       First color weight when color weights are given
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 color line with color given by **col**
     + 2 fill the area inside of the curve with color
@@ -470,15 +470,15 @@ plotted in a frame.
   + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts new line if <i>x_<sub>i</sub></i> ><i>x_<sub>i-1</sub></i>
   + **_la_[,_lb_]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (for dashed lines only) length of dash and space.
                     Dash length units are designed so 1 makes a "typical" dash size.\\
-                    **_la_,_lb_** can be repeated, _viz_ **_la_1,_lb_1,_la_2,_lb_2**.
+                    **_la_,_lb_** can be repeated, _viz_ **<i>la</i>1,<i>lb</i>1,<i>la</i>2,<i>lb</i>2**.
                     This makes a [dot-dashed line](/docs/misc/fplot/#further-exercises).
 
 <i> </i>
 
 + **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_syma_[,_symb_ ..] for symbol _S_**\\
-  symbol specification and attributes.
+  symbol specification and attributes. **_S_** should be one of the strings in the table below, or an index 1-11.
                    S is one of:x square diamond + polygon circle arrow errbar timelin hist row
-                            or:an index 1-11
+                            or:an index 1-12
                             or:-1 to read symbol parameters from data file.
                                In that case, columns must hold:
                                4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
@@ -488,19 +488,26 @@ plotted in a frame.
 
   {::nomarkdown}<div>{:/}
 
-  Character  | Function
-  ^{..}      | superscript
-  \_{..}     | subscript
-  \~{..}     | Greek
-  @{..}      | bold
-  &{..}      | italic
+ <b><i>S</i></b> | index | sym1   	  | sym2                | sym3 	 		  | sym4  	  		 | sym5   | sym6 	  |
+    x            | 1     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    square       | 2     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    diamond      | 3     | width  	  | height              |  	   	 		  |       	  		 |        |      	  |
+    +            | 4     | width  	  | height              |      	 		  |       	  		 |        |      	  |
+    polygon      | 5     | size   	  | number of sides     | angle	 		  |       	  		 |        |      	  |
+    circle       | 6     | radius 	  |                     |      	 		  |       	  		 |        |      	  |
+    arrow        | 7     | xtail  	  | ytail               | head length	  | head angle (deg) |        |      	  |
+    errbar       | 8     | width  	  | height&times;z      |      	 		  |       	  		 |        |      	  |
+    timelin      | 9     | end height | line thickness      | end thickness	  |       	  		 |        |      	  |
+    hist         | 10    | width  	  |                     |      	 		  |       	  		 |        |      	  |
+    row          | 11    | scale  	  | offset              |      	 		  |       	  		 |        |      	  |
+    wiggle       | 12    | xtail  	  | ytail               | No periods	  | excursion 		 | # pts  | placement |
 
   {::nomarkdown}</div>{:/}
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
   Only operative if a key was originally specified.
-  
+
 + **-tp [_nc_~]_list_**\\
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).
 
@@ -570,7 +577,7 @@ plotted in a frame.
   Use this switch to make error bars in _y_ from one column of data. Column **#** contains the error bar.
 
 + **-ins _strn_**\\
-  insert **_strn_** directly into output postscript file.  
+  insert **_strn_** directly into output postscript file.
   There is no check that **_strn_** consists of valid postscript ... you are on your own!
 + **-ins[f] _file_**\\
   insert the contents of **_file_** directly into output postscript file.
@@ -590,7 +597,7 @@ _____________________________________________________________
 /docs/misc/fplot/#file-preprocessor
 {:/comment}
 
-Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/#curly-brackets-contain-expressions).
+Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/).
 This provides programming capability in the script files.
 
 _Curly brackets_ : the preprocessor interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions)
@@ -601,8 +608,11 @@ bracket pair and its contents intact, you must suppress the preprocessor's expre
 backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
 
 #### Color specification
+{::comment}
+/docs/misc/fplot/#color-specification
+{:/comment}
 
-Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions red,green,blue, expressed as 
+Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions (red, green, blue) expressed as
 a fraction of the brightest color.  0 is the absence of color, and 1 is the brightest color.
 
 #### Structure of data files
@@ -652,7 +662,7 @@ See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
 {::comment}
 Need to explain
 
-cw in 
+cw in
 + **-col _cx_,_cy_[,_cw_]**\\
 
 + bs
