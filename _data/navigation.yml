@@ -48,6 +48,8 @@
         url: "/inputfile/"
       - title: "File Preprocessor"
         url: "/preprocessor/"
+      - title: "The Site file"
+        url: "/sitefile/"
       - title: "Symmetry Line Files"
         url: "/symfile/"
     - name: "Annotated Output Files"
