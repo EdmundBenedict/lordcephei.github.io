@@ -182,10 +182,10 @@ fplot
   -con .045,.055 -lt 2,bold=3,col=.4,0,0 chgd.cr
   -con .065,.075 -lt 3,bold=4,col=0,0,0 chgd.cr
   -font h13
-  -lblu 0.17,0.556 cc '45'
-  -lblu 0.28,0.355 cc '55'
+  -lbl 0.17,0.556 cc '45'
+  -lbl 0.28,0.355 cc '55'
   -font t14
-  -lblu .5,-.02 cd 'Charge density in bcc Chromium (10^\{-3} a.u.)'
+  -lbl .5,-.02 cd 'Charge density in bcc Chromium (10^\{-3} a.u.)'
 ~~~
 
 Run **fplot**{: style="color: blue"} with
@@ -453,7 +453,7 @@ Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20
 [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
 plotted in a frame.
 
-+ **-lt _n_[,bold=_b_][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_[,_lb_]][,_la_[,_lb_]]**\\
++ **-lt _n_[,bold=_b_][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.
   + **_n_**         line type
     + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
@@ -468,9 +468,14 @@ plotted in a frame.
     + 2 fill the area inside of the curve with color
     + 3 both 1 and 2
   + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
-  + **_la_[,_lb_]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
-                    Dash length units are designed so 1 makes a "typical" dash size.\\
-                    **_la_,_lb_** can be repeated, _viz_ **<i>la</i>1,<i>lb</i>1,<i>la</i>2,<i>lb</i>2** to make a [dot-dashed line](/docs/misc/fplot/#further-exercises).
+  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+                    Dash length units are sized so that 1 correspond to a "typical" dash size.
+    + **_la_**      First dash length
+    + **_lb_**      First space length
+    + **_lc_**      Second dash length
+    + **_ld_**      Second space length
+    You can enter anywhere between 0 and 4 numbers. If **_lc_** is missing, the line will be dashed.
+
 
 <i> </i>
 
@@ -511,22 +516,21 @@ plotted in a frame.
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  1 . Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
-  2. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
-  3. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
-  4. Symbol 6 uses only one attribute.  Its default value is 1.\\
-  5. Symbol 7 draws arrows with the tip at (_x_, _y_).  It requires five attributes:\\
+  a . Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
+  b. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
+  c. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
+  d. Symbol 6 uses only one attribute.  Its default value is 1.\\
+  e. Symbol 7 draws arrows with the tip at (_x_, _y_).  It requires five attributes:\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; _head length_ is the size of the head as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; _head angle_ is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp; optional _shift_ shifts the head so that ...\\
-  6. Symbol 8 \\
-  7. Symbol 9 requires three numbers _x_, _y_, _z_ for each point.\\
-  8. Symbol 10 requires three numbers _x_, _y_, _z_ for each point.\\
-  9. Symbol 11 \\
-  10. Symbol 12 \\
-  When symbols use three numbers, by default the third number is taken from column 3 of **<i>data-file</i>**.
+  e. Symbol 8 \\
+  f. Symbol 9 requires three numbers _x_, _y_, _z_ for each point.\\
+  g. Symbol 10 requires three numbers _x_, _y_, _z_ for each point.\\
+  h. Symbol 11 \\
+  i. Symbol 12 
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -643,9 +647,9 @@ a fraction of the brightest color.  0 is the absence of color, and 1 is the brig
 
 #### Structure of data files
 
-Data files follow a standard Questaal format.  The more secure way to specify the number
-of rows and columns in the file is indicate it in the first column.  The charge density file _chgd.cr_{: style="color: green"} in Example
-[Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) begins with
+Data files follow a standard Questaal format for two-dimensional arrays.  The safest way to specify the number
+of rows and columns in the file is indicate it in the first column, as does the charge density file _chgd.cr_{: style="color: green"} in
+[Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr):
 
 ~~~~
 % rows 101 cols 101
@@ -653,10 +657,14 @@ of rows and columns in the file is indicate it in the first column.  The charge 
 ...
 ~~~
 
+The data file reader checks to see whether the first nonblank line (that is also not a preprocessor instruction)
+begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is given to set the number of rows to **nr** and/or columns to **nc**.
+In the absence of specification it works out the number of rows from the file contents.
 
-+ Data is read from _chgd.cr_{: style="color: green"}.  It contains 101 rows and 101 columns; but this is not evident from the file itself.
-  The script tells **fplot**{: style="color: blue"} that the file contains 101 columns with `nc -101`; it works out the number of rows from
-  the file contents.
+`% ... cols nc` need not be present in the file, either.  If **nc** has not been stipulated in the file or by some other means,
+the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
+In this case it would incorrectly use **nc**=4; thus in this case it must be stipulated.
+**fplot**{: style="color: blue"} also allows you to stipulate the number of columns with command line arguments `nc=#` or `-r:nc=#`.
 
 
 ### 5. _Further exercises_
