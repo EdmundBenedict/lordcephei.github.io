@@ -64,6 +64,7 @@ Usually the first line contains the lattice constant as well.  For example:
 ~~~
 
 This line tells the parser the following:
+
 + **io=62** indicates that in addition to the basis vectors, the following information is available for each site:
   + velocities (needed for molecular dynamics)
   + Euler angles (the noncollinear ASA code makes a rigid spin approximation; there quantization axis is fixed by a single rotation)
