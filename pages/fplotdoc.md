@@ -479,10 +479,10 @@ plotted in a frame.
 
 <i> </i>
 
-+ **-s _S_[:col=#,#,#][clip][bold=#][:fill=#]:_sym1_[,_sym2_ ..]** \\
++ **-s _S_[~col=#,#,#][~clip][~bold=#][~fill=#]~_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
-  Optional switches:
+  Optional switches are separated by **~** (or the character following **_S_**):
   + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
   + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. **bold=0** => fill symbol without contour.
@@ -496,42 +496,47 @@ plotted in a frame.
   &nbsp;&nbsp; **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
   &nbsp;&nbsp; **_S_** is an index 1-12, listed in the table below\\
   &nbsp;&nbsp; **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
+  &nbsp;&nbsp;&nbsp;&nbsp; In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
 
   {::nomarkdown}<div>{:/}
 
-  <b><i>S</i></b> | index | sym1       		| sym2              	| sym3               | sym4       | sym5           | sym6      |
-    x             | 1     | width+          | height+           	|                    |            |                |           |
-    square        | 2     | width+     		| height+           	|                    |            |                |           |
-    diamond       | 3     | width+     		| height+           	|                    |            |                |           |
-    +             | 4     | width+     		| height+           	|                    |            |                |           |
-    polygon       | 5     | size       		| number of sides   	| angle+             |            |                |           |
-    circle        | 6     | radius+    		|                   	|                    |            |                |           |
-    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   	| head length        | head angle | axis proj      | shift+    |
-    errbar        | 8     | width           | height&times;<i>z</i> |                    |            |                |           |
-    timeline      | 9     | end height 		| line thickness    	| end thickness      |            |                |           |
-    hist          | 10    | width      		|                   	|                    |            |                |           |
-    row           | 11    | scale      		| offset            	|                    |            |                |           |
-    wiggle        | 12    | xtail      		| ytail             	| # periods          | excursion  | # pts          | placement |
+  <b><i>S</i></b> | index | sym1            | sym2                  | sym3               | sym4       | sym5           | sym6       |
+    x             | 1     | width+          | height+               |                    |            |                |            |
+    square        | 2     | width+          | height+               |                    |            |                |            |
+    diamond       | 3     | width+          | height+               |                    |            |                |            |
+    +             | 4     | width+          | height+               |                    |            |                |            |
+    polygon       | 5     | size            | number of sides       | angle+             |            |                |            |
+    circle        | 6     | radius+         |                       |                    |            |                |            |
+    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>       | head length        | head angle | axis proj      | placement+ |
+    errbar        | 8     | width           | height&times;<i>z</i> |                    |            |                |            |
+    timeline      | 9     | end height      | line thickness        | end thickness      |            |                |            |
+    hist          | 10    | width           |                       |                    |            |                |            |
+    row           | 11    | scale           | offset                |                    |            |                |            |
+    wiggle        | 12    | xtail           | ytail                 | # periods          | excursion  | # pts          |            |
 
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  a  Attributes marked by "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
+  a  Attributes marked with "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
   b. Symbols 1-4 have a width and height given by **sym1** and **sym2** (note **square** can be a rectangle).\\
   c. Symbol 5 (polygon) has an third attribute, which sets the angle of 1st point relative to the vertical.\\
   d. Symbol 6 (circle) requires no attributes be specified.\\
-  e. Symbol 7 draws arrows with the tip at (_x_, _y_).  It requires five attributes:\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
+  e. Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the head as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **axis proj**  the head length along the arrow axis as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **shift** shifts the head so that ...\\
-  e. Symbol 8 (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) column of data.\\
-  f. Symbol 9 requires three numbers _x_, _y_, _z_ for each point.\\
-  g. Symbol 10 requires three numbers _x_, _y_, _z_ for each point.\\
-  h. Symbol 11 \\
-  i. Symbol 12 
+  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_); set to 1/2 to center the arrow at (_x_, _y_).\\
+  e. Symbol 8&nbsp; (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) element of data, taken from column 3.\\
+  f. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) component of data to mark size of timeline.\\
+  g. Symbol 10 (histogram) not documented.\\
+  h. Symbol 11 (row)  not documented.\\
+  i. Symbol 12 (wiggle) draws a wiggly line
+  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; number of periods\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; excursion (deviation from straight line)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; optional number of points used to draw the symbol\\
+  e. Symbol 8&nbsp; (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) element of data.\\
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -658,17 +663,13 @@ of rows and columns in the file is indicate it in the first column, as does the 
 ...
 ~~~
 
-The data file reader checks to see whether the first nonblank, non-preprocessor directive,
+The reader checks to see whether the first nonblank, non-preprocessor directive,
 begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
-
-**fplot**{: style="color: blue"} does not require **nr** nor **nc** be stipulated this way.
-You can specify **nr** or **nc** through the command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` or just `-nc=#`.
-
-If **nr** has not been stipulated in some way, **fplot**{: style="color: blue"} works out the number of rows from the file contents. 
-
-If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
++ **fplot**{: style="color: blue"} does not require **nr** nor **nc** be stipulated in the data file.
+Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) will specify **nr** nor **nc**
++ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works out the number of rows from the file contents.
++ If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
 In this case it would incorrectly use **nc**=4; so **nc** must be stipulated in this example.
-
 
 ### 5. _Further exercises_
 {::comment}
