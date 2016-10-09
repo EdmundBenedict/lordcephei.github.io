@@ -120,7 +120,7 @@ The quantization condition for wave number _k_ reads:
 $$ \frac{\mathrm{cos}^2kL}{k^2L^2} = \frac{\hbar ^2}{2mV_0L^2} \quad\quad\quad\quad (1) $$
 
 It is a nonlinear equation in _k_ which must be solved numerically or graphically.  The latter is accomplished by drawing the left and right sides of Eq. (1)
-and seeing where the curves intersect.  It is convenient to work with the dimensionless parameter _x_=_kL_ and the right hand site as a dimensionless constant.
+and seeing where the curves intersect.  It is convenient to work with the dimensionless parameter _x_=_kL_ and treat the right hand site as a dimensionless constant.
 
 Cut and paste the box below into script file _plot.box_{: style="color: green"}.
 
@@ -453,29 +453,30 @@ Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20
 [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
 plotted in a frame.
 
-+ **-lt _n_[,bold=_b_][,col=#,#,#][,colw=#,#,#][,fill=#][,brk=#][,_la_,_lb_,_lc_,_ld_]**\\
-  Line type specification and attributes.
-  + **_n_**         line type
-    + **_n_**=0     (use this type when you want to draw symbols at a set of points without any connecting lines)
-    + **_n_**=1     solid, unbroken line
-    + **_n_**=2     dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**.
-    + **_n_**=3     dotted line.
++ **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
+  Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
+  + **_n_**         &nbsp; line type
+    + **_n_**=0     &nbsp; (use this type when you want to draw symbols at a set of points without any connecting lines)
+    + **_n_**=1     &nbsp; solid, unbroken line
+    + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**
+    + **_n_**=3     &nbsp; dotted line
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
   + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [line color](/docs/misc/fplot/#color-specification).
   + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
-    + 1 color line with color given by **col**
-    + 2 fill the area inside of the curve with color
-    + 3 both 1 and 2
-  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
-  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+    + 1 &nbsp; color line with color given by **col**
+    + 2 &nbsp; fill the area inside of the curve with color
+    + 3 &nbsp; both 1 and 2
+  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
+  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
-    + **_la_**      First dash length
-    + **_lb_**      First space length
-    + **_lc_**      Second dash length
-    + **_ld_**      Second space length
-    You can enter anywhere between 0 and 4 numbers. If **_lc_** is missing, the line will be dashed.
+    + **_la_**      &nbsp; First dash length
+    + **_lb_**      &nbsp; First space length
+    + **_lc_**      &nbsp; Second dash length
+    + **_ld_**      &nbsp; Second space length
 
+  You can enter anywhere between 0 and 4 numbers. If only **_la_** or **_la_** and **_lb_** are present, a simple a dashed line will result.
+  Try [this exercise](/docs/misc/fplot/#dot-dashed-lines).
 
 <i> </i>
 
@@ -487,27 +488,28 @@ plotted in a frame.
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
   + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. **bold=0** => fill symbol without contour.
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
-    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
-  + <b>_sym1_, _sym2_,..</b> optional symbol attributes that alter size and shape of symbol.  The meaning and number of attributes depends on the symbol (see Table).\\
+    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
+    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
+    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+  + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
+    The number and meaning of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
-  **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
-  **_S_** is an index 1-12, listed in the table below\\
-  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
-  Columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes
+  &nbsp;&nbsp; **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
+  &nbsp;&nbsp; **_S_** is an index 1-12, listed in the table below\\
+  &nbsp;&nbsp; **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
 
   {::nomarkdown}<div>{:/}
 
   <b><i>S</i></b> | index | sym1       		| sym2              | sym3               | sym4       | sym5           | sym6      |
-    x             | 1     | width      		| height            |                    |            |                |           |
+    x             | 1     | width+          | height            |                    |            |                |           |
     square        | 2     | width      		| height            |                    |            |                |           |
     diamond       | 3     | width      		| height            |                    |            |                |           |
     +             | 4     | width      		| height            |                    |            |                |           |
     polygon       | 5     | size       		| number of sides   | angle              |            |                |           |
     circle        | 6     | radius     		|                   |                    |            |                |           |
     arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | _head angle_ | _axis proj_    | _shift_   |
-    errbar        | 8     | width      		| height&times;z  !  |                    |            	|                |           |
+    errbar        | 8     | width           | height&times;z    |                    |             |                |           |
     timeline      | 9     | end height 		| line thickness    | end thickness      |            |                |           |
     hist          | 10    | width      		|                   |                    |            |                |           |
     row           | 11    | scale      		| offset            |                    |            |                |           |
@@ -657,14 +659,17 @@ of rows and columns in the file is indicate it in the first column, as does the 
 ...
 ~~~
 
-The data file reader checks to see whether the first nonblank line (that is also not a preprocessor instruction)
-begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is given to set the number of rows to **nr** and/or columns to **nc**.
-In the absence of specification it works out the number of rows from the file contents.
+The data file reader checks to see whether the first nonblank, non-preprocessor directive,
+begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
 
-`% ... cols nc` need not be present in the file, either.  If **nc** has not been stipulated in the file or by some other means,
-the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
-In this case it would incorrectly use **nc**=4; thus in this case it must be stipulated.
-r:
+**fplot**{: style="color: blue"} does not require **nr** nor **nc** be stipulated this way.
+You can specify **nr** or **nc** through the command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` or just `-nc=#`.
+
+If **nr** has not been stipulated in some way, **fplot**{: style="color: blue"} works out the number of rows from the file contents. 
+
+If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
+In this case it would incorrectly use **nc**=4; so **nc** must be stipulated in this example.
+
 
 ### 5. _Further exercises_
 {::comment}
@@ -672,6 +677,9 @@ r:
 {:/comment}
 
 #### Dot-dashed lines
+{::comment}
+/docs/misc/fplot/#dot-dashed-lines
+{:/comment}
 
 [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) made
 a horizontal dashed line.  Try substituting the following line type for the dashed line:
