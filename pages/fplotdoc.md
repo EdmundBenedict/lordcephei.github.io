@@ -790,7 +790,7 @@ fplot -p0 -font t18
       -lbl 0.5,.96 cc "subscript perpendicular symbol &\{k}_\{~\{\{\136}}}"
       -lbl 0.3,.89 rc "brackets ~\{\{\341}}A~\{\{\361}}
       -lbl 0.3,.84 rc "arrows ~\{\{\254}}|~\{\{\256}}|~\{\{\255}}|~\{\{\257}}
-
+~~~
 
 Create and view the postscript file:
 
