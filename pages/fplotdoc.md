@@ -664,8 +664,7 @@ In the absence of specification it works out the number of rows from the file co
 `% ... cols nc` need not be present in the file, either.  If **nc** has not been stipulated in the file or by some other means,
 the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
 In this case it would incorrectly use **nc**=4; thus in this case it must be stipulated.
-**fplot**{: style="color: blue"} also allows you to stipulate the number of columns with command line arguments `nc=#` or `-r:nc=#`.
-
+r:
 
 ### 5. _Further exercises_
 {::comment}
