@@ -518,25 +518,25 @@ plotted in a frame.
 
   Notes on the Table:\\
   a  Attributes marked with "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
-  b. Symbols 1-4 have a width and height given by **sym1** and **sym2** (note **square** can be a rectangle).\\
-  c. Symbol 5 (polygon) has an third attribute, which sets the angle of 1st point relative to the vertical.\\
-  d. Symbol 6 (circle) requires no attributes be specified.\\
+  b. Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
+  c. Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
+  d. Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
   e. Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the head as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **axis proj**  the head length along the arrow axis as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_); set to 1/2 to center the arrow at (_x_, _y_).\\
-  e. Symbol 8&nbsp; (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) element of data, taken from column 3.\\
-  f. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) component of data to mark size of timeline.\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
+  e. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
+  _Note:_{: style="color: red"} You can also independently make error bars though the `-ey` command.  Error bars are drawn before any second symbol through `-s`).\\
+  f. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   g. Symbol 10 (histogram) not documented.\\
   h. Symbol 11 (row)  not documented.\\
-  i. Symbol 12 (wiggle) draws a wiggly line
+  i. Symbol 12 (wiggle) draws a wiggly line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; number of periods\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; excursion (deviation from straight line)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; optional number of points used to draw the symbol\\
-  e. Symbol 8&nbsp; (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) element of data.\\
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -665,6 +665,7 @@ of rows and columns in the file is indicate it in the first column, as does the 
 
 The reader checks to see whether the first nonblank, non-preprocessor directive,
 begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
+
 + **fplot**{: style="color: blue"} does not require **nr** nor **nc** be stipulated in the data file.
 Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) will specify **nr** nor **nc**
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works out the number of rows from the file contents.
