@@ -516,9 +516,9 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
-  f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
+  Symbol 8&nbsp; draws error bars. **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
   _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
-  See [this exercise](/docs/misc/fplot/#error-bars) for an example.
+  See [this exercise](/docs/misc/fplot/#error-bars) for an example.\\
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
@@ -526,7 +526,7 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the head (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.\\
   See [this exercise](/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols) for an example.
 
 + **-l[0] _legend_**\\
@@ -539,6 +539,8 @@ plotted in a frame.
 + **-map [-i _expr_] _list_**\\
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
+  For each point, **_expr_** can make use of the following variables:\\
+    **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
   culls an array from rows 1,3,5,4 of the original data.  If the abscissa is &nbsp;&le;4&nbsp; the row is excluded.
 
@@ -685,7 +687,7 @@ is indicate it in the first line; see for example the charge density file _chgd.
   It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
 + Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** and/or **nc**.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out from the file contents.
-+ If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
++ If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
 
 ### 5. _Further exercises_
@@ -734,7 +736,7 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 /docs/misc/fplot/#using-the-wiggle-and-arrow-symbols
 {:/comment}
 
-This example shows applications of the wiggly line symbol, together with the arrow symbol.
+This exercise shows applications of the wiggly line symbol, together with the arrow symbol.
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
 ~~~
@@ -752,16 +754,54 @@ $ fplot -f plot.wiggle
 $ open fplot.ps
 ~~~
 
+Notes:
+
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
   creates a wiggly line ending at (0.5,0.5), sloping downward with run/rise = **-0.15,0.16**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
-  tacks an arrowhead onto the line with the tip at (0.5,0.5).
+  tacks an arrowhead onto the line with the tip at (0.5,0.5), pointed at the same angle as the wiggle but 1/4 size.
 + `  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green.
   
-In the last line, see what happens as you change the **fill** value in the last line from 0,1,2,3,
-or change the **bold** value from 0 to 5.
+Play with the last line, and see what happens as you change the **fill** value between 0 and 3,
+and the **bold** value between 0 and 5.
 
+
+#### Fun with labels
+{::comment}
+/docs/misc/fplot/#fun-with-labels
+{:/comment}
+
+This exercise shows off many of **fplot**{: style="color: blue"}'s labelling capabilities.
+Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
+
+~~~
+fplot -p0 -font t18 
+#     -plaintext
+      -tp 2~0,0,1,1
+      -lt 1,bold=1 -tp 2~0.3,0,0.3,1
+      -lt 1,bold=1 -tp 2~0,0.4,1,0.4
+      -xl horizontal\'next_h (eV)' -yl 'vertical\next_v'
+      -lblu 0.3,0.2 rc '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
+      -lblu 0.3,0.7 lc '2^\{~\{b}}~\{P}_\{k^\{2}}=2^\{~\{a}}'
+      -lblu 0.3,0.4 ru 'Text above horizontal line'
+      -lblu 0.3,0.4 ld 'Text in ld orientation (eV)'
+
+      -lbl 0.5,.96 cc "subscript perpendicular symbol &\{k}_\{~\{\{\136}}}"
+      -lbl 0.3,.89 rc "brackets ~\{\{\341}}A~\{\{\361}}
+      -lbl 0.3,.84 rc "arrows ~\{\{\254}}|~\{\{\256}}|~\{\{\255}}|~\{\{\257}}
+
+
+Create and view the postscript file:
+
+~~~
+$ fplot -f plot.wiggle
+$ open fplot.ps
+~~~
+
+Notes:
+
++ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
 
 _____________________________________________________________
 
