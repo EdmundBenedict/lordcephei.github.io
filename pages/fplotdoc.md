@@ -150,21 +150,6 @@ Points to note:
   (There are five solutions where the two curves intersect.  As <i>V<sub>0</sub></i> increases the rhs becomes smaller and more solutions appear).
 + Tic marks on the _x_ axis are all the same size while those on the _y_ axis are suppressed.
 
-##### On the differences between fplot switches in a script file and on the command line
-
-When commands are read from a script file, some differences can appear.
-
-+ There is no unix wild-card expansion. Thus quotation marks are not necessary, though they can be used.
-+ Because scripts are run through the [file preprocessor](/docs/input/preprocessor/), the script system provides programming language capability and string substitution.
-
-The last figure in Example 2.1 can be equivalently made by
-<pre>
-$ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
-$ fplot -f myplot
-</pre>
-
-Note that the label now contains backslashes.  You must include the backslash to [suppress the file preprocessor's string substitution](/docs/misc/fplot/#file-preprocessor).
-
 #### Example 2.3. &nbsp; _Charge density contours in Cr_
 {::comment}
 /docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
@@ -393,7 +378,7 @@ _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
 _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
-[prepend the left bracket with a '**\\**'.](/docs/misc/fplot/#file-preprocessor) to avoid substitution by the preprocessor.
+[prepend the left bracket with a '**\\**'.](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
 
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
@@ -663,7 +648,7 @@ $ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k
 $ fplot -f myplot
 </pre>
 
-Note that the label now contains backslashes.  You must include the backslash to [suppress the file preprocessor's string substitution](/docs/misc/fplot/#file-preprocessor).
+Note that the label now contains backslashes.  You must include the backslash when the label appears in a script file.
 
 #### Color specification
 {::comment}
