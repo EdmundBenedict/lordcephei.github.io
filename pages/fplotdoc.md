@@ -449,7 +449,7 @@ plotted in a frame.
     + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**
     + **_n_**=3     &nbsp; dotted line
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
-  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line color, specified as [RGB](/docs/misc/fplot/#color-specification).
+  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
   + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 &nbsp; color line with color given by **col**
@@ -467,7 +467,7 @@ plotted in a frame.
 
 <i> </i>
 
-+ **-s _S_[~col=#,#,#][~clip][~bold=#][~fill=#]~_sym1_[,_sym2_ ..]** \\
++ **-s _S_[~col=#,#,#][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches are separated by **~** (or the character following **_S_**):
@@ -488,24 +488,24 @@ plotted in a frame.
 
   {::nomarkdown}<div>{:/}
 
-  <b><i>S</i></b> | index | sym1            | sym2                  | sym3               | sym4       | sym5           | sym6       |
-    x             | 1     | width+          | height+               |                    |            |                |            |
-    square        | 2     | width+          | height+               |                    |            |                |            |
-    diamond       | 3     | width+          | height+               |                    |            |                |            |
-    +             | 4     | width+          | height+               |                    |            |                |            |
-    polygon       | 5     | size            | number of sides       | angle+             |            |                |            |
-    circle        | 6     | radius+         |                       |                    |            |                |            |
-    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>       | head length        | head angle | axis proj      | placement+ |
-    errbar        | 8     | width           | height&times;<i>z</i> |                    |            |                |            |
-    timeline      | 9     | end height      | line thickness        | end thickness      |            |                |            |
-    hist          | 10    | width           |                       |                    |            |                |            |
-    row           | 11    | scale           | offset                |                    |            |                |            |
-    wiggle        | 12    | xtail           | ytail                 | # periods          | excursion  | # points       |            |
+  <b><i>S</i></b> | index | sym1                   | sym2                  | sym3               | sym4       | sym5           | sym6       |
+    x             | 1     | width&dagger;          | height&dagger;        |                    |            |                |            |
+    square        | 2     | width&dagger;          | height&dagger;        |                    |            |                |            |
+    diamond       | 3     | width&dagger;          | height&dagger;        |                    |            |                |            |
+    +             | 4     | width&dagger;          | height&dagger;        |                    |            |                |            |
+    polygon       | 5     | size            	   | number of sides       | angle&dagger;      |            |                |            |
+    circle        | 6     | radius&dagger;         |                       |                    |            |                |            |
+    arrow         | 7     | &Delta;<i>x</i> 	   | &Delta;<i>y</i>       | head length        | head angle | head-on-axis   | placement&dagger; |
+    errbar        | 8     | width           	   | height&times;<i>z</i> |                    |            |                |            |
+    timeline      | 9     | end height      	   | line thickness        | end thickness      |            |                |            |
+    hist          | 10    | width           	   |                       |                    |            |                |            |
+    row           | 11    | scale           	   | offset                |                    |            |                |            |
+    wiggle        | 12    | xtail           	   | ytail                 | # periods          | excursion  | # points       |            |
 
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  Attributes marked with "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
+  Attributes marked with "**&dagger;**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
   Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
   Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
   Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
@@ -513,7 +513,7 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the head as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **axis proj**  the head length along the arrow axis as a fraction of arrow length\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
   _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
@@ -688,17 +688,16 @@ is indicate it in the first line; see for example the charge density file _chgd.
 /docs/misc/fplot/#further-exercises
 {:/comment}
 
-#### 
+#### Error bars
 {::comment}
 /docs/misc/fplot/#error-bars
 {:/comment}
 
 You can specify error bars either through the `-s` command or through the `-ey` command.
 With the latter, you can use `-s` to draw a second symbol at the point.
-
 In either case you three columns of data are required, the third column containing the error bar.
 
-_Example_ : 
+_Example_ showing an error bar and a circle:
 
 ~~~
 fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
@@ -706,9 +705,9 @@ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,
 
 Points to note:
 
-+ No line is drawn connecting points: **lt 0** suppresses lines.
 + An error bar is drawn first, using column 3 for the size of the bar
 + A filled circle is drawn over the error bar.
++ No line is drawn connecting points: **lt 0** suppresses lines.
 
 #### Dot-dashed lines
 {::comment}
