@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
-title: "Site file syntax"
-permalink: "/docs/misc/sitefile/"
+title: "Site file"
+permalink: "/docs/input/sitefile/"
 header: no
 ---
 _____________________________________________________________
@@ -64,14 +64,19 @@ Usually the first line contains the lattice constant as well.  For example:
 ~~~
 
 This line tells the parser the following:
-+ **io=62** indicates that in addition to the basis vectors, information about
++ **io=62** indicates that in addition to the basis vectors, the following information is available for each site:
+  + velocities (needed for molecular dynamics)
+  + Euler angles (the noncollinear ASA code makes a rigid spin approximation; there quantization axis is fixed by a single rotation)
+  + Site potential shifts, also applicable to the ASA
+  + Principal layer index, for the layer Green's function code
+  + Three binary integers specifying which of Cartesian components are allowed to
+    change in spin or molecular dynamics
 + **xpos** indicates that the basis vectors are written as fractional multiples of lattice vectors.
   By default these vectors are written in Cartesian coordinates in units of the lattice constant **alat**.
 + **fast** tells the parser to omit reading the file through the preprocessor.  The read is much faster, but you lose the programming language capability of the preprocessor.
 + **nbas=64** tells the parser that there are 64 atoms in the crystal.
 + **alat=3** specifies the lattice constant.
 + **plat=...** specifies the lattice vectors, P<sub>1</sub>, followed by P<sub>2</sub> and P<sub>3</sub>.
-
 
 ### _Other resources_
 
