@@ -444,10 +444,10 @@ plotted in a frame.
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
   + **_n_**         &nbsp; line type
-    + **_n_**=0     &nbsp; (use this type when you want to draw symbols at a set of points without any connecting lines)
-    + **_n_**=1     &nbsp; solid, unbroken line
-    + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**
-    + **_n_**=3     &nbsp; dotted line
+    + **_n_**=0     &nbsp; No connecting line. Used to draw symbols at [points without any connecting lines](/docs/misc/fplot/#error-bars).
+    + **_n_**=1     &nbsp; solid, unbroken line.
+    + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**.
+    + **_n_**=3     &nbsp; dotted line.
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
   + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
   + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
@@ -456,7 +456,7 @@ plotted in a frame.
     + 2 &nbsp; fill the area inside of the curve with color
     + 3 &nbsp; both 1 and 2
   + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
-  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &nbsp; First dash length
     + **_lb_**      &nbsp; First space length
@@ -500,12 +500,12 @@ plotted in a frame.
     timeline      | 9     | end height      	   | line thickness        | end thickness      |            |                |            |
     hist          | 10    | width           	   |                       |                    |            |                |            |
     row           | 11    | scale           	   | offset                |                    |            |                |            |
-    wiggle        | 12    | xtail           	   | ytail                 | # periods          | excursion  | # points       |            |
+    wiggle        | 12    | &Delta;<i>x</i>        | &Delta;<i>y</i>       | periods            | excursion  | points         |            |
 
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  Attributes marked with "**&dagger;**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
+  Attributes marked with "&dagger;" are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
   Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
   Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
   Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
@@ -515,16 +515,17 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
-  f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
+  f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
   _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
+  See
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
   Symbol 12 (wiggle) draws a wiggly line:\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; number of periods\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; size of excursion about straight line\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) number of points to draw the symbol: more points make the symbol smoother.
+  &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the head (graphics units)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -537,7 +538,7 @@ plotted in a frame.
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
   _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
-  culls an array from rows 1,3,5,4 of the as-given data.  Rows for which the first column is value less than or equal to 4 are subsequently excluded.
+  culls an array from rows 1,3,5,4 of the original data.  If the abscissa is &nbsp;&le;4&nbsp; the row is excluded.
 
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
@@ -556,21 +557,21 @@ plotted in a frame.
   Elements in a fixed COLUMN comprise data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
   Elements in a fixed ROW commprise data on a uniform mesh parallel to ordinate, _f_(<i>x</i>=const,<i>y<sub>i</sub></i>).\\
   Bottom and top (left and right) edges of frame correspond to first and last columns (rows) of data.\\
-  Options separator **~** can be a different character such as **:** or **,**.
+  Options separator &nbsp;'**~**'&nbsp; can be a different character such as &nbsp;'**:**'&nbsp; or &nbsp;'**,**'.
   + **dup=#1[,#2]** Duplicate row (col) data #1 (#2) times
-  + **fn=_filename_** writes xy pen moves to file **_filename_**.
+  + **fn=_filename_** writes _xy_ pen moves to file **_filename_**.
   + **noclose** suppresses closing contours on boundaries.
-  See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.\\
 
+  See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.
 
 + **-r:switches [other DATA-switches] _data-file_**\\
-  tells **fplot**{: style="color: blue"} how to parse contents **_data-file_**
-  **switches** are optional; they are separated by a colon:
+  tells **fplot**{: style="color: blue"} how to parse contents **_data-file_**.\\
+  Optional **switches** are separated by a colon:
   + **nr=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; rows
   + **nc=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; columns
-  + **qr**        read with fortran read (fast, no algebra; useful for large files)
-  + **br**        read from binary file
-  + **s=#**       skips &nbsp;**#**&nbsp; records before reading
+  + **qr**        &nbsp;&nbsp;&nbsp;&nbsp;read with fortran read (fast, no algebra; useful for large files)
+  + **br**        &nbsp;&nbsp;&nbsp;&nbsp;read from binary file
+  + **s=#**       &nbsp; skips &nbsp;**#**&nbsp; records before reading data
   + **open**      leaves file open after reading.  Useful when reading muliple blocks of data from a single file.
 + **-nc=_n_**\\
   same function as **-r_nc=#**
@@ -580,14 +581,14 @@ plotted in a frame.
   same function as **-r:br**
 
 + **-ord _expr_**\\
-  substitute **expr** for the ordinate. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above shows some examples.
+  substitute **_expr_** for the ordinate. See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for examples.
 + **-ab  _expr_**\\
-  substitute **expr** for the abscissa.\\
-  Expression can contain variables **x_j_*# where **_j_** is column j
+  substitute **_expr_** for the abscissa.\\
+  Expression can contain variables &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
 + **-abf _expr_**\\
   maps numbering and tic marks on abscissa to **expr**
 + **-col _cx_,_cy_[,_cw_]**\\
-  Use column **_cx_** for the abscissa and column **_cy_** for the ordinate.
+  Use column **_cx_** for the abscissa and column **_cy_** for the ordinate
 
 + **-colsy _list_**\\
   make a family of _xy_ plots for columns in list.
@@ -694,17 +695,15 @@ is indicate it in the first line; see for example the charge density file _chgd.
 /docs/misc/fplot/#error-bars
 {:/comment}
 
-You can specify error bars either through the `-s` command or through the `-ey` command.
-With the latter, you can use `-s` to draw a second symbol at the point.
-In either case you three columns of data are required, the third column containing the error bar.
+You can specify error bars for each _xy_ pair through either the `-s` command or the `-ey` command.
+With the latter you can use `-s` to draw a second symbol at the point.
+In either case three columns of data are required, the third column containing the error bar.
 
 _Example_ showing an error bar and a circle:
 
 ~~~
 fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
-
-Points to note:
 
 + An error bar is drawn first, using column 3 for the size of the bar
 + A filled circle is drawn over the error bar.
@@ -724,8 +723,8 @@ a horizontal dashed line.  Try substituting the following line type for the dash
 
 It should generate a dot-dashed line.  The sequence **1,.5,.3,.5** specifies
 the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash length 0.5.
-In this case a second sequence (**.3,.5**) is present.  This specifies a (line,space) pair of **1,.5,**
-is followed by a (line,space) pair of **.3,.5,**.  The sequences alternate.
+In this case a second sequence (**.3,.5**) is present.  This specifies that (line,space) pair of **1,.5,**
+and (line,space) pair of **.3,.5,** are drawn in alternation.
 
 _____________________________________________________________
 
