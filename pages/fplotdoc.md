@@ -597,8 +597,11 @@ plotted in a frame.
 + **-colsw _list_**\\
   corresponding list of columns for (color) weights.
 
-+ **-ey #[,dx,shfty]**\\
-  Use this switch to make error bars in _y_ from one column of data. Column **#** contains the error bar.
++ **-ey _n_[,&Delta;,_yshft_]**\\
+  Add error bars to each point in the next **_data-file_**.\\
+  The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
+  Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the 
+  point center by **_yshft_**.  For example, see [Further exercises](/docs/misc/fplot/#error-bars).
 
 + **-ins _strn_**\\
   insert **_strn_** directly into output postscript file.
@@ -641,10 +644,9 @@ backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but l
 
 This is necessary when you need curly bracket so that
  **fplot**{: style="color: blue"} can [substitute fonts](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in labels.
-
-The last figure in Example 2.1 can be equivalently made by
+For example, the last figure in Example 2.1 can be equivalently made by
 <pre>
-$ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
+$ echo fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
 $ fplot -f myplot
 </pre>
 
@@ -673,18 +675,40 @@ is indicate it in the first line; see for example the charge density file _chgd.
 ...
 ~~~
 
-**fplot**{: style="color: blue"} can be stipulated in the data file as shown, but it isn't required.
+**nr** and **nc** can be stipulated in the data file as shown, but the information can be also obtained in other ways.
 
 + The reader checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
 + Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** nor **nc**.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works out the number of rows from the file contents.
 + If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
-  For the particular file _chgd.cr_{: style="color: green"} **fplot**{: style="color: blue"} would infer **nc**=4: so **nc** must be stipulated in this case.
+  For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
 
 ### 5. _Further exercises_
 {::comment}
 /docs/misc/fplot/#further-exercises
 {:/comment}
+
+#### 
+{::comment}
+/docs/misc/fplot/#error-bars
+{:/comment}
+
+You can specify error bars either through the `-s` command or through the `-ey` command.
+With the latter, you can use `-s` to draw a second symbol at the point.
+
+In either case you three columns of data are required, the third column containing the error bar.
+
+_Example_ : 
+
+~~~
+fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
+~~~
+
+Points to note:
+
++ No line is drawn connecting points: **lt 0** suppresses lines.
++ An error bar is drawn first, using column 3 for the size of the bar
++ A filled circle is drawn over the error bar.
 
 #### Dot-dashed lines
 {::comment}
