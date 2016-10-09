@@ -150,8 +150,11 @@ Points to note:
   (There are five solutions where the two curves intersect.  As <i>V<sub>0</sub></i> increases the rhs becomes smaller and more solutions appear).
 + Tic marks on the _x_ axis are all the same size while those on the _y_ axis are suppressed.
 
+##### On the differences between fplot switches in a script file and on the command line
+
 When commands are read from a script file, some differences can appear.
-+ There is no unix wild-card expansion; quotation marks are not necessary.
+
++ There is no unix wild-card expansion. Thus quotation marks are not necessary, though they can be used.
 + Because scripts are run through the [file preprocessor](/docs/input/preprocessor/), the script system provides programming language capability and string substitution.
 
 The last figure in Example 2.1 can be equivalently made by
@@ -461,7 +464,7 @@ plotted in a frame.
     + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through **_la_** and **_lb_**
     + **_n_**=3     &nbsp; dotted line
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
-  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [line color](/docs/misc/fplot/#color-specification).
+  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line color, specified as [RGB](/docs/misc/fplot/#color-specification).
   + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 &nbsp; color line with color given by **col**
@@ -474,7 +477,7 @@ plotted in a frame.
     + **_lb_**      &nbsp; First space length
     + **_lc_**      &nbsp; Second dash length
     + **_ld_**      &nbsp; Second space length\\
-    You can enter anywhere between 0 and 4 numbers. If less then three numbers are given, a simple a dashed line will result.
+    You can enter anywhere between 0 and 4 numbers. If fewer then three numbers are given, a simple a dashed line will result.\\
     Try [this exercise](/docs/misc/fplot/#dot-dashed-lines).
 
 <i> </i>
@@ -517,11 +520,11 @@ plotted in a frame.
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  a  Attributes marked with "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
-  b. Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
-  c. Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
-  d. Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
-  e. Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
+  Attributes marked with "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
+  Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
+  Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
+  Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
+  Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the head as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
@@ -529,13 +532,13 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
   _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
-  g. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
-  h. Symbol 10 (histogram) not documented.\\
-  i. Symbol 11 (row)  not documented.\\
-  j. Symbol 12 (wiggle) draws a wiggly line\\
+  Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
+  Symbol 10 (histogram) not documented.\\
+  Symbol 11 (row)  not documented.\\
+  Symbol 12 (wiggle) draws a wiggly line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; number of periods\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; size of excursion about straight line)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) number of points to draw the symbol: extra points make the symbol smoother.
 
 + **-l[0] _legend_**\\
@@ -549,8 +552,8 @@ plotted in a frame.
   permutes rows original data array defined by **_list_**.\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from**_list_**.\\
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
-  _Example_ : &nbsp;&nbsp **-map -i 'x<=4' 1,3,5,4**\\
-  This will return a data array of at most 4 rows (rows 1,3,5,4); additionally any of the new list is excluded if the first column is less than or equal to 4.
+  _Example_ : &nbsp;&nbsp; **-map -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
+  This culls a new array from the raw data (rows 1,3,5,4). Rows for which the first column is value less than or equal to 4 are excluded.
 
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
@@ -636,12 +639,31 @@ _____________________________________________________________
 Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/).
 This provides programming capability in the script files.
 
-_Curly brackets_ : the preprocessor interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions)
-and substitutes them.
-However **fplot**{: style="color: blue"} uses curly brackets to
-[substitute fonts](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in labels.  To keep the curly
-bracket pair and its contents intact, you must suppress the preprocessor's expression substitution.  Do this by prepending **{strn}** with a
+##### On the differences between fplot switches in a script file and on the command line
+{::comment}
+/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line
+{:/comment}
+
+When commands are read from a script file, they can behave differently than when appearing on the command-line.
+
+_Wild card expansion_ : there is no unix wild-card expansion in a script file. 
+Thus quotation marks to inhibit wild card expansion are not necessary, though they can be used.
+
+_Curly brackets_ : scripts are run through the [file preprocessor](/docs/input/preprocessor/), 
+which interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and substitutes them.
+To keep the curly bracket pair and its contents intact, you must suppress the preprocessor's expression substitution.  Do this by prepending **{strn}** with a
 backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
+
+This is necessary when you need curly bracket so that
+ **fplot**{: style="color: blue"} can [substitute fonts](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in labels.
+
+The last figure in Example 2.1 can be equivalently made by
+<pre>
+$ echo fplot  -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
+$ fplot -f myplot
+</pre>
+
+Note that the label now contains backslashes.  You must include the backslash to [suppress the file preprocessor's string substitution](/docs/misc/fplot/#file-preprocessor).
 
 #### Color specification
 {::comment}
