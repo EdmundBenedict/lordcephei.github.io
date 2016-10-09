@@ -468,15 +468,14 @@ plotted in a frame.
     + 2 &nbsp; fill the area inside of the curve with color
     + 3 &nbsp; both 1 and 2
   + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
-  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &nbsp; First dash length
     + **_lb_**      &nbsp; First space length
     + **_lc_**      &nbsp; Second dash length
-    + **_ld_**      &nbsp; Second space length
-
-  You can enter anywhere between 0 and 4 numbers. If only **_la_** or **_la_** and **_lb_** are present, a simple a dashed line will result.
-  Try [this exercise](/docs/misc/fplot/#dot-dashed-lines).
+    + **_ld_**      &nbsp; Second space length\\
+    You can enter anywhere between 0 and 4 numbers. If less then three numbers are given, a simple a dashed line will result.
+    Try [this exercise](/docs/misc/fplot/#dot-dashed-lines).
 
 <i> </i>
 
@@ -501,34 +500,34 @@ plotted in a frame.
 
   {::nomarkdown}<div>{:/}
 
-  <b><i>S</i></b> | index | sym1       		| sym2              | sym3               | sym4       | sym5           | sym6      |
-    x             | 1     | width+          | height            |                    |            |                |           |
-    square        | 2     | width      		| height            |                    |            |                |           |
-    diamond       | 3     | width      		| height            |                    |            |                |           |
-    +             | 4     | width      		| height            |                    |            |                |           |
-    polygon       | 5     | size       		| number of sides   | angle              |            |                |           |
-    circle        | 6     | radius     		|                   |                    |            |                |           |
-    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   | _head length_      | _head angle_ | _axis proj_    | _shift_   |
-    errbar        | 8     | width           | height&times;z    |                    |             |                |           |
-    timeline      | 9     | end height 		| line thickness    | end thickness      |            |                |           |
-    hist          | 10    | width      		|                   |                    |            |                |           |
-    row           | 11    | scale      		| offset            |                    |            |                |           |
-    wiggle        | 12    | xtail      		| ytail             | # periods          | excursion  | # pts          | placement |
+  <b><i>S</i></b> | index | sym1       		| sym2              	| sym3               | sym4       | sym5           | sym6      |
+    x             | 1     | width+          | height+           	|                    |            |                |           |
+    square        | 2     | width+     		| height+           	|                    |            |                |           |
+    diamond       | 3     | width+     		| height+           	|                    |            |                |           |
+    +             | 4     | width+     		| height+           	|                    |            |                |           |
+    polygon       | 5     | size       		| number of sides   	| angle+             |            |                |           |
+    circle        | 6     | radius+    		|                   	|                    |            |                |           |
+    arrow         | 7     | &Delta;<i>x</i> | &Delta;<i>y</i>   	| head length        | head angle | axis proj      | shift+    |
+    errbar        | 8     | width           | height&times;<i>z</i> |                    |            |                |           |
+    timeline      | 9     | end height 		| line thickness    	| end thickness      |            |                |           |
+    hist          | 10    | width      		|                   	|                    |            |                |           |
+    row           | 11    | scale      		| offset            	|                    |            |                |           |
+    wiggle        | 12    | xtail      		| ytail             	| # periods          | excursion  | # pts          | placement |
 
   {::nomarkdown}</div>{:/}
 
   Notes on the Table:\\
-  a . Where feasible symbol attributes take default values if not specified.  **sym1** defaults to 1.\\
-  b. Symbols 1-4 have a optional width and height attribute given by **sym1** and **sym2**. (Note **square** can be a rectangle). **sym2** defaults to **sym1**.\\
-  c. Symbol 5 requires two attributes : size and number of sides.  The third attribute (angle of 1st point) is optional.\\
-  d. Symbol 6 uses only one attribute.  Its default value is 1.\\
+  a  Attributes marked by "**+**' are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
+  b. Symbols 1-4 have a width and height given by **sym1** and **sym2** (note **square** can be a rectangle).\\
+  c. Symbol 5 (polygon) has an third attribute, which sets the angle of 1st point relative to the vertical.\\
+  d. Symbol 6 (circle) requires no attributes be specified.\\
   e. Symbol 7 draws arrows with the tip at (_x_, _y_).  It requires five attributes:\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the tip (graphics units)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp; _head length_ is the size of the head as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp; _head angle_ is the angle subtended by the arrowhead\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp; _axis proj_  the head length along the arrow axis as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp; optional _shift_ shifts the head so that ...\\
-  e. Symbol 8 \\
+  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the head as a fraction of arrow length\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **axis proj**  the head length along the arrow axis as a fraction of arrow length\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **shift** shifts the head so that ...\\
+  e. Symbol 8 (error bar) puts error bars at each point. **<i>data-file</i>** must have a third (**_z_**) column of data.\\
   f. Symbol 9 requires three numbers _x_, _y_, _z_ for each point.\\
   g. Symbol 10 requires three numbers _x_, _y_, _z_ for each point.\\
   h. Symbol 11 \\
