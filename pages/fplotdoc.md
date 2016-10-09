@@ -707,10 +707,10 @@ In either case three columns of data are required, the third column containing t
 Example showing an error bar and a circle:
 
 ~~~
-fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
+$ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
 
-+ An error bar is drawn first, using column 3 for the size of the bar
++ An error bar is drawn first, using column 3 (-ey 3,.75) and to the size of the error bar, and scaling the width by 0.75.
 + A filled circle is drawn over the error bar.
 + No line is drawn connecting points: **lt 0** suppresses lines.
 
@@ -773,7 +773,7 @@ and the **bold** value between 0 and 5.
 {:/comment}
 
 This exercise shows off many of **fplot**{: style="color: blue"}'s labelling capabilities.
-Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
+Cut and paste the box below into script file _plot.text_{: style="color: green"}.
 
 ~~~
 fplot -p0 -font t18 
@@ -795,13 +795,17 @@ fplot -p0 -font t18
 Create and view the postscript file:
 
 ~~~
-$ fplot -f plot.wiggle
+$ fplot -f plot.text
 $ open fplot.ps
 ~~~
 
-Notes:
+Note the following:
 
-+ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
++ the '\\' in the _x_ and _y_ labels `(-xl horizontal\)` and `-yl 'vertical\'
+  creates a newline.
++ the Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`)
++ right-  and upper- (`'Text above horizontal line'`); and left- and lower- (`'Text in ld orientation (eV)'`) types of justification
++ Special symbols brackets (`~\{\{\341}}A~\{\{\361}}`) and arrows (`~\{\{\254}}|~\{\{\256}}|~\{\{\255}}|~\{\{\257}}`)
 
 _____________________________________________________________
 
