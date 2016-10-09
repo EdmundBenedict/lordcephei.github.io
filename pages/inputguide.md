@@ -641,16 +641,16 @@ GFOPTS | c | ASA | Y | | ASCII string with switches governing execution of lmgf 
 {::nomarkdown}</div>{:/}
 
 ##### _SITE_
-Category SITE holds site information. As in the SPEC category, tokens must read for each site entry, and a similar restriction applies as to the order of tokens. Token ATOM= must be the first token for each site, and all tokens defining parameters for that site must occur before a subsequent ATOM=.
+Category SITE holds site information. As in the SPEC category, tokens must read for each site entry; a similar restriction applies to the order of tokens. Token ATOM= must be the first token for each site, and all tokens defining parameters for that site must occur before a subsequent ATOM=.
 
 <div onclick="elm = document.getElementById('sitetable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="sitetable">{:/}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | Provides a mechanism to read site data from a separate file. File subs/iosite.f documents the syntax of the site file structure.<br>The reccommended (standard) format has the following syntax:<br><br>The first line should contain a ‘%’ in the first column, and a `version’ token vn=#.<br>Structural data (see category STRUC documentation) may also be put in this line. Each subsequent line supplies input for one site. In the simplest format, a line would would have the following:<br>spid x y z<br>where spid is the species identifier (same information would otherwise be specified by token ATOM= below) and x y z are the site positions.<br><br>Examples: fp/test/test.fp er and fp/test/test.fp tio2<br><br>Bug: when you read site data from an alternate file, the reader doesn’t compute the reference energy.<br><br>Kotani format (documented here but no longer maintained) In this alternative format the first four lines always specify data read in the STRUC category; see FILE= in STRUC.<br>Then follow lines, one line for each site<br>ib iclass spid x y z<br>The first number is merely a basis index and should increment 1,2,3,4,… in successive lines. The second class index is ignored by these programs. The remaining columns are the species identifier for the site positions.<br><br>If SITE_FILE is missing, the following are read from the ctrl file:
+FILE | c | all | Y | | Provides a mechanism to read site data from a separate file. File subs/iosite.f documents the syntax of the site file structure.<br>The reccommended (standard) format has the following syntax:<br><br>The first line should contain a ‘%’ in the first column, and a `version’ token vn=#.<br>Structural data (see category STRUC documentation) may also be included in this line. Each subsequent line supplies input for one site. In the simplest format, a line would have the following:<br>spid x y z<br>where spid is the species identifier (same information would otherwise be specified by token ATOM= below) and x y z are the site positions.<br><br>Examples: fp/test/test.fp er and fp/test/test.fp tio2<br><br>Bug: when you read site data from an alternate file, the reader doesn’t compute the reference energy.<br><br>Kotani format (documented here but no longer maintained). In this alternative format the first four lines always specify data read in the STRUC category; see FILE= in STRUC.<br>Then follow lines, one line for each site<br>ib iclass spid x y z<br>The first number is merely a basis index and should increment 1,2,3,4,… in successive lines. The second class index is ignored by these programs. The remaining columns are the species identifier for the site positions.<br><br>If SITE_FILE is missing, the following are read from the ctrl file:
 ATOM | c | all | N | | Identifies the species (by label) to which this atom belongs. It is a fatal error for the species not to have been defined.
-ATOM\_POS | r1 r2 r3 | all | N | | the basis vector (length 3), in dimensionless Cartesian coordinates. As with the primitive lattice translation vectors, the true vectors (in atomic units) are scaled from these by ALAT in category STRUC.<br>NB: XPOS and POS are alternative forms of input. One or the other is required.
+ATOM\_POS | r1 r2 r3 | all | N | | The basis vector (length 3), in dimensionless Cartesian coordinates. As with the primitive lattice translation vectors, the true vectors (in atomic units) are scaled from these by ALAT in category STRUC.<br>NB: XPOS and POS are alternative forms of input. One or the other is required.
 ATMOM\_XPOS | r1 r2 r3 | all | N | | Atom coordinates, as (fractional) multiples of the lattice vectors.<br>NB: XPOS and POS are alternative forms of input. One or the other is required.
 ATOM\_DPOS | r1 r2 r3 | all | Y | 0 0 0 | Shift in atom coordinates to POS
 ATOM\_RELAX | i1 i2 i3 | all | Y | 1 1 1 | Relax site positions (lattice dynamics or molecular statics) or Euler angles (spin dynamics)
@@ -661,7 +661,7 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 {::nomarkdown}</div>{:/}
 
 ##### _SPEC_
-Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For that reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=; input of tokens specific to that species must precede the next occurence of ATOM=.  
+Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=; input of tokens specific to that species must precede the next occurence of ATOM=.  
 
 The following four species apply to the automatic sphere resizer:
 
@@ -692,18 +692,18 @@ R/W | r | all | N | | R/W= ratio of the augmentation sphere radius to the averag
 R/A | r | all | N | | R/A = ratio of the aumentation sphere radius to the lattice constant
 A | r | all | Y | | Radial mesh point spacing parameter. All programs dealing with augmentation spheres represent the density on a shifted logarithmic radial mesh. The ith point on the mesh is $ r_i $ = b[exp(a(i−1)−1]. b is determined from the number of radial mesh points specified by NR.
 NR | i | all | Y | Depends on other input | Number of radial mesh points
-LMX | i | all | Y | | basis l-cutoff inside the sphere. If not specified, it defaults to NL−1
+LMX | i | all | Y | | Basis l-cutoff inside the sphere. If not specified, it defaults to NL−1
 RSMH | r | lmf, lmfgwd | Y | 0 | Smoothing radii defining basis, one radius for each l.<br>RSMH and EH together define the shape of basis function in lmf.<br>To optimize, try running lmf with --optbas
 EH | r | lmf, lmfgwd | Y | | Hankel energies for basis, one energy for each l. RSMH and EH together define the shape of basis function in lmf.
 RSMH2 | r | lmf, lmfgwd | Y | 0 | Basis smoothing radii, second group
 EH2 | r | lmf, lmfgwd | Y | | Basis Hankel function energies, second group
-LMXA | i | FP | Y | NL - 1 | angular momentum l-cutoff for projection of wave functions tails centered at other sites in this sphere.<br>Must be at least the basis l-cutoff (specified by LMX=).
-IDXDN | i | ASA | Y | 1 | a set of integers, one for each l-channel marking which orbitals should be downfolded.<br>0 use automatic downfolding in this channel.<br>1 leaves the orbitals in the basis.<br>2 folds down about the inverse potential function at $ E_ν $ <br>3 folds down about the screening constant alpha.<br>In the FP case, 1 includes the orbital in the basis; >1 removes it
+LMXA | i | FP | Y | NL - 1 | Angular momentum l-cutoff for projection of wave functions tails centered at other sites in this sphere.<br>Must be at least the basis l-cutoff (specified by LMX=).
+IDXDN | i | ASA | Y | 1 | A set of integers, one for each l-channel marking which orbitals should be downfolded.<br>0 use automatic downfolding in this channel.<br>1 leaves the orbitals in the basis.<br>2 folds down about the inverse potential function at $ E_ν $ <br>3 folds down about the screening constant alpha.<br>In the FP case, 1 includes the orbital in the basis; >1 removes it
 KMXA | i | lmf, lmfgwd | Y | 3 | Polynomial cutoff for projection of wave functions in sphere.<br>Smoothed Hankels are expanded in polynomials around other sites instead of Bessel functions as in the case of normal Hankels.
 RSMA | r | lmf, lmfgwd | Y | R * 0.4 | Smoothing radius for projection of smoothed Hankel tails into augmentation spheres. sm-Hankels are expanded in polynomials by integrating with Gaussians at that site. Thus RSMA=0 => sm-Hankels Taylor series expansion about the origin. For large KMXA the choice is irrelevant, but RSMA is best chosen that maximizes the convergence of sm-Hankels with KMXA.
 LMXL | i | lmf, lmfgwd | Y | NL - 1 | Angular momentum l-cutoff for explicit representation of local charge on a radial mesh.
 RSMG | r | lmf, lmfgwd | Y | R/4 | Smoothing radius for Gaussians added to sphere densities to correct multipole moments needed for electrostatics. Value should be as large as possible but small enough that the Gaussian doesn’t spill out significantly beyond rmt.
-LFOCA | i | FP | Y | 1 | Prescribes how the core density is treated.<br><br>0 confines core to within RMT. Usually the least accurate.<br>1 treats the core as frozen but lets it spill into the interstitial<br>2 same as 1, but interstitial contribution to vxc treated perturbatively.
+LFOCA | i | FP | Y | 1 | Prescribes how the core density is treated.<br>0 confines core to within RMT. Usually the least accurate.<br>1 treats the core as frozen but lets it spill into the interstitial<br>2 same as 1, but interstitial contribution to vxc treated perturbatively.
 RFOCA | r | FP | Y | R * 0.4 | Smoothing radius fitting tails of core density. A large radius produces smoother interstitial charge, but less accurate fit.
 RSMFA | r | FP | Y | R/2 | Smoothing radius for tails of free-atom charge density. <br>Irrelevant except first iteration only (non-self-consistent harris).<br>A large radius produces smoother interstitial charge, but somewhat less accurate fit.
 RS3 | r | FP | Y | 1 | Minimum allowed smoothing radius for local orbital
@@ -716,17 +716,17 @@ IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter $ P_l $ to band ce
 CSTRMX | 1 | all | Y | F | Set to T to exclude this species when automatically resizing sphere radii
 GRP2 | i | ASA | Y | 0 | Species with a common nonzero value of GRP2 are symmetrized, independent of symmetry operations.<br>The sign of GRP2 is used as a switch, so species with negative GRP2 are symmetrized but with spins flipped (NSPIN=2)
 FRZWF | 1 | FP | Y | F | Set to freeze augmentation wave functions for this species
-IDU | i | all | Y | 0 0 0 0 | LDA+U mode:<br><br>0 No LDA+U<br>1 LDA+U with Around Mean Field limit double counting<br>2 LDA+U with Fully Localized Limit double counting<br>3 LDA+U with mixed double counting
+IDU | i | all | Y | 0 0 0 0 | LDA+U mode:<br>0 No LDA+U<br>1 LDA+U with Around Mean Field limit double counting<br>2 LDA+U with Fully Localized Limit double counting<br>3 LDA+U with mixed double counting
 UH | r | all | Y | 0 0 0 0 | Hubbard U for LDA+U
 JH | r | all | Y | 0 0 0 0 | Exchange parameter J for LDA+U
 EREF= | r | all | Y | 0 | Reference energy subtracted from total energy
 AMASS= | r | FP | Y | | Nuclear mass in a.u. (for dynamics)
 C-HOLE | c | lmf, lm | Y | | Channel for core hole. You can force partial core occupation.<br>Syntax consists of two characters, the principal quantum number and the second one of `s’,`d’,`d’,`f’ for the l quantum number, e.g. `2s’<br>See Partially occupied core holes for description and examples.<br><br>Default: nothing
 C-HQ | r[,r] | all | Y | -1 0 | First number specifies the number of electrons to remove from the l channel specified by C-HOLE=.<br>Second (optional) number specifies the hole magnetic moment.<br>See Partially occupied core holes for description and examples.
-P | r,r,... | all | Y | | starting values for potential functions, one for each of l=0..LMXA<br><br>Default: taken from an internal table.
+P | r,r,... | all | Y | | Starting values for potential functions, one for each of l=0..LMXA<br><br>Default: taken from an internal table.
 PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential functions, one for each of l=0..LMX. Setting PZ=0 for any l means that no local orbital is specified for this l. Each integer part of PZ must be either one less than P (semicore state) or one greater (high-lying state).
-Q | r,r,... | all | Y | | charges for each l-channel making up free-atom density<br><br>Default: taken from an internal table.
-MMON | r,r,... | all | Y | 0 | magnetic moments for each l-channel making up free-atom density<br>Relevant only for the spin-polarized case.
+Q | r,r,... | all | Y | | Charges for each l-channel making up free-atom density<br><br>Default: taken from an internal table.
+MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up free-atom density<br>Relevant only for the spin-polarized case.
 
 {::nomarkdown}</div>{:/}
 
@@ -739,20 +739,20 @@ Category STR contains information connected with real-space structure constants,
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 RMAXS | r | all | Y | | Radial cutoff for strux, in a.u.<br>If token is not parsed, attempt to read the following:
-RMAX | r | all | Y | 0 | the maximum sphere radius (in units of the average WSR) over which neighbors will be included in the generation of structure constants. <br>This takes a default value and is not required input. It is an interesting exercise to see how much the structure constants and eigenvalues change when this radius is increased.
+RMAX | r | all | Y | 0 | The maximum sphere radius (in units of the average WSR) over which neighbors will be included in the generation of structure constants. <br>This takes a default value and is not required input. It is an interesting exercise to see how much the structure constants and eigenvalues change when this radius is increased.
 NEIGHB | i | FP | Y | 30 | Minimum number of neighbors in cluster
-ENV\_MODE | i | all | Y | 0 | Type of envelope functions:<br><br>0 2nd generation<br>1 SSSW (3rd generation)<br>2 NMTO<br>3 SSSW and val-lap basis
+ENV\_MODE | i | all | Y | 0 | Type of envelope functions:<br>0 2nd generation<br>1 SSSW (3rd generation)<br>2 NMTO<br>3 SSSW and val-lap basis
 ENV\_NEL | i | lm, lmstr | Y | | (NMTO only) Number of NMTO energies
 ENV\_EL | r | lm, lmstr | N | 0 | SSSW of NMTO energies, in a.u.
 DELRX | r | ASA | Y | 3 | Range of screened function beyond last site in cluster
 TOLG | r | FP | Y | 1e-6 | Tolerance in l=0 gaussians, which determines their range
 RVL/R | r | all | Y | 0.7 | Radial cutoff for val-lap basis (this is experimental)
 VLFUN | i | all | Y | 0 | Functions for val-lap basis (this is experimental)<br>0 G0 + G1<br>1 G0 + Hsm<br>2 G0 + Hsm-dot
-MXNBR | i | ASA | Y | 0 | make lmstr allocate enough memory in dimensioning arrays for MXNBR neighbors in the neighbor table. This is rarely needed
+MXNBR | i | ASA | Y | 0 | Make lmstr allocate enough memory in dimensioning arrays for MXNBR neighbors in the neighbor table. This is rarely needed
 SHOW | 1 | lmstr | Y | F | Show strux after generating them
-EQUIV | 1 | lmstr | Y | F | if true, try to find equivalent neighbor tables, to reduce the computational effort in generating strux.<br>Not generally recommended
+EQUIV | 1 | lmstr | Y | F | If true, try to find equivalent neighbor tables, to reduce the computational effort in generating strux.<br>Not generally recommended
 LMAXW | i | lmstr | Y | -1 | l-cutoff for (optional) Watson sphere, used to help localize strux
-DELRW | r | lmstr | Y | 0.1 | range extending beyond cluster radius for Watson sphere
+DELRW | r | lmstr | Y | 0.1 | Range extending beyond cluster radius for Watson sphere
 IINV\_NIT= | i | lmstr | Y | 0 | Number of iterations
 IINV\_NCUT | i | lmstr | Y | 0 | Number of sites for inner block
 IINV\_TOL | r | lmstr | Y | 0 | Tolerance in errors
@@ -769,15 +769,15 @@ Category START is specific to the ASA. It controls whether the code starts with 
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-BEGMOM | i | ASA | Y | 1 | when true, causes program lm to begin with moments from which potential parameters are generated. If false, the potential parameters are used and the program proceeds directly to the band calculation.
-FREE | 1 | ASA | Y | F | is intended to facilitate a self-consistent free-atom calculation. When FREE is true, the program uses rmax=30 for the sphere radius rather than whatever rmax is passed to it; the boundary conditions at rmax are taken to be value=slope=0 (rmax=30 should be large enough that these boundary conditions are sufficiently close to that of a free atom.); subroutine atscpp does not calculate potential parameters or save anything to disk; and lm terminates after all the atoms have been calculated.
+BEGMOM | i | ASA | Y | 1 | When true, causes program lm to begin with moments from which potential parameters are generated. If false, the potential parameters are used and the program proceeds directly to the band calculation.
+FREE | 1 | ASA | Y | F | Is intended to facilitate a self-consistent free-atom calculation. When FREE is true, the program uses rmax=30 for the sphere radius rather than whatever rmax is passed to it; the boundary conditions at rmax are taken to be value=slope=0 (rmax=30 should be large enough that these boundary conditions are sufficiently close to that of a free atom.); subroutine atscpp does not calculate potential parameters or save anything to disk; and lm terminates after all the atoms have been calculated.
 CNTROL | 1 | ASA | Y | F | 	When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
 ATOM | c | ASA | Y | | Class label. P,Q (and possibly other data) is given by class.<br>Tokens following a class label and preceding the next class label belong to that class.
-ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br<br>>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
+ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br<br>>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have been read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
 RDVES | 1 | ASA | Y | F | Read Ves(RMT) from the START category along with P,Q
 ATOM\_ENU | r | ASA | Y | | Linearization energies
 
-How the parser reads P,Q
+How the parser reads P,Q: 
 Remember that knowledge of P,Q is sufficient to completely determine the ASA density.
 Thus the ASA codes use several ways to read these important quantities.
 
@@ -823,12 +823,12 @@ In such cases, you want to pick P low, but not so low as to cause problems.
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | provides a mechanism to read structural data from an independent file using alternate input styles.<br>If SITE is not present in the STRUC category, NBAS, PLAT and ALAT are read from the ctrl file.<br><br>File subs/iosite.f documents the syntax of the file structure.<br><br>The first line should contain a "% sign and a "version" token vn=#. On the same line, supply tokens nbas= and plat=, similar to the input file.<br>You can also include alat on this line.<br>If you omit it, alat is read from ALAT in the ctrl file.<br>Example: % vn=3.0 nbas=7 plat= -0.5 0.5 1 0.5 -0.5 1 0.5 0.5 1<br><br>Following the header line comes a table of site positions other site-related stuff. That table is not read in the STRUC category. To read site data from this file, specify FILE in the SITE category.<br><br>Kotani format (documented here but no longer maintained) The first line should contain a "%" sign and a "version" token vn=kotani. Then follow four lines containing real numbers:<br><br> #        <-- alat<br> # # #     <-- plat(1,1) plat(2,1) plat(3,1)<br> # # #     <-- plat(1,2) plat(2,2) plat(3,2)<br> # # #     <-- plat(1,3) plat(2,3) plat(3,3)
+FILE | c | all | Y | | Provides a mechanism to read structural data from an independent file using alternate input styles.<br>If SITE is not present in the STRUC category, NBAS, PLAT and ALAT are read from the ctrl file.<br><br>File subs/iosite.f documents the syntax of the file structure.<br><br>The first line should contain a "% sign and a "version" token vn=#. On the same line, supply tokens nbas= and plat=, similar to the input file.<br>You can also include alat on this line.<br>If you omit it, alat is read from ALAT in the ctrl file.<br>Example: % vn=3.0 nbas=7 plat= -0.5 0.5 1 0.5 -0.5 1 0.5 0.5 1<br><br>Following the header line comes a table of site positions other site-related stuff. That table is not read in the STRUC category. To read site data from this file, specify FILE in the SITE category.<br><br>Kotani format (documented here but no longer maintained) The first line should contain a "%" sign and a "version" token vn=kotani. Then follow four lines containing real numbers:<br><br> #        <-- alat<br> # # #     <-- plat(1,1) plat(2,1) plat(3,1)<br> # # #     <-- plat(1,2) plat(2,2) plat(3,2)<br> # # #     <-- plat(1,3) plat(2,3) plat(3,3)
 ALAT | r | all | N | | A scaling, in atomic units, of the primitive translation and basis vectors
 NBAS | i | all | N | | Size of the basis
 PLAT | r | all | N | | (dimensionless) primitive translation vectors
 NSPEC | i | all | Y | | Number of atom species
-DALAT | r | all | Y | 0 | is added to ALAT. Useful because the average Wigner-Seitz radius W is computed from ALAT, so quantities scaled by W are fixed while ALAT varies.<br>NB: this token is Not Particularly Useful for the ASA, since spheres must be space-filling.
+DALAT | r | all | Y | 0 | Is added to ALAT. Useful because the average Wigner-Seitz radius W is computed from ALAT, so quantities scaled by W are fixed while ALAT varies.<br>NB: this token is Not Particularly Useful for the ASA, since spheres must be space-filling.
 NL= | i | all | Y | 3 | Sets a global default value for l-cutoffs $ l^(cut) $ : NL = [1 + $ l^(cut) $]. This default is used for both the basis and augmentation cutoffs.
 SHEAR | r | all | Y | | Enables shearing of the lattice in a volume-conserving manner. For SHEAR=#1,#2,#3,#4, #4 is the distortion amplitude, and #1,#2,#3 are a direction vector.<br><br>Example:<br>SHEAR=0,0,1,0.01 <br>This distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
 ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br><br>Example:<br>ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles α=π/4, β=π/3 γ=π/2. See rotations.html for the general syntax.<br><br>Note:<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
@@ -843,7 +843,7 @@ ALPHA | r | all | N | | Amount of Voigt strain
 <div onclick="elm = document.getElementById('symtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show SYMGRP.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="symtable">{:/}
 
-Category SYMGRP provides symmetry information; it helps in two ways. First it is the relevant information to find which sites are equivalent, which makes for simpler and more accurate band calculations, and second, it reduces the number of k-points needed in Brillouin zone integrations.  
+Category SYMGRP provides symmetry information; it helps in two ways. First, it provides the relevant information to find which sites are equivalent, this makes for a simpler and more accurate band calculations. Secondly, it reduces the number of k-points needed in Brillouin zone integrations.  
 
 Normally you don't need SYMGRP; the program is capable of finding its own symmetry operations. However, there are cases where it is useful or even necessary to manually specify them. For example when including spin-orbit coupling or noncollinear magnetism where the symmetry group isn't only specified by the atomic positions. In this case you need to supply extra information.  
 
@@ -910,7 +910,7 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 {::nomarkdown}</div>{:/}
 
 ##### _VERS_
-This category is used for version control. As of version 7, the input file must have following tokens for any program in the suite:
+This category is used for version control. As of version 7, the input file must have the following tokens for any program in the suite:
 
     VERS LM:7
 
