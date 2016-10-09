@@ -496,7 +496,7 @@ plotted in a frame.
   &nbsp;&nbsp; **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
   &nbsp;&nbsp; **_S_** is an index 1-12, listed in the table below\\
   &nbsp;&nbsp; **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
-  &nbsp;&nbsp;&nbsp;&nbsp; In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
+  &nbsp;&nbsp; In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
 
   {::nomarkdown}<div>{:/}
 
@@ -512,7 +512,7 @@ plotted in a frame.
     timeline      | 9     | end height      | line thickness        | end thickness      |            |                |            |
     hist          | 10    | width           |                       |                    |            |                |            |
     row           | 11    | scale           | offset                |                    |            |                |            |
-    wiggle        | 12    | xtail           | ytail                 | # periods          | excursion  | # pts          |            |
+    wiggle        | 12    | xtail           | ytail                 | # periods          | excursion  | # points       |            |
 
   {::nomarkdown}</div>{:/}
 
@@ -527,16 +527,16 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **axis proj**  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
-  e. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
-  _Note:_{: style="color: red"} You can also independently make error bars though the `-ey` command.  Error bars are drawn before any second symbol through `-s`).\\
-  f. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
-  g. Symbol 10 (histogram) not documented.\\
-  h. Symbol 11 (row)  not documented.\\
-  i. Symbol 12 (wiggle) draws a wiggly line\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; number of periods\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; excursion (deviation from straight line)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; optional number of points used to draw the symbol\\
+  f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3\\
+  _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
+  g. Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
+  h. Symbol 10 (histogram) not documented.\\
+  i. Symbol 11 (row)  not documented.\\
+  j. Symbol 12 (wiggle) draws a wiggly line\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; number of periods\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; size of excursion about straight line)\\
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) number of points to draw the symbol: extra points make the symbol smoother.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -653,9 +653,12 @@ a fraction of the brightest color.  0 is the absence of color, and 1 is the brig
 
 #### Structure of data files
 
-Data files follow a standard Questaal format for two-dimensional arrays.  The safest way to specify the number
-of rows and columns in the file is indicate it in the first column, as does the charge density file _chgd.cr_{: style="color: green"} in
-[Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr):
+Data files follow a standard Questaal format for two-dimensional arrays.  Unless instructed otherwise (**-r:qr**),
+**fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
+
+**fplot**{: style="color: blue"} must obtain information about the number of rows and columns in the file.  The safest way to specify this
+is indicate it in the first line; see for example the charge density file _chgd.cr_{: style="color: green"} used by
+[Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr). It begins with:
 
 ~~~~
 % rows 101 cols 101
@@ -663,14 +666,13 @@ of rows and columns in the file is indicate it in the first column, as does the 
 ...
 ~~~
 
-The reader checks to see whether the first nonblank, non-preprocessor directive,
-begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
+**fplot**{: style="color: blue"} can be stipulated in the data file as shown, but it isn't required.
 
-+ **fplot**{: style="color: blue"} does not require **nr** nor **nc** be stipulated in the data file.
-Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) will specify **nr** nor **nc**
++ The reader checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
++ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** nor **nc**.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works out the number of rows from the file contents.
-+ If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.
-In this case it would incorrectly use **nc**=4; so **nc** must be stipulated in this example.
++ If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
+  For the particular file _chgd.cr_{: style="color: green"} **fplot**{: style="color: blue"} would infer **nc**=4: so **nc** must be stipulated in this case.
 
 ### 5. _Further exercises_
 {::comment}
