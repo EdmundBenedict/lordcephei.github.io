@@ -520,11 +520,11 @@ plotted in a frame.
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
-  Symbol 12 (wiggle) draws a wiggly line\\
+  Symbol 12 (wiggle) draws a wiggly line:\\
   &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; &Delta;<i>x</i> and &Delta;<i>y</i> are the endpoint of the tail relative to the head (graphics units)\\
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; number of periods\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; size of excursion about straight line\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) number of points to draw the symbol: extra points make the symbol smoother.
+  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) number of points to draw the symbol: more points make the symbol smoother.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -534,11 +534,10 @@ plotted in a frame.
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).
 
 + **-map [-i _expr_] _list_**\\
-  permutes rows original data array defined by **_list_**.\\
-  Optional **-i _expr_** causes points for which **_expr_=0** to be removed from**_list_**.\\
-  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
-  _Example_ : &nbsp;&nbsp; **-map -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
-  This culls a new array from the raw data (rows 1,3,5,4). Rows for which the first column is value less than or equal to 4 are excluded.
+  permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
+  _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
+  culls an array from rows 1,3,5,4 of the as-given data.  Rows for which the first column is value less than or equal to 4 are subsequently excluded.
 
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
@@ -549,34 +548,36 @@ plotted in a frame.
 + **-sort**\\
   sort data in ascending abscissa order (after mapping).
 
-+ **-con[:options] _ylist_ [other DATA-switches] _data-file_**\\
-  special mode for contour plots. **_ylist_** is a list of real numbers.\\
-  This mode draws contours of constant _f_=**#**, interpolating data from **_data-file_**.\\
++ **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
+  special mode for contour plots. **_flist_** is a list of real numbers; specify with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
+  This mode draws contours of constant &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
   on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
-  Elements in a fixed COLUMN contains data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
-  Elements in a fixed ROW contains data on a uniform mesh parallel to ordinate, _f_(<i>x</i>=const,<i>y<sub>i</sub></i>).\\
+  Elements in a fixed COLUMN comprise data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
+  Elements in a fixed ROW commprise data on a uniform mesh parallel to ordinate, _f_(<i>x</i>=const,<i>y<sub>i</sub></i>).\\
   Bottom and top (left and right) edges of frame correspond to first and last columns (rows) of data.\\
-  Options:
-  + **:dup=#1[,#2]** Duplicate row (col) data #1 (#2) times
-  + **:fn=_filename_** writes xy pen moves to file **_filename_**.
-  + **:noclose** suppresses closing contours on boundaries.
+  Options separator **~** can be a different character such as **:** or **,**.
+  + **dup=#1[,#2]** Duplicate row (col) data #1 (#2) times
+  + **fn=_filename_** writes xy pen moves to file **_filename_**.
+  + **noclose** suppresses closing contours on boundaries.
   See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.\\
-  The syntax of lists is described on [this page](/docs/misc/integerlists/).
+
 
 + **-r:switches [other DATA-switches] _data-file_**\\
-  switches that tell **fplot**{: style="color: blue"} how to manage **_data-file_** where data is read.
-  All **switches** are optional; they are separated by a colon:
+  tells **fplot**{: style="color: blue"} how to parse contents **_data-file_**
+  **switches** are optional; they are separated by a colon:
+  + **nr=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; rows
+  + **nc=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; columns
   + **qr**        read with fortran read (fast, no algebra; useful for large files)
   + **br**        read from binary file
-  + **s=#**       skips # records before reading
-  + **open**      leaves file open after reading
+  + **s=#**       skips &nbsp;**#**&nbsp; records before reading
+  + **open**      leaves file open after reading.  Useful when reading muliple blocks of data from a single file.
 + **-nc=_n_**\\
-  stipulate that the next **_data-file_** (following the remaining **DATA-switches** has **_n_** columns.
+  same function as **-r_nc=#**
 + **-qr**\\
-  same function as -r:qr
+  same function as **-r:qr**
 + **-br**\\
-  same function as -r:br
+  same function as **-r:br**
 
 + **-ord _expr_**\\
   substitute **expr** for the ordinate. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above shows some examples.
