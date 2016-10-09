@@ -476,8 +476,9 @@ plotted in a frame.
   + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. **bold=0** => fill symbol without contour.
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
     + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
-    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
+    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
+    + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
@@ -517,7 +518,7 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   f. Symbol 8&nbsp; (error bars). **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
   _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
-  See
+  See [this exercise](/docs/misc/fplot/#error-bars) for an example.
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
@@ -526,6 +527,7 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
+  See [this exercise](/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols) for an example.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -603,12 +605,12 @@ plotted in a frame.
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
   Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the 
-  point center by **_yshft_**.  For example, see [Further exercises](/docs/misc/fplot/#error-bars).
+  point center by **_yshft_**.  For example, see [error bar exercise](/docs/misc/fplot/#error-bars).
 
 + **-ins _strn_**\\
   insert **_strn_** directly into output postscript file.
   There is no check that **_strn_** consists of valid postscript ... you are on your own!
-+ **-ins[f] _file_**\\
++ **-insf _file_**\\
   insert the contents of **_file_** directly into output postscript file.
 
 + **-bs _radius_[;file-list]**\\
@@ -677,11 +679,12 @@ is indicate it in the first line; see for example the charge density file _chgd.
 ...
 ~~~
 
-**nr** and **nc** can be stipulated in the data file as shown, but the information can be also obtained in other ways.
+**nr** and **nc** can be stipulated in the data file as shown, but the information can be supplied in other ways.
 
-+ The reader checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
-+ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** nor **nc**.
-+ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works out the number of rows from the file contents.
++ The parser checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.\\
+  It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
++ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** and/or **nc**.
++ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out from the file contents.
 + If **nc** has not been stipulated, the reader will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
 
@@ -699,7 +702,7 @@ You can specify error bars for each _xy_ pair through either the `-s` command or
 With the latter you can use `-s` to draw a second symbol at the point.
 In either case three columns of data are required, the third column containing the error bar.
 
-_Example_ showing an error bar and a circle:
+Example showing an error bar and a circle:
 
 ~~~
 fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
@@ -714,8 +717,8 @@ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,
 /docs/misc/fplot/#dot-dashed-lines
 {:/comment}
 
-[Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) made
-a horizontal dashed line.  Try substituting the following line type for the dashed line:
+In [Example 2.2](/docs/misc/fplot/#example-22-nbsp-charge-density-contours-in-cr),
+a horizontal dashed line was drawn.  Try substituting the following line type for the dashed line:
 
 ~~~
 -lt 2,bold=4,col=.8,.3,.0,1,.5,.3,.5
@@ -725,6 +728,40 @@ It should generate a dot-dashed line.  The sequence **1,.5,.3,.5** specifies
 the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash length 0.5.
 In this case a second sequence (**.3,.5**) is present.  This specifies that (line,space) pair of **1,.5,**
 and (line,space) pair of **.3,.5,** are drawn in alternation.
+
+#### Using the wiggle and arrow symbols
+{::comment}
+/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols
+{:/comment}
+
+This example shows applications of the wiggly line symbol, together with the arrow symbol.
+Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
+
+~~~
+fplot 
+  -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
+  -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
+  -lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
+  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
+~~~
+
+Create and view the postscript file:
+
+~~~
+$ fplot -f plot.wiggle
+$ open fplot.ps
+~~~
+
++ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
+  creates a wiggly line ending at (0.5,0.5), sloping downward with run/rise = **-0.15,0.16**.
++ `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
+  tacks an arrowhead onto the line with the tip at (0.5,0.5).
++ `  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
+  creates a wiggly line with only half a period, and then fills the symbol with yellow-green.
+  
+In the last line, see what happens as you change the **fill** value in the last line from 0,1,2,3,
+or change the **bold** value from 0 to 5.
+
 
 _____________________________________________________________
 
