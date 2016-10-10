@@ -182,7 +182,7 @@ Run **fplot**{: style="color: blue"} with
 
 <div onclick="elm = document.getElementById('fig2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
-![Example 2.2](https://lordcephei.github.io/assets/img/fplot2.svg)
+![Example 2.3](https://lordcephei.github.io/assets/img/contours-cr.svg)
 {::nomarkdown}</div>{:/}
 
 + Argument `-f` tells **fplot**{: style="color: blue"} that the next argument
@@ -196,6 +196,71 @@ Run **fplot**{: style="color: blue"} with
 + Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data. **fplot**{: style="color: blue"} must be
   told how many rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}.
 + Two of the contour values are labelled (`-lblu`) using Helvetica 13pt font; the figure label uses a 14pt Roman font
+
+#### Example 2.4. &nbsp; _Mobility in TlInP_
+{::comment}
+/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
+{:/comment}
+
+This example shows how to draw figures on a log scale, customize positioning of tic marks and labelling, including a key.
+
+The figure drawn below depicts the predicted mobility of Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>P alloy.
+It was adapted from a figure published in this [1994 paper](http://scitation.aip.org/content/aip/journal/apl/65/21/10.1063/1.112567)
+
+You will need to copy calculated mobililties from file [mobility.tlinp](../../../assets/download/inputfiles/mobility.tlinp){: style="color: green"}.
+to your working directory,
+and cut and paste the script in the box below to _plot.mobility_{: style="color: green"}.
+
+~~~
+fplot
+  -frme:ly .13,.52,.96,1.42 -frmt th=3,1,2 -p0 -x 0,300 -y .27,5 -yn:r
+  -1p -font t18
+  -lbl 265,4.5:0 rc "~\{m}"
+  -lbl 250,.21 rc "T(K)"
+  -font t16
+  -k 90,3,.25
+  -tmx 1@5,0,100,200 -tmy '1:1@2'
+  -l0 In_\{1-x}Tl_\{x}P  -lt 2,bold=3,1,.5,.2,.5 -ord x2/1e5 -itrp 10,300,5,1,4 mobility.tlinp
+  -l0 In_\{1-x}Tl_\{x}As -lt 2,bold=3,1.5,.5      -ord x3/1e5 -itrp 10,300,5,1,4 mobility.tlinp
+  -l0 Hg_\{x}Cd_\{1-x}Te -lt 1,bold=3             -ord x5/1e5 -itrp 10,300,5,0,4 mobility.tlinp
+~~~
+
+Run **fplot**{: style="color: blue"} with
+
+    $ fplot -f plot.mobility
+
+<div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
+![Example 2.4](https://lordcephei.github.io/assets/img/mobility-tlinp.svg)
+{::nomarkdown}</div>{:/}
+
+Notes on [format switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels)
+
++ `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis
++ `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides
++ `-p0` suppresses padding of the frame
++ ` -x 0,300` and `-y .27,5` set the user's units that bound the figure
++ `-1p` terminates the first pass
++ `-font t18` sets the font for the labels to Times Roman 18 points
++ `-lbl 265,4.5:0 rc "~\\{m}"` and `-lbl 250,.21 rc "T(K)"` write the axes labels
++ `-font t16` sets the font for future labels
++ `-k 90,3,.25` sets up intial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the spacing between entries.
++ `-tmx 1@5,0,100,200` : **@5** &nbsp; flags the parser that the user specifies the placement of tics.\
+   The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
+   Appending numbers where you want tics to appear (100, 200, 300) in this case)
++ `-tmy 1:1@2` : the **:1** specifies that every tic mark is labelled.
+   The **1:** normally specifies the position of the first tic, but it is not relevant for log scales.
+   The **@2* specifies a 'medium' log scale with marks at 1,2,5
+
+Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data)
+
++ `-l0 In_\{1-x}Tl_\{x}P` provides text for the next set of data to be drawn
++ `-lt 2,bold=3,1,.5,.2,.5` specifies a dot-dashed line
++ `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case)
++ `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.  
+  Interpolated points span (10,300) and are spaced by 5.
+  The fourth argument, **1**, specifies that the interpolation be done by a rational function; the final argument (**4)** specifies that a fourth order polynomial be used.
++ Three data sets are drawn; they use different line types and key labels.
 
 _____________________________________________________________
 
@@ -311,7 +376,8 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
   + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 position and size of major tic
   + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
   + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, relative to major tic
-  + **@mode**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                1,2,3 for log;  mode=5 => caller specifies tics,
+  + **@_n_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                     _n_=1,2,3 for log;  _n_=5 => user specifies tics\\
+    Note: For the user-specified tics, **@5**, you must specify a list of numbers indicating tic marks.  See Example 2.4.
 
 <i> </i>
 
@@ -378,7 +444,7 @@ _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
 _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
-[prepend the left bracket with a '**\\**'.](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
+[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
 
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
@@ -830,13 +896,13 @@ $ open fplot.ps
 
 Note the following:
 
-+ '**\\**' creates a line break (see labels after `-xl` and `-yl`)
-+ To rotate a label append **,rot=#** to the justification string. **#** is the rotation, in degrees.  See the effect of **lc,rot=40** above.
++ '**\\**' creates a line break: see labels after `-xl` and `-yl`.
++ To rotate a label append **,rot=#** to the justification string. **#** is the rotation in degrees.  See the effect of **lc,rot=40** above.
 + Note Greek characters and multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`.\\
-  _t_ is a subscript to &phi;; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
+  _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
   _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
-+ Compre the effects of **ru** (left,upper) justification,  **ld** (right,lower) justification, and **cc** (centered) justification.
-+ the special characters in the Symbols font created by `arrows ...`, `brackets ...` and `symbols ...`.
++ Compare the effects of **ru** (left,upper) justification,  **ld** (right,lower) justification, and **cc** (centered) justification.
++ Note the special characters in the Symbols font created by `arrows ...`, `brackets ...` and `symbols ...`.
 
 _Things to try_ :
 
@@ -846,9 +912,11 @@ Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
 Replace '**~**' with '**@**'.  A completely different group of characters result.
-&nbsp; '**~**' [causes the contents](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) of **{...}** immediately following '**~**'
-to be written in the Symbol font.  The full Symbol character set can be found on p612 of [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)
-. &nbsp; '**@**' writes Latin characters in a bold version of the standard Roman character set (p604 of the
-[the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
+&nbsp; '**~**' [maps the characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in **{...}** immediately following '**~**'
+into the postscript Symbol font.
+(The full Symbol character set can be found on p 612 of [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).)\\
+&nbsp; '**@**' writes Latin characters in a bold version of the standard Roman character set (p 604 of the
+[the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
+Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
 _____________________________________________________________
