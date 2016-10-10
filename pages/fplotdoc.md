@@ -368,7 +368,7 @@ into other fonts, depending on the character preceding the brackets.
 Character  | Function
 ^{..}      | superscript
 \_{..}     | subscript
-\~{..}     | Greek
+\~{..}     | Greek/Symbol
 @{..}      | bold
 &{..}      | italic
 
@@ -398,9 +398,9 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
   puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points distributed on the **_x_** axis (**_y_** axis) for a given
   value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
   + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.\\
-  + **_cc_** has the same meaning as for `-lbl`.
+  + **_cc_** controls justification of labels; see **-lbl** above.
 
-  **_xlist_** (**_ylist_**) is a list of real numbers; specify it with the same syntax as for [integer lists](/docs/misc/integerlists/).
+  **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/misc/integerlists/).
 
 <i> </i>
 
@@ -434,7 +434,7 @@ _xy_ data is typically read from a file; the syntax to plot data in **<i>data-fi
 <pre>
 [DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
 </pre>
-**DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information 
+**DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
 (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis for 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
 For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
 Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
@@ -535,7 +535,7 @@ plotted in a frame.
 + **-ey _n_[,&Delta;,_yshft_]**\\
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
-  Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the 
+  Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the
   point center by **_yshft_**.  This can be used in place of, or in conjuction with `-s`; for example, see [error bar exercise](/docs/misc/fplot/#error-bars).
 
 + **-l[0] _legend_**\\
@@ -549,7 +549,7 @@ plotted in a frame.
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
   For each point, **_expr_** can make use of the following variables:\\
-  **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns), 
+  **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns),
   **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   **_list_** is required : if you want to map all the points, use **1:nr** for **_list_**.\\
   _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
@@ -648,10 +648,10 @@ This provides programming capability in the script files.
 
 When commands are read from a script file, they can behave differently than when appearing on the command-line.
 
-_Wild card expansion_ : there is no unix wild-card expansion in a script file. 
+_Wild card expansion_ : there is no unix wild-card expansion in a script file.
 Thus quotation marks to inhibit wild card expansion are not necessary, though they can be used.
 
-_Curly brackets_ : scripts are run through the [file preprocessor](/docs/input/preprocessor/), 
+_Curly brackets_ : scripts are run through the [file preprocessor](/docs/input/preprocessor/),
 which interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and substitutes them.
 To keep the curly bracket pair and its contents intact, you must suppress the preprocessor's expression substitution.  Do this by prepending **{strn}** with a
 backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
@@ -768,7 +768,7 @@ This exercise shows applications of the wiggly line symbol, together with the ar
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
 ~~~
-fplot 
+fplot
   -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
   -lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
@@ -790,7 +790,7 @@ Notes:
   tacks an arrowhead onto the line with the tip at (0.5,0.5), pointed at the same angle as the wiggle but 1/4 size.
 + `  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green.
-  
+
 Play with the last line, and see what happens as you change the **fill** value between 0 and 3,
 and the **bold** value between 0 and 5.
 
@@ -804,7 +804,7 @@ This exercise shows off many of **fplot**{: style="color: blue"}'s labelling cap
 Cut and paste the box below into script file _plot.text_{: style="color: green"}.
 
 ~~~
-fplot -p0 -font t18 
+fplot -p0 -font t18
 #       -plaintext
       -lt 2,bold=2 -tp 2~0.3,0,0.3,1
       -lt 2,bold=2 -tp 2~0,0.4,1,0.4
@@ -838,13 +838,15 @@ Note the following:
 
 _Things to try_ :
 
-Uncomment the `plaintext` line and observe how the labels change.
+Uncomment the `-plaintext` line and observe how the labels change.
 
-Change positions tags into other combinations of **_cc_** e.g. turn '**lu** into **rc**.
+Try other combinations of the justification tags, e.g. turn '**lu** into **rc**.
+The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
-Replace '**~**' with the bold font '**@**'.  A completely different group of characters result.
-'**~**' [marks](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) causes the contentst of **{...}** immediately following it to be written in the Symbol font.
-
+Replace '**~**' with '**@**'.  A completely different group of characters result.
+'**~**' [causes the contents of](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) **{...}** immediately following
+to be written in the Symbol font.  The full Symbol character set can be found on p612 of [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)
+. &nbsp; '**@**' writes Latin characters in a bold version of the standard Roman character set (p604 of the
+[the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  The dagger (&dagger;) and double dagger (&dagger;) appear in the Roman set but not the Symbol.
 
 _____________________________________________________________
-

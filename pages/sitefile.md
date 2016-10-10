@@ -51,12 +51,12 @@ The first nonblank, non-preprocessor directive, should begin with:
 _Note:_{: style="color: red"} Version 7 of the Questaal suite writes version 3.0 site files; it can read
 versions 3.0 and prior versions.
 
-This first line must also contain token **io=#**.  **io=14** tells the reader
+This first line must also contain token **io=#**. &nbsp; **io=14** tells the reader
 that minimal information is available in the file: 
 
 + the number of sites in the lattice
 + the lattice vectors
-+ the basis vectors
++ the basis vectors and their species ID.
 
 Usually the first line contains the lattice constant as well. Consider the following snippet:
 
@@ -87,7 +87,7 @@ The first line tells the parser the following:
 + **alat=7.39563231** specifies the lattice constant, in atomic units.
 + **plat=...** specifies the lattice vectors, P<sub>1</sub>, followed by P<sub>2</sub> and P<sub>3</sub>.
 
-The second line in the snippet above is a comment line.  Then follow a sequence of 64 lines, one line for each atom.
+The second line in the snippet is a comment line.  Then follow a sequence of 64 lines, one line for each atom.
 As a minimum, the row must contain a species label and the site position (**io=14**).
 In snippet above (**io=62**) extra information is given, as noted above.
 
