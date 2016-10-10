@@ -23,8 +23,7 @@ or both from a site file.  That file has no predetermined name; it is
 given in the **ctrl** file.
 
 To read lattice information from **sname._ext_**{: style="color: green"},
-use the **FILE** token in **STRUC**.
-
+use the **FILE** token in **STRUC**.\\
 To read site information from **sname._ext_**{: style="color: green"},
 use the **FILE** token in **SITE**.  The following snippet does both:
 
@@ -35,8 +34,12 @@ SITE   FILE=sname
        ...
 ~~~
 
-If you use the **file** token in the EXPRESS category, it performs the function
+_Note:_{: style="color: red"}
+If you use the **file** token in the **EXPRESS** category, it performs the function
 of both **STRUC_FILE** and **SITE_FILE**, and supersedes both of these tags.
+
+_Note:_{: style="color: red"} The site file is normally read
+through the [file preprocessor](/docs/input/preprocessor/).
 
 The first nonblank, non-preprocessor directive, should begin with:
 
@@ -69,7 +72,7 @@ The first line tells the parser the following:
   + Euler angles (the spin quantization axis used by noncollinear parts of the ASA code)
   + Site potential shifts (may be used by the ASA)
   + Principal layer index (layer Green's function code)
-  + Three binary integers ***rlx*** specifying which of Cartesian components are allowed to
+  + Three binary integers **_nnn_** specifying which of Cartesian components are allowed to
     change molecular dynamics or statics. **1** allows to relax while **0** freezes that coordinate.
 + **xpos** indicates that the basis vectors are written as fractional multiples of lattice vectors.
   By default these vectors are written in Cartesian coordinates in units of the lattice constant **alat**.

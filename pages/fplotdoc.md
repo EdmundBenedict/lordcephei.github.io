@@ -780,16 +780,16 @@ fplot -p0 -font t18
       -lt 2,bold=2 -tp 2~0.3,0,0.3,1
       -lt 2,bold=2 -tp 2~0,0.4,1,0.4
 
-      -xl horizontal\'next_h (eV)' -yl 'vertical\next_v'
-      -lblu 0.2,0.25 lc,rot=40 '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
-      -lblu 0.3,0.4 ru 'Text above horizontal line'
-      -lblu 0.3,0.4 ld 'Text in ld orientation (eV)'
-
-      -lbl 0.5,.94 cc "perpendicular subscript &\{k}_\{~\{\{\136}}}, centered in frame"
+      -xl horizontal\'next line' -yl 'vertical\next line'
+      -lblu 0.25,0.25 lc,rot=40 '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4} at 40^\{o}'
+      -lblu 0.3,0.4 ru '@\{ru} justification above horizontal line'
+      -lblu 0.3,0.4 ld '@\{ld} justification'
+      -lbl 0.5,.94 cc "@\{cc} justification with special subscript &\{k}_\{~\{\{\136}}}"
       -lbl 0.2,.89 rc "arrows ~\{\{\253\254\255\256\257}}
       -lbl 0.2,.84 rc "brackets ~\{\{\341A\361\355\375\357\364\174}}
       -lbl 0.2,.79 rc "symbols ~\{\{\243\245\321\326\327\333\334\335\336\337\362\134\136}}
       -lbl 0.2,.74 rc "symbols ~\{\{\261\262\263\264\265\266\267\271\272\273\274}}
+
 ~~~
 
 Create and view the postscript file:
@@ -804,8 +804,8 @@ Note the following:
 + the '\\' in the _x_ and _y_ labels `(-xl horizontal\)` and `-yl 'vertical\'
   creates a newline.
 + the rotation, Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`).  The [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor
-+ right-  and upper- (`'Text above horizontal line'`); and left- and lower- (`'Text in ld orientation (eV)'`) types of justification.=
-+ the special symbols created by `brackets ...` and `arrows ...`.
++ **ru** (left,upper) justification `above horizontal line`); *ld* (right,lower) justification, and *cc* (centered) justification
++ the special symbols created by `arrows ...`, `brackets ...` and `symbols ...`.
 
 _____________________________________________________________
 
