@@ -22,6 +22,10 @@ You can alternatively read either lattice information, or site information,
 or both from a site file.  That file has no predetermined name; it is 
 given in the **ctrl** file.
 
+_Note:_{: style="color: red"} The site file is normally read
+through the [file preprocessor](/docs/input/preprocessor/).
+
+
 To read lattice information from **sname._ext_**{: style="color: green"},
 use the **FILE** token in **STRUC**.\\
 To read site information from **sname._ext_**{: style="color: green"},
@@ -37,9 +41,6 @@ SITE   FILE=sname
 _Note:_{: style="color: red"}
 If you use the **file** token in the **EXPRESS** category, it performs the function
 of both **STRUC_FILE** and **SITE_FILE**, and supersedes both of these tags.
-
-_Note:_{: style="color: red"} The site file is normally read
-through the [file preprocessor](/docs/input/preprocessor/).
 
 The first nonblank, non-preprocessor directive, should begin with:
 

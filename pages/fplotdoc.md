@@ -801,11 +801,13 @@ $ open fplot.ps
 
 Note the following:
 
-+ the '\\' in the _x_ and _y_ labels `(-xl horizontal\)` and `-yl 'vertical\'
-  creates a newline.
-+ the rotation, Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`).  The [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor
-+ **ru** (left,upper) justification `above horizontal line`); *ld* (right,lower) justification, and *cc* (centered) justification
++ The '**\\**' in the _x_ and _y_ labels `-xl horizontal` and `-yl vertical' creates a line break.
++ the canting of the string, with Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`).\\
+  _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
++ **ru** (left,upper) justification `above horizontal line`); **ld** (right,lower) justification, and **cc** (centered) justification.
 + the special symbols created by `arrows ...`, `brackets ...` and `symbols ...`.
+
+Try uncommenting the `plaintext` line and observe how the labels change.
 
 _____________________________________________________________
 
