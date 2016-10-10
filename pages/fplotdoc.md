@@ -234,7 +234,7 @@ Run **fplot**{: style="color: blue"} with
 ![Example 2.4](https://lordcephei.github.io/assets/img/mobility-tlinp.svg)
 {::nomarkdown}</div>{:/}
 
-Notes on [format switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels)
+Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels)
 
 + `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis
 + `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides
@@ -249,9 +249,7 @@ Notes on [format switches](/docs/misc/fplot/#format-switches-govern-frame-layout
 + `-tmx 1@5,0,100,200` 
   + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.
   + The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
-
-  Append numbers where you want tics to appear (100, 200, 300) in this case)
- + `-tmy 1:1@2`
++ `-tmy 1:1@2`
    + **:1** specifies that every tic mark is labelled.
      **@2** specifies a 'medium' log scale with marks at 1,2,5.
      **1:** is needed for the syntax but has no effect for log scales.
