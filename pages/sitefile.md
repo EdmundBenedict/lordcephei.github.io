@@ -40,7 +40,11 @@ SITE   FILE=sname
 
 _Note:_{: style="color: red"}
 If you use the **file** token in the **EXPRESS** category, it performs the function
-of both **STRUC_FILE** and **SITE_FILE**, and supersedes both of these tags.
+of both **STRUC_FILE** and **SITE_FILE**, and supersedes both of these tags.  
+In the **EXPRESS** mode the species labels are determined from the SITE file;
+and the number of atoms and species are determined from the site file
+so that **STRUC_NBAS** and **STRUC_NSPEC** are not used.  For every species label
+in the site file there must be a corresponding label in the **SPECIES** category.
 
 The first nonblank, non-preprocessor directive, should begin with:
 

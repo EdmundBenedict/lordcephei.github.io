@@ -810,7 +810,7 @@ fplot -p0 -font t18
       -lt 2,bold=2 -tp 2~0,0.4,1,0.4
 
       -xl horizontal\'next line' -yl 'vertical\next line'
-      -lblu 0.25,0.25 lc,rot=40 '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4} at 40^\{o}'
+      -lblu 0.25,0.25 lc,rot=40 '~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4} at 40^\{o}'
       -lblu 0.3,0.4 ru '@\{ru} justification above horizontal line'
       -lblu 0.3,0.4 ld '@\{ld} justification'
       -lbl 0.5,.94 cc "@\{cc} justification with special subscript &\{k}_\{~\{\{\136}}}"
@@ -830,23 +830,25 @@ $ open fplot.ps
 
 Note the following:
 
-+ The '**\\**' in the _x_ and _y_ labels `-xl horizontal` and `-yl vertical' creates a line break.
-+ the canting of the string, with Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`).\\
++ '**\\**' creates a line break (see labels after `-xl` and `-yl`)
++ To rotate a label append **,rot=#** to the justification string. **#** is the rotation, in degrees.  See the effect of **lc,rot=40** above.
++ Note Greek characters and multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`.\\
+  _t_ is a subscript to &phi;; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
   _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
-+ **ru** (left,upper) justification `above horizontal line`); **ld** (right,lower) justification, and **cc** (centered) justification.
-+ the special symbols created by `arrows ...`, `brackets ...` and `symbols ...`.
++ Compre the effects of **ru** (left,upper) justification,  **ld** (right,lower) justification, and **cc** (centered) justification.
++ the special characters in the Symbols font created by `arrows ...`, `brackets ...` and `symbols ...`.
 
 _Things to try_ :
 
 Uncomment the `-plaintext` line and observe how the labels change.
 
-Try other combinations of the justification tags, e.g. turn '**lu** into **rc**.
+Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
 Replace '**~**' with '**@**'.  A completely different group of characters result.
-'**~**' [causes the contents of](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) **{...}** immediately following
+&nbsp; '**~**' [causes the contents](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) of **{...}** immediately following '**~**'
 to be written in the Symbol font.  The full Symbol character set can be found on p612 of [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)
 . &nbsp; '**@**' writes Latin characters in a bold version of the standard Roman character set (p604 of the
-[the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  The dagger (&dagger;) and double dagger (&dagger;) appear in the Roman set but not the Symbol.
+[the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
 _____________________________________________________________
