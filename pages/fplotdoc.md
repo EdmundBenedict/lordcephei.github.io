@@ -247,21 +247,22 @@ Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-fr
 + `-font t16` sets the font for subsequent labels
 + `-k 90,3,.25` sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
 + `-tmx 1@5,0,100,200` 
-  + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.
+  + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.\\
+    Append a list of numbers where you want tics to appear (100, 200, 300 in this case).
   + The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
 + `-tmy 1:1@2`
-   + **:1** specifies that every tic mark is labelled.
-     **@2** specifies a 'medium' log scale with marks at 1,2,5.
-     **1:** is needed for the syntax but has no effect for log scales.
+  + **:1** specifies that every tic mark is labelled.
+    **@2** specifies a 'medium' log scale with marks at 1,2,5.
+    **1:** is needed for the syntax but has no effect for log scales.
 
-Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data)
+Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):
 
-+ `-l0 In_\{1-x}Tl_\{x}P` is the key corresponding to next set of data
++ `-l0 In_\{1-x}Tl_\{x}P` provides a key corresponding to next set of data
 + `-lt 2,bold=3,1,.5,.2,.5` specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
 + `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case)
 + `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.
-  + Interpolated points span (10,300) and are spaced by 5.
-  + The fourth argument, **1**, specifies that the interpolation be done by a rational function
+  + Interpolated points span (10,300), and are spaced by 5 points.
+  + The fourth argument (**1**) specifies interpolation by a rational function
   + the final argument (**4)** specifies that a fourth order polynomial be used.
 + Three data sets are drawn; they use different line types and key labels.
 
