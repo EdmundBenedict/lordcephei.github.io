@@ -199,22 +199,22 @@ Run **fplot**{: style="color: blue"} with
 
 #### Example 2.4. &nbsp; _Mobility in TlInP_
 {::comment}
-/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
+/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp
 {:/comment}
 
-This example shows how to draw figures on a log scale, customize positioning of tic marks and labelling, including a key.
+This example shows how to use a log scale, customize positioning of tic marks and labelling, and add a key.
 
 The figure drawn below depicts the predicted mobility of Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>P alloy.
-It was adapted from a figure published in this [1994 paper](http://scitation.aip.org/content/aip/journal/apl/65/21/10.1063/1.112567)
+It was adapted from a figure published in this [1994 paper](http://scitation.aip.org/content/aip/journal/apl/65/21/10.1063/1.112567),
+which proposed Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>P and Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>As as infrared detector materials.
 
-You will need to copy calculated mobililties from file [mobility.tlinp](../../../assets/download/inputfiles/mobility.tlinp){: style="color: green"}.
-to your working directory,
-and cut and paste the script in the box below to _plot.mobility_{: style="color: green"}.
+To make this figure, copy calculated mobililties from file [mobility.tlinp](../../../assets/download/inputfiles/mobility.tlinp){:
+style="color: green"} to your working directory, and cut and paste the script in the box below to _plot.mobility_{: style="color: green"}.
 
 ~~~
 fplot
-  -frme:ly .13,.52,.96,1.42 -frmt th=3,1,2 -p0 -x 0,300 -y .27,5 -yn:r
-  -1p -font t18
+  -frme:ly .13,.52,.96,1.42 -frmt th=3,1,2 -x 0,300 -y .27,5 -p0 -yn:r -1p
+  -font t18
   -lbl 265,4.5:0 rc "~\{m}"
   -lbl 250,.21 rc "T(K)"
   -font t16
@@ -238,28 +238,33 @@ Notes on [format switches](/docs/misc/fplot/#format-switches-govern-frame-layout
 
 + `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis
 + `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides
-+ `-p0` suppresses padding of the frame
 + ` -x 0,300` and `-y .27,5` set the user's units that bound the figure
++ `-p0` suppresses padding of the frame (increasing the range of _x_ and _y_)
++ `-yn` causes the figure numbering to appear on the right axis
 + `-1p` terminates the first pass
 + `-font t18` sets the font for the labels to Times Roman 18 points
-+ `-lbl 265,4.5:0 rc "~\\{m}"` and `-lbl 250,.21 rc "T(K)"` write the axes labels
-+ `-font t16` sets the font for future labels
-+ `-k 90,3,.25` sets up intial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the spacing between entries.
-+ `-tmx 1@5,0,100,200` : **@5** &nbsp; flags the parser that the user specifies the placement of tics.\
-   The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
-   Appending numbers where you want tics to appear (100, 200, 300) in this case)
-+ `-tmy 1:1@2` : the **:1** specifies that every tic mark is labelled.
-   The **1:** normally specifies the position of the first tic, but it is not relevant for log scales.
-   The **@2* specifies a 'medium' log scale with marks at 1,2,5
++ `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels
++ `-font t16` sets the font for subsequent labels
++ `-k 90,3,.25` sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
++ `-tmx 1@5,0,100,200` 
+  + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.
+  + The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
+
+  Append numbers where you want tics to appear (100, 200, 300) in this case)
+ + `-tmy 1:1@2`
+   + **:1** specifies that every tic mark is labelled.
+     **@2** specifies a 'medium' log scale with marks at 1,2,5.
+     **1:** is needed for the syntax but has no effect for log scales.
 
 Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data)
 
-+ `-l0 In_\{1-x}Tl_\{x}P` provides text for the next set of data to be drawn
-+ `-lt 2,bold=3,1,.5,.2,.5` specifies a dot-dashed line
++ `-l0 In_\{1-x}Tl_\{x}P` is the key corresponding to next set of data
++ `-lt 2,bold=3,1,.5,.2,.5` specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
 + `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case)
-+ `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.  
-  Interpolated points span (10,300) and are spaced by 5.
-  The fourth argument, **1**, specifies that the interpolation be done by a rational function; the final argument (**4)** specifies that a fourth order polynomial be used.
++ `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.
+  + Interpolated points span (10,300) and are spaced by 5.
+  + The fourth argument, **1**, specifies that the interpolation be done by a rational function
+  + the final argument (**4)** specifies that a fourth order polynomial be used.
 + Three data sets are drawn; they use different line types and key labels.
 
 _____________________________________________________________
