@@ -394,11 +394,13 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 
 <i> </i>
 
-+ **-lblx _xlst_ _y_[:0] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:0] _cc_ str1 str2 ...**\\
-  puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points on the **_x_** axis (**_y_** axis) for a given
++ **-lblx _xlst_ _y_[:0] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:0] _cc_ _str1_ _str2_ ...**\\
+  puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points distributed on the **_x_** axis (**_y_** axis) for a given
   value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
   + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.\\
   + **_cc_** has the same meaning as for `-lbl`.
+
+  **_xlist_** (**_ylist_**) is a list of real numbers; specify it with the same syntax as for [integer lists](/docs/misc/integerlists/).
 
 <i> </i>
 
@@ -430,10 +432,12 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 Within a frame zero or more families of _xy_ data can be drawn.
 _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
 <pre>
-DATA-switches <i>data-file</i> | -tp <i>list</i> [DATA-switches <i>data-file</i> | -tp <i>list</i> ...]
+[DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
 </pre>
-**DATA-switches** preceding **<i>data-file</i>** control how data is extracted from **<i>data-file</i>** and the manner in which data is drawn.
-For either abscissa arnd ordinate you can select a particular column, or take an algebraic combination involving multiple columns of data.
+**DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information 
+(e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis for 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
+For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
+Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
 As an alternative to reading data from a file you can supply it using switch **-tp**.
 Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
@@ -609,9 +613,9 @@ plotted in a frame.
   make a family of _xy_ plots for columns in list.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
-  Thus `fplot -colsy 2 ...` plots the column with row index on the abscissa.
+  Thus `fplot -colsy 2,4 ...` draws two curves, with column 2 as the first ordinate and column 4 as the second.
 + **-colsw _list_**\\
-  corresponding list of columns for (color) weights.
+  corresponding list of columns for color weights.
 
 + **-ins _strn_**\\
   insert **_strn_** directly into output postscript file.
@@ -832,14 +836,15 @@ Note the following:
 + **ru** (left,upper) justification `above horizontal line`); **ld** (right,lower) justification, and **cc** (centered) justification.
 + the special symbols created by `arrows ...`, `brackets ...` and `symbols ...`.
 
-_Things to try_
+_Things to try_ :
 
-uncommenting the `plaintext` line and observe how the labels change.
+Uncomment the `plaintext` line and observe how the labels change.
 
 Change positions tags into other combinations of **_cc_** e.g. turn '**lu** into **rc**.
 
-Try replacing '**~**', which [indicates](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels) that the following **{...}** is to use the Symbol font
-with the bold font '**@**'.
+Replace '**~**' with the bold font '**@**'.  A completely different group of characters result.
+'**~**' [marks](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) causes the contentst of **{...}** immediately following it to be written in the Symbol font.
+
 
 _____________________________________________________________
 

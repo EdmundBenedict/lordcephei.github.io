@@ -69,29 +69,29 @@ Usually the first line contains the lattice constant as well. Consider the follo
 
 The first line tells the parser the following:
 
-+ **io=62** indicates that the following information is available for each site, in this order
++ **io=62** indicates that the following information is available for each site, in the order listed:
+  + species index (labels must match those in category **SPEC** in the ctrl file).
   + site positions (as multiples of **plat** since **xpos** is in the first line).
   + velocities -- used in molecular dynamics.
   + Euler angles.  Rotates the spin quantization axis used by noncollinear parts of the ASA code.
-  + Site potential shifts, which may be used by the ASA.
-  + Principal layer index used by the layer Green's function code.
-  + Three binary integers **_nnn_** specifying which of the threeCartesian components are allowed to
-    change molecular dynamics or statics.\\
+  + site potential shifts, which may be used by the ASA.
+  + principal layer index used by the layer Green's function code.
+  + three binary integers **_nnn_** specifying which of the three Cartesian components are frozen
+    in molecular dynamics or statics.\\
     **1** allows to relax while **0** freezes that coordinate.
 + **xpos** indicates that the basis vectors are written as fractional multiples of lattice vectors.
   By default these vectors are written in Cartesian coordinates in units of the lattice constant **alat**.
 + **fast** tells the parser to read basis information with FORTRAN read.  By default
-  it parses each element as an algebraic expression.  The former is much faster (recommended for files with many atoms), but you lose the capability of using expressions.
+  it will parse each element as an algebraic expression.  FORTRAN read is much faster, but you lose the capability of using expressions.
 + **nbas=64** tells the parser that there are 64 atoms in the crystal.
 + **alat=7.39563231** specifies the lattice constant, in atomic units.
 + **plat=...** specifies the lattice vectors, P<sub>1</sub>, followed by P<sub>2</sub> and P<sub>3</sub>.
 
-The second line is a comment line.  Then follow a sequence of lines, one line for each atom.
-As a minimum, the row must contain a species lable and the site position (**io=14**).
+The second line in the snippet above is a comment line.  Then follow a sequence of 64 lines, one line for each atom.
+As a minimum, the row must contain a species label and the site position (**io=14**).
 In snippet above (**io=62**) extra information is given, as noted above.
 
 ### _Other resources_
 
-Many of the tutorials, e.g. the [basic lmf tutorial](/tutorial/lmf/lmf_tutorial/) use **site** files.
-The input file maker, **blm**{: style="color: blue"}, typically generates site files.
-
+Many of the tutorials, e.g. the [basic lmf tutorial](/tutorial/lmf/lmf_tutorial/), use **site** files.
+The input file maker, **blm**{: style="color: blue"}, typically generates ctrl and site files as a pair.
