@@ -236,19 +236,19 @@ Run **fplot**{: style="color: blue"} with
 
 Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels)
 
-+ `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis
-+ `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides
-+ ` -x 0,300` and `-y .27,5` set the user's units that bound the figure
-+ `-p0` suppresses padding of the frame (increasing the range of _x_ and _y_)
-+ `-yn` causes the figure numbering to appear on the right axis
-+ `-1p` terminates the first pass
-+ `-font t18` sets the font for the labels to Times Roman 18 points
-+ `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels
-+ `-font t16` sets the font for subsequent labels
++ `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
++ `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides.
++ ` -x 0,300` and `-y .27,5` set the user's units that bound the figure.
++ `-p0` suppresses padding of the frame (increasing the range of _x_ and _y_).
++ `-yn` causes the figure numbering to appear on the right axis.
++ `-1p` terminates the first pass.
++ `-font t18` sets the font for the labels to Times Roman 18 points.
++ `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels.
++ `-font t16` sets the font for subsequent labels.
 + `-k 90,3,.25` sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
 + `-tmx 1@5,0,100,200` 
   + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.\\
-    Append a list of numbers where you want tics to appear (100, 200, 300 in this case).
+    Append a list of numbers where you want tics to appear (0, 100, 200 in this case).
   + The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
 + `-tmy 1:1@2`
   + **:1** specifies that every tic mark is labelled.
@@ -257,14 +257,14 @@ Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-fr
 
 Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):
 
-+ `-l0 In_\{1-x}Tl_\{x}P` provides a key corresponding to next set of data
++ `-l0 In_\{1-x}Tl_\{x}P` provides a key corresponding to next set of data.
 + `-lt 2,bold=3,1,.5,.2,.5` specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
-+ `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case)
++ `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case).
 + `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.
   + Interpolated points span (10,300), and are spaced by 5 points.
-  + The fourth argument (**1**) specifies interpolation by a rational function
+  + The fourth argument (**1**) specifies interpolation by a rational function.
   + the final argument (**4)** specifies that a fourth order polynomial be used.
-+ Three data sets are drawn, each with its own line type key label.
++ Three data sets are drawn, each with its own line type and key label.  The third set is interpolated with an ordinary polynomial.
 
 _____________________________________________________________
 
@@ -380,11 +380,11 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
   + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 position and size of major tic
   + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
   + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, relative to major tic
-  + **@_n_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                     special tic mark placement modes
-    +  @1  "fine grained" log scale: tics put at at 1,2,3,4,5,6,7,8,9 &times 10<\sup>integer</sup>
-    +  @2  "medium grained" log scale: tics put at at 1,2,5 &times 10<\sup>integer</sup>
-    +  @3  "coarse grained" log scale: tics put at at 1 &times 10<\sup>integer</sup>
-    +  @5  tic marks selected by the user.  Specify a list of points after the @5 indicating where the marks should go.
+  + **@_n_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                     special tic mark placement modes\\
+    @1 &nbsp; "fine grained" log scale: tics put at at 1,2,3,4,5,6,7,8,9 &times; 10</sup>integer</sup>\\
+    @2 &nbsp; "medium grained" log scale: tics put at at 1,2,5 &times; 10</sup>integer</sup>\\
+    @3 &nbsp; "coarse grained" log scale: tics put at at 1 &times; 10</sup>integer</sup>\\
+    @5 &nbsp; tic marks selected by the user.  Specify a list of points after the @5 indicating where the marks should go.
   
   Medium grained and user-selected marks are used in [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 
