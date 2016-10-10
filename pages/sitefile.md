@@ -53,11 +53,12 @@ versions 3.0 and prior versions.
 
 This first line must also contain token **io=#**.  **io=14** tells the reader
 that minimal information is available in the file: 
+
 + the number of sites in the lattice
 + the lattice vectors
 + the basis vectors
 
-Usually the first line contains the lattice constant as well, as in the following snippet:
+Usually the first line contains the lattice constant as well. Consider the following snippet:
 
 ~~~
 % site-data vn=3.0 xpos fast io=62 nbas=64 alat=7.39563231 plat= 2.0 0.0 0.0 0.0 2.0 0.0 1.0 1.0 3.58664656
@@ -68,13 +69,15 @@ Usually the first line contains the lattice constant as well, as in the followin
 
 The first line tells the parser the following:
 
-+ **io=62** indicates that in addition to the basis vectors, the following information is available for each site:
-  + velocities (used in molecular dynamics)
-  + Euler angles (the spin quantization axis used by noncollinear parts of the ASA code)
-  + Site potential shifts (may be used by the ASA)
-  + Principal layer index (layer Green's function code)
-  + Three binary integers **_nnn_** specifying which of Cartesian components are allowed to
-    change molecular dynamics or statics. **1** allows to relax while **0** freezes that coordinate.
++ **io=62** indicates that the following information is available for each site, in this order
+  + site positions (as multiples of **plat** since **xpos** is in the first line).
+  + velocities -- used in molecular dynamics.
+  + Euler angles.  Rotates the spin quantization axis used by noncollinear parts of the ASA code.
+  + Site potential shifts, which may be used by the ASA.
+  + Principal layer index used by the layer Green's function code.
+  + Three binary integers **_nnn_** specifying which of the threeCartesian components are allowed to
+    change molecular dynamics or statics.\\
+    **1** allows to relax while **0** freezes that coordinate.
 + **xpos** indicates that the basis vectors are written as fractional multiples of lattice vectors.
   By default these vectors are written in Cartesian coordinates in units of the lattice constant **alat**.
 + **fast** tells the parser to read basis information with FORTRAN read.  By default
@@ -85,9 +88,10 @@ The first line tells the parser the following:
 
 The second line is a comment line.  Then follow a sequence of lines, one line for each atom.
 As a minimum, the row must contain a species lable and the site position (**io=14**).
-In snippet above (**io=62**) it contains the velocity, Euler angles, site potential shifts, principal layer index and relaxation flags.
+In snippet above (**io=62**) extra information is given, as noted above.
 
 ### _Other resources_
 
-Refer to some tutorials ...
+Many of the tutorials, e.g. the [basic lmf tutorial](/tutorial/lmf/lmf_tutorial/) use **site** files.
+The input file maker, **blm**{: style="color: blue"}, typically generates site files.
 

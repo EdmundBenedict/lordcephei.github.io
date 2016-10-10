@@ -383,7 +383,7 @@ _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
-  writes **_string_** at (**_x_**, **_y_**).  For examples, see [Additional exercises](/docs/misc/fplot/#fun-with-labels).
+  writes **_string_** at (**_x_**, **_y_**).  For examples, see this [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
   + Optional **:0** tells **fplot**{: style="color: blue"} to write lable without initially creating a blank box underneath the label.
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
@@ -526,7 +526,13 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.\\
-  See [this exercise](/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols) for an example.
+  [This exercise](/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols) illustrates the wiggle and arrow symbols.
+
++ **-ey _n_[,&Delta;,_yshft_]**\\
+  Add error bars to each point in the next **_data-file_**.\\
+  The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
+  Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the 
+  point center by **_yshft_**.  This can be used in place of, or in conjuction with `-s`; for example, see [error bar exercise](/docs/misc/fplot/#error-bars).
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -539,7 +545,9 @@ plotted in a frame.
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
   For each point, **_expr_** can make use of the following variables:\\
-    **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
+  **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns), 
+  **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
+  **_list_** is required : if you want to map all the points, use **1:nr** for **_list_**.\\
   _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
   culls an array from rows 1,3,5,4 of the original data.  If the abscissa is &nbsp;&le;4&nbsp; the row is excluded.
 
@@ -583,30 +591,27 @@ plotted in a frame.
 + **-br**\\
   same function as **-r:br**
 
++ **-col _cx_,_cy_[,_cw_]**\\
+  Use column **_cx_** for **x** and column **_cy_** for **y**.  In the absence of further
+  substitution (**-ord _expr_** or **-ab  _expr_**) **x** and **y** are respectively the abscissa and ordinate.
+  Default values are **cx**=1 and **cy**=2.
+
 + **-ord _expr_**\\
   substitute **_expr_** for the ordinate. See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for examples.
+  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
 + **-ab  _expr_**\\
   substitute **_expr_** for the abscissa.\\
-  Expression can contain variables &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
+  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
 + **-abf _expr_**\\
-  maps numbering and tic marks on abscissa to **expr**
-+ **-col _cx_,_cy_[,_cw_]**\\
-  Use column **_cx_** for the abscissa and column **_cy_** for the ordinate
+  maps numbering and tic marks on abscissa to **_expr_**
 
 + **-colsy _list_**\\
   make a family of _xy_ plots for columns in list.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
   Thus `fplot -colsy 2 ...` plots the column with row index on the abscissa.
-
 + **-colsw _list_**\\
   corresponding list of columns for (color) weights.
-
-+ **-ey _n_[,&Delta;,_yshft_]**\\
-  Add error bars to each point in the next **_data-file_**.\\
-  The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
-  Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the 
-  point center by **_yshft_**.  For example, see [error bar exercise](/docs/misc/fplot/#error-bars).
 
 + **-ins _strn_**\\
   insert **_strn_** directly into output postscript file.
@@ -689,9 +694,29 @@ is indicate it in the first line; see for example the charge density file _chgd.
 + If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
 
-### 5. _Further exercises_
+### 5. _Other resources_
+
+See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
+
+
 {::comment}
-/docs/misc/fplot/#further-exercises
+Need to explain
+
+cw in
++ **-col _cx_,_cy_[,_cw_]**\\
+
++ bs
+
++ more on map.  Eg. variable nr.
+
++ expand on -tp
+
+expand on -map
+{:/comment}
+
+### 6. _Additional exercises_
+{::comment}
+/docs/misc/fplot/#additional-exercises
 {:/comment}
 
 #### Error bars
@@ -807,26 +832,14 @@ Note the following:
 + **ru** (left,upper) justification `above horizontal line`); **ld** (right,lower) justification, and **cc** (centered) justification.
 + the special symbols created by `arrows ...`, `brackets ...` and `symbols ...`.
 
-Try uncommenting the `plaintext` line and observe how the labels change.
+_Things to try_
+
+uncommenting the `plaintext` line and observe how the labels change.
+
+Change positions tags into other combinations of **_cc_** e.g. turn '**lu** into **rc**.
+
+Try replacing '**~**', which [indicates](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels) that the following **{...}** is to use the Symbol font
+with the bold font '**@**'.
 
 _____________________________________________________________
 
-### 6. _Other resources_
-
-See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
-
-
-{::comment}
-Need to explain
-
-cw in
-+ **-col _cx_,_cy_[,_cw_]**\\
-
-+ bs
-
-+ more on map.  Eg. variable nr.
-
-+ expand on -tp
-
-expand on -map
-{:/comment}
