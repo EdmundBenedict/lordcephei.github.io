@@ -38,18 +38,14 @@ SITE   FILE=sname
 If you use the **file** token in the EXPRESS category, it performs the function
 of both **STRUC_FILE** and **SITE_FILE**, and supersedes both of these tags.
 
-_Note:_{: style="color: red"} The site file is normally run
-through the [file preprocessor](/docs/input/preprocessor/).
-
-
 The first nonblank, non-preprocessor directive, should begin with:
 
 ~~~
 % site-data vn=#
 ~~~
 
-_Note:_{: style="color: red"} Version 7 of the Questaal suite writes version 3.0 site files, and it can read
-earlier versions.
+_Note:_{: style="color: red"} Version 7 of the Questaal suite writes version 3.0 site files; it can read
+versions 3.0 and prior versions.
 
 This first line must also contain token **io=#**.  **io=14** tells the reader
 that minimal information is available in the file: 
@@ -57,28 +53,37 @@ that minimal information is available in the file:
 + the lattice vectors
 + the basis vectors
 
-Usually the first line contains the lattice constant as well.  For example:
+Usually the first line contains the lattice constant as well, as in the following snippet:
 
 ~~~
 % site-data vn=3.0 xpos fast io=62 nbas=64 alat=7.39563231 plat= 2.0 0.0 0.0 0.0 2.0 0.0 1.0 1.0 3.58664656
+#                        pos                                vel                     eula              vshft   PL rlx
+ K1        0.0000000   0.0000000   0.0000000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000 0.000000  0 111
+ Fe1       0.3750000   0.1250000   0.2500000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000 0.000000  0 111
 ~~~
 
-This line tells the parser the following:
+The first line tells the parser the following:
 
 + **io=62** indicates that in addition to the basis vectors, the following information is available for each site:
-  + velocities (needed for molecular dynamics)
-  + Euler angles (the noncollinear ASA code makes a rigid spin approximation; there quantization axis is fixed by a single rotation)
-  + Site potential shifts, also applicable to the ASA
-  + Principal layer index, for the layer Green's function code
-  + Three binary integers specifying which of Cartesian components are allowed to
-    change in spin or molecular dynamics
+  + velocities (used in molecular dynamics)
+  + Euler angles (the spin quantization axis used by noncollinear parts of the ASA code)
+  + Site potential shifts (may be used by the ASA)
+  + Principal layer index (layer Green's function code)
+  + Three binary integers ***rlx*** specifying which of Cartesian components are allowed to
+    change molecular dynamics or statics. **1** allows to relax while **0** freezes that coordinate.
 + **xpos** indicates that the basis vectors are written as fractional multiples of lattice vectors.
   By default these vectors are written in Cartesian coordinates in units of the lattice constant **alat**.
-+ **fast** tells the parser to omit reading the file through the preprocessor.  The read is much faster, but you lose the programming language capability of the preprocessor.
++ **fast** tells the parser to read basis information with FORTRAN read.  By default
+  it parses each element as an algebraic expression.  The former is much faster (recommended for files with many atoms), but you lose the capability of using expressions.
 + **nbas=64** tells the parser that there are 64 atoms in the crystal.
-+ **alat=3** specifies the lattice constant.
++ **alat=7.39563231** specifies the lattice constant, in atomic units.
 + **plat=...** specifies the lattice vectors, P<sub>1</sub>, followed by P<sub>2</sub> and P<sub>3</sub>.
+
+The second line is a comment line.  Then follow a sequence of lines, one line for each atom.
+As a minimum, the row must contain a species lable and the site position (**io=14**).
+In snippet above (**io=62**) it contains the velocity, Euler angles, site potential shifts, principal layer index and relaxation flags.
 
 ### _Other resources_
 
-The source code to **ccomp**{: style="color: blue"} can be found [here](https://bitbucket.org/lmto/lm/src/e82e155d8ce7eb808a9a6dca6d8eea5f5a095bd6/startup/ccomp.c).
+Refer to some tutorials ...
+

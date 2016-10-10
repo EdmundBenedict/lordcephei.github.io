@@ -383,12 +383,11 @@ _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
-  writes **_string_** at (**_x_**, **_y_**).
-  + **-lblu** indicates _x_ and _y_ are in user's units (**-lbl** does the same);&nbsp; **-lblm** indicates medium units.
-  + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.\\
-    By default, a blank space is created before the text is written.
+  writes **_string_** at (**_x_**, **_y_**).  For examples, see [Additional exercises](/docs/misc/fplot/#fun-with-labels).
+  + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
+  + Optional **:0** tells **fplot**{: style="color: blue"} to write lable without initially creating a blank box underneath the label.
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
-     The first character is one of &nbsp; **l**, **c**, **r** &nbsp; corresponding to left, center, right justification;\\
+     The first character is one of &nbsp; **l**, **c**, **r** &nbsp; corresponding to right, center, left justification;\\
      The second is one of &nbsp; **u**, **c**, **d** &nbsp; corresponding to up, center, down justification.
   + Alternatively, **_cc_** is **tx,** which flags **fplot**{: style="color: blue"} to run the postscript file through latex with string substitutions.\\
     In that case: **_tex-string_** is the actual (TeX) string and is required;  <b>_string_</b> is merely a tag needed for latex processing.
@@ -777,19 +776,20 @@ Cut and paste the box below into script file _plot.text_{: style="color: green"}
 
 ~~~
 fplot -p0 -font t18 
-#     -plaintext
-      -tp 2~0,0,1,1
-      -lt 1,bold=1 -tp 2~0.3,0,0.3,1
-      -lt 1,bold=1 -tp 2~0,0.4,1,0.4
+#       -plaintext
+      -lt 2,bold=2 -tp 2~0.3,0,0.3,1
+      -lt 2,bold=2 -tp 2~0,0.4,1,0.4
+
       -xl horizontal\'next_h (eV)' -yl 'vertical\next_v'
-      -lblu 0.3,0.2 rc '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
-      -lblu 0.3,0.7 lc '2^\{~\{b}}~\{P}_\{k^\{2}}=2^\{~\{a}}'
+      -lblu 0.2,0.25 lc,rot=40 '~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
       -lblu 0.3,0.4 ru 'Text above horizontal line'
       -lblu 0.3,0.4 ld 'Text in ld orientation (eV)'
 
-      -lbl 0.5,.96 cc "subscript perpendicular symbol &\{k}_\{~\{\{\136}}}"
-      -lbl 0.3,.89 rc "brackets ~\{\{\341}}A~\{\{\361}}
-      -lbl 0.3,.84 rc "arrows ~\{\{\254}}|~\{\{\256}}|~\{\{\255}}|~\{\{\257}}
+      -lbl 0.5,.94 cc "perpendicular subscript &\{k}_\{~\{\{\136}}}, centered in frame"
+      -lbl 0.2,.89 rc "arrows ~\{\{\253\254\255\256\257}}
+      -lbl 0.2,.84 rc "brackets ~\{\{\341A\361\355\375\357\364\174}}
+      -lbl 0.2,.79 rc "symbols ~\{\{\243\245\321\326\327\333\334\335\336\337\362\134\136}}
+      -lbl 0.2,.74 rc "symbols ~\{\{\261\262\263\264\265\266\267\271\272\273\274}}
 ~~~
 
 Create and view the postscript file:
@@ -803,9 +803,9 @@ Note the following:
 
 + the '\\' in the _x_ and _y_ labels `(-xl horizontal\)` and `-yl 'vertical\'
   creates a newline.
-+ the Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`)
-+ right-  and upper- (`'Text above horizontal line'`); and left- and lower- (`'Text in ld orientation (eV)'`) types of justification
-+ Special symbols brackets (`~\{\{\341}}A~\{\{\361}}`) and arrows (`~\{\{\254}}|~\{\{\256}}|~\{\{\255}}|~\{\{\257}}`)
++ the rotation, Greek characters and multiple nesting of subscripts (`'~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'`).  The [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor
++ right-  and upper- (`'Text above horizontal line'`); and left- and lower- (`'Text in ld orientation (eV)'`) types of justification.=
++ the special symbols created by `brackets ...` and `arrows ...`.
 
 _____________________________________________________________
 
