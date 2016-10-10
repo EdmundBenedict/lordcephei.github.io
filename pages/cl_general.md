@@ -35,7 +35,7 @@ _pos.cafeas_{: style="color: green"}.
 ##### _Switches Common to Most or All Programs_
 
     --help
-    --h             lists command-line switches for that program and quits
+    --h             Lists command-line switches for that program and quits
     
     --input         Lists tags (categories and tokens) a program will read. 
                     Same as turning on HELP=T in category IO; see
@@ -51,26 +51,26 @@ _pos.cafeas_{: style="color: green"}.
                     of parsing the input file.
 
 
-    --pr#1[,#2]     sets output verbosities, overriding any specification
-     -pr#1[,#2]     through IO_VERBOS in the ctrl file
+    --pr#1[,#2]     Sets output verbosities, overriding any specification
+     -pr#1[,#2]     through IO_VERBOS in the ctrl file.
                     #2 sets verbosity for the potential generation part.
 
-    --time=#1[,#2]  prints out a summary of timings in various sections
+    --time=#1[,#2]  Prints out a summary of timings in various sections
                     of the code. Timings are kept to a nesting level of #1.  
-                    If #2 is nonzero, timings are printed `on the fly'
+                    If #2 is nonzero, timings are printed `on the fly'.
 					
-    --iactive       turns on `interactive' mode, overriding any specification
+    --iactive       Turns on `interactive' mode, overriding any specification
                     through IO_IACTIV in the ctrl file.
 					
     --iactive=no    
-    --no-iactive    turns off `interactive' mode
+    --no-iactive    Turns off `interactive' mode.
 					
-    -c"name=strn"   declares a character variable and assigns it to value `strn'
+    -c"name=strn"   Declares a character variable and assigns it to value `strn'.
 					
-    -v"name=expr"   declares a numeric variable and assigns its value to
+    -v"name=expr"   Declares a numeric variable and assigns its value to
                     the result of expression `expr'. Be advised that
                     only the first declaration of a variable is
-                    used.  Later declarations have no effect.  
+                    used. Later declarations have no effect.  
 
                     In addition to the declaration `name=...'  there
                     are assignment operators `*=','/=','+=','-=','^=' 
@@ -79,12 +79,12 @@ _pos.cafeas_{: style="color: green"}.
 ##### _Switches Common To Programs Using Site Information_
 Additionally, for any program utilizing site information, the following switches apply
 
-    --rpos=fnam     tells the program to read site positions from
+    --rpos=fnam     Tells the program to read site positions from
                     file ``fnam'' after the input file has been read.  Data
                     is read following a standard format for 2D arrays.
 					
     --fixpos[:tol=#]
-    --fixpos[:#]    tells the symmetry finder to adjust positions
+    --fixpos[:#]    Tells the symmetry finder to adjust positions
                     to sites that are ``slightly displaced''. That is
                     if they were displaced a small amount, the basis would
                     conform to a group operation.  Optional tolerance
@@ -95,9 +95,9 @@ Additionally, for any program utilizing site information, the following switches
                     render them internally consistent with each other.
 
     --fixpos[:tol=#] Adjust positions slightly, rendering them
-                   as consistent as possible with the symmetry group.
+                     as consistent as possible with the symmetry group.
 
-    --sfill=class   list tells the program to adjust the sphere sizes
+    --sfill=class   List tells the program to adjust the sphere sizes
                     to space filling.
 					
                     *By default, ``class-list'' is a list of integers.
@@ -114,7 +114,7 @@ Additionally, for any program utilizing site information, the following switches
                     *A third alternative specification of a class-list is
                     specifically for unix systems.  The syntax is
                     ``-sfill~style=3~fnam''.  Here "fnam" is a filename
-                    with the usual unix wildcards.  For each class,
+                    with the usual unix wildcards. For each class,
                     the program makes a system call ``ls fnam | grep
                     class'' and any class which grep finds is
                     included in the list.  Example:
