@@ -177,9 +177,10 @@ fplot
   -lbl .5,-.02 cd 'Charge density in bcc Chromium (10^\{-3} a.u.)'
 ~~~
 
-Run **fplot**{: style="color: blue"} with
+Create and view the postscript file:
 
     $ fplot -f plot.cr
+    $ open fplot.ps
 
 <div onclick="elm = document.getElementById('fig2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
@@ -226,9 +227,10 @@ fplot
   -l0 Hg_\{x}Cd_\{1-x}Te -lt 1,bold=3             -ord x5/1e5 -itrp 10,300,5,0,4 mobility.tlinp
 ~~~
 
-Run **fplot**{: style="color: blue"} with
+Create and view the postscript file:
 
     $ fplot -f plot.mobility
+    $ open fplot.ps
 
 <div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
@@ -242,7 +244,7 @@ Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-fr
 + ` -x 0,300` and `-y .27,5` set the user's units that bound the figure.
 + `-p0` suppresses padding of the frame (increasing the range of _x_ and _y_).
 + `-1p` terminates the first pass.
-+ `-yn:r` causes the figure numbering to appear on the right axis.
++ `-yn:r` causes the figure numbering to appear on the right side.
 + `-font t18` sets the font for the labels to Times Roman 18 points.
 + `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels.
 + `-font t16` sets the font for subsequent labels.
@@ -749,6 +751,38 @@ Note that the label now contains backslashes.  You must include the backslash wh
 
 Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions (red, green, blue) expressed as
 a fraction of the brightest color.  0 is the absence of color, and 1 is the brightest color.
+
+#### User units
+{::comment}
+/docs/misc/fplot/#user-units
+{:/comment}
+
+_User's units_ are the units the data are represented in.  Each frame can have its own set of units.
+Units that bound the box of the frame can be specified through 
+&nbsp; **-x <i>x</i><sub>1</sub>**,**<i>x</i><sub>2</sub>** and &nbsp; **-y <i>y</i><sub>1</sub>**,**<i>y</i><sub>2</sub>**.
+
+In the absence of explicit specification, **fplot**{: style="color: blue"} will parse through all the families of data to be drawn 
+in the current frame to determine the bounds and determine one or both of (**<i>x</i><sub>1</sub>**,**<i>x</i><sub>2</sub>**) 
+(**<i>y</i><sub>1</sub>**,**<i>y</i><sub>2</sub>**) not specified from the smallest and largest values it finds.
+
+Once (**<i>x</i><sub>1</sub>**,**<i>x</i><sub>2</sub>**) and (**<i>y</i><sub>1</sub>**,**<i>y</i><sub>2</sub>**) bounds have been
+obtained, they are padded by (both abscissa and ordinate are enlarged on each end) by a fraction of their starting distance.
+The bounds are stretched by a fraction 0.1 by default, but you can set the padding to any number with the **-p** argument.
+
+#### Graphics units and medium units
+{::comment}
+/docs/misc/fplot/#graphics-units-and-medium-units
+{:/comment}
+
+_Graphics units_ are used to facilitate construction of some elements of the figure.
+
+They range from (0,0) to (1,1) for the largest square that fits within the plot medium.
+Graphics units are convenient for quantities that depend on the size of the figure, and not the units of data.
+Examples are the size of tic marks, the size of symbols, and spacing between elements in a key.
+
+_Medium units_ are historical.  In the early days graphs had to be drawn on hardware
+with specific units.  They appear interally in the source code but don't need to
+be dealt with by the user.
 
 #### Structure of data files
 
