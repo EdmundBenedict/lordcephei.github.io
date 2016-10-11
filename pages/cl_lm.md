@@ -38,10 +38,9 @@ _____________________________________________________________
                      See generating-energy-bands.html
                      for a detailed description of the available options.
 					 
-    --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves,
-                     described in this document.
+    --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves.
 					 
-    --mull[:options] Tells lm to generate weights for Mulliken analysis, described in this document.
+    --mull[:options] Tells lm to generate weights for Mulliken analysis.
 	
     --mix=#          Start the density mixing at rule ``#''
                      (See ITER_MIX in tokens.html
