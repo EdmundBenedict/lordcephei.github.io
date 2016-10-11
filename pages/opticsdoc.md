@@ -31,11 +31,11 @@ The calculated quantities from the modes above can be decomposed in a number of 
 
 3.   By both k and (occ,unnoc) pairs,
 
-4.   project out the Mulliken decomposition to JDOS from a particular orbital, or group of orbitals.
+4.   Project out the Mulliken decomposition to JDOS from a particular orbital, or group of orbitals.
 
 **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} differ only in how the optical matrix elements are calculated: they use the same input system and call the same optics routines. Thus the input, output and this documentation apply to both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.  
 
-Several Brillouin zone integration methods are provided within the package. The fastest, but least accurate, is a sampling method (**OPTICS_LTET_=0**). There is a plain tetrahedron integrator (**OPTICS_LTET_=1** or **OPTICS_LTET_=2** below). But its applicability is restricted to only a few of the options listed above). There is also a sophisticated tetrahedron integration (**OPTICS_LTET_=3**), adapted from a GW package. It is the most memory intensive but offers all the options available. Unless you want k-resolved or Mulliken-resolved output, and you are working with an insulator, **OPTICS_LTET_=1** is recommended as it takes less memory, runs faster, and seems to be slightly more accurate than the **OPTICS_LTET_=3** integrator.  
+Several Brillouin zone integration methods are provided within the package. The fastest, but least accurate, is a sampling method (**OPTICS_LTET_=0**). There is a plain tetrahedron integrator (**OPTICS_LTET_=1** or **OPTICS_LTET_=2** below). But its applicability is restricted to only a few of the options listed above. There is also a sophisticated tetrahedron integration (**OPTICS_LTET_=3**), adapted from a GW package. It is the most memory intensive but offers all the options available. Unless you want k-resolved or Mulliken-resolved output, and you are working with an insulator, **OPTICS_LTET_=1** is recommended as it takes less memory, runs faster, and seems to be slightly more accurate than the **OPTICS_LTET_=3** integrator.  
 
 There is a significant cost to calculate the dielectric function, even just the bulk Im $$\epsilon(\omega)$$. This is because the number of (occ,unocc) pairs scales quadratically with system size. Thus while the cost of a normal band calculation scales as $$N^4$$, the cost to calculate Im$$\epsilon(\omega)$$ scales as $$N^4$$, with N the number of states in the unit cell. Moreover, to obtain good resolution in Im $$\epsilon(\omega)$$, you need a rather fine k-mesh.
 
