@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "lm CLO"
+title: "lm Command Line Options"
 permalink: "/docs/commandline/lm/"
 header: no
 ---
@@ -25,30 +25,30 @@ It would also be wise to read up on the different input sources that _lm_{: styl
 ### _Documentation_
 _____________________________________________________________
 
-    --rs=#1,#2       causes lm to read from a rst file.  By default the ASA
+    --rs=#1,#2       Causes lm to read from a rst file. By default the ASA
                      writes potential information, e.g. P,Q for
-                     each class to a separate file.  If #1 is nonzero, data is read
+                     each class to a separate file. If #1 is nonzero, data is read
                      from file rsta.ext,
-                     superseding information in class files.  If #2 is nonzero, lm will write to
+                     superseding information in class files. If #2 is nonzero, lm will write to
                      that file.
 					 
-    --band[~option~option...] tells lm to generate energy bands instead
+    --band[~option~option...] Tells lm to generate energy bands instead
                      of making a self-consistent calculation.  The energy
                      bands can be generated in one of several formats.
                      See generating-energy-bands.html
                      for a detailed description of the available options.
 					 
-    --pdos[:options] tells lm to generate weights for density-of-states resolved into partial waves,
+    --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves,
                      described in this document.
 					 
-    --mull[:options] tells lm to generate weights for Mulliken analysis, described in this document.
+    --mull[:options] Tells lm to generate weights for Mulliken analysis, described in this document.
 	
-    --mix=#          start the density mixing at rule ``#''
+    --mix=#          Start the density mixing at rule ``#''
                      (See ITER_MIX in tokens.html
                      for a description of mixing rules).
 					 
-    --onesp          in the spin-polarized collinear case, tells the program that
+    --onesp          In the spin-polarized collinear case, tells the program that
                      the spin-up and spin-down hamiltonians are equivalent
                      (special antiferromagnetic case)
 					 
-    -sh=cmd          invoke the shell ``cmd'' after every iteration
+    -sh=cmd          Invoke the shell ``cmd'' after every iteration
