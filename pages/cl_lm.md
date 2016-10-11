@@ -48,6 +48,6 @@ _____________________________________________________________
 					 
     --onesp          In the spin-polarized collinear case, tells the program that
                      the spin-up and spin-down hamiltonians are equivalent
-                     (special antiferromagnetic case)
+                     (special antiferromagnetic case).
 					 
-    -sh=cmd          Invoke the shell ``cmd'' after every iteration
+    -sh=cmd          Invoke the shell ``cmd'' after every iteration.
