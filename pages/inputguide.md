@@ -11,6 +11,10 @@ This guide aims to detail the structure and use of the input file and related to
 _____________________________________________________________
 
 ### _Table of Contents_
+{::comment}
+/docs/input/inputfile/#table-of-contents
+{:/comment}
+
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}  
@@ -661,6 +665,10 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 {::nomarkdown}</div>{:/}
 
 ##### _SPEC_
+{::comment}
+/docs/input/inputfile/#spec
+{:/comment}
+
 Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=; input of tokens specific to that species must precede the next occurence of ATOM=.  
 
 The following four species apply to the automatic sphere resizer:
