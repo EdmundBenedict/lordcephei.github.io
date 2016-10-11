@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Full Potential (lmf) Partial DOS"
-permalink: "/tutorial/lmf/lmf_pdos/"
+permalink: "/tutorial/lmf/pdos/"
 header: no
 ---
 
@@ -37,7 +37,7 @@ Building a partial DOS using the _lmf_{: style="color: blue"} code is exemplifie
 
 Should you want a more in depth look, or a practical example, these are good places to start. We will use these as a base and go through the steps required to generate the partial DOS.   
 
-An input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/asa_inputfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.   
+An input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/tutorial/lmf/ctrlfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.   
 
 In this tutorial we will use the material Gallium Arsenide, GaAs. Our input file, created previously, will be referred to as _ctrl.gas_{: style="color: green"} and should be named as such.
 

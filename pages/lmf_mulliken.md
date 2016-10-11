@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Full Potential (lmf) Mulliken Analysis"
-permalink: "/tutorial/lmf/lmf_mulliken/"
+permalink: "/tutorial/lmf/mulliken/"
 header: no
 ---
 
@@ -31,7 +31,7 @@ _Note:_{: style="color: red"} the build directory should be different from the s
 
 ### _Tutorial_
 _____________________________________________________________
-In order to perform a Mulliken analysis using the _lmf_{: style="color: blue"} code an input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/asa_inputfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.
+In order to perform a Mulliken analysis using the _lmf_{: style="color: blue"} code an input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/tutorial/lmf/ctrlfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.
 
 For the Mulliken analysis tutorial we will use the material Iron, Fe, and thus base our tutorial around the _fe 2_ test case. Our input file, created previously, will be referred to as _ctrl.fe_{: style="color: green"} and should be named as such.
 
