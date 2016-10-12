@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "CPA Enhancement of the Green's function package"
+title: "Spectral function calculations with lmgf "
 subheadline: ""
 show_meta: false
 teaser: ""
@@ -70,3 +70,14 @@ Upon successful completion of calculation **spf.«sys»**{: style="color: green"
     .
 
 where _ZP_ are the points on the energy contour, _KP_ are the points of the K-mesh and SF_UP, SF_DN are the spectral functions for Up and Down channel respectively. The very first line of the file indicate the location of the high symmetry points of the Brillouin zone. User can utilize this information to visualize the spectral function using any desired graphics package. A small bash utility, **SpectralFunction.sh**{: style="color: green"}, is given for the sake of convenience. This bash script uses Gnuplot to view and save the spectral function. Users with standard Linux/unix distro should be able to use it without special prerequisites. Typical output of the script is shown in the figure. Please see SpectralFunction.sh -h for usage. (The file **spf.«sys»**{: style="color: green"} should be renamed **specfun.«sys»**{: style="color: green"} to be read by this script. See below why.) 
+
+### _Site-resolved spectral functions_
+_____________________________________________________________
+
+Site-resolved spectral functions can be obtained by including the option **specfr** in **GFOPTS**. (It supersedes the option specfun.) A series of output files will then be generated, which contain the spectral function on each basis site . The file names are **spfN.«sys»**{: style="color: green"}, where N is the index of the site. The format of this file is the same as for **spf.«sys»**{: style="color: green"}, and it can be also plotted using the SpectralFunction.sh script (first rename to **specfun.«sys»**{: style="color: green"}). 
+
+
+### _Notes_
+_____________________________________________________________
+
++ Spectral function calculations can be run with MPI parallelization.
