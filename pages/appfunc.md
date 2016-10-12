@@ -48,7 +48,7 @@ The _lm_{: style="color: blue"} code can generate energy bands as shown in [this
 
 A tutorial detailing the steps to drawing a Fermi surface with the _lmf_{: style="color: blue"} codes can be found [here](/tutorial/lmf/fermisurface/). A quick rundown of the commands needed is shown here:
 
-'''
+~~~
 
 find or create a ctrl.fe file
 $ lmfa fe
@@ -56,7 +56,7 @@ $ lmf fe --iactiv --band~con~fn=fs
 $ mc -r:open bnds.fe -shft=0 -w b2 -r:open bnds.fe -shft=0 -w b3 -r:open bnds.fe -shft=0 -w b4 -r:open bnds.fe -shft=0 -w b5
 $ fplot -f plot.fs0
 
-'''
+~~~
 
 {::nomarkdown}</div>{:/}
 
