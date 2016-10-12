@@ -26,7 +26,7 @@ _____________________________________________________________
 The spectral function can be calculated both with and without CPA. The calculation is performed in 3 steps:
 
 + Charge self consistency. (The spectral function can be calculated for any potential, but it is usual to work with the self-consistent one).
-+ CPA self-consistency in the coherent interactor $$\omega$$ Ω (CPA only). Since Ω is energy dependent, it has to be calculated for the energy points where the spectral function is needed. For drawing spectral functions this is usually a uniform mesh of points close to the real axis.
++ CPA self-consistency in the coherent interactor $$\Omega$$ Ω (CPA only). Since Ω is energy dependent, it has to be calculated for the energy points where the spectral function is needed. For drawing spectral functions this is usually a uniform mesh of points close to the real axis.
 + Calculation of the spectral function on some contour, usually a uniform mesh close to the real axis.
 
 **Charge self consistency**{: style="color: orange"} is performed in the usual manner, for example with the following options:
@@ -48,4 +48,11 @@ Calculation of the spectral function should be done with **EMESH** set to the sa
     BZ       EMESH=150 2 -.25 .25  .0005  0
     GF       MODE=1 DLM=12 GFOPTS=p3;omgmix=1.0;padtol=1d-3;specfun
 
+**Important: If there are sites treated in CPA, the contour specified by EMESH should be kept exactly as in the previous step when CPA self-consistency was performed.**
+
+In order to start the calculation, invoke **lmgf**{: style="color: blue"} with the **--band** flag referring to the symmetry-line file (same format as used for band structure calculation with **lm**{: style="color: blue"}):
+
+    lmgf «sys» --band:fn=syml 
+
+where _«sys»_ is the extension of the **ctrl**{: style="color: green"} file. Once completed, the program will generate a **spf.«sys»**{: style="color: green"} file containing the complete spectral function along the lines given in the **syml.«sys»**{: style="color: green"} file. Other options included with **--band** are currently not used. 
 
