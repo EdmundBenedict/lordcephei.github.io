@@ -50,14 +50,12 @@ With our _bnds.fe_{: style="color: green"} file generated, we can use the _mc_{:
 Where the file _plot.fs0_{: style="color: green"} containing the _fplot_{: style="color: blue"} commands:
 
 ~~~
-
 fplot
 % var ef=-0.006661
   -lt 1,col=0,0,.5 -con {ef} b2
   -lt 1,col=0,1,.8 -con {ef} b3
   -lt 1,col=0,1,0 -con {ef} b4
   -lt 1,col=1,0,0 -con {ef} b5
-
 ~~~
 
 Your Fermi surface can now be found in the _fplot.ps_{: style="color: green"} file.
