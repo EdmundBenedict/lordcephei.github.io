@@ -351,6 +351,8 @@ Look into **ctrl.copt**{: style="color: green"}. Two lines are important here:
 
 **MODE={gfmode}** means that you can define MODE in the command line by adding **-vgfmode=1/10/11/26**; if you don't it will be set to 1 (from **const gfmode=1**). In the previous example we used **MODE=1** now we'll need **MODE=10** that invokes a special branch computing magnetic exchange interactions using a linear response technique. 
 
+<div onclick="elm = document.getElementById('exchange'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Heisenberg exchange parameters</button></div>{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="exchange">{:/}
+
 The Heisenberg model is an empirical model that postulates a set of interacting rigid local spins. The Hamiltonian is 
 
 $$H = − \sum_{RR'} J_{RR'} S_RS_{R'}$$
@@ -360,6 +362,8 @@ The $$J_{RR'}$$ are called "Heisenberg exchange parameters". The Heisenberg appl
 $$J_{RR'}(q) = \sum_T \exp(iqT) J_{R+T,R'}$$, where R and R' are now confined to sites within a unit cell.
 
 **lmgf**{: style="color: blue"} calculates $$J_{RR'}(q)$$ from the "Lichtenstein formula." This famous expression ([J. Magn. Magn. Mater. 67, 65 (1987)](http://www.sciencedirect.com/science/article/pii/0304885387907219)), closely related the static transverse magnetic susceptibility $$\chi^{+−}$$, is derived from density functional perturbation theory. It establishes a first-principles basis for the Heisenberg model. One elegant (though approximate) feature of the ASA is that the magnetization is everywhere associated with an atomic sphere. For local moment systems, the magnetization is well confined inside a sphere; thus associated with every site R there is a well defined local moment. If sufficiently localized it rotates rigidly under the influence of an external perturbation.
+
+{::nomarkdown}</div>{:/}
 
  When you set **GF_MODE=10**, **lmgf**{: style="color: blue"} will generate $$J_{RR'}(q)$$, and then perform an inverse Bloch transform (by Fast Fourier Transform) to make $$J_{R+T,R'}$$ for as many lattice translation vectors T as there are k-points. 
  
