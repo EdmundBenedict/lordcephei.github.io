@@ -50,11 +50,11 @@ Calculation of the spectral function should be done with **EMESH** set to the sa
 
 **Important: If there are sites treated in CPA, the contour specified by EMESH should be kept exactly as in the previous step when CPA self-consistency was performed.**
 
-In order to start the calculation, invoke **lmgf**{: style="color: blue"} with the **--band** flag referring to the symmetry-line file (same format as used for band structure calculation with **lm**{: style="color: blue"}):
+In order to start the calculation, invoke **lmgf**{: style="color: blue"} with the **\-\-band** flag referring to the symmetry-line file (same format as used for band structure calculation with **lm**{: style="color: blue"}):
 
     lmgf «sys» --band:fn=syml 
 
-where _«sys»_ is the extension of the **ctrl**{: style="color: green"} file. Once completed, the program will generate a **spf.«sys»**{: style="color: green"} file containing the complete spectral function along the lines given in the **syml.«sys»**{: style="color: green"} file. Other options included with **--band** are currently not used. 
+where _«sys»_ is the extension of the **ctrl**{: style="color: green"} file. Once completed, the program will generate a **spf.«sys»**{: style="color: green"} file containing the complete spectral function along the lines given in the **syml.«sys»**{: style="color: green"} file. Other options included with **\-\-band** are currently not used. 
 
 ### _Plotting of the spectral function_
 _____________________________________________________________
