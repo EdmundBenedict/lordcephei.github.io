@@ -118,6 +118,8 @@
         url: "/mulliken/"
       - title: "Generating a Fermi Surface"
         url: "/fermisurface/"
+      - title: "Performing Core Level Spectroscopy"
+        url: "/cls/"
       - title: "Extremal points and calculating effective mass"
         url: "/lmf_bandedge/"
     - name: "ASA"
