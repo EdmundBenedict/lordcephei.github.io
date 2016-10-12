@@ -40,6 +40,8 @@
         url: "/jpos/"
       - title: "CPA Enhancement of the Green's function package"
         url: "/cpadoc/"
+      - title: "Spectral function calculations with lmgf"
+        url: "/spectral-functions/"
   - program:
     - name: "Input Files"
       prefix: "/input"
