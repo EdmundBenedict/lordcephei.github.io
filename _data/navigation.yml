@@ -116,6 +116,8 @@
         url: "/pdos/"
       - title: "Performing Mulliken Analysis"
         url: "/mulliken/"
+      - title: "Generating a Fermi Surface"
+        url: "/fermisurface/"
       - title: "Extremal points and calculating effective mass"
         url: "/lmf_bandedge/"
     - name: "ASA"
