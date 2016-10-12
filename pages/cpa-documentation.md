@@ -123,7 +123,7 @@ Partial DOS can be calculated as usual using contour type 2 and adding pdos to t
 _____________________________________________________________
 
 
-**lmgf**{: style="color: blue"} can generate spectral functions. It is very useful way to see the broadening of states from disorder, and you can plot energy bands with it. This document explains how to make them and draw energy bands. 
+**lmgf**{: style="color: blue"} can generate spectral functions. It is very useful way to see the broadening of states from disorder, and you can plot energy bands with it. [This document](https://lordcephei.github.io/docs/code/spectral-functions/) explains how to make them and draw energy bands. 
 
 ### _Test case_
 _____________________________________________________________
