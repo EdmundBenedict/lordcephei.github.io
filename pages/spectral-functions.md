@@ -41,7 +41,7 @@ Note the **EMESH mode** (contour type) is elliptical (type 10). If CPA is used, 
     BZ       EMESH=150 2 -.25 .25  .0005  0
     GF       MODE=1 DLM=32  GFOPTS=p3;omgmix=1.0;padtol=1d-3;omgtol=1d-6;lotf;nitmax=50
    
-The highlighted parameters are of particular importance. lotf is required to iterate $$\Omega$$ for convergence (and it is recommended to keep it enabled in all CPA calculations, including charge self-consistency). It is also necessary to monitor the output file (set **--pr41**) and make sure that the required precision has been achieved for all energy points. If convergence appears to be problematic, try to start with a larger imaginary part for the complex energy or reduce the mixing parameter omgmix.
+The highlighted parameters are of particular importance. lotf is required to iterate $$\Omega$$ for convergence (and it is recommended to keep it enabled in all CPA calculations, including charge self-consistency). It is also necessary to monitor the output file (set **\-\-pr41**) and make sure that the required precision has been achieved for all energy points. If convergence appears to be problematic, try to start with a larger imaginary part for the complex energy or reduce the mixing parameter omgmix.
 
 Calculation of the spectral function should be done with **EMESH** set to the same mesh as used for $$\Omega$$ self-consistency, e.g.
 
