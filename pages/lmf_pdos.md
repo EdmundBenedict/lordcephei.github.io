@@ -47,7 +47,8 @@ We begin by running _lmfa_{: style="color: blue"} progam which needs to be run b
 
 We can now proceed with our first _lmf_{: style="color: blue"} command
 
-    $ lmf gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --rs=1,0 -vnit=1
+    $ lmf gas
+	$ lmf gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --rs=1,0 -vnit=1
 
 Which will generate a variety of files needed to build our partial density of states. Note, this command will generate a _dos.gas_{: style="color: green"} file. This file is _not_ our partial density of states but rather the full density of states file, the next command will overwrite this file.
 
