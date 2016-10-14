@@ -84,7 +84,7 @@ to _dest.f_{: style="color: green"}.  **MPI** is defined,
 
 To see arguments **ccomp**{: style="color: blue"}, accepts, type `ccomp --h`.
 
-#### _Conditional commenting or uncommenting of of lines_
+#### _Conditional commenting or uncommenting of lines_
 
 **C#ifdef**, **C#ifndef**, and **C#elseif** are followed by a boolean
 expression, e.g.

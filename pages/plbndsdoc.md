@@ -34,7 +34,7 @@ Energy bands provide a great deal of information, and the Questaal codes provide
 them.  Drawing bands with color weights is a particularly useful feature,
 as shown in Section 2
 
-You must choose the symmetry lines yourself but [prepackaged symmetry line
+You must choose the symmetry lines yourself, but [prepackaged symmetry line
 files](https://lordcephei.github.io/docs/input/symfile/) are available that greatly facilitate the selection and labelling.
 
 Three Questaal tools can make energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{:
@@ -51,7 +51,7 @@ Data for each symmetry line is kept in a separate file.
 3. Same as 2, but format files ready for use with **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.
 
 Tutorials show how to draw figures with **fplot**{: style="color: blue"}; however
-**plbnds**{: style="color: blue"} makes suitable files you can easily use **gnuplot**{: style="color: blue"} or some other package.
+**plbnds**{: style="color: blue"} makes suitable files you can easily use with **gnuplot**{: style="color: blue"} or some other package.
 **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"} write postscript files to _fplot.ps_{: style="color: green"}.
 
 **plbnds**{: style="color: blue"} will print information about its usage by typing
