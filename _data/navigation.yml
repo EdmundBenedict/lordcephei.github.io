@@ -30,6 +30,8 @@
         url: "/fpoverview/"
       - title: "GW Overview"
         url: "/gwoverview/"
+      - title: "Dynamical Mean Field Theory"
+        url: "/dmftoverview/"
       - title: "ASA Overview"
         url: "/asaoverview/"
       - title: "ASA Green's function"
@@ -40,6 +42,8 @@
         url: "/jpos/"
       - title: "CPA Enhancement of the Green's function package"
         url: "/cpadoc/"
+      - title: "Spectral function calculations with lmgf"
+        url: "/spectral-functions/"
   - program:
     - name: "Input Files"
       prefix: "/input"
