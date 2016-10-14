@@ -963,4 +963,43 @@ into the postscript Symbol font.
 [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
 Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
-_____________________________________________________________
+##### Playing with frames
+{::comment}
+/docs/misc/fplot/#playing-with-frames
+{:/comment}
+
+**fplot**{: style="color: blue"} gives you a fair amount of flexbility in making frames
+Cut and paste the box below into script file _plot.frames_{: style="color: green"}.
+
+~~~
+fplot -frme:col=0,0,1 0,1,0,.1 -frmt col=.9,.9,.9 -tmy .25 -noyn -x 0,1 -y 0,1 -tp 1~
+      -frme:xor=.3:yab=.6:col=0,1,0 0,1,.1,.2 -frmt col=.9,.9,.9 -noyn -x 0,1 -y 0,1 -tmy .25
+      -s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6
+      -frme:xor=.4:col=0,1,1 0,1,.3,.4 -noyn -x 0,1 -y 0,1 -tmy .25 -1p -lbl .0,.0:0 cc ABC 
+      -s arrow:fill=3:bold=2:col=.5,.5,.5:.07,0.20,.5,20,.4 -tp 2~.4,.0
+~~~
+
+Create and view the postscript file:
+
+~~~
+$ fplot -f plot.frames
+$ open fplot.ps
+~~~
+
+<div onclick="elm = document.getElementById('figf'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
+![Example 2.4](https://lordcephei.github.io/assets/img/frames.svg)
+{::nomarkdown}</div>{:/}
+
+This command draws three frames without any data.
+
++ _Bottom frame_ : is filled with blue, because of `-frme:col=0,0,1`.
+  + `-frmt col=.9,.9,.9` makes the framing around the box labelling with a nearly while color
+  + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis
+  + The `-tp 1~` doesn't do anything.  It is needed because no data was given to the frame;
+    without any data at all the frame will not be drawn.
++ _Middle frame_ : is filled with blue, because of `-frme:col=0,0,1`.	
+	
+	
+
+
