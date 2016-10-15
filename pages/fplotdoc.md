@@ -352,16 +352,16 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 {:/comment}
 
 + **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#][:col=#,#,#,][:font=_font_] &nbsp;_l_,_r_,_b_,_t_**\\
-  starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in [graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)\\
+  starts a new frame, in box.  **_l_,_r_,_b_,_t_** are left, right, bottom, top, &nbsp; in [graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)\\
   Options to **-frme** are:\\
-  + **lx**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **ly**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
-  + **lxy**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
-  + **theta=#**      &nbsp;angle between abscissa and ordinate (in radians)<br/>
-  + **xor=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
-  + **yab=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **col=#,#,#**    Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
-  + **font=_font_**  Font for axis numbering and labels.
+  + **lx**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **ly**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **lxy**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           draw both abscissa and ordinate on a logarithmic scale.
+  + **theta=#**      &nbsp;&nbsp;&nbsp;angle between abscissa and ordinate (in radians)<br/>
+  + **xor=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
+  + **yab=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
+  + **col=#,#,#**    &nbsp;Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
+  + **font=_font_**  &nbsp;Font for axis numbering and labels.
 
 <i> </i>
 
@@ -378,10 +378,10 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 + **-tmx** \| **-tmy &nbsp; spacing[:mt][,pos][;rmt][~rmnt][@mode]**\\
   tic mark specification and attributes.
   + **spacing**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
-  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. tics per major tic
-  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 position and size of major tic
+  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. number of tics per major tic
+  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 specify position of major tic
   + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
-  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, relative to major tic
+  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, as a fraction of major tic size
   + **@_n_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                     special tic mark placement modes\\
     @1 &nbsp; "fine grained" log scale: tics put at at 1,2,3,4,5,6,7,8,9 &times; 10</sup>integer</sup>\\
     @2 &nbsp; "medium grained" log scale: tics put at at 1,2,5 &times; 10</sup>integer</sup>\\
