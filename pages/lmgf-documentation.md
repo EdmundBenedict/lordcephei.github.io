@@ -42,11 +42,17 @@ _____________________________________________________________
 
 For energy-integrated properties, a very fine energy mesh would be required if the energy integration were carried out close to the real axis. It is much more efficient to deform the integration contour into an elliptical path in the complex plane, approaching the real axis only at the lower and upper integration limits.
 
-To integrate quantities over occupied states, integration to the Fermi level _E<sub>F</sub>_ is required. _E<sub>F</sub>_ is not known but must be fixed by charge neutrality. Thus $$E_F$$ must be guessed at and iteratively refined until the charge neutrality condition is satisfied. **lmgf**{: style="color: blue"} does not vary _E<sub>F</sub>_; the user specifies it at the outset. Instead **lmgf**{: style="color: blue"} looks for a constant potential shift that satisfies charge neutrality; this must be searched for iteratively. Both the potential shift and $$E_F$$ are maintained in a file **vshft.ext**{: style="color: green"}. Inspection of **vshft.ext**{: style="color: green"} may look unecessarily complicated; it's because you can use the file to add site-dependent shifts. **vshft.ext**{: style="color: green"} is also used by the layer Green's function code **lmpg**{: style="color: blue"}, which requires extra information about shifts on the left and right leads.
+To integrate quantities over occupied states, integration to the Fermi level _E<sub>F</sub>_ is required. _E<sub>F</sub>_ is not known but must be fixed by charge neutrality. Thus $$E_F$$ must be guessed at and iteratively refined until the charge neutrality condition is satisfied. **lmgf**{: style="color: blue"} does not vary _E<sub>F</sub>_; the user specifies it at the outset. Instead **lmgf**{: style="color: blue"} looks for a constant potential shift that satisfies charge neutrality; this must be searched for iteratively. Both the potential shift and $$E_F$$ are maintained in a file _vshft.ext_{: style="color: green"}. Inspection of _vshft.ext_{: style="color: green"} may look unecessarily complicated; it's because you can use the file to add site-dependent shifts. _vshft.ext_{: style="color: green"} is also used by the layer Green's function code **lmpg**{: style="color: blue"}, which requires extra information about shifts on the left and right leads.
 
 Metals and nonmetals are distinguished in that in the latter case, there is no DOS in the gap and therefore the Fermi level (or potential shift) cannot be specified precisely. 
 
-**Metal case** (set by **BZ_METAL=1**): once the $$k$$- and energy-points are summed over and the deviation from charge neutrality is determined, the code will attempt to find the potential shift that fixes charge neutrality. It does this in one of two ways:
+**Metal case** (set by **BZ_METAL=1**): once the $$k$$- and energy-points are summed over and the deviation from charge neutrality is determined, the code will attempt to find the potential shift that fixes charge neutrality. 
+
+<div onclick="elm = document.getElementById('metal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<b>Click here</b> for description of this special purpose mode.
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="metal">{:/} 
+
+It finds the Fermi level in one of two ways:
 
 + Using a Pade approximant, **lmgf**{: style="color: blue"} interpolates the diagonal elements of G. The interpolation is used to evaluate the GF on the starting elliptical contour shifted rigidly by a constant, and the shift is iterated until the charge-neutrality condition is satisfied. At this stage, there are two possibilities:
 
@@ -62,12 +68,14 @@ Metals and nonmetals are distinguished in that in the latter case, there is no D
 
 One last comment about the METAL case: by default the program will save the potential shift to use in the next iteration. You can suppress this save (see frzvc below), which again can be less accurate, but more stable. In particular, if you are working with an insulator where stability can be an issue (determination of the Fermi level is somewhat ill conditioned), a stable procedure is to use this option together with second energy integration scheme described above (the integration contour on the real axis).
 
+{::nomarkdown}</div>{:/}
+
 **Nonmetal case** (set by **BZ METAL=0**): **lmgf**{: style="color: blue"} will not attempt to shift the potential, or ensure charge neutrality. The user is cautioned to to pay rather closer attention to deviations from charge neutrality. It can happen because of numerical integration errors, or because your assumed Fermi level does not fall within the gap. You can use **METAL=1** even if the material is a nonmetal. 
 
 ##### _Some details concerning how lmgf works internally_
 _____________________________________________________________
 
-For each energy point, the BZ integration is accomplished by routine in **gf/gfibz.f**{: style="color: green"}, which loops over all irreducible points, generating the "scattering path operator" $$g$$ and the corresponding $$g$$ for all the points in the star of $$k$$ to generate a properly symmetrized $$g$$. Within the ASA, second-generation LMTO, $$g$$ is converted to proper Green's function $$G$$, corresponding to the orthogonal gamma representation by an energy scaling. The scaling is carried out in routine **gf/gfg2g.f**{: style="color: green"}. Next the various integrated quantities sought are assembled (done by **gf/gfidos.f**{: style="color: green"}). The potential shift to satisfy charge neutrality is found, and stored in **vshft.ext**{: style="color: green"}. The I/O is handled by routine **subs/iovshf.f**{: style="color: green"}.
+For each energy point, the BZ integration is accomplished by routine in **gf/gfibz.f**{: style="color: green"}, which loops over all irreducible points, generating the "scattering path operator" $$g$$ and the corresponding $$g$$ for all the points in the star of $$k$$ to generate a properly symmetrized $$g$$. Within the ASA, second-generation LMTO, $$g$$ is converted to proper Green's function $$G$$, corresponding to the orthogonal gamma representation by an energy scaling. The scaling is carried out in routine **gf/gfg2g.f**{: style="color: green"}. Next the various integrated quantities sought are assembled (done by **gf/gfidos.f**{: style="color: green"}). The potential shift to satisfy charge neutrality is found, and stored in _vshft.ext_{: style="color: green"}. The I/O is handled by routine **subs/iovshf.f**{: style="color: green"}.
 
 ### _GF specific input_
 _____________________________________________________________
@@ -77,7 +85,7 @@ _____________________________________________________________
 
 Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates). 
 
-##### _Energy integration contour : the_ BZ_EMESH _tag_
+##### _The_ BZ_EMESH _token_
 
 To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane. 
 
@@ -87,9 +95,9 @@ At other times you want properties on the real axis, e.g. density-of-states or s
 
 where
 
-           nz         number of energy points
-           mode       specifies the kind of contour; see below
-           emin,emax  are the energy window (emax is usually the Fermi level)
+        nz         number of energy points
+        mode       specifies the kind of contour; see below
+        emin,emax  are the energy window (emax is usually the Fermi level)
 
 
 Right now there are the following contours:
@@ -246,7 +254,7 @@ Often only some atoms are magnetic, and all that is desired are the exchange par
 
 For more details, see [command-line arguments](/docs/code/lmgf/#lmgf-specific-command-line-arguments) invoked with **lmgf**{: style="color: blue"}.
 
-**Caution**{: style="color: red"}. **lmgf**{: style="color: blue"} reads and writes a potential shift file **vshft.ext**{: style="color: green"} which shifts site potential by a constant to cause the Fermi level to match what is specified by the input. This shift also gets added into the atom file; potential **VES** in line **PPAR** is adjusted. When calculating exchange interactions, **vshft.ext**{: style="color: green"} is not read. However, the shift is preserved because they are held in the potential parameters section of the atom file. But if you run the atom part **lm**{: style="color: blue"} or **lmgf**{: style="color: blue"} and remake the PP's from the moments (**START BEGMOM=1**), this causes estat potential to be remade, but the sphere program does not add the contents **vshft**{: style="color: green"} (it is done at the start of the Green's function calculation). The exchange parameters should be evaluated with the potential parameters generated by **lmgf**{: style="color: blue"}. If they are alternatively evaluated from the atom files generated by **lm**{: style="color: blue"}, the Fermi level needs to be aligned to the Fermi level of **lm**{: style="color: blue"} (or close to it; there are slight differences between Fermi levels generated by **lm**{: style="color: blue"} and by **lmgf**{: style="color: blue"}).
+**Caution**{: style="color: red"}. **lmgf**{: style="color: blue"} reads and writes a potential shift file _vshft.ext_{: style="color: green"} which shifts site potential by a constant to cause the Fermi level to match what is specified by the input. This shift also gets added into the atom file; potential **VES** in line **PPAR** is adjusted. When calculating exchange interactions, _vshft.ext_{: style="color: green"} is not read. However, the shift is preserved because they are held in the potential parameters section of the atom file. But if you run the atom part **lm**{: style="color: blue"} or **lmgf**{: style="color: blue"} and remake the PP's from the moments (**START BEGMOM=1**), this causes estat potential to be remade, but the sphere program does not add the contents **vshft**{: style="color: green"} (it is done at the start of the Green's function calculation). The exchange parameters should be evaluated with the potential parameters generated by **lmgf**{: style="color: blue"}. If they are alternatively evaluated from the atom files generated by **lm**{: style="color: blue"}, the Fermi level needs to be aligned to the Fermi level of **lm**{: style="color: blue"} (or close to it; there are slight differences between Fermi levels generated by **lm**{: style="color: blue"} and by **lmgf**{: style="color: blue"}).
 
 {::nomarkdown}</div>{:/}
 
@@ -289,13 +297,14 @@ The following are specific to the exchange calculation **modes 10** and **11**:
     --sites[:pair]:site-list  Make the exchange parameters J_ij only for 
           sites i in the site list.  In mode 11, option :pair means
           that only parameters J_ij where both i and j are printed.
-          See [Syntax of Integer Lists](/docs/misc/integerlists/) for the syntax of site-list'.
 
-Example: running **lmgf**{: style="color: blue"} using **MODE=10** and this command line argument
+
+_Example_: running **lmgf**{: style="color: blue"} using **MODE=10** with this command line argument
 
     --sites:pair:1,3,5,7
 
 generates _J_ connecting sites 1, 3, 5 and 7 to all neighbors.
+See [Syntax of Integer Lists](/docs/misc/integerlists/) for the syntax of **site-list**.
 
 Running **lmgf**{: style="color: blue"} using **MODE=11** with the same **\-\-sites** switch argument will print out the exchanges just between pairs of these sites.
 
@@ -324,7 +333,7 @@ Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-site
       The first switch reads a vector of nclass moments, one for each class
 
 Sphere magnetic moments are tabulated in the printout at the end of **mode 10**, and the start of **mode 11**.
-If you are importing exchange parameters (file **jr.ext**{: style="color: green"} , e.g. from the full-potential code, you will want to supply the moments calculated from that program.)
+If you are importing exchange parameters (file _jr.ext_{: style="color: green"} , e.g. from the full-potential code, you will want to supply the moments calculated from that program.)
 
 ### _Test cases and examples_
 _____________________________________________________________
