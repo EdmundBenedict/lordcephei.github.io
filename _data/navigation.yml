@@ -66,10 +66,10 @@
       content:
       - title: "General"
         url: "/general/"
-      - title: "lm"
-        url: "/lm/"
       - title: "lmf"
         url: "/lmf/"
+      - title: "lm"
+        url: "/lm/"
     - name: "Physical Properties"
       prefix: "/properties"
       content:

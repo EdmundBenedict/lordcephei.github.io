@@ -48,12 +48,11 @@ _pos.cafeas_{: style="color: green"}.
                     tags parsed or default values taken.
 			
     --show=2        Same as --show, except program exits after printing out results
-                    of parsing the input file.
+                    from parsing the input file.
 
 
-    --pr#1[,#2]     Sets output verbosities, overriding any specification
-     -pr#1[,#2]     through IO_VERBOS in the ctrl file.
-                    #2 sets verbosity for the potential generation part.
+    --pr#1[,#2]     Sets output verbosities, overriding any specification in the ctrl file.
+     -pr#1[,#2]     Optional #2 sets verbosity for the potential generation part.
 
     --time=#1[,#2]  Prints out a summary of timings in various sections
                     of the code. Timings are kept to a nesting level of #1.  
@@ -62,8 +61,8 @@ _pos.cafeas_{: style="color: green"}.
     --iactive       Turns on `interactive' mode, overriding any specification
                     through IO_IACTIV in the ctrl file.
 					
-    --iactive=no    
-    --no-iactive    Turns off `interactive' mode.
+    --iactive=no    Turns off `interactive' mode.
+    --no-iactive    
 					
     -c"name=strn"   Declares a character variable and assigns it to value `strn'.
 					
@@ -100,18 +99,18 @@ Additionally, for any program utilizing site information, the following switches
     --sfill=class   List tells the program to adjust the sphere sizes
                     to space filling.
 					
-                    *By default, ``class-list'' is a list of integers.
+                    By default, ``class-list'' is a list of integers.
                     These enumerate class indices for which spheres
                     you wish to resize, eg 1,5,9 or 2:11.
-                    For ``class-list'' syntax see here.
+                    For ``class-list'' syntax see Syntax of Integer Lists.
 					
-                    *A second alternative specification a class-list uses
+                    A second alternative specification a class-list uses
                     the following:  ``-sfill~style=2~expression''
                     The expression can involve the class index ic and atomic number z.
                     Any class satisfying expression is included in the list.
                     Example: ``-sfill~style=2~ic<6&z==14''
 					
-                    *A third alternative specification of a class-list is
+                    A third alternative specification of a class-list is
                     specifically for unix systems.  The syntax is
                     ``-sfill~style=3~fnam''.  Here "fnam" is a filename
                     with the usual unix wildcards. For each class,

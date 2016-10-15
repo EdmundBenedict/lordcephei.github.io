@@ -5,6 +5,11 @@ permalink: "/docs/commandline/lmf/"
 header: no
 ---
 
+### _Purpose_
+_____________________________________________________________
+This page serves to document the command line switches specifically applicable to the _lmf_{: style="color: blue"} program.
+{:.no_toc}
+
 ____________________________________________________________
 
 ### _Table of Contents_
@@ -12,22 +17,17 @@ ____________________________________________________________
 *  Auto generated table of contents
 {:toc} 
 
-### _Purpose_
-_____________________________________________________________
-This page serves to document the command line switches specifically applicable to the _lmf_{: style="color: blue"} program.
-
 ### _Preliminaries_
 _____________________________________________________________
 You should familiarize yourself with the contents of the [general command line options](/docs/commandline/general/) documentation and be aware of the capabilities of the _lmf_{: style="color: blue"} program in order to fully understand the options available.
 
-It would also be wise to read up on the different input sources that _lmf_{: style="color: blue"} can read as some input options will pertain to specific input data. Details on these input sources can be found in the Documentation > Input Sources tab.
+It would also be wise to read up on the different input sources that _lmf_{: style="color: blue"} can read as some input options will pertain to specific input data. Details on these input sources can be found in the [Input file guide.](/docs/input/inputfile/)
 
 ### _Documentation_
 _____________________________________________________________
 
     --rs=#1,#2,#3,#4,#5  Tells lmf what parts to read from the rst file.
-                         #1=0: Do not read the restart file, but overlap
-                               free-atom densities.
+                         #1=0: Do not read the restart file, but overlap free-atom densities.
                             1: Read restart data from binary rst.ext.
                             2: Read restart data from ascii rsta.ext.
                             3: Same as 0, but also tells lmf to overlap
@@ -90,11 +90,11 @@ _____________________________________________________________
 					 
     --optbas[:sort][:spec=name[,rs][,e][,l=###]...]
                      Operates the program in a special mode to optimize
-                     the total energy wrt in the basis set. lmf makes
+                     the total energy wrt parameters in the basis set. lmf makes
                      several band passes (not generating the output density
                      or adding to the save file), varying selected
                      parameters belonging to tokens RSMH= and EH= to
-                     miniminize the total energy wrt in these parameters.
+                     minimize the total energy wrt these parameters.
                      Either the smoothing radius [,rs] or the energy [,e]
                      must be selected for optimization (you can select
                      both). Select which l quantum numbers whose parameters
@@ -103,20 +103,20 @@ _____________________________________________________________
                      to work reasonably well. See the basis optimization tutorial
                      for a more complete description and an example.
 					 
-    --rpos=filename  Tells the program to read site positions from file
-                     ``filename'' after the CTRL file has been read.
+    --rpos=filename  Tells the program to read site positions from file <b>filename<b> after the ctrl file has been read.
+                     
 					 
-    --wpos=filename  Tells the program to write site positions to file
-                     ``filename'' after a relaxation step.
+    --wpos=filename  Tells the program to write site positions to file <b>filename</b> after a relaxation step.
 					 
-    --band[~option~option...] Tells lmf to generate energy bands instead
-                     of making a self-consistent calculation. The energy
-                     bands can be generated in one of several formats.
-                     See generating-energy-bands.html
-                     for a detailed description of the available options.
+    --band[~option~option...] Tells lmf to generate energy bands instead of making a self-consistent calculation.
+	                 The energy bands can be generated in one of several formats.
+                     See "Drawing Energy Bands" in the Functionality -> Physical Application
+                     tab for a detailed description of the available options.
 					 
     --pdos[:options] Tells lmf to generate weights for density-of-states resolved into partial waves,
-                     described in this document.
+                     See "Density Of States" in the Functionality -> Physical Application
+                     tab for a detailed description of the available options.
+
 					 
     --mull[:options] Tells lmf to generate weights for Mulliken analysis, described in this document.
 	
