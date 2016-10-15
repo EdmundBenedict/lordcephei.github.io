@@ -49,7 +49,7 @@ Metals and nonmetals are distinguished in that in the latter case, there is no D
 **Metal case** (set by **BZ_METAL=1**): once the $$k$$- and energy-points are summed over and the deviation from charge neutrality is determined, the code will attempt to find the potential shift that fixes charge neutrality. 
 
 <div onclick="elm = document.getElementById('metal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<b>Click here</b> for description of this special purpose mode.
+<b>Click here</b> for description of how the Fermi level is found for a metal.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="metal">{:/} 
 
 It finds the Fermi level in one of two ways:
@@ -106,12 +106,9 @@ Right now there are the following contours:
 
     EMESH= nz 10 emin emax ecc eps
 
-           ecc is the eccentricity of the ellipse, 
-               ranging from 0 (circle) to 1 (line)
-           eps is a 'bunching' parameter that, as made larger,
-               tends to bunch points near emax.  
-               As a rule, e2=0 is good, or maybe e2=.5 
-               to emphasize points near the Fermi level.
+           ecc is the eccentricity of the ellipse, ranging from 0 (circle) to 1 (line)
+           eps is a 'bunching' parameter that, as made larger, tends to bunch points near emax.  
+               As a rule, e2=0 is good, or maybe e2=.5 to emphasize points near the Fermi level.
 
  After the integration is completed, there will be some deviation from charge neutrality, because emax will not exactly correspond to the Fermi level. This deviation is ignored if **METAL=0**; otherwise, the mesh is rigidly shifted by a constant amount, and the diagonal GF interpolated using a Pade approximant to the shifted mesh. The shifting+interpolation is iterated until charge neutrality is found, as described in section 2. If the rigid shift exceeds a specified tolerance, the Pade interpolation may be suspect. Thus, the entire cycle is repeated from scratch, on the shifted mesh where the shift is estimated by Pade. 
 
@@ -306,7 +303,7 @@ _Example_: running **lmgf**{: style="color: blue"} using **MODE=10** with this c
 generates _J_ connecting sites 1, 3, 5 and 7 to all neighbors.
 See [Syntax of Integer Lists](/docs/misc/integerlists/) for the syntax of **site-list**.
 
-Running **lmgf**{: style="color: blue"} using **MODE=11** with the same **\-\-sites** switch argument will print out the exchanges just between pairs of these sites.
+Running **lmgf**{: style="color: blue"} using **MODE=11** with the same **\-\-sites** argument will print out the exchanges just between pairs of these sites.
 
 Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-sites** argument will print out the exchanges between these sites and all neighbors.
 
@@ -322,15 +319,14 @@ Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-site
       useful to assist in the determination of the effect distant neighbors.
 
     --2xmsh
-      When integrating over the BZ to estimate Tc from Tablikov formula, this option 
-      doubles the k-mesh.  Can be helpful in testing k-convergence
-      of the singular q->0 limit entering into the formula.
+      When integrating over the BZ to estimate Tc from Tablikov formula, this option doubles the k-mesh.
+      Can be helpful in testing k-convergence of the singular q->0 limit entering into the formula.
 
     --amoms=mom1,mom2,...
     --amom=mom1,mom2,...
       This switch overrides ASA moments (which are automatically generated).
-      The first switch reads a vector of nbas moments, one for each site
-      The first switch reads a vector of nclass moments, one for each class
+      The first switch reads a vector of nbas moments, one for each site.
+      The first switch reads a vector of nclass moments, one for each class.
 
 Sphere magnetic moments are tabulated in the printout at the end of **mode 10**, and the start of **mode 11**.
 If you are importing exchange parameters (file _jr.ext_{: style="color: green"} , e.g. from the full-potential code, you will want to supply the moments calculated from that program.)
