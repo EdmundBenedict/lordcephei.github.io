@@ -112,9 +112,9 @@ This mode is generally not recommended for self-consistent cycles because the GF
 
 **mode=110**: is a contour input specific to nonequilibrium Green's function. 
 
-
-<div onclick="elm = document.getElementById('110'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click here for description of this special purpose mode.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="110">{:/}
+<div onclick="elm = document.getElementById('mode110'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<b>Click here</b> for description of this special purpose mode.</div>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
 
 The nonequilibrium Green's function requires additional information for the energy window between the left and right leads. (The nonequilibrium Green's function is implemented for the layer geometry in **lmpg**{: style="color: blue"}.) Thus the integration proceeds in two parts: first an integration on an elliptical path is taken to the left Fermi level (as in **mode=10**). Then an integration over is performed on the nonequilibrium contour, i.e. the energy window from the left to the right Fermi level. This integration is performed on a uniform mesh close to the real axis, as in **mode=0**. For the nonequilibrium contour, three additional pieces of information must be supplied:
 
@@ -130,11 +130,11 @@ The last argument plays the role of **delne** specifically for computing the sel
 
 {::nomarkdown}</div>{:/}
 
-**mode=310**: 
+**mode=310**: Alternative to finding Fermi level by Pade approximant.
 
-<div onclick="elm = document.getElementById('310'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click here for description of this special purpose mode.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="310">{:/}
-
+<div onclick="elm = document.getElementById('mode310'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<b>Click here</b> for description of this special purpose mode.
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode310">{:/} 
 
 a Gaussian quadrature on an ellipse to a trial emax, as in **mode 2**. However, the search for the Fermi level is not done by Pade approximant, as in **mode 10**. Instead, a second integration proceeds along a uniform mesh from emax to some (Fermi) energy which satisfies charge neutrality. This procedure is not iterative.
 
@@ -176,9 +176,16 @@ _____________________________________________________________
 
 Token **MODE=** controls what lmgf calculates. Options are **MODE=1**, **MODE=10**, **MODE=11**, **MODE=26**, described below.
 
-**MODE=1** goes through the usual cycle calling **gfasa**{: style="color: green"}. It performs a function analogous to bndasa in the band program, generating output density, moments, and optionally other quantities such as density-of-states.
+**MODE=1** goes through the usual cycle calling **gfasa**{: style="color: green"}. It performs a function analogous to 
+**bndasa**{: style="color: green"} in the band program, generating output density, moments, and optionally other quantities such as density-of-states.
 
-Taken with the special integration contour **mode=2** (see **EMESH** above), $$N(E)$$ and its integral are computed and tabulated over the window specified. With the following sample input segment:
+Taken with the special integration contour **mode=2** (see **EMESH** above), $$N(E)$$ and its integral are computed and tabulated over the window specified.
+
+<div onclick="elm = document.getElementById('mode2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<b>Click here</b> for description of this special purpose mode.</div>{::nomarkdown}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode2">{:/} 
+
+With the following sample input segment:
 
     % const ef=-0.025725
     BZ      EMESH=5 2 {ef} {ef+.002*4} .001 0
@@ -203,6 +210,8 @@ the integration would be tabulated for five points ef, ef+.002, ef+.004, ef+.006
         -0.017725   0.001000   t      30.14428       0.18045
 
 If the partial DOS is generated, the usual tokens in the BZ category specifying the window (**DOS=**) and number of points (**NPTS=**) are overridden by the parameters in **EMESH**.
+
+{::nomarkdown}</div>{:/}
 
 **MODE=10** invokes a special branch that computes magnetic exchange interactions using a linear response technique. In particular, $$J_{ij}$$ is computed for pairs of sites $$(i,j)$$, where the $$J$$'s are the parameters in the Heisenberg hamiltonian
 
