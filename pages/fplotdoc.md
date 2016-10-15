@@ -393,25 +393,26 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 <i> </i>
 
 +  **-x &nbsp; <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (modified by padding **-p#** as described below).\\
+    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (modified by padding; see **-p#** below).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
 +  **-y &nbsp; <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
-    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (modified by padding **-p#** as described below).\\
+    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (modified by padding; see **-p#**).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
     the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
 +  **-p#**\\
    pads bounds of abscissa and ordinate by adding &plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) to the right (left) boundary,
    and &plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) to the top (bottom) boundary.
-   The default padding factor is 0.1.\\
-   _Note:_{: style="color: red"} Even if you specify <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> or <i>y</i><sub>1</sub> and <i>x</i><sub>2</sub>
-   through the **-x** and **-y** switches, they are still padded.    Use `-p0` to suppress padding.\\
+   The default padding factor is #=0.1.\\
+   _Note:_{: style="color: red"} Even if you specify
+   (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) or (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
+   through **-x** or **-y**,  the bounds are still padded.    Use `-p0` to suppress padding.\\
    _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
-   in contrast to "graphics units" and "medium units." These are intermediate units used to facilitate construction of the figure.
+   in contrast to "[graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)" and "[medium units](/docs/misc/fplot/#graphics-units-and-medium-units)." 
 
 + **-1p**\\
   skip parsing of remaining arguments in the frame for the first pass.  Current values for
-   **<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** and **<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**
+   (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) and (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
   are frozen.
 
 {::comment}
