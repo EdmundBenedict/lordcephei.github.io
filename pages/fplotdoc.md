@@ -963,7 +963,7 @@ into the postscript Symbol font.
 [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
 Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
-##### Things about frames
+#### Things about frames
 {::comment}
 /docs/misc/fplot/#things-about-frames
 {:/comment}

@@ -5,16 +5,15 @@ permalink: "/docs/commandline/lm/"
 header: no
 ---
 
-____________________________________________________________
+### _Purpose_
+{:.no_toc}
+_____________________________________________________________
+This page serves to document the command line switches specifically applicable to the _lm_{: style="color: blue"} program.
 
 ### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
 {:toc} 
-
-### _Purpose_
-_____________________________________________________________
-This page serves to document the command line switches specifically applicable to the _lm_{: style="color: blue"} program.
 
 ### _Preliminaries_
 _____________________________________________________________
@@ -30,15 +29,18 @@ _____________________________________________________________
                      If #1 is nonzero, data is read from file rsta.ext, superseding information in class files. 
 					 If #2 is nonzero, lm will write to that file.
 					 
-    --band[~option~option...] Tells lm to generate energy bands instead
-                     of making a self-consistent calculation.  The energy
-                     bands can be generated in one of several formats.
-                     See generating-energy-bands.html
-                     for a detailed description of the available options.
+    --band[~option~option...] Tells lm to generate energy bands instead of making a self-consistent calculation.
+	                 The energy bands can be generated in one of several formats.
+                     See "Drawing Energy Bands" in the Functionality -> Physical Application
+                     tab for a detailed description of the available options.
 					 
-    --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves.
-					 
+    --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves,
+                     See "Density Of States" in the Functionality -> Physical Application
+                     tab for a detailed description of the available options.
+
     --mull[:options] Tells lm to generate weights for Mulliken analysis.
+                     See "Density Of States" in the Functionality -> Physical Application
+                     tab for a detailed description of the available options.
 	
     --mix=#          Start the density mixing at rule ``#''
                      (See ITER_MIX in tokens.html
