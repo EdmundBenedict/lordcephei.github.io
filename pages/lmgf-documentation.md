@@ -113,8 +113,8 @@ This mode is generally not recommended for self-consistent cycles because the GF
 **mode=110**: is a contour input specific to nonequilibrium Green's function. 
 
 <div onclick="elm = document.getElementById('mode110'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<b>Click here</b> for description of this special purpose mode.</div>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
+<b>Click here</b> for description of this special purpose mode.
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode110">{:/} 
 
 The nonequilibrium Green's function requires additional information for the energy window between the left and right leads. (The nonequilibrium Green's function is implemented for the layer geometry in **lmpg**{: style="color: blue"}.) Thus the integration proceeds in two parts: first an integration on an elliptical path is taken to the left Fermi level (as in **mode=10**). Then an integration over is performed on the nonequilibrium contour, i.e. the energy window from the left to the right Fermi level. This integration is performed on a uniform mesh close to the real axis, as in **mode=0**. For the nonequilibrium contour, three additional pieces of information must be supplied:
 
@@ -182,7 +182,7 @@ Token **MODE=** controls what lmgf calculates. Options are **MODE=1**, **MODE=10
 Taken with the special integration contour **mode=2** (see **EMESH** above), $$N(E)$$ and its integral are computed and tabulated over the window specified.
 
 <div onclick="elm = document.getElementById('mode2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<b>Click here</b> for description of this special purpose mode.</div>{::nomarkdown}
+<b>Click here</b> for description of this special purpose mode.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode2">{:/} 
 
 With the following sample input segment:
