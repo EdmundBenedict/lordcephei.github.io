@@ -17,7 +17,8 @@ _____________________________________________________________
 ### _Purpose_
 _____________________________________________________________
 
-This package implements the ASA local spin-density approximation using Green's functions. The Green's functions are contructed by approximating KKR multiple-scattering theory with an analytic potential function. The approximation to KKR is essentially similar to the linear approximation employed in band methods such as LMTO and LAPW. It can be shown that this approximation is nearly equivalent to the LMTO hamiltonian without the "combined correction" term. With this package a new program, **lmgf**{: style="color: blue"} is added to the suite of executables. **lmgf**{: style="color: blue"} plays approximately the same role as the LMTO-ASA band program **lm**{: style="color: blue"}: you can use **lmgf**{: style="color: blue"} to make a self-consistent density as you can do with **lm**{: style="color: blue"}. A potential is generated from [energy moments](docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) $$Q_0$$, $$Q_1$$, and $$Q_2$$, in the same way as the **lm**{: style="color: blue"} code.  **lmgf**{: style="color: blue"} is a Green's function method: Green's functions have less information than wave functions, so in one sense the things you can do with **lmgf**{: style="color: blue"} are more limited: you cannot make the bands directly, for example. However, **lmgf**{: style="color: blue"} enables you to do things you cannot with **lm**{: style="color: blue"}. The most imprortant ones are:
+This package implements the ASA local spin-density approximation using Green's functions. The Green's functions are contructed by approximating KKR multiple-scattering theory with an analytic potential function. The approximation to KKR is essentially similar to the linear approximation employed in band methods such as LMTO and LAPW. It can be shown that this approximation is nearly equivalent to the LMTO hamiltonian without the "combined correction" term. With this package a new program, **lmgf**{: style="color: blue"} is added to the suite of executables. **lmgf**{: style="color: blue"} plays approximately the same role as the LMTO-ASA band program **lm**{: style="color: blue"}: you can use **lmgf**{: style="color: blue"} to make a self-consistent density as you can do with **lm**{: style="color: blue"}. A potential is generated from 
+[energy moments](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) $$Q_0$$, $$Q_1$$, and $$Q_2$$, in the same way as the **lm**{: style="color: blue"} code.  **lmgf**{: style="color: blue"} is a Green's function method: Green's functions have less information than wave functions, so in one sense the things you can do with **lmgf**{: style="color: blue"} are more limited: you cannot make the bands directly, for example. However, **lmgf**{: style="color: blue"} enables you to do things you cannot with **lm**{: style="color: blue"}. The most imprortant ones are:
 
 + Calculate magnetic exchange interactions 
 + Calculate magnetic susceptibility (spin-spin, spin-orbit, orbit-orbit parts)
@@ -41,7 +42,7 @@ _____________________________________________________________
 
 For energy-integrated properties, a very fine energy mesh would be required if the energy integration were carried out close to the real axis. It is much more efficient to deform the integration contour into an elliptical path in the complex plane, approaching the real axis only at the lower and upper integration limits.
 
-To integrate quantities over occupied states, integration to the Fermi level $$E_F$$ is required. EF is not known but must be fixed by charge neutrality. Thus $$E_F$$ must be guessed at and iteratively refined until the charge neutrality condition is satisfied. **lmgf**{: style="color: blue"} does not vary $$E_F$$; the user specifies it at the outset. Instead **lmgf**{: style="color: blue"} looks for a constant potential shift that satisfies charge neutrality; this must be searched for iteratively. Both the potential shift and $$E_F$$ are maintained in a file **vshft.ext**{: style="color: green"}. Inspection of **vshft.ext**{: style="color: green"} may look unecessarily complicated; it's because you can use the file to add site-dependent shifts. **vshft.ext**{: style="color: green"} is also used by the layer Green's function code **lmpg**{: style="color: blue"}, which requires extra information about shifts on the left and right leads.
+To integrate quantities over occupied states, integration to the Fermi level _E<sub>F</sub>_ is required. _E<sub>F</sub>_ is not known but must be fixed by charge neutrality. Thus $$E_F$$ must be guessed at and iteratively refined until the charge neutrality condition is satisfied. **lmgf**{: style="color: blue"} does not vary _E<sub>F</sub>_; the user specifies it at the outset. Instead **lmgf**{: style="color: blue"} looks for a constant potential shift that satisfies charge neutrality; this must be searched for iteratively. Both the potential shift and $$E_F$$ are maintained in a file **vshft.ext**{: style="color: green"}. Inspection of **vshft.ext**{: style="color: green"} may look unecessarily complicated; it's because you can use the file to add site-dependent shifts. **vshft.ext**{: style="color: green"} is also used by the layer Green's function code **lmpg**{: style="color: blue"}, which requires extra information about shifts on the left and right leads.
 
 Metals and nonmetals are distinguished in that in the latter case, there is no DOS in the gap and therefore the Fermi level (or potential shift) cannot be specified precisely. 
 
@@ -89,14 +90,7 @@ where
 
 Right now there are the following contours:
 
-**mode=0**: a uniform mesh of points between emin and emax, with a constant imaginary component.
-
-    EMESH= nz 0 emin emax Im-z [... + possible args for layer geometry.]
-           Im-z is the (constant) imaginary component.
-
-This mode is generally not recommended for self-consistent cycles because the GF has a lot of structure close to the real axis (small $${\rm Im}\, z$$), while shifting off the real axis introduces errors. It is used, however, in other contexts, e.g. transport. 
-
-**mode=10**: a Gaussian quadrature on an ellipse.
+**mode=10**: a Gaussian quadrature on an ellipse.  This is the standard mode for integrating over the occupied states.
 
     EMESH= nz 10 emin emax ecc eps
 
@@ -105,21 +99,24 @@ This mode is generally not recommended for self-consistent cycles because the GF
            eps is a 'bunching' parameter that, as made larger,
                tends to bunch points near emax.  
                As a rule, e2=0 is good, or maybe e2=.5 
-                to emphasize points near Ef.
+               to emphasize points near the Fermi level.
 
  After the integration is completed, there will be some deviation from charge neutrality, because emax will not exactly correspond to the Fermi level. This deviation is ignored if **METAL=0**; otherwise, the mesh is rigidly shifted by a constant amount, and the diagonal GF interpolated using a Pade approximant to the shifted mesh. The shifting+interpolation is iterated until charge neutrality is found, as described in section 2. If the rigid shift exceeds a specified tolerance, the Pade interpolation may be suspect. Thus, the entire cycle is repeated from scratch, on the shifted mesh where the shift is estimated by Pade. 
 
-**mode=310**: a Gaussian quadrature on an ellipse to a trial emax, as in **mode 2**. However, the search for the Fermi level is not done by Pade approximant, as in **mode 10**. Instead, a second integration proceeds along a uniform mesh from emax to some (Fermi) energy which satisfies charge neutrality. This procedure is not iterative.
+**mode=0**: a uniform mesh of points between emin and emax, with a constant imaginary component.
 
-    EMESH= nz 310 emin emax e1 e2 delz
+    EMESH= nz 0 emin emax Im-z [... + possible args for layer geometry.]
+           Im-z is the (constant) imaginary component.
 
-           e1 and e2 are just as in mode 10
-           delz      is the spacing between energy points for the 
-                     second integration on the uniform mesh.
+This mode is generally not recommended for self-consistent cycles because the GF has a lot of structure close to the real axis (small $${\rm Im}\, z$$), while shifting off the real axis introduces errors. It is used, however, in other contexts, e.g. transport. 
 
-**mode=2**: is the same contour as mode=0. However, it is designed for cases when you want to resolve the energy dependence of some quantity, such as the DOS or magnetic exchange coupling. These are discussed in the GF category below. 
+**mode=110**: is a contour input specific to nonequilibrium Green's function. 
 
-**mode=110**: is a contour input specific to nonequilibrium Green's function. The nonequilibrium Green's function requires additional information for the energy window between the left and right leads. (The nonequilibrium Green's function is implemented for the layer geometry in **lmpg**{: style="color: blue"}.) Thus the integration proceeds in two parts: first an integration on an elliptical path is taken to the left Fermi level (as in **mode=10**). Then an integration over is performed on the nonequilibrium contour, i.e. the energy window from the left to the right Fermi level. This integration is performed on a uniform mesh close to the real axis, as in **mode=0**. For the nonequilibrium contour, three additional pieces of information must be supplied:
+
+<div onclick="elm = document.getElementById('110'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click here for description of this special purpose mode.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="110">{:/}
+
+The nonequilibrium Green's function requires additional information for the energy window between the left and right leads. (The nonequilibrium Green's function is implemented for the layer geometry in **lmpg**{: style="color: blue"}.) Thus the integration proceeds in two parts: first an integration on an elliptical path is taken to the left Fermi level (as in **mode=10**). Then an integration over is performed on the nonequilibrium contour, i.e. the energy window from the left to the right Fermi level. This integration is performed on a uniform mesh close to the real axis, as in **mode=0**. For the nonequilibrium contour, three additional pieces of information must be supplied:
 
       nzne  number of (uniformly spaced energy points on the nonequilibrium contour
       vne   difference in fermi energies of right and left leads, ef(R)-ef(L)
@@ -129,18 +126,42 @@ The mesh is specified as
 
     EMESH= nz 110 emin ef(L) ecc eps nzne vne delne [del00]
 
-The last argument plays the role of delne specifically for computing the self-energy that determines the end boundary conditions. There is an incompatibility in the requirements for $${\rm Im}\, z$$ in the central and end regions. the same incompatibility applies to transport and is discussed [below].
+The last argument plays the role of **delne** specifically for computing the self-energy of the left and right leads. There is an incompatibility in the requirements for $${\rm Im}\, z$$ in the central and end regions.  The same incompatibility applies to transport and is discussed in the [following section.](/docs/code/lmgf/#modifications-of-energy-contour-for-layer-geometry)
+
+{::nomarkdown}</div>{:/}
+
+**mode=310**: 
+
+<div onclick="elm = document.getElementById('310'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click here for description of this special purpose mode.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="310">{:/}
+
+
+a Gaussian quadrature on an ellipse to a trial emax, as in **mode 2**. However, the search for the Fermi level is not done by Pade approximant, as in **mode 10**. Instead, a second integration proceeds along a uniform mesh from emax to some (Fermi) energy which satisfies charge neutrality. This procedure is not iterative.
+
+    EMESH= nz 310 emin emax e1 e2 delz
+
+           e1 and e2 are just as in mode 10
+           delz      is the spacing between energy points for the 
+                     second integration on the uniform mesh.
+
+
+{::nomarkdown}</div>{:/}
+
+**mode=2**: is the same contour as mode=0. However, it is designed for cases when you want to resolve the energy dependence of some quantity, such as the DOS or magnetic exchange coupling. These are discussed in the GF category below. 
 
 ##### _Modifications of energy contour for layer geometry_
+{::comment}
+/docs/code/lmgf/#modifications-of-energy-contour-for-layer-geometry
+{:/comment}
 _____________________________________________________________
 
 When computing transmission coefficients via the Landauer-Buttiker formalism, one chooses a contour as in **mode=0**. However, there is a problem in how to choose $${\rm Im}\, z$$. A small $${\rm Im}\, z$$ is needed for a reliable calculation of the transmission coefficient, but using a small $${\rm Im}\, z$$ to determine the surface Green's function may not succeed because the GF can become long range and the iterative cycle used to generate it may not be stable. To accomodate these conflicting requirements, a surface-specific $${\rm Im}\, z$$ should be used, called **del00**. The **mode=0** mesh is specified as
 
     EMESH= nz 0 emin emax delta xx xx xx xx del00
 
-delta is $${\rm Im}\, z$$ for the central region; **del00** is $${\rm Im}\, z$$ for the surfaces.
+**delta** is Im _z_ for the central region; **del00** is $${\rm Im}\, z$$ for the surfaces.
 
-Entries xx have no meaning but are put there for compatibility with the contour used in nonequilibrium calculations. (A similar situation applies to the nonequilibrium part of the contour).
+Entries **xx** have no meaning but are put there for compatibility with the contour used in nonequilibrium calculations. (A similar situation applies to the nonequilibrium part of the contour).
 
 The mesh for self-consistent nonequilibrium calculations is
 

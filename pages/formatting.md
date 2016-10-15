@@ -136,6 +136,7 @@ Item | Text Emphasis | Colour | Result
 - | - | - | -
 Directory | _italic_ | _green_{: style="color: green"} | _directory_{: style="color: green"}
 File | _italic_ | _green_{: style="color: green"} | _file.md_{: style="color: green"}
+Source code | **bold** | **green**{: style="color: green"} | **bndasa.f**{: style="color: green"}
 Input File Tags | **bold** | None | **SITE\_ATOM\_POS**
 Package Names | **bold** | **blue**{: style="color: blue"} | **lmf**{: style="color: blue"}
 Terminal Commands | **bold** | **blue**{: style="color: blue"} | **ls**{: style="color: blue"}

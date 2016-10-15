@@ -963,19 +963,20 @@ into the postscript Symbol font.
 [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
 Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
-##### Playing with frames
+##### Things about frames
 {::comment}
-/docs/misc/fplot/#playing-with-frames
+/docs/misc/fplot/#things-about-frames
 {:/comment}
 
-**fplot**{: style="color: blue"} gives you a fair amount of flexbility in making frames
-Cut and paste the box below into script file _plot.frames_{: style="color: green"}.
+**fplot**{: style="color: blue"} gives you a fair amount of flexbility in making frames.
+The script in the box below draws three small frames.
+Cut and paste into file _plot.frames_{: style="color: green"}.
 
 ~~~
-fplot -frme:col=0,0,1 0,1,0,.1 -frmt col=.9,.9,.9 -tmy .25 -noyn -x 0,1 -y 0,1 -tp 1~
-      -frme:xor=.3:yab=.6:col=0,1,0 0,1,.1,.2 -frmt col=.9,.9,.9 -noyn -x 0,1 -y 0,1 -tmy .25
+fplot -frme:col=0,0,1 0,1,0,.1 -frmt col=.9,.9,.9 -tmx .1:5;.5,.5 -tmy .25;1 -noyn -x 0,1 -y 0,1 -tp 2~
+      -frme:xor=.3:yab=.6:col=0,1,0 0,1,.1,.2 -frmt col=.9,.9,.9,th=6 -noyn -x 0,1 -y 0,1 -tmx .1:5;.2,.5 -tmy .25
       -s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6
-      -frme:xor=.4:col=0,1,1 0,1,.3,.4 -noyn -x 0,1 -y 0,1 -tmy .25 -1p -lbl .0,.0:0 cc ABC 
+      -frme:xor=.4:col=0,1,1 0,1,.3,.4 -noyn -x 0,1 -y 0,1 -tmx .1:2;1~.2,.5 -tmy .25:2 -1p -lbl .0,.0:0 cc ABC 
       -s arrow:fill=3:bold=2:col=.5,.5,.5:.07,0.20,.5,20,.4 -tp 2~.4,.0
 ~~~
 
@@ -991,15 +992,18 @@ $ open fplot.ps
 ![Example 2.4](https://lordcephei.github.io/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
 
-This command draws three frames without any data.
-
-+ _Bottom frame_ : is filled with blue, because of `-frme:col=0,0,1`.
-  + `-frmt col=.9,.9,.9` makes the framing around the box labelling with a nearly while color
-  + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis
-  + The `-tp 1~` doesn't do anything.  It is needed because no data was given to the frame;
-    without any data at all the frame will not be drawn.
-+ _Middle frame_ : is filled with blue, because of `-frme:col=0,0,1`.	
-	
-	
-
-
++ _Bottom frame_ : 
+  + `-frme:col=0,0,1` &nbsp; fills the frame with [blue](/docs/misc/fplot/#color-specification).
+  + `-frmt col=.9,.9,.9,th=8` &nbsp; frames the box with a thick (**th=8**), nearly white color line (**col=.9,.9,.9**).\\
+      Tic marks also use this line type and and numbering this color.
+  + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis.
+  + `-tp 1~` doesn't draw anything.  It is a "null" table of points, and is needed because the frame maker doesn't execute until at least one data set is supplied.
++ _Middle frame_ : 
+  + `-frme:xor=.3:yab=.6:col=0,1,0` &nbsp; does the following:
+    + causes the ordinate to be drawn through _x_=0.3 and the abscissa to be drawn through _y_=0.6 (see arrow).\\
+      The tic marks are located at the same points as the the bottom figure.
+    + fills the fame with green (**col=0,1,0**)
+  + `-frmt col=.9,.9,.9` 
+    + sets the line type color for tic marks and labels (note thickness defaults to **th=3**).
+    + No frame is drawn around the box because of the **:xor** and **yab**.
+  + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis.
