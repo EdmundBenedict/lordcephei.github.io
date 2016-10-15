@@ -327,7 +327,7 @@ with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbs
 These defaults can be modified with the switches in this section.
 
 _Note:_{: style="color: red"} some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
-(RBG conventions red,green,blue)
+([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
 
 
 {::comment}
@@ -354,14 +354,14 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 + **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#][:col=#,#,#,][:font=_font_] &nbsp;_l_,_r_,_b_,_t_**\\
   starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in [graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)\\
   Options to **-frme** are:\\
-  + **lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
-  + **lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
-  + **theta=#**     angle between abscissa and ordinate (in radians)<br/>
-  + **xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
-  + **yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **col=#,#,#**   Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)
-  + **font=_font_**  Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)
+  + **lx**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **ly**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **lxy**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
+  + **theta=#**      &nbsp;angle between abscissa and ordinate (in radians)<br/>
+  + **xor=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
+  + **yab=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
+  + **col=#,#,#**    Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
+  + **font=_font_**  Font for axis numbering and labels.
 
 <i> </i>
 
