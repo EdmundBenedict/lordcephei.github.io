@@ -455,7 +455,7 @@ _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
 _Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
-[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
+[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
 
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
@@ -718,9 +718,9 @@ _____________________________________________________________
 Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/).
 This provides programming capability in the script files.
 
-##### On the differences between fplot switches in a script file and on the command line
+##### On the differences between switches in a script file and on the command line
 {::comment}
-/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line
+/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line
 {:/comment}
 
 When commands are read from a script file, they can behave differently than when appearing on the command-line.
@@ -943,7 +943,7 @@ Note the following:
 + To rotate a label append **,rot=#** to the justification string. **#** is the rotation in degrees.  See the effect of **lc,rot=40** above.
 + Note Greek characters and multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`.\\
   _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
-  _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-fplot-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
+  _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
 + Compare the effects of **ru** (left,upper) justification,  **ld** (right,lower) justification, and **cc** (centered) justification.
 + Note the special characters in the Symbols font created by `arrows ...`, `brackets ...` and `symbols ...`.
 
