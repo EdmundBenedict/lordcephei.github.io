@@ -72,10 +72,14 @@ For each energy point, the BZ integration is accomplished by routine in **gf/gfi
 ### _GF specific input_
 _____________________________________________________________
 
-##### _Energy integration contour : the_ BZ_EMESH _tag_
+#### _Energy integration_
 _____________________________________________________________
 
-Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates). To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane. 
+Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates). 
+
+##### _Energy integration contour : the_ BZ_EMESH _tag_
+
+To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane. 
 
 At other times you want properties on the real axis, e.g. density-of-states or spectral functions. You specify the contour in category **BZ** as:
 
@@ -153,7 +157,6 @@ a Gaussian quadrature on an ellipse to a trial emax, as in **mode 2**. However, 
 {::comment}
 /docs/code/lmgf/#modifications-of-energy-contour-for-layer-geometry
 {:/comment}
-_____________________________________________________________
 
 When computing transmission coefficients via the Landauer-Buttiker formalism, one chooses a contour as in **mode=0**. However, there is a problem in how to choose $${\rm Im}\, z$$. A small $${\rm Im}\, z$$ is needed for a reliable calculation of the transmission coefficient, but using a small $${\rm Im}\, z$$ to determine the surface Green's function may not succeed because the GF can become long range and the iterative cycle used to generate it may not be stable. To accomodate these conflicting requirements, a surface-specific $${\rm Im}\, z$$ should be used, called **del00**. The **mode=0** mesh is specified as
 
