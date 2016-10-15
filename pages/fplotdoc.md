@@ -607,7 +607,7 @@ plotted in a frame.
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.\\
-  [This exercise](/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols) illustrates the wiggle and arrow symbols.
+  [This exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols) illustrates the wiggle and arrow symbols.
 
 + **-ey _n_[,&Delta;,_yshft_]**\\
   Add error bars to each point in the next **_data-file_**.\\
@@ -868,9 +868,9 @@ the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash 
 In this case a second sequence (**.3,.5**) is present.  This specifies that (line,space) pair of **1,.5,**
 and (line,space) pair of **.3,.5,** are drawn in alternation.
 
-#### Using the wiggle and arrow symbols
+#### Wiggle and arrow symbols
 {::comment}
-/docs/misc/fplot/#using-the-wiggle-and-arrow-symbols
+/docs/misc/fplot/#wiggle-and-arrow-symbols
 {:/comment}
 
 This exercise shows applications of the wiggly line symbol, together with the arrow symbol.
