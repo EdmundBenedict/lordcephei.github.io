@@ -332,11 +332,10 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 
 {::comment}
 
-+ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
++ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#][:col=#,#,#,][:font=#] &nbsp;_l_,_r_,_b_,_t_**\\
   creates a new frame in a rectangular box.  _l_,_r_,_b_,_t_ are the left, right, bottom, top edges in "graphics units."\\
   _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
   box with that fits on a sheet of A4 or American size paper with comfortable margins.
-
 
 {::nomarkdown}<div>{:/}
 
@@ -352,17 +351,17 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
 
 {:/comment}
 
-+ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#] &nbsp;_l_,_r_,_b_,_t_**\\
-  starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in "graphics units."\\
-  _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
-  box with that fits on a sheet of A4 or American size paper with comfortable margins.
++ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#][:col=#,#,#,][:font=_font_] &nbsp;_l_,_r_,_b_,_t_**\\
+  starts a new frame, in box.  _l_,_r_,_b_,_t_ are left, right, bottom, top in [graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)\\
   Options to **-frme** are:\\
-  + **:lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
-  + **:ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
-  + **:lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
-  + **:xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
-  + **:yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **:theta=#**     angle between abscissa and ordinate (in radians)<br/>
+  + **lx**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw abscissa on a logarithmic scale.
+  + **ly**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw ordinate on a logarithmic scale.
+  + **lxy**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw both abscissa and ordinate on a logarithmic scale.
+  + **theta=#**     angle between abscissa and ordinate (in radians)<br/>
+  + **xor=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
+  + **yab=#**       &nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
+  + **col=#,#,#**   Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)
+  + **font=_font_**  Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)
 
 <i> </i>
 
