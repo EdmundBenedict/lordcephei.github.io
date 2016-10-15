@@ -72,12 +72,12 @@ For each energy point, the BZ integration is accomplished by routine in **gf/gfi
 ### _GF specific input_
 _____________________________________________________________
 
-##### _Energy integration contour_
+##### _Energy integration contour : the_ BZ_EMESH _tag_
 _____________________________________________________________
 
 Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates). To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane. 
 
-At other times you want properties on the real axis, e.g. density-of-states or spectral functions. You specify the contour in category BZ as:
+At other times you want properties on the real axis, e.g. density-of-states or spectral functions. You specify the contour in category **BZ** as:
 
     EMESH= nz mode emin emax [other args, depending mode]
 
@@ -167,12 +167,14 @@ The mesh for self-consistent nonequilibrium calculations is
 
     EMESH= nz 110 emin ef(L) ecc eps nzne vne delne del00
 
-##### _Green's function category_
+#### _Green's function category_
 _____________________________________________________________
 
 **lmgf**{: style="color: blue"} requires a GF-specific category.
 
     GF  MODE=1 GFOPTS=options
+
+##### _The_ GF\_MODE _token_
 
 Token **MODE=** controls what **lmgf**{: style="color: blue"} calculates. Options are **MODE=1**, **MODE=10**, **MODE=11**, **MODE=26**, described below.
 
@@ -248,6 +250,8 @@ For more details, see [command-line arguments](/docs/code/lmgf/#lmgf-specific-co
 **MODE=11** is an exchange branch that is run after **MODE=10**. It prints out the $$J_{ij}$$ and does several other analyses. 
 
 Switch `--sites:pair:site-list` applies to mode 11 as well as mode 10; see [command-line arguments](/docs/code/lmgf/#lmgf-specific-command-line-arguments).
+
+##### _The_ GF\_GFOPTS _token_
 
 Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a variety of different things.
 
