@@ -49,4 +49,4 @@ _____________________________________________________________
                      the spin-up and spin-down hamiltonians are equivalent
                      (special antiferromagnetic case).
 					 
-    -sh=cmd          Invoke the shell ``cmd'' after every iteration.
+    -sh=cmd          Invoke the shell "cmd" after every iteration.
