@@ -46,16 +46,13 @@ _____________________________________________________________
                             2: Write ascii restart file rsta.
                             3: Write binary file to rst.#, where # = iteration number.
 						   
-                         #3=0: Read site positions from restart file,
-                               overwriting positions from input file
+                         #3=0: Read site positions from restart file, overwriting positions from input file
                                (this is the default).
                             1: Ignore positions in restart file.
 						   
-                         #4=0: Read guess for Fermi level and window from
-                               restart file, overwriting data from input
-                               file. This data is needed when the BZ
-                               integration is performed by sampling
-                               (this is the default).
+                         #4=0: Read guess for Fermi level and window from restart file, overwriting data
+                               from input file. This data is needed when the BZ integration is
+                               performed by sampling (this is the default).
                             1: Ignore data in restart file.
 						   
                          #5=0: Read linearization pnu from restart file,
