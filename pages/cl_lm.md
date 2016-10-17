@@ -41,7 +41,7 @@ _____________________________________________________________
                      See "Density Of States" in the Functionality -> Physical Application
                      tab for a detailed description of the available options.
 	
-    --mix=#          Start the density mixing at rule ``#''
+    --mix=#          Start the density mixing at rule "#"
                      (See ITER_MIX in tokens.html
                      for a description of mixing rules).
 					 
