@@ -31,8 +31,7 @@ _____________________________________________________________
                             1: Read restart data from binary rst.ext.
                             2: Read restart data from ascii rsta.ext.
                             3: Same as 0, but also tells lmf to overlap
-                               free-atom densities after a molecular statics
-                               or molecular dynamics step.
+                               free-atom densities after a molecular statics or molecular dynamics step.
                             11 or 12: Same as 1, or 2 but additionally adjust
                                the mesh density for shifts in site positions
                                relative to those used in the generation of the
