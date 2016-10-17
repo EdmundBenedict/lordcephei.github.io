@@ -202,7 +202,6 @@ The _lmf_{: style="color: blue"} program can interface with the self-energy data
     --wsig[options]  lmf writes a possibly modified self-energy to file sigm2.ext and exits.
                      See here in the GW documentation.
 					 
-	--etot           Is a special mode designed to be used in conjuction
-                     with the GW suite. It generates parameters for the
-                     LDA total energy without disturbing the rst or mixing
-                     files, or logging the energy in the save file.
+	--etot           Is a special mode designed to be used in conjuction with the GW suite. It generates
+                     parameters for the LDA total energy without disturbing the rst or mixing files, or logging
+                     the energy in the save file.
