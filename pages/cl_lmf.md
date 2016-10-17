@@ -41,8 +41,7 @@ _____________________________________________________________
 							
                             Additionally, if you read from rst or rsta you can add 10 to #1.
 							
-                         #2=0: Exactly as #1, except switches apply to
-                               writing. Value zero suppresses writing.
+                         #2=0: Exactly as #1, except switches apply to writing. Value zero suppresses writing.
                             1: Write binary restart file rst (default).
                             2: Write ascii restart file rsta.
                             3: Write binary file to rst.#, where # = iteration number.
