@@ -94,9 +94,9 @@ _____________________________________________________________
 					 
     --band[~option~option...] 
                      Tells lmf to generate energy bands instead of making a self-consistent calculation.
-	                 The energy bands can be generated in one of several formats.
-                     See "Drawing Energy Bands" in the Functionality -> Physical Application
-                     tab for a detailed description of the available options.
+	                 The energy bands can be generated in one of several formats. See "Drawing Energy Bands" 
+                     in the Functionality -> Physical Application tab for a detailed description
+                     of the available options.
 					 
     --pdos[:options] Tells lmf to generate weights for density-of-states resolved into partial waves,
                      See "Density Of States" in the Functionality -> Physical Application
