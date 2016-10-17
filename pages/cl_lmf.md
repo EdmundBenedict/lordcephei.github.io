@@ -63,8 +63,8 @@ _____________________________________________________________
                      If not specified, lmf defaults to --rs=1,1,0,0,0
 					
                      Look at lmf's standard output around lines
-                         iors  : read restart file (binary, mesh density) It tells you what bits are read and
-                         what is ignored.
+                         iors  : read restart file (binary, mesh density) It tells you what bits are read
+                         and what is ignored.
 					
     --rdbasp[:fn]    Tells the program to read basis parameters (input using tokens RSMH=,EH=,RSMH2=,EH2=,PZ= for
                      each atom in the ctrl file) from file ``basp'' (or optionally file ``fn'').
