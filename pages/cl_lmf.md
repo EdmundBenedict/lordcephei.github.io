@@ -143,18 +143,16 @@ _____________________________________________________________
                      the direction vector. Thus a direction vector in Cartesian coordinates is
                      
                          #1/n1 p1 + #2/n2 p2 + #3/n3 p3
-                     The last number (#4) specifies how many points to take
-                     in that direction and therefore corresponds to a length.
+                     The last number (#4) specifies how many points to take in that direction and therefore
+                     corresponds to a length.
                      Default values:
                          l1=1,0,0,n1+1
                          l2=0,1,0,n2+1
 						 
                      Other options:
 					 
-                     core=#   Specifies how local densities are to be included.
-                              Any local density added is expanded as
-                              polynomial * gaussian, and added to the
-                              smoothed mesh density.
+                     core=#   Specifies how local densities are to be included. Any local density added is
+                              expanded as polynomial * gaussian, and added to the smoothed mesh density.
                           #=0 Includes core densities + nuclear contributions.
                           #=1 Includes core densities, no nuclear contributions.
                           #=2 Exclude core densities.
