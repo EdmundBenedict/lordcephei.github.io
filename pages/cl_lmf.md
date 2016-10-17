@@ -77,18 +77,14 @@ _____________________________________________________________
                      for parameters in the basis set.
 					 
     --optbas[:sort][:spec=name[,rs][,e][,l=###]...]
-                     Operates the program in a special mode to optimize
-                     the total energy wrt parameters in the basis set. lmf makes
-                     several band passes (not generating the output density
-                     or adding to the save file), varying selected
-                     parameters belonging to tokens RSMH= and EH= to
-                     minimize the total energy wrt these parameters.
-                     Either the smoothing radius [,rs] or the energy [,e]
-                     must be selected for optimization (you can select
-                     both). Select which l quantum numbers whose parameters
-                     you want to optimize using ``,l=##..'', e.g. l=02 . The
-                     optimization routine is rather primitive, but it seems
-                     to work reasonably well. See the basis optimization tutorial
+                     Operates the program in a special mode to optimize the total energy wrt parameters in
+                     the basis set. lmf makes several band passes (not generating the output density
+                     or adding to the save file), varying selected parameters belonging to
+                     tokens RSMH= and EH= to minimize the total energy wrt these parameters.
+                     Either the smoothing radius [,rs] or the energy [,e] must be selected for
+                     optimization (you can select both). Select which l quantum numbers whose parameters
+                     you want to optimize using ",l=##..", e.g. l=02. The optimization routine is rather
+                     primitive, but it seems to work reasonably well. See the basis optimization tutorial
                      for a more complete description and an example.
 					 
     --rpos=filename  Tells the program to read site positions from file <b>filename<b> after the ctrl file has been read.
