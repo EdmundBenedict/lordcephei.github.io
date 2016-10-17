@@ -66,14 +66,11 @@ _____________________________________________________________
                          iors  : read restart file (binary, mesh density) It tells you what bits are read and
                          what is ignored.
 					
-    --rdbasp[:fn]    Tells the program to read basis parameters (input using
-                     tokens RSMH=,EH=,RSMH2=,EH2=,PZ= for each atom in the
-                     ctrl file) from file ``basp'' (or optionally file ``fn'').
-                     Parameters input in this mode supersedes parameters
-                     read from the ctrl file. You can specify none, or any
-                     set of the sets (RSMH=,EH= ; RSMH2=,EH2=; PZ=)
-                     for each species. Parameters not specified here
-                     default to what was specified in the ctrl file.
+    --rdbasp[:fn]    Tells the program to read basis parameters (input using tokens RSMH=,EH=,RSMH2=,EH2=,PZ= for
+                     each atom in the ctrl file) from file ``basp'' (or optionally file ``fn'').
+                     Parameters input in this mode supersedes parameters read from the ctrl file.
+                     You can specify none, or any set of the sets (RSMH=,EH= ; RSMH2=,EH2=; PZ=)
+                     for each species. Parameters not specified here default to what was specified in the ctrl file.
 					 
 	                 This switch (and --optbas described below) is a useful
                      way to get started when you don't know what to choose
