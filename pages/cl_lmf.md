@@ -121,15 +121,11 @@ _____________________________________________________________
                      delimiters (chosen to be ":" in this text; the delimiter actually taken, is the
                      first character after "wden").
 					 
-                     At present, there is no capability to interpolate
-                     the smoothed density to an arbitrary plane, so you
-                     are restricted to choosing a plane that has points
-                     on the mesh. Accordingly, all three groups of
-                     numbers are given sets of integers, as will be
-                     explained below. Supposing your lattice vectors are
-                     p1, p2 and p3, which the smooth mesh having (n1,n2,n3)
-                     divisions. Then the point (#1,#2,#3) corresponds to
-                     the Cartesian coordinate
+                     At present, there is no capability to interpolate the smoothed density to an arbitrary
+                     plane, so you are restricted to choosing a plane that has points on the mesh.
+                     Accordingly, all three groups of numbers are given sets of integers, as will be explained
+                     below. Supposing your lattice vectors are p1, p2 and p3, which the smooth mesh
+                     having (n1,n2,n3) divisions. Then the point (#1,#2,#3) corresponds to the Cartesian coordinate
                          #1/n1 p1 + #2/n2 p2 + #3/n3 p3
 					 
                      Specify the origin (a point through which the plane
