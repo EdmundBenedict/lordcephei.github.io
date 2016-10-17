@@ -137,13 +137,11 @@ _____________________________________________________________
                          :l1=#1,#2,#3[,#4]
                          :l2=#1,#2,#3[,#4]
 						 
-                     l1 and l2 specify the first and second direction
-                     vectors, respectively. The first three numbers
-                     specify the orientation and the fourth specifies the
-                     ``length''.  #1,#2,#3 select the increments in mesh
-                     points along each of the three lattice vectors that
-                     define the direction vector. Thus a direction
-                     vector in Cartesian coordinates is
+                     l1 and l2 specify the first and second direction vectors, respectively. The first three
+                     numbers specify the orientation and the fourth specifies the "length". #1,#2,#3 select
+                     the increments in mesh points along each of the three lattice vectors that define
+                     the direction vector. Thus a direction vector in Cartesian coordinates is
+                     
                          #1/n1 p1 + #2/n2 p2 + #3/n3 p3
                      The last number (#4) specifies how many points to take
                      in that direction and therefore corresponds to a length.
