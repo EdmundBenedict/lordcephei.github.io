@@ -72,9 +72,8 @@ _____________________________________________________________
                      You can specify none, or any set of the sets (RSMH=,EH= ; RSMH2=,EH2=; PZ=)
                      for each species. Parameters not specified here default to what was specified in the ctrl file.
 					 
-	                 This switch (and --optbas described below) is a useful
-                     way to get started when you don't know what to choose
-                     for parameters in the basis set.
+	                 This switch (and --optbas described below) is a useful way to get started
+                     when you don't know what to choose for parameters in the basis set.
 					 
     --optbas[:sort][:spec=name[,rs][,e][,l=###]...]
                      Operates the program in a special mode to optimize the total energy wrt parameters in
