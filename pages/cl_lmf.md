@@ -115,12 +115,11 @@ _____________________________________________________________
                      and a second direction vector with its number of points. Default values will be taken
                      for any of the three sets you do not specify. The density generated is the smooth
                      density, augmented by the local densities in a polynomial approximation
-                     (see option core= below)
+                     (see option core= below).
 					 
-                     The options are specifications (see below) and
-                     different options are separated by delimiters
-                     (chosen to be ``:'' in this text; the delimiter
-                     actually taken, is the first character after ``wden'')
+                     The options are specifications (see below) and different options are separated by
+                     delimiters (chosen to be ":" in this text; the delimiter actually taken, is the
+                     first character after "wden").
 					 
                      At present, there is no capability to interpolate
                      the smoothed density to an arbitrary plane, so you
