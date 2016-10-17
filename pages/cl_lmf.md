@@ -87,8 +87,8 @@ _____________________________________________________________
                      primitive, but it seems to work reasonably well. See the basis optimization tutorial
                      for a more complete description and an example.
 					 
-    --rpos=filename  Tells the program to read site positions from file <b>filename<b> after the ctrl file has been read.
-                     
+    --rpos=filename  Tells the program to read site positions from file <b>filename<b> after the ctrl file
+                     has been read.
 					 
     --wpos=filename  Tells the program to write site positions to file <b>filename</b> after a relaxation step.
 					 
