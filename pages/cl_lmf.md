@@ -55,8 +55,7 @@ _____________________________________________________________
                                performed by sampling (this is the default).
                             1: Ignore data in restart file.
 						   
-                         #5=0: Read linearization pnu from restart file,
-                               overwriting data from input file
+                         #5=0: Read linearization pnu from restart file, overwriting data from input file
                                (this is the default).
                             1: Ignore pnu in restart file.
 							
