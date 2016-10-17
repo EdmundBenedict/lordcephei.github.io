@@ -92,7 +92,8 @@ _____________________________________________________________
 					 
     --wpos=filename  Tells the program to write site positions to file <b>filename</b> after a relaxation step.
 					 
-    --band[~option~option...] Tells lmf to generate energy bands instead of making a self-consistent calculation.
+    --band[~option~option...] 
+                     Tells lmf to generate energy bands instead of making a self-consistent calculation.
 	                 The energy bands can be generated in one of several formats.
                      See "Drawing Energy Bands" in the Functionality -> Physical Application
                      tab for a detailed description of the available options.
