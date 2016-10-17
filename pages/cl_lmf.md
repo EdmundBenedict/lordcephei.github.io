@@ -105,8 +105,8 @@ _____________________________________________________________
 					 
     --mull[:options] Tells lmf to generate weights for Mulliken analysis, described in this document.
 	
-    --cls[options]   Tells lmf to generate weights to compute matrix
-                     elements and weights for core-level-spectroscopy. See
+    --cls[options]   Tells lmf to generate weights to compute matrix elements and weights for
+                     core-level-spectroscopy. See subs/suclst.f for a description of options.
                      subs/suclst.f for a description of options.
 					 
     --wden[:options] Writes one plane of the charge density to disk, on a
