@@ -107,18 +107,14 @@ _____________________________________________________________
 	
     --cls[options]   Tells lmf to generate weights to compute matrix elements and weights for
                      core-level-spectroscopy. See subs/suclst.f for a description of options.
-                     subs/suclst.f for a description of options.
 					 
-    --wden[:options] Writes one plane of the charge density to disk, on a
-                     uniform of mesh of points. Information for the
-                     plane is specified by three groups of numbers: the
-                     origin (i.e. a point through which the plane must
-                     pass), a first direction vector with its number of
-                     points, and a second direction vector with its
-                     number of points. Default values will be taken for
-                     any of the three sets you do not specify. The
-                     density generated is the smooth density, augmented
-                     by the local densities in a polynomial approximation
+    --wden[:options] Writes one plane of the charge density to disk, on a uniform of mesh of points.
+                     Information for the plane is specified by three groups of numbers: the
+                     plane is specified by three groups of numbers: the origin (i.e. a point through
+                     which the plane must pass), a first direction vector with its number of points,
+                     and a second direction vector with its number of points. Default values will be taken
+                     for any of the three sets you do not specify. The density generated is the smooth
+                     density, augmented by the local densities in a polynomial approximation
                      (see option core= below)
 					 
                      The options are specifications (see below) and
