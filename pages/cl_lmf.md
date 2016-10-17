@@ -34,13 +34,13 @@ _____________________________________________________________
                                free-atom densities after a molecular statics
                                or molecular dynamics step.
                             11 or 12: Same as 1, or 2 but additionally adjust
-                                      the mesh density for shifts in site positions
-                                      relative to those used in the generation of the
-                                      restart file.  Note: see --rs switch #3 below
-                                      for which site positions the program uses.  The
-                                      same principle for adjusting the density is used
-                                      as in computing corrections to the Helman-Feynman
-                                      forces; see token FORCES= in HAM.
+                               the mesh density for shifts in site positions
+                               relative to those used in the generation of the
+                               restart file.  Note: see --rs switch #3 below
+                               for which site positions the program uses.  The
+                               same principle for adjusting the density is used
+                               as in computing corrections to the Helman-Feynman
+                               forces; see token FORCES= in HAM.
 							
                             Additionally, if you read from rst or rsta
                             you can add 10 to #1
