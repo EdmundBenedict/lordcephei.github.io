@@ -26,7 +26,7 @@ _____________________________________________________________
 
     --rs=#1,#2       Causes lm to read from a rst file. By default the ASA writes potential information,
                      e.g. (P,Q) for each class to a separate file. 
-                     If #1 is nonzero, data is read from file rsta.ext, superseding information in class files.                                              If #2 is nonzero.lm will write to that file.
+                     If #1 is nonzero, data is read from file rsta.ext, superseding information in class files.
 		     If #2 is nonzero, lm will write to that file.
 				 
     --band[~option~option...] Tells lm to generate energy bands instead of making a self-consistent calculation.
