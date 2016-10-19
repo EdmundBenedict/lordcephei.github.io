@@ -35,11 +35,10 @@ _pos.cafeas_{: style="color: green"}.
 ##### _Switches Common to Most or All Programs_
 
     --help
-    --h             Lists command-line switches for that program and quits
+    --h             Lists command-line switches for that program and quits.
     
     --input         Lists tags (categories and tokens) a program will read. 
-                    Same as turning on HELP=T in category IO; see
-                    HELP= in the description of the IO category.
+                    Same as turning on HELP=T in category IO; see HELP= in the description of the IO category.
 	
     --showp         Prints out input file after parsing by preprocessor, and exits.
                     This can be useful because it shows the action of the preprocessor.
