@@ -83,14 +83,12 @@ Additionally, for any program utilizing site information, the following switches
                     operation. Optional tolerance specifies the maximum amount of adjustment allowed.
                     Example: lmchk --fixpos:tol=.001
 				   
-    --fixlat        Adjust lattice vectors and point group operations, attempting to
-                    render them internally consistent with each other.
+    --fixlat        Adjust lattice vectors and point group operations, attempting to render them internally
+                    consistent with each other.
 
-    --fixpos[:tol=#] Adjust positions slightly, rendering them
-                     as consistent as possible with the symmetry group.
+    --fixpos[:tol=#] Adjust positions slightly, rendering them as consistent as possible with the symmetry group.
 
-    --sfill=class   List tells the program to adjust the sphere sizes
-                    to space filling.
+    --sfill=class   List tells the program to adjust the sphere sizes to space filling.
 					
                     By default, "class-list" is a list of integers.
                     These enumerate class indices for which spheres
