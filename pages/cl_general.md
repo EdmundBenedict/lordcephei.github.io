@@ -74,15 +74,14 @@ _pos.cafeas_{: style="color: green"}.
 ##### _Switches Common To Programs Using Site Information_
 Additionally, for any program utilizing site information, the following switches apply
 
-    --rpos=fnam     Tells the program to read site positions from
-                    file ``fnam'' after the input file has been read.  Data
-                    is read following a standard format for 2D arrays.
+    --rpos=fnam     Tells the program to read site positions from file "fnam" after the input file has been read.
+                    Data is read following a standard format for 2D arrays.
 					
     --fixpos[:tol=#]
     --fixpos[:#]    Tells the symmetry finder to adjust positions
-                    to sites that are ``slightly displaced''. That is
+                    to sites that are "slightly displaced". That is
                     if they were displaced a small amount, the basis would
-                    conform to a group operation.  Optional tolerance
+                    conform to a group operation. Optional tolerance
                     specifies the maximum amount of adjustment allowed.
                     Example: lmchk --fixpos:tol=.001
 				   
@@ -95,22 +94,22 @@ Additionally, for any program utilizing site information, the following switches
     --sfill=class   List tells the program to adjust the sphere sizes
                     to space filling.
 					
-                    By default, ``class-list'' is a list of integers.
+                    By default, "class-list" is a list of integers.
                     These enumerate class indices for which spheres
                     you wish to resize, eg 1,5,9 or 2:11.
-                    For ``class-list'' syntax see Syntax of Integer Lists.
+                    For "class-list" syntax see Syntax of Integer Lists.
 					
-                    A second alternative specification a class-list uses
-                    the following:  ``-sfill~style=2~expression''
+                    A second alternative specification of a class-list uses
+                    the following:  "-sfill~style=2~expression"
                     The expression can involve the class index ic and atomic number z.
                     Any class satisfying expression is included in the list.
-                    Example: ``-sfill~style=2~ic<6&z==14''
+                    Example: "-sfill~style=2~ic<6&z==14"
 					
                     A third alternative specification of a class-list is
-                    specifically for unix systems.  The syntax is
-                    ``-sfill~style=3~fnam''.  Here "fnam" is a filename
+                    specifically for unix systems. The syntax is
+                    "-sfill~style=3~fnam". Here "fnam" is a filename
                     with the usual unix wildcards. For each class,
-                    the program makes a system call ``ls fnam | grep
-                    class'' and any class which grep finds is
+                    the program makes a system call "ls fnam | grep
+                    class" and any class which grep finds is
                     included in the list.  Example:
-                    ``-sfill~style=3~a[1-6]''
+                    "-sfill~style=3~a[1-6]".
