@@ -55,23 +55,23 @@ _pos.cafeas_{: style="color: green"}.
 
     --time=#1[,#2]  Prints out a summary of timings in various sections of the code.
                     Timings are kept to a nesting level of #1.  
-                    If #2 is nonzero, timings are printed `on the fly'.
+                    If #2 is nonzero, timings are printed 'on the fly'.
 					
-    --iactive       Turns on `interactive' mode, overriding any specification
+    --iactive       Turns on 'interactive' mode, overriding any specification
                     through IO_IACTIV in the ctrl file.
 					
-    --iactive=no    Turns off `interactive' mode.
+    --iactive=no    Turns off 'interactive' mode.
     --no-iactive    
 					
-    -c"name=strn"   Declares a character variable and assigns it to value `strn'.
+    -c"name=strn"   Declares a character variable and assigns it to value 'strn'.
 					
     -v"name=expr"   Declares a numeric variable and assigns its value to
-                    the result of expression `expr'. Be advised that
+                    the result of expression 'expr'. Be advised that
                     only the first declaration of a variable is
                     used. Later declarations have no effect.  
 
-                    In addition to the declaration `name=...'  there
-                    are assignment operators `*=','/=','+=','-=','^=' 
+                    In addition to the declaration 'name=...' there
+                    are assignment operators '*=','/=','+=','-=','^=' 
                     that modif existing variables, following C syntax
 
 ##### _Switches Common To Programs Using Site Information_
