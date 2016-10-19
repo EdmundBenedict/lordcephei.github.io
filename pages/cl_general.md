@@ -53,8 +53,8 @@ _pos.cafeas_{: style="color: green"}.
     --pr#1[,#2]     Sets output verbosities, overriding any specification in the ctrl file.
      -pr#1[,#2]     Optional #2 sets verbosity for the potential generation part.
 
-    --time=#1[,#2]  Prints out a summary of timings in various sections
-                    of the code. Timings are kept to a nesting level of #1.  
+    --time=#1[,#2]  Prints out a summary of timings in various sections of the code.
+                    Timings are kept to a nesting level of #1.  
                     If #2 is nonzero, timings are printed `on the fly'.
 					
     --iactive       Turns on `interactive' mode, overriding any specification
