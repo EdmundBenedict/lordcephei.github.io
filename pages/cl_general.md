@@ -68,9 +68,8 @@ _pos.cafeas_{: style="color: green"}.
                     Be advised that only the first declaration of a variable is used.
                     Later declarations have no effect.  
 
-                    In addition to the declaration 'name=...' there
-                    are assignment operators '*=','/=','+=','-=','^=' 
-                    that modif existing variables, following C syntax
+                    In addition to the declaration 'name=...' there are assignment
+                    operators '*=','/=','+=','-=','^=' that modif existing variables, following C syntax.
 
 ##### _Switches Common To Programs Using Site Information_
 Additionally, for any program utilizing site information, the following switches apply
