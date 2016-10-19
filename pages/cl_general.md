@@ -78,11 +78,9 @@ Additionally, for any program utilizing site information, the following switches
                     Data is read following a standard format for 2D arrays.
 					
     --fixpos[:tol=#]
-    --fixpos[:#]    Tells the symmetry finder to adjust positions
-                    to sites that are "slightly displaced". That is
-                    if they were displaced a small amount, the basis would
-                    conform to a group operation. Optional tolerance
-                    specifies the maximum amount of adjustment allowed.
+    --fixpos[:#]    Tells the symmetry finder to adjust positions to sites that are "slightly displaced".
+                    That is, if they were displaced a small amount, the basis would conform to a group
+                    operation. Optional tolerance specifies the maximum amount of adjustment allowed.
                     Example: lmchk --fixpos:tol=.001
 				   
     --fixlat        Adjust lattice vectors and point group operations, attempting to
