@@ -43,8 +43,8 @@ _pos.cafeas_{: style="color: green"}.
     --showp         Prints out input file after parsing by preprocessor, and exits.
                     This can be useful because it shows the action of the preprocessor.
 
-    --show          Prints the input file parsed by preprocessor, and the value of the 
-                    tags parsed or default values taken.
+    --show          Prints the input file parsed by preprocessor, and the value of the tags
+                    parsed or default values taken.
 			
     --show=2        Same as --show, except program exits after printing out results
                     from parsing the input file.
