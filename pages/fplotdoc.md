@@ -113,7 +113,7 @@ Some useful points to note:
 {:/comment}
 
 Except for very simple cases, figures are too involved to invoked entirely from a command line.
-Usually commands are be read from an input file (script file).
+Usually commands are read from an input file (script file).
 
 The following example presents a graphical solution to the Schrodinger equation for a particle in a box of width _L_ and potential depth <i>V<sub>0</sub></i>.
 The quantization condition for wave number _k_ reads:
@@ -249,7 +249,7 @@ Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-fr
 + `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels.
 + `-font t16` sets the font for subsequent labels.
 + `-tmx 1@5,0,100,200` 
-  + **@5** &nbsp; specifies the parser that the user chooses the location of tic marks.\\
+  + **@5** &nbsp; specifies the parser that the user chooses for the location of tic marks.\\
     Append a list of numbers where you want tics to appear (0, 100, 200 in this case).
   + The **1** in **1@5**, which normally specifies the position of the first tic, is not relevant for mode **5**.
 + `-k 90,3,.25` sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
@@ -300,7 +300,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   display picture in a subshell.
   Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
-  **fplot**{: style="color: blue"} with a viewer available your machine.\\
+  **fplot**{: style="color: blue"} with a viewer available on your machine.\\
   Customize string **dispfn** near the beginning of **fplot.f**.
 + **-plaintext**\\
   assume strings have no non-ASCII characters (superscripts, subscripts, etc).
@@ -786,11 +786,11 @@ be dealt with by the user.
 
 #### Structure of data files
 
-Data files follow a standard Questaal format for two-dimensional arrays.  Unless instructed otherwise (**-r:qr**),
+Data files follow a standard Questaal format for two-dimensional arrays.  Unless instructed (**-r:qr**),
 **fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
 
-**fplot**{: style="color: blue"} must obtain information about the number of rows and columns in the file.  The safest way to specify this
-is indicate it in the first line; see for example the charge density file _chgd.cr_{: style="color: green"} used by
+**fplot**{: style="color: blue"} must obtain information about the number of rows and columns in the file.  The safest way to specify this,
+is to indicate it in the first line; see for example the charge density file _chgd.cr_{: style="color: green"} used by
 [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr). It begins with:
 
 ~~~~
