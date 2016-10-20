@@ -42,11 +42,9 @@ _____________________________________________________________
                      tab for a detailed description of the available options.
 	
     --mix=#          Start the density mixing at rule "#"
-                     (See ITER_MIX in tokens.html
-                     for a description of mixing rules).
+                     (See ITER_MIX in tokens.html for a description of mixing rules).
 					 
-    --onesp          In the spin-polarized collinear case, tells the program that
-                     the spin-up and spin-down hamiltonians are equivalent
-                     (special antiferromagnetic case).
+    --onesp          In the spin-polarized collinear case, tells the program that the spin-up and spin-down
+                     hamiltonians are equivalent. (Special antiferromagnetic case).
 					 
     -sh=cmd          Invoke the shell "cmd" after every iteration.
