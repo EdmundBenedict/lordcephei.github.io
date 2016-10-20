@@ -168,7 +168,7 @@ The sum runs over all of the orbitals in the basis. By "decomposing the norm" of
 
 _bnds.co_{: style="color: green"} was generated with two color weights: all _d_ orbitals in the Co majority spin channel were combined for
 the first weight, and the corresponding _d_ orbitals in the Co minority channel the second.
-Thus the first color weight is zero if there is no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire
+Thus, the first color weight is zero if there is no projection of the eigenfunction onto majority _d_ channel, and 1 if the entire
 eigenfunction is of majority _d_ character.  The same applies for the second weight, but for the minority _d_ channel.
 
 _Note:_{: style="color: red"} _bnds.co_{: style="color: green"} was generated from one of the validation scripts in the Questaal source directory.
@@ -200,9 +200,9 @@ Token **SO** [controls spin orbit coupling](/docs/input/inputfile/#ham).
 Orbitals **5-9** comprise the majority spin _d_ orbitals of the first Hankel energy;, **14-8** those of the second.  
 _Note:_{: style="color: red"} `dup=9` replicates the existing list, adding 9 to each element in the list.)  
 
-States **23-27** are the corresponding _d_ orbital in the minority channel.  The five _d_ states are
-expressed conveniently as **18+5:18+9**.  These are the minority spin counterparts since the entire hamiltonian basis consists of 18 orbitals.
-When the hamiltonian is treated relativistically the Hamiltonian is doubled into a 2&times;2 supermatrix; with spin 1 orbitals occuring first.
+States **23-27** are the corresponding _d_ orbital in the minority channel. The five _d_ states are
+expressed conveniently as **18+5:18+9**. These are the minority spin counterparts since the entire hamiltonian basis consists of 18 orbitals.
+When the hamiltonian is treated relativistically, the hamiltonian is doubled into a 2&times;2 supermatrix; with spin 1 orbitals occuring first.
 
 {::nomarkdown}</div>{:/}
 
@@ -302,8 +302,7 @@ Optional switches perform the following functions:
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
   3. suppress directly creating a postscript file
-  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins.
-     It will generate bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)
+  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins. It will generate              bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)
   
   You can create and view a postscript figure of the bands with
 
