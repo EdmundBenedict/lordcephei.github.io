@@ -41,7 +41,7 @@ ________________________________________________________________________________
 /docs/package_overview/#augmented-wave-methods
 {:/comment}
 
-Augmented Wave methods, originally developed by Slater, partitions space into spheres enclosing around each nuclues, and an "interstitial"
+Augmented Wave Methods, originally developed by Slater, partitions space into spheres enclosing around each nucleus, and an "interstitial"
 region.  Basis functions used to solve Schr&ouml;dinger's equation consist of a family of smooth envelope functions which carry the solution
 in the interstitial, and are "augmented" with solutions of the Schr&ouml;dinger equation (aka _partial waves_) inside each sphere.  The
 reason for augmentation is to enable basis functions to vary rapidly near nuclei where they must be orthogonalized to core states.
@@ -175,14 +175,13 @@ Its unique contribution to the suite is that it permits the calculation of magne
 There is an MPI version, **lmgf-MPIK**{: style="color: blue"}.
 
 + **lmpg**{: style="color: blue"}: a program similar to **lmgf**{: style="color: blue"}, but it is designed for layered structures with periodic boundary conditions in
- two dimensions.  It can calculate transport using the Landauer-Buttiker formalism, and has a non-equilibrium capability.  There is  
-[a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf)(update link lvs), though it is somewhat out of date.
+ two dimensions. It can calculate transport using the Landauer-Buttiker formalism, and has a non-equilibrium capability.  There is  
+[a tutorial](https://lordcephei.github.io/pages/lmpg_tutorial.v2.0.pdf), though it is somewhat out of date.
 There is also an MPI version, **lmpg-MPIK**{: style="color: blue"}.
 
-+ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutorial
++ **lmfdmft**{: style="color: blue"}: the main interface that links to the DMFT capabilities.  [This page](/tutorial/qsgw_dmft/dmft0/) serves both as documentation and tutorial.
 
-+ **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consisten
-t calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
++ **tbe**{: style="color: blue"}: an efficient band structure program that uses empirical tight-binding hamiltonians. One unique feature of this package is that self-consistent calculations can be done (important for polar compounds), and includes Hubbard parameters.  It is also highly parallelized, and versions can be built that work with GPU's.
 **tbe**{: style="color: blue"} has a [tutorial](/tutorial/tbe/tbectrl/).
 
 + **lmdos**{: style="color: blue"}: generates partial densities of states. It is run as a post-processing step after
