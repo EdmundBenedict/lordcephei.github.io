@@ -90,9 +90,8 @@ Additionally, for any program utilizing site information, the following switches
 
     --sfill=class   List tells the program to adjust the sphere sizes to space filling.
 					
-                    By default, "class-list" is a list of integers.
-                    These enumerate class indices for which spheres
-                    you wish to resize, eg 1,5,9 or 2:11.
+                    By default, "class-list" is a list of integers. These enumerate class indices for
+                    which spheres you wish to resize, eg 1,5,9 or 2:11.
                     For "class-list" syntax see Syntax of Integer Lists.
 					
                     A second alternative specification of a class-list uses
