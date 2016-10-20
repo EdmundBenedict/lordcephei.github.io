@@ -302,7 +302,7 @@ Optional switches perform the following functions:
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
   3. suppress directly creating a postscript file
-  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins. It will generate              bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.)
+  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins. It will generate              bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`).
   
   You can create and view a postscript figure of the bands with
 
