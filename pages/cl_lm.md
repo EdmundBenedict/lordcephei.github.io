@@ -31,7 +31,8 @@ _____________________________________________________________
 				 
     --band[~option~option...] Tells lm to generate energy bands instead of making a self-consistent calculation.
 	             The energy bands can be generated in one of several formats.
-                     See "Drawing Energy Bands" in the Functionality -> Physical Application tab for a detailed description                                  of the available options.
+                     See "Drawing Energy Bands" in the Functionality -> Physical Application tab for a detailed 
+		     description of the available options.
 					 
     --pdos[:options] Tells lm to generate weights for density-of-states resolved into partial waves,
                      See "Density Of States" in the Functionality -> Physical Application
@@ -41,7 +42,7 @@ _____________________________________________________________
                      See "Density Of States" in the Functionality -> Physical Application
                      tab for a detailed description of the available options.
 	
-    --mix=#          Start the density mixing at rule "#"
+    --mix=#          Start the density mixing at rule "#".
                      (See ITER_MIX in tokens.html for a description of mixing rules).
 					 
     --onesp          In the spin-polarized collinear case, tells the program that the spin-up and spin-down
