@@ -96,15 +96,13 @@ Additionally, for any program utilizing site information, the following switches
 					
                     A second alternative specification of a class-list uses
                     the following:  "-sfill~style=2~expression"
-                    The expression can involve the class index ic and atomic number z.
-                    Any class satisfying expression is included in the list.
+                    The expression can involve the class index ic and atomic number z. Any class satisfying
+                    expression is included in the list.
                     Example: "-sfill~style=2~ic<6&z==14"
 					
-                    A third alternative specification of a class-list is
-                    specifically for unix systems. The syntax is
-                    "-sfill~style=3~fnam". Here "fnam" is a filename
-                    with the usual unix wildcards. For each class,
-                    the program makes a system call "ls fnam | grep
-                    class" and any class which grep finds is
-                    included in the list.  Example:
-                    "-sfill~style=3~a[1-6]".
+                    A third alternative specification of a class-list is specifically for unix systems.
+                    The syntax is "-sfill~style=3~fnam". Here "fnam" is a filename with the usual
+                    unix wildcards. For each class, the program makes a system call "ls fnam | grep class"
+                    and any class which grep finds is included in the list.
+                    Example: "-sfill~style=3~a[1-6]"
+                    
