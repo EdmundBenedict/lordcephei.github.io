@@ -22,7 +22,7 @@ All of the programs have special branches that may be (and sometimes must be) se
 
 Here is an example:
 
-    lmf cafeas -vns=4 -vnm=5 --rpos=pos 
+    $lmf cafeas -vns=4 -vnm=5 --rpos=pos 
 
 Following unix style, switches always begin with “-”. There are many command-line switches that are specific to a particular main program, while a number of others are common to several or all programs.
 
