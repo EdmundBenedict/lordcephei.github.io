@@ -30,7 +30,7 @@ The preprocessor allows you to declare variables and evaluate expressions. It al
 programming language capability, with branching control to skip or loop over a selected block of
 lines.
 
-the preprocesor is build into 
+The preprocesor is built into 
 the source code, _rdfiln.f_{: style="color: green"}.
 Comments at the beginning of _rdfiln.f_{: style="color: green"}
 document directives it can process.  Here we use _rdfiln_{: style="color: green"}
@@ -41,8 +41,8 @@ as a name for the preprocessor.
 /docs/input/preprocessor/#curly-brackets-contain-expressions
 {:/comment}
 
-_rdfiln_{: style="color: green"} treas curly brackets **{...}** specially and substitutes 
-its contents for for **something-else**.
+_rdfiln_{: style="color: green"} treats curly brackets **{...}** specially and substitutes 
+its contents for **something-else**.
 Typically **{...}** will contain an algebraic expression, which is evaluated as a binary number and rendered back as an ASCII 
 representation of the number.
 
