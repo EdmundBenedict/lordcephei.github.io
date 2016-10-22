@@ -167,7 +167,7 @@ In more detail, the four rules are as follows:
    _Note:_{: style="color: red"} **strn**&nbsp; may consist of a sequence of expressions, separated by commas.
    _rdfiln_{: style="color: green"} returns the value of the last expression.
    A variable should be assigned to each intermediate expression.
-   Assignment may simple (**=**) or involve an arithmetic operation.
+   Assignment may be simple (**=**) or involve an arithmetic operation.
        _Examples:_
    <pre>
      {x=3}               &larr;  assigns x to 3 and returns '3'
