@@ -54,4 +54,4 @@ _Examples_
 
 
 _Note:_{: style="color: red"}&nbsp; _slatsm/mkilst_{: style="color: green"}
-contains the source the code for generating integer lists.
+contains the source code for generating integer lists.
