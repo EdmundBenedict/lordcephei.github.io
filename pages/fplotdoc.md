@@ -91,19 +91,18 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + For log scales, modify **-frme** with **:lx** or **:ly** or both, e.g.
   `$ fplot -frme:ly 0,1,0,1 -ord ...`
-+ There is a great deal of flexibility in how the frame is drawn.  See the [Frames exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.
++ There is a great deal of flexibility in how the frame is drawn.  See the [Frames exercise](/docs/misc/fplot/#fun-with-labels) for illustrations of the following:
   + By default all four edges of the box are drawn.  You can draw any combination of the four (**-frmt**)
   + You can draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
-  + You can shade the box (**frme:col=#,#,#**) or suppress filling (**frme:nofill**)
-  + There is considerable flexibility in controlling size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**)
-  + There is considerable flexibility in controlling tic mark numbering (**-noxn** and **-noyn** and **-xn** and **-yn**), and formatting (**-fmtnx** and **-fmtny**), e.g.
+  + You can shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
+  + There is considerable flexibility in controlling size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**),
+  + and in tic mark numbering (**-noxn** and **-noyn** and **-xn** and **-yn**), and formatting (**-fmtnx** and **-fmtny**), e.g.\\
   `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
 + You can control many aspects of the line type (**-lt**); see [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-+ Labels can be added, e.g. in the following you should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
-  Note that the string has Greek and italic symbols, subscripts and special character &perp;.
-  These are accomplished through curly brackets **{...}**.
++ There is a great deal of flexibility in labels.  See he [Labels exercise](/docs/misc/fplot/#fun-with-labels) for many illustratations.\\
+  In the following you should see a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).
+  The Greek and italic symbols, subscripts and special character &perp; are accomplished through curly brackets **{...}**:
   <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</pre>
-  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for other aspects of labelling.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
@@ -131,7 +130,11 @@ fplot
   -lbl 15,-.0005 cc x
 ~~~
 
-Create and view the postscript file:
+<div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
+![Symbols Example](https://lordcephei.github.io/assets/img/box.svg)
+{::nomarkdown}</div>{:/}
 
 ~~~
 $ fplot -f plot.box
