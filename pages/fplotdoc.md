@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "The fplot program"
+title: "The fplot tool"
 permalink: "/docs/misc/fplot/"
 header: no
 ---
@@ -329,6 +329,7 @@ These defaults can be modified with the switches in this section.
 _Note:_{: style="color: red"} some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
 ([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
 
+_Note:_{: style="color: red"} the [Frames exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
 {::comment}
 
@@ -441,7 +442,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-Where labels are used, text inside curly brackets **{..}** may be mapped
+_Note:_{: style="color: red"} the [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+
+_Note:_{: style="color: red"} where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
 into other fonts, depending on the character preceding the brackets.
 
 {::nomarkdown}<div>{:/}
@@ -458,9 +461,8 @@ Character  | Function
 _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
-_Note:_{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
-[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.
-
+**Note:**{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
+[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
@@ -495,10 +497,10 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on right (top) side.
 
-+ **-font t# &nbsp;&nbsp;**\|**&nbsp;&nbsp; -font h#** **\|**&nbsp;&nbsp; -font i#** **\|**&nbsp;&nbsp; -font b#** **\|**&nbsp;&nbsp; -font s#**\\
-  Sets the font for labels following this switch to Times Roman (t), Helvetica (h), italic (i), bold (b) or symbol (s) font. &nbsp;
++ **-font t# &nbsp;&nbsp;\|&nbsp;&nbsp; -font h# &nbsp;&nbsp;\|&nbsp;&nbsp; -font i# &nbsp;&nbsp;\|&nbsp;&nbsp; -font b# &nbsp;&nbsp;\|&nbsp;&nbsp; -font s#**\\
+  Sets the font for labels following this switch to Times Roman (t), Helvetica (h), italic (i), bold (b) or symbol (s) font.
   +  **#** is the size in points.
-  +  If this switch occurs before the frame is drawn, it affects the font of the axis numbering.
+  +  If this switch precedes the frame specfication, it affects the font of the axis numbering, unless a frame-specific font is specified.
 
 <i> </i>
 
@@ -617,14 +619,17 @@ plotted in a frame.
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
   Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the
-  point center by **_yshft_**.  This can be used in place of, or in conjuction with `-s`; for example, see [error bar exercise](/docs/misc/fplot/#error-bars).
+  point center by **_yshft_**.  This can be used in place of, or in conjuction with `-s`.\\
+  See this [error bar exercise](/docs/misc/fplot/#error-bars) for an example.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
-  Switch is operative only if a key was originally specified.
+  Switch is operative only if a key was originally specified.\\
+  See [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) for an example
 
 + **-tp [_nc_~]_list_**\\
-  generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).
+  generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).\\
+  See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above.
 
 + **-map [-i _expr_] _list_**\\
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
@@ -639,8 +644,9 @@ plotted in a frame.
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
   spaced by **_dx_**, using a polynomial.\\
-  Set optional **_ifrat_** to 1 if to use a rational polynomial instead.\\
-  Optional **_nord_** specifies the polynomial order.
+  Set optional **_ifrat_** to 1 if to use a rational polynomial instead.
+  Optional **_nord_** specifies the polynomial order.\\
+  See [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) above.
 
 + **-sort**\\
   sort data in ascending abscissa order (after mapping).
@@ -682,8 +688,10 @@ plotted in a frame.
   Default values are **cx**=1 and **cy**=2.
 
 + **-ord _expr_**\\
-  substitute **_expr_** for the ordinate. See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for examples.
-  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
+  substitute **_expr_** for the ordinate.
+  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
+  Many examples appear in document,
+  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols).
 + **-ab  _expr_**\\
   substitute **_expr_** for the abscissa.\\
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
@@ -694,7 +702,10 @@ plotted in a frame.
   make a family of _xy_ plots for columns in list.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
-  Thus `fplot -colsy 2,4 ...` draws two curves, with column 2 as the first ordinate and column 4 as the second.
+  Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4, respectively, as the _y_ variable.\\
+  _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In this instance
+  **_y_** entering into **_expr_** will be column 2 for the first curve, and column 4 for the second.
+
 + **-colsw _list_**\\
   corresponding list of columns for color weights.
 
@@ -885,24 +896,29 @@ fplot
   -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
   -lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
-  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
+  -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
 ~~~
 
-Create and view the postscript file:
+<div onclick="elm = document.getElementById('figw'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
+![Symbols Example](https://lordcephei.github.io/assets/img/wiggle.svg)
+{::nomarkdown}</div>{:/}
 
 ~~~
 $ fplot -f plot.wiggle
 $ open fplot.ps
 ~~~
 
-Notes:
-
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
-  creates a wiggly line ending at (0.5,0.5), sloping downward with run/rise = **-0.15,0.16**.
+  creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
-  tacks an arrowhead onto the line with the tip at (0.5,0.5), pointed at the same angle as the wiggle but 1/4 size.
-+ `  -lt 0 -s wiggle:fill=3:bold=1:col=.5,1,0.:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
-  creates a wiggly line with only half a period, and then fills the symbol with yellow-green.
+  tacks an arrowhead onto the line with the tip at **(0.5,0.5)**, pointed at the same angle as the wiggle but 1/4 size.
+  The arrow wings are 0.99 the tail size, at 25<sup>o</sup>, and touch the tail at 0.9 along the length of the tail.
++ `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
+  creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
+
+##### __Things to try__
 
 Play with the last line, and see what happens as you change the **fill** value between 0 and 3,
 and the **bold** value between 0 and 5.
@@ -953,35 +969,34 @@ $ open fplot.ps
 Note the following:
 
 + `-xl string` and `-yl string` create axes labels (horizontal and vertical).
-  + They use 18 point Helvetica (aka Arial) font, set by the initial `-font h18`.\\
-  Note &nbsp;'**\\**'&nbsp; within a label creates a line break.
+  + Labels are written in 18 point Helvetica (aka Arial) font, set by the initial `-font h18`.\\
+  Note that &nbsp;'**\\**'&nbsp; within a label creates a line break.
 + Parts of the three lines drawn (diagonal; horizontal at _y_=0.4, vertical at _x_=0.3),
   are blanked out by labels.  This is explained below.
 + Label "**Below line** ..." :
-  + is left justified at _x_=0.3, appearing below _y_=0.4 (**ld** justification)
+  + is left justified at _x_=0.3, and appears below _y_=0.4 (**ld** justification)
   + is in 14 point bold (Roman) font
-  + Note how _ld_ is italicized
   + does not blank out the surrounding box because :0 is appended to _x_,_y_.
+  + embeds italicized _ld_
 + Label "_Above line_ ..." :
-  + is left justified at _x=0.3, and appears above _y_=0.4 (**ru** justification)
+  + is left justified at _x=0.3_, and appears above _y_=0.4 (**ru** justification)
   + is in 20 point italic font because of the `-font i20` preceding it
-  + Note how **@\{ru}** _ld_ is "boldified"
-  + blanks out the surrounding box, including the horizontal line below it.
-    To suppress blanking, see label "**Below line** ...".
+  + blanks out the surrounding box, including the horizontal line below it\\
+    To suppress blanking, see label "**Below line** ..."
+  + "Bolidfies" embedded **@\{ru}**.
 + Label "Nested subscripts ..." :
   + is right justified and vertically centered at _y_=0.2
   + is in 18 point Times Roman font
   + Note the multiple nesting of subscripts.
     _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
-    _Note:_{d: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
+    _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress expression substitution of &nbsp;**{..}**&nbsp; by the file preprocessor.
 + Label "At 40<sup>o</sup> ..." :
   + is rotated by 40<sup>o</sup>
-  + Has a nested subscript.  _k_ is both subscript and italic; it has a superscript in Roman font.
-+ Labels at the top of the figure:
-  + display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.
-    The full Symbol character set can be found on p 612 of the [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
+  + Has a nested subscript/superscript:  _k_ is both subscript and italic; it has a superscript in Roman font.
++ Labels at the top of the figure display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.
+    Octal codes for the full Symbol character set can be found on p 612 of the [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
 
-##### Things to try
+##### _Things to try_
 
 Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
@@ -992,8 +1007,7 @@ Swap the **:1** and **:0** in the "Above line" and "Below line" labels and obser
 
 Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
   '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
-  into the postscript Symbol font.\\
-  '**@{...}**' uses the bold Roman font instead (p 604 of the
+  into the postscript Symbol font while &nbsp;'**@{...}**'&nbsp; uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
   Thus dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
@@ -1004,7 +1018,7 @@ Replace '**~**' with '**@**' in the labels at the top of the figure..  A complet
 /docs/misc/fplot/#things-about-frames
 {:/comment}
 
-**fplot**{: style="color: blue"} gives you a fair amount of flexbility in making frames.
+**fplot**{: style="color: blue"} provides a fair amount of flexbility in making frames.
 The script in the box below draws three small frames.
 Cut and paste into file _plot.frames_{: style="color: green"}.
 
@@ -1030,42 +1044,42 @@ $ open fplot.ps
 + _Bottom panel_ : 
   + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background.\\
      Frame labels and numbering are in 30 point font.  Labels will use Helvetica; numbering is always in Roman font.\\
-     The font specification applies to the frame labelling only; subsequent labels revert to pre-existing font.
+     The font specification applies to the frame labelling only; subsequent labels revert to the pre-existing font.
   + `-frmt col=.6,.8,.8,th=4` frames the box with a pale blue (**col=.6,.8,.8**), fairly thick (**th=4**) line.\\
       The same line type is used for tic marks; also tics are numbered with this color.
   + `-tmx 0.2:5,1.001;0.46~0.5` :
     + spaces tic marks on the _x_ axis by 0.2
-    + has 1 major tic per 5 tics
+    + has 5 tics per major tic
     + one tic passes through 1.001
     + The major tic is 0.46&times;[frame height]
     + The minor tic is 0.5&times;[major tic height]
-  + `-tmy .5;1 -noyn` sets the tic mark spacing on the _y_ axis with every tic is a major tic, and suppresses numbering.
+  + `-tmy .5;1 -noyn` sets the tic mark spacing on the _y_ axis with every tic a major tic, and suppresses numbering.
   + `-tp 1~` doesn't draw anything.  It generates a "null" table of points and is needed because the frame isn't made unless at least one data set is supplied.
 + _Middle panel_ : 
   + `-frme:xor=.3:yab=.6:col=0,1,0` :
     + fills the fame with green (**col=0,1,0**)
-    + causes the ordinate to be drawn through _x_=0.3 and the abscissa through _y_=0.6 (see arrow).
-    + tic labels appear adjacent to these lines.
+    + causes the ordinate to be drawn through _x_=0.3 and the abscissa through _y_=0.6 (see arrow).\\
+      Tic labels appear adjacent to these lines.
   + `-frmt col=.9,.9,.9,th=6` :
     + draws the frame and tics with a nearly white, thick line.
-    + If either **:xor** and **yab** is given, no frame is drawn around the box
+    + If either &nbsp;**:xor**&nbsp; or &nbsp;**:yab**&nbsp; is given, no frame is drawn around the box
   + `-tmx .1:5;.2,.5` specifies the abscissa tic marks (compare to bottom frame).
   + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis.\\
     Note: the number of tics per major tic was not specified; the default is 2.
   + `-s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6` creates an arrow with:
-    + arrowhead filled with grey (0.5,0.5,0.5)
-    + tip at (0.3,0.6)
-    + tail at [head + (&minus;0.07,0.20)] in graphics units
-    + wings with length 0.5 &times; [size of tail], subtending angle 20<sup>o</sup>
-    + arrowhead touches tail at 0.4 &times; [size of tail]
+    + arrowhead filled with grey (**col=0.5,0.5,0.5**)
+    + tip at data point (**0.3,0.6**)
+    + tail at [data point + **(&minus;0.07,0.20)**] in graphics units
+    + wings with length **0.5 &times; [size of tail]**, subtending angle 20<sup>o</sup>
+    + arrowhead touches tail at **0.4 &times; [size of tail]**
 + _Top panel_ :
   + Frame line type is default; compare to middle panel.
-  + Major abscissa tic marks span the full height of the frame; minor tics are reduced by 0.75.
+  + Major abscissa tic marks span the full height of the frame; minor tics are reduced by **0.75**.
   + Label ABC is partially covered by filling of panel.
 
-##### Things to try
+##### _Things to try_
 
-Move the label ABC to the end of the script, after the arrow.  Now the frame is
+<br>Move the label ABC to the end of the script, after the arrow.  Now the frame is
   drawn first and the label is not concealed.
 
 Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no longer concealed.
@@ -1073,12 +1087,12 @@ Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no 
 Try making graph paper by drawing one frame, filled, with thin tic marks
   and redrawing the frame with "nofill" and fewer, but thicker tic marks, for example:
 
-~~
+~~~
 fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0 
         -tmx 0.1:1,1;1~1 -noxn -tmy 0.1:1,1;1~1 -noyn -x -1,1 -y 0,1 -tp 1~
       -frme:nofill      0,1,0,.5 -frmt col=.4,.6,.4,th=2 -p0 
         -tmx 0.5:1,1;1~1 -noxn -tmy .5:1;1 -noyn -x -1,1 -y 0,1 -tp 1~
-~~
+~~~
 
 To make make graph paper with 120<sup>o</sup> axes, replace both instances of -frme with -frme:theta=2*pi/3.
 
