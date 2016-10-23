@@ -91,7 +91,7 @@ Some useful points to note:
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + For log scales, modify **-frme** with **:lx** or **:ly** or both, e.g.
   `$ fplot -frme:ly 0,1,0,1 -ord ...`
-+ There is a great deal of flexibility in how the frame is drawn.  See the [Frames exercise](/docs/misc/fplot/#fun-with-labels) for illustrations of the following:
++ There is a great deal of flexibility in how the frame is drawn.  See the [Frames exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + By default all four edges of the box are drawn.  You can draw any combination of the four (**-frmt**)
   + You can draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
   + You can shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
@@ -133,7 +133,7 @@ fplot
 <div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
-![Symbols Example](https://lordcephei.github.io/assets/img/box.svg)
+![Particle in a Box Example](https://lordcephei.github.io/assets/img/box.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -323,35 +323,16 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 A figure is comprised of one or more frames. Each new frame overlays anything below it.
 
-_Note:_{: style="color: red"} by default, **fplot**{: style="color: blue"} draws a frame around the figure
-with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
-These defaults can be modified with the switches in this section.
+_Notes:_{: style="color: red"} 
 
-_Note:_{: style="color: red"} some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
-([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
+1. By default, **fplot**{: style="color: blue"} draws a frame around the figure
+   with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
+   These defaults can be modified with the switches in this section.
+1. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
+   ([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
+3. the [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates all of the instructions in this section.
 
-_Note:_{: style="color: red"} the [Frames exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
-
-{::comment}
-
-+ **-frme[:lx|:ly|:lxy][:theta=#][:xor=#][:yab=#][:col=#,#,#,][:font=#] &nbsp;_l_,_r_,_b_,_t_**\\
-  creates a new frame in a rectangular box.  _l_,_r_,_b_,_t_ are the left, right, bottom, top edges in "graphics units."\\
-  _Note:_{: style="color: red"} "graphics units" are designed so that 0,1,0,1 makes a square
-  box with that fits on a sheet of A4 or American size paper with comfortable margins.
-
-{::nomarkdown}<div>{:/}
-
-&nbsp; Option | Function
-&nbsp; :lx       |
-&nbsp; :ly       |
-&nbsp; :lxy      |
-&nbsp; :xor=#    |
-&nbsp; :yab=#    |
-&nbsp; :theta=#  |
-
-{::nomarkdown}</div>{:/}
-
-{:/comment}
+##### _FORMAT switches_
 
 + **-frme[:lx|:ly|:lxy][:xor=#][:yab=#][:nofill][:col=#,#,#,][:theta=#][:font=_font_] &nbsp;_l_,_r_,_b_,_t_**\\
   starts a new frame, in box.  **_l_,_r_,_b_,_t_** are left, right, bottom, top, &nbsp; in [graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)\\
@@ -443,9 +424,11 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-_Note:_{: style="color: red"} the [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+_Notes:_{: style="color: red"}
 
-_Note:_{: style="color: red"} where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
+1. the [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+
+2. where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
 into other fonts, depending on the character preceding the brackets.
 
 {::nomarkdown}<div>{:/}
@@ -462,9 +445,11 @@ Character  | Function
 _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
 will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
-**Note:**{: style="color: red"} When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
+3. When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
 [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
 _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
+
+##### _Labelling switches_
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see this [exercise on labels](/docs/misc/fplot/#fun-with-labels).
