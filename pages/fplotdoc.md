@@ -321,16 +321,15 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
 {:/comment}
 
-A figure is comprised of one or more frames. Each new frame overlays anything below it.
-
 _Notes:_{: style="color: red"} 
 
-1. By default, **fplot**{: style="color: blue"} draws a frame around the figure
+1. A figure is comprised of one or more frames. Each new frame overlays anything below it.
+2. By default, **fplot**{: style="color: blue"} draws a frame around the figure
    with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
    These defaults can be modified with the switches in this section.
-1. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
+3. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
    ([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
-3. the [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates all of the instructions in this section.
+4. The [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates all of the instructions in this section.
 
 ##### _FORMAT switches_
 
@@ -426,28 +425,28 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 _Notes:_{: style="color: red"}
 
-1. the [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
+   into other fonts, depending on the character preceding the brackets.
 
-2. where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
-into other fonts, depending on the character preceding the brackets.
+   {::nomarkdown}<div>{:/}
 
-{::nomarkdown}<div>{:/}
+   Character  | Function
+   ^{..}      | superscript
+   \_{..}     | subscript
+   \~{..}     | Greek/Symbol
+   @{..}      | bold
+   &{..}      | italic
 
-Character  | Function
-^{..}      | superscript
-\_{..}     | subscript
-\~{..}     | Greek/Symbol
-@{..}      | bold
-&{..}      | italic
+   {::nomarkdown}</div>{:/}
 
-{::nomarkdown}</div>{:/}
+   _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
+   will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
-_Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
-will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
+2. When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
+   [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
+   _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
-3. When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
-[prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
-_Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
+3. The [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
 ##### _Labelling switches_
 
@@ -689,7 +688,7 @@ plotted in a frame.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
   Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4, respectively, as the _y_ variable.\\
-  _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In this instance
+  _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In the instance above
   **_y_** entering into **_expr_** will be column 2 for the first curve, and column 4 for the second.
 
 + **-colsw _list_**\\
