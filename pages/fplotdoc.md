@@ -950,38 +950,37 @@ $ open fplot.ps
 
 Note the following:
 
-+ `-xl string` and `-yl string` create axes labels (horizontal and vertical)
-  + '**\\**' inside a label creates a line break: see axes labels
++ `-xl string` and `-yl string` create axes labels (horizontal and vertical)\\
+  Note : '**\\**' inside a label creates a line break; see axes labels.
 + Note how parts of the three lines drawn (horizontal at _y_=0.4, vertical at _x_=0.3, diagonal),
   are blanked out by the labels.  This is explained below.
 + Label "_Above line_ ..." :
   + is left justified at _x=0.3, text appearing above _y_=0.4 (**ru** justification)
   + is in 20 point italic font because of the `-font i20` preceding it
-  + **@\{ru}** "bolidifies" ru inside the label
+  + **@\{ru}** "boldifies" ru inside the label
   + blanks out the surrounding box, including the horizontal line below it
     This happens by default, or if a **:1** appears following the _x,y_ coordinate
   + Note that _x_ and _y_ labels written prior to this point are in 18 Helvetica (aka Arial) font
     because of `-font h18` appearing on the first line.
 + Label "**Below line** ..." :
-  + is left justified at _x=0.3, text appearing below _y_=0.4 (**ld** justification)
+  + is left justified at _x_=0.3, appearing below _y_=0.4 (**ld** justification)
   + is in 14 point bold (Roman) font
-  + **&\{ld}** italicizes the _ld_ inside the label
+  + Note how _ld_ is italicized
   + does not blank out the surrounding box because :0 is appended to _x_,_y_.
 + Label "Nested subscripts ..." :
   + is right justified and centered at _y_=0.2
   + is in 18 point Roman font
-  + Note the multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`.\\
+  + Note the multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`:\\
     _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
     _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
 + Label "At 40<sup>o</sup> ..." :
   + is rotated by 40<sup>o</sup>
-  + Also has nested subscripts.  The _k_ is both subscript and italic, and itself has
-    a superscript in roman font.
+  + Has a nested subscript.  _k_ is both subscript and italic, and has a superscript in Roman font.
 + Labels at the top of the figure:
   + display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.
-    The full Symbol character set can be found on p 612 of [the postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
+    The full Symbol character set can be found on p 612 of the [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
 
-_Things to try_ :
+_Things to try_
 
 + Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
@@ -990,12 +989,12 @@ The first character can be one of &nbsp; **l**, **c**, **r**; the second one of 
 
 + Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
 
-+ Replace '**~**' with '**@**'.  A completely different group of characters result.
-  &nbsp; '**~{...}**' [maps](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) the characters **...** 
++ Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
+  '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
   into the postscript Symbol font.\\
   '**@{...}**' uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
-  Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
+  Thus dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
 #### Things about frames
 {::comment}
@@ -1007,10 +1006,10 @@ The script in the box below draws three small frames.
 Cut and paste into file _plot.frames_{: style="color: green"}.
 
 ~~~
-fplot -frme:col=0,0,1 0,1,0,.1 -frmt col=.9,.9,.9 -tmx 0.1:5,0.5001;0.46~0.5 -tmy .25;1 -noyn -x 0,1 -y 0,2 -tp 2~
-      -frme:xor=.3:yab=.6:col=0,1,0 0,1,.1,.2 -frmt col=.9,.9,.9,th=6 -noyn -x 0,1 -y 0,1 -tmx .1:5;.2,.5 -tmy .25
+fplot -frme:font=h30:col=0,0,1 0,1,0,.1 -frmt col=.6,.8,.8,th=4 -tmx 0.2:5,1.001;0.46~0.5 -tmy .5;1 -noyn -x -1,1 -y 0,2 -tp 1~
+      -frme:xor=.3:col=0,1,0 0,1,.125,.225 -frmt col=.9,.9,.9,th=6 -x 0,1 -y 0,1 -tmx .1:5;.2,.5 -tmy .25 -noyn 
       -s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6
-      -frme:xor=.4:col=0,1,1 0,1,.3,.4 -noyn -x 0,1 -y 0,1 -tmx .1:2;1~.2,.5 -tmy .25:2 -1p -lbl .0,.0:0 cc ABC 
+      -frme:xor=.4:col=0,1,1 0,1,.3,.4 -noyn -x 0,1 -y 0,1 -tmx .1;1~.75,.5 -tmy .25:2 -1p -lbl .0,.0:0 cc ABC 
       -s arrow:fill=3:bold=2:col=.5,.5,.5:.07,0.20,.5,20,.4 -tp 2~.4,.0
 ~~~
 
@@ -1026,10 +1025,9 @@ $ open fplot.ps
 ~~~
 
 + _Bottom panel_ : 
-  + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background.  Frame labels are in 18 point font.\\
-     Frame labels would be in Helvetica font (tic mark numbering always uses Roman font).\\
-     The font specification applies to the frame only; the font for subsequent labels
-     reverts to pre-existing state.
+  + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background.\\
+     Frame labels and numbering are in 30 point font.  Labels will use Helvetica; numbering is always in Roman font.\\
+     Note: the font specification applies to the frame only; subsequent labels revert to pre-existing font
   + `-frmt col=.6,.8,.8,th=4` frames the box with a nearly white, slightly blue (**col=.6,.8,.8**), thick (**th=4**) line.\\
       The same line is used for tic marks; also tics are numbered with this color.\\
   + `-tmx 0.2:5,1.001;0.46~0.5` :
