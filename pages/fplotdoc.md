@@ -303,7 +303,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   Option :l or :u or :s draws in landscape, upside-down, seascape.\\
   _Note:_{: style="color: red"} to use this feature you must compile
   **fplot**{: style="color: blue"} with a viewer available on your machine.\\
-  Customize string **dispfn** near the beginning of **fplot.f**.
+  Customize string **dispfn** near the beginning of _fplot.f_{: style="color: green"}.
 + **-plaintext**\\
   assume strings have no non-ASCII characters (superscripts, subscripts, etc).
 + **-f <i>script-file</i>**\\
@@ -329,8 +329,8 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
    with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
    These defaults can be modified with the switches in this section.
 3. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
-   ([RBG conventions](/docs/misc/fplot/#color-specification) red,green,blue)
-4. The [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates all of the instructions in this section.
+   ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
+4. The [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates most of the instructions in this section.
 
 ##### _FORMAT switches_
 
@@ -347,13 +347,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   + **theta=#**      &nbsp;&nbsp;&nbsp;angle between abscissa and ordinate (in radians)<br/>
   + **font=_font_**  &nbsp;Font for axis numbering and labels.
 
-  These options are explored in the [Additional Exercises](/docs/misc/fplot/#things-about-frames).
-
 <i> </i>
 
 + **-frmt &nbsp; [col=_r_,_g_,_b_,][th=#1[,#2,#3]]**\\
-  Sets parameters governing the drawing of frame.
-  + **col=_r_,_g_,_b_** specify the line color for the frame (RBG conventions red,green,blue)
+  Sets parameters governing the lines composing the frame.
+  + **col=_r_,_g_,_b_** specify the line color for the frame ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
   + **th=#1[,#2,#3]** specifies the line thickness and which lines are drawn:\\
     **#1** sets line thickness. &nbsp; &minus;1 draws no frame.  &nbsp; Default value is 3.\\
     **#2** set to:&nbsp;  **0** for top and bottom;&nbsp; **1** for bottom only;&nbsp; **2** for top only;&nbsp; **3** for neither.\\
@@ -379,20 +377,20 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 <i> </i>
 
 +  **-x &nbsp; <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
-    specifies range in abscissa : <i>x</i><sub>1</sub> = left edge, <i>x</i><sub>2</sub> = right edge (modified by padding; see **-p#** below).\\
+    specifies range in abscissa : <b><i>x</i><sub>1</sub></b> = left edge, <b><i>x</i><sub>2</sub></b> = right edge (modified by padding; see &nbsp;**-p#**&nbsp; below).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
-    the globally smallest and largest abscissa values, and use them for <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub>.
+    the globally smallest and largest abscissa values, and use them for <b><i>x</i><sub>1</sub></b> and <b><i>x</i><sub>2</sub></b>.
 +  **-y &nbsp; <i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**\\
-    specifies range in ordinate : <i>y</i><sub>1</sub> = bottom edge, <i>y</i><sub>2</sub> = top edge (modified by padding; see **-p#**).\\
+    specifies range in ordinate : <b><i>y</i><sub>1</sub></b> = bottom edge, <b><i>y</i><sub>2</sub></b> = top edge (modified by padding; see **-p#**).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
-    the globally smallest and largest ordinate values, and use them for <i>y</i><sub>1</sub> and <i>y</i><sub>2</sub>.
+    the globally smallest and largest ordinate values, and use them for <b><i>y</i><sub>1</sub></b> and <b><i>y</i><sub>2</sub></b>.
 +  **-p#**\\
-   pads bounds of abscissa and ordinate by adding &plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>) to the right (left) boundary,
-   and &plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>) to the top (bottom) boundary.
-   The default padding factor is #=0.1.\\
+   pads bounds of abscissa and ordinate by adding <b>&plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>)</b> to the right (left) boundary,
+   and <b>&plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>)</b> to the top (bottom) boundary.
+   The default padding factor is **#**=0.1.\\
    _Note:_{: style="color: red"} Even if you specify
    (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) or (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
-   through **-x** or **-y**,  the bounds are still padded.    Use **-p0** to suppress padding.\\
+   through **-x** or **-y**,  the bounds are still padded.    Use &nbsp;**-p0**&nbsp; to suppress padding.\\
    _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
    in contrast to "[graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)" and "[medium units](/docs/misc/fplot/#graphics-units-and-medium-units)." 
 
@@ -443,11 +441,11 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
    _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
    will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
-2. When using **{..}** in an **fplot**{: style="color: blue"} script file, you must
+2. When using &nbsp;**{...}**&nbsp; in an **fplot**{: style="color: blue"} script file, you must
    [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
    _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
-3. The [Labels exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
 ##### _Labelling switches_
 
@@ -484,9 +482,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   place abscissa (ordinate) axis numbering on right (top) side.
 
 + **-font t# &nbsp;&nbsp;\|&nbsp;&nbsp; -font h# &nbsp;&nbsp;\|&nbsp;&nbsp; -font i# &nbsp;&nbsp;\|&nbsp;&nbsp; -font b# &nbsp;&nbsp;\|&nbsp;&nbsp; -font s#**\\
-  Sets the font for labels following this switch to Times Roman (t), Helvetica (h), italic (i), bold (b) or symbol (s) font.
+  Sets the font for labels following this switch to Times Roman (**t**), Helvetica (**h**), italic (**i**), bold (**b**) or symbol (**s**) font.
   +  **#** is the size in points.
-  +  If this switch precedes the frame specfication, it affects the font of the axis numbering, unless a frame-specific font is specified.
+  +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
 
 <i> </i>
 
@@ -507,7 +505,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
    </pre>
 
 2. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
-   (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis for 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
+   (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis in 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
 
 3. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
@@ -520,7 +518,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 ##### _DATA switches_
 
-+ **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
++ **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
   + **_n_**         &nbsp; line type
     + **_n_**=0     &nbsp; No connecting line. Used to draw symbols at [points without any connecting lines](/docs/misc/fplot/#error-bars).
@@ -530,11 +528,14 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
   + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
   + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
+  + **colw2=#,#,#**                          Second color weight when line is to be drawn with color weights.
+  + **clip**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clips curves when they go outside the frame
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 &nbsp; color line with color given by **col**
     + 2 &nbsp; fill the area inside of the curve with color
     + 3 &nbsp; both 1 and 2
-  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starts a new line whenever <i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i>
+  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
   + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &nbsp; First dash length
@@ -864,7 +865,7 @@ $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,
 /docs/misc/fplot/#dot-dashed-lines
 {:/comment}
 
-In [Example 2.2](/docs/misc/fplot/#example-22-nbsp-charge-density-contours-in-cr),
+In [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
 a horizontal dashed line was drawn.  Try substituting the following line type for the dashed line:
 
 ~~~
@@ -906,8 +907,8 @@ $ open fplot.ps
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
-  tacks an arrowhead onto the line with the tip at **(0.5,0.5)**, pointed at the same angle as the wiggle but 1/4 size.
-  The arrow wings are 0.99 the tail size, at 25<sup>o</sup>, and touch the tail at 0.9 along the length of the tail.
+  tacks an arrowhead onto the line with the tip at **(0.5,0.5)**, pointed at the same angle as the wiggle but 1/4 size.\\
+  For detailed explanation of all the arguments to the arrow symbol, see the [Frames exercise](/docs/misc/fplot/#things-about-frames).
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
 
@@ -975,8 +976,8 @@ Note the following:
   + is left justified at _x=0.3_, and appears above _y_=0.4 (**ru** justification)
   + is in 20 point italic font because of the **-font i20** preceding it
   + blanks out the surrounding box, including the horizontal line below it\\
-    To suppress blanking, see label "**Below line** ..."
-  + "Bolidfies" embedded **@\{ru}**.
+    To suppress blanking, see label "**Below line** ..." above.
+  + "Bolidfies" embedded **ru**.
 + Label "Nested subscripts ..." :
   + is right justified and vertically centered at _y_=0.2
   + is in 18 point Times Roman font
@@ -986,12 +987,12 @@ Note the following:
 + Label "At 40<sup>o</sup> ..." :
   + is rotated by 40<sup>o</sup>
   + Has a nested subscript/superscript:  _k_ is both subscript and italic; it has a superscript in Roman font.
-+ Labels at the top of the figure display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.
++ Labels at the top of the figure display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.\\
     Octal codes for the full Symbol character set can be found on p 612 of the [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
 
 ##### _Things to try_
 
-Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
+Try other combinations of the justification tags, e.g. turn &nbsp;**lu**&nbsp; into &nbsp;**rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
 Uncomment the `-plaintext` line and observe how the labels change.
@@ -1002,7 +1003,7 @@ Replace '**~**' with '**@**' in the labels at the top of the figure..  A complet
   '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
   into the postscript Symbol font while &nbsp;'**@{...}**'&nbsp; uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
-  Thus dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
+  Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
 
 
 
