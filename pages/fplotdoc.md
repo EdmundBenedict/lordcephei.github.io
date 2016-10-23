@@ -86,26 +86,24 @@ Some useful points to note:
 
 + A square box is drawn around the figure.  You can select the width and height of the box; see `-frme` below, or try\\
   `$ fplot -frme .1,.9,.3,.7 -ord ...`
-+ For log scales, modify `-frme` with `:lx` or `:ly` or both, e.g.
-  `$ fplot -frme:ly 0,1,0,1 -ord ...`
-+ By default all four edges of the box are drawn.  You can draw any combination of the four (`-frmt`) or shade the box; e.g.\\
-  `$ fplot -frmt th=6,1,1 -ord ...`  or  `fplot -frmt col=.8,.9,.9,th=0 -ord ...`
-+ You can also draw the abscissa and ordinate through some middle point (`-frme:xor` and `-frme:yab`), e.g.\\
-  `$ fplot -frme:xor=.5:yab=.675 0,1,0,1 -ord ...`
-+ You have considerable flexibility in controlling major and minor tic marks on the abscissa and ordinate (`-tmx` and `-tmy`), e.g.\\
-  `$ fplot -tmx '.25;1~.02' -tmy '.1:5' -ord ...`
-+ There is considerable flexibility in controlling the tic mark placement, font (`-font`)
-  and formatting of the numbers (`-fmtnx` and `-fmtny`), whether they are suppressed (`-noxn` and `-noyn`) and where numbering is placed (`-xn` and `-yn`), e.g.\\
-  `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
-+ You can control many aspects of the line type (`-lt`), e.g.\\
-  `$ fplot -lt 3,bold=4,col=1,0,0 -ord ...`
 + The abscissa ranges from -0.1 to 2.1; the ordinate from -0.033 to +0.71. They were found automatically by finding the largest and smallest
-  values in the frame, and padding the range by 10%.  You can specify the padding (`-pad`) and/or the bounds (`-x` and `-y`), e.g.\\
+  values in the frame, and padding the range by 10%.  You can specify the padding (**-pad**) and/or the bounds (**-x** and **-y**), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
++ For log scales, modify **-frme** with **:lx** or **:ly** or both, e.g.
+  `$ fplot -frme:ly 0,1,0,1 -ord ...`
++ There is a great deal of flexibility in how the frame is drawn.  See the [Frames exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.
+  + By default all four edges of the box are drawn.  You can draw any combination of the four (**-frmt**)
+  + You can draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
+  + You can shade the box (**frme:col=#,#,#**) or suppress filling (**frme:nofill**)
+  + There is considerable flexibility in controlling size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**)
+  + There is considerable flexibility in controlling tic mark numbering (**-noxn** and **-noyn** and **-xn** and **-yn**), and formatting (**-fmtnx** and **-fmtny**), e.g.
+  `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
++ You can control many aspects of the line type (**-lt**); see [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 + Labels can be added, e.g. in the following you should see a label centered at (1.2,0.5) similar to: &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.
   Note that the string has Greek and italic symbols, subscripts and special character &perp;.
   These are accomplished through curly brackets **{...}**.
   <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</pre>
+  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for other aspects of labelling.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
@@ -1096,4 +1094,3 @@ fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0
 ~~~
 
 To make make graph paper with 120<sup>o</sup> axes, replace both instances of -frme with -frme:theta=2*pi/3.
-
