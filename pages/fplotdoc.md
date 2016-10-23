@@ -953,8 +953,8 @@ $ open fplot.ps
 
 Note the following:
 
-+ `-xl string` and `-yl string` create axes labels (horizontal and vertical).
-  + Labels are written in 18 point Helvetica (aka Arial) font, set by the initial `-font h18`.\\
++ **-xl _string_** and **-yl _string_** create axes labels.
+  + Labels are written in 18 point Helvetica (aka Arial) font, set by the initial **-font h18**.\\
   Note that &nbsp;'**\\**'&nbsp; within a label creates a line break.
 + Parts of the three lines drawn (diagonal; horizontal at _y_=0.4, vertical at _x_=0.3),
   are blanked out by labels.  This is explained below.
@@ -965,7 +965,7 @@ Note the following:
   + embeds italicized _ld_
 + Label "_Above line_ ..." :
   + is left justified at _x=0.3_, and appears above _y_=0.4 (**ru** justification)
-  + is in 20 point italic font because of the `-font i20` preceding it
+  + is in 20 point italic font because of the **-font i20** preceding it
   + blanks out the surrounding box, including the horizontal line below it\\
     To suppress blanking, see label "**Below line** ..."
   + "Bolidfies" embedded **@\{ru}**.
