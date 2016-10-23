@@ -228,43 +228,44 @@ fplot
   -l0 Hg_\{x}Cd_\{1-x}Te -lt 1,bold=3             -ord x5/1e5 -itrp 10,300,5,0,4 mobility.tlinp
 ~~~
 
-Create and view the postscript file:
-
-    $ fplot -f plot.mobility
-    $ open fplot.ps
-
-<div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to see the figure.</div>
+<div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
 ![Example 2.4](https://lordcephei.github.io/assets/img/mobility-tlinp.svg)
 {::nomarkdown}</div>{:/}
 
-Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels)
+    $ fplot -f plot.mobility
+    $ open fplot.ps
 
-+ `-frme:ly` tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
-+ `-frmt th=3,1,2` creates a frame with axes on the bottom and right sides.
-+ ` -x 0,300` and `-y .27,5` set the user's units that bound the figure.
-+ `-p0` suppresses padding of the frame (increasing the range of _x_ and _y_).
-+ `-1p` terminates the first pass.
-+ `-yn:r` causes the figure numbering to appear on the right side.
-+ `-font t18` sets the font for the labels to Times Roman 18 points.
-+ `-lbl 265,4.5:0 rc "~\{m}"` and `-lbl 250,.21 rc "T(K)"` generate the axes labels.
-+ `-font t16` sets the font for subsequent labels.
-+ `-tmx 1@5,0,100,200` 
+
+
+_Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-frame-layout-and-labels):_{: style="color: red"}
+
++ **-frme:ly** tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
++ **-frmt th=3,1,2** creates a frame with axes on the bottom and right sides.
++ ** -x 0,300** and **-y .27,5** set the user's units that bound the figure.
++ **-p0** suppresses padding of the frame (increasing the range of _x_ and _y_).
++ **-1p** terminates the first pass.
++ **-yn:r** causes the figure numbering to appear on the right side.
++ **-font t18** sets the font for the labels to Times Roman 18 points.
++ **-lbl 265,4.5:0 rc "~\{m}"** and **-lbl 250,.21 rc "T(K)"** generate the axes labels.
++ **-font t16** sets the font for subsequent labels.
++ **-tmx 1@5,0,100,200** 
   + **@5,#,...**   user chooses the position of tic marks.\\
     Append a list of numbers where you want tics to appear (0, 100, 200 in this case).
   + The **1** in **1@5**, which normally specifies the spacing between tic marks, is not relevant for mode **5**.
-+ `-k 90,3,.25` sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
-+ `-tmy 1:1@2`
++ **-k 90,3,.25** sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
++ **-tmy 1:1@2**
   + **:1** specifies that every tic mark is labelled.
     **@2** specifies a 'medium' log scale with marks at 1,2,5.
     **1:** is needed for the syntax but has no effect for log scales.
 
-Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):
+_Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):_{: style="color: red"}
 
-+ `-l0 In_\{1-x}Tl_\{x}P` provides a key corresponding to next set of data.
-+ `-lt 2,bold=3,1,.5,.2,.5` specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
-+ `-ord x2/1e5`          maps the ordinate to a new number (simple scaling in this case).
-+ `-itrp 10,300,5,1,4`  causes the data to be interpolated to a uniform mesh on the _x_ axis.
++ **-l0 In_\{1-x}Tl_\{x}P** provides a key corresponding to next set of data.
++ **-lt 2,bold=3,1,.5,.2,.5** specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
++ **-ord x2/1e5**          maps the ordinate to a new number (simple scaling in this case).
++ **-itrp 10,300,5,1,4**  causes the data to be interpolated to a uniform mesh on the _x_ axis.
   + Interpolated points span (10,300), and are spaced by 5 points.
   + The fourth argument (**1**) specifies interpolation by a rational function.
   + the final argument (**4)** specifies that a fourth order polynomial be used.
@@ -321,7 +322,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
 {:/comment}
 
-_Notes:_{: style="color: red"} 
+<br>_Notes:_{: style="color: red"} 
 
 1. A figure is comprised of one or more frames. Each new frame overlays anything below it.
 2. By default, **fplot**{: style="color: blue"} draws a frame around the figure
@@ -391,7 +392,7 @@ _Notes:_{: style="color: red"}
    The default padding factor is #=0.1.\\
    _Note:_{: style="color: red"} Even if you specify
    (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) or (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
-   through **-x** or **-y**,  the bounds are still padded.    Use `-p0` to suppress padding.\\
+   through **-x** or **-y**,  the bounds are still padded.    Use **-p0** to suppress padding.\\
    _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
    in contrast to "[graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)" and "[medium units](/docs/misc/fplot/#graphics-units-and-medium-units)." 
 
@@ -515,7 +516,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
    Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
 
 5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
-   plotted in a frame.
+   plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 
 ##### _DATA switches_
 
@@ -595,7 +596,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the head length along the arrow axis as a fraction of arrow length\\
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   Symbol 8&nbsp; draws error bars. **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
-  _Note:_{: style="color: red"} Error bars are also drawn through the `-ey` command.  They are drawn before any possible second symbol through `-s`.\\
+  _Note:_{: style="color: red"} Error bars are also drawn through the **-ey** command.  They are drawn before any possible second symbol through **-s**.\\
   See [this exercise](/docs/misc/fplot/#error-bars) for an example.\\
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
@@ -611,7 +612,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
   Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the
-  point center by **_yshft_**.  This can be used in place of, or in conjuction with `-s`.\\
+  point center by **_yshft_**.  This can be used in place of, or in conjuction with **-s**.\\
   See this [error bar exercise](/docs/misc/fplot/#error-bars) for an example.
 
 + **-l[0] _legend_**\\
