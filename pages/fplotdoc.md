@@ -359,10 +359,12 @@ _Note:_{: style="color: red"} some switches in this and later sections specify c
   + **lxy**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           draw both abscissa and ordinate on a logarithmic scale.
   + **xor=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
   + **yab=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
-  + **nofill**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             draw both abscissa and ordinate on a logarithmic scale.
+  + **nofill**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                   draw both abscissa and ordinate on a logarithmic scale.
   + **col=#,#,#**    &nbsp;Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
   + **theta=#**      &nbsp;&nbsp;&nbsp;angle between abscissa and ordinate (in radians)<br/>
   + **font=_font_**  &nbsp;Font for axis numbering and labels.
+
+  These options are explored in the [Additional Exercises](/docs/misc/fplot/#things-about-frames).
 
 <i> </i>
 
@@ -938,7 +940,7 @@ fplot -p0 -font h18
 
 
 <div onclick="elm = document.getElementById('figl'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Create and view the postscript file, or click here to see the figure.</div>
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
 ![Labels Example](https://lordcephei.github.io/assets/img/labels.svg)
 {::nomarkdown}</div>{:/}
@@ -950,51 +952,52 @@ $ open fplot.ps
 
 Note the following:
 
-+ `-xl string` and `-yl string` create axes labels (horizontal and vertical)\\
-  Note : '**\\**' inside a label creates a line break; see axes labels.
-+ Note how parts of the three lines drawn (horizontal at _y_=0.4, vertical at _x_=0.3, diagonal),
-  are blanked out by the labels.  This is explained below.
-+ Label "_Above line_ ..." :
-  + is left justified at _x=0.3, text appearing above _y_=0.4 (**ru** justification)
-  + is in 20 point italic font because of the `-font i20` preceding it
-  + **@\{ru}** "boldifies" ru inside the label
-  + blanks out the surrounding box, including the horizontal line below it
-    This happens by default, or if a **:1** appears following the _x,y_ coordinate
-  + Note that _x_ and _y_ labels written prior to this point are in 18 Helvetica (aka Arial) font
-    because of `-font h18` appearing on the first line.
++ `-xl string` and `-yl string` create axes labels (horizontal and vertical).
+  + They use 18 point Helvetica (aka Arial) font, set by the initial `-font h18`.\\
+  Note &nbsp;'**\\**'&nbsp; within a label creates a line break.
++ Parts of the three lines drawn (diagonal; horizontal at _y_=0.4, vertical at _x_=0.3),
+  are blanked out by labels.  This is explained below.
 + Label "**Below line** ..." :
   + is left justified at _x_=0.3, appearing below _y_=0.4 (**ld** justification)
   + is in 14 point bold (Roman) font
   + Note how _ld_ is italicized
   + does not blank out the surrounding box because :0 is appended to _x_,_y_.
++ Label "_Above line_ ..." :
+  + is left justified at _x=0.3, and appears above _y_=0.4 (**ru** justification)
+  + is in 20 point italic font because of the `-font i20` preceding it
+  + Note how **@\{ru}** _ld_ is "boldified"
+  + blanks out the surrounding box, including the horizontal line below it.
+    To suppress blanking, see label "**Below line** ...".
 + Label "Nested subscripts ..." :
-  + is right justified and centered at _y_=0.2
-  + is in 18 point Roman font
-  + Note the multiple nesting of subscripts in `'~\{Dj}_\{t^\{2_\{g}}}~\{-a}^\{4}'`:\\
+  + is right justified and vertically centered at _y_=0.2
+  + is in 18 point Times Roman font
+  + Note the multiple nesting of subscripts.
     _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
-    _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
+    _Note:_{d: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress special treatment of **{..}** by the file preprocessor.
 + Label "At 40<sup>o</sup> ..." :
   + is rotated by 40<sup>o</sup>
-  + Has a nested subscript.  _k_ is both subscript and italic, and has a superscript in Roman font.
+  + Has a nested subscript.  _k_ is both subscript and italic; it has a superscript in Roman font.
 + Labels at the top of the figure:
   + display some useful symbols from the Postscript Symbol font. Specify them by an octal code, e.g. \355.
     The full Symbol character set can be found on p 612 of the [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf).
 
-_Things to try_
+##### Things to try
 
-+ Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
+Try other combinations of the justification tags, e.g. turn &nbsp; **lu** into &nbsp; **rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
-+ Uncomment the `-plaintext` line and observe how the labels change.
+Uncomment the `-plaintext` line and observe how the labels change.
 
-+ Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
+Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
 
-+ Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
+Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
   '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
   into the postscript Symbol font.\\
   '**@{...}**' uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).  
   Thus dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol.
+
+
 
 #### Things about frames
 {::comment}
@@ -1014,7 +1017,7 @@ fplot -frme:font=h30:col=0,0,1 0,1,0,.1 -frmt col=.6,.8,.8,th=4 -tmx 0.2:5,1.001
 ~~~
 
 <div onclick="elm = document.getElementById('figf'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Create and view the postscript file, or click here to see the figure.</div>
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
 ![Frames Example](https://lordcephei.github.io/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
@@ -1027,16 +1030,16 @@ $ open fplot.ps
 + _Bottom panel_ : 
   + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background.\\
      Frame labels and numbering are in 30 point font.  Labels will use Helvetica; numbering is always in Roman font.\\
-     Note: the font specification applies to the frame only; subsequent labels revert to pre-existing font
-  + `-frmt col=.6,.8,.8,th=4` frames the box with a nearly white, slightly blue (**col=.6,.8,.8**), thick (**th=4**) line.\\
-      The same line is used for tic marks; also tics are numbered with this color.\\
+     The font specification applies to the frame labelling only; subsequent labels revert to pre-existing font.
+  + `-frmt col=.6,.8,.8,th=4` frames the box with a pale blue (**col=.6,.8,.8**), fairly thick (**th=4**) line.\\
+      The same line type is used for tic marks; also tics are numbered with this color.
   + `-tmx 0.2:5,1.001;0.46~0.5` :
     + spaces tic marks on the _x_ axis by 0.2
-    + has 1 major tic mark per 5 tics
+    + has 1 major tic per 5 tics
     + one tic passes through 1.001
     + The major tic is 0.46&times;[frame height]
     + The minor tic is 0.5&times;[major tic height]
-  + `-tmy .5;1 -noyn` sets the tic mark spacing on the _y_ axis (every tic is a major tic), and suppresses numbering there.
+  + `-tmy .5;1 -noyn` sets the tic mark spacing on the _y_ axis with every tic is a major tic, and suppresses numbering.
   + `-tp 1~` doesn't draw anything.  It generates a "null" table of points and is needed because the frame isn't made unless at least one data set is supplied.
 + _Middle panel_ : 
   + `-frme:xor=.3:yab=.6:col=0,1,0` :
@@ -1052,23 +1055,22 @@ $ open fplot.ps
   + `-s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6` creates an arrow with:
     + arrowhead filled with grey (0.5,0.5,0.5)
     + tip at (0.3,0.6)
-    + tail at head + (-.07,0.20) in graphics units
+    + tail at [head + (&minus;0.07,0.20)] in graphics units
     + wings with length 0.5 &times; [size of tail], subtending angle 20<sup>o</sup>
     + arrowhead touches tail at 0.4 &times; [size of tail]
 + _Top panel_ :
-  + Frame line type is default; compare to middle panel
-  + major abscissa tic marks span _y_, minor tics are 0.75&times; smaller
-  + Label ABC is partially covered by filling of panel
+  + Frame line type is default; compare to middle panel.
+  + Major abscissa tic marks span the full height of the frame; minor tics are reduced by 0.75.
+  + Label ABC is partially covered by filling of panel.
 
+##### Things to try
 
-_Things to try_ :
-
-+ Move the label ABC to the end of the script, after the arrow.  Now the frame is
+Move the label ABC to the end of the script, after the arrow.  Now the frame is
   drawn first and the label is not concealed.
 
-+ Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no longer concealed.
+Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no longer concealed.
 
-+ Try making graph paper by drawing one frame, filled, with thin tic marks
+Try making graph paper by drawing one frame, filled, with thin tic marks
   and redrawing the frame with "nofill" and fewer, but thicker tic marks, for example:
 
 ~~
@@ -1078,6 +1080,5 @@ fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0
         -tmx 0.5:1,1;1~1 -noxn -tmy .5:1;1 -noyn -x -1,1 -y 0,1 -tp 1~
 ~~
 
-
-
+To make make graph paper with 120<sup>o</sup> axes, replace both instances of -frme with -frme:theta=2*pi/3.
 
