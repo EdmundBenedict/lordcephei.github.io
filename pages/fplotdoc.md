@@ -285,7 +285,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 </pre>
 
 
-##### **INIT** switches must occur first
+#### **INIT** switches must occur first
 {::comment}
 /docs/misc/fplot/#init-switches-must-occur-first
 {:/comment}
@@ -315,7 +315,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
   [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides an example.
 
-##### **FORMAT** switches govern frame layout and labels.
+#### **FORMAT** switches govern frame layout and labels.
 {::comment}
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
 {:/comment}
@@ -437,7 +437,7 @@ _Note:_{: style="color: red"} the [Frames exercise](/docs/misc/fplot/#fun-with-l
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
-##### **LABELLING and NUMBERING** switches govern labels and axis numbering
+#### **LABELLING and NUMBERING** switches govern labels and axis numbering
 {::comment}
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
@@ -507,7 +507,7 @@ _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\13
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
 
-##### **DATA** switches draw one or more families of xy data
+#### **DATA** switches draw one or more families of xy data
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
@@ -918,7 +918,7 @@ $ open fplot.ps
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
 
-##### __Things to try__
+##### _Things to try_
 
 Play with the last line, and see what happens as you change the **fill** value between 0 and 3,
 and the **bold** value between 0 and 5.
@@ -1084,8 +1084,9 @@ $ open fplot.ps
 
 Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no longer concealed.
 
-Try making graph paper by drawing one frame, filled, with thin tic marks
-  and redrawing the frame with "nofill" and fewer, but thicker tic marks, for example:
+Try making graph paper by drawing one frame, filled, with thin tic marks.
+Redraw the frame with &nbsp;**:nofill**&nbsp; and use fewer, but thicker tic marks.\\
+Example:
 
 ~~~
 fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0 
