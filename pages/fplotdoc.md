@@ -423,7 +423,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-_Notes:_{: style="color: red"}
+<br>_Notes:_{: style="color: red"}
 
 1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
    into other fonts, depending on the character preceding the brackets.
@@ -497,20 +497,27 @@ _Notes:_{: style="color: red"}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-Within a frame zero or more families of _xy_ data can be drawn.
-_xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
-<pre>
-[DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
-</pre>
-**DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
-(e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis for 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
-For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
-Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
+<br>_Notes:_{: style="color: red"}
 
-As an alternative to reading data from a file you can supply it using switch **-tp**.
-Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
-[Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
-plotted in a frame.
+1. Within a frame zero or more families of _xy_ data can be drawn.
+   _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
+   <pre>
+   [DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
+   </pre>
+
+2. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
+   (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis for 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
+
+3. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
+   Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
+
+4. As an alternative to reading data from a file you can supply it using switch **-tp**.
+   Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
+
+5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
+   plotted in a frame.
+
+##### _DATA switches_
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
