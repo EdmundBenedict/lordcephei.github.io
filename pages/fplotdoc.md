@@ -144,11 +144,13 @@ $ open fplot.ps
 
 _Notes:_{: style="color: red"}
 
-+ The script file must contain a line [beginning with **fplot**](/docs/misc/fplot/#init-switches-must-occur-first).  Subsequent indented comprise the instructions
-  to **fplot**{: style="color: blue"}.
-+ The script file is read through the [file preprocessor](/docs/input/preprocessor/).  (In this example there are no special preprocessor instructions.)
++ The script file must contain a line [beginning with **fplot**](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
+  in the first column.  Indentation of the following lines is syntactically significant: instructions end when a nonblank character appears in the first column.
++ The script file is read through the [file preprocessor](/docs/input/preprocessor/).  Instructions read through a file may
+  [differ slightly](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line) from command-line
+  switches.
 + Multiple _xy_ curves are drawn by stringing together [(**DATA-switches data-file**)](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data) pairs.\\
-  In this case the left hand side of Eq.(1) is drawn in [blue-green](/docs/misc/fplot/#color-specification) (**col=0,0.3,0.8**),
+  In this case the left hand side of Eq.(1) is drawn in blue-green ([**col=0,0.3,0.8**](/docs/misc/fplot/#color-specification)),
   followed by a reddish dashed horizontal line at _y_=0.015.
   (There are five solutions where the two curves intersect.  As <i>V<sub>0</sub></i> increases the rhs becomes smaller and more solutions appear).
 + [Tic marks](/docs/misc/fplot/#format-switches) on the _x_ axis are all the same size while those on the _y_ axis are suppressed.
@@ -158,11 +160,9 @@ _Notes:_{: style="color: red"}
 /docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
 {:/comment}
 
-It is usually more convenient to make scripts for fplot, especially when the figure is complex.
-This figure shows a contour plot of the charge density of the Cr charge density in (100), (011) plane,
-with quality good enough for a journal.
+Th figure in this example shows a contour plot of the charge density of the Cr charge density in (100), (011) plane.
 
-In this example commands are read from script _plot.cr_{: style="color: green"}.
+Commands are read from script _plot.cr_{: style="color: green"}.
 To make this plot you will need to copy the already-prepared charge density contour file [chgd.cr](../../../assets/download/inputfiles/chgd.cr) to your working directory,
 and cut and paste the script in the box below to _plot.cr_{: style="color: green"}.
 
@@ -190,19 +190,19 @@ Run the commands in the box below to create and view the postscript file, or cli
 
 _Notes:_{: style="color: red"}
 
-+ Argument `-f` tells **fplot**{: style="color: blue"} that the next argument
++ `fplot -f` tells **fplot**{: style="color: blue"} that the next argument
   _plot.cr_{: style="color: green"} is not an instruction but a file containing a script.
-+ The script file is read through the [preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.  In this case there are no preprocessor directives.\\
-  Commands inside a script work almost exactly as they do on the command line.
-  However, [in scripts](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) you must use
-  &nbsp;**\\{...}**&nbsp; for curly brackets, since a simple &nbsp;**{...}**&nbsp; will interpreted by the preprocessor as expressions.
+
++ The script file is read through the [preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.  Commands inside a script work
+  almost exactly as they do on the command line, but there are
+  [small differences](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line).
+  You must use &nbsp;**\\{...}**&nbsp; for curly brackets, since the preprocessor interprets a simple &nbsp;**{...}**&nbsp; as an expression.
 + **fplot**{: style="color: blue"} draws constant-density contours at 0.045 and 0.055 because of **-con .045,.055**.
   By splitting up the four contours into a pair of **-con** commands, distinct colours and line types can be drawn.
-+ Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data. 
-  **fplot**{: style="color: blue"} [must be told](/docs/misc/fplot/#structure-of-data-files) how many rows or columns the data has; here it
-  is specified in the first line of _chgd.cr_{: style="color: green"}.  If that line were absent, you can specify the number of columns with **-nc**, e.g.
-  **-nc=101 chgd.cr**.  (It would be able to work out the number of rows from the file contents.)
-+ Two of the contours are labelled (**-lblu**) using Helvetica 13pt font; the title uses 16pt Roman font.
++ Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data.  **fplot**{: style="color: blue"} must be told how many
+  rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}. See
+  [here](/docs/misc/fplot/#structure-of-data-files) to indicate the number of rows and columns in other ways.
++ Two of the contours are labelled (**-lblu**) with Helvetica 13pt font; the title uses 16pt Roman font.
 
 #### Example 2.4. &nbsp; _Mobility in TlInP_
 {::comment}
@@ -310,12 +310,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   assume strings have no non-ASCII characters (superscripts, subscripts, etc).
 + **-f <i>script-file</i>**\\
   read remaining arguments from input file <b><i>script-file</i></b>.\\
-  _Note:_{: style="color: red"} the script file is [run through the file preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.\\
-  The input (script) file must contain a line beginning with **fplot** in the first column.
-  This plays the role of a _category_ in the Questaal [input system](/docs/input/inputfile/#input-file-structure).
   **fplot**{: style="color: blue"} will skip over lines until it finds one beginning with **fplot** in the first column.
-  It will begin to parse arguments as though they are read from the command-line until end-of-file is encountered, or a line begins
-  with a character in the first column, or it is terminated by preprocessor instruction such as **% exit**.\\
+  It will begin to parse arguments as though they are read from the command-line until a line begins
+  with a character in the first column, or the number of lines is exhausted.
+  See [here](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line)
+  Note also that the script file is [run through the file preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.
   See [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) for an example.
 
 #### **FORMAT** switches govern frame layout and labels.
@@ -446,7 +445,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
    will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
 
 2. When using &nbsp;**{...}**&nbsp; in an **fplot**{: style="color: blue"} script file, you must
-   [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
+   [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
    _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
@@ -735,23 +734,29 @@ _____________________________________________________________
 Both script files and data files are by default run through the [file preprocessor](/docs/input/preprocessor/).
 This provides programming capability in the script files.
 
-##### On the differences between switches in a script file and on the command line
+##### On the differences between instructions in a script file and on the command line
 {::comment}
-/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line
+/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line
 {:/comment}
 
 When commands are read from a script file, they can behave differently than when appearing on the command-line.
 
-_Wild card expansion_ : there is no unix wild-card expansion in a script file.
-Thus quotation marks to inhibit wild card expansion are not necessary, though they can be used.
+_Preprocessor directives_ : The [preprocessor directives](/docs/input/preprocessor/#preprocessor-directives) are not part of the script itself, but
+control which lines of the script are read. For example, **% exit** causes the preprocessor to exit, and no further lines are read.
 
-_Curly brackets_ : scripts are run through the [file preprocessor](/docs/input/preprocessor/),
-which interprets [curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and substitutes them.
-To keep the curly bracket pair and its contents intact, you must suppress the preprocessor's expression substitution.  Do this by prepending **{strn}** with a
-backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
+_Start and end of script file_ : **fplot**{:style="color: blue"} will start reading instructions when it encounters 
+  **fplot**{: style="color: blue"} will not begin looking for instructions until it finds a line beginning with &nbsp;**fplot**&nbsp; in the first column.
+(**fplot** is analogous to a _category_ in the Questaal [input system](/docs/input/inputfile/#input-file-structure).)
+It will begin to parse arguments as though they are read from the command-line until the end, or a new line begins
+with a character in the first column.  Thus the indentation is syntactically significant.
 
-This is necessary when you need curly bracket so that
- **fplot**{: style="color: blue"} can [substitute fonts](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) in labels.
+_Curly brackets and preprocessor variable subsitution_ : The preprocessor interprets
+[curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and substitutes them, while
+**fplot**{:style="color: blue"} [uses curly brackets](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering)
+to subsitute special fonts (superscripts and subscripts, Greek, bold, italic and symbol fonts).
+
+In a script, you must suppress the preprocessor's expression substitution to keep the curly bracket pair and its contents intact.  Do this
+by prepending **{strn}** with a backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
 For example, the last figure in Example 2.1 can be equivalently made by
 <pre>
 $ echo fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}_\{~\{\{\136}}}/&\{k}_\{0}' > myplot
@@ -759,6 +764,9 @@ $ fplot -f myplot
 </pre>
 
 Note that the label now contains backslashes.  You must include the backslash when the label appears in a script file.
+
+_Wild card expansion_ : there is no unix wild-card expansion in a script file.
+Thus quotation marks to inhibit wild card expansion are not necessary, though they can be used.
 
 #### Color specification
 {::comment}
@@ -994,7 +1002,7 @@ Note the following:
   + is in 18 point Times Roman font
   + Note the multiple nesting of subscripts.
     _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
-    _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line) to suppress expression substitution of &nbsp;**{..}**&nbsp; by the file preprocessor.
+    _Note:_{: style="color: red"} [backslashes are necessary](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line) to suppress expression substitution of &nbsp;**{..}**&nbsp; by the file preprocessor.
 + Label "At 40<sup>o</sup> ..." :
   + is rotated by 40<sup>o</sup>
   + Has a nested subscript/superscript:  _k_ is both subscript and italic; it has a superscript in Roman font.
