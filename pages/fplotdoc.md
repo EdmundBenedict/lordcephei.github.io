@@ -45,6 +45,9 @@ This manual is written for fplot version 3.50.  To see what version you are usin
 
     $ fplot --version
 
+The final example, [adapting postscript files to other formats]
+/docs/misc/fplot/#adapting-postscript-coordinates
+
 _____________________________________________________________
 
 ### 1. _Introduction_
@@ -103,7 +106,7 @@ _Notes:_{: style="color: red"}
     and in tic mark numbering (**-noxn** and **-noyn** and **-xn** and **-yn**), and formatting (**-fmtnx** and **-fmtny**), e.g.\\
   `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
 + You can control many aspects of the curve's [line type](/docs/misc/fplot/#data-switches) (**-lt**); see [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-+ There is a great deal of flexibility in making labels.  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustratations.\\
++ There is a great deal of flexibility in making labels.  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.\\
   The following will make a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).
   The Greek and italic symbols, subscripts and special character &perp; are accomplished through curly brackets **{...}**:
   <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</pre>
@@ -124,7 +127,7 @@ $$ \frac{\mathrm{cos}^2kL}{k^2L^2} = \frac{\hbar ^2}{2mV_0L^2} \quad\quad\quad\q
 It is a nonlinear equation in _k_ which must be solved numerically or graphically.  The latter is accomplished by drawing the left and right sides of Eq. (1)
 and finding points where the curves intersect.  It is convenient to work with the dimensionless parameter _x_=_kL_ and treat the right hand site as a dimensionless constant.
 
-Cut and paste the box below into script file _plot.box_{: style="color: green"}.
+Cut and paste the contents of the box below into script file _plot.box_{: style="color: green"}.
 
 ~~~
 fplot
@@ -194,17 +197,16 @@ Run the commands in the box below to create and view the postscript file, or cli
 _Notes:_{: style="color: red"}
 
 + `fplot -f` tells **fplot**{: style="color: blue"} that the next argument
-  _plot.cr_{: style="color: green"} is not an instruction but a file containing a script.
-
+  _plot.cr_{: style="color: green"} is a file containing a script.
 + The script file is read through the [preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.  Commands inside a script work
-  almost exactly as they do on the command line, but there are
+  similarly to the instructions on command line, but there are
   [small differences](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line).
-  You must use &nbsp;**\\{...}**&nbsp; for curly brackets, since the preprocessor interprets a simple &nbsp;**{...}**&nbsp; as an expression.
+  In scripts you must use &nbsp;**\\{...}**&nbsp; for curly brackets.
 + **fplot**{: style="color: blue"} draws constant-density contours at 0.045 and 0.055 because of **-con .045,.055**.
   By splitting up the four contours into a pair of **-con** commands, distinct colours and line types can be drawn.
 + Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data.  **fplot**{: style="color: blue"} must be told how many
-  rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}. See
-  [here](/docs/misc/fplot/#structure-of-data-files) to indicate the number of rows and columns in other ways.
+  rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}. It can be indicated in other ways,
+  as explained [here](/docs/misc/fplot/#structure-of-data-files).
 + Two of the contours are labelled (**-lblu**) with Helvetica 13pt font; the title uses 16pt Roman font.
 
 #### Example 2.4. &nbsp; _Mobility in TlInP_
@@ -214,9 +216,9 @@ _Notes:_{: style="color: red"}
 
 This example shows how to use a log scale, customize positioning of tic marks and labelling, use a polynomial to interpolate discrete data, and add a key.
 
-The figure drawn below depicts the predicted mobility of Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>P alloy.
+The figure drawn below depicts the predicted mobility of Tl<sub>1-<i>x</i></sub>In<sub><i>x</i></sub>P alloy.
 It was adapted from a figure published in this [1994 paper](http://scitation.aip.org/content/aip/journal/apl/65/21/10.1063/1.112567),
-which proposed Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>P and Tl<sub>_1-<i>x</i></sub>In<sub>_<i>x</i></sub>As as infrared detector materials.
+which proposed Tl<sub>1-<i>x</i></sub>In<sub><i>x</i></sub>P and Tl<sub>1-<i>x</i></sub>In<sub><i>x</i></sub>As as infrared detector materials.
 
 To make this figure, copy calculated mobililties from file [mobility.tlinp](../../../assets/download/inputfiles/mobility.tlinp){:
 style="color: green"} to your working directory, and cut and paste the script in the box below to _plot.mobility_{: style="color: green"}.
@@ -318,9 +320,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   with a character in the first column, or the number of lines is exhausted.
   See [here](/docs/misc/fplot/#on-the-differences-between-switches-in-a-script-file-and-on-the-command-line)
   Note also that the script file is [run through the file preprocessor](/docs/misc/fplot/#file-preprocessor) before parsing.
-  See [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) for an example.
+  See, e.g. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file).
++ **-shftm=_x_,_y_** shifts the entire figure by constant (**_x_**,**_y_**).  This is useful for converting to other formats; see 
+  the [Postscript Conversion Exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats).
 
-#### **FORMAT** switches govern frame layout and labels.
+#### **FORMAT** switches govern frame layout and labels
 {::comment}
 /docs/misc/fplot/#format-switches-govern-frame-layout-and-labels
 {:/comment}
@@ -349,9 +353,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   + **xor=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw vertical axis at x=#.
   + **yab=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   draw horizontal axis at y=#.
   + **nofill**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                   draw both abscissa and ordinate on a logarithmic scale.
-  + **col=#,#,#**    &nbsp;Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
-  + **theta=#**      &nbsp;&nbsp;&nbsp;angle between abscissa and ordinate (in radians)<br/>
-  + **font=_font_**  &nbsp;Font for axis numbering and labels.
+  + **col=#,#,#**    &nbsp; Fill frame with color #,#,# (**_r_,_g_,_b_** [color specification](/docs/misc/fplot/#color-specification)).
+  + **theta=#**      &nbsp;&nbsp;&nbsp; angle between abscissa and ordinate (in radians)<br/>
+  + **font=_font_**  &nbsp; Font for axis numbering and labels.
 
 <i> </i>
 
@@ -359,20 +363,20 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   Sets parameters governing the lines composing the frame.
   + **col=_r_,_g_,_b_** specify the line color for the frame ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
   + **th=#1[,#2,#3]** specifies the line thickness and which lines are drawn:\\
-    **#1** sets line thickness. &nbsp; &minus;1 draws no frame.  &nbsp; Default value is 3.\\
-    **#2** set to:&nbsp;  **0** for top and bottom;&nbsp; **1** for bottom only;&nbsp; **2** for top only;&nbsp; **3** for neither.\\
-    **#3** set to:&nbsp;  **0** for left and right;&nbsp; **1** for left only;&nbsp; **2** for right only;&nbsp; **3** for neither.
+    **#1**&nbsp; sets line thickness. &nbsp; &minus;1 draws no frame.  &nbsp; Default value is 3.\\
+    **#2**&nbsp; set to:&nbsp;  **0** for top and bottom;&nbsp; **1** for bottom only;&nbsp; **2** for top only;&nbsp; **3** for neither.\\
+    **#3**&nbsp; set to:&nbsp;  **0** for left and right;&nbsp; **1** for left only;&nbsp; **2** for right only;&nbsp; **3** for neither.
 
 <i> </i>
 
-+ **-tmx** \| **-tmy &nbsp; spacing[:mt][,pos][;rmt][~rmnt][@mode]**\\
++ **-tmx** \| **-tmy &nbsp; _spacing_[:_mt_][,_pos_][;_rmt_][~_rmnt_][@_mode_]**\\
   tic mark specification and attributes.
-  + **spacing**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
-  + **\:mt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. number of tics per major tic
-  + **,pos**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 specify position of major tic
-  + **;rmt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
-  + **\~rmnt**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, as a fraction of major tic size
-  + **@_n_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             special tic mark placement modes\\
+  + **_spacing_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
+  + **\:_mt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. number of tics per major tic
+  + **,_pos_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 specify position of major tic
+  + **;_rmt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
+  + **\~_rmnt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, as a fraction of major tic size
+  + **@_mode_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             special tic mark placement modes\\
     @1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "fine grained" log scale: tics put at at 1,2,3,4,5,6,7,8,9 &times; 10</sup>integer</sup>\\
     @2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "medium grained" log scale: tics put at at 1,2,5 &times; 10</sup>integer</sup>\\
     @3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "coarse grained" log scale: tics put at at 1 &times; 10</sup>integer</sup>\\
@@ -742,23 +746,23 @@ This provides programming capability in the script files.
 /docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line
 {:/comment}
 
-When commands are read from a script file, they can behave differently than when appearing on the command-line.
+When commands are read from a script file, the action differs in the following ways from instructions given on the command-line:
+
+_Start and end of script file_ : **fplot**{:style="color: blue"} will start reading instructions when it encounters 
+a line beginning with &nbsp;**fplot**&nbsp; in the first column.
+(**fplot** is analogous to a _category_ in the Questaal [input system](/docs/input/inputfile/#input-file-structure).)
+It will parse instructions from that point as though they are read from the command-line until line begins
+with a character in the first column, or there are no more lines.  Thus the indentation is syntactically significant.
 
 _Preprocessor directives_ : The [preprocessor directives](/docs/input/preprocessor/#preprocessor-directives) are not part of the script itself, but
 control which lines of the script are read. For example, **% exit** causes the preprocessor to exit, and no further lines are read.
 
-_Start and end of script file_ : **fplot**{:style="color: blue"} will start reading instructions when it encounters 
-  **fplot**{: style="color: blue"} will not begin looking for instructions until it finds a line beginning with &nbsp;**fplot**&nbsp; in the first column.
-(**fplot** is analogous to a _category_ in the Questaal [input system](/docs/input/inputfile/#input-file-structure).)
-It will begin to parse arguments as though they are read from the command-line until the end, or a new line begins
-with a character in the first column.  Thus the indentation is syntactically significant.
-
 _Curly brackets and preprocessor variable subsitution_ : The preprocessor interprets
-[curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and substitutes them, while
+[curly brackets as expressions](/docs/input/preprocessor/#curly-brackets-contain-expressions) and makes substitutions for them, while
 **fplot**{:style="color: blue"} [uses curly brackets](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering)
-to subsitute special fonts (superscripts and subscripts, Greek, bold, italic and symbol fonts).
+to substitute special fonts (superscripts and subscripts, Greek, bold, italic and symbol fonts).
 
-In a script, you must suppress the preprocessor's expression substitution to keep the curly bracket pair and its contents intact.  Do this
+When using curly brackets in a script, you must suppress the preprocessor's expression substitution.  Do this
 by prepending **{strn}** with a backslash, _viz_ **\\{strn}**.  The preprocessor will remove the backslash but leave **{strn}** unaltered.
 For example, the last figure in Example 2.1 can be equivalently made by
 <pre>
@@ -766,7 +770,7 @@ $ echo fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.0,0.5:0 cc '~\{D}&\{k}
 $ fplot -f myplot
 </pre>
 
-Note that the label now contains backslashes.  You must include the backslash when the label appears in a script file.
+Note that the label now contains backslashes.
 
 _Wild card expansion_ : there is no unix wild-card expansion in a script file.
 Thus quotation marks to inhibit wild card expansion are not necessary, though they can be used.
@@ -778,10 +782,12 @@ Thus quotation marks to inhibit wild card expansion are not necessary, though th
 
 Some switches specify colors through, **col=_r_,_g_,_b_**.  These are RBG conventions (red, green, blue) expressed as
 a fraction of the brightest color.  0 is the absence of color, and 1 is the brightest color.
+Thus **col=1,0,0** is red; **col=0,1,0** is green; **col=0,0,1** is blue; while
+**col=0,1,1** is cyan; **col=1,0,1** is magenta; **col=1,1,0** is yellow.
 
-#### User units
+#### User's units
 {::comment}
-/docs/misc/fplot/#user-units
+/docs/misc/fplot/#users-units
 {:/comment}
 
 _User's units_ are the units the data are represented in.  Each frame can have its own set of units.
@@ -807,9 +813,13 @@ They range from (0,0) to (1,1) for the largest square that fits within the plot 
 Graphics units are convenient for quantities that depend on the size of the figure, and not the units of data.
 Examples are the size of tic marks, the size of symbols, and spacing between elements in a key.
 
-_Medium units_ are historical.  In the early days graphs had to be drawn on hardware
-with specific units.  They appear interally in the source code but don't need to
-be dealt with by the user.
+_Medium units_ are physical.  Postscript files use points (1 point = 1/72 inch).  For the most part the user
+doesn't need to be concerned with them.
+
+Note however, that (0,0) in postscript units is the lower left corner, with values increasing upwards and to the right.
+By other conventions (0,0) is the top left corner.  This can be important when exporting the postscript file into other formats,
+as shown in the [Postscript Conversion Exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats) which converts
+_fplot.ps_{: style="color: green"} into .svg format.
 
 #### Structure of data files
 {::comment}
@@ -1085,7 +1095,7 @@ $ open fplot.ps
   + `-s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6` creates an arrow with:
     + arrowhead filled with grey (**col=0.5,0.5,0.5**)
     + tip at data point (**0.3,0.6**)
-    + tail at [data point + **(&minus;0.07,0.20)**] in graphics units
+    + tail at position **(&minus;0.07,0.20)** in graphics units, relative to head (**0.3,0.6**).
     + wings with length **0.5 &times; [size of tail]**, subtending angle 20<sup>o</sup>
     + arrowhead touches tail at **0.4 &times; [size of tail]**
 + _Top panel_ :
@@ -1111,4 +1121,58 @@ fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0
         -tmx 0.5:1,1;1~1 -noxn -tmy .5:1;1 -noyn -x -1,1 -y 0,1 -tp 1~
 ~~~
 
-To make make graph paper with 120<sup>o</sup> axes, replace both instances of -frme with -frme:theta=2*pi/3.
+To make make graph paper with 120<sup>o</sup> axes, replace both instances of **-frme**
+with **-frme:theta=2*pi/3**.
+
+#### Adapting postscript files to other formats
+{::comment}
+/docs/misc/fplot/#adapting-postscript-files-to-other-formats
+{:/comment}
+
+Postscript files generated **fplot**{: style="color: blue"} can be
+converted into other forms.  Conversion of postscript to many other
+forms is accomplished by standard tools such as ImageMagick's
+'convert' utility.
+
+In this example we convert fplot-generated _fplot.ps_{: style="color: green"} into
+[Scalable Vector Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) (.svg) form.
+It is slightly more complicated than converting to bitmapped formats; in particular 
+attention must be paid to postscript's treatment of the origin (0,0).
+
+We use _fplot.ps_{: style="color: green"} generated from _plot.frames_{: style="color: green"} of 
+the [Frames Exercise](/docs/misc/fplot/#things-about-frames).
+
+The main issue is to shift the figure to the top of the page (792 points).
+**fplot**{: style="color: blue"} can rigidly add a constant shift (in points) to the figure
+Postscript conventions put (0,0)  at the lower left corner, with values increasing upwards and to the right.
+By svg conventions (0,0) is the top left corner.  For the figure to begin at the top, it is necessary to shift the coordinates in
+_fplot.ps_{: style="color: green"} generated by **fplot**{: style="color: blue"}.
+
+
+Carry out the [Frames Exercise](/docs/misc/fplot/#things-about-frames) to generate _fplot.ps_{: style="color: green"}
+
+To determine the postscript bounding box, use ghostscript.  Assuming you are using a bash shell, do:
+
+    $ echo quit|gs -sDEVICE=bbox -dNOPAUSE fplot.ps | grep 'BoundingBox:'
+
+You should see
+
+    %%BoundingBox: 120 116 553 303
+
+The left edge begins at 120 points; the top edge at 303 points, and the figure height is
+303-116 = 187 points
+
+Run **fplot**{: style="color: blue"} again, this time adding a shift:
+
+    $ fplot -shftm=0-120,792-303 -f plot.frames
+
+You should now see:
+
+    %%BoundingBox: 0 605 433 792
+
+Use the Inkscape program to convert from .ps to .svg.  (This example uses Inkscape 0.48.4 r9939)
+
+    $ inkscape fplot.ps -l fplot.svg
+
+With your text editor change the line in  _fplot.svg_{: style="color: green"} `height="990"` into `height="187pt"`.
+_fplot.svg_{: style="color: green"} can now be embedded without any spacing around it.
