@@ -201,7 +201,7 @@ _Note:_{: style="color: red"} there is a syntactical difference between **{expr}
 
 The general syntax for an expression is a sequence of one or more expressions of the form
 <pre>   {<b>name=</b>expr<b>[,name=</b>expr<b>...]</b>}</pre>
-Commas separate declarations.  Arithmetic operators can be use in place of assignment (**=**), for example
+Commas separate declarations.  Arithmetic operators can be used in place of assignment (**=**), for example
 &nbsp;**{x=3,y=4,x*=y,x*2}**.
 The final expression may (and typically does) consist of an expression only omitting &nbsp;**name=**.
 
