@@ -84,13 +84,13 @@ _V<sup>j</sup><sub>xc</sub>_(_k_).  _j_ refers to a particular QP state (pole of
  
 The contribution to $G_0$ from QP state $j$ is
 
-$$ G_0^j(k,\omega ) = \frac{1}{{\omega  - \omega^j(k)}} $$
+$$ G_0^j(k,\omega ) = \frac{1}{\omega  - \omega^j(k)} $$
 
 where $$\omega^j(k)$$ is the pole of _G_<sub>0</sub>.
 
 Write the contribution to _G_ from QP state _j_ as
 
-$$ G^j(k,\omega) = \frac{1}{{\omega  - \omega^j - \Sigma (k,\omega ) + V^j_{xc}(k)}} $$
+$$ G^j(k,\omega) = \frac{1}{\omega  - \omega^j - \Sigma (k,\omega ) + V^j_{xc}(k)} $$
 
 Note that this equation is only true if $$\Sigma$$ is
 diagonal in the basis of noninteracting eigenstates.  We will
@@ -101,8 +101,8 @@ at $$\omega{=}\omega^j(k)$$.  Approximate _G_ by its coherent part:
 
 $$
 G^{j,\mathrm{coh}}(k,\omega) &=& 
-\frac{1}{{\omega  - \omega^j - \mathrm{Re} \Sigma (k,\omega^j) +
-    V^j_{xc}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}}
+\frac{1}{\omega  - \omega^j - \mathrm{Re} \Sigma (k,\omega^j) +
+    V^j_{xc}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}
 $$
 
 where 
