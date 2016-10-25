@@ -766,9 +766,8 @@ Source codes the preprocessor uses are found in
 the &nbsp;**slatsm**&nbsp; directory:
 
 <pre>
-   rdfiln.f  The source code for the preprocessor.
-             Subroutine <b>rdfile</b> parses an entire file and returns
-             a preprocessed one, can be found in rdfiln.f
+   rdfiln.f  The source code for the preprocessor. Subroutine <b>rdfile</b> parses an entire file and
+             and returns a preprocessed one, can be found in rdfiln.f
              The key subroutine is <b>rdfiln</b>, which parses one line of a file.
    symvar.f  maintains the table of variables for floating point scalars.
    symvec.f  maintains the table of vector variables.
