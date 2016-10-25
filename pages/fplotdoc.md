@@ -538,16 +538,16 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + **_n_**=1     &nbsp; solid, unbroken line.
     + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &nbsp; dotted line.
-  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
-  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=#,#,#**  &nbsp;                   First color weight when line is to be drawn with color weights.
+  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
+  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
+  + **colw=#,#,#**  &nbsp;&nbsp;                   First color weight when line is to be drawn with color weights.
   + **colw2=#,#,#**                          Second color weight when line is to be drawn with color weights.
-  + **clip**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clips curves when they go outside the frame
-  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
+  + **clip**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clips curves when they go outside the frame
+  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 &nbsp; color line with color given by **col**
     + 2 &nbsp; fill the area inside of the curve with color
     + 3 &nbsp; both 1 and 2
-  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
   + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
@@ -555,8 +555,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + **_lb_**      &nbsp; First space length
     + **_lc_**      &nbsp; Second dash length
     + **_ld_**      &nbsp; Second space length\\
-    You can enter anywhere between 0 and 4 numbers. If fewer then three numbers are given, a simple a dashed line will result.\\
-    Try [this exercise](/docs/misc/fplot/#dot-dashed-lines).
+    You can enter anywhere between 1 and 4 numbers. If fewer then three numbers are given, a simple a dashed line will result.\\
+    [This exercise](/docs/misc/fplot/#dot-dashed-lines) shows how to make a dot-dashed line.
 
 <i> </i>
 
@@ -571,7 +571,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+    + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
@@ -611,8 +611,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   See the [Frames exercise](/docs/misc/fplot/#things-about-frames) for an illustration.\\
   Symbol 8&nbsp; draws error bars. **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
-  _Note:_{: style="color: red"} Error bars are also drawn through the **-ey** command.  They are drawn before any possible second symbol through **-s**.\\
-  See [this exercise](/docs/misc/fplot/#error-bars) for an example.\\
+  _Note:_{: style="color: red"} Error bars may also be drawn through the **-ey** command.  They are drawn before any possible second symbol through **-s**.\\
+  See the [Error bars exercise](/docs/misc/fplot/#error-bars) for an example.\\
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
@@ -943,8 +943,13 @@ $ open fplot.ps
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
-  tacks an arrowhead onto the line with the tip at **(0.5,0.5)**, pointed at the same angle as the wiggle but 1/4 size.\\
-  For detailed explanation of all the arguments to the arrow symbol, see the [Frames exercise](/docs/misc/fplot/#things-about-frames).
+  tacks an arrowhead onto the line with:\\
+  &nbsp;&nbsp; arrowhead filled with black (**col=0,0,0**)\\
+  &nbsp;&nbsp; tip at data point (**0.5,0.5**)\\
+  &nbsp;&nbsp; tail at position **(&minus;0.15/4,0.16/4)** in graphics units, relative to head (**0.3,0.6**)\\
+  &nbsp;&nbsp; (Thus the arrowhead line point at the same angle as the wiggle but is 1/4 size)\\
+  &nbsp;&nbsp; wings with length **0.99 &times; [size of tail]**, subtending angle 25<sup>o</sup>
+  &nbsp;&nbsp; arrowhead touches line of tail at **0.9&times;[length of tail]**
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
 
@@ -1102,7 +1107,7 @@ $ open fplot.ps
     + tip at data point (**0.3,0.6**)
     + tail at position **(&minus;0.07,0.20)** in graphics units, relative to head (**0.3,0.6**).
     + wings with length **0.5 &times; [size of tail]**, subtending angle 20<sup>o</sup>
-    + arrowhead touches tail at **0.4 &times; [size of tail]**
+    + arrowhead touches line of tail at **0.4&times;[length of tail]**
 + _Top panel_ :
   + Frame line type is default; compare to middle panel.
   + Major abscissa tic marks span the full height of the frame; minor tics are reduced by **0.75**.

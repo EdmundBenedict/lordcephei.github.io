@@ -68,7 +68,7 @@ $ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe
 
 This tutorial will do the following:
 
-+ [Generate spectral function](/tutorial/gw/gw-self-energy/#generate-the-spectral-function-for-q0) at **q**=0 directly from the _GW_ output
++ [Generate spectral function](/tutorial/gw/gw-self-energy/#generate-spectral-functions-for-q0) at **q**=0 directly from the _GW_ output
   files _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  (For nonmagnetic calculations, only _SEComg.UP_{: style="color: green"} is made).
 
 + Use **lmfgws**{: style="color: blue"} to generate the interacting density-of-states (DOS) from Im _G_, compares it to the noninteracting
@@ -82,8 +82,7 @@ This tutorial will do the following:
 /tutorial/gw/gw-self-energy/#theory
 {:/comment}
 
-
-We begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
+Begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
 <i>V<sup>j</sup><sub>xc</sub></i>(_k_). &nbsp; _j_ refers to a particular QP state (pole of <i>G</i><sub>0</sub>).  There is also an interacting Green's function, _G_.
  
 The contribution to <i>G</i><sub>0</sub> from QP state _j_ is
@@ -172,24 +171,27 @@ export MPI_NUM_THREADS=12
 This step should make _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  These files contain &Sigma;(<b>k</b>,&omega;), but 
 in a not particularly readable format.
 
-### _Generate the spectral function for q=0_
+### _Generate spectral functions for q=0_
 {::comment}
-/tutorial/gw/gw-self-energy/#generate-the-spectral-function-for-q0
+/tutorial/gw/gw-self-energy/#generate-spectral-functions-for-q0
 {:/comment}
 
-_SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} contain the diagonal matrix element &Sigma;<sub><i>jj</i></sub>(<b>k</b>,&omega;)
- for each QP level <i>j</i>, for each irreducible point <b>k</b> in the Brillouin zone, on a uniform mesh of points &omega; as specified in
-the _GWinput_{: style="color: green"} file of the last section.  If the absence of interactions, &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;)=0
-so the spectral function would be proportional to &delta;(&omega;&minus;&omega<sup>*</sup>), where &omega<sup>*</sup> is the QP level (see [Theory](/tutorial/gw/gw-self-energy/#theory)).
-Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) an imaginary part which broadens out the level, and 
-and in general, Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) shifts and renormalizes the QP level.  As noted in the 
-[Theory](/tutorial/gw/gw-self-energy/#theory) section, there is no shift if <i>V<sup>j</sup><sub>xc</sub></i> is the QSGW self-energy.
+_SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} contain the diagonal matrix element
+ &Sigma;<sub><i>jj</i></sub>(<b>k</b>,&omega;) for each QP level <i>j</i>, for each irreducible point <b>k</b> in the Brillouin zone, on a
+ uniform mesh of points &omega; as specified in the _GWinput_{: style="color: green"} file of the last section.  If the absence of
+ interactions, &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;)=0 so the spectral function would be proportional to
+ &delta;(&omega;&minus;&omega<sup>\*</sup>), where &omega;\* is the QP level (see [Theory section](/tutorial/gw/gw-self-energy/#theory)).
+
+Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) an imaginary part which broadens out the level, and in general,
+Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) shifts and renormalizes the quasiparticle weight by _Z_.  As noted in the
+[Theory section](/tutorial/gw/gw-self-energy/#theory), there is no shift if <i>V<sup>j</sup><sub>xc</sub></i> is the QSGW self-energy; there
+remains, however, a reduction in the quasiparticle weight.  This will be apparent when
+[comparing the interacting and noninteracting DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states).
 
 The **spectral**{: style="color: blue"} tool has a limited ability to convert raw files _SEComg.{UP,DN}_{: style="color: green"} into spectral functions,
 which this section demonstrates.
 
 Do the following:
-
 
 ~~~
 $ spectral --eps=.005 --domg=0.003 --cnst:iq==1&eqp>-10&eqp<30
@@ -212,11 +214,97 @@ Command-line arguments have the following meaning:
   + eqp (quasiparticle energy, in eV)
   + spin (1 or 2)
 
-  Thus **iq==1&eqp>-10&eqp<30** 
-  + generates spectral functions only for the first _k_ point (the &Gamma; point)
-  + eliminates states below the bottom of the Fe _s_ band (i.e. shallow core levels included in the valence through local orbital)
-  + eliminates states 30 or more eV above the Fermi level.
+  Thus **iq==1&eqp>-10&eqp<30** \\
+  &nbsp;&nbsp; generates spectral functions only for the first _k_ point (the &Gamma; point)\\
+  &nbsp;&nbsp; eliminates states below the bottom of the Fe _s_ band (i.e. shallow core levels included in the valence through local orbital)\\
+  &nbsp;&nbsp; eliminates states 30 or more eV above the Fermi level.
 
-**spectral**{: style="color: blue"} writes files sec\_ib_j__iq_n_.up and sec\_ib_j__iq_n_.dn,
-which contain <i>A<sup>j</sup></i>(<b>k</b><i><sub>n</sub>,&omega;) and <i>A<sup>j</sup></i><sub>0</sub>(<b>k</b><i><sub>n</sub>,&omega;).
+**spectral**{: style="color: blue"} writes files sec\_ib<i>j</i>\_iq<i>n</i>.up and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
+which contain information about the _G_ for band _j_ and the _n_<sup>th</sup> _k_ point.
 
+The beginning of these files look like:
+
+~~~
+# ib=   5  iq=   1  Eqp=   -0.797925  q=   0.000000   0.000000   0.000000
+#     omega         omega-Eqp     Re sigm-vxc    Im sigm-vxc      int A(w)      int A0(w)       A(w)           A0(w)
+  -0.2721160D+02 -0.2641368D+02 -0.6629516D+01  0.1519810D+02  0.2350291D-04  0.6897219D-08  0.7774444D-02  0.2281456D-05
+  -0.2720858D+02 -0.2641065D+02 -0.6629812D+01  0.1520157D+02  0.4701215D-04  0.1379602D-07  0.7776496D-02  0.2281979D-05
+~~~ 
+
+**spectral**{: style="color: blue"} also makes the k-integrated DOS.
+However, the _k_ mesh is rather coarse and a
+[better DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states)
+can be made using **lmfgws**{: style="color: blue"}.
+
+________________________________________________________________________________________________
+<div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show the standard output from the spectral tool </button></div>
+{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="spectral">{:/}
+
+ spectral: read 29 qp from QIBZ
+ Dimensions from file(s) SEComg.(UP,DN):
+ nq=1  nband=9  nsp=2  omega interval (-27.2116,27.2116) eV with (-200,200) points
+ Energy mesh spacing = 136.1 meV ... interpolate to target spacing 3 meV.  Broadening = 5 meV
+ Spectral functions starting from band 1, spin 1, for 9 QPs
+
+          file            Eqp      int A(G)   int A(G0) rat[G] rat[G0]
+      sec_ib1_iq1.up   -8.760788     0.8610     0.9998     T     T
+      sec_ib2_iq1.up   -1.666774     0.8394     0.9999     T     T
+      sec_ib3_iq1.up   -1.666703     0.8394     0.9999     T     T
+      sec_ib4_iq1.up   -1.666635     0.8394     0.9999     T     T
+      sec_ib5_iq1.up   -0.797925     0.8451     0.9999     T     T
+      sec_ib6_iq1.up   -0.797795     0.8451     0.9999     T     T
+      sec_ib7_iq1.up   25.315312     0.7142     0.9992     T     T
+      sec_ib8_iq1.up   25.315316     0.7142     0.9992     T     T
+      sec_ib9_iq1.up   25.315318     0.7142     0.9992     T     T
+
+ writing q-integrated dos to file dos.up ...
+ Spectral functions starting from band 1, spin 2, for 9 QPs
+
+          file            Eqp      int A(G)   int A(G0) rat[G] rat[G0]
+      sec_ib1_iq1.dn   -8.488402     0.8576     0.9998     T     T
+      sec_ib2_iq1.dn   -0.006985     0.8805     0.9999     T     T
+      sec_ib3_iq1.dn   -0.006625     0.8823     0.9999     T     T
+      sec_ib4_iq1.dn   -0.006271     0.8836     0.9999     T     T
+      sec_ib5_iq1.dn    1.530201     0.8499     0.9999     T     T
+      sec_ib6_iq1.dn    1.530937     0.8499     0.9998     T     T
+      sec_ib7_iq1.dn   25.497064     0.7042     0.9991     T     T
+      sec_ib8_iq1.dn   25.497074     0.7042     0.9991     T     T
+      sec_ib9_iq1.dn   25.497083     0.7042     0.9991     T     T
+
+ writing q-integrated dos to file dos.dn ...
+
+{::nomarkdown}</div>{:/}
+
+### _Interacting density-of-states_
+{::comment}
+/tutorial/gw/gw-self-energy/#interacting-density-of-states
+{:/comment}
+
+This section uses the self-energy editor, **lmfgws**{: style="color: blue"},
+to interpolate &Sigma;(<b>k</b>,&omega;) to a fine <b>k</b>- and &omega;- mesh
+to obtain a reasonably well converged density-of-states.
+
+**lmfgws**{: style="color: blue"} requires as input, in addition to the files
+read by **lmf**{: style="color: blue"} requires, 
+the self-energy _se.fe_{: style="color: green"}
+in the format written by **spectral**{: style="color: blue"}.
+
+Make _se.fe_{: style="color: green"}:
+
+        $ spectral --ws --nw=1 > out2.spectral
+        $ mv se se.fe
+		
++ **--ws** tells **spectral**{: style="color: blue"} to write the self-energy 
+to file _se_{: style="color: green"} for for all _k_ points.
+Individual files are not writen.
+
++ **--nw=1** tells **spectral**{: style="color: blue"} to write the self-energy 
+on the frequency mesh it was generated; no interpolation takes place.
+
+Make the spin-up DOS:
+
+lmfgws fe -vtpp1=0 -vtpd1=4 -vbigbas=2 -vehmax=-.4 -vnk=16 -vnk2=nk -vnkgw=8 -vnkgw2=nkgw -vrwa=0.4114 -vnsp=2 -vasig=0.0 -vbsig=.09 -vemaxs=2.0 -vconvc=1e-5 -vbeta=.3 -vmet=5 -vmodsgp=4 '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws
+
+The argument
+
++ **--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws
