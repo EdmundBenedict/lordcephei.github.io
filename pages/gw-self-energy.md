@@ -354,7 +354,8 @@ Here is a summary of instructions the editor knows about:
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
   + **range=#1,#2**    generate DOS in a specified energy window **#1,#2** (eV)
-  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate DOS for spin **_i_** (1 or 2).  Default value is 1.
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       generate DOS for spin **_i_** (1 or 2).  Default value is 1.
 
 + **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
@@ -365,7 +366,7 @@ Here is a summary of instructions the editor knows about:
   Options are:
   + **getev** Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
   + **range=#1,#2**    generate spectral function in a specified energy window (**#1,#2**), in eV.
@@ -377,7 +378,7 @@ Here is a summary of instructions the editor knows about:
   + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
   + ib              &nbsp;&nbsp;&nbsp;&nbsp; band index\\
   Options are:
-  +**getev**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                        Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
   + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
