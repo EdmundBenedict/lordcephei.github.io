@@ -382,7 +382,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
     @3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "coarse grained" log scale: tics put at at 1 &times; 10</sup>integer</sup>\\
     @5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  tic marks selected by the user.  Specify a list of points after the @5 indicating where the marks should go.
 
-  Medium grained and user-selected marks are used in [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
+  [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) uses medium grained and user-selected marks.
 
 <i> </i>
 
@@ -397,7 +397,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 +  **-p#**\\
    pads bounds of abscissa and ordinate by adding <b>&plusmn;(#/2)&times;(<i>x</i><sub>2</sub>&minus;<i>x</i><sub>1</sub>)</b> to the right (left) boundary,
    and <b>&plusmn;(#/2)&times;(<i>y</i><sub>2</sub>&minus;<i>y</i><sub>1</sub>)</b> to the top (bottom) boundary.
-   The default padding factor is **#**=0.1.\\
+   If if is not supplied, the default padding factor is **#**=0.1.\\
    _Note:_{: style="color: red"} Even if you specify
    (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) or (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
    through &nbsp;**-x**&nbsp; or &nbsp;**-y**,  the bounds are still padded.    Use &nbsp;**-p0**&nbsp; to suppress padding.\\
@@ -813,13 +813,12 @@ They range from (0,0) to (1,1) for the largest square that fits within the plot 
 Graphics units are convenient for quantities that depend on the size of the figure, and not the units of data.
 Examples are the size of tic marks, the size of symbols, and spacing between elements in a key.
 
-_Medium units_ are physical.  Postscript files use points (1 point = 1/72 inch).  For the most part the user
+_Medium units_ correspond to physical units of a device (meaningful for hard copies).  Postscript uses points (1 point = 1/72 inch).  For the most part the user
 doesn't need to be concerned with them.
-
 Note however, that (0,0) in postscript units is the lower left corner, with values increasing upwards and to the right.
-By other conventions (0,0) is the top left corner.  This can be important when exporting the postscript file into other formats,
-as shown in the [Postscript Conversion Exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats) which converts
-_fplot.ps_{: style="color: green"} into .svg format.
+Other conventions use the top left corner for (0,0).  This can be important when exporting the postscript file into other formats.
+See for example the [Postscript Conversion Exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats) which converts
+_fplot.ps_{: style="color: green"} into _.svg_{: style="color: green"} format.
 
 #### Structure of data files
 {::comment}
@@ -829,8 +828,8 @@ _fplot.ps_{: style="color: green"} into .svg format.
 Data files follow a standard Questaal format for two-dimensional arrays.
 **fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
 
-**fplot**{: style="color: blue"} must obtain information about the number of rows and columns in the file.  The safest way to specify this,
-is to indicate it in the first line; see for example the charge density file _chgd.cr_{: style="color: green"} used by
+**fplot**{: style="color: blue"} must be given information about the number of rows and columns in the file.  The safest way to specify this,
+is to indicate it in the first line of the file; see for example the charge density file _chgd.cr_{: style="color: green"} in
 [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr). It begins with:
 
 ~~~~
@@ -839,11 +838,12 @@ is to indicate it in the first line; see for example the charge density file _ch
 ...
 ~~~
 
+Calling **nr** and **nc** the number of rows and columns, respectively,
 **nr** and **nc** can be stipulated in the data file as shown, but the information can be supplied in other ways.
 
 + The parser checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.\\
   It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
-+ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` (or just `-nc=#`) can specify **nr** and/or **nc**.
++ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` can specify **nr** or **nc**.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out from the file contents.
 + If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
@@ -879,7 +879,7 @@ expand on -map
 {:/comment}
 
 You can specify error bars for each _xy_ pair through either the `-s` command or the `-ey` command.
-With the latter you can use `-s` to draw a second symbol at the point.
+If you use the latter you can make further use of `-s` to draw a second symbol at each point.
 In either case three columns of data are required, the third column containing the error bar.
 
 Example showing an error bar and a circle:
@@ -888,9 +888,9 @@ Example showing an error bar and a circle:
 $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
 
-+ An error bar is drawn first, using column 3 (-ey 3,.75) and to the size of the error bar, and scaling the width by 0.75.
-+ A filled circle is drawn over the error bar.
-+ No line is drawn connecting points: **lt 0** suppresses lines.
++ An error bar is drawn first, using column 3 (**-ey 3,.75**).  The **.75** scales the default with of the horizontal lines in the error bar symbol by 0.75.
++ A filled circle is drawn after the error bar, concealing part of it.
++ No line is drawn connecting points: **lt 0** suppresses connecting lines.
 
 <br>
 
@@ -944,12 +944,13 @@ $ open fplot.ps
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
   tacks an arrowhead onto the line with:\\
-  &nbsp;&nbsp; arrowhead filled with black (**col=0,0,0**)\\
-  &nbsp;&nbsp; tip at data point (**0.5,0.5**)\\
-  &nbsp;&nbsp; tail at position **(&minus;0.15/4,0.16/4)** in graphics units, relative to head (**0.3,0.6**)\\
-  &nbsp;&nbsp; (Thus the arrowhead line point at the same angle as the wiggle but is 1/4 size)\\
-  &nbsp;&nbsp; wings with length **0.99 &times; [size of tail]**, subtending angle 25<sup>o</sup>
-  &nbsp;&nbsp; arrowhead touches line of tail at **0.9&times;[length of tail]**
+  &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**)\\
+  &nbsp;&nbsp; Tip at data point (**0.5,0.5**)\\
+  &nbsp;&nbsp; Tail at position **(&minus;0.15/4,0.16/4)** in graphics units, relative to head;\\
+  &nbsp;&nbsp; thus the arrowhead line point at the same angle as the wiggle but is 1/4 size.\\
+  &nbsp;&nbsp; Wings with length **0.99 &times; [size of tail]**, subtending angle 25<sup>o</sup>.\\
+  &nbsp;&nbsp; Arrowhead touches line of tail at **0.9&times;[length of tail].**
+
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
   creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
 
@@ -1005,23 +1006,23 @@ $ open fplot.ps
 Note the following:
 
 + **-xl _string_** and **-yl _string_** create axes labels.
-  + Labels are written in 18 point Helvetica (aka Arial) font, set by the initial **-font h18**.\\
+  + Labels are written in 18 point Helvetica (aka Arial) font. This is set by the initial **-font h18**.\\
   Note that &nbsp;'**\\**'&nbsp; within a label creates a line break.
 + Parts of the three lines drawn (diagonal; horizontal at _y_=0.4, vertical at _x_=0.3),
   are blanked out by labels.  This is explained below.
 + Label "**Below line** ..." :
-  + is left justified at _x_=0.3, and appears below _y_=0.4 (**ld** justification)
+  + is left justified at **_x_=0.3**, and appears below **_y_=0.4** (**ld** justification)
   + is in 14 point bold (Roman) font
-  + does not blank out the surrounding box because :0 is appended to _x_,_y_.
+  + does not blank out the surrounding box because **:0** is appended to **_x_**,**_y_**.
   + embeds italicized _ld_
 + Label "_Above line_ ..." :
-  + is left justified at _x=0.3_, and appears above _y_=0.4 (**ru** justification)
-  + is in 20 point italic font because of the **-font i20** preceding it
+  + is left justified at **_x=0.3_**, and appears above **_y_**=0.4 (**ru** justification)
+  + is in 20 point italic font because of the **-font i20** preceding it.
   + blanks out the surrounding box, including the horizontal line below it\\
     To suppress blanking, see label "**Below line** ..." above.
   + "Bolidfies" embedded **ru**.
 + Label "Nested subscripts ..." :
-  + is right justified and vertically centered at _y_=0.2
+  + is right justified and vertically centered at **_y_**=0.2.
   + is in 18 point Times Roman font
   + Note the multiple nesting of subscripts.
     _t_ is a subscript to <i>&phi;</i>; &nbsp; 2 is a superscript to _t_; &nbsp; _g_ is a subscript to 2.\\
@@ -1078,7 +1079,7 @@ $ open fplot.ps
 ~~~
 
 + _Bottom panel_ :
-  + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background.\\
+  + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background (**col=0,0,1**).\\
      Frame labels and numbering are in 30 point font.  Labels will use Helvetica; numbering is always in Roman font.\\
      This font applies to the frame labelling only; subsequent labels revert to the pre-existing font.
   + `-frmt col=.6,.8,.8,th=4` frames the box with a pale blue (**col=.6,.8,.8**), fairly thick (**th=4**) line.\\
@@ -1086,7 +1087,7 @@ $ open fplot.ps
   + `-tmx 0.2:5,1.001;0.46~0.5` :
     + spaces tic marks on the _x_ axis by 0.2
     + has 5 tics per major tic
-    + one tic passes through 1.001
+    + one major tic passes through 1.001
     + The major tic is 0.46&times;[frame height]
     + The minor tic is 0.5&times;[major tic height]
   + `-tmy .5;1 -noyn` sets the tic mark spacing on the _y_ axis with every tic a major tic, and suppresses numbering.
@@ -1094,12 +1095,12 @@ $ open fplot.ps
 + _Middle panel_ :
   + `-frme:xor=.3:yab=.6:col=0,1,0` :
     + fills the fame with green (**col=0,1,0**)
-    + causes the ordinate to be drawn through _x_=0.3 and the abscissa through _y_=0.6 (see arrow).\\
+    + causes the ordinate to be drawn through **_x_**=0.3 and the abscissa through **_y_**=0.6 (see arrow).\\
       Tic labels appear adjacent to these lines.
   + `-frmt col=.9,.9,.9,th=6` :
     + draws the frame and tics with a nearly white, thick line.
-    + If either &nbsp;**:xor**&nbsp; or &nbsp;**:yab**&nbsp; is given, no frame is drawn around the box
-  + `-tmx .1:5;.2,.5` specifies the abscissa tic marks (compare to bottom frame).
+    + If either &nbsp;**:xor**&nbsp; or &nbsp;**:yab**&nbsp; is given, no frame is drawn around the box.
+  + `-tmx .1:5;.2,.5` specifies the abscissa tic marks (compare to bottom panel).
   + `-tmy .25 -noyn` spaces the tic marks and suppresses numbering on the _y_ axis.\\
     Note: the number of tics per major tic was not specified; the default is 2.
   + `-s arrow:fill=3:bold=2:col=.5,.5,.5:-.07,0.20,.5,20,.4 -tp 2~.3,.6` creates an arrow with:
@@ -1109,16 +1110,18 @@ $ open fplot.ps
     + wings with length **0.5 &times; [size of tail]**, subtending angle 20<sup>o</sup>
     + arrowhead touches line of tail at **0.4&times;[length of tail]**
 + _Top panel_ :
-  + Frame line type is default; compare to middle panel.
+  + Use the default line type and color (black) for frame; compare it to the middle panel.
   + Major abscissa tic marks span the full height of the frame; minor tics are reduced by **0.75**.
-  + Label ABC is partially covered by filling of panel.
+  + Label ABC is partially concealed, because the frame was filled after the label was drawn.
 
 ##### _Things to try_
 
-<br>Move the label ABC to the end of the script, after the arrow.  Now the frame is
-  drawn first and the label is not concealed.
+<br>
 
-Replace **:col=0,1,1** with **:nofill**.  The frame is not filled and ABC is no longer concealed.
+Move the label ABC to the end of the script, after the arrow.  Now the frame is
+drawn first and the label is not concealed.
+
+Replace **:col=0,1,1** with **:nofill**.  The frame is not filled so ABC is no longer concealed.
 
 Try making graph paper by drawing one frame, filled, with thin tic marks.
 Redraw the frame with &nbsp;**:nofill**&nbsp; and use fewer, but thicker tic marks.\\
@@ -1149,16 +1152,16 @@ In this example we convert **fplot**{: style="color: blue"}-generated _fplot.ps_
 The process is slightly complicated by the fact that 
 Postscript conventions put (0,0) at the lower left corner, with values increasing upwards and to the right.
 In contrast, _.svg_{: style="color: green"} conventions put (0,0) at the upper left corner.
-For conversion to _.svg_{: style="color: green"} attention must be paid to this
-the figure is to embedded, so it has the proper dimensions without padding with whitespace.
+When converting to _.svg_{: style="color: green"} format, attention must be paid to this
+if the figure is to embedded in another document, so it has the proper dimensions without padding with whitespace.
 
 The main issue is to shift the figure to the top of the page (top is 792 points).
 For the figure to begin at the top, it is necessary to shift the coordinates in
 _fplot.ps_{: style="color: green"} generated by **fplot**{: style="color: blue"}.
-so that the topmost bit resides at 792 points.  This is accomplished with **-shftm** instruction.
+so that the topmost bit resides at 792 points.  This is accomplished with [**-shftm** instruction](/docs/misc/fplot/#init-switches-must-occur-first).
 
 The steps below adapt _fplot.ps_{: style="color: green"} generated from _plot.frames_{: style="color: green"} in
-the [Frames Exercise](/docs/misc/fplot/#things-about-frames).
+the [Frames Exercise](/docs/misc/fplot/#things-about-frames), to make _fplot.svg_{: style="color: green"}.
 
 1. Carry out the [Frames Exercise](/docs/misc/fplot/#things-about-frames) to generate _fplot.ps_{: style="color: green"}.
 
