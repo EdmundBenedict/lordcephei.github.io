@@ -349,16 +349,17 @@ Here is a summary of instructions the editor knows about:
 + **dos [nq=#1,#2,#3] [ib=#1,#2] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
   + **nq=#1,#2,#3**    interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of _k_ points, defined by (**#1,#2,#3**) divisions.
-  + **ib=#1,#2**       restrict &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to QP state(s) <i>j</i>=**#1[,#2]**.  Optional **#2** is the upper bound.
-  + **nw=#|domg=#**    refine DOS to multiple of given energy mesh
+  + **ib=#1,#2**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; restrict &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to QP state(s) <i>j</i>=**#1[,#2]**.  Optional **#2** is the upper bound.
+  + **nw=_n_**          interpolate DOS to an _n_ multiple of the given energy mesh.  _n_ must be an integer.
   + **range=#1,#2**    generate DOS in a specified energy window **#1,#2** (eV)
   + **isp=#**          generate DOS for spin **#** (**#** is 1 or 2).
   
 + **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and group of bands.\\
   Required arguments are:
-  + **iq\|q**  index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
-  + **[ib=#1,#2]** Sum <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**)\\
+  + **iq\|q**       &nbsp;&nbsp;&nbsp;&nbsp; index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
+  + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp; index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
+  + **[ib=#1,#2]**  &nbsp;&nbsp;&nbsp;&nbsp; Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**.\\
   Options are:
   + **getev** Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
@@ -369,9 +370,8 @@ Here is a summary of instructions the editor knows about:
 + **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
   Required arguments are:
-  + iq\|q  qp index, or q in Cartesian coordinates (units of 2pi/alat)
-  + ib    band index
-
+  + **iq\|q**      &nbsp;&nbsp;&nbsp;&nbsp; index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
+  + ib    &nbsp;&nbsp;&nbsp;&nbsp; band index\\
   Options are:
   +**getev** Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
