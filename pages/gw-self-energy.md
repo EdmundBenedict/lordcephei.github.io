@@ -334,7 +334,7 @@ The editor operates interactively. It reads a command from standard input, execu
 /tutorial/gw/gw-self-energy/#editor-instructions
 {:/comment}
 
-The following summarize instructions the editor knows about:
+The following summarizes the instruction set of the dynamical self-energy editor.
 
 + **readsek [<i>fn</i>]**\\
   reads the self-energy from an ASCII file. In the absence **<i>fn</i>**, the file name defaults to _se.ext_{: style="color: green"}.
