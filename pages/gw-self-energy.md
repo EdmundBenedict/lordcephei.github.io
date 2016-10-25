@@ -72,17 +72,17 @@ This tutorial will do the following:
   files _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.
 
 + Use **lmfgws**{: style="color: blue"} to generate the interacting density-of-states (DOS) from Im _G_, compares it to the noninteracting
-  DOS from Im <i>G<sub>0</sub> and to the noninteracting DOS generated as an output of an **lmf** band calculation.
+  DOS from Im <i>G</i><sub>0</sub> and to the noninteracting DOS generated as an output of an **lmf** band calculation.
 
 + Use **lmfgws**{: style="color: blue"} to generate to calculate the spectral function <i>A</i>(<b>k</b>,&omega;) for <b>k</b> near the H point.
-  The contribution from band 2 is calculated for spin up, and for spin down, from bands 2,3.
+  The contribution from band 2 is calculated for spin up; and for spin down, from bands 2 and 3.
 
-##3 _Theory_
+### _Theory_
 
-We begin with a noninteracting Green's function _G_0, defined through an hermitian, energy-independent exchange-correlation potential
-_V<sup>j</sup><sub>xc</sub>_(_k_).  _j_ refers to a particular QP state (pole of _G_<sub>0</sub>).  There is also an interacting Green's function, _G_.
+We begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
+<i>V<sup>j</sup><sub>xc</sub></i>(_k_). &nbsp; _j_ refers to a particular QP state (pole of <i>G</i><sub>0</sub>).  There is also an interacting Green's function, _G_.
  
-The contribution to $G_0$ from QP state $j$ is
+The contribution to <i>G</i><sub>0</sub> from QP state _j_ is
 
 $$ G_0^j(k,\omega ) = \frac{1}{\omega  - \omega^j(k)} $$
 
@@ -95,12 +95,12 @@ $$ G^j(k,\omega) = \frac{1}{\omega  - \omega^j - \Sigma (k,\omega ) + V^j_{xc}(k
 Note that this equation is only true if $$\Sigma$$ is
 diagonal in the basis of noninteracting eigenstates.  We will
 ignore the nondiagonal elements of $$\Sigma(k,\omega)$$.  Note that
-if $$V^j_{xc}$$ is defined by QS_GW_, this is a very good
-approximation, since $${\mathrm{Re}\Sigma (k,\omega ){=}V^j_{xc}(k)}$$.
+if <i>V<sup>j</sup><sub>xc</sub></i> is defined by QS<i>GW</i>, this is a very good
+approximation, since $${\mathrm{Re}\Sigma (k,\omega ){=}V^j_{xc}(k)}$$
 at $$\omega{=}\omega^j(k)$$.  Approximate _G_ by its coherent part:
 
 $$
-G^{j,\mathrm{coh}}(k,\omega) &=& 
+G^{j,\mathrm{coh}}(k,\omega) = 
 \frac{1}{\omega  - \omega^j - \mathrm{Re} \Sigma (k,\omega^j) +
     V^j_{xc}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}
 $$
@@ -109,9 +109,9 @@ where
 
 $$
 1 - {Z^j}^{^{ - 1} }  = \left. {\partial \Sigma (k,\omega )/\partial \omega } \right|_{\omega ^j } .
-##
+$$
 
-defines the _Z_ factor.  The dependence of $${\omega^j}$$ and $${Z^j}$$ on $k$ is suppressed.
+defines the _Z_ factor.  The dependence of <i>&omega;<sup>j</sup></i> and  <i>Z<sup>j</sup></i> on _k_ is suppressed.
 
 Define the QP peak as the value of $\omega$ where the real part of the denominator vanishes.
 
