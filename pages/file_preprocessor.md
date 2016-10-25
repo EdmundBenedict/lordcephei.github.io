@@ -734,7 +734,7 @@ Branching constructs have a function similar to the C constructs.
    because the vector variables can have arbitrary length, &nbsp;**show**&nbsp; prints only the size of the vector and the first and last entries.  
 
 8. **stop [**<i>expr</i> **msg**]&nbsp; : causes the program to stop execution.
-     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard output before aborting).
      * If &nbsp;**<i>expr</i>**&nbsp; evaluates to 0 the directive has no effect.
 
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**exit**&nbsp; directive.
@@ -766,17 +766,14 @@ Source codes the preprocessor uses are found in
 the &nbsp;**slatsm**&nbsp; directory:
 
 <pre>
-   rdfiln.f  The source code for the preprocessor.
-             Subroutine <b>rdfile</b> parses an entire file and returns
-             a preprocessed one, can be found in rdfiln.f
+   rdfiln.f  The source code for the preprocessor. Subroutine <b>rdfile</b> parses an entire file and
+             and returns a preprocessed one, can be found in rdfiln.f
              The key subroutine is <b>rdfiln</b>, which parses one line of a file.
    symvar.f  maintains the table of variables for floating point scalars.
    symvec.f  maintains the table of vector variables.
-   a2bin.f   evaluates ASCII representations of algebraic expressions using a
-             C-like syntax, converting the result into a binary number.
-             Expressions may include variables and vector elements.
-   bin2a.f   converts a binary number into a character string
-             (inverse function to a2bin.f).
+   a2bin.f   evaluates ASCII representations of algebraic expressions using a C-like syntax, converting the
+             result into a binary number. Expressions may include variables and vector elements.
+   bin2a.f   converts a binary number into a character string (inverse function to a2bin.f).
    mkilst.f  generates a list of integers for looping constructs,
              as described below.  describes the syntax of integer lists.
 </pre>
