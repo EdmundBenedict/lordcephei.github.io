@@ -79,7 +79,7 @@ This tutorial will do the following:
 
 ##3 _Theory_
 
-We begin with a noninteracting Green's function $G_{0}$, defined through an hermitian, energy-independent exchange-correlation potential
+We begin with a noninteracting Green's function _G_0, defined through an hermitian, energy-independent exchange-correlation potential
 _V<sup>j</sup><sub>xc</sub>_(_k_).  _j_ refers to a particular QP state (pole of _G_<sub>0</sub>).  There is also an interacting Green's function, _G_.
  
 The contribution to $G_0$ from QP state $j$ is
