@@ -92,9 +92,9 @@ The first line tells the parser the following:
 + **alat=7.3956** specifies the lattice constant, in atomic units.
 + **plat=...** specifies the lattice vectors, P<sub>1</sub>, followed by P<sub>2</sub> and P<sub>3</sub>.
 
-The second line in the snippet above is a comment line.  Then follow a sequence of 64 lines, one line for each atom.
+The second line in the snippet above is a comment line.  Then follows a sequence of 64 lines, one line for each atom.
 As a minimum, the row must contain a species label and the site position (**io=14**).
-In snippet above (**io=62**) the extra information noted above is given.
+In the snippet above (**io=62**) the extra information is given.
 
 The bottom of the file _may_ contain "map" data similar to the following snippet
 
