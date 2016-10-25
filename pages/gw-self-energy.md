@@ -349,42 +349,54 @@ Here is a summary of instructions the editor knows about:
 + **dos [nq=#1,#2,#3] [ib=#1,#2] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
   + **nq=#1,#2,#3**    interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of **k** points, defined by (**#1,#2,#3**) divisions.
-  + **ib=#1,#2**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Restrict states adding to DOS, to **#1**&le;<i>j</i>&le;**#2**.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.  _n_ must be an integer.
+  + **ib=#1,#2**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Restrict states adding to DOS, band index limited to **#1**&le;<i>j</i>&le;**#2**.
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
+                       _n_ must be an integer.
   + **range=#1,#2**    generate DOS in a specified energy window **#1,#2** (eV)
-  + **isp=#**          generate DOS for spin **#** (**#** is 1 or 2).
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate DOS for spin **_i_** (1 or 2).  Default value is 1.
 
 + **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
-  &nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**          &nbsp;&nbsp;&nbsp;&nbsp;                   index to **q** (from list in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
-  + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **q**-point in units of 2&pi;/alat.
+  &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
+  + **iq**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index to **q** (from list in _QIBZ_{: style="color: green"})
+  + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
   + **[ib=#1,#2]**  &nbsp;&nbsp;&nbsp;&nbsp;                   Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**.\\
   Options are:
   + **getev** Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw=_n_**    interpolate DOS to an _n_ multiple of the given energy mesh.  _n_ must be an integer.
-  + **isp=_i_**   functions for given spin. _i_ must be 1 or 2.  Default value is 1.
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
+                       _n_ must be an integer.
   + **range=#1,#2**    generate spectral function in a specified energy window (**#1,#2**), in eV.
 
 + **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
-  &nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq\|q**      &nbsp;&nbsp;&nbsp;&nbsp; index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
-  + ib    &nbsp;&nbsp;&nbsp;&nbsp; band index\\
+  &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
+  + **iq**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index to **q** (from list in _QIBZ_{: style="color: green"})
+  + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
+  + ib              &nbsp;&nbsp;&nbsp;&nbsp; band index\\
   Options are:
-  +**getev** Do not interpolate energy but calculate it at q.
+  +**getev**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                       Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw**    interpolate DOS to multiple of given energy mesh
-  + **isp**   functions for given spin (default=1)
-  + **nqf**   no. mesh points for final state intg (def=200)
-  + **ke0**   Kinetic Energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
+                       _n_ must be an integer.
+  + **isp**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                       generate spectra for spin **_i_** (1 or 2).  Default value is 1.
+  + **nqf**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                       no. mesh points for final state intg (def=200)
+  + **ke0**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                       Kinetic Energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    generate spectral function in a specified energy window (**#1,#2**), in eV.
 
+<br>
+
 + **savesea [fn]**\\
-  saves q-interpolated self-energy, ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}.
+  saves q-interpolated self-energy, in ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}.
 + **savese  [fn]**\\
-  saves q-interpolated self-energy, binary format.  In the absence **<i>fn</i>**, the file name defaults to _seib.ext_{: style="color: green"}.
+  saves q-interpolated self-energy, in binary format.  In the absence **<i>fn</i>**, the file name defaults to _seib.ext_{: style="color: green"}.
 
 + **q**\\
   quits the editor unless information has generated that has not been saved.  Program terminates.
