@@ -356,10 +356,9 @@ The following summarizes the instruction set of the dynamical self-energy editor
 + **ef _ef_**\\
   Use **_ef_** for Fermi level, overriding internally calculated value.
 
-+ **dos [nq=#1,#2,#3] [ib=#1,#2] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
++ **dos [nq=#1,#2,#3] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
   + **nq=#1,#2,#3**    Interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of **k** points, defined by (**#1,#2,#3**) divisions.
-  + **ib=#1,#2**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Restrict states adding to DOS, band index limited to **#1**&le;<i>j</i>&le;**#2**.
   + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
@@ -367,16 +366,18 @@ The following summarizes the instruction set of the dynamical self-energy editor
   + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Generate DOS for spin **_i_** (1 or 2).  Default value is 1.
 
-+ **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
++ **se  iq=#|q=#1,#2,#3 ib=_list_ [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
   + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        index to **q** (from list in _QIBZ_{: style="color: green"})
-  + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
-  + **[ib=#1,#2]**     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states **#1**&le;<i>j</i>&le;**#2**.\\
+  + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;
+                       **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma; to any **q**.
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states <i>j</i> in **_list_**.
+                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.
   Options are:
-  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
   + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -385,15 +386,16 @@ The following summarizes the instruction set of the dynamical self-energy editor
   + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        generate spectral function in a specified energy window (**#1,#2**), in eV.
 
-+ **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
++ **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ke0=#] [isp=_i_] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
   + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        index to **q** (from list in _QIBZ_{: style="color: green"})
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;
-                       **q**-point in units of 2<i>&pi;</i>/alat.
-  + **ib=#**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       band index\\
+                       **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma; to any **q**.
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Sum together PE spectrum derived from QP states <i>j</i> in **_list_**.
+                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.
   Options are:
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
@@ -401,19 +403,22 @@ The following summarizes the instruction set of the dynamical self-energy editor
   + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
-  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Generate spectra for spin **_i_** (1 or 2).  Default value is 1.
-  + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        number of mesh points for final state integration.  Default is 200.
-  + **ke0**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       kinetic Energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
+  + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       kinetic energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;
-                       Generate spectral function in a specified energy window (**#1,#2**), in eV.
+                       Generate spectral function in a specified energy window (**#1,#2**)
 
 + **savesea [fn]**\\
-  saves q-interpolated self-energy, in ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}.
+  saves spectrum DOS or self-energy + spectral function, in ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}
+  or _seia2.ext_{: style="color: green"} when writing band and _k_-resolved spectral functions (**se** or **pe**) 
+  and to _sdos.ext_{: style="color: green"} or _sdos2.ext_{: style="color: green"} when writing spectrum dos (**dos**).
+
 + **savese  [fn]**\\
-  saves q-interpolated self-energy, in binary format.  In the absence **<i>fn</i>**, the file name defaults to _seib.ext_{: style="color: green"}.
+  saves q-interpolated self-energy + spectral function in binary format.  In the absence **<i>fn</i>**, the file name defaults to _seib.ext_{: style="color: green"}.
 
 + **q**\\
   quits the editor unless information has generated that has not been saved.  Program terminates.
@@ -444,17 +449,17 @@ to obtain a reasonably well converged density-of-states.
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q'
 ~~~
 
-This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  [Instructions](/tutorial/gw/gw-self-energy/#editor-instructions) do the following:
+This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  Instructions do the following (as explained [here](/tutorial/gw/gw-self-energy/#editor-instructions):
 
 + units eV\\
-  Set units to eV; DOS will be written in eV.
+  Set units to eV; spectrum DOS will be written in eV.
 + readsek\\
   Read _se.fe_{: style="color: green"}
 + eps .030\\
   Add 30 meV smearing to Im &Sigma;
 + dos isp=1 range=-10,10 nq=32 nw=30\\
-  Make the DOS for spin 1, in the energy range (-10,10) eV, interpolating **k** to a mesh 32&times;32&times;32 divisions, and refining the energy mesh by a factor of 30.
-  Note that the given **k** mesh is 8&times;8&times;8 divisions.
+  Make the DOS for spin 1, in the energy range (-10,10) eV, interpolating &Sigma; to a **k** mesh 32&times;32&times;32 divisions, and refining the energy mesh by a factor of 30.
+  The as-given **k** mesh is 8&times;8&times;8 divisions.
 + savesea\\
   Write the DOS.
 + q\\
@@ -462,27 +467,25 @@ This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  [Instruct
   
 _Notes:_{: style="color: red"}
 
-+ The mesh is very fine, so the interpolation takes a little while (2 to 3 minutes).  It generates a rather well converged DOS.
-+ The DOS is written to file _sdos.fe_{: style="color: green"}.  Columns 1,2,3 are <i>&omega;</i>, <i>A</i>(<i>&omega;</i>), and <i>A</i><sub>0</sub>(<i>&omega;</i>), respectively.
++ The mesh is very fine, so the interpolation takes a little while (2 to 3 minutes).  The frequency and **k** meshes are both pretty fine and the DOS is 
+  rather well converged, as the figure below demonstrates.
++ The spectrum DOS is written to file _sdos.fe_{: style="color: green"}.
+  Columns 1,2,3 are <i>&omega;</i>, <i>A</i>(<i>&omega;</i>), and <i>A</i><sub>0</sub>(<i>&omega;</i>), respectively.
++ <i>A</i><sub>0</sub>(<i>&omega;</i>) should compare directly to the DOS calculated as a byproduct of **lmf**{: style="color: blue"}.
 
-<i>A</i><sub>0</sub>(<i>&omega;</i>) should compare directly to the DOS calculated as a byproduct of **lmf**{: style="color: blue"}.
-
-_Notes:_{: style="color: red"} for now, copy the **lmf**{: style="color: blue"}-generated DOS 
+_Note:_{: style="color: red"} for now, copy the **lmf**{: style="color: blue"}-generated DOS to your working directory.
 
 ~~~
-cp gwd/test/fe/dosp.fe dosp.fe
+cp ~/lm/gwd/test/fe/dosp.fe dosp.fe
 ~~~
 
-The following uses the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) to compare the DOS generated three different ways:
-
+The following draws a figure comparing the DOS generated three different ways.  It uses the [**fplot**{: style="color: blue"} tool](/docs/misc/fplot/).
 Cut and paste the contents of the box below into script file _plot.dos_{: style="color: green"}.
 
 ~~~
 %char0 ltdos="1,bold=3,col=0,0,0"
-
-fplot
-
 % var ymax=1.4 dy=0.4 dw=.00 ymax+=dy emin=-10 emax=5 ef=0
+fplot
 
 % var ymax-=dy+dw dy=0.4 dmin=0 dmax=3
  -frme 0,1,{ymax-dy},{ymax} -p0 -x {emin},{emax} -y {dmin},{dmax} -tmy 1 -1p
@@ -498,10 +501,29 @@ Run the commands in the box below to create and view the postscript file, or cli
 ![k-integrated spectral function in Fe](https://lordcephei.github.io/assets/img/fedos.svg)
 {::nomarkdown}</div>{:/}
 
+~~~
+$ fplot -f plot.frames
+$ open fplot.ps   [using 'open' to view postscript files]
+~~~
+
 _Notes on the figure:_{: style="color: red"}
 
 + The [black line](/docs/misc/fplot/#color-specification) (**col=0,0,0**) is the noninteracting DOS generated by **lmf**{: style="color: blue"}.
-+ The [grey line](/docs/misc/fplot/#color-specification) (**col=0,0,0**) is the _noninteracting_ DOS <i>A</i><sub>0</sub>(<i>&omega;</i>), generated by **lmfgws**{: style="color: blue"}
-+ The [red line](/docs/misc/fplot/#color-specification) (**col=0,0,0**) is the _interacting_ DOS <i>A</i>(<i>&omega;</i>), generated by **lmfgws**{: style="color: blue"}
-+ As expected, the grey and black lines nearly coincide.  Note that one was generated with a tetrahedron method, the other effectively by sampling with a smearing of 30 meV.
-+ The interacting DOS is smeared out, and roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
++ The [grey line](/docs/misc/fplot/#color-specification) (**col=.5,.5,.5**) is the _noninteracting_ DOS <i>A</i><sub>0</sub>(<i>&omega;</i>), 
+  generated by **lmfgws**{: style="color: blue"}
++ The [red line](/docs/misc/fplot/#color-specification) (**col=1,0,0**) is the _interacting_ DOS <i>A</i>(<i>&omega;</i>), generated by **lmfgws**{: style="color: blue"}
++ Grey and black lines nearly coincide, as they should if the DOS is well converged. Note that the black line was generated from energy bands with the tetrahedron method,
+  the other effectively by integrating <i>G</i><sub>0</sub>(<b>k</b>,<i>&omega;</i>) by sampling with a smearing of 30 meV.
++ The noninteracting DOS at the Fermi level is <i>D</i>(<i>E<sub>F</sub></i>)&cong;1/eV (one spin).  The Stoner criterion for the onset of ferromagnetism is
+   <i>I</i>&times<i>D</i>(<i>E<sub>F</sub></i>)&gt;1.  Combining DOS for the two spins would indicate that The Stoner criterion is well satisfied.
++ The interacting DOS is smoothed out, and and is roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
+
+### Spectral Function of Fe near the H point
+{::comment}
+/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
+{:/comment}
+
+~~~
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' >> out.lmfgws
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q' >> out.lmfgws
+~~
