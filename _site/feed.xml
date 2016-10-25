@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Questaal</title>
+    <description>Questaal is a suite of programs for LMTO and GW simulations.</description>
+    <link>https://lordcephei.github.io/</link>
+    <atom:link href="https://lordcephei.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>LMF/QSGW Hands-On Course</title>
+        <description>&lt;h3 id=&quot;lmfqsgw-hands-on-course&quot;&gt;LMF/QSGW Hands-On Course&lt;/h3&gt;
+&lt;p&gt;STFC Daresbury Laboratory
+March 17-19, 2014&lt;/p&gt;
+
+&lt;p&gt;This course will provide tutorials for both the theory of, and how to use, an all-electron code that implements both density functional theory and GW/quasi-particle self-consistent GW theory. The density-functional part is implemented with full potential generalization of the linearized muffin-tin orbitals (LMTO) theory, or LMTO+LAPW combined.
+The electronic structure package (http://www.lmsuite.org/) also includes a number of extensions, such as modules to calculate transport properties, magnetic properties, optical properties, etc. Through the implementation of the coherent potential approximation, also systems with chemical or spin disorder can be addressed. Some of these extensions will be presented in the tutorials.&lt;/p&gt;
+
+&lt;p&gt;The QSGW package contains an implementation in an all-electron context, GW theory based on the LDA, and also the quasi-particle self-consistent GW theory. The latter goes beyond standard GW theory as it does not use density functional theory as a reference, but a self-consistently determined non-interacting system which is by construction the optimal starting point for many body perturbation theory. QSGW is more reliable and universally applicable than standard density-functional based GW. Participants will have practical tutorials to gain experience in how to use the codes and analyse results. We will present several examples where QSGW predicts properties in cases where LDA based GW fares poorly. The advantages, and also the limitations of QSGW will be discussed.
+The course will last for three days, with the following schedule:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Monday, March 17:        Intro to DFT and LMTO methods; self-consistent calculations
+Tuesday, March 18:       Green’s functions and linear response
+Wednesday, March 19:     GW and QSGW: Theory and applications
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The mornings will consist of lectures and the afternoon sessions are dedicated to practical exercises with the code. The course will start on Monday at 10:00 (registration from 9:30-10:00) and end Wednesday at 17:00.
+We cannot cover any transportation cost, but food and accommodation for the duration of the course will be provided free of charge.
+Registration to the course is now open at:
+https://eventbooking.stfc.ac.uk/news-events/lmf-qsgw-hands-on-course
+Deadline for registrations is February, 28.
+Mark van Schilfgaarde, Leon Petit and Martin Lueders&lt;/p&gt;
+</description>
+        <pubDate>Wed, 19 Mar 2014 00:00:00 +0000</pubDate>
+        <link>https://lordcephei.github.io/hands-on-course/</link>
+        <guid isPermaLink="true">https://lordcephei.github.io/hands-on-course/</guid>
+      </item>
+    
+  </channel>
+</rss>
