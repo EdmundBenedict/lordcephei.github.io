@@ -327,7 +327,7 @@ You should see:
 ~~~
 
 The editor operates interactively. It reads a command from standard input, executes the command, and returns to the
-&nbsp;<b>Optoins</b> prompt waiting for another instruction.  The editor will print a short summary of instructions if you type &nbsp;<b>? \<RET></b>.
+&nbsp;<b>Options</b> prompt waiting for another instruction.  The editor will print a short summary of instructions if you type &nbsp;<b>? \<RET></b>.
 
 ### _Dynamical self-energy editor instructions_
 {::comment}
@@ -341,6 +341,11 @@ The following summarize instructions the editor knows about:
 + **readsekb [<i>fn</i>]**\\
   reads the self-energy from a binary file.  In the absence **<i>fn</i>**, the file name defaults to _seb.ext_{: style="color: green"}.
 
++ units Ry\\
+  select Rydberg units for which data is to be output
++ units eV\\
+  select electron vole units for which data is to be output
+
 + **evsync**\\
   replace quasiparticle levels read from _se.ext_{: style="color: green"} by recalculating them
   with the same algorithm **lmf**{: style="color: blue"} uses.
@@ -349,58 +354,58 @@ The following summarize instructions the editor knows about:
    add a constant **<i>val</i>** to Im &Sigma;, needed to broaden spectral functions so that integrations are tractable.
 
 + **ef _ef_**\\
-  Use **_ef_** for Fermi level, overriding internally calculated value.  X2
+  Use **_ef_** for Fermi level, overriding internally calculated value.  X3
 
 + **dos [nq=#1,#2,#3] [ib=#1,#2] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
   + **nq=#1,#2,#3**    interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of **k** points, defined by (**#1,#2,#3**) divisions.
   + **ib=#1,#2**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Restrict states adding to DOS, band index limited to **#1**&le;<i>j</i>&le;**#2**.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
   + **range=#1,#2**    generate DOS in a specified energy window (**#1,#2**), in eV.
-  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        generate DOS for spin **_i_** (1 or 2).  Default value is 1.
 
 + **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        index to **q** (from list in _QIBZ_{: style="color: green"})
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
   + **[ib=#1,#2]**     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states **#1**&le;<i>j</i>&le;**#2**.\\
   Options are:
-  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
-  + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;
+  + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        generate spectral function in a specified energy window (**#1,#2**), in eV.
 
 + **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        index to **q** (from list in _QIBZ_{: style="color: green"})
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;
                        **q**-point in units of 2<i>&pi;</i>/alat.
-  + **ib=#**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ib=#**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        band index\\
   Options are:
-  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
-  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Generate spectra for spin **_i_** (1 or 2).  Default value is 1.
-  + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        number of mesh points for final state integration.  Default is 200.
-  + **ke0**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ke0**            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Kinetic Energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    generate spectral function in a specified energy window (**#1,#2**), in eV.
 
@@ -435,7 +440,7 @@ to interpolate &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a fine <b>
 to obtain a reasonably well converged density-of-states.
 
 ~~~
-$ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q'
 ~~~
 
 This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  [Instructions](/tutorial/gw/gw-self-energy/#dynamical-self-energy-editor-instructions) do the following:
@@ -447,7 +452,8 @@ This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  [Instruct
 + eps .030\\
   Add 30 meV smearing to Im &Sigma;
 + dos isp=1 range=-10,10 nq=32 nw=30\\
-  Make the DOS for spin 1, in the energy range (-10,10) eV, interplating k to a mesh with 32 divisions, and refining the energy mesh by a factor of 30
+  Make the DOS for spin 1, in the energy range (-10,10) eV, interpolating **k** to a mesh 32&times;32&times;32 divisions, and refining the energy mesh by a factor of 30.
+  Note that the given **k** mesh is 8&times;8&times;8 divisions.
 + savesea\\
   Write the DOS.
 + q\\
