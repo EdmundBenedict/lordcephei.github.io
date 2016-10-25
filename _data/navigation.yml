@@ -138,6 +138,8 @@
         url: "/poscar_qsgw/"
       - title: "QSGW Tutorial"
         url: "/qsgw/"
+      - title: "The GW Self-energy and Spectral Function"
+        url: "/gw-self-energy/"
     - name: "lmgf"
       prefix: "/lmgf"
       content:
