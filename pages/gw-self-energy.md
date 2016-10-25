@@ -29,13 +29,11 @@ _____________________________________________________________
 
 This tutorial assumes you have completed a QSGW calculation for Fe, following [this tutorial](xxx),
 which requires that the GW script **lmgwsc**{: style="color: blue"} is in your path, along with
-the executables it requires.  
+the executables it requires.
+In addition it requires **spectral**{: style="color: blue"} and **lmfgws**{: style="color: blue"}.
 
 This tutorial assumes the GW executables are in **~/bin/code2**.
-In addition it requires 
 
-+ **spectral**{: style="color: blue"}
-+ **lmfgws**{: style="color: blue"}
 
 ### Command summary
 ________________________________________________________________________________________________
@@ -54,17 +52,18 @@ ________________________________________________________________________________
 
 This tutorial starts after a QSGW calculation for Fe has been completed, in [this tutorial](xxx).
 
-_Note:_{: style="color: red"} until that tutorial is written, perform the setup
-
-~~~
-~/lm/gwd/test/test.gwd --mpi=#,# fe 4
-~~~
-
 The QSGW static self-energy was made with the following command:
 
 ~~~
 $ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe
 ~~~
+
+_Note:_{: style="color: red"} until that tutorial is written, perform the setup as follows (where **~/lm** is your Questaal source directory)
+
+~~~
+~/lm/gwd/test/test.gwd --mpi=#,# fe 4
+~~~
+
 
 This tutorial will do the following:
 
@@ -105,13 +104,13 @@ at $$\omega{=}\omega^j(k)$$.  Approximate _G_ by its coherent part:
 $$
 G^{j,\mathrm{coh}}(k,\omega) = 
 \frac{1}{\omega  - \omega^j - \mathrm{Re} \Sigma (k,\omega^j) +
-    V^j_{xc}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}
+    V^j_{xc}(k) - (\omega  - \omega^j)(1 - 1/Z^j) - i\mathrm{Im} \Sigma (k,\omega )}
 $$
 
 where 
 
 $$
-1 - ({Z^j})^{-1} = \left. {\partial \Sigma (k,\omega )/\partial \omega } \right|_{\omega ^j } .
+1 - 1/{Z^j} = \left. {\partial \Sigma (k,\omega )/\partial \omega } \right|_{\omega ^j } .
 $$
 
 defines the _Z_ factor.  The dependence of <i>&omega;<sup>j</sup></i> and  <i>Z<sup>j</sup></i> on _k_ is suppressed.
@@ -119,21 +118,21 @@ defines the _Z_ factor.  The dependence of <i>&omega;<sup>j</sup></i> and  <i>Z<
 Define the QP peak as the value of <i>&omega;</i> where the real part of the denominator vanishes.
 
 $$
-({\omega^*} - \omega^j){Z^j}^{-1} =  \mathrm{Re} \Sigma(k,\omega^j) - V_{xc}(k) 
+({\omega^*} - \omega^j)/Z^j =  \mathrm{Re} \Sigma(k,\omega^j) - V_{xc}(k) 
 $$
 
 and so
 
 $$
- {\omega^*} &=& \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - V_{xc}(k)} \right)
+ {\omega^*} = \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - V_{xc}(k)} \right)
 $$
 
-Note that in the QS_GW_ case, the second term on the r.h.s. vanishes by construction: the noninteracting QP peak 
+Note that in the QS<i>GW</i> case, the second term on the r.h.s. vanishes by construction: the noninteracting QP peak 
 corresponds to the (broadened) pole of _G_.
 
 ### _Make the GW self-energy_
 
-+ If you have removed intemediate files, you must remake them up to the point where the self-energy is made with:
++ If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
 
 ~~~
 $ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp --stop=sig fe
@@ -157,19 +156,20 @@ into these four lines:
                    : If omegamaxin is too large or not exist, the omegarange of W by hx0fp0 is used.
 ~~~
 
-The next step will make &Sigma;(<b>k</b>,&omega;) on a uniform energy mesh &minus;2 Ry < &omega; < 2 Ry, spaced by 0.01 Ry.  This is a
+The next step will make &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) on a uniform energy mesh &minus;2 Ry < <i>&omega;</i> < 2 Ry, spaced by 0.01 Ry
+at irreducible points <b>k</b><i><sub>n</sub></i>, for QP levels specified in _GWinput_{: style="color: green"}.  This is a
 fairly fine spacing so the calculation is somewhat expensive.
 
-+ Use **hsfp0\_om**{: style="color: blue"} (or better **hsfp0\_om**{: style="color: blue"}) in a special mode **-job=4** to make the dynamical self-energy.
++ Run **hsfp0**{: style="color: blue"} (or better **hsfp0\_om**{: style="color: blue"}) in a special mode **\-\-job=4** to make the dynamical self-energy.
 
 ~~~
-export OMP_NUM_THREADS=12
-export MPI_NUM_THREADS=12
+export OMP_NUM_THREADS=8
+export MPI_NUM_THREADS=8
 ~/bin/code2/hsfp0_om --job=4 > out.hsfp0
 ~~~
 	
-This step should make _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  These files contain &Sigma;(<b>k</b>,&omega;), but 
-in a not particularly readable format.
+This step should create _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  These files contain
+&Sigma;(<b>k</b>,<i>&omega;</i>), albeit in a not particularly readable format.
 
 ### _Generate spectral functions for q=0_
 {::comment}
@@ -177,13 +177,13 @@ in a not particularly readable format.
 {:/comment}
 
 _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} contain the diagonal matrix element
- &Sigma;<sub><i>jj</i></sub>(<b>k</b>,&omega;) for each QP level <i>j</i>, for each irreducible point <b>k</b> in the Brillouin zone, on a
- uniform mesh of points &omega; as specified in the _GWinput_{: style="color: green"} file of the last section.  If the absence of
- interactions, &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;)=0 so the spectral function would be proportional to
- &delta;(&omega;&minus;&omega<sup>\*</sup>), where &omega;\* is the QP level (see [Theory section](/tutorial/gw/gw-self-energy/#theory)).
+ &Sigma;<sub><i>jj</i></sub>(<b>k</b>,<i>&omega;</i>) for each QP level <i>j</i>, for each irreducible point <b>k</b><i><sub>n</sub></i> in the Brillouin zone, on a
+ uniform mesh of points <i>&omega;</i> as specified in the _GWinput_{: style="color: green"} file of the last section.  If the absence of
+ interactions, &Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>)=0 so the spectral function would be proportional to
+ &delta;(<i>&omega;</i>&minus;<i>&omega;</i><sup>\*</sup>), where <i>&omega;</i>\* is the QP level (see [Theory section](/tutorial/gw/gw-self-energy/#theory)).
 
-Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) an imaginary part which broadens out the level, and in general,
-Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,&omega;) shifts and renormalizes the quasiparticle weight by _Z_.  As noted in the
+Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) an imaginary part which broadens out the level, and in general,
+Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) shifts and renormalizes the quasiparticle weight by _Z_.  As noted in the
 [Theory section](/tutorial/gw/gw-self-energy/#theory), there is no shift if <i>V<sup>j</sup><sub>xc</sub></i> is the QSGW self-energy; there
 remains, however, a reduction in the quasiparticle weight.  This will be apparent when
 [comparing the interacting and noninteracting DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states).
@@ -199,11 +199,11 @@ $ spectral --eps=.005 --domg=0.003 --cnst:iq==1&eqp>-10&eqp<30
 
 Command-line arguments have the following meaning:
 
-+ **--eps=.005** : &nbsp; 0.005 eV is added to the imaginary part of the self-energy. This is needed because as &omega;&rarr;0, Im&Sigma;&rarr;0. Peaks in
-  <i>A</i>(<b>k</b>,&omega;) become infinitely sharp for QP levels near the Fermi level.
++ **--eps=.005** : &nbsp; 0.005 eV is added to the imaginary part of the self-energy. This is needed because as <i>&omega;</i>&rarr;0, Im&Sigma;&rarr;0. Peaks in
+  <i>A</i>(<b>k</b>,<i>&omega;</i>) become infinitely sharp for QP levels near the Fermi level.
   
-+ **--domg=.003** : &nbsp; interpolates &Sigma;(<b>k</b>,&omega;) to a finer frequency mesh.
-   &omega; is spaced by 0.003 eV.  The finer mesh is necessary because &Sigma; varies smoothly with &omega;, while <i>A</i> will be sharply
++ **--domg=.003** : &nbsp; interpolates &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a finer frequency mesh.
+   <i>&omega;</i> is spaced by 0.003 eV.  The finer mesh is necessary because &Sigma; varies smoothly with <i>&omega;</i>, while <i>A</i> will be sharply
    peaked around QP levels.
    
 + **--cnst:<i>expr</i>** : &nbsp;  acts as a constraint to exclude entries in _SEComg.{UP,DN}_{: style="color: green"} for which **_expr_** is zero.\\
@@ -220,8 +220,7 @@ Command-line arguments have the following meaning:
   &nbsp;&nbsp; eliminates states 30 or more eV above the Fermi level.
 
 **spectral**{: style="color: blue"} writes files sec\_ib<i>j</i>\_iq<i>n</i>.up and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
-which contain information about the _G_ for band _j_ and the _n_<sup>th</sup> _k_ point.
-
+which contain information about the _G_ for band _j_ and the _k_ point <b>k</b><i><sub>n</sub></i>.
 The beginning of these files look like:
 
 ~~~
@@ -231,15 +230,14 @@ The beginning of these files look like:
   -0.2720858D+02 -0.2641065D+02 -0.6629812D+01  0.1520157D+02  0.4701215D-04  0.1379602D-07  0.7776496D-02  0.2281979D-05
 ~~~ 
 
-**spectral**{: style="color: blue"} also makes the k-integrated DOS.
-However, the _k_ mesh is rather coarse and a
-[better DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states)
-can be made using **lmfgws**{: style="color: blue"}.
+**spectral**{: style="color: blue"} also makes the _k_-integrated DOS.  However, the _k_ mesh is rather coarse and a
+[better DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
 
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show the standard output from the spectral tool </button></div>
 {::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="spectral">{:/}
 
+~~~
  spectral: read 29 qp from QIBZ
  Dimensions from file(s) SEComg.(UP,DN):
  nq=1  nband=9  nsp=2  omega interval (-27.2116,27.2116) eV with (-200,200) points
@@ -272,6 +270,7 @@ ________________________________________________________________________________
       sec_ib9_iq1.dn   25.497083     0.7042     0.9991     T     T
 
  writing q-integrated dos to file dos.dn ...
+~~~
 
 {::nomarkdown}</div>{:/}
 
@@ -281,30 +280,142 @@ ________________________________________________________________________________
 {:/comment}
 
 This section uses the self-energy editor, **lmfgws**{: style="color: blue"},
-to interpolate &Sigma;(<b>k</b>,&omega;) to a fine <b>k</b>- and &omega;- mesh
+to interpolate &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a fine <b>k</b>- and <i>&omega;</i>- mesh
 to obtain a reasonably well converged density-of-states.
 
-**lmfgws**{: style="color: blue"} requires as input, in addition to the files
-read by **lmf**{: style="color: blue"} requires, 
-the self-energy _se.fe_{: style="color: green"}
-in the format written by **spectral**{: style="color: blue"}.
+#### Dynamical self-energy editor
+{::comment}
+/tutorial/gw/gw-self-energy/#dynamical-self-energy-editor
+{:/comment}
 
-Make _se.fe_{: style="color: green"}:
 
-        $ spectral --ws --nw=1 > out2.spectral
-        $ mv se se.fe
+**lmfgws**{: style="color: blue"} contains the dynamical self-energy editor, 
+which peforms a variety of manipulations of the _GW_ self-energy
+&Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) for different purposes.
+
+It requires the same files as **lmf**{: style="color: blue"}
+to compute the QS<i>GW</i> band structure, e.g. _ctrl.ext_{: style="color: green"} and _sigm.ext_{: style="color: green"}.
+
+In addition it requires the dynamical self-energy se.ext_{: style="color: green"}
+in special a format written by the **spectral**{: style="color: blue"} tool.
+
+For definiteness this section assumes that _ext_ is _fe_.  Make _se.fe_{: style="color: green"}:
+
+~~~
+$ spectral --ws --nw=1
+$ mv se se.fe
+~~~
 		
 + **--ws** tells **spectral**{: style="color: blue"} to write the self-energy 
-to file _se_{: style="color: green"} for for all _k_ points.
-Individual files are not writen.
-
+to file _se_{: style="color: green"} for all _k_ points, in a special format
+designed for **lmfgws**{: style="color: blue"}.  Individual files are not writen.
 + **--nw=1** tells **spectral**{: style="color: blue"} to write the self-energy 
 on the frequency mesh it was generated; no interpolation takes place.
 
-Make the spin-up DOS:
 
-lmfgws fe -vtpp1=0 -vtpd1=4 -vbigbas=2 -vehmax=-.4 -vnk=16 -vnk2=nk -vnkgw=8 -vnkgw2=nkgw -vrwa=0.4114 -vnsp=2 -vasig=0.0 -vbsig=.09 -vemaxs=2.0 -vconvc=1e-5 -vbeta=.3 -vmet=5 -vmodsgp=4 '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws
+Try starting the dynamical self-energy editor:
 
-The argument
+~~~
+$ lmfgws ctrl.fe `cat switches-for-lm` --sfuned
+~~~
+
+You should see:
+
+~~~
+ Welcome to the spectral function file editor.  Enter '?' to see options.
+
+ Option : 
+~~~
+
+The editor operates interactively. It reads a command from standard input, executes the command, and returns to prompt 
+waiting for additional instructions.  The editor will print a short summary of instructions if you type &nbsp;**? <RET>**.
+
+For the tutorial, just exit the editor by typing &nbsp;**q <RET>**.
+
+Here is a summary of instructions the editor knows about
+
++ **readsek [<i>fn</i>]**\\
+  reads the self-energy from an ASCII file.
++ **readsekb [<i>fn</i>]**\\
+  reads the self-energy from a binary file.  In the absence **<i>fn</i>**, the file name defaults to _seb.ext_{: style="color: green"}.
+
++ **evsync**\\
+  replace quasiparticle levels read from _se.ext_{: style="color: green"} by recalculating them
+  with the same algorithm **lmf**{: style="color: blue"} uses.
+
++ **eps <i>val</i>**\\
+   add a constant **<i>val</i>** to Im&Sigma;, needed to broaden spectral functions so that integrations are tractable.
+   
++ **ef _ef_**\\
+  Use **_ef_** for Fermi level, overriding internally calculated value.
+  
++ **dos [nq=#1,#2,#3] [ib=#1,#2] [nw=#|domg=#] [range=#1,#2] [isp=#]**\\
+  Integrate spectral function to make QP and spectrum DOS.  Options are:
+  + nq    interpolate A(w) new mesh for q-integration
+  + ib    restrict A(w) to QP state(s) #1[,#2]
+  + nw    refine DOS to multiple of given energy mesh
+  + range generate dos in in specified energy window
+  
++ **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [isp=#] [range=#1,#2]**\\
+  Make sigma(omega) and A(omega) for given q and band.\\
+  Required arguments are:
+  + iq|q  qp index, or q in Cartesian coordinates (units of 2&pi;/alat)
+  _ ib    band index
+  Options are:
+  + getev Do not interpolate energy but calculate it at q.
+  + getev=#1,#2,#3 generates evals on independent mesh with nq=#1,#2,#3 divisions
+  + nw    interpolate DOS to multiple of given energy mesh
+  + isp   functions for given spin (default=1)
+  + range generate sigma, A in specified energy window
+  
++ **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
+  Model ARPES for given q and band(s).\\
+  Required arguments are:
+  + iq|q  qp index, or q in Cartesian coordinates (units of 2pi/alat)
+  + ib    band index
+  Options are:
+  +getev Do not interpolate energy but calculate it at q.
+  + getev=#1,#2,#3 generates evals on independent mesh with nq=#1,#2,#3 divisions
+  + nw    interpolate DOS to multiple of given energy mesh
+  + isp   functions for given spin (default=1)
+  + nqf   no. mesh points for final state intg (def=200)
+  + ke0   KE+V0=hbar*omega-phis+V0  KE of emitted electron
+  + range generate sigma, A in specified energy window
+
++ **savesea [fn]**\\
+  saves q-interpolated self-energy, ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}.
++ **savese  [fn]**\\
+  saves q-interpolated self-energy, binary format.  In the absence **<i>fn</i>**, the file name defaults to _seib.ext_{: style="color: green"}.
+
++ **q**\\
+  quits the editor unless information has generated that has not been saved.  Program terminates.
++ **a**\\
+  (abort) unconditionally quits the editor.  Program terminates.
+
+You can also use the editor in a batch mode by stringing commands together:
+
+~~~
+$ lmfgws ctrl.fe `cat switches-for-lm` '--sfuned~first command~second command~...'
+~~~
+
+**\~**&nbsp; is the delimiter separating instructions (you can use another character).
+**lmfgws**{: style="color: blue"} will parse through all the commands given, and return to the &nbsp;**Option**&nbsp; prompt,
+unless the editor encounters "quit" instruction `a` or `q` first.
+
+
+#### Compare interacting and independent-particle density-of-states in Fe
+{::comment}
+/tutorial/gw/gw-self-energy/#compare-interacting-and-independent-particle-density-of-states-in-fe
+{:/comment}
+
+
+~~~
+lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws
+~~~
+
+The last argument `--sfuned...` invokes the dynamical self-energy editor, which peforms a variety of manipulations
+&Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) for different purposes.
+
+The editor can be
 
 + **--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q' > out.lmfgws

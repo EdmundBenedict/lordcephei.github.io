@@ -1188,11 +1188,10 @@ the [Frames Exercise](/docs/misc/fplot/#things-about-frames).
 
         $ inkscape fplot.ps -l fplot.svg
 
-5. With your text editor change the line **height="990"** into **height="187pt"** in _fplot.svg_{: style="color: green"}.
+5. Use your text editor to change the line **height="990"** into **height="187pt"** in _fplot.svg_{: style="color: green"}.
 
 _fplot.svg_{: style="color: green"} can now be embedded in a web page without any filling around it.
 
 ### _Index_
 
 ... to be completed.
-
