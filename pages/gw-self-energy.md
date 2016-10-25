@@ -360,23 +360,28 @@ Here is a summary of instructions the editor knows about:
 + **se  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index to **q** (from list in _QIBZ_{: style="color: green"})
-  + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
-  + **[ib=#1,#2]**  &nbsp;&nbsp;&nbsp;&nbsp;                   Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**.\\
+  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       index to **q** (from list in _QIBZ_{: style="color: green"})
+  + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
+  + **[ib=#1,#2]**     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**.\\
   Options are:
-  + **getev** Do not interpolate energy but calculate it at q.
+  + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
-  + **range=#1,#2**    generate spectral function in a specified energy window (**#1,#2**), in eV.
+  + **range=#1,#2**    &nbsp;&nbsp;&nbsp;
+                       generate spectral function in a specified energy window (**#1,#2**), in eV.
 
 + **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ek0=#] [isp=#] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
   + **iq**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index to **q** (from list in _QIBZ_{: style="color: green"})
   + **q=#1,#2,#3**  &nbsp;&nbsp;&nbsp;&nbsp;                   **q**-point in units of 2<i>&pi;</i>/alat.
-  + ib              &nbsp;&nbsp;&nbsp;&nbsp; band index\\
+  + **ib=#**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    band index\\
   Options are:
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                        Do not interpolate energy but calculate it at q.
