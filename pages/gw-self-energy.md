@@ -408,7 +408,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
   + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        number of mesh points for final state integration.  Default is 200.
   + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       kinetic energy of emitted electron.  KE+V0=&hbar;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
+                       kinetic energy of emitted electron.  KE+V0=&#8463;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;
                        Generate spectral function in a specified energy window (**#1,#2**)
 
