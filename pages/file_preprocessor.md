@@ -734,7 +734,7 @@ Branching constructs have a function similar to the C constructs.
    because the vector variables can have arbitrary length, &nbsp;**show**&nbsp; prints only the size of the vector and the first and last entries.  
 
 8. **stop [**<i>expr</i> **msg**]&nbsp; : causes the program to stop execution.
-     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard out before aborting).
+     * If &nbsp;**<i>expr</i>**&nbsp; evaluates to nonzero, or if it is omitted, program stops (&nbsp;**msg**&nbsp;, if present, is printed to standard output before aborting).
      * If &nbsp;**<i>expr</i>**&nbsp; evaluates to 0 the directive has no effect.
 
    _Note:_{: style="color: red"}&nbsp; compare to the &nbsp;**exit**&nbsp; directive.
