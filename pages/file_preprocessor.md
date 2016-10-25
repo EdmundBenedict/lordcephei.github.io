@@ -771,11 +771,9 @@ the &nbsp;**slatsm**&nbsp; directory:
              The key subroutine is <b>rdfiln</b>, which parses one line of a file.
    symvar.f  maintains the table of variables for floating point scalars.
    symvec.f  maintains the table of vector variables.
-   a2bin.f   evaluates ASCII representations of algebraic expressions using a
-             C-like syntax, converting the result into a binary number.
-             Expressions may include variables and vector elements.
-   bin2a.f   converts a binary number into a character string
-             (inverse function to a2bin.f).
+   a2bin.f   evaluates ASCII representations of algebraic expressions using a C-like syntax, converting the
+             result into a binary number. Expressions may include variables and vector elements.
+   bin2a.f   converts a binary number into a character string (inverse function to a2bin.f).
    mkilst.f  generates a list of integers for looping constructs,
              as described below.  describes the syntax of integer lists.
 </pre>
