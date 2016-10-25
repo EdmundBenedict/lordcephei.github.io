@@ -90,19 +90,19 @@ where $$\omega^j(k)$$ is the pole of _G_<sub>0</sub>.
 
 Write the contribution to _G_ from QP state _j_ as
 
-$$ G^j(k,\omega) = \frac{1}{{\omega  - \omega^j - \Sigma (k,\omega ) + {V^j_{xc}}(k)}} $$
+$$ G^j(k,\omega) = \frac{1}{{\omega  - \omega^j - \Sigma (k,\omega ) + V^j_{xc}(k)}} $$
 
 Note that this equation is only true if $$\Sigma$$ is
 diagonal in the basis of noninteracting eigenstates.  We will
 ignore the nondiagonal elements of $$\Sigma(k,\omega)$$.  Note that
-if $${V^j_{xc}}$$ is defined by QS\emph{GW}, this is a very good
-approximation, since $${\mathrm{Re}\Sigma (k,\omega ){=}{V^j_{xc}}(k)}$$.
+if $$V^j_{xc}$$ is defined by QS_GW_, this is a very good
+approximation, since $${\mathrm{Re}\Sigma (k,\omega ){=}V^j_{xc}(k)}$$.
 at $$\omega{=}\omega^j(k)$$.  Approximate _G_ by its coherent part:
 
 $$
 G^{j,\mathrm{coh}}(k,\omega) &=& 
 \frac{1}{{\omega  - \omega^j - \mathrm{Re} \Sigma (k,\omega^j) +
-    {V^j_{xc}}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}}
+    V^j_{xc}(k) - (\omega  - \omega^j)(1 - {Z^j}^{-1}) - i\mathrm{Im} \Sigma (k,\omega )}}
 $$
 
 where 
@@ -117,8 +117,8 @@ Define the QP peak as the value of $\omega$ where the real part of the denominat
 
 $$
 ({\omega^*} - \omega^j){Z^j}^{-1} &=&  \mathrm{Re} \Sigma
- (k,\omega^j) - {V_{xc}}(k) \nonumber \\
- {\omega^*} &=& \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - {V_{xc}}(k)} \right)
+ (k,\omega^j) - V_{xc}(k) \nonumber \\
+ {\omega^*} &=& \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - V_{xc}(k)} \right)
 $$
 
 Note that in the QS_GW_ case, the second term on the r.h.s. vanishes by construction.
