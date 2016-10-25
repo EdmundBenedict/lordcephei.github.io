@@ -358,8 +358,7 @@ Here is a summary of instructions the editor knows about:
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and group of bands.\\
   Required arguments are:
   + **iq\|q**  index to **q** (list is in _QIBZ_{: style="color: green"}), or **q** in Cartesian coordinates, in units of 2&pi;/alat.
-  + **[ib=#1,#2]** Sum <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**)
-
+  + **[ib=#1,#2]** Sum <i>A<sup>j</sup></i>(<i>&omega;</i>) for **#1**&le;<i>j</i>&le;**#2**)\\
   Options are:
   + **getev** Do not interpolate energy but calculate it at q.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
