@@ -39,10 +39,10 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-LDA self-consistency (starting from  _init.fe_{: style="color: green"}
+LDA self-consistency (starting from  _init.fe_{: style="color: green"})
 
 ~~~
-blm --nit=20 --nk=16 --gmax=7.9 --mag --nk=8 --gw fe
+blm --nit=20 --nk=16 --gmax=7.9 --mag --nkgw=8 --gw fe
 cp actrl.fe ctrl.fe
 lmfa fe
 cp basp0.fe basp.fe
@@ -50,6 +50,11 @@ lmf fe > out.lmf
 ~~~
 
 QSGW self-consistency (starting from the LDA)
+
+~~~
+lmfgwd --jobgw=-1 ctrl.fe
+lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+~~~
 
 Making the spectral function (starting from QS<i>GW</i>)
 
@@ -95,6 +100,8 @@ This tutorial will do the following:
 /tutorial/gw/gw-self-energy/#theory
 {:/comment}
 
+### _Z_ factor renormalization, and its absence in QSGW
+
 Begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
 <i>V<sup>j</sup><sub>xc</sub></i>(_k_). &nbsp; _j_ refers to a particular QP state (pole of <i>G</i><sub>0</sub>).  There is also an interacting Green's function, _G_.
 
@@ -132,17 +139,24 @@ defines the _Z_ factor.  The dependence of <i>&omega;<sup>j</sup></i> and  <i>Z<
 Define the QP peak as the value of <i>&omega;</i> where the real part of the denominator vanishes.
 
 $$
-({\omega^*} - \omega^j)/Z^j =  \mathrm{Re} \Sigma(k,\omega^j) - V_{xc}(k)
+({\omega^*} - \omega^j)/Z^j =  \mathrm{Re} \Sigma(k,\omega^j) - V^j_{xc}(k)
 $$
 
 and so
 
 $$
- {\omega^*} = \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - V_{xc}(k)} \right)
+ {\omega^*} = \omega^j + Z^j\left( {\mathrm{Re} \Sigma (k,\omega^j) - V^j_{xc}(k)} \right)
 $$
 
 Note that in the QS<i>GW</i> case, the second term on the r.h.s. vanishes by construction: the noninteracting QP peak
 corresponds to the (broadened) pole of _G_.
+
+The group velocity is <i>d&omega;</i>/<i>dk</i>.  For the interacting case it reads
+
+$$
+\frac{d\omega^*}{dk} = \frac{d\omega ^j }{dk} + \frac{d}{dk}Z^j \left( {\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k)} \right)
+$$
+
 
 ### _Make the GW self-energy_
 {::comment}
@@ -533,20 +547,20 @@ _Notes on the figure:_{: style="color: red"}
   the other effectively by integrating <i>G</i><sub>0</sub>(<b>k</b>,<i>&omega;</i>) by sampling with a smearing of 30 meV.
 + The noninteracting DOS at the Fermi level is <i>D</i>(<i>E<sub>F</sub></i>)&cong;1/eV (one spin).  The Stoner criterion for the onset of
    ferromagnetism is <i>I</i>&times;<i>D</i>(<i>E<sub>F</sub></i>)&gt;1.  <i>I</i> is the Stoner parameter, and DFT predicts to be
-   approximately 1 eV for 3_d_ transition metals. Combining DOS for the two spins would indicate that The Stoner criterion is well satisfied.
+   approximately 1 eV for 3_d_ transition metals. Combining DOS for the two spins would indicate that the Stoner criterion is well satisfied.
 
 + The interacting DOS is smoothed out, and and is roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
 
-### _)Spectral Function of Fe near the H point_
+### _Spectral Function of Fe near the H point_
 {::comment}
 /tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
 
-This example computes the self-energy for a **q** point near H.  It is calculated from band 2 for the majority spin and bands 2,3 for the minority spin.
+This example computes the self-energy for a **q** point near the H point.  It is calculated from band 2 for the majority spin and bands 2,3 for the minority spin.
 These bands were chosen because of their close proximity to the Fermi level.
 
 ~~~
-$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' >> out.lmfgws
-$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q' >> out.lmfgws
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' 
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q'
 ~~~
 

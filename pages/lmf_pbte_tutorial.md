@@ -37,7 +37,7 @@ Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **
 
 _____________________________________________________________
 
-### _Command summary_     
+### _Command summary_
 
 The tutorial starts under the heading "Tutorial"; you can see a synopsis of the commands by clicking on the box below.
 
