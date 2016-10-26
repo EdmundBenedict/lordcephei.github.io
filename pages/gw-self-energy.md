@@ -253,7 +253,7 @@ The total momentum inside the crystal, $$\mathbf{k}_\parallel{+}\mathbf{k}_\bot$
 is linked to the kinetic energy measured outside the crystal through
 Eq.(1).  The kinetic energy is linked to the binding energy
 through the equation $${E_{kin}}=\hbar\omega-{E_b}-{\varphi_a}$$ where
-${\varphi_a}$ is the work function of the analyzer.  Usually
+$${\varphi_a}$$ is the work function of the analyzer.  Usually
 $${\varphi_a}{=}{\varphi_s}$$.  The Fermi level is defined such that
 $$E_b{=}0$$.  The inner potential is defined by scanning the range of photon
 energy under the constraint of normal emission: then the &Gamma; point can
@@ -293,10 +293,10 @@ $$
 \Delta{\mathbf{k}} = (\overline{k}_\bot-{k}_\bot)\hat{\mathbf{k}}_\bot
 $$
 
-The crystal momentum actually being probed by the experiment is then
+and the crystal momentum actually being probed by the experiment is
 
 $$
-\mathbf{k}_f = \overline\mathbf{k}_f - \Delta\mathbf{k}
+{\mathbf{k}}_f = \overline{\mathbf{k}}_f - \Delta{\mathbf{k}}
 $$
 
 
