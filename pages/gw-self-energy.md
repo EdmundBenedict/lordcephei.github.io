@@ -257,7 +257,7 @@ $${\varphi_a}$$ is the work function of the analyzer.  Usually
 $${\varphi_a}{=}{\varphi_s}$$.  The Fermi level is defined such that
 $$E_b{=}0$$.  The inner potential is defined by scanning the range of photon
 energy under the constraint of normal emission: then the $$\Gamma$$-point can
-be identified and by using Eq.~(1), and the inner potential experimentally determined.
+be identified and by using Eq.(1), and the inner potential experimentally determined.
 
 The momentum of the particle in free space is
 
@@ -706,4 +706,34 @@ These bands were chosen because of their close proximity to the Fermi level.
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' 
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q'
 ~~~
+
+The following makes a picture comparing _A_ (solid lines) and <i>A</i><sub>0</sub> (dashed lines),
+majority spin (black) and minority spin (red)
+
+
+~~~
+fplot -x -9,5 -y 0,1 -colsy 6 -lt 1,col=0,0,0 seia.fe -colsy 7 -lt 2,col=0,0,0 seia.fe -colsy 2 -lt 1,col=1,0,0 seia2.fe -colsy 3 -lt 2,col=1,0,0 seia2.fe
+~~~
+
+You can see a weak plasmon peak near -8 eV.
+
+### _Simulation of photoemission near the H point_
+{::comment}
+/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
+{:/comment}
+
+This test simulates an ARPES measurement for a point approximately midway
+between $$\Gamma$$ and H, at **q**&cong;0,0,0.45 near where bands cross the Fermi level.
+It is done in two ways:
+
++ with the interacting spectral function, but without SO coupling
+
++ with The QP spectral function broadened by 0.01 eV, and including the SO coupling.
+
+~~~
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~pe q=0,0,0.450980392 ib=2,3 nw=10 getev nqf=220 ke0=139-5+14.8 isp=2~savesea~q'
+$ lmfgws fe -vso=1 `cat switches-for-lm` '--sfuned~units=eV~eps .01~qpse~evsync~peqp q=0,0,0.450980392 ib=1:8 nw=10 getev nqf=220 ke0=139-5+14.8 isp=1~savesea~q'
+~~~
+
+... need to complete
 
