@@ -157,6 +157,16 @@ $$
 \frac{d\omega^*}{dk} = \frac{d\omega ^j }{dk} + \frac{d}{dk}Z^j \left( {\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k)} \right)
 $$
 
+Use the ratio of noninteracting and interacting group velocities as a definition of the ratio of inverse masses.  From the chain rule
+
+$$
+\frac{m_0}{m^*} \equiv \frac{d\omega^*}{dk}/\frac{d\omega^j}{dk} = 1 + Z^j \left( {\frac{\partial }{\partial\omega }
+\left. {\text{Re}\Sigma(k,\omega^j)\right|_{\omega^j } \frac{d\omega^j}{dk} + 
+\frac{\partial }{\partial k} \left. \text{Re}\Sigma(k,\omega^j) \right|_{\omega^j} - \frac{\partial}{\partial k}V_{xc}^j(k)} \right) +
+ \left(\frac{dZ^j}{dk}\right) \left( \text{Re}\Sigma (k,\omega ^j ) - V_{xc}^j (k) \right)
+$$
+
+
 
 ### _Make the GW self-energy_
 {::comment}
