@@ -712,12 +712,13 @@ majority spin (black) and minority spin (red)
 
 
 ~~~
-fplot -x -9,5 -y 0,1 -colsy 6 -lt 1,col=0,0,0 seia.fe -colsy 7 -lt 2,col=0,0,0 seia.fe -colsy 2 -lt 1,col=1,0,0 seia2.fe -colsy 3 -lt 2,col=1,0,0 seia2.fe
+$ fplot -x -9,5 -y 0,1 -colsy 6 -lt 1,col=0,0,0 seia.fe -colsy 7 -lt 2,col=0,0,0 seia.fe -colsy 2 -lt 1,col=1,0,0 seia2.fe -colsy 3 -lt 2,col=1,0,0 seia2.fe
+$ open fplot.ps   [choose your postscript file viewer]
 ~~~
 
 You can see a weak plasmon peak near -8 eV.
 
-### _Simulation of photoemission near the H point_
+### _Simulation of photoemission midway between the &Gamma; and H points_
 {::comment}
 /tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
