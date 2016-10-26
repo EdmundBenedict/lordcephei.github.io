@@ -625,7 +625,8 @@ to obtain a reasonably well converged density-of-states.
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 range=-10,10 nq=32 nw=30~savesea~q'
 ~~~
 
-This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  Instructions do the following (as explained [here](/tutorial/gw/gw-self-energy/#editor-instructions):
+This invocation runs **lmfgws**{: style="color: blue"} in batch mode, and writes the spectral and noninteracting DOS to file _sdos.fe_{: style="color: green"}.
+The editor's instructions do the following (as explained [here](/tutorial/gw/gw-self-energy/#editor-instructions)):
 
 + units eV\\
   Set units to eV; spectrum DOS will be written in eV.
@@ -709,6 +710,8 @@ $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q'
 ~~~
 
+The first command writes a file _seia.fe_{: style="color: green"}, the second file _seia2.fe_{: style="color: green"}
+
 The following makes a picture comparing _A_ (solid lines) and <i>A</i><sub>0</sub> (dashed lines),
 majority spin (black) and minority spin (red)
 
@@ -736,5 +739,7 @@ It is done in two ways:
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~pe q=0,0,0.450980392 ib=2,3 nw=10 getev nqf=220 ke0=139-5+14.8 isp=2~savesea~q'
 $ lmfgws fe -vso=1 `cat switches-for-lm` '--sfuned~units=eV~eps .01~qpse~evsync~peqp q=0,0,0.450980392 ib=1:8 nw=10 getev nqf=220 ke0=139-5+14.8 isp=1~savesea~q'
 ~~~
+
+The first command writes a file _pes2.fe_{: style="color: green"}, the second file _pesqp.fe_{: style="color: green"}
 
 ... need to complete
