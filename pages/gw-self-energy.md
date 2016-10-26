@@ -235,9 +235,9 @@ where <i>E<sub>b</sub></i> is the binding energy and
 $$E_{kin}+{\varphi_s}$$ is the energy of the electron after being ejected.
 (Marder defines $$E_{b}$$ with the opposite sign, making it positive).
 
-<i>Momentum conservation</i> : The final wave vector $$\mathbf{k}_{f}$$ of the
+<i>Momentum conservation</i> : The final wave vector <b>k</b><sub><i>f</i></sub> of the
 ejected electron must be equal to its initial wave vector, apart from shortening
-by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
+by a reciprocal lattice vector to keep <b>k</b><sub><i>f</i></sub> in the first Brillouin zone.
 
 Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $$E_b$$ and $$V_0$$ are called the
 electron binding energy and "inner potential." 
@@ -256,7 +256,7 @@ through the equation $${E_{kin}}=\hbar\omega-{E_b}-{\varphi_a}$$ where
 $${\varphi_a}$$ is the work function of the analyzer.  Usually
 $${\varphi_a}{=}{\varphi_s}$$.  The Fermi level is defined such that
 $$E_b{=}0$$.  The inner potential is defined by scanning the range of photon
-energy under the constraint of normal emission: then the &Gamma; point can
+energy under the constraint of normal emission: then the $$\Gamma$$-point can
 be identified and by using Eq.~(1), and the inner potential experimentally determined.
 
 The momentum of the particle in free space is
