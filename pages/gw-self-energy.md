@@ -164,7 +164,7 @@ $$
 1 + Z^j \left( \frac{\partial}{\partial\omega}
 \left. \text{Re}\Sigma (k,\omega ^j ) \right|_{\omega^j} \frac{d\omega ^j }{dk} + \frac{\partial}{\partial k}\left. \text{Re}\Sigma(k,\omega^j) \right|_{\omega ^j } 
  - \frac{\partial }{\partial k}V_{xc}^j (k) \right)
- + \left(\frac{dZ^}{dk}\right) \left(\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k) \right)
+ + \left(\frac{dZ^j}{dk}\right) \left(\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k) \right)
 $$
 
 
