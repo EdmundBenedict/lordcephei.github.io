@@ -396,7 +396,7 @@ Command-line arguments have the following meaning:
 
 
 
-**spectral**{: style="color: blue"} writes files <i>sec\_ib</i>j<i>\_iq</i>n<i>.up</i>{: style="color: green"}
+**spectral**{: style="color: blue"} writes files {<i>sec\_ib</i>}{: style="color: green"}j<i>\_iq</i>n<i>.up</i>{: style="color: green"}
  and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
 which contain information about the _G_ for band _j_ and the _k_ point <b>k</b><i><sub>n</sub></i>.
 The top of sec\*\* files look like the following:
