@@ -102,6 +102,9 @@ This tutorial will do the following:
 
 
 #### _Z_ factor renormalization
+{::comment}
+/tutorial/gw/gw-self-energy/#z-factor-renormalization
+{:/comment}
 
 Begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
 <i>V<sup>j</sup><sub>xc</sub></i>(_k_). &nbsp; _j_ refers to a particular QP state (pole of <i>G</i><sub>0</sub>).  There is also an interacting Green's function, _G_.
@@ -184,6 +187,9 @@ Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sig
 In the QS<i>GW</i> case the quantity in parenthesis vanishes.
 
 #### Coherent part of the spectral function
+{::comment}
+/tutorial/gw/gw-self-energy/#coherent-part-of-the-spectral-function
+{:/comment}
 
 Write $$G^{j,\mathrm{coh}}(k,\omega)$$ as
 
@@ -214,22 +220,84 @@ A_k^{j,\mathrm{coh}}(\omega ) = \frac{Z^j}{\pi}\frac{Z^j\mathrm{Im} \Sigma (k,\o
 $$
 
 
-
 #### _Simulation of Photoemission_
+{::comment}
+/tutorial/gw/gw-self-energy/#simulation-of-photoemission
+{:/comment}
 
-_Energy conservation_ : It requires 
+_Energy conservation_ : It requires (see Marder, p735, Eq. 23.58)
 
 $$\hbar\omega=E_{kin}+{\varphi_s}-E_b$$
 
 where <i>E<sub>b</sub></i> is the binding energy and
 $$E_{kin}+{\varphi_s}$$ is the energy of the electron after being ejected.
+(Marder defines $$E_{b}$$ with the opposite sign, making it positive).
 
 _Momentum conservation_ : The final wave vector $$\mathbf{k}_f$$ of the
 ejected electron must be equal to its initial wave vector, apart from shortening
 by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
-Marder Eq. (23.58) then reads
-\[-E_b(\mathbf{k}_f){=}\hbar\omega-E_{kin}-{\varphi_s}\]
 
+... needs cleaning up ...
+
+Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $E_b$ and ${V_0}$ are called the
+electron binding energy and "inner potential." 
+
+Then
+
+\begin{eqnarray}
+\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b  \text{  (1)  }
+\label{eq:keconst}
+\end{eqnarray}
+
+The total momentum inside the crystal, $$\mathbf{k}_\parallel+\mathbf{k}_\bot$$,
+is linked to the kinetic energy measured outside the crystal through
+Eq.(1).  The kinetic energy is linked to the binding energy
+through the equation $${E_{kin}}=\hbar\omega-{E_b}-{\varphi_a}$$ where
+${\varphi_a}$ is the work function of the analyzer.  Usually
+$${\varphi_a}{=}{\varphi_s}$$.  The Fermi level is defined such that
+$$E_b{=}0$$.  The inner potential is defined by scanning the range of photon
+energy under the constraint of normal emission: then the &Gamma; point can
+be identified and by using Eq.~(1), and the inner potential experimentally determined.
+
+The momentum of the particle in free space is
+
+$$
+\frac{\hbar ^2 k_0^2 }{2m} = E_{kin} 
+$$
+
+Resolve $$\mathbf{k}_f$$ into components parallel and perpendicular to the surface
+
+$$
+\mathbf{k}_f = \mathbf{k}_\parallel + \mathbf{k}_\bot
+$$
+
+After passing through the surface, $\mathbf{k}_f$ is modified to
+$$\overline{\mathbf{k}}_f$$; this is what is actually measured.
+
+The conservation condition requires
+
+$$
+k_0^2  = \bar k_\parallel^2  + \bar k_\bot^2 
+$$
+
+$$\mathbf{k}_\parallel$$ is conserved on passing through the surface;
+thus $$\bar k_\parallel{=} k_\parallel$$.  $$\mathbf{k}_\bot$$ is not conserved; therefore 
+
+$$
+\bar k_\bot = \sqrt{k_0^2{-}k_\parallel^2}
+$$
+
+The wave number shift is then
+
+$$
+\Delta{\mathbf{k}} = (\overline{k}_\bot-{k}_\bot)\hat{\mathbf{k}}_\bot
+$$
+
+The crystal momentum actually being probed by the experiment is then
+
+$$
+\mathbf{k}_f = {\overline\mathbf{k}}_f - \Delta{\mathbf{k}}
+$$
 
 
 ### _Make the GW self-energy_
