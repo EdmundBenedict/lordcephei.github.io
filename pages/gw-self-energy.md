@@ -220,7 +220,7 @@ A_k^{j,\mathrm{coh}}(\omega ) = \frac{Z^j}{\pi}\frac{Z^j\mathrm{Im} \Sigma (k,\o
 $$
 
 
-#### _Simulation of Photoemission_
+#### Simulation of Photoemission
 {::comment}
 /tutorial/gw/gw-self-energy/#simulation-of-photoemission
 {:/comment}
@@ -271,7 +271,7 @@ $$
 \mathbf{k}_f = \mathbf{k}_\parallel + \mathbf{k}_\bot
 $$
 
-After passing through the surface, $\mathbf{k}_f$ is modified to
+After passing through the surface, $$\mathbf{k}_f$$ is modified to
 $$\overline{\mathbf{k}}_f$$; this is what is actually measured.
 
 The conservation condition requires
@@ -296,7 +296,7 @@ $$
 The crystal momentum actually being probed by the experiment is then
 
 $$
-\mathbf{k}_f = {\overline\mathbf{k}}_f - \Delta{\mathbf{k}}
+\mathbf{k}_f = \overline\mathbf{k}_f - \Delta\mathbf{k}
 $$
 
 
