@@ -225,7 +225,9 @@ $$
 /tutorial/gw/gw-self-energy/#simulation-of-photoemission
 {:/comment}
 
-_Energy conservation_ : It requires (see Marder, p735, Eq. 23.58)
+(needs cleaning up)
+
+_Energy conservation_ : requires (see Marder, p735, Eq. 23.58)
 
 $$\hbar\omega=E_{kin}+{\varphi_s}-E_b$$
 
@@ -233,11 +235,9 @@ where <i>E<sub>b</sub></i> is the binding energy and
 $$E_{kin}+{\varphi_s}$$ is the energy of the electron after being ejected.
 (Marder defines $$E_{b}$$ with the opposite sign, making it positive).
 
-_Momentum conservation_ : The final wave vector \[\mathbf{k}_f\] of the
+_Momentum conservation_ : The final wave vector $$\mathbf{k}_f$$ of the
 ejected electron must be equal to its initial wave vector, apart from shortening
 by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
-
-... needs cleaning up ...
 
 Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $E_b$ and ${V_0}$ are called the
 electron binding energy and "inner potential." 
@@ -245,7 +245,7 @@ electron binding energy and "inner potential."
 Then
 
 \begin{eqnarray}
-\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b  \text{  (1)  }
+\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b  \text{\quad\quad  (1)  }
 \label{eq:keconst}
 \end{eqnarray}
 
