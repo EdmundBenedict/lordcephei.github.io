@@ -34,19 +34,7 @@ In addition it requires **spectral**{: style="color: blue"} and **lmfgws**{: sty
 
 This tutorial assumes the GW executables are in **~/bin/code2**.
 
-
-.mbtablestyle {
-        border-collapse: collapse;
-
-   > table, td, th {
-        border: 1px solid black;
-        }
-}
-
-
-
-
-### Command summary
+### _Command summary_
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
@@ -123,7 +111,7 @@ $$ G^j(k,\omega) = \frac{1}{\omega  - \omega^j - \Sigma (k,\omega ) + V^j_{xc}(k
 Note that this equation is only true if $$\Sigma$$ is
 diagonal in the basis of noninteracting eigenstates.  We will
 ignore the nondiagonal elements of $$\Sigma(k,\omega)$$.  Note that
-if <i>V<sup>j</sup><sub>xc</sub></i> is defined by QS<i>GW</i>, this is a very good
+if <i>V<sub>xc</sub><sup>j</sup></i> is constructed by QS<i>GW</i>, this is a very good
 approximation, since $${\mathrm{Re}\Sigma (k,\omega ){=}V^j_{xc}(k)}$$
 at $$\omega{=}\omega^j(k)$$.  Approximate _G_ by its coherent part:
 
@@ -213,7 +201,7 @@ _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} cont
 
 Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) an imaginary part which broadens out the level, and in general,
 Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) shifts and renormalizes the quasiparticle weight by _Z_.  As noted in the
-[Theory section](/tutorial/gw/gw-self-energy/#theory), there is no shift if <i>V<sup>j</sup><sub>xc</sub></i> is the QSGW self-energy; there
+[Theory section](/tutorial/gw/gw-self-energy/#theory), there is no shift if <i>V<sub>xc</sub><sup>j</sup></i> is the QS<i>GW</i> self-energy; there
 remains, however, a reduction in the quasiparticle weight.  This will be apparent when
 [comparing the interacting and noninteracting DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states).
 
@@ -244,16 +232,17 @@ Command-line arguments have the following meaning:
   + eqp (quasiparticle energy, in eV)
   + spin (1 or 2)
 
-  Thus **iq==1&eqp>-10&eqp<30** : \\
+  The expression in this example, **iq==1&eqp>-10&eqp<30**, does the following: \\
   &nbsp;&nbsp; generates spectral functions only for the first _k_ point (the first k point is the &Gamma; point)\\
   &nbsp;&nbsp; eliminates states below the bottom of the Fe _s_ band (i.e. shallow core levels included in the valence through local orbital)\\
   &nbsp;&nbsp; eliminates states 30 eV or more above the Fermi level.
 
 
 
-**spectral**{: style="color: blue"} writes files sec\_ib<i>j</i>\_iq<i>n</i>.up and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
+**spectral**{: style="color: blue"} writes files <i>sec\_ib</i>j<i>\_iq</i>n<i>.up</i>{: style="color: green"}
+ and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
 which contain information about the _G_ for band _j_ and the _k_ point <b>k</b><i><sub>n</sub></i>.
-The beginning of sec\*\* files look like the following:
+The top of sec\*\* files look like the following:
 
 ~~~
 # ib=   5  iq=   1  Eqp=   -0.797925  q=   0.000000   0.000000   0.000000
@@ -355,7 +344,7 @@ You should see:
 The editor operates interactively. It reads a command from standard input, executes the command, and returns to the
 &nbsp;<b>Options</b> prompt waiting for another instruction.  The editor will print a short summary of instructions if you type &nbsp;<b>? \<RET></b>.
 
-#### _Editor instructions_
+#### Editor instructions
 {::comment}
 /tutorial/gw/gw-self-energy/#editor-instructions
 {:/comment}
@@ -384,12 +373,14 @@ The following summarizes the instruction set of the dynamical self-energy editor
 
 + **dos [nq=#1,#2,#3] &nbsp; [nw=#|domg=#] &nbsp; [range=#1,#2] &nbsp; [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
-  + **nq=#1,#2,#3**    Interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of **k** points, defined by (**#1,#2,#3**) divisions.
-  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **nq=#1,#2,#3**    &nbsp;&nbsp;&nbsp;
+                       Interpolate &Sigma;<i><sub>j</sub></i>(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) to a new uniform mesh of **k** points, defined by (**#1,#2,#3**) divisions.
+  + **nw=_n_**         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Refine the given energy mesh by interpolating &Sigma; to an _n_ multiple of the given energy mesh.
                        _n_ must be an integer.
-  + **range=#1,#2**    Generate DOS in a specified energy window (**#1,#2**), in eV.
-  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **range=#1,#2**    &nbsp;&nbsp;&nbsp;
+                       Generate DOS in a specified energy window (**#1,#2**), in eV.
+  + **isp=_i_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Generate DOS for spin **_i_** (1 or 2).  Default value is 1.
 
 + **se  iq=_n_|q=#1,#2,#3 &nbsp; ib=_list_ &nbsp; [getev[=#1,#2,#3]] &nbsp; [nw=_n_|domg=#] &nbsp; [isp=#] &nbsp; [range=#1,#2]**\\
@@ -433,7 +424,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        Generate spectra for spin **_i_** (1 or 2).  Default value is 1.
   + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        number of mesh points for final state integration.  Default is 200.
-  + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        kinetic energy of emitted electron.  KE+V0=&#8463;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;
                        Generate spectral function in a specified energy window (**#1,#2**)
@@ -462,7 +453,7 @@ $ lmfgws ctrl.fe `cat switches-for-lm` '--sfuned~first command~second command~..
 unless the editor encounters "quit" instruction `a` or `q`.
 
 
-### Compare interacting and independent-particle density-of-states in Fe
+### _Compare interacting and independent-particle density-of-states in Fe_
 {::comment}
 /tutorial/gw/gw-self-energy/#compare-interacting-and-independent-particle-density-of-states-in-fe
 {:/comment}
@@ -546,7 +537,7 @@ _Notes on the figure:_{: style="color: red"}
 
 + The interacting DOS is smoothed out, and and is roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
 
-### Spectral Function of Fe near the H point
+### _)Spectral Function of Fe near the H point_
 {::comment}
 /tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
