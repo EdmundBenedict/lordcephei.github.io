@@ -369,13 +369,13 @@ The following summarizes the instruction set of the dynamical self-energy editor
 + **se  iq=#|q=#1,#2,#3 ib=_list_ [getev[=#1,#2,#3]] [nw=_n_|domg=#] [isp=#] [range=#1,#2]**\\
   Make &Sigma;(<i>&omega;</i>) and <i>A</i>(<i>&omega;</i>) for given **q** and range of bands.\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       index to **q** (from list in _QIBZ_{: style="color: green"})
+  + **iq=#**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       index to **q**
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma; to any **q**.
-  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states <i>j</i> in **_list_**.
-                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.
+                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.\\
   Options are:
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
@@ -389,11 +389,11 @@ The following summarizes the instruction set of the dynamical self-energy editor
 + **pe|peqp  iq=#|q=#1,#2,#3 ib=# [getev[=#1,#2,#3]] [nw=#|domg=#] [nqf=#] [ke0=#] [isp=_i_] [range=#1,#2]**\\
   Model ARPES for given q and band(s).\\
   &nbsp;&nbsp;&nbsp;&nbsp; Required arguments are:
-  + **iq**             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       index to **q** (from list in _QIBZ_{: style="color: green"})
+  + **iq=#**           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       index to **q**, from list in _QIBZ_{: style="color: green"}.  Alternatively specify **q** by:
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma; to any **q**.
-  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together PE spectrum derived from QP states <i>j</i> in **_list_**.
                        See [here](/docs/misc/integerlists/) for the syntax of integer lists.
   Options are:
@@ -407,7 +407,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        Generate spectra for spin **_i_** (1 or 2).  Default value is 1.
   + **nqf=_n_**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        number of mesh points for final state integration.  Default is 200.
-  + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ke0=#**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        kinetic energy of emitted electron.  KE+V0=&#8463;&times;<i>&omega;&minus;&phi;<sub>s</sub>+V<sub>0</sub>
   + **range=#1,#2**    &nbsp;&nbsp;&nbsp;&nbsp;
                        Generate spectral function in a specified energy window (**#1,#2**)
@@ -502,8 +502,8 @@ Run the commands in the box below to create and view the postscript file, or cli
 {::nomarkdown}</div>{:/}
 
 ~~~
-$ fplot -f plot.frames
-$ open fplot.ps   [using 'open' to view postscript files]
+$ fplot -f plot.dos
+$ open fplot.ps   [choose your postscript file viewer]
 ~~~
 
 _Notes on the figure:_{: style="color: red"}
@@ -523,7 +523,11 @@ _Notes on the figure:_{: style="color: red"}
 /tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
 
+This example computes the self-energy for a **q** point near H.  It is calculated from band 2 for the majority spin and bands 2,3 for the minority spin.
+These bands were chosen because of their close proximity to the Fermi level.
+
 ~~~
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' >> out.lmfgws
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q' >> out.lmfgws
 ~~
+
