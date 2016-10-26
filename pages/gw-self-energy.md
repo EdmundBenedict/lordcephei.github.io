@@ -235,7 +235,7 @@ where <i>E<sub>b</sub></i> is the binding energy and
 $$E_{kin}+{\varphi_s}$$ is the energy of the electron after being ejected.
 (Marder defines $$E_{b}$$ with the opposite sign, making it positive).
 
-_Momentum conservation_ : The final wave vector $$\mathbf{k}_f$$ of the
+<i>Momentum conservation</i> : The final wave vector $$\mathbf{k}_{f}$$ of the
 ejected electron must be equal to its initial wave vector, apart from shortening
 by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
 
