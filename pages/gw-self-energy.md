@@ -40,6 +40,14 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
+LDA self-consistency (starting from init.fe)
+
+~~~
+blm --nk=16 --gmax=7.9 --mag --nk=8 --gw fe
+cp actrl.fe ctrl.fe
+
+~~~
+
     ... to be finished
 
 [//]: # (    $ lmf si --band:fn=syml; cp bnds.si bnds-lda.si        #calculate QSGW band structure )
