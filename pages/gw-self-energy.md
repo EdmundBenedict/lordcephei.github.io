@@ -164,9 +164,9 @@ $$
 Use the ratio of noninteracting and interacting group velocities as a definition of the ratio of inverse masses.  From the chain rule
 
 $$
-\frac{m_0}{m^*} \equiv \frac{d\omega^*}{dk}/\frac{d\omega^j}{dk} = 
+\frac{m_0}{m^*} \equiv \frac{d\omega^*}{dk}/\frac{d\omega^j}{dk} =
 1 + Z^j \left( \frac{\partial}{\partial\omega}
-\left. \text{Re}\Sigma (k,\omega ^j ) \right|_{\omega^j} \frac{d\omega ^j }{dk} + \frac{\partial}{\partial k}\left. \text{Re}\Sigma(k,\omega^j) \right|_{\omega ^j } 
+\left. \text{Re}\Sigma (k,\omega ^j ) \right|_{\omega^j} \frac{d\omega ^j }{dk} + \frac{\partial}{\partial k}\left. \text{Re}\Sigma(k,\omega^j) \right|_{\omega ^j }
  - \frac{\partial }{\partial k}V_{xc}^j (k) \right)
  + \left(\frac{dZ^j}{dk}\right) \left(\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k) \right)
 $$
@@ -176,12 +176,12 @@ Write <i>d&omega;<sup>j</sup></i>/<i>dk</i> as $v_0^j$, and use the definition o
 _Z_ to get
 
 $$
-\frac{m_0}{m^*} = 1 + \frac{1}{v_0^j}Z^j \left( {\left( {1 - 1/{Z^j}} \right) v_0^j  + 
+\frac{m_0}{m^*} = 1 + \frac{1}{v_0^j}Z^j \left( {\left( {1 - 1/{Z^j}} \right) v_0^j  +
 \frac{\partial}{\partial k} \left.\text{Re}\Sigma(k,\omega^j) \right|_{\omega^j} - \frac{\partial }{\partial k}V_{xc}^j(k)} \right)
 $$
 
 So
-\frac{m_0}{m^*} = 
+\frac{m_0}{m^*} =
 Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
 
 In the QS<i>GW</i> case the quantity in parenthesis vanishes.
@@ -200,7 +200,7 @@ $$
 Rewrite as
 
 $$
-G^{j,\mathrm{coh}}(k,\omega) 
+G^{j,\mathrm{coh}}(k,\omega)
 = \frac{Z^j}{\omega  - \omega^* - iZ\mathrm{Im} \Sigma (k,\omega )}
 = Z^j\frac{\omega  - \omega^* + iZ\mathrm{Im} \Sigma (k,\omega )}{(\omega - {\omega^*})^2 + (Z^j\mathrm{Im} \Sigma (k,\omega ))^2}
 $$
@@ -240,7 +240,7 @@ ejected electron must be equal to its initial wave vector, apart from shortening
 by a reciprocal lattice vector to keep <b>k</b><sub><i>f</i></sub> in the first Brillouin zone.
 
 Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $$E_b$$ and $$V_0$$ are called the
-electron binding energy and "inner potential." 
+electron binding energy and "inner potential."
 
 Then
 
@@ -262,7 +262,7 @@ be identified and by using Eq.(1), and the inner potential experimentally determ
 The momentum of the particle in free space is
 
 $$
-\frac{\hbar ^2 k_0^2 }{2m} = E_{kin} 
+\frac{\hbar ^2 k_0^2 }{2m} = E_{kin}
 $$
 
 Resolve $$\mathbf{k}_f$$ into components parallel and perpendicular to the surface
@@ -277,11 +277,11 @@ $$\overline{\mathbf{k}}_f$$; this is what is actually measured.
 The conservation condition requires
 
 $$
-k_0^2  = \bar k_\parallel^2  + \bar k_\bot^2 
+k_0^2  = \bar k_\parallel^2  + \bar k_\bot^2
 $$
 
 $$\mathbf{k}_\parallel$$ is conserved on passing through the surface;
-thus $$\bar k_\parallel{=} k_\parallel$$.  $$\mathbf{k}_\bot$$ is not conserved; therefore 
+thus $$\bar k_\parallel{=} k_\parallel$$.  $$\mathbf{k}_\bot$$ is not conserved; therefore
 
 $$
 \bar k_\bot = \sqrt{k_0^2{-}k_\parallel^2}
@@ -396,7 +396,7 @@ Command-line arguments have the following meaning:
 
 
 
-**spectral**{: style="color: blue"} writes files {<i>sec\_ib</i>}{: style="color: green"}j<i>\_iq</i>n<i>.up</i>{: style="color: green"}
+**spectral**{: style="color: blue"} writes files _sec\_ib_{: style="color: green"}j_\_iq_n_.up_{: style="color: green"}
  and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
 which contain information about the _G_ for band _j_ and the _k_ point <b>k</b><i><sub>n</sub></i>.
 The top of sec\*\* files look like the following:
@@ -588,7 +588,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
 
 + **savesea [fn]**\\
   saves spectrum DOS or self-energy + spectral function, in ASCII format.  In the absence **<i>fn</i>**, the file name defaults to _seia.ext_{: style="color: green"}
-  or _seia2.ext_{: style="color: green"} when writing band and _k_-resolved spectral functions (**se** or **pe**) 
+  or _seia2.ext_{: style="color: green"} when writing band and _k_-resolved spectral functions (**se** or **pe**)
   and to _sdos.ext_{: style="color: green"} or _sdos2.ext_{: style="color: green"} when writing spectrum dos (**dos**).
 
 + **savese  [fn]**\\
@@ -638,10 +638,10 @@ This invocation runs **lmfgws**{: style="color: blue"} in batch mode.  Instructi
   Write the DOS.
 + q\\
   Exit the editor.
-  
+
 _Notes:_{: style="color: red"}
 
-+ The mesh is very fine, so the interpolation takes a little while (2 to 3 minutes).  The frequency and **k** meshes are both pretty fine and the DOS is 
++ The mesh is very fine, so the interpolation takes a little while (2 to 3 minutes).  The frequency and **k** meshes are both pretty fine and the DOS is
   rather well converged, as the figure below demonstrates.
 + The spectrum DOS is written to file _sdos.fe_{: style="color: green"}.
   Columns 1,2,3 are <i>&omega;</i>, <i>A</i>(<i>&omega;</i>), and <i>A</i><sub>0</sub>(<i>&omega;</i>), respectively.
@@ -683,7 +683,7 @@ $ open fplot.ps   [choose your postscript file viewer]
 _Notes on the figure:_{: style="color: red"}
 
 + The [black line](/docs/misc/fplot/#color-specification) (**col=0,0,0**) is the noninteracting DOS generated by **lmf**{: style="color: blue"}.
-+ The [grey line](/docs/misc/fplot/#color-specification) (**col=.5,.5,.5**) is the _noninteracting_ DOS <i>A</i><sub>0</sub>(<i>&omega;</i>), 
++ The [grey line](/docs/misc/fplot/#color-specification) (**col=.5,.5,.5**) is the _noninteracting_ DOS <i>A</i><sub>0</sub>(<i>&omega;</i>),
   generated by **lmfgws**{: style="color: blue"}
 + The [red line](/docs/misc/fplot/#color-specification) (**col=1,0,0**) is the _interacting_ DOS <i>A</i>(<i>&omega;</i>), generated by **lmfgws**{: style="color: blue"}
 + Grey and black lines nearly coincide, as they should if the DOS is well converged. Note that the black line was generated from energy bands with the tetrahedron method,
@@ -703,7 +703,7 @@ This example computes the self-energy for a **q** point near the H point.  It is
 These bands were chosen because of their close proximity to the Fermi level.
 
 ~~~
-$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q' 
+$ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q'
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q'
 ~~~
 
@@ -716,7 +716,7 @@ $ fplot -x -9,5 -y 0,1 -colsy 6 -lt 1,col=0,0,0 seia.fe -colsy 7 -lt 2,col=0,0,0
 $ open fplot.ps   [choose your postscript file viewer]
 ~~~
 
-You can see a weak plasmon peak near -8 eV.
+You can see a weak plasmon peak near &minus;8 eV.
 
 ### _Simulation of photoemission midway between the &Gamma; and H points_
 {::comment}
@@ -736,4 +736,3 @@ $ lmfgws fe -vso=1 `cat switches-for-lm` '--sfuned~units=eV~eps .01~qpse~evsync~
 ~~~
 
 ... need to complete
-
