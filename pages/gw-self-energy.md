@@ -207,10 +207,6 @@ $$
 
 the approximate spectral function is
 
-$$
-A_k^{j,\mathrm{coh}}(\omega ) &=& \frac{Z^j}{\pi}\frac{Z^j\mathrm{Im} \Sigma (k,\omega )}{{{{(\omega  - {\omega^*})}^2} + {{(Z^j\mathrm{Im} \Sigma (k,\omega ))}^2}}}
-$$
-
 which shows that the spectral weight of the coherent part is reduced by _Z_.
 
 
