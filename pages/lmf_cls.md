@@ -46,11 +46,12 @@ We begin by running _lmfa_{: style="color: blue"} progam which needs to be run b
 
     $ lmfa gas
 
-We can now proceed with our _lmf_{: style="color: blue"} command
+We can now proceed with our _lmf_{: style="color: blue"} commands
 
-    $ lmf --rs=1,0 --cls:5,0,1 -vnit=1 -vmetal=2 crn
+    $ lmf crn
+	$ lmf crn --rs=1,0 --cls:5,0,1 -vnit=1 -vmetal=2
 
-With particular attention paid to the _--cls_ flag - the flag which tells _lmf_{: style="color: blue"} to perform core level spectroscopy on CrN. This will generate a variety of files needed to build to perform our core level spectroscopy.
+Note that the _lmf_{: style="color: blue"} command is run twice - this is intended; the first run ensures a self-consistent solution. Particular attention should be paid to the _--cls_ flag - the flag which tells _lmf_{: style="color: blue"} to perform core level spectroscopy on CrN. This will generate a variety of files needed to build to perform our core level spectroscopy.
 
 We then run
 

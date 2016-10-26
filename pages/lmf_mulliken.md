@@ -39,11 +39,12 @@ We begin by running _lmfa_{: style="color: blue"} program which needs to be run 
 
     $ lmfa fe
 
-We can now proceed with our first _lmf_{: style="color: blue"} command
+We can now proceed with our _lmf_{: style="color: blue"} commands
 
-    $ lmf --rs=0 --cls:1,1,2 --mull:mode=2 -vnk=6 -vnit=1 fe
+    $ lmf fe
+	$ lmf --rs=0 --cls:1,1,2 --mull:mode=2 -vnk=6 -vnit=1 fe
 
-Which will generate a variety of files needed to build our weights file for Mulliken analysis. Note, this command will generate a _dos.fe_{: style="color: green"} file. This file is _not_ our partial density of states but rather the full density of states file, the next command will overwrite this file.
+Note that the _lmf_{: style="color: blue"} command is run twice - this is intended; the first run ensures a self-consistent solution. This will generate a variety of files needed to build our weights file for Mulliken analysis. Note, this command will generate a _dos.fe_{: style="color: green"} file. This file is _not_ our partial density of states but rather the full density of states file, the next command will overwrite this file.
 
 We then run
 

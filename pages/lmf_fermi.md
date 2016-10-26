@@ -40,9 +40,10 @@ We then run the _lmfa_{: style="color: blue"} command, which must be run before 
 
 We can now run _lmf_{: style="color: blue"}, specifically using a _--band_ tag which tells _lmf_{: style="color: blue"} to generate a _bnds.fe_{: style="color: green"} file that we can use to build our Fermi surface:
 
-    $ lmf fe --iactiv --band~con~fn=fs
+    $ lmf fe
+	$ lmf fe --iactiv --band~con~fn=fsn
 
-With our _bnds.fe_{: style="color: green"} file generated, we can use the _mc_{: style="color: blue"} tool, included in the repo, to parse the _bnds.fe_{: style="color: green"} file and then plot it with fplot:
+Note that the _lmf_{: style="color: blue"} command is run twice - this is intended; the first run ensures a self-consistent solution. With our _bnds.fe_{: style="color: green"} file generated, we can use the _mc_{: style="color: blue"} tool, included in the repo, to parse the _bnds.fe_{: style="color: green"} file and then plot it with fplot:
 
 	$ mc -r:open bnds.fe -shft=0 -w b2 -r:open bnds.fe -shft=0 -w b3 -r:open bnds.fe -shft=0 -w b4 -r:open bnds.fe -shft=0 -w b5
     $ fplot -f plot.fs0
