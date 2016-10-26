@@ -40,13 +40,20 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-LDA self-consistency (starting from init.fe)
+LDA self-consistency (starting from  _init.fe_{: style="color: green"}
 
 ~~~
-blm --nk=16 --gmax=7.9 --mag --nk=8 --gw fe
+blm --nit=20 --nk=16 --gmax=7.9 --mag --nk=8 --gw fe
 cp actrl.fe ctrl.fe
-
+lmfa fe
+cp basp0.fe basp.fe
+lmf fe > out.lmf
 ~~~
+
+QSGW self-consistency (starting from the LDA)
+
+Making the spectral function (starting from QS<i>GW</i>)
+
 
     ... to be finished
 
@@ -381,10 +388,10 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        index to <b>q</b><i><sub>n</sub></i>, from list in _QIBZ_{: style="color: green"}.  Alternatively specify **q** by:
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma;(<b>q</b><i><sub>n</sub></i>) to any **q**.
-  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states <i>j</i> in **_list_**.
                        See [here](/docs/misc/integerlists/) for the syntax of integer lists.\\
-  Options are:
+  Options are:\\
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
@@ -401,10 +408,10 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        index to <b>q</b><i><sub>n</sub></i>, from list in _QIBZ_{: style="color: green"}.  Alternatively specify **q** by:
   + **q=#1,#2,#3**     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma;(<b>q</b><i><sub>n</sub></i>) to any **q**.
-  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together PE spectrum derived from QP states <i>j</i> in **_list_**.
                        See [here](/docs/misc/integerlists/) for the syntax of integer lists.
-  Options are:
+  Options are:\\
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
   + **getev=#1,#2,#3** generates evals on independent mesh with **#1,#2,#3** divisions of uniformly spaced points.
