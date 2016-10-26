@@ -118,14 +118,14 @@ DMFT | Tutorials | /dmft/ | /tutorial/dmft/
 Headers are nested automatically in the table of contents generation by number of # used. Generally, the site uses ### for primary headings and an extra ## for each subheading under that. For example, your primary heading may be ###, a subheading ##### and a subheading under the first subheading #######. In addition, headers are italicized with single underscores surrounding the header (\_Header\_).
 
 ##### _Colours_
-The site uses colours to denote certain things. **Blue**{: style="color: blue"} is used for program/package names and terminal commands, such as the **lm**{: style="color: blue"} package or the console command **cd**{: style="color: blue"}. _Green_{: style="color: green"} is used for directories or files, such as the _ctrl.si_{: style="color: green"} file. **Red**{: style="color: red"} is used for important points such as a **Note:**{: style="color: red"}. Colouring items can be achieved with:
+The site uses colours to denote certain things. **Blue**{: style="color: blue"} is used for program/package names, terminal commands and scripts, such as the **lm**{: style="color: blue"} package or the console command **cd**{: style="color: blue"}. _Green_{: style="color: green"} is used for directories or files, such as the _ctrl.si_{: style="color: green"} file. **Red**{: style="color: red"} is used for important points such as a **Note:**{: style="color: red"}. Colouring items can be achieved with:
 
     **Placeholder Text**{: style="color: blue"}
 
 "blue" can be changed to "red", "green" or any standard colour. Note that to colour a string (with or without spaces) there must be a text emphasis element (such as \_ \_ or \*\* \*\* etc) surrounding the string.
 
 ##### _Text Emphasis_
-**Bold** is used for programs/package names, noteworthy points (**Note:**) and the names of input file tags (e.g. **SITE\_ATOM\_POS**). _Italics_ are used for directories, files and headers.
+**Bold** is used for programs/package names, noteworthy points (**Note:**) and the names of input file tags (e.g. **SITE\_ATOM\_POS**). _Italics_ are used for directories, files, headers and scripts (or uncompiled programs, i.e. not executabels).
 
 ##### _Text Emphasis And Colours: A Summary_
 Here we have a table of combinations of text emphasis and colours that should be applied throughout the site for each given object.
@@ -134,14 +134,15 @@ _Note:_{: style="color: red"} This list should contain all of the commonly neede
 
 Item | Text Emphasis | Colour | Result
 - | - | - | -
-Directory | _italic_ | _green_{: style="color: green"} | _directory_{: style="color: green"}
-File | _italic_ | _green_{: style="color: green"} | _file.md_{: style="color: green"}
-Source code | **bold** | **green**{: style="color: green"} | **bndasa.f**{: style="color: green"}
-Input File Tags | **bold** | None | **SITE\_ATOM\_POS**
-Package Names | **bold** | **blue**{: style="color: blue"} | **lmf**{: style="color: blue"}
-Terminal Commands | **bold** | **blue**{: style="color: blue"} | **ls**{: style="color: blue"}
-Note | _italic_ | _red_{: style="color: red"} | _Note:_{: style="color: red"}
-Warning | **bold** | **red**{: style="color: red"} | **Warning:**{: style="color: red"}
+Directory | \_italic\_ | _green_{: style="color: green"} | _directory_{: style="color: green"}
+File | \_italic\_ | _green_{: style="color: green"} | _file.md_{: style="color: green"}
+Source Code | \*\*bold\*\* | **green**{: style="color: green"} | **bndasa.f**{: style="color: green"}
+Input File Tags | \*\*bold\*\* | None | **SITE\_ATOM\_POS**
+Scripts and Subroutines | \_italic\_ | _blue_{: style="color: blue"} | **script.py**{: style="color: blue"}
+Package Names | \*\*bold\*\* | **blue**{: style="color: blue"} | **lmf**{: style="color: blue"}
+Terminal Commands | \*\*bold\*\* | **blue**{: style="color: blue"} | **ls**{: style="color: blue"}
+Note | \_italic\_ | _red_{: style="color: red"} | _Note:_{: style="color: red"}
+Warning | \*\*bold\*\* | **red**{: style="color: red"} | **Warning:**{: style="color: red"}
 
 ##### _Code Blocks_
 Code blocks, as would be expected, should be used for any code, input or outputs (such as the _ctrl.si_{: style="color: green"} input file), terminal commands and general instructions. Code blocks are always on a new line so it is not suitable if inline text is desired.  
@@ -188,6 +189,46 @@ Images can be used on the site if so desired. They can be shown by using
     [image hover text](http://imageurl.svg)
 
 Where the hover text is the text you want to appear when a user hovers over the image, and the url is the url that points to the domain hosting your image. While this is not a strict requirement, images should be in _*.svg_ format where possible. It is also possible to host your images, and other files, on the site. See below for more information.
+
+##### _Lists_
+To format a list in kramdown one must either use the characters _-_ and _*_ for an unordered list or numbers for an ordered list. The difference being, an ordered list will automatically increment as new elements are added (starting at 1, regardless of what number you started your list at) whereas unordered lists will act as simple bullet points. To initialize an unordered list you do:
+
+    * List element 1
+    * List element 2
+    ...
+    * List element n
+
+Starting the line with an unordered character, with one space after it, defines the list. The same goes for an ordered list:
+
+    1. List element 1
+    2. List element 2
+    ...
+    n. List element n
+
+With the difference being that for an ordered list, the number must be succeeded by a full stop.
+
+##### _Tables_
+Creating a table in kramdown involves first defining the headings. This can be done using the _|_ character between each heading:
+
+    Heading 1 | Heading 2 | Heading 3
+
+We follow this by defining the line as an actual heading line, this can be acomplished by 'underlining' it, using the following line under our heading line:
+
+    - | - | -
+
+Where the number of _-_ correspond to the number of headings. Finally we have our data lines situated under the 'underline':
+
+    Data 1 | Data 2 | Data 3
+    Data 4 | Data 5 | Data 6
+    ...
+
+Giving a final table that looks something like:
+
+    Heading 1 | Heading 2
+    - | -
+    Data 1 | Data 2
+    Data 3 | Data 4
+    ...
 
 ### _Making Changes_
 
