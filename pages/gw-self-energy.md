@@ -100,7 +100,8 @@ This tutorial will do the following:
 /tutorial/gw/gw-self-energy/#theory
 {:/comment}
 
-### _Z_ factor renormalization, and its absence in QSGW
+
+#### _Z_ factor renormalization
 
 Begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
 <i>V<sup>j</sup><sub>xc</sub></i>(_k_). &nbsp; _j_ refers to a particular QP state (pole of <i>G</i><sub>0</sub>).  There is also an interacting Green's function, _G_.
@@ -166,6 +167,68 @@ $$
  - \frac{\partial }{\partial k}V_{xc}^j (k) \right)
  + \left(\frac{dZ^j}{dk}\right) \left(\text{Re}\Sigma(k,\omega^j) - V_{xc}^j (k) \right)
 $$
+
+Ignore the dependence of _Z_<sup>j</sup> on _k_.
+Write <i>d&omega;<sup>j</sup></i>/<i>dk</i> as $v_0^j$, and use the definition of
+_Z_ to get
+
+$$
+\frac{m_0}{m^*} = 1 + \frac{1}{v_0^j}Z^j \left( {\left( {1 - 1/{Z^j}} \right) v_0^j  + 
+\frac{\partial}{\partial k} \left.\text{Re}\Sigma(k,\omega^j) \right|_{\omega^j} - \frac{\partial }{\partial k}V_{xc}^j(k)} \right)
+$$
+
+So
+\frac{m_0}{m^*} = 
+Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
+
+In the QS<i>GW</i> case the quantity in parenthesis vanishes.
+
+#### Coherent part of the spectral function
+
+Write $$G^{j,\mathrm{coh}}(k,\omega)$$ as
+
+$$
+G^{j,\mathrm{coh}}(k,\omega) = \left[(\omega  - \omega^j){Z^j}^{-1} - \mathrm{Re} \Sigma (k,\omega^j) + {V_{xc}}(k) - i\mathrm{Im} \Sigma (k,\omega )\right]^{-1}
+$$
+
+Rewrite as
+
+$$
+G^{j,\mathrm{coh}}(k,\omega) 
+= \frac{Z^j}{\omega  - \omega^* - iZ\mathrm{Im} \Sigma (k,\omega )}
+= Z^j\frac{\omega  - \omega^* + iZ\mathrm{Im} \Sigma (k,\omega )}{(\omega - {\omega^*})^2 + (Z^j\mathrm{Im} \Sigma (k,\omega ))^2}
+$$
+
+Using the standard definition of the spectral function, e.g. Hedin 10.9:
+
+$$
+A(\omega ) = {\pi ^{ - 1}}\left| {\operatorname{Im} G(\omega )} \right|
+$$
+
+the approximate spectral function is
+
+$$
+A_k^{j,\mathrm{coh}}(\omega ) &=& \frac{Z^j}{\pi}\frac{Z^j\mathrm{Im} \Sigma (k,\omega )}{{{{(\omega  - {\omega^*})}^2} + {{(Z^j\mathrm{Im} \Sigma (k,\omega ))}^2}}}
+$$
+
+which shows that the spectral weight of the coherent part is reduced by _Z_.
+
+
+
+#### _Simulation of Photoemission_
+
+_Energy conservation_ : It requires 
+
+$$\hbar\omega=E_{kin}+{\varphi_s}-E_b$$
+
+where <i>E<sub>b</sub></i> is the binding energy and
+$$E_{kin}+{\varphi_s}$$ is the energy of the electron after being ejected.
+
+_Momentum conservation_ : The final wave vector $$\mathbf{k}_f$$ of the
+ejected electron must be equal to its initial wave vector, apart from shortening
+by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
+Marder Eq. (23.58) then reads
+\[-E_b(\mathbf{k}_f){=}\hbar\omega-E_{kin}-{\varphi_s}\]
 
 
 
