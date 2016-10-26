@@ -412,7 +412,7 @@ The top of sec\*\* files look like the following:
 [better DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
 
 ________________________________________________________________________________________________
-<div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show the standard output from the spectral tool </button></div>
+<div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to see spectral's standard output</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="spectral">{:/}
 
 ~~~
@@ -728,7 +728,6 @@ between $$\Gamma$$ and H, at **q**&cong;0,0,0.45 near where bands cross the Ferm
 It is done in two ways:
 
 + with the interacting spectral function, but without SO coupling
-
 + with The QP spectral function broadened by 0.01 eV, and including the SO coupling.
 
 ~~~
