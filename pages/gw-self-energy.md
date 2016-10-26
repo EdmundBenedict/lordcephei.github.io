@@ -396,16 +396,18 @@ Command-line arguments have the following meaning:
 
 
 
-**spectral**{: style="color: blue"} writes files _sec\_ib_{: style="color: green"}j<i>\_iq</i>{: style="color: green"}n<i>.up</i>{: style="color: green"}
- and sec\_ib<i>j</i>\_iq<i>n</i>.dn,
+**spectral**{: style="color: blue"} writes files 
+_sec\_ib_{: style="color: green"}j<i>\_iq</i>{: style="color: green"}n<i>.up</i>{: style="color: green"} and
+_sec\_ib_{: style="color: green"}j<i>\_iq</i>{: style="color: green"}n<i>.dn</i>{: style="color: green"}
 which contain information about the _G_ for band _j_ and the _k_ point <b>k</b><i><sub>n</sub></i>.
-The top of sec\*\* files look like the following:
+A _sec_{: style="color: green"} files takes the following format:
 
 ~~~
 # ib=   5  iq=   1  Eqp=   -0.797925  q=   0.000000   0.000000   0.000000
 #     omega         omega-Eqp     Re sigm-vxc    Im sigm-vxc      int A(w)      int A0(w)       A(w)           A0(w)
   -0.2721160D+02 -0.2641368D+02 -0.6629516D+01  0.1519810D+02  0.2350291D-04  0.6897219D-08  0.7774444D-02  0.2281456D-05
   -0.2720858D+02 -0.2641065D+02 -0.6629812D+01  0.1520157D+02  0.4701215D-04  0.1379602D-07  0.7776496D-02  0.2281979D-05
+  ...
 ~~~
 
 **spectral**{: style="color: blue"} also makes the _k_-integrated DOS.  However, the _k_ mesh is rather coarse and a
