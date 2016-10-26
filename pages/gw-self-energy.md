@@ -239,17 +239,17 @@ _Momentum conservation_ : The final wave vector $$\mathbf{k}_f$$ of the
 ejected electron must be equal to its initial wave vector, apart from shortening
 by a reciprocal lattice vector to keep $$\mathbf{k}_f$$ in the first Brillouin zone.
 
-Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $E_b$ and ${V_0}$ are called the
+Let $$E_{kin}$$ be the energy on exiting the crystal, $$\varphi_s$$ the work function and $$E_b$$ and $$V_0$$ are called the
 electron binding energy and "inner potential." 
 
 Then
 
 \begin{eqnarray}
-\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b  \text{\quad\quad  (1)  }
+\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b   \quad\quad\quad\quad (1)
 \label{eq:keconst}
 \end{eqnarray}
 
-The total momentum inside the crystal, $$\mathbf{k}_\parallel+\mathbf{k}_\bot$$,
+The total momentum inside the crystal, $$\mathbf{k}_\parallel{+}\mathbf{k}_\bot$$,
 is linked to the kinetic energy measured outside the crystal through
 Eq.(1).  The kinetic energy is linked to the binding energy
 through the equation $${E_{kin}}=\hbar\omega-{E_b}-{\varphi_a}$$ where
