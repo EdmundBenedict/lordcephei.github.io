@@ -193,16 +193,16 @@ Where the hover text is the text you want to appear when a user hovers over the 
 To format a list in kramdown one must either use the characters _-_ and _*_ for an unordered list or numbers for an ordered list. The difference being, an ordered list will automatically increment as new elements are added (starting at 1, regardless of what number you started your list at) whereas unordered lists will act as simple bullet points. To initialize an unordered list you do:
 
     * List element 1
-	* List element 2
-	...
-	* List element n
+    * List element 2
+    ...
+    * List element n
 
 Starting the line with an unordered character, with one space after it, defines the list. The same goes for an ordered list:
 
     1. List element 1
-	2. List element 2
-	...
-	n. List element n
+    2. List element 2
+    ...
+    n. List element n
 
 With the difference being that for an ordered list, the number must be succeeded by a full stop.
 
@@ -218,16 +218,16 @@ We follow this by defining the line as an actual heading line, this can be acomp
 Where the number of _-_ correspond to the number of headings. Finally we have our data lines situated under the 'underline':
 
     Data 1 | Data 2 | Data 3
-	Data 4 | Data 5 | Data 6
-	...
+    Data 4 | Data 5 | Data 6
+    ...
 
 Giving a final table that looks something like:
 
     Heading 1 | Heading 2
-	- | -
-	Data 1 | Data 2
-	Data 3 | Data 4
-	...
+    - | -
+    Data 1 | Data 2
+    Data 3 | Data 4
+    ...
 
 ### _Making Changes_
 
