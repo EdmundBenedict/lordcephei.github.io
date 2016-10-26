@@ -528,7 +528,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
    add a constant **<i>val</i>** to Im &Sigma;, needed to broaden spectral functions so that integrations are tractable.
 
 + **ef _ef_**\\
-  Use **_ef_** for Fermi level, overriding internally calculated value.
+  Use **_ef_** for the Fermi level, overriding the internally calculated value.
 
 + **dos [nq=#1,#2,#3] &nbsp; [nw=#|domg=#] &nbsp; [range=#1,#2] &nbsp; [isp=#]**\\
   Integrate spectral function to make both the QP and spectrum DOS.  Options are:
@@ -601,7 +601,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
 + **a**\\
   (abort) unconditionally quits the editor.  Program terminates.
 
-You can also use the editor in a batch mode by stringing commands together:
+You can also run the editor in a batch mode by stringing instructions together:
 
 ~~~
 $ lmfgws ctrl.fe `cat switches-for-lm` '--sfuned~first command~second command~...'
@@ -609,7 +609,7 @@ $ lmfgws ctrl.fe `cat switches-for-lm` '--sfuned~first command~second command~..
 
 **\~**&nbsp; is the delimiter separating instructions (you can use another character).
 **lmfgws**{: style="color: blue"} will parse through all the commands given, and return to the &nbsp;**Option**&nbsp; prompt,
-unless the editor encounters "quit" instruction `a` or `q`.
+unless the editor encounters "quit" instruction `a` or `q`.  See the next section for an example.
 
 
 ### _Compare interacting and independent-particle density-of-states in Fe_
@@ -692,10 +692,9 @@ _Notes on the figure:_{: style="color: red"}
 + Grey and black lines nearly coincide, as they should if the DOS is well converged. Note that the black line was generated from energy bands with the tetrahedron method,
   the other effectively by integrating <i>G</i><sub>0</sub>(<b>k</b>,<i>&omega;</i>) by sampling with a smearing of 30 meV.
 + The noninteracting DOS at the Fermi level is <i>D</i>(<i>E<sub>F</sub></i>)&cong;1/eV (one spin).  The Stoner criterion for the onset of
-   ferromagnetism is <i>I</i>&times;<i>D</i>(<i>E<sub>F</sub></i>)&gt;1.  <i>I</i> is the Stoner parameter, and DFT predicts to be
+   ferromagnetism is <i>I</i>&times;<i>D</i>(<i>E<sub>F</sub></i>)&gt;1, where <i>I</i> is the Stoner parameter, which DFT predicts to be
    approximately 1 eV for 3_d_ transition metals. Combining DOS for the two spins would indicate that the Stoner criterion is well satisfied.
-
-+ The interacting DOS is smoothed out, and and is roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
++ The interacting DOS is smoothed out, and is roughly half the amplitude of the noninteracting DOS.  This is also expected: the _Z_ factor for the _d_ states is about 0.5.
 
 ### _Spectral Function of Fe near the H point_
 {::comment}
@@ -703,14 +702,14 @@ _Notes on the figure:_{: style="color: red"}
 {:/comment}
 
 This example computes the self-energy for a **q** point near the H point.  It is calculated from band 2 for the majority spin and bands 2,3 for the minority spin.
-These bands were chosen because of their close proximity to the Fermi level.
+These bands were chosen because of their proximity to the Fermi level.
 
 ~~~
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2 nw=10 getev=12 isp=1~savesea~q'
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~se q=1.05,2.91,1.01 ib=2,3 nw=10 getev=12 isp=2~savesea~q'
 ~~~
 
-The first command writes a file _seia.fe_{: style="color: green"}, the second file _seia2.fe_{: style="color: green"}
+The first command writes a file _seia.fe_{: style="color: green"}, the second _seia2.fe_{: style="color: green"}
 
 The following makes a picture comparing _A_ (solid lines) and <i>A</i><sub>0</sub> (dashed lines),
 majority spin (black) and minority spin (red)
@@ -729,17 +728,17 @@ You can see a weak plasmon peak near &minus;8 eV.
 {:/comment}
 
 This test simulates an ARPES measurement for a point approximately midway
-between $$\Gamma$$ and H, at **q**&cong;0,0,0.45 near where bands cross the Fermi level.
+between &Gamma; and H, at **q**&cong;0,0,0.45 near where bands cross the Fermi level.
 It is done in two ways:
 
 + with the interacting spectral function, but without SO coupling
-+ with The QP spectral function broadened by 0.01 eV, and including the SO coupling.
++ with The QP spectral function broadened by 0.01 eV, and including SO coupling.
 
 ~~~
 $ lmfgws fe `cat switches-for-lm` '--sfuned~units=eV~eps .01~readsek~evsync~pe q=0,0,0.450980392 ib=2,3 nw=10 getev nqf=220 ke0=139-5+14.8 isp=2~savesea~q'
 $ lmfgws fe -vso=1 `cat switches-for-lm` '--sfuned~units=eV~eps .01~qpse~evsync~peqp q=0,0,0.450980392 ib=1:8 nw=10 getev nqf=220 ke0=139-5+14.8 isp=1~savesea~q'
 ~~~
 
-The first command writes a file _pes2.fe_{: style="color: green"}, the second file _pesqp.fe_{: style="color: green"}
+The first command writes a file _pes2.fe_{: style="color: green"}, the second _pesqp.fe_{: style="color: green"}.
 
 ... need to complete
