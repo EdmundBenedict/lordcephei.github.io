@@ -1255,15 +1255,15 @@ Scripts
 
 Symbols
 
-Topic    | subtopic | Instruction       |  Definition                                          | Places to look
-Tic marks |         | -tmx &nbsp; -tmy  | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-          | spacing |
-          | placement |
-          | log scale |
-          | size |
-          | major and minor tics |
-          | user-specified |
-          | algebraic transformation |
+Topic      | Instruction       |  Definition                                          | Places to look
+Tic marks  | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+&nbsp;&nbsp; spacing |  -tmx\|-tmy _spacing_...
+ placement | 
+ log scale |
+ size |
+ major and minor tics |
+ user-specified |
+ algebraic transformation |
 
 ... to be finished
 
