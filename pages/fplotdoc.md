@@ -93,7 +93,7 @@ _Notes:_{: style="color: red"}
 + A square box is drawn around the figure.  You can select the width and height of the box; see the [Frames Exercise](/docs/misc/fplot/#things-about-frames) or try\\
   `$ fplot -frme .1,.9,.3,.7 -ord ...`
 + The abscissa ranges from &minus;0.1 to 2.1; the ordinate from &minus;0.033 to +0.71. They were determined automatically by finding the largest and smallest
-  values in the frame, and padding the bounds by 10%.  You can [set the bounds]((/docs/misc/fplot/#format-switches)) (**-x** and/or **-y**) and
+  values in the frame, and padding the bounds by 10%.  You can [set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
   [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
@@ -232,9 +232,9 @@ fplot
   -font t16
   -tmx 1@5,0,100,200 -tmy '1:1@2'
   -k 90,3,.25
-  -l0 In_\{1-x}Tl_\{x}P  -lt 2,bold=3,1,.5,.2,.5  -ord x2/1e5 -itrp 10,300,5,1,4 mobility.tlinp
-  -l0 In_\{1-x}Tl_\{x}As -lt 2,bold=3,1.5,.5      -ord x3/1e5 -itrp 10,300,5,1,4 mobility.tlinp
-  -l0 Hg_\{x}Cd_\{1-x}Te -lt 1,bold=3             -ord x5/1e5 -itrp 10,300,5,0,4 mobility.tlinp
+  -l0 In_\{1-x}Tl_\{x}P  -lt 2,bold=3,col=.6,.3,.3,1,.5,.2,.5  -ord x2/1e5 -itrp 10,300,5,1,4 mobility.tlinp
+  -l0 In_\{1-x}Tl_\{x}As -lt 2,bold=3,col=.3,.6,.3,1.5,.5      -ord x3/1e5 -itrp 10,300,5,1,4 mobility.tlinp
+  -l0 Hg_\{x}Cd_\{1-x}Te -lt 1,bold=3,col=.3,.3,.6             -ord x5/1e5 -itrp 10,300,5,0,4 mobility.tlinp
 ~~~
 
 <div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -1201,6 +1201,8 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 **-1p**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+&nbsp;&nbsp;&bull; examples:&nbsp;&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+                                         [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
 **-3d**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-ab**\\
@@ -1215,6 +1217,7 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-col**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; example:&nbsp;&nbsp;&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)\\
 **-colsw**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-colsy**\\
@@ -1302,7 +1305,7 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 **-y**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-yn**\\
-&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)
 
 
 {::comment}
