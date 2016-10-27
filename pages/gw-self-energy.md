@@ -111,6 +111,8 @@ The contribution to <i>G</i><sub>0</sub> from QP state _j_ is
 
 $$ G_0^j(k,\omega ) = \frac{1}{\omega  - \omega^j(k)} $$
 
+{::comment}
+
 where $$\omega^j(k)$$ is the pole of _G_<sub>0</sub>.
 
 Write the contribution to _G_ from QP state _j_ as
@@ -181,6 +183,8 @@ $$
 So
 \frac{m_0}{m^*} =
 Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
+
+{:/comment}
 
 In the QS<i>GW</i> case the quantity in parenthesis vanishes.
 
