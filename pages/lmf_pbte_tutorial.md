@@ -47,7 +47,7 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
     $ blm init.pbte                                 #makes template actrl.pbte and site.pbte
     $ cp actrl.pbte ctrl.pbte
     $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
-    $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
+    $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
 
     ... to be finished
 
@@ -250,6 +250,9 @@ If you supply only one number it is copied to elements 2 and 3.
 
 
 ####  4. _Initial setup_
+{::comment}
+/tutorial/lmf/lmf_pbte_tutorial/#initial setup
+{:/comment}
 
 To carry out a self-consistent calculation, we need to prepare the following:
 

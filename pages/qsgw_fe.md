@@ -13,7 +13,7 @@ header: no
 _____________________________________________________________
 
 This tutorial carries out a QSGW calculation for Fe, a bcc magnetic metal.
-It is a starting point for other tutorials, such as the calculation of the
+It is a starting point for other tutorials, in particular the calculation of the
 [dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
 
@@ -65,7 +65,7 @@ This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a
 
 Self-consistency rather necessary in magnetic systems, because the magnetic moment is often not well described by 1-shot GW.
 
-### _Self-consistent LDA calculation of Fe_
+### _Self-consistent LDA calculation for Fe_
 
 QS<i>GW</i> requires a starting point.  We use LDA as it a reasonably
 accurate, and convenient one.
@@ -125,6 +125,24 @@ The switches do the following:
                	 You typically need to run **lmfa**{: style="color: blue"} twice anyway, since it may find some local orbitals and
                  change the valence-core partitioning.  (See the [LDA tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency.)
 
-**blm**{: style="color: blue"} writes the input template to _actrl.fe_{: style="color: green"},
+_Note:_{: style="color: red"} **blm**{: style="color: blue"} writes the input file template to _actrl.fe_{: style="color: green"},
 to avoid overwriting a the _ctrl.fe_{: style="color: green"}, which you may want to preserve.
+
+Generate the free atom density and copy the basis set information it generates to 
+_basp.fe_{: style="color: green"}.  See the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup)
+for further explanation.
+
+~~~
+lmfa fe
+cp basp0.fe basp.fe
+~~~
+
+In this case no local orbitals were generated (inspect _basp.fe_{: style="color: green"} for and **PZ** it has),
+**lmfa**{: style="color: blue"} does not need to be run a second time.
+
+Make the density self-consistent:
+
+~~~
+lmf fe > out.lmf
+~~~
 
