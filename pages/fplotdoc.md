@@ -1201,7 +1201,7 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 **-1p**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-&nbsp;&nbsp;&bull; examples:&nbsp;&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&bull; examples:&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp;
                                          [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
 **-3d**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
@@ -1217,13 +1217,15 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-col**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
-&nbsp;&nbsp;&bull; example:&nbsp;&nbsp;&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)\\
+&nbsp;&nbsp;&bull; examples:&nbsp;&nbsp; [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr), &nbsp; 
+                                         [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)\\
 **-colsw**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-colsy**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-con**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; example:&nbsp;&nbsp;&nbsp; [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)\\
 **-disp**\\
 &nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
 **-ey**\\
