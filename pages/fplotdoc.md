@@ -1199,110 +1199,163 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 #### Command Index
 
-**-h**\\
-
- +  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-
-**-rot**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-pr**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-plm**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-shftm**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-disp**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-plaintext**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-f**\\
-  definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
-**-x**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-y**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-tmx**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-tmy**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-frmt**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-p**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-1p**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-ndpi**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-nx**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-ny**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-aspect**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-3d**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-rotp**\\
-  definition : [FORMAT switches](/docs/misc/fplot/#format-switches)\\
-**-lbl**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-lblx**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-xl**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-font**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-k**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-fmtnx**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-xn**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-xn**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-lt**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-s**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-l**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-tp**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-map**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-itrp**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-ins**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-insf**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-sort**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-bs**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-con**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-r**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-qr**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-br**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-nr**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-nc**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-ab**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-abf**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-ord**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-aspect**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-br**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-bs**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-col**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
-**-colsy**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-colsw**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-colsy**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-con**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-disp**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
 **-ey**\\
-  definition : [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-f**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-fmtnx**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-font**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-frmt**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-h**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-ins**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-insf**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-itrp**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-k**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-l**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-lbl**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-lblx**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-lt**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-map**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-nc**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-ndpi**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-nr**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-nx**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-ny**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-ord**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-p**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-plaintext**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-plm**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-pr**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-qr**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-r**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-rot**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-rotp**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-s**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-shftm**\\
+&nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+**-sort**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-tmx**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-tmy**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-tp**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-x**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-xl**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-xn**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+**-y**\\
+&nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
+**-yn**\\
+&nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 
+
+{::comment}
+  **-h**         definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-rot**       definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-pr**        definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-plm**       definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-shftm**     definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-disp**      definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-plaintext** definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-f**         definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+  **-x**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-y**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-tmx**       definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-tmy**       definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-frmt**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-p**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-1p**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-ndpi**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-nx**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-ny**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-aspect**    definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-3d**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-rotp**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
+  **-lbl**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-lblx**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-xl**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-font**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-k**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-fmtnx**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-xn**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-yn**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-lt**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-s**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-l**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-tp**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-map**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-itrp**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-ins**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-insf**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-sort**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-bs**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-con**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-r**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-qr**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-br**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-nr**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-nc**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-ab**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-abf**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-ord**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-col**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-colsy**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-colsw**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
+  **-ey**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
+{:/comment}
