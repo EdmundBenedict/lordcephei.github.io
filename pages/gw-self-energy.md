@@ -88,12 +88,10 @@ This tutorial will do the following:
 
 + [Generate spectral function](/tutorial/gw/gw-self-energy/#generate-spectral-functions-for-q0) at **q**=0 directly from the _GW_ output
   files _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  (For nonmagnetic calculations, only _SEComg.UP_{: style="color: green"} is made).
-
-+ Use **lmfgws**{: style="color: blue"} to generate the interacting density-of-states (DOS) from Im _G_, compares it to the noninteracting
-  DOS from Im <i>G</i><sub>0</sub> and to the noninteracting DOS generated as an output of an **lmf** band calculation.
-
-+ Use **lmfgws**{: style="color: blue"} to generate to calculate the spectral function <i>A</i>(<b>k</b>,&omega;) for <b>k</b> near the H point.
-  The contribution from band 2 is calculated for spin up; and for spin down, from bands 2 and 3.
++ Use **lmfgws**{: style="color: blue"} to generate [the interacting density-of-states](/tutorial/gw/gw-self-energy/#compare-interacting-and-independent-particle-density-of-states-in-fe)
+ (DOS) from Im _G_, compare it to the noninteracting DOS from Im <i>G</i><sub>0</sub> and to the noninteracting DOS generated as an output of an **lmf** band calculation.
++ Use **lmfgws**{: style="color: blue"} to generate to calculate the [spectral function](/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point) <i>A</i>(<b>k</b>,&omega;) 
+  for <b>k</b> near the H point, and also simulate [photoemission spectra](/tutorial/gw/gw-self-energy/#simulation-of-photoemission-midway-between-the-gamma-and-h-points)
 
 ### _Theory_
 {::comment}
@@ -197,6 +195,8 @@ $$
 G^{j,\mathrm{coh}}(k,\omega) = \left[(\omega  - \omega^j){Z^j}^{-1} - \mathrm{Re} \Sigma (k,\omega^j) + {V_{xc}}(k) - i\mathrm{Im} \Sigma (k,\omega )\right]^{-1}
 $$
 
+{::comment}
+
 Rewrite as
 
 $$
@@ -220,12 +220,17 @@ A_k^{j,\mathrm{coh}}(\omega ) = \frac{Z^j}{\pi}\frac{Z^j\mathrm{Im} \Sigma (k,\o
 $$
 
 
+{:/comment}
+
+
 #### Simulation of Photoemission
 {::comment}
 /tutorial/gw/gw-self-energy/#simulation-of-photoemission
 {:/comment}
 
 (needs cleaning up)
+
+{::comment}
 
 _Energy conservation_ : requires (see Marder, p735, Eq. 23.58)
 
@@ -299,11 +304,12 @@ $$
 {\mathbf{k}}_f = \overline{\mathbf{k}}_f - \Delta{\mathbf{k}}
 $$
 
+{:/comment}
+
 
 ### _Make the GW self-energy_
 {::comment}
 /tutorial/gw/gw-self-energy/#make-the-gw-self-energy
-
 {:/comment}
 
 + If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
