@@ -1202,7 +1202,7 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 **-1p**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 &nbsp;&nbsp;&bull; examples:&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp;
-                                         [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
+                                   [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
 **-3d**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-ab**\\
@@ -1230,12 +1230,19 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 &nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
 **-ey**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; example:&nbsp;&nbsp;&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)\\
 **-f**\\
 &nbsp;&nbsp;&bull; definition: [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)\\
+&nbsp;&nbsp;&bull; examples:&nbsp; [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file),&nbsp;
+                                   [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp;
+                                   [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
 **-fmtnx**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
 **-font**\\
 &nbsp;&nbsp;&bull; definition: [DATA switches](/docs/misc/fplot/#data-switches)\\
+&nbsp;&nbsp;&bull; examples:&nbsp;&nbsp; [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr), &nbsp; 
+                                         [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp), &nbsp;
+                                         [Labels exercise](/docs/misc/fplot/#fun-with-labels)\\
 **-frmt**\\
 &nbsp;&nbsp;&bull; definition: [FORMAT switches](/docs/misc/fplot/#format-switches)\\
 **-h**\\
