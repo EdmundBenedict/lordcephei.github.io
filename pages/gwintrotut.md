@@ -4,12 +4,12 @@ title: "QSGW Tutorial"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/tutorial/gw/qsgw/"
+permalink: "/tutorial/gw/qsgw_si/"
 sidebar: "left"
 header: no
 ---
 <hr style="height:5pt; visibility:hidden;" />
-# Introduction to a QSGW calculation
+## Introduction to a QSGW calculation
 
 ________________________________________________________________________________________________
 

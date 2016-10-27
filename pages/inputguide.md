@@ -291,6 +291,10 @@ _Note:_{: style="color: red"} The tables below list the input systems’ tokens 
 *   The Explanation column describes the token’s function.
 
 ##### _BZ_
+{::comment}
+/docs/input/inputfile/#bz
+{:/comment}
+
 Category BZ holds information concerning the numerical integration of quantities such as energy bands over the Brillouin Zone (BZ). The LMTO programs permit both sampling and tetrahedron integration methods. Both are described in bzintegration.html, and the relative merits of the two different methods are discussed. As implemented both methods use a uniform, regularly spaced mesh of k-points, which divides the BZ into microcells as described here. Normally you specify this mesh by the number of divisions of each of the three primitive reciprocal lattice vectors (which are the inverse, transpose of the lattice vectors PLAT); NKABC below.
 
 These tokens are read by programs that make hamiltonians in periodic crystals (lmf,lm,lmgf,lmpg,tbe). Some tokens apply only to codes that make energy bands, (lmf,lm,tbe).
@@ -360,6 +364,10 @@ When the CONST category is read (it is read before other categories),
 variables a and nspec are defined and used in the SPEC category.
 
 ##### _DYN_
+{::comment}
+/docs/input/inputfile/#dyn
+{:/comment}
+
 Contains parameters for molecular statics and dynamics.
 
 <div onclick="elm = document.getElementById('dyntable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>

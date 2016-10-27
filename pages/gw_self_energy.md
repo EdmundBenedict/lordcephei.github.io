@@ -4,7 +4,7 @@ title: "Making the dynamical GW self energy"
 subheadline: ""
 show_meta: false
 teaser: ""
-permalink: "/tutorial/gw/gw-self-energy/"
+permalink: "/tutorial/gw/gw_self_energy/"
 sidebar: "left"
 header: no
 ---
@@ -27,7 +27,7 @@ _____________________________________________________________
 _____________________________________________________________
 
 
-This tutorial assumes you have completed a QSGW calculation for Fe, following [this tutorial](xxx),
+This tutorial assumes you have completed a QSGW calculation for Fe, following [this tutorial](/tutorial/gw/qsgw_fe/),
 which requires that the GW script **lmgwsc**{: style="color: blue"} is in your path, along with
 the executables it requires.
 In addition it requires **spectral**{: style="color: blue"} and **lmfgws**{: style="color: blue"}.
@@ -69,7 +69,7 @@ Making the spectral function (starting from QS<i>GW</i>)
 
 ### _Introduction_
 
-This tutorial starts after a QSGW calculation for Fe has been completed, in [this tutorial](xxx).
+This tutorial starts after a QSGW calculation for Fe has been completed, in [this tutorial](/tutorial/gw/qsgw_fe/).
 
 The QSGW static self-energy was made with the following command:
 
@@ -86,22 +86,22 @@ _Note:_{: style="color: red"} until that tutorial is written, perform the setup 
 
 This tutorial will do the following:
 
-+ [Generate spectral function](/tutorial/gw/gw-self-energy/#generate-spectral-functions-for-q0) at **q**=0 directly from the _GW_ output
++ [Generate spectral function](/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0) at **q**=0 directly from the _GW_ output
   files _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.  (For nonmagnetic calculations, only _SEComg.UP_{: style="color: green"} is made).
-+ Use **lmfgws**{: style="color: blue"} to generate [the interacting density-of-states](/tutorial/gw/gw-self-energy/#compare-interacting-and-independent-particle-density-of-states-in-fe)
++ Use **lmfgws**{: style="color: blue"} to generate [the interacting density-of-states](/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe)
  (DOS) from Im _G_, compare it to the noninteracting DOS from Im <i>G</i><sub>0</sub> and to the noninteracting DOS generated as an output of an **lmf** band calculation.
-+ Use **lmfgws**{: style="color: blue"} to generate to calculate the [spectral function](/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point) <i>A</i>(<b>k</b>,&omega;) 
-  for <b>k</b> near the H point, and also simulate [photoemission spectra](/tutorial/gw/gw-self-energy/#simulation-of-photoemission-midway-between-the-gamma-and-h-points)
++ Use **lmfgws**{: style="color: blue"} to generate to calculate the [spectral function](/tutorial/gw/gw_self_energy/#spectral-function-of-fe-near-the-h-point) <i>A</i>(<b>k</b>,&omega;) 
+  for <b>k</b> near the H point, and also simulate [photoemission spectra](/tutorial/gw/gw_self_energy/#simulation-of-photoemission-midway-between-the-gamma-and-h-points)
 
 ### _Theory_
 {::comment}
-/tutorial/gw/gw-self-energy/#theory
+/tutorial/gw/gw_self_energy/#theory
 {:/comment}
 
 
 #### _Z_ factor renormalization
 {::comment}
-/tutorial/gw/gw-self-energy/#z-factor-renormalization
+/tutorial/gw/gw_self_energy/#z-factor-renormalization
 {:/comment}
 
 Begin with a noninteracting Green's function <i>G</i><sub>0</sub>, defined through an hermitian, energy-independent exchange-correlation potential
@@ -187,7 +187,7 @@ In the QS<i>GW</i> case the quantity in parenthesis vanishes.
 
 #### Coherent part of the spectral function
 {::comment}
-/tutorial/gw/gw-self-energy/#coherent-part-of-the-spectral-function
+/tutorial/gw/gw_self_energy/#coherent-part-of-the-spectral-function
 {:/comment}
 
 Write $$G^{j,\mathrm{coh}}(k,\omega)$$ as
@@ -222,7 +222,7 @@ $$
 
 #### Simulation of Photoemission
 {::comment}
-/tutorial/gw/gw-self-energy/#simulation-of-photoemission
+/tutorial/gw/gw_self_energy/#simulation-of-photoemission
 {:/comment}
 
 (needs cleaning up)
@@ -303,7 +303,7 @@ $$
 
 ### _Make the GW self-energy_
 {::comment}
-/tutorial/gw/gw-self-energy/#make-the-gw-self-energy
+/tutorial/gw/gw_self_energy/#make-the-gw_self_energy
 {:/comment}
 
 + If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
@@ -312,7 +312,7 @@ $$
 $ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp --stop=sig fe
 ~~~
 
-This step is not necessary if you have completed the [QSGW Fe tutorial](xxx) without removing any files.
+This step is not necessary if you have completed the [QSGW Fe tutorial](/tutorial/gw/qsgw_fe/) without removing any files.
 
 + With your text editor, modify _GWinput_{: style="color: green"}.  Change these two lines:
 
@@ -347,20 +347,20 @@ This step should create _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: st
 
 ### _Generate spectral functions for q=0_
 {::comment}
-/tutorial/gw/gw-self-energy/#generate-spectral-functions-for-q0
+/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0
 {:/comment}
 
 _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} contain the diagonal matrix element
  &Sigma;<sub><i>jj</i></sub>(<b>k</b>,<i>&omega;</i>) for each QP level <i>j</i>, for each irreducible point <b>k</b><i><sub>n</sub></i> in the Brillouin zone, on a
  uniform mesh of points <i>&omega;</i> as specified in the _GWinput_{: style="color: green"} file of the last section.  If the absence of
  interactions, &Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>)=0 so the spectral function would be proportional to
- &delta;(<i>&omega;</i>&minus;<i>&omega;</i><sup>\*</sup>), where <i>&omega;</i>\* is the QP level (see [Theory section](/tutorial/gw/gw-self-energy/#theory)).
+ &delta;(<i>&omega;</i>&minus;<i>&omega;</i><sup>\*</sup>), where <i>&omega;</i>\* is the QP level (see [Theory section](/tutorial/gw/gw_self_energy/#theory)).
 
 Interactions give &Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) an imaginary part which broadens out the level, and in general,
 Re&Sigma;<sub><i>ii</i></sub>(<b>k</b>,<i>&omega;</i>) shifts and renormalizes the quasiparticle weight by _Z_.  As noted in the
-[Theory section](/tutorial/gw/gw-self-energy/#theory), there is no shift if <i>V<sub>xc</sub><sup>j</sup></i> is the QS<i>GW</i> self-energy; there
+[Theory section](/tutorial/gw/gw_self_energy/#theory), there is no shift if <i>V<sub>xc</sub><sup>j</sup></i> is the QS<i>GW</i> self-energy; there
 remains, however, a reduction in the quasiparticle weight.  This will be apparent when
-[comparing the interacting and noninteracting DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states).
+[comparing the interacting and noninteracting DOS](/tutorial/gw/gw_self_energy/#interacting-density-of-states).
 
 The **spectral**{: style="color: blue"} tool has a limited ability to convert raw files _SEComg.{UP,DN}_{: style="color: green"} into spectral functions,
 which this section demonstrates.
@@ -411,7 +411,7 @@ A _sec_{: style="color: green"} files takes the following format:
 ~~~
 
 **spectral**{: style="color: blue"} also makes the _k_-integrated DOS.  However, the _k_ mesh is rather coarse and a
-[better DOS](/tutorial/gw/gw-self-energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
+[better DOS](/tutorial/gw/gw_self_energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
 
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to see spectral's standard output</button></div>
@@ -456,7 +456,7 @@ ________________________________________________________________________________
 
 ### _Dynamical self-energy editor_
 {::comment}
-/tutorial/gw/gw-self-energy/#dynamical-self-energy-editor
+/tutorial/gw/gw_self_energy/#dynamical-self-energy-editor
 {:/comment}
 
 
@@ -471,7 +471,7 @@ in special a format written by the **spectral**{: style="color: blue"} tool.
 
 For definiteness this section assumes that _ext_ is _fe_.
 Starting from _SEComg.UP_{: style="color: green"} (and _SEComg.DN_{: style="color: green"} in the magnetic case)
-[generated by the _GW_ code](/tutorial/gw/gw-self-energy/#make-the-gw-self-energy), use
+[generated by the _GW_ code](/tutorial/gw/gw_self_energy/#make-the-gw_self_energy), use
 **spectral**{: style="color: blue"} to generate _se.fe_{: style="color: green"}:
 
 ~~~
@@ -505,7 +505,7 @@ The editor operates interactively. It reads a command from standard input, execu
 
 #### Editor instructions
 {::comment}
-/tutorial/gw/gw-self-energy/#editor-instructions
+/tutorial/gw/gw_self_energy/#editor-instructions
 {:/comment}
 
 The following summarizes the instruction set of the dynamical self-energy editor.
@@ -614,7 +614,7 @@ unless the editor encounters "quit" instruction `a` or `q`.  See the next sectio
 
 ### _Compare interacting and independent-particle density-of-states in Fe_
 {::comment}
-/tutorial/gw/gw-self-energy/#compare-interacting-and-independent-particle-density-of-states-in-fe
+/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe
 {:/comment}
 
 This section uses the self-energy editor, **lmfgws**{: style="color: blue"},
@@ -626,7 +626,7 @@ $ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 
 ~~~
 
 This invocation runs **lmfgws**{: style="color: blue"} in batch mode, and writes the spectral and noninteracting DOS to file _sdos.fe_{: style="color: green"}.
-The editor's instructions do the following (as explained [here](/tutorial/gw/gw-self-energy/#editor-instructions)):
+The editor's instructions do the following (as explained [here](/tutorial/gw/gw_self_energy/#editor-instructions)):
 
 + units eV\\
   Set units to eV; spectrum DOS will be written in eV.
@@ -698,7 +698,7 @@ _Notes on the figure:_{: style="color: red"}
 
 ### _Spectral Function of Fe near the H point_
 {::comment}
-/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
+/tutorial/gw/gw_self_energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
 
 This example computes the self-energy for a **q** point near the H point.  It is calculated from band 2 for the majority spin and bands 2,3 for the minority spin.
@@ -724,7 +724,7 @@ You can see a weak plasmon peak near &minus;8 eV.
 
 ### _Simulation of photoemission midway between the &Gamma; and H points_
 {::comment}
-/tutorial/gw/gw-self-energy/#spectral-function-of-fe-near-the-h-point
+/tutorial/gw/gw_self_energy/#spectral-function-of-fe-near-the-h-point
 {:/comment}
 
 This test simulates an ARPES measurement for a point approximately midway

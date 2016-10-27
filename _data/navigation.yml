@@ -136,10 +136,12 @@
       content:
       - title: "POSCAR to QSGW"
         url: "/poscar_qsgw/"
-      - title: "QSGW Tutorial"
-        url: "/qsgw/"
+      - title: "Basic QSGW Tutorial: Si"
+        url: "/qsgw_si/"
+      - title: "QSGW Tutorial for Fe"
+        url: "/qsgw_fe/"
       - title: "The GW Self-energy and Spectral Function"
-        url: "/gw-self-energy/"
+        url: "/gw_self_energy/"
     - name: "lmgf"
       prefix: "/lmgf"
       content:
