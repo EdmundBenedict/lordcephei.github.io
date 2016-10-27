@@ -1269,7 +1269,7 @@ Tic marks
 
 #### Command Index
 
-  <i> </i>    | Definition                                           | Places to look
+Instruction   | Definition                                           | Places to look
 **-1p**       |[FORMAT switches](/docs/misc/fplot/#format-switches)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-3d**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-ab**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
@@ -1296,9 +1296,9 @@ Tic marks
 **-l**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-lbl**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-lblx**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-lt**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)&nbsp; [Dot-dashed lines exercise]/docs/misc/fplot/#dot-dashed-lines
+**-lt**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 **-map**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     | 
+**-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-ndpi**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-nr**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nx**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
@@ -1312,14 +1312,15 @@ Tic marks
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
 **-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-tmy**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-tp**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 **-x**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-xl**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-xl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-xn**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-yn**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
