@@ -1272,9 +1272,13 @@ Tic marks
 
 #### Command Index
 
-              | Definition                                          | Examples
-**-1p**       |[FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)\\
-**-3d**       |[FORMAT switches](/docs/misc/fplot/#format-switches) |
+   Character  | Function                                            | xx
+**-1p**       |[FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-3d**       |[FORMAT switches](/docs/misc/fplot/#format-switches) | xx
+   \~{..}     | Greek/Symbol   | xx
+   @{..}      | bold           | xx
+   &{..}      | italic         | xx
+
 
 
 **-1p**\\
