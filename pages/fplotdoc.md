@@ -856,9 +856,6 @@ See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
 {::comment}
 Need to explain
 
-cw in
-+ **-col _cx_,_cy_[,_cw_]**\\
-
 + bs
 
 + more on map.  Eg. variable nr.
@@ -973,7 +970,7 @@ Cut and paste the box below into script file _plot.text_{: style="color: green"}
 fplot -p0 -font h18
 #     -plaintext
       -xl horizontal\'next_h (eV)' -yl 'vertical\next_v'
-      -tp 2~0,0,1,1                   # Digaonal line
+      -tp 2~0,0,1,1                   # Diagonal line
       -lt 1,bold=2 -tp 2~0.3,0,0.3,1  # Vertical line at x=0.3
       -lt 1,bold=2 -tp 2~0,0.4,1,0.4  # Horizontal line at y=0.4
       -font i20
@@ -1272,7 +1269,7 @@ Tic marks
 
 #### Command Index
 
-  <i> </i>    | Definition                                           | Examples
+  <i> </i>    | Definition                                           | Places to look
 **-1p**       |[FORMAT switches](/docs/misc/fplot/#format-switches)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-3d**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-ab**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
@@ -1280,107 +1277,49 @@ Tic marks
 **-aspect**   | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-br**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-bs**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-col**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-col**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-colsw**    | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-colsy**    | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-con**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
-**-disp**     | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-**-ey**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-f**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file),&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-disp**     | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
+**-ey**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-f**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 **-fmtnx**    | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-font**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),&nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-frmt**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-h**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
+**-font**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-frme**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-frmt**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-h**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-ins**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-insf**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-itrp**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-k**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-l**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-lbl**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-itrp**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-k**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-l**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-lbl**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-lblx**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-lt**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-lt**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)&nbsp; [Dot-dashed lines exercise]/docs/misc/fplot/#dot-dashed-lines
 **-map**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     | 
 **-ndpi**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-nr**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nx**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-ny**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-ord**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-p**        | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-plaintext**| [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
+**-ord**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
+**-p**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
+**-plaintext**| [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-plm**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-pr**       | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-qr**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-tmy**      | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-tp**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-x**        | [FORMAT switches](/docs/misc/fplot/#format-switches) |
+**-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-tmy**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**-tp**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
+**-x**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-xl**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-xn**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
-**-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-yn**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
-
-
-
-
-
-{::comment}
-  **-h**         definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-rot**       definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-pr**        definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-plm**       definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-shftm**     definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-disp**      definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-plaintext** definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-f**         definition : [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first)
-  **-x**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-y**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-tmx**       definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-tmy**       definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-frmt**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-p**         definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-1p**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-ndpi**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-nx**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-ny**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-aspect**    definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-3d**        definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-rotp**      definition : [FORMAT switches](/docs/misc/fplot/#format-switches)
-  **-lbl**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-lblx**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-xl**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-font**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-k**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-fmtnx**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-xn**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-yn**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-lt**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-s**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-l**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-tp**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-map**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-itrp**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-ins**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-insf**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-sort**      definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-bs**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-con**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-r**         definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-qr**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-br**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-nr**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-nc**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-ab**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-abf**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-ord**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-col**       definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-colsy**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-colsw**     definition : [DATA switches](/docs/misc/fplot/#data-switches)
-  **-ey**        definition : [DATA switches](/docs/misc/fplot/#data-switches)
-{:/comment}
+**-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-yn**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
