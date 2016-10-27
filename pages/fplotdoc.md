@@ -1255,14 +1255,15 @@ Scripts
 
 Symbols
 
-Tic marks
-  spacing
-  placement
-  log scale
-  size
-  major and minor tics
-  user-specified
-  algebraic transformation
+Topic    | subtopic | Instruction       |  Definition                                          | Places to look
+Tic marks |         | -tmx &nbsp; -tmy  | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+          | spacing |
+          | placement |
+          | log scale |
+          | size |
+          | major and minor tics |
+          | user-specified |
+          | algebraic transformation |
 
 ... to be finished
 
@@ -1313,7 +1314,7 @@ Instruction   | Definition                                           | Places to
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
-**-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
+**-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |[Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-tmy**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
