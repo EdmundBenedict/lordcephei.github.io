@@ -1197,6 +1197,79 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 ### _Index_
 
+#### Subject Index
+
+Contour plots
+
+Data formats
+
+Error bars
+
+Fonts
+  types
+  size
+  
+Frames
+  shape :  height, nonorthogal frames
+  font
+  filling
+  axes, where they are drawn
+  bounds, how they are determined
+  log scale
+  line type and color
+  graph paper
+  numbering
+  tic marks : see tic marks
+  
+Key
+ position
+ spacing
+ line size
+ style
+ legend
+
+Labels
+  position
+  justification
+  filling of label box
+  angle
+  abscissa
+  ordinate
+  title
+
+Lines or curves
+  solid, dotted, dot-dashed
+  color
+  thickness
+  filling
+  clipping
+  color weights
+  breaking when nonmonotomic
+  
+Mapping or transformation of data
+  for ordinate
+  for abscissa
+  interpolation
+  sorting
+  
+Scripts
+  How to include commands in a file
+  Differences with command-line instructions
+
+Symbols
+
+Tic marks
+  spacing
+  placement
+  log scale
+  size
+  major and minor tics
+  user-specified
+  algebraic transformation
+
+... to be finished
+
+
 #### Command Index
 
 **-1p**\\
