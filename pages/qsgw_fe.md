@@ -62,8 +62,7 @@ lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.  Its advantages are briefly described in the [overview](/docs/code/gwoverview/).
 
 This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a fairly large moment of 2.2<i>&mu;<sub>B</sub></i>.
-
-Self-consistency rather necessary in magnetic systems, because the magnetic moment is often not well described by 1-shot GW.
+Self-consistency rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW.
 
 ### _Self-consistent LDA calculation for Fe_
 
