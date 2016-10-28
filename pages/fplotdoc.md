@@ -106,15 +106,15 @@ _Notes:_{: style="color: red"}
   See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + Select the width, height of the frame, and angle between ordinate and abscissa
   + Select which edges of the frame to draw (**-frmt**),
-    or draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
+    or choose some middle point (**-frme:xor** and **-frme:yab**)
   + Shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
   + Control size, color, positioning, numbering of tic marks (**-tmx** and **-tmy**)
 
 + [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font (**-font**).
   Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
-  brackets **{...}**:.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5).
-  ([This table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) indicates which fonts are selected):
-  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`
+  brackets **{...}**.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
+  ([this table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) indicates which fonts are selected):
+  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
   The [Labels exercise](/docs/misc/fplot/#fun-with-labels) provides many illustrations.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
@@ -981,12 +981,12 @@ fplot -p0 -font h18
       -lt 1,bold=2 -tp 2~0.3,0,0.3,1  # Vertical line at x=0.3
       -lt 1,bold=2 -tp 2~0,0.4,1,0.4  # Horizontal line at y=0.4
       -font i20
-      -lblu 0.3,0.4:0 ru 'Above line: @\{ru} justification'
+      -lbl 0.3,0.4:0 ru 'Above line: @\{ru} justification'
       -font b14
-      -lblu 0.3,0.4:1 ld "Below line: &\{ld} justification"
+      -lbl 0.3,0.4:1 ld "Below line: &\{ld} justification"
       -font t18
-      -lblu 0.3,0.2 rc 'Nested subscripts : ~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
-      -lblu 0.3,0.68 lc,rot=40 'At 40^\{o} :  2^\{~\{b}}~\{P}_\{&\{k}^\{2}}=2^\{~\{a}}'
+      -lbl 0.3,0.2 rc 'Nested subscripts : ~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
+      -lbl 0.3,0.68 lc,rot=40 'At 40^\{o} :  2^\{~\{b}}~\{P}_\{&\{k}^\{2}}=2^\{~\{a}}'
       -font h18
       -lbl 0.5,.94 cc "@\{cc} justification with special subscript &\{k}_\{~\{\{\136}}}"
       -lbl 0.2,.89 rc "arrows ~\{\{\253\254\255\256\257}}
@@ -1247,7 +1247,7 @@ _tic marks_                            |
 
 **Key**                                | Instruction       |  Documentation                                          | Example
 |---
-_position_                             |
+_position_                             | -k **_x_,_y_**{: style="color: red"}...  | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _spacing_                              |
 |---
@@ -1261,33 +1261,38 @@ _legend_                               |
 |---
 _position_                             | -lbl **_x_,_y_**{: style="color: red"}&nbsp; ...            | [Labelling switches](/docs/misc/fplot/#labelling-switches)
 |---
-_fill label box_                       | -lbl _x_,_y_**:0\|:1**{: style="color: red"}&nbsp; ...      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_fill label box_                       | -lbl _x_,_y_**:0\|:1**{: style="color: red"}&nbsp; ...      | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_justification_                        | -lbl _x_,_y_ **_cc_**{: style="color: red"}&nbsp; ...       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_justification_                        | -lbl _x_,_y_ **_cc_**{: style="color: red"}&nbsp; ...       | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_rotation_                             | -lbl _x_,_y_ _cc_**,rot=#**{: style="color: red"}&nbsp; ... | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_rotation_                             | -lbl _x_,_y_ _cc_**,rot=#**{: style="color: red"}&nbsp; ... | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_abscissa_                             | **-xl _string_**{: style="color: red"}                      | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_ordinate_                             | **-xl _string_**{: style="color: red"}                      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_ordinate_                             | **-xl _string_**{: style="color: red"}                      | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_title_                                | **-tl _string_**{: style="color: red"}                      |
+_title_                                | **-tl _string_**{: style="color: red"}                      | |
 
-**Lines or curves**                    | Instruction       |  Documentation                                          | Example
+
+**Lines or curves**                    | Instruction       |  Documentation                          | Example
 |---
-_line type (solid, dashed, dots)_      | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
+_line type (solid, dashed, dots)_      | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
-_color_                                | -lt _n_~...**~col=#,#,#**{: style="color: red"}
+_line type (dash-dot)_                 | **-lt 2~...**~#,#,#,#**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#data-switches) | [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 |---
-_thickness_                            | -lt _n_~...**~bold=#**{: style="color: red"}
+_color_                                | -lt _n_~...**~col=#,#,#**{: style="color: red"}|
 |---
-_filling_                              | -lt _n_~...**~fill=#**{: style="color: red"}
+_thickness_                            | -lt _n_~...**~bold=#**{: style="color: red"}   |
 |---
-_clipping_                             | -lt _n_~...**~clip**{: style="color: red"}
+_filling_                              | -lt _n_~...**~fill=#**{: style="color: red"}   |
 |---
-_color weights_                        | -lt _n_~...**~colw=#,#,#[~colw2=#,#,#][~colw3=#,#,#]**{: style="color: red"}
+_clipping_                             | -lt _n_~...**~clip**{: style="color: red"}     |
 |---
-_breaking when nonmonotomic_           | -lt _n_~...**~brk=1**{: style="color: red"}
+_color weights_                        | -lt _n_~...**~colw=#,#,#[~colw2=#,#,#][~colw3=#,#,#]**{: style="color: red"}|
+|---
+_breaking when nonmonotomic_           | -lt _n_~...**~brk=1**{: style="color: red"}    |
+|---
+_multiple columns_                     | **-colsy _list_**{: style="color: red"}        |
 
 **Mapping, transformation of data**    | Instruction       |  Documentation                                          | Example
 |---
