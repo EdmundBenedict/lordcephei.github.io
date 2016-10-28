@@ -926,8 +926,8 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 
 This exercise shows a number of symbols with various kinds of attributes.
 One or several parameters define the size and shape of the symbol.
-The circle can take only one; the "square" one or two, while the wiggle requires five and the arrow six;
-see the dimensioning attributes table in [DATA switches](/docs/misc/fplot/#data-switches).
+The circle can take only one; the "square" one or two, while the wiggle requires five parameters and the arrow six
+(see the dimensioning attributes table in [DATA switches](/docs/misc/fplot/#data-switches)).
 
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
@@ -955,10 +955,12 @@ $ fplot -f plot.wiggle
 $ open fplot.ps
 ~~~
 
+<br>_Notes:_{: style="color: red"}
+
 + `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is scaled by **0.6** the default size.
 + `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
-+ `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (**:**.6,5**) scaled in size (**:.6**,5)
++ `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
 + `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
