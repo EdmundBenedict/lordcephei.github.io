@@ -1249,16 +1249,32 @@ Mapping or transformation of data
   interpolation
   sorting
 
-Topic                                  | Instruction       |  Definition                                          | Example
+Topic                                  | Instruction       |  Documentation                                          | Example
 **Script files**                       | -f                | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _How to include commands in a file_    | |
+&nbsp;&nbsp;&nbsp;&nbsp; _Read instructions from a file_    | **-f _file_**{: style="color: red"} | | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _Differences with command-line instructions_ | |
+&nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
 
 Topic                                  | Instruction       |  Definition                                          | Example
 **Symbols**                            | -s                | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;x              |
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;square         |
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;diamond        |
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;+              |
+&nbsp;&nbsp;&nbsp;&nbsp;polygon        |
+&nbsp;&nbsp;&nbsp;&nbsp;circle         |
+&nbsp;&nbsp;&nbsp;&nbsp;arrow          |
+&nbsp;&nbsp;&nbsp;&nbsp;errbar         |
+&nbsp;&nbsp;&nbsp;&nbsp;timeline       |
+&nbsp;&nbsp;&nbsp;&nbsp;hist           |
+&nbsp;&nbsp;&nbsp;&nbsp;row            |
+&nbsp;&nbsp;&nbsp;&nbsp;wiggle         |
 
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
