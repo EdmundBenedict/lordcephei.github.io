@@ -1196,6 +1196,20 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 #### Subject Index
 
+|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
+| Second body     |            |                 |                |
+| 2 line          |            |                 |                |
+|=================+============+=================+================|
+| Footer row      |            |                 |                |
+|-----------------+------------+-----------------+----------------|
+
+
 Contour plots
 
 Data formats
@@ -1257,13 +1271,12 @@ Symbols
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
 **Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-&nbsp;&nbsp;&nbsp;&nbsp; _spacing_        | -tmx\|-tmy **_spacing_**{: style="color: red"}...
-&nbsp;&nbsp;&nbsp;&nbsp; _placement_      | -tmx\|-tmy ..**,_pos_**{: style="color: red"}...
 &nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-&nbsp;&nbsp;&nbsp;&nbsp; _size_           | -tmx\|-tmy ..**,_rmt_;_rmnt_**...         |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-&nbsp;&nbsp;&nbsp;&nbsp; _major tics_     | 
-&nbsp;&nbsp;&nbsp;&nbsp; _minor tics_     | 
+&nbsp;&nbsp;&nbsp;&nbsp; _major tic size_ | -tmx\|-tmy ..**,_rmt_**{: style="color: red"}  |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&nbsp;&nbsp; _minor tic size_ | -tmx\|-tmy ..**;_rmnt_**{: style="color: red"} |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 &nbsp;&nbsp;&nbsp;&nbsp; _user-specified_ |
+&nbsp;&nbsp;&nbsp;&nbsp; _placement_      | -tmx\|-tmy ..**,_pos_**{: style="color: red"}...
+&nbsp;&nbsp;&nbsp;&nbsp; _spacing_        | -tmx\|-tmy **_spacing_**{: style="color: red"}...
 &nbsp;&nbsp;&nbsp;&nbsp; _mapping_        |
 
 ... to be finished
