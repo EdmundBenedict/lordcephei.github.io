@@ -1249,11 +1249,14 @@ Mapping or transformation of data
   interpolation
   sorting
 
-Scripts
-  How to include commands in a file
-  Differences with command-line instructions
+Topic                                  | Instruction       |  Definition                                          | Example
+**Script files**                       | -f                | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
+|---
+&nbsp;&nbsp;&nbsp;&nbsp; _How to include commands in a file_    | |
+|---
+&nbsp;&nbsp;&nbsp;&nbsp; _Differences with command-line instructions_ | |
 
-Symbols
+
 Topic                                  | Instruction       |  Definition                                          | Example
 **Symbols**                            | -s                | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
 
