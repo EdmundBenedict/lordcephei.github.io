@@ -1243,38 +1243,28 @@ Lines or curves
   color weights
   breaking when nonmonotomic
 
-Mapping or transformation of data
-  for ordinate
-  for abscissa
-  interpolation
-  sorting
+Mapping or transformation of data      | Instruction       |  Documentation                                          | Example
+  for ordinate |
+  for abscissa |
+  interpolation |
+  sorting      |
 
 Topic                                  | Instruction       |  Documentation                                          | Example
 **Script files**                       | -f                | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _Read instructions from a file_    | **-f _file_**{: style="color: red"} | | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
+&nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | | [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
 
 Topic                                  | Instruction       |  Definition                                          | Example
-**Symbols**                            | -s                | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
+**Symbols**                            | -s _type_...      | [DATA switches](/docs/misc/fplot/#data-switches)     | 
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;x              |
+&nbsp;&nbsp;&nbsp;&nbsp;_types_        | -s _type_**{: style="color: red"}... | see **-s** in [DATA switches](/docs/misc/fplot/#data-switches)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;square         |
+&nbsp;&nbsp;&nbsp;&nbsp;arrow          | -s &nbsp;**arrow**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols), &nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;diamond        |
-|---
-&nbsp;&nbsp;&nbsp;&nbsp;+              |
-&nbsp;&nbsp;&nbsp;&nbsp;polygon        |
-&nbsp;&nbsp;&nbsp;&nbsp;circle         |
-&nbsp;&nbsp;&nbsp;&nbsp;arrow          |
-&nbsp;&nbsp;&nbsp;&nbsp;errbar         |
-&nbsp;&nbsp;&nbsp;&nbsp;timeline       |
-&nbsp;&nbsp;&nbsp;&nbsp;hist           |
-&nbsp;&nbsp;&nbsp;&nbsp;row            |
-&nbsp;&nbsp;&nbsp;&nbsp;wiggle         |
+&nbsp;&nbsp;&nbsp;&nbsp;_error bars_   | -ey               | [DATA switches](/docs/misc/fplot/#data-switches)     | [error bar exercise](/docs/misc/fplot/#error-bars)
 
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
