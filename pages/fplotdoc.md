@@ -90,23 +90,19 @@ The following will plot this function in the interval (0,2), with the abscissa s
 
 _Notes:_{: style="color: red"}
 
-+ Points are connected by straight lines.  You can add a symbol at each point with `-s`, e.g. replace `fplot` with\\
++ Points are connected by straight lines.  Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
   `$ fplot -s +:.2 ...`\\
-  or plot the symbol with [no line](/docs/misc/fplot/#data-switches)\\
-  `$ fplot -lt 0 -s diamond:.5`\\
   The [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions enable you to control many aspects of symbols and
-  [line types](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-+ A square box is drawn around the figure.  You can select the width and height of the box; see the [Frames Exercise](/docs/misc/fplot/#things-about-frames) or try\\
-  `$ fplot -frme .1,.9,.3,.7 -ord ...`
-+ The abscissa ranges from &minus;0.1 to 2.1; the ordinate from &minus;0.033 to +0.71. They were determined automatically by finding the largest and smallest
+  [line types](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).  To plot a symbol with no line:\\
+  `$ fplot -lt 0 -s diamond:.5`\\
++ The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined automatically by finding the largest and smallest
   values in the frame, and padding the bounds by 10%.  You can [set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
   [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), e.g.\\
-  `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
+  `$ fplot -x .2,.3 -y .3,.6 -p0 ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
   `$ fplot -frme:ly 0,1,0,1 -ord ...`
-+ There is a great deal of flexibility in how the [frame is drawn](/docs/misc/fplot/#format-switches).  Select the width and height of the box with e.g.\\
-  `$ fplot -frme .1,.9,.3,.7 ...`\\
   See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
+  + Select the width, height of the frame, and angle between ordinate and abscissa
   + By default all four edges of the box are drawn.  You can draw any combination of the four (**-frmt**).
     Or you can draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
   + You can shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
@@ -114,9 +110,8 @@ _Notes:_{: style="color: red"}
 
 + [Labels](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering)
   use Roman symbols by default, but italic, bold, Symbol, superscript and subscript are available by enclosing parts of the string in curly 
-  brackets **{...}**:, for example:
+  brackets **{...}**:.  The following makes a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).\\
   <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</pre>
-  will make a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).\\
   See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
@@ -262,7 +257,7 @@ _Notes on [frame formatting switches](/docs/misc/fplot/#format-switches-govern-f
 + **-p0** suppresses padding of the frame (increasing the range of _x_ and _y_).
 + **-1p** terminates the first pass (two passes are made for each frame to determine bounds of plot).
 + **-yn:r** causes the figure numbering to appear on the right side.
-+ **-font t18** causes the labels to be written in 18 points Times Roman font.
++ **-font t18** causes the labels to be written in 18-point Times Roman font.
 + **-lbl 310,4.0:0 rc "~\{m}"** and **-lbl 250,.21 rc "T(K)"** generate the axes labels.
 + **-font t16** sets the font for subsequent labels.
 + **-tmx 1@5,0,100,200**
@@ -1204,63 +1199,65 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 #### Subject Index
 
-Contour plots
+**Contour plots**                      | Instruction       |  Documentation                                          | Example
 
-Data formats
+**Data formats**                       | Instruction       |  Documentation                                          | Example
 
-Error bars
+**Error bars**                         | Instruction       |  Documentation                                          | Example
 
-Fonts
+**Fonts**                              | Instruction       |  Documentation                                          | Example
   types
   size
 
-Frames
-  shape :  height, nonorthogal frames
-  font
-  filling
-  axes, where they are drawn
-  bounds, how they are determined
-  log scale
-  line type and color
-  graph paper
-  numbering
-  tic marks : see tic marks
+**Frames**                             | Instruction       |  Documentation                                          | Example
+_height and width_                     |
+_nonorthogal axes_                    |
+_font_                                |
+_filling_                             |
+_axes, where they are drawn_          |
+_bounds, how they are determined_     |
+_log scale_                           |
+_line type and color_                 |
+_graph paper_                         |
+_numbering_                           |
+_tic marks_                           |
 
-Key
- position
- spacing
- line size
- style
- legend
+**Key**                                | Instruction       |  Documentation                                          | Example
+_position_                             |
+_spacing_                              |
+_line size_                            |
+_style_                                |
+_legend_                               |
 
-Labels
-  position
-  justification
-  filling of label box
-  angle
-  abscissa
-  ordinate
-  title
+**Labels**                             | Instruction       |  Documentation                                          | Example
+_position_                             |
+_justification_                        |
+_filling of label box_                 |
+_angle_                                |
+_abscissa_                             |
+_ordinate_                             |
+_title_                                |
 
-Lines or curves
-  solid, dotted, dot-dashed
-  color
-  thickness
-  filling
-  clipping
-  color weights
-  breaking when nonmonotomic
+**Lines or curves**                    | Instruction       |  Documentation                                          | Example
+_solid, dotted, dot-dashed_            |
+_color_                                |
+_thickness_                            |
+_filling_                              |
+_clipping_                             |
+_color weights_                        |
+_breaking when nonmonotomic_           |
 
 **Mapping or transformation of data**  | Instruction       |  Documentation                                          | Example
-  for ordinate |
+_ordinate_ |
 |---
-  for abscissa |
+_abscissa_ |
 |---
-  interpolation |
+_interpolation_ |
 |---
-  sorting      |
+_sorting_ |
 
 **Script files**                       | Instruction       |  Documentation                                          | Example
+|---
 &nbsp;&nbsp;&nbsp;&nbsp; _Read instructions from a file_    | **-f _file_**{: style="color: red"} | | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | | [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
