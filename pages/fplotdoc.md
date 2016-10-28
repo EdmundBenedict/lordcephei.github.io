@@ -1254,16 +1254,19 @@ Scripts
   Differences with command-line instructions
 
 Symbols
+Topic                                  | Instruction       |  Definition                                          | Example
+**Symbols**                            | -s                | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
+
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
 **Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-|---
+|--- | :- - -: | |
                                           | -tmx\|-tmy &nbsp;..**@2\|@3\|@4**{: style="color: red"}... &nbsp; (tic marks) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _major tic size_ | -tmx\|-tmy &nbsp;..**,_rmt_**{: style="color: red"}      | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-|--- | :- - -: | |
+|---
 &nbsp;&nbsp;&nbsp;&nbsp; _minor tic size_ | -tmx\|-tmy &nbsp;..**;_rmnt_**{: style="color: red"}     | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _user-specified_ | -tmx\|-tmy &nbsp;..**@5**{: style="color: red"}          | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
