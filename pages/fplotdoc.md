@@ -96,7 +96,7 @@ _Notes:_{: style="color: red"}
   [this example](/docs/misc/fplot/#error-bars).
   To plot a symbol with no line:\\
   `$ fplot -lt 0 -s diamond:0.5`\\
-  **+**,&nbsp; **x**,&nbsp; **+**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**&nbsp; are common symbols.
+  **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**&nbsp; are common symbols.
 + The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined by finding the largest and smallest
   values in the frame, and padding the bounds by 10%.  [Set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
   [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), with e.g.\\
@@ -1217,7 +1217,7 @@ _making a contour plot_                |
 
 **Fonts**                              | Instruction       |  Documentation                                          | Example
 |---
-types_                                 |
+_types_                                |
 |---
 _size_                                 |
 
@@ -1231,9 +1231,9 @@ _font_                                 |
 |---
 _filling_                              |
 |---
-_axes                                  |
+_axes_                                 |
 |---
-_bounds                                |
+_bounds_                               |
 |---
 _log scale_                            |
 |---
@@ -1275,11 +1275,11 @@ _title_                                |
 
 **Lines or curves**                    | Instruction       |  Documentation                                          | Example
 |---
-_solid, dotted, dot-dashed_            |
+_line type_                            | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 |---
-_color_                                |
+_color_                                | -lt _n_~...**~col=#,#,#**{: style="color: red"}
 |---
-_thickness_                            |
+_thickness_                            | -lt _n_~...**bold=#**{: style="color: red"}
 |---
 _filling_                              |
 |---
@@ -1289,15 +1289,19 @@ _color weights_                        |
 |---
 _breaking when nonmonotomic_           |
 
-**Mapping or transformation of data**  | Instruction       |  Documentation                                          | Example
+**Mapping, transformation of data**    | Instruction       |  Documentation                                          | Example
 |---
-_ordinate_ |
+_ordinate_ | **-ord _expr_**{: style="color: red"} |
 |---
-_abscissa_ |
+_abscissa_ | **-ab _expr_**{: style="color: red"} |
 |---
-_interpolation_ |
+_multiple columns_ | **-coly**{: style="color: red"}
 |---
-_sorting_ |
+_select columns_ | **-col**{: style="color: red"}
+|---
+_interpolation_ | **-intrp**{: style="color: red"} |
+|---
+_sorting_ | **-sort**{: style="color: red"} |
 
 **Script files**                       | Instruction       |  Documentation                                          | Example
 |---
@@ -1308,17 +1312,18 @@ _sorting_ |
 |---
 **Symbols**                            | Instruction       |  Definition                                          | Example
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_types_        | **-s _type_**{: style="color: red"}... | [DATA switches](/docs/misc/fplot/#data-switches) | 
+&nbsp;&nbsp;&nbsp;&nbsp;_types_        | **-s _type_**{: style="color: red"}... | [DATA switches](/docs/misc/fplot/#data-switches) | See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**.
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;arrow          | -s &nbsp;**arrow**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols), &nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+&nbsp;&nbsp;&nbsp;&nbsp;_arrow_        | -s &nbsp;**arrow**{: style="color: red"}... |  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_error bars_   | -ey               | [DATA switches](/docs/misc/fplot/#data-switches)     | [error bar exercise](/docs/misc/fplot/#error-bars)
+&nbsp;&nbsp;&nbsp;&nbsp;_wiggly line_  | -s &nbsp;**wiggle**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;_error bars_   | **-ey**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 
-Topic                                  | Instruction       |  Definition                                          | Places to look
-**Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+**Tic marks**                          | Instruction       |  Definition                                          | Places to look
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |--- | :- - -: | |
                                           | -tmx\|-tmy &nbsp;..**@2\|@3\|@4**{: style="color: red"}... &nbsp; (tic marks) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
