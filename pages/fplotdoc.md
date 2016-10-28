@@ -957,12 +957,12 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is scaled by **0.6** the default size.
++ `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is **0.6&times;** the default size.
 + `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
 + `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
-+ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
 + `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
++ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
   tacks an arrowhead onto the line with:\\
