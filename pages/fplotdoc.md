@@ -92,30 +92,30 @@ _Notes:_{: style="color: red"}
 
 + Points are connected by straight lines.  Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
   `$ fplot -s +:0.2 ...`\\
-  See [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions for more details, or
-  [this example](/docs/misc/fplot/#error-bars).
   To plot a symbol with no line:\\
   `$ fplot -lt 0 -s diamond:0.5`\\
   **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**&nbsp; are common symbols.
+  See [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions for other symbols and line types, or
+  [this example](/docs/misc/fplot/#error-bars).
 + The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined by finding the largest and smallest
   values in the frame, and padding the bounds by 10%.  [Set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
   [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), with e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
-  `$ fplot -frme:ly 0,1,0,1 ...`
+  `$ fplot -frme:ly 0,1,0,1 ...`\\
   See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + Select the width, height of the frame, and angle between ordinate and abscissa
-  + Select which of the four edges of the frame to draw (**-frmt**),
+  + Select which edges of the frame to draw (**-frmt**),
     or draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
   + Shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
-  + Control size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**), tic mark numbering and formatting (**-fmtnx** and **-fmtny**)
+  + Control size, color, positioning, numbering of tic marks (**-tmx** and **-tmy**)
 
-+ [Labels](/docs/misc/fplot/#labelling-switches)
-  use Roman symbols by default, but italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
-  brackets **{...}**:.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5).\\
-  (see [this table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) to see how fonts are selected):
-  <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'</pre>.
-  The [Labels exercise](/docs/misc/fplot/#fun-with-labels) has many illustrations.
++ [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font (**-font**).
+  Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
+  brackets **{...}**:.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5).
+  ([This table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) indicates which fonts are selected):
+  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`
+  The [Labels exercise](/docs/misc/fplot/#fun-with-labels) provides many illustrations.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
@@ -466,7 +466,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 ##### _Labelling switches_
 /docs/misc/fplot/#labelling-switches
 
-+ **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
++ **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see this [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
   + Optional &nbsp;**:0**&nbsp; tells **fplot**{: style="color: blue"} to write a label without initially creating a blank box underneath.
@@ -1259,35 +1259,35 @@ _legend_                               |
 
 **Labels**                             | Instruction       |  Documentation                                          | Example
 |---
-_justification_                        |
+_position_                             | -lbl **_x_,_y_**{: style="color: red"}&nbsp; ...            | [Labelling switches](/docs/misc/fplot/#labelling-switches)
 |---
-_filling label box_                    |
+_fill label box_                       | -lbl _x_,_y_**:0\|:1**{: style="color: red"}&nbsp; ...      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_position_                             |
+_justification_                        | -lbl _x_,_y_ **_cc_**{: style="color: red"}&nbsp; ...       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_angle_                                |
+_rotation_                             | -lbl _x_,_y_ _cc_**,rot=#**{: style="color: red"}&nbsp; ... | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_abscissa_                             |
+_abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_ordinate_                             |
+_ordinate_                             | **-xl _string_**{: style="color: red"}                      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_title_                                |
+_title_                                | **-tl _string_**{: style="color: red"}                      |
 
 **Lines or curves**                    | Instruction       |  Documentation                                          | Example
 |---
-_line type_                            | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
+_line type (solid, dashed, dots)_      | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 |---
 _color_                                | -lt _n_~...**~col=#,#,#**{: style="color: red"}
 |---
-_thickness_                            | -lt _n_~...**bold=#**{: style="color: red"}
+_thickness_                            | -lt _n_~...**~bold=#**{: style="color: red"}
 |---
-_filling_                              |
+_filling_                              | -lt _n_~...**~fill=#**{: style="color: red"}
 |---
-_clipping_                             |
+_clipping_                             | -lt _n_~...**~clip**{: style="color: red"}
 |---
-_color weights_                        |
+_color weights_                        | -lt _n_~...**~colw=#,#,#[~colw2=#,#,#][~colw3=#,#,#]**{: style="color: red"}
 |---
-_breaking when nonmonotomic_           |
+_breaking when nonmonotomic_           | -lt _n_~...**~brk=1**{: style="color: red"}
 
 **Mapping, transformation of data**    | Instruction       |  Documentation                                          | Example
 |---
@@ -1366,7 +1366,7 @@ Instruction   | Definition                                           | Places to
 **-itrp**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-k**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-l**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-lbl**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-lbl**      | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-lblx**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-lt**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 **-map**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
