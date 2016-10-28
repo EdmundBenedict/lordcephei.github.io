@@ -1245,7 +1245,7 @@ _size_                                 | -font t**_n_**{: style="color: red"}
 
 **Frames**                             | Instruction       |  Documentation                                          | Example
 |---
-_size_                                 | **-frme _left_,_right_,_bottop_,_top_**{: style="color: red"}... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_size_                                 | **-frme _left_,_right_,_bottop_,_top_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
 _font_                                 | -frme**[:font=_font_]**{: style="color: red"}... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
@@ -1258,25 +1258,23 @@ _nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red
  _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _graph paper_                          | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-|---
 _line thickness_                       | **-frmt th=#**{: style="color: red"}... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+|---
 _axes_                                 | -frmt th=#**,#,#**{: style="color: red"}... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-|---
-_tic marks and numbering_              | | see Tic marks
-|---
 _bounds_                               | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_tic marks and numbering_              | | see Tic marks
 
 **Key**                                | Instruction       |  Documentation                                          | Example
 |---
 _position_                             | -k **_x_,_y_**{: style="color: red"}...  | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 |---
-_line size_                            | -k _x_,_y_**:_spacing_**{: style="color: red"}...  | | 
-_spacing_                              | -k _x_,_y_...**,_spacing_**{: style="color: red"}...  | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_line length_                          | -k _x_,_y_**:_length_**{: style="color: red"}...  | | 
+|---
+vertical _spacing_                     | -k _x_,_y_...**,_spacing_**{: style="color: red"}...  | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _style_                                | -k _x_,_y_...**;_style_**{: style="color: red"}...  | |
-|---
-_legend_                               | **-l _strn_**{: style="color: red"}...  | [DATA switches](/docs/misc/fplot/#data-switches) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_legend_                               | **-l _strn_**{: style="color: red"}...  | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 **Labels**                             | Instruction       |  Documentation                                          | Example
 |---
