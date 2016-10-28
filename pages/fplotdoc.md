@@ -90,6 +90,12 @@ The following will plot this function in the interval (0,2), with the abscissa s
 
 _Notes:_{: style="color: red"}
 
++ Points are connected by straight lines.  You can add a symbol at each point with `-s`, e.g. replace `fplot` with\\
+  `$ fplot -s +:.2 ...`\\
+  or plot the symbol with [no line](/docs/misc/fplot/#data-switches)\\
+  `$ fplot -lt 0 -s diamond:.5`\\
+  The [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions enable you to control many aspects of symbols and
+  [line types](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 + A square box is drawn around the figure.  You can select the width and height of the box; see the [Frames Exercise](/docs/misc/fplot/#things-about-frames) or try\\
   `$ fplot -frme .1,.9,.3,.7 -ord ...`
 + The abscissa ranges from &minus;0.1 to 2.1; the ordinate from &minus;0.033 to +0.71. They were determined automatically by finding the largest and smallest
@@ -98,18 +104,20 @@ _Notes:_{: style="color: red"}
   `$ fplot -x .2,.3 -y .3,.6 -p0 -ord ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
   `$ fplot -frme:ly 0,1,0,1 -ord ...`
-+ There is a great deal of flexibility in how the [frame is drawn](/docs/misc/fplot/#format-switches).  See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
++ There is a great deal of flexibility in how the [frame is drawn](/docs/misc/fplot/#format-switches).  Select the width and height of the box with e.g.\\
+  `$ fplot -frme .1,.9,.3,.7 ...`\\
+  See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + By default all four edges of the box are drawn.  You can draw any combination of the four (**-frmt**).
     Or you can draw the abscissa and ordinate through some middle point (**-frme:xor** and **-frme:yab**)
   + You can shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
-  + There is considerable flexibility in controlling size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**),\\
-    and in tic mark numbering (**-noxn** and **-noyn** and **-xn** and **-yn**), and formatting (**-fmtnx** and **-fmtny**), e.g.\\
-  `$ fplot '-fmtnx:%;2,2d' -fmtny:%e -ord ...`
-+ You can control many aspects of the curve's [line type](/docs/misc/fplot/#data-switches) (**-lt**); see [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-+ There is a great deal of flexibility in making labels.  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.\\
-  The following will make a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).
-  The Greek and italic symbols, subscripts and special character &perp; are accomplished through curly brackets **{...}**:
+  + Control size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**), tic mark numbering and formatting (**-fmtnx** and **-fmtny**)
+
++ [Labels](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering)
+  use Roman symbols by default, but italic, bold, Symbol, superscript and subscript are available by enclosing parts of the string in curly 
+  brackets **{...}**:, for example:
   <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc '~{D}&{k}_{~&#123;&#123;\136&#125;&#125;}/&{k}_{0}'</pre>
+  will make a label &nbsp;&Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub> centered at (1.2,0.5).\\
+  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
@@ -1243,15 +1251,16 @@ Lines or curves
   color weights
   breaking when nonmonotomic
 
-Mapping or transformation of data      | Instruction       |  Documentation                                          | Example
+**Mapping or transformation of data**  | Instruction       |  Documentation                                          | Example
   for ordinate |
+|---
   for abscissa |
+|---
   interpolation |
+|---
   sorting      |
 
-Topic                                  | Instruction       |  Documentation                                          | Example
-**Script files**                       | -f                | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
-|---
+**Script files**                       | Instruction       |  Documentation                                          | Example
 &nbsp;&nbsp;&nbsp;&nbsp; _Read instructions from a file_    | **-f _file_**{: style="color: red"} | | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | | [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
