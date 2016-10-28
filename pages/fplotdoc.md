@@ -587,13 +587,13 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     square        | 2     | width&dagger;          | height&dagger;        |                    |            |                |            |
     diamond       | 3     | width&dagger;          | height&dagger;        |                    |            |                |            |
     +             | 4     | width&dagger;          | height&dagger;        |                    |            |                |            |
-    polygon       | 5     | size            	   | number of sides       | angle&dagger;      |            |                |            |
+    polygon       | 5     | size                   | number of sides       | angle&dagger;      |            |                |            |
     circle        | 6     | radius&dagger;         |                       |                    |            |                |            |
-    arrow         | 7     | &Delta;<i>x</i> 	   | &Delta;<i>y</i>       | head length        | head angle | head-on-axis   | placement&dagger; |
-    errbar        | 8     | width           	   | height&times;<i>z</i> |                    |            |                |            |
-    timeline      | 9     | end height      	   | line thickness        | end thickness      |            |                |            |
-    hist          | 10    | width           	   |                       |                    |            |                |            |
-    row           | 11    | scale           	   | offset                |                    |            |                |            |
+    arrow         | 7     | &Delta;<i>x</i>        | &Delta;<i>y</i>       | head length        | head angle | head-on-axis   | placement&dagger; |
+    errbar        | 8     | width                  | height&times;<i>z</i> |                    |            |                |            |
+    timeline      | 9     | end height             | line thickness        | end thickness      |            |                |            |
+    hist          | 10    | width                  |                       |                    |            |                |            |
+    row           | 11    | scale                  | offset                |                    |            |                |            |
     wiggle        | 12    | &Delta;<i>x</i>        | &Delta;<i>y</i>       | periods            | excursion  | points         |            |
 
   {::nomarkdown}</div>{:/}
@@ -1257,13 +1257,14 @@ Symbols
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
 **Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-&nbsp;&nbsp;&nbsp;&nbsp; **_spacing_**              	| -tmx\|-tmy **_spacing_**...
-&nbsp;&nbsp;&nbsp;&nbsp; **_placement_**            	| -tmx\|-tmy ..**,_pos_**...
-&nbsp;&nbsp;&nbsp;&nbsp; **_log scale_**            	| -frme**:lx**\|-frme**:ly**\|-frme**:lxy** | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-&nbsp;&nbsp;&nbsp;&nbsp; **_size_**                 	| 
-&nbsp;&nbsp;&nbsp;&nbsp; **_major and minor tics_** 	| 
-&nbsp;&nbsp;&nbsp;&nbsp; **_user-specified_**       	|
-&nbsp;&nbsp;&nbsp;&nbsp; **_algebraic transformation_** |
+&nbsp;&nbsp;&nbsp;&nbsp; **_spacing_**        | -tmx\|-tmy **_spacing_**...
+&nbsp;&nbsp;&nbsp;&nbsp; **_placement_**      | -tmx\|-tmy ..**,_pos_**...
+&nbsp;&nbsp;&nbsp;&nbsp; **_log scale_**      | -frme**:lx**\|-frme**:ly**\|-frme**:lxy** |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&nbsp;&nbsp; **_size_**           | -tmx\|-tmy ..**,_rmt_;_rmnt_**...         |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&nbsp;&nbsp; **_major tics_**     | 
+&nbsp;&nbsp;&nbsp;&nbsp; **_minor tics_**     | 
+&nbsp;&nbsp;&nbsp;&nbsp; **_user-specified_** |
+&nbsp;&nbsp;&nbsp;&nbsp; **_mapping_**        |
 
 ... to be finished
 
