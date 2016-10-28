@@ -467,7 +467,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 /docs/misc/fplot/#labelling-switches
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
-  writes **_string_** at (**_x_**, **_y_**).  For examples, see this [exercise on labels](/docs/misc/fplot/#fun-with-labels).
+  writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
   + Optional &nbsp;**:0**&nbsp; tells **fplot**{: style="color: blue"} to write a label without initially creating a blank box underneath.
   + **_cc_**  is a sequence of two characters specifying the justification of **_string_**.\\
@@ -589,6 +589,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
   {::nomarkdown}<div>{:/}
 
+  This table lists the dimensioning attributes for each symbol.
+
   <b><i>S</i></b> | index | sym1                   | sym2                  | sym3               | sym4       | sym5           | sym6       |
     x             | 1     | width&dagger;          | height&dagger;        |                    |            |                |            |
     square        | 2     | width&dagger;          | height&dagger;        |                    |            |                |            |
@@ -628,14 +630,14 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.\\
-  [This exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols) illustrates the wiggle and arrow symbols.
+  [This exercise](/docs/misc/fplot/#on-symbols) illustrates the wiggle and arrow symbols, among others
 
 + **-ey _n_[,&Delta;,_yshft_]**\\
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
   Optional **&Delta;** controls the width the the bar (1 is default).  The error bar is offset from the
   point center by **_yshft_**.  This can be used in place of, or in conjuction with **-s**.\\
-  See this [error bar exercise](/docs/misc/fplot/#error-bars) for an example.
+  See the [error bar exercise](/docs/misc/fplot/#error-bars) for an example.
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -706,7 +708,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   substitute **_expr_** for the ordinate.
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   Many examples appear in document,
-  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols).
+  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#on-symbols).
 + **-ab  _expr_**\\
   substitute **_expr_** for the abscissa.\\
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
@@ -894,7 +896,7 @@ $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,
 
 + An error bar is drawn first, using column 3 (**-ey 3,.75**).  The **.75** scales the default with of the horizontal lines in the error bar symbol by 0.75.
 + A filled circle is drawn after the error bar, concealing part of it.
-+ No line is drawn connecting points: **lt 0** suppresses connecting lines.
++ No line is drawn connecting points: **-lt 0** psuppresses connecting lines](/docs/misc/fplot/#data-switches).
 
 <br>
 
@@ -917,17 +919,26 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 
 <br>
 
-#### Wiggle and arrow symbols
+#### On symbols
 {::comment}
-/docs/misc/fplot/#wiggle-and-arrow-symbols
+/docs/misc/fplot/#on-symbols
 {:/comment}
 
-This exercise shows applications of the wiggly line symbol, together with the arrow symbol.
+This exercise shows a number of symbols with various kinds of attributes.
+One or several parameters define the size and shape of the symbol.
+The circle can take only one; the "square" one or two, while the wiggle requires five and the arrow six;
+see the dimensioning attributes table in [DATA switches](/docs/misc/fplot/#data-switches).
+
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
 ~~~
 fplot
   -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
+  -s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7
+  -s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7
+  -s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63
+  -s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55
+  -s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
   -lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
   -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
@@ -944,7 +955,12 @@ $ fplot -f plot.wiggle
 $ open fplot.ps
 ~~~
 
++ `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is scaled by **0.6** the default size.
++ `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
++ `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (**:**.6,5**) scaled in size (**:.6**,5)
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
++ `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
 + `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
   tacks an arrowhead onto the line with:\\
@@ -960,8 +976,9 @@ $ open fplot.ps
 
 ##### _Things to try_
 
-Play with the last line, and see what happens as you change the **fill** value between 0 and 3,
-and the **bold** value between 0 and 5.
++ Eliminate the second argument of the diamond dimensioning parmeters (**:.6,1**), or play with both arguments and observe how the symbol changes
++ 
++ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between 0 and 5.
 
 <br>
 
@@ -1207,18 +1224,22 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 **Contour plots**                      | Instruction       |  Documentation                                          | Example
 |---
-_making a contour plot_                | **-con**          | [DATA switches](/docs/misc/fplot/#data-switches)        | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+_draw contours_                        | **-con**          | [DATA switches](/docs/misc/fplot/#data-switches)        | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
-**Data formats**                       | Instruction       |  Documentation                                          | Example
+|---
+**Data formats**                       | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+|---
 |---
 
-**Error bars**                         | See Symbols
+|---
+**Error bars**                         | See Symbols, below
+|---
 
 **Fonts**                              | Instruction       |  Documentation                                          | Example
 |---
-_types_                                |
+_types_                                | **-font t**{: style="color: red"}_n_ \| **-font h**{: style="color: red"}_n_    | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_size_                                 |
+_size_                                 | -font t**_n_**{: style="color: red"}
 
 **Frames**                             | Instruction       |  Documentation                                          | Example
 |---
@@ -1232,7 +1253,7 @@ _suppress filling_                     | -frme**[:nofill]**{: style="color: red"
 |---
 _nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red"}... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+ _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _graph paper_                          | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
@@ -1310,39 +1331,41 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 
 **Script files**                       | Instruction       |  Documentation                                          | Example
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _Read instructions from a file_    | **-f _file_**{: style="color: red"} | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
+ _Read instructions from a file_    | **-f _file_**{: style="color: red"} | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
+ _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
 |---
 **Symbols**                            | Instruction       |  Definition                                          | Example
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_types_        | **-s _type_**{: style="color: red"}... | [DATA switches](/docs/misc/fplot/#data-switches) | See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**.
+_types_        | **-s _type_**{: style="color: red"}... | [DATA switches](/docs/misc/fplot/#data-switches) | See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) for **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**.
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_arrow_        | -s &nbsp;**arrow**{: style="color: red"}... |  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_arrow_        | -s &nbsp;**arrow**{: style="color: red"}... |  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_wiggly line_  | -s &nbsp;**wiggle**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols)
+_wiggly line_  | -s &nbsp;**wiggle**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#on-symbols)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches) | [Error bar exercise](/docs/misc/fplot/#error-bars)
+_pentagram_   | -s &nbsp;**poly:_size_,5**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#on-symbols)
+|---
+_error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches) | [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 
 **Tic marks**                          | Instruction       |  Definition                                          | Places to look
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+ _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |--- | :- - -: | |
                                           | -tmx\|-tmy &nbsp;..**@2\|@3\|@4**{: style="color: red"}... &nbsp; (tic marks) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _major tic size_ | -tmx\|-tmy &nbsp;..**,_rmt_**{: style="color: red"}      | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_major tic size_ | -tmx\|-tmy &nbsp;..**,_rmt_**{: style="color: red"}      | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _minor tic size_ | -tmx\|-tmy &nbsp;..**;_rmnt_**{: style="color: red"}     | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_minor tic size_ | -tmx\|-tmy &nbsp;..**;_rmnt_**{: style="color: red"}     | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _user-specified_ | -tmx\|-tmy &nbsp;..**@5**{: style="color: red"}          | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_user-specified_ | -tmx\|-tmy &nbsp;..**@5**{: style="color: red"}          | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _placement_      | -tmx\|-tmy &nbsp;..**,_pos_**{: style="color: red"}...   | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_placement_      | -tmx\|-tmy &nbsp;..**,_pos_**{: style="color: red"}...   | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}...  | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}...  | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-&nbsp;&nbsp;&nbsp;&nbsp; _mapping_        | **-abf _expr_**{: style="color: red"}
+_mapping_        | **-abf _expr_**{: style="color: red"}
 
 #### Command Index
 
@@ -1389,7 +1412,7 @@ Instruction   | Definition                                           | Places to
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Wiggly lines exercise](/docs/misc/fplot/#on-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
 **-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |[Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
