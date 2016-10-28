@@ -92,12 +92,14 @@ _Notes:_{: style="color: red"}
 
 + Points are connected by straight lines.  Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
   `$ fplot -s +:0.2 ...`\\
-  The [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions enable you to control many aspects of symbols and
-  [line types](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).  To plot a symbol with no line:\\
-  `$ fplot -lt 0 -s diamond:0.5`
+  See [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions for more details, or
+  [this example](/docs/misc/fplot/#error-bars).
+  To plot a symbol with no line:\\
+  `$ fplot -lt 0 -s diamond:0.5`\\
+  **+**,&nbsp; **x**,&nbsp; **+**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**&nbsp; are common symbols.
 + The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined by finding the largest and smallest
-  values in the frame, and padding the bounds by 10%.  You can [set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
-  [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), e.g.\\
+  values in the frame, and padding the bounds by 10%.  [Set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
+  [specify the padding](/docs/misc/fplot/#format-switches) (**-pad**), with e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
   `$ fplot -frme:ly 0,1,0,1 ...`
@@ -108,11 +110,12 @@ _Notes:_{: style="color: red"}
   + Shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
   + Control size, color, positioning of major and minor tic marks (**-tmx** and **-tmy**), tic mark numbering and formatting (**-fmtnx** and **-fmtny**)
 
-+ [Labels](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering)
-  use Roman symbols by default, but italic, bold, Symbol, superscript and subscript are available by enclosing parts of the string in curly 
-  brackets **{...}**:.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>/<i>+&Delta;<i>x</i>, centered at (1.2,0.5).\\
-  <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'</pre>
-  See the [Labels exercise](/docs/misc/fplot/#fun-with-labels) for illustrations.
++ [Labels](/docs/misc/fplot/#labelling-switches)
+  use Roman symbols by default, but italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
+  brackets **{...}**:.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5).\\
+  (see [this table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) to see how fonts are selected):
+  <pre>$ fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'</pre>.
+  The [Labels exercise](/docs/misc/fplot/#fun-with-labels) has many illustrations.
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
@@ -437,8 +440,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 <br>_Notes:_{: style="color: red"}
 
-1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped
-   into other fonts, depending on the character preceding the brackets.
+1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
+   The font depends on the character preceding the brackets, as this table shows.
 
    {::nomarkdown}<div>{:/}
 
@@ -461,6 +464,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
 ##### _Labelling switches_
+/docs/misc/fplot/#labelling-switches
 
 + **-lbl[um] _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see this [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -1199,8 +1203,11 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 #### Subject Index
 
+<br>
+
 **Contour plots**                      | Instruction       |  Documentation                                          | Example
 |---
+_making a contour plot_                |
 
 **Data formats**                       | Instruction       |  Documentation                                          | Example
 |---
@@ -1224,9 +1231,9 @@ _font_                                 |
 |---
 _filling_                              |
 |---
-_axes, where they are drawn_           |
+_axes                                  |
 |---
-_bounds, how they are determined_      |
+_bounds                                |
 |---
 _log scale_                            |
 |---
@@ -1298,11 +1305,10 @@ _sorting_ |
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
-
-Topic                                  | Instruction       |  Definition                                          | Example
-**Symbols**                            | -s _type_...      | [DATA switches](/docs/misc/fplot/#data-switches)     | 
 |---
-&nbsp;&nbsp;&nbsp;&nbsp;_types_        | -s _type_**{: style="color: red"}... | see **-s** in [DATA switches](/docs/misc/fplot/#data-switches)
+**Symbols**                            | Instruction       |  Definition                                          | Example
+|---
+&nbsp;&nbsp;&nbsp;&nbsp;_types_        | **-s _type_**{: style="color: red"}... | [DATA switches](/docs/misc/fplot/#data-switches) | 
 |---
 &nbsp;&nbsp;&nbsp;&nbsp;arrow          | -s &nbsp;**arrow**{: style="color: red"}... |  | [Wiggly lines exercise](/docs/misc/fplot/#wiggle-and-arrow-symbols), &nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
