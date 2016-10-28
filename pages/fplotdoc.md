@@ -1257,13 +1257,13 @@ Symbols
 
 Topic                                  | Instruction       |  Definition                                          | Places to look
 **Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-&nbsp;&nbsp;&nbsp;&nbsp; _spacing_     | -tmx\|-tmy _spacing_...
-&nbsp;&nbsp;&nbsp;&nbsp; _placement_   | -tmx\|-tmy ..,_pos_...
-&nbsp;&nbsp;&nbsp;&nbsp; _log scale_   |
-&nbsp;&nbsp;&nbsp;&nbsp; _size_ |
-&nbsp;&nbsp;&nbsp;&nbsp; _major and minor tics_ | 
-&nbsp;&nbsp;&nbsp;&nbsp; _user-specified_ |
-&nbsp;&nbsp;&nbsp;&nbsp; _algebraic transformation_ |
+&nbsp;&nbsp;&nbsp;&nbsp; **_spacing_**              	| -tmx\|-tmy **_spacing_**...
+&nbsp;&nbsp;&nbsp;&nbsp; **_placement_**            	| -tmx\|-tmy ..**,_pos_**...
+&nbsp;&nbsp;&nbsp;&nbsp; **_log scale_**            	| -frme**:lx**\|-frme**:ly**\|-frme**:lxy** | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;&nbsp;&nbsp;&nbsp; **_size_**                 	| 
+&nbsp;&nbsp;&nbsp;&nbsp; **_major and minor tics_** 	| 
+&nbsp;&nbsp;&nbsp;&nbsp; **_user-specified_**       	|
+&nbsp;&nbsp;&nbsp;&nbsp; **_algebraic transformation_** |
 
 ... to be finished
 
