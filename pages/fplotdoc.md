@@ -1255,10 +1255,11 @@ Scripts
 
 Symbols
 
-Topic                                  | Instruction       |  Definition                                          | Places to look
+                                       | Instruction       |  Definition                                          | Places to look
 **Tic marks**                          | -tmx\|-tmy        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-                                          | xx
+|---
+&nbsp;&nbsp;&nbsp;&nbsp; _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} (axes) | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+                                          | -tmx\|-tmy ..**@2\|@3\|@4**{: style="color: red"}...  (tic marks)
 |---
 &nbsp;&nbsp;&nbsp;&nbsp; _major tic size_ | -tmx\|-tmy ..**,_rmt_**{: style="color: red"}  |  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
