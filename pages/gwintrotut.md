@@ -21,7 +21,23 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> QSGW - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-Each iteration of a QSGW calculation has two main parts: a DFT calculation for input parameters and a GW calculation to obtain a self-energy. The full-potential code (lmf script) carries out the DFT calculation, while the GW code (lmgw) calculates the self-energy. When iterating to self-consistency, there is movement between the DFT and GW parts and this is handled by the script lmgwsc.  
+Each iteration of a QSGW calculation has two main parts: a one-body calculation that makes the density _n_, and the _GW_ code that makes the self-energy.
+For quaisparticle self-consistency, the _GW_ code makes a "quasiparticlized" self-energy &Sigma;<sup>0</sup>, which feeds back to the one-body code.
+Before any _GW_ self-energy is made, the one-body hamiltonian is usually the LDA, though it can be something else, e.g. LDA+U.  
+
+The one-body executable is **lmf**{: style="color: blue"}.  The _GW_ code is run through shell script, **lmgw**{: style="color: blue"},
+which in turn runs a sequence of executables to make the self-energy.  Another code, **lmfgwd**{: style="color: blue"} is a driver similar
+to **lmf**{: style="color: blue"} but whose purpose is to set up inputs for the _GW_ code.  **lmgwsc**{: style="color: blue"} is a shell
+script that manages the entire cycle, including
+
+
+
+
+for input parameters and a GW calculation to obtain a
+self-energy. The full-potential code (lmf script) carries out the DFT calculation, while the GW code (lmgw) calculates the self-energy. When
+iterating to self-consistency, there is movement between the DFT and GW parts and this is handled by the script lmgwsc.
+
+
 In short, a QSGW calculation consists of the following steps. The starting point is a self-consistent DFT calculation (usually LDA). The DFT eigenfunctions and eigenvalues are used by the GW code to construct a full self-energy, which is then converted into an effective exchange-correlation potential (here we call it the GW potential). At this point we have finished a single iteration. In the next iteration, the GW potential is used in a self-consistent DFT calculation to obtain new eigenfunctions and eigenvalues. In turn, these are then used to form a new self-energy, which is converted into a new GW potential. This process is repeated until the change in the root mean square difference between the self-energy of the current and previous iteration is below a certain tolerance value. The final self-consistent self-energy (QSGW potential) is an effective exchange-correlation functional, tailored to the system, that can be conveniently used within the standard DFT setup to calculate properties such as the band structure.   
 
 {::nomarkdown}</div>{:/}
