@@ -974,7 +974,9 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is **0.6&times;** the default size.
+
+
++ `-s circ:fill=3:bold=0:col=.8,0,0.:.8,50,250 -tp 2~.3,0.7` draws an incomplete red circle (50<sup>o</sup>-350<sup>o</sup>).  The size is **0.8&times;** the default size.
 + `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
 + `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
@@ -996,8 +998,9 @@ $ open fplot.ps
 ##### _Things to try_
 
 + Eliminate the second argument of the diamond dimensioning parameters (**:.6,1**), or play with both arguments and observe how the symbol changes.
++ Vary the dimensions argument of the circle; also note what happens when you use **fill=0**.
 + Change the line thickness in the cross symbol (**:bold=6**) and observe how the symbol changes.
-+ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between 0 and 5.
++ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between -1 and 5.
 + Play with the various dimensioning arguments in the arrow symbol. (<b>:-.15/4,0.16/4,.99,25,.9</b>).  Append the optional 6<sup>th</sup> argument (placement),
   If you append **,0** nothing changes; but appending **,1** places the back of the arrow where the tip was.
 
