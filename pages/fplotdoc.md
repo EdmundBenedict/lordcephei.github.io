@@ -1357,11 +1357,11 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 ##### _Symbols_
 
 |---
-               | Instruction                             |  Definition                                      | Example
+<i> </i>       | Instruction                             |  Definition                                      | Example
 |---
-               | **-s **{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
+&nbsp;         | **-s **{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
 |---
-_types_        | **-s +\|x\|circ\|square\|wiggle\|arrow\|...**{: style="color: red"} | | [Symbols exercise](/docs/misc/fplot/#on-symbols)
+_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | | [Symbols exercise](/docs/misc/fplot/#on-symbols)
 |---
 _arrow_        | -s &nbsp;**arrow**{: style="color: red"} ... |  | [Frames Exercise](/docs/misc/fplot/#things-about-frames), [Symbols exercise](/docs/misc/fplot/#on-symbols)
 |---
