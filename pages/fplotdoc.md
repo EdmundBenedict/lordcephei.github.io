@@ -1368,21 +1368,21 @@ _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/
 
 &nbsp;           | Instruction                           |  Definition/Example | Notes
 |---
-&nbsp;           | **-tmx\|-tmy**{: style="color: red"} &nbsp;**_spacing_&hellip;   | [FORMAT switches](/docs/misc/fplot/#format-switches) 
+&nbsp;           | **-tmx\|-tmy**{: style="color: red"} &nbsp;_spacing_&hellip;   | [FORMAT switches](/docs/misc/fplot/#format-switches) 
 |---
-_spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}_&hellip;    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}&hellip;   | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_placement_      | -tmx\|-tmy &nbsp;**_spacing_**,_pos_**{: style="color: red"}     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_No. tics /major tic_| -tmx\|-tmy &nbsp;_spacing_**:_mt_**{: style="color: red"}  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_No. tics /major tic_| -tmx\|-tmy &nbsp;**_spacing_**:_mt_**{: style="color: red"}  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_placement_      | -tmx\|-tmy &nbsp;_spacing_**,_pos_**{: style="color: red"}     | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_major tic size_ | -tmx\|-tmy &nbsp;**_spacing_**,_rmt_**{: style="color: red"}     | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_major tic size_ | -tmx\|-tmy &nbsp;_spacing_**,_rmt_**{: style="color: red"}     | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_minor tic size_ | -tmx\|-tmy &nbsp;**_spacing_**;_rmnt_**{: style="color: red"}    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_minor tic size_ | -tmx\|-tmy &nbsp;_spacing_**;_rmnt_**{: style="color: red"}    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_for log scale_  | -tmx\|-tmy &nbsp;**_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with **-frme:lx** or **-frme:ly**
+_for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with **-frme:lx** or **-frme:ly**
 |---
-_user-specified_ | -tmx\|-tmy &nbsp;**_spacing_**@5**{: style="color: red"}       | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
+_user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
 _mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#data-switches) 
 
 
