@@ -1354,7 +1354,7 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 |---
  _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
-##### _Symbols_
+###### _Symbols_
 
 |---
 &nbsp;         | Instruction                             |  Definition/Example
@@ -1362,7 +1362,6 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 &nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
 |---
 _types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#on-symbols)
-|---
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 
