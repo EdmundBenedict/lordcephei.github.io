@@ -503,7 +503,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 + <b>-noxn \| -noyn </b>\\
   suppress abscissa (ordinate) axis numbering.
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
-  place abscissa (ordinate) axis numbering on right (top) side.
+  place abscissa (ordinate) axis numbering on top (right) side.
 
 + **-font t# &nbsp;&nbsp;\|&nbsp;&nbsp; -font h# &nbsp;&nbsp;\|&nbsp;&nbsp; -font i# &nbsp;&nbsp;\|&nbsp;&nbsp; -font b# &nbsp;&nbsp;\|&nbsp;&nbsp; -font s#**\\
   Sets the font for labels following this switch to Times Roman (**t**), Helvetica (**h**), italic (**i**), bold (**b**) or symbol (**s**) font.
@@ -1384,7 +1384,8 @@ _for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"
 |---
 _user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
 _mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#data-switches) 
-
+_numbering, suppress | **-noxn\|-noyn**{: style="color: red"}                     | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_numbering, placement | **-xn:t \|-yn:r**{: style="color: red"}                   | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
 
 #### Command Index
 {::comment}
@@ -1423,6 +1424,8 @@ Instruction   | Definition                                           | Places to
 **-map**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-ndpi**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
+**-noxn**     | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-noyn**     | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-nr**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nx**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-ny**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
@@ -1443,7 +1446,7 @@ Instruction   | Definition                                           | Places to
 **-tp**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 **-x**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-xl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-xn**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-xn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-yn**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | 
