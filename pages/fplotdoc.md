@@ -1357,18 +1357,13 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 ##### _Symbols_
 
 |---
-<i> </i>       | Instruction                             |  Definition                                      | Example
+&nbsp;         | Instruction                             |  Definition/Example
 |---
-&nbsp;         | **-s **{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
+&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
 |---
-_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | | [Symbols exercise](/docs/misc/fplot/#on-symbols)
+_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#on-symbols)
 |---
-_arrow_        | -s &nbsp;**arrow**{: style="color: red"} ... |  | [Frames Exercise](/docs/misc/fplot/#things-about-frames), [Symbols exercise](/docs/misc/fplot/#on-symbols)
-|---
-_wiggly line_  | -s &nbsp;**wiggle**{: style="color: red"} ... |  | [Symbols exercise](/docs/misc/fplot/#on-symbols)
-|---
-_pentagram_   | -s &nbsp;**poly:_size_,5**{: style="color: red"} ... |  | [Symbols exercise](/docs/misc/fplot/#on-symbols)
-_error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches) | [Error bar exercise](/docs/misc/fplot/#error-bars)
+_error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 
 **Tic marks**                          | Instruction       |  Definition  | Notes                                 | Places to look
