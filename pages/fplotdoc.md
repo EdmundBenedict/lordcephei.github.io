@@ -1256,7 +1256,11 @@ _file structure_        | See [notes on data format](/docs/misc/fplot/#structure
 **Error bars**          | Instruction       |  Documentation                                    |Notes| Example
                         | **-ey _n_**{: style="color: red"}       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also Symbols (**-s**{: style="color: red"}) | [Error bar exercise](/docs/misc/fplot/#error-bars)
 
+x
+
 **Fonts**                              | Instruction       |  Documentation                                          | Example
+|---
+                       | **-font**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | 
 |---
 _types_                | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
