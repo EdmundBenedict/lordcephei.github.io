@@ -611,7 +611,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     diamond       | 3     | width&dagger;          | height&dagger;        |                    |            |                |            |
     +             | 4     | width&dagger;          | height&dagger;        |                    |            |                |            |
     polygon       | 5     | size                   | number of sides       | angle&dagger;      |            |                |            |
-    circle        | 6     | radius&dagger;         |                       |                    |            |                |            |
+    circle        | 6     | radius&dagger;         | initial angle&dagger; | final angle&dagger;|            |                |            |
     arrow         | 7     | &Delta;<i>x</i>        | &Delta;<i>y</i>       | head length        | head angle | head-on-axis   | placement&dagger; |
     errbar        | 8     | width                  | height&times;<i>z</i> |                    |            |                |            |
     timeline      | 9     | end height             | line thickness        | end thickness      |            |                |            |
@@ -951,7 +951,7 @@ Cut and paste the box below into script file _plot.wiggle_{: style="color: green
 ~~~
 fplot
   -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
-  -s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7
+  -s circ:fill=3:bold=0:col=.8,0,0.:.8,50,250 -tp 2~.3,0.7
   -s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7
   -s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63
   -s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55
