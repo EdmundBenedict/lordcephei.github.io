@@ -1258,11 +1258,10 @@ _file structure_        | See [notes on data format](/docs/misc/fplot/#structure
 
 **Fonts**                              | Instruction       |  Documentation                                          | Example
 |---
-                       | **-font**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | 
-|---
 _types_                | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
 _size_                 | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+
 
 **Frames**                             | Instruction       |  Documentation/Notes                            | Example
 |---
@@ -1278,7 +1277,7 @@ _suppress filling_                     | -frme**[:nofill]**{: style="color: red"
 |---
 _nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red"}... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+ _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _graph paper_                          | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _line thickness_                       | **-frmt th=#**{: style="color: red"}... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
