@@ -1289,9 +1289,12 @@ _line thickness_                       | -frmt **th=#**{: style="color: red"} ..
 _which axes_                           | -frmt th=#**,#,#**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _bounds_                               | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
-**Key**                                | Instruction       |  Documentation                                          | Example
+###### _Keys_
+
+
+&nbsp;                                 | Instruction       |  Documentation/Example
 |---
-                                       | **-k**{: style="color: red"}              | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;                                 | **-k**{: style="color: red"}              | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _position_                             | -k **_x_,_y_**{: style="color: red"} ...  | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
@@ -1319,14 +1322,15 @@ _abscissa_                             | **-xl _string_**{: style="color: red"} 
 _ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches) |
 
+###### _Line types_
 
-**Line types**                         | Instruction       |  Documentation                          | Example
+&nbsp;                                 | Instruction       |  Documentation                          | Example
 |---
-_line type (solid, dashed, dots)_      | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+solid, dashed, dotted lines_           | **-lt _n_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)
 |---
 _dash-dot lines_                       | -lt 2~**~#,#,#,#**{: style="color: red"} | | [Dot-dashed lines exercise](/docs/misc/fplot/#dot-dashed-lines)
 |---
-_color_                                | -lt _n_**~col=#,#,#**{: style="color: red"}| | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_color_                                | -lt _n_**~col=_r,g,b_**{: style="color: red"}| | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _thickness_                            | -lt _n_**~bold=#**{: style="color: red"}   | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
@@ -1344,11 +1348,13 @@ _columns for abscissa, ordinate_ | **-col**{: style="color: red"} | [DATA switch
 _abscissa_ | **-ab _expr_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#data-switches)      |
 _ordinate_ | **-ord _expr_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)      | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
 _multiple columns_ | **-colsy**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)   |
-_rearrange data_   | **-map**{: style="color: red"}   | [DATA switches](/docs/misc/fplot/#data-switches)   |
+_rearrange or exclude data_   | **-map**{: style="color: red"}   | [DATA switches](/docs/misc/fplot/#data-switches)   |
 _interpolate_      | **-itrp**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)    | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)    |
 
-**Script files**                       | Instruction       |  Documentation                                           | Example
+###### _Script files_
+
+&nbsp;                     | Instruction       |  Documentation                                           | Example
 |---
  _Read instructions from a file_    | **-f _file_**{: style="color: red"} | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 |---
@@ -1359,7 +1365,7 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 |---
 &nbsp;         | Instruction                             |  Definition/Example
 |---
-&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) | 
+&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) |
 |---
 _types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#on-symbols)
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
@@ -1368,7 +1374,7 @@ _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/
 
 &nbsp;           | Instruction                           |  Definition/Example | Notes
 |---
-&nbsp;           | **-tmx\|-tmy**{: style="color: red"} &nbsp;_spacing_&hellip;   | [FORMAT switches](/docs/misc/fplot/#format-switches) 
+&nbsp;           | **-tmx\|-tmy**{: style="color: red"} &nbsp;_spacing_&hellip;   | [FORMAT switches](/docs/misc/fplot/#format-switches)
 |---
 _spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}&hellip;   | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
@@ -1382,10 +1388,10 @@ _minor tic size_ | -tmx\|-tmy &nbsp;_spacing_**;_rmnt_**{: style="color: red"}  
 |---
 _for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with **-frme:lx** or **-frme:ly**
 |---
-_user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
-_mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#data-switches) 
-_numbering, suppress | **-noxn\|-noyn**{: style="color: red"}                     | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-_numbering, placement | **-xn:t \|-yn:r**{: style="color: red"}                   | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
+_user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_numbering, suppress_ | **-noxn\|-noyn**{: style="color: red"}                    | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_numbering, placement_ | **-xn:t \|-yn:r**{: style="color: red"}                  | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#data-switches)
 
 #### Command Index
 {::comment}
@@ -1449,4 +1455,4 @@ Instruction   | Definition                                           | Places to
 **-xn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | 
+**-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  |
