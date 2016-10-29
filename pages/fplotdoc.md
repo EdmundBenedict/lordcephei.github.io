@@ -471,7 +471,10 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
 ##### _Labelling switches_
+{::comment}
 /docs/misc/fplot/#labelling-switches
+{/:comment}
+
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -682,7 +685,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   sort data in ascending abscissa order (after mapping).
 
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
-  special mode for contour plots. **_flist_** is a list of real numbers; specify with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
+  special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values of the function.  
+  Specify with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
   This mode draws contours of constant &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
   on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
@@ -1245,82 +1249,94 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 <br>
 
-**Contour plots**   | Instruction                    |  Documentation                                    | Example
-|---
-                    | **-con**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)  | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+_Contour plots_
 
-**Data formats**    |  Documentation                                          | Example
+&nbsp;            | Instruction                    |  Documentation                                    | Example
 |---
-_file structure_    | See [notes on data format](/docs/misc/fplot/#structure-of-data-files) | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+                  | **-con**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)  | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
-**Error bars**      | Instruction       |  Documentation                                    |Notes| Example
-                    | **-ey _n_**{: style="color: red"}       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also Symbols (**-s**{: style="color: red"}) | [Error bar exercise](/docs/misc/fplot/#error-bars)
+_Data formats_
 
-**Fonts**           | Instruction                     |  Documentation                                             | Example
+&nbsp;            |  Documentation                                          | Example
 |---
-                    | **-font**{: style="color: red"} | [LABELLING switches](/docs/misc/fplot/#labelling-switches) |
-|---
-_types_             | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-|---
-_size_              | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_default file structure_  | See [notes on data format](/docs/misc/fplot/#structure-of-data-files) | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+_specifying file format   | **-r**{: style="color: red"}
 
-**Frames**                             | Instruction       |  Documentation/Notes                            | Example
+_Error bars_
+
+&nbsp;            | Instruction       |  Documentation                                    |Notes| Example
+                  | **-ey _n_**{: style="color: red"}       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also Symbols (**-s**{: style="color: red"}) | [Error bar exercise](/docs/misc/fplot/#error-bars)
+
+_Fonts_
+
+&nbsp;            | Instruction                     |  Documentation                                             | Example
 |---
-                                       | **-frme**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) |
+                  | **-font**{: style="color: red"} | [LABELLING switches](/docs/misc/fplot/#labelling-switches) |
 |---
-_size_                                 | -frme **_left_,_right_,_bottop_,_top_**{: style="color: red"} | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_types_           | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_font_                                 | -frme**[:font=_font_]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_size_            | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+
+_Frames_
+
+&nbsp;            | Instruction       |  Documentation/Example | Notes
 |---
-_fill color_                           | -frme**[:col=#,#,#]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+                  | **-frme**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 |---
-_suppress filling_                     | -frme**[:nofill]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_size_            | -frme **_left_,_right_,_bottop_,_top_**{: style="color: red"} | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_font_            | -frme**[:font=_font_]**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_fill color_      | -frme**[:col=#,#,#]**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_graph paper_                          |                                               | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_suppress filling_| -frme**[:nofill]**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_line type_                            | **-frmt**{: style="color: red"}               | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_nonorthogal axes_| -frme**[:theta=#]**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_line thickness_                       | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_log scale_      |="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | See also Tic marks, _log scale_
 |---
-_which axes_                           | -frmt th=#**,#,#**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-_bounds_                               | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_graph paper_     |                                               | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+|---
+_line type_       | **-frmt**{: style="color: red"}               | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+|---
+_line thickness_  | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+|---
+_which axes_      | -frmt th=#**,#,#**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_bounds_          | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 ###### _Keys_
 
-
 &nbsp;                                 | Instruction       |  Documentation/Example
 |---
-&nbsp;                                 | **-k**{: style="color: red"}              | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+&nbsp;                                 | **-k**{: style="color: red"}              | [LABELLING switches](/docs/misc/fplot/#labelling-switches)
 |---
-_position_                             | -k **_x_,_y_**{: style="color: red"} ...  | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_position_                             | -k **_x_,_y_**{: style="color: red"} ...  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 |---
-_line length_                          | -k _x_,_y_**:_length_**{: style="color: red"} ...  | |
+_key line length_                      | -k _x_,_y_**:_length_**{: style="color: red"}
 |---
-vertical _spacing_                     | -k _x_,_y_...**,_spacing_**{: style="color: red"} ...  | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_vertical spacing_                     | -k _x_,_y_...**,_spacing_**{: style="color: red"} ...  | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _style_                                | -k _x_,_y_...**;_style_**{: style="color: red"} ...  | |
 _legend_                               | **-l _strn_**{: style="color: red"} ...  | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
-**Labels**                             | Instruction       |  Documentation                                          | Example
+_Labels_
+
+&nbsp;                                 | Instruction       |  Documentation/Example
 |---
-                                       | **-lbl**{: style="color: red"}                               | [Labelling switches](/docs/misc/fplot/#labelling-switches)
+&nbsp;                                 | **-lbl**{: style="color: red"}                              | [Labelling switches](/docs/misc/fplot/#labelling-switches)
 |---
-_position_                             | -lbl **_x_,_y_**{: style="color: red"}&nbsp; ...            | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_position_                             | -lbl **_x_,_y_**{: style="color: red"}&nbsp; ...            | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_fill label box_                       | -lbl _x_,_y_**:0\|:1**{: style="color: red"}&nbsp; ...      | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_fill label box_                       | -lbl _x_,_y_**:0\|:1**{: style="color: red"}&nbsp; ...      | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_justification_                        | -lbl _x_,_y_ **_cc_**{: style="color: red"}&nbsp; ...       | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_justification_                        | -lbl _x_,_y_ **_cc_**{: style="color: red"}&nbsp; ...       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_rotation_                             | -lbl _x_,_y_ _cc_**,rot=#**{: style="color: red"}&nbsp; ... | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_rotation_                             | -lbl _x_,_y_ _cc_**,rot=#**{: style="color: red"}&nbsp; ... | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _group of labels_                      | **-lblx**{: style="color: red"} \| **-lbly**{: style="color: red"} | [Labelling switches](/docs/misc/fplot/#labelling-switches)
-_abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-_ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-_title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches) |
+_abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches)
 
 ###### _Line types_
 
@@ -1342,7 +1358,9 @@ _color weights_                        | -lt _n_**~colw=#,#,#[~colw2=#,#,#][~col
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
-**Mapping, transformation of data**    | Instruction       |  Documentation                                          | Example
+_Mapping and transformation of data_
+
+&nbsp;                           |   Instruction                  |  Documentation                                   | Example
 |---
 _columns for abscissa, ordinate_ | **-col**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) |
 _abscissa_ | **-ab _expr_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#data-switches)      |

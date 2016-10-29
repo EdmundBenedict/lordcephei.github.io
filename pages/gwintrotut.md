@@ -29,8 +29,8 @@ In short, a QSGW calculation consists of the following steps. The starting point
 <hr style="height:5pt; visibility:hidden;" />
 ### Command summary
 ________________________________________________________________________________________________
-<div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
+<div onclick="elm = document.getElementById('command'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
 
     $ cp lm/doc/demos/qsgw-si/init.si .                    #copy init file to working directory
     $ blm init.si --express --gmax=5 --nk=4 --nit=20 --gw  #use blm tool to create actrl and site files
