@@ -26,6 +26,9 @@ Questaal codes into easy-to-read files [with a simple data format](/docs/misc/fp
 
 For quick reference, there is a handy [concept index](/docs/misc/fplot/#concept-index).
 
+[try this](#ref-errbar)
+[and this](/docs/misc/fplot/#ref-errbar)
+
 _____________________________________________________________
 
 ### _Table of Contents_
@@ -1252,7 +1255,7 @@ _draw contours_                        | **-con**          | [DATA switches](/do
 
 **Data formats**                       |  Documentation                                          | Example
 |---
-_structure of file data                | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+_file structure_                       | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
 
 [qref-errbar]: qref-errbar
 
