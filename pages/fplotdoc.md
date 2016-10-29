@@ -1250,8 +1250,11 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 |---
 _draw contours_                        | **-con**          | [DATA switches](/docs/misc/fplot/#data-switches)        | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
-**Data formats**                       | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+**Data formats**                       |  Documentation                                          | Example
 |---
+_structure of file data                | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+
+[qref-errbar]: qref-errbar
 
 **Error bars**                         | Instruction       |  Documentation                                    |Notes| Example
 _add error bars_                       | **-ey _n_**       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also **-s** | [Error bar exercise](/docs/misc/fplot/#error-bars)
