@@ -1251,7 +1251,7 @@ _draw contours_         | **-con**          | [DATA switches](/docs/misc/fplot/#
 
 **Data formats**        |  Documentation                                          | Example
 |---
-_file structure_        | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+_file structure_        | See [notes on data format](/docs/misc/fplot/#structure-of-data-files) | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
 **Error bars**          | Instruction       |  Documentation                                    |Notes| Example
                         | **-ey _n_**       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also **-s** | [Error bar exercise](/docs/misc/fplot/#error-bars)
