@@ -1364,21 +1364,27 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 _types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#on-symbols)
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
 
+###### _Tic marks_
 
-**Tic marks**                          | Instruction       |  Definition  | Notes                                 | Places to look
+&nbsp;           | Instruction                           |  Definition/Example | Notes
 |---
-_spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"} ...  | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+&nbsp;           | **-tmx\|-tmy**{: style="color: red"} &nbsp;**_spacing_&hellip;   | [FORMAT switches](/docs/misc/fplot/#format-switches) 
 |---
-_major tic size_ | -tmx\|-tmy &nbsp;..**,_rmt_**{: style="color: red"}      | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_spacing_        | -tmx\|-tmy &nbsp;**_spacing_**{: style="color: red"}_&hellip;    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_minor tic size_ | -tmx\|-tmy &nbsp;..**;_rmnt_**{: style="color: red"}     | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_placement_      | -tmx\|-tmy &nbsp;**_spacing_**,_pos_**{: style="color: red"}     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
-_for log scale_ | -tmx\|-tmy &nbsp;..**@2\|@3\|@4**{: style="color: red"} ... | | Use with **-frme:lx** or **-frme:ly** | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_No. tics /major tic_| -tmx\|-tmy &nbsp;**_spacing_**:_mt_**{: style="color: red"}  | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_user-specified_ | -tmx\|-tmy &nbsp;..**@5**{: style="color: red"}          | | | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_major tic size_ | -tmx\|-tmy &nbsp;**_spacing_**,_rmt_**{: style="color: red"}     | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_placement_      | -tmx\|-tmy &nbsp;..**,_pos_**{: style="color: red"} ...   | | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-_mapping_        | **-abf _expr_**{: style="color: red"}                    | [DATA switches](/docs/misc/fplot/#data-switches)     |
+_minor tic size_ | -tmx\|-tmy &nbsp;**_spacing_**;_rmnt_**{: style="color: red"}    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+|---
+_for log scale_  | -tmx\|-tmy &nbsp;**_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with **-frme:lx** or **-frme:ly**
+|---
+_user-specified_ | -tmx\|-tmy &nbsp;**_spacing_**@5**{: style="color: red"}       | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) 
+_mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#data-switches) 
+
 
 #### Command Index
 {::comment}
