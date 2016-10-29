@@ -1277,7 +1277,7 @@ _suppress filling_                     | -frme**[:nofill]**{: style="color: red"
 |---
 _nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red"}... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
- _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} &nbsp; (axes) | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
 _graph paper_                          | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _line thickness_                       | **-frmt th=#**{: style="color: red"}... | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
