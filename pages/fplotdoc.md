@@ -1249,13 +1249,13 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 <br>
 
-_Contour plots_
+###### _Contour plots_
 
 &nbsp;            | Instruction                    |  Documentation                                    | Example
 |---
                   | **-con**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)  | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
-_Data formats_
+###### _Data formats_
 
 &nbsp;            |  Documentation                                          | Example
 |---
@@ -1264,12 +1264,12 @@ _instructions to specify file format_ | **-r**{: style="color: red"}
 _specify number of columns_ | -r**:nc=_n_**{: style="color: red"}
 
 
-_Error bars_
+###### _Error bars_
 
 &nbsp;            | Instruction       |  Documentation/Example | Notes
 &nbsp;            | **-ey _n_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars) | See also Symbols (**-s**{: style="color: red"}) |
 
-_Fonts_
+###### _Fonts_
 
 &nbsp;            | Instruction                     |  Documentation                                             | Example
 |---
@@ -1279,7 +1279,7 @@ _types_           | -font **t**{: style="color: red"}_n_ \| -font **h**{: style=
 |---
 _size_            | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 
-_Frames_
+###### _Frames_
 {::comment}
 /docs/misc/fplot/#frames
 {:/comment}
@@ -1325,7 +1325,7 @@ _vertical spacing_                     | -k _x_,_y_...**,_spacing_**{: style="co
 _style_                                | -k _x_,_y_...**;_style_**{: style="color: red"} ...  | |
 _legend_                               | **-l _strn_**{: style="color: red"} ...  | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
-_Labels_
+###### _Labels_
 
 &nbsp;                                 | Instruction       |  Documentation/Example
 |---
@@ -1363,7 +1363,7 @@ _color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="c
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
-_Mapping and transformation of data_
+###### _Mapping and transformation of data_
 
 &nbsp;                           |   Instruction                  |  Documentation                                   | Example
 |---
