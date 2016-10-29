@@ -1245,6 +1245,9 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 {:/comment}
 
 
+<a name="qref-errbar"></a>
+
+
 #### Concept Index
 {::comment}
 /docs/misc/fplot/#concept-index
@@ -1252,16 +1255,16 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 <br>
 
-**Contour plots**                      | Instruction       |  Documentation                                          | Example
+**Contour plots**       | Instruction       |  Documentation                                          | Example
 |---
-_draw contours_                        | **-con**          | [DATA switches](/docs/misc/fplot/#data-switches)        | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+_draw contours_         | **-con**          | [DATA switches](/docs/misc/fplot/#data-switches)        | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 
-**Data formats**                       |  Documentation                                          | Example
+**Data formats**        |  Documentation                                          | Example
 |---
-_file structure_                       | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
+_file structure_        | See [notes on data format](/docs/misc/fplot/#structure-of-data-files)
 
-**Error bars**                         | Instruction       |  Documentation                                    |Notes| Example
-_add error bars_                       | **-ey _n_**       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also **-s** | [Error bar exercise](/docs/misc/fplot/#error-bars)
+**Error bars**          | Instruction       |  Documentation                                    |Notes| Example
+                        | **-ey _n_**       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also **-s** | [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 **Fonts**                              | Instruction       |  Documentation                                          | Example
 |---
