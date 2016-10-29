@@ -1256,27 +1256,27 @@ _file structure_        | See [notes on data format](/docs/misc/fplot/#structure
 **Error bars**          | Instruction       |  Documentation                                    |Notes| Example
                         | **-ey _n_**{: style="color: red"}       | [DATA switches](/docs/misc/fplot/#data-switches)  | See also Symbols (**-s**{: style="color: red"}) | [Error bar exercise](/docs/misc/fplot/#error-bars)
 
-**Fonts**              | Instruction       |  Documentation                                          | Example
+**Fonts**                              | Instruction       |  Documentation                                          | Example
 |---
-                       | **-font**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) | 
+                                       | **-font**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_types_                | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_types_                                | **-font t**{: style="color: red"}_n_ \| **-font h**{: style="color: red"}_n_    | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_size_                 | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_size_                                 | -font t**_n_**{: style="color: red"}
 
-**Frames**             | Instruction       |  Documentation/Notes                            | Example
+**Frames**                             | Instruction       |  Documentation/Notes                            | Example
 |---
-                       | **-frme**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) |
+                                       | **-frme**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 |---
-_size_                 | -frme **_left_,_right_,_bottop_,_top_**{: style="color: red"} | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_size_                                 | -frme **_left_,_right_,_bottop_,_top_**{: style="color: red"} | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_font_                 | -frme**[:font=_font_]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_font_                                 | -frme**[:font=_font_]**{: style="color: red"} ... | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_fill color_           | -frme**[:col=#,#,#]**{: style="color: red"} ...   | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_fill color_                           | -frme**[:col=#,#,#]**{: style="color: red"} ...   | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_suppress filling_     | -frme**[:nofill]**{: style="color: red"} ...      | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_suppress filling_                     | -frme**[:nofill]**{: style="color: red"} ...      | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_nonorthogal axes_     | -frme**[:theta=#]**{: style="color: red"} ...     | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
+_nonorthogal axes_                     | -frme**[:theta=#]**{: style="color: red"} ...     | | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
 _log scale_      | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | See log scale in "tic marks" | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 |---
