@@ -1361,8 +1361,7 @@ explains how the shift was calculated.
 
 _Notes:_{: style="color: red"}
 
-+ Bubbles are assembled out of 4 parts: two half-circles, a first rectangle with a frame around it, and without a frame to blank
-  out lines inside the bubble.
++ Bubbles are assembled out of 4 parts: two half-circles, and two rectangles (the second has no frame to blank out lines inside the bubble).
 + Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the
   [Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
 + The long curved arrow was made with an arc (**circle** symbol), using\\
