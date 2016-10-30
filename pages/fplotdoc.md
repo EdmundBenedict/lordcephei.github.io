@@ -670,7 +670,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
   Switch is operative only if a key was originally specified.\\
-  See [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) for an example
+  See [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 
 + **-tp [_nc_~]_list_**\\
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).\\
@@ -698,19 +698,22 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   sort data in ascending abscissa order (after mapping).
 
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
-  special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values of the function.
-  Specify with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
-  This mode draws contours of constant &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
+  special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values
+  &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
+  Specify the list with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
   on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
   Elements in a fixed COLUMN comprise data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
   Elements in a fixed ROW commprise data on a uniform mesh parallel to ordinate, _f_(<i>x</i>=const,<i>y<sub>i</sub></i>).\\
   Bottom and top (left and right) edges of frame correspond to first and last columns (rows) of data.\\
   Options separator &nbsp;'**~**'&nbsp; can be a different character such as &nbsp;'**:**'&nbsp; or &nbsp;'**,**'.
-  + **dup=#1[,#2]** Duplicate row (col) data #1 (#2) times
-  + **fn=_filename_** writes _xy_ pen moves to file **_filename_**.
-  + **noclose** suppresses closing contours on boundaries.
+  + **dup=#1[,#2]** &nbsp;   Duplicate row (col) data #1 (#2) times
+  + **fn=_filename_** &ensp; writes _xy_ pen moves to file **_filename_**.
+  + **noclose** &emsp;&ensp; suppresses closing contours on boundaries.
 
+
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
+  print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.\\
   See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.
 
 + **-r:switches [other DATA-switches] _data-file_**\\
