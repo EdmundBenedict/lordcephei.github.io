@@ -556,9 +556,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &nbsp; dotted line.
   + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
-  + **col=#,#,#**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=#,#,#**  &nbsp;&nbsp;                   First color weight when line is to be drawn with color weights.
-  + **colw2=#,#,#**                          Second color weight when line is to be drawn with color weights.
+  + **col=_r_,_g_,_b_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
+  + **colw=_r_,_g_,_b_**  &nbsp;&nbsp;                   First color weight when line is to be drawn with color weights.
+  + **colw2=_r_,_g_,_b_**                          Second color weight when line is to be drawn with color weights.
   + **clip**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clips curves when they go outside the frame
   + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
     + 1 &nbsp; color line with color given by **col**
@@ -583,7 +583,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Optional switches are separated by **~** (or the character following **_S_**):
   + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. **bold=0** => fill symbol without contour.
+  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. 
+    + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
+    + <b>_b_</b>+10 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
     + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
@@ -974,7 +976,7 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s circ:fill=3:bold=0:col=.8,0,0.:.6 -tp 2~.3,0.7` draws a small red circle.  The size is **0.6&times;** the default size.
++ `-s circ:fill=3:bold=0:col=.8,0,0.:.8,50,250 -tp 2~.3,0.7` draws an incomplete red circle (50-350<sup>o</sup>), **0.8&times;** default size
 + `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
 + `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
@@ -995,11 +997,12 @@ $ open fplot.ps
 
 ##### _Things to try_
 
-+ Eliminate the second argument of the diamond dimensioning parameters (**:.6,1**), or play with both arguments and observe how the symbol changes.
++ Eliminate or change the second argument of the diamond dimensioning parameters (**:.6,1**), and observe how the symbol changes.
++ Vary the three dimensioning arguments of the circle; also note what happens when you use **fill=0**.
 + Change the line thickness in the cross symbol (**:bold=6**) and observe how the symbol changes.
-+ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between 0 and 5.
++ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between -1 and 5.
 + Play with the various dimensioning arguments in the arrow symbol. (<b>:-.15/4,0.16/4,.99,25,.9</b>).  Append the optional 6<sup>th</sup> argument (placement),
-  If you append **,0** nothing changes; but appending **,1** places the back of the arrow where the tip was.
+  If you append &nbsp;**,0**&nbsp; nothing changes; but appending &nbsp;**,1**&nbsp; places the back of the arrow to where the tip was.
 
 <br>
 
