@@ -952,15 +952,15 @@ Cut and paste the box below into script file _plot.wiggle_{: style="color: green
 
 ~~~
 fplot
-  -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
+  -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn
   -s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62
   -s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7
   -lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7
   -s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55
   -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6  
-  -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
-  -lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
-  -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
+  -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5
+  -lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5
+  -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -tp 2~0.8,.5-.05
 ~~~
 
 <div onclick="elm = document.getElementById('figw'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -976,26 +976,32 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**bold=6**{: style="color: red"}) cross, compressed along _y_ (**:1,.6**{: style="color: red"})
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross, compressed along _y_ (:1,**.6**{: style="color: red"})
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle, 
    default size (<b>:1</b>{: style="color: red"},50,250)
-+ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**) diamond, elongated along _y_ (**1,1.6**{: style="color: red"}).
-   Adding 100 to **bold** (**:bold=103**) causes the diamond to be framed in blue (**-lt 0,col=.1,.2,1**)
-+ `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue pentagram (<b>:</b>.6**,5**{: style="color: red"}) **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
++ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
+   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in blue (**-lt 0,col=.1,.2,1**{: style="color: red"})
++ `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue pentagram 
+  (<b>:</b>.6**,5**{: style="color: red"}),&nbsp; **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
 + `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) rectangle ("square" with unequal (_x_,_y_)=(**:.6,5**{: style="color: red"})
-+ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
++ `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
-+ `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
++ `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5`
   tacks an arrowhead onto the line with:\\
-  &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**)\\
-  &nbsp;&nbsp; Tip at data point (**0.5,0.5**)\\
-  &nbsp;&nbsp; Tail at position **(&minus;0.15/4,0.16/4)** in graphics units, relative to head;\\
+  &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**{: style="color: red"})\\
+  &nbsp;&nbsp; Tip at data point (**0.5,0.5**{: style="color: red"})\\
+  &nbsp;&nbsp; Tail at position (**&minus;0.15/4,0.16/4**{: style="color: red"}) in graphics units, relative to head;\\
   &nbsp;&nbsp; thus the arrowhead line point at the same angle as the wiggle but is 1/4 size.\\
   &nbsp;&nbsp; Wings with length **0.99 &times; [size of tail]**, subtending angle 25<sup>o</sup>.\\
   &nbsp;&nbsp; Arrowhead touches line of tail at **0.9&times;[length of tail].**
++ `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -tp 2~0.8,.5-.05`
+  creates a wiggly line :\\
+  &ensp; along the _x_ axis (**:-.35,0.00**{: style="color: red"})\\
+  &ensp; with half a period (:-.35,0.00**,0.5**{: style="color: red"})\\
+  excursion 0.1&times; length of line (-.35,0.00,0.5,**.1**{: style="color: red"})\\
+  using 40 points (-.35,0.00,0.5,.1,**40**{: style="color: red"})\\
 
-+ `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8`
-  creates a wiggly line with only half a period, and then fills the symbol with yellow-green (**col=.5,1,0**).
+ and then fills the symbol with yellow-green (**col=.5,1,0**).
 
 ##### _Things to try_
 
