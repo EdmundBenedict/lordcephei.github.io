@@ -554,7 +554,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type i
+  + **_n_**         &emsp; line type j
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
@@ -584,30 +584,36 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches are separated by **~** (or the character following **_S_**):
-  + **col=_r_,_g_,_b_** &emsp;                fill color or color of symbol contour, [RGB units](/docs/misc/fplot/#color-specification)
-  + **clip**      &emsp;&emsp;&emsp;&thinsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &emsp;&ensp;&nbsp;          line thickness for symbol contour.
+  + **col=_r_,_g_,_b_** &emsp;                fill color or color of symbol contour, [RGB units](/docs/misc/fplot/#color-specification).
+  + **clip**      &emsp;&emsp;&emsp;&thinsp;  If present, clips symbols that fall outside frame.
+  + **bold=_b_**  &emsp;&ensp;&nbsp;          line thickness for symbol contour.  Special cases:
     + <b>_b_</b>=&minus;1   &emsp;&nbsp;      fill symbol, but do not draw border (useful for only symbols that are filled)
-    + <b>_b_</b>+100 &ensp;&nbsp; Add 100 to <b>_b_</b> to draw contour with color taken from **-lt**, rendering fill and border colors distinct.
+    + <b>_b_</b>+100 &ensp;&nbsp; Add 100 to <b>_b_</b> to draw contour with color taken from **-lt**, rendering fill and border colors distinct.\\
    **bold=-1**  and **bold=103** are used in the [Symbols exercise](/docs/misc/fplot/#about-symbols).
   + **fill=_f_**   &emsp;&emsp;&ensp;&thinsp; controls how symbol is filled:
     + <b>_f_</b>=0 &emsp;&emsp; do not fill symbol
     + <b>_f_</b>=1 &emsp;&emsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &emsp;&emsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=3 &emsp;&emsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=_r_,_g_,_b_**.
+    + <b>_f_</b>=3 &emsp;&emsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=_r_,_g_,_b_**.\\
+    See Things to try in the [Symbols exercise](/docs/misc/fplot/#about-symbols).
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
-  **_S_** is specified in one of the following ways:\\
-  &nbsp;&nbsp; **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
-  &nbsp;&nbsp; **_S_** is an index 1-12, listed in the table below\\
-  &nbsp;&nbsp; **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
-  &nbsp;&nbsp; In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
+
+<br>
+
+See also the [Quick reference](/docs/misc/fplot/#symbols).
+[The Symbols exercise](/docs/misc/fplot/#about-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
+See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
+
+
+**_S_** is specified in one of the following ways:
++ **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
++  **_S_** is an index 1-12, listed in the table below\\
++  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
++  In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
 
   {::nomarkdown}<div>{:/}
 
-  See also the [Quick reference](/docs/misc/fplot/#symbols).
-  [The Symbols exercise](/docs/misc/fplot/#about-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
-  See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
   This table lists the dimensioning attributes for each symbol.
 
@@ -630,8 +636,8 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
   Notes on the Table:\\
   Attributes marked with "&dagger;" are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
   Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
-  Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
-  Symbol 6 (circle) is more generally an arc, if the second and third attribute are used.
+  Symbol 5 (polygon) has an optional third attribute, which sets the angle of first vertex relative to the vertical.\\
+  Symbol 6 (circle) is more generally an arc, if the second and third attribute are used.\\
   Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
   &emsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &emsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the arrowhead as a fraction of arrow length\\
@@ -979,7 +985,7 @@ $ fplot -f plot.wiggle
 $ open fplot.ps
 ~~~
 
-<br>_Notes:_{: style="color: red"}
+_Notes:_{: style="color: red"}
 
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross, compressed along _y_ (:1,**.6**{: style="color: red"})
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle,
@@ -1191,24 +1197,22 @@ $ open fplot.ps
 
 <br>
 
-Move the label ABC to the end of the script, after the arrow.  Now the frame is
-drawn first and the label is not concealed.
++ Move the label ABC to the end of the script, after the arrow.  Now the frame is
+  drawn first and the label is not concealed.
++ Replace **:col=0,1,1** with **:nofill**.  The frame is not filled so ABC is no longer concealed.
++ Try making graph paper by drawing one frame, filled, with thin tic marks.
+  Redraw the frame with &nbsp;**:nofill**&nbsp; and use fewer, but thicker tic marks.\\
+  Example:
 
-Replace **:col=0,1,1** with **:nofill**.  The frame is not filled so ABC is no longer concealed.
+  ~~~
+  fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0
+          -tmx 0.1:1,1;1~1 -noxn -tmy 0.1:1,1;1~1 -noyn -x -1,1 -y 0,1 -tp 1~
+        -frme:nofill      0,1,0,.5 -frmt col=.4,.6,.4,th=2 -p0
+          -tmx 0.5:1,1;1~1 -noxn -tmy .5:1;1 -noyn -x -1,1 -y 0,1 -tp 1~
+  ~~~
 
-Try making graph paper by drawing one frame, filled, with thin tic marks.
-Redraw the frame with &nbsp;**:nofill**&nbsp; and use fewer, but thicker tic marks.\\
-Example:
-
-~~~
-fplot -frme:col=.8,1,.8 0,1,0,.5 -frmt col=.6,.8,.6,th=1 -p0
-        -tmx 0.1:1,1;1~1 -noxn -tmy 0.1:1,1;1~1 -noyn -x -1,1 -y 0,1 -tp 1~
-      -frme:nofill      0,1,0,.5 -frmt col=.4,.6,.4,th=2 -p0
-        -tmx 0.5:1,1;1~1 -noxn -tmy .5:1;1 -noyn -x -1,1 -y 0,1 -tp 1~
-~~~
-
-To make make graph paper with 120<sup>o</sup> axes, replace both instances of **-frme**
-with **-frme:theta=2*pi/3**.
+  To make make graph paper with 120<sup>o</sup> axes, replace both instances of **-frme**
+  with **-frme:theta=2*pi/3**.
 
 <br>
 
