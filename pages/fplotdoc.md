@@ -1325,7 +1325,7 @@ fplot
   -font b18
   -lbl 0.4,{ys}:0 rc '~\{S}^\{0}'
   -font b16
-  -lbl 0.15,{ys}+.03:0 cc 'lmgwsc'
+  -lbl 0.15,{ys}+.03:0 cc 'lmgw'
 
 # --- Arrow looping green to blue block : make stretched circle ---
   -ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'
@@ -1344,7 +1344,7 @@ are all similar to one another.
 <div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
-![Frames Example](/assets/img/qsgwcycle.png)
+![Flowchart example](/assets/img/qsgwcycle.png)
 {::nomarkdown}</div>{:/}
 
 ~~~
