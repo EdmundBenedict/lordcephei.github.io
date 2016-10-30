@@ -996,7 +996,7 @@ $ open fplot.ps
   &ensp; Tip at data point (**-tp 2~0.5,0.5**{: style="color: red"})\\
   &ensp; Tail at position (**&minus;0.15/4,0.16/4**{: style="color: red"}) relative to head, in graphics units;\\
   &emsp; thus the line of the arrow points at the same angle as the wiggle but is 1/4 size.\\
-  &ensp; Wings with length **0.99 &times; [size of tail]** (:-.15/4,0.16/4,**.99**{: style="color: red"},25,.9), subtending angle 25<sup>o</sup> (:-.15/4,0.16/4,.99,**25**{: style="color: red"},.9).\\
+  &ensp; Wings with length **0.99 &times; [size of tail]** (:-.15/4,0.16/4,**.99**{: style="color: red"},25,.9), subtending angle **25<sup>o</sup>** (:-.15/4,0.16/4,.99,**25**{: style="color: red"},.9).\\
   &ensp; Arrowhead touches line of tail at **0.9&times;[length of tail]**  (:-.15/4,0.16/4,.99,25,**.9**{: style="color: red"}).\\
   &ensp; Arrowhead is filled with black (**col=0,0,0**{: style="color: red"})
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -tp 2~0.8,.5-.05`
@@ -1009,11 +1009,12 @@ $ open fplot.ps
 
 ##### _Things to try_
 
-+ Eliminate or change the second argument of the diamond dimensioning parameters (**:.6,1**), and observe how the symbol changes.
-+ Vary the three dimensioning parameters (**:1,50,250**{: style="color: red"}) of the circle; also note what happens as you change **fill** from **0** or **3**.
-+ Change the line thickness in the cross symbol (**:bold=6**) and observe how the symbol changes.
++ Eliminate or change the second argument of the diamond dimensioning parameters (**:.6,1**{: style="color: red"}), and observe how the symbol changes.
++ Vary the three dimensioning parameters (**:1,50,250**{: style="color: red"}) of the circle; also note what happens as you change **fill** from **0** to **1**, **2**, or **3.**
++ Change the line thickness in the cross symbol (**:bold=6**{: style="color: red"}) to 1 or 10 and observe how the symbol changes.
 + Play with the first wiggle line: observe what happens as you change **fill** to 0,1,2, or 3, and **bold** between -1 and 10.
-+ Play with the various dimensioning arguments in the arrow symbol. (<b>:-.15/4,0.16/4,.99,25,.9</b>).  Append the optional 6<sup>th</sup> argument (placement),
++ Play with the various dimensioning arguments in the arrow symbol. (<b>:-.15/4,0.16/4,.99,25,.9</b>{: style="color: red"}).
+  Append the optional 6<sup>th</sup> argument (placement).
   If you append &nbsp;**,0**&nbsp; nothing changes; but appending &nbsp;**,1**&nbsp; places the back of the arrow to where the tip was.
 
 <br>
@@ -1096,18 +1097,14 @@ Note the following:
 
 + Try other combinations of the justification tags, e.g. turn &nbsp;**lu**&nbsp; into &nbsp;**rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
-
 + Uncomment the `-plaintext` line and observe how the labels change.
-
 + Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
-
 + Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
   '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
   into the postscript Symbol font while &nbsp;'**@{...}**'&nbsp; uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).
   Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol, for example.
-
-+Append the following text to _plot.text_{: style="color: green"} and make the plot again
++ Append the following text to _plot.text_{: style="color: green"} and remake the figure
 
 ~~~
       -font h18
@@ -1116,7 +1113,7 @@ The first character can be one of &nbsp; **l**, **c**, **r**; the second one of 
       -lblu 0.5,0.07 ru '~\{m}_\{0}=4~\{p\{\327}}10^\{7}'
 ~~~
 
-  Compare the fonts in two equations &mu;<sub>0</sub>=&hellip; at the bottom.
+  Compare the fonts in the two equations &mu;<sub>0</sub>=&hellip; at the bottom.
 
 
 <br>
@@ -1265,6 +1262,17 @@ the [Frames Exercise](/docs/misc/fplot/#things-about-frames), to make _fplot.svg
 5. Use your text editor to change the line **height="990"** into **height="187pt"** in _fplot.svg_{: style="color: green"}.
 
 _fplot.svg_{: style="color: green"} can now be embedded in a web page without any filling around it.
+
+#### Flowchart
+{::comment}
+/docs/misc/fplot/#flowchart
+{:/comment}
+
+<div onclick="elm = document.getElementById('flowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="flowchart">{:/}
+![Frames Example](https://lordcephei.github.io/assets/img/qsgwcycle.png)
+{::nomarkdown}</div>{:/}
 
 ### _Index_
 {::comment}
