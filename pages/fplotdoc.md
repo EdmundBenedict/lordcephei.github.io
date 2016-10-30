@@ -976,10 +976,10 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
-+ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` draws an incomplete (50-350<sup>o</sup>) grey (**fill=2,col=.7**{: style="color: red"}) circle, 
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**bold=6**{: style="color: red"}) cross, compressed along _y_ (**:1,.6**{: style="color: red"})
++ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` draws an incomplete (50-350<sup>o</sup>{: style="color: red"}) grey (**fill=2,col=.7**{: style="color: red"}) circle, 
    default size (<b>:1</b>{: style="color: red"})
-+ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`, draws a yellow diamond, elongated along _y_ (:1,1.6{: style="color: red"}))
++ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`, draws a yellow diamond, elongated along _y_ (:1,1.6{: style="color: red"})
 + `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
 + `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
