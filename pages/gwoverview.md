@@ -120,8 +120,3 @@ This paper shows all-electron results from LDA-based GW, and its limitations:\\
 M. van Schilfgaarde, Takao Kotani, S. V. Faleev,
 _Adequacy of Approximations in <i>GW</i> Theory_,
 [Phys. Rev. B74, 245125 (2006)](http://link.aps.org/abstract/PRB/v74/e245125)
-
-
-
-
-

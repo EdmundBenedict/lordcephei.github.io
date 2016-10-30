@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Making the dynamical GW self energy"
+title: "QSGW Tutorial for magnetic bcc Fe"
 subheadline: ""
 show_meta: false
 teaser: ""

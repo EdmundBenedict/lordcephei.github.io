@@ -1268,13 +1268,12 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 /docs/misc/fplot/#flowchart
 {:/comment}
 
-The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.
-The script is rather long but the main parts (green, orange, and blue bubbles)
-are all similar to one another.
+The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.  The script is rather long but the
+parts that make the green, orange, and blue bubbles are all similar to one another.
 
-<div onclick="elm = document.getElementById('script'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('flowchartscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">QSGW flowchart script - Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="flowchartscript>{:/}
 
 ~~~
 fplot
@@ -1352,8 +1351,18 @@ $ fplot -shftm=0,792-428 -f plot.qsgwcycle
 $ open fplot.ps
 ~~~
 
-Note the use of **-shftm** to place the figure at the top of the page.
+Note the use of **-shftm** to place the figure at the top of the page.  [This exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
+explains how the shift was calculated.
 
+<br>_Notes:_{: style="color: red"}
+
++ Bubbles are made in 4 sections: two half-circles, a rectangle with a frame around it, and another rectangle without a frame to blank
+out lines inside the bubble.
++ Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the 
+[Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
++ Just for fun, the long curved arrow was made with an arc (**circle** symbol), using\\
+  **-lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083**\\
+ Explicit postscript was inserted to stretch the arc.
 
 ### _Index_
 {::comment}
@@ -1444,6 +1453,9 @@ _style_                                | -k _x_,_y_...**;_style_**{: style="colo
 _legend_                               | **-l _strn_**{: style="color: red"} ...  | [DATA switches](/docs/misc/fplot/#data-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 ###### _Labels_
+{::comment}
+/docs/misc/fplot/#labels
+{:/comment}
 
 &nbsp;                                 | Instruction       |  Documentation/Example
 |---
@@ -1502,6 +1514,9 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
  _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
 ###### _Symbols_
+{::comment}
+/docs/misc/fplot/#symbols
+{:/comment}
 
 |---
 &nbsp;         | Instruction                             |  Definition/Example
