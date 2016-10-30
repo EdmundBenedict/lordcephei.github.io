@@ -985,7 +985,8 @@ $ open fplot.ps
   (<b>:</b>.6**,5**{: style="color: red"}),&nbsp; **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
 + `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) rectangle ("square" with unequal (_x_,_y_)=(**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
-  creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
+  creates a wiggly line ending at **(0.5,0.5)**:\\
+  &ensp; sloping downward with run/rise = (**-0.15,0.16**{: style="color: red"})\\
 + `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5`
   tacks an arrowhead onto the line with:\\
   &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**{: style="color: red"})\\
@@ -998,10 +999,9 @@ $ open fplot.ps
   creates a wiggly line :\\
   &ensp; along the _x_ axis (**:-.35,0.00**{: style="color: red"})\\
   &ensp; with half a period (:-.35,0.00**,0.5**{: style="color: red"})\\
-  excursion 0.1&times; length of line (-.35,0.00,0.5,**.1**{: style="color: red"})\\
-  using 40 points (-.35,0.00,0.5,.1,**40**{: style="color: red"})\\
-
- and then fills the symbol with yellow-green (**col=.5,1,0**).
+  &emsp; excursion 0.1&times; length of line (:-.35,0.00,0.5,**.1**{: style="color: red"})\\
+  &emsp; using 40 points (:-.35,0.00,0.5,.1,**40**{: style="color: red"})\\
+  and then fills the symbol with yellow-green (**col=.5,1,0**).
 
 ##### _Things to try_
 
