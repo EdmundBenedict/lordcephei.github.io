@@ -1273,8 +1273,8 @@ parts that make the green, orange, and blue bubbles are all similar to one anoth
 Cut and paste the content of the box below into file _plot.qsgwcycle_{: style="color: green"}.
 
 <div onclick="elm = document.getElementById('flowchartscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">QSGW flowchart script - Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="flowchartscript>{:/}
+QSGW flowchart script - Click to show.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
 
 ~~~
 fplot
@@ -1339,7 +1339,11 @@ fplot
   -ins 'grestore'
   -lt 0,bold=2 -s arrow:fill=3:col=0.5,0.5,0.5:.15/4,-.16/4,.99,25,.9 -tp 2~.68,1.01
 ~~~
+
+
+
 {::nomarkdown}</div>{:/}
+
 
 <div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
