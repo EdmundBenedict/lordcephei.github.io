@@ -555,7 +555,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + **_n_**=1     &nbsp; solid, unbroken line.
     + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &nbsp; dotted line.
-  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Allowed values for **_b_** are 0-9.  Default is 3.
+  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Default is 3.
   + **col=_r_,_g_,_b_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
   + **colw=_r_,_g_,_b_**  &nbsp;&nbsp;                   First color weight when line is to be drawn with color weights.
   + **colw2=_r_,_g_,_b_**                          Second color weight when line is to be drawn with color weights.
@@ -602,7 +602,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   {::nomarkdown}<div>{:/}
 
   How to make symbols is mostly easily explained through examples.
-  [The Symbols exercise](/docs/misc/fplot/#on-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
+  [The Symbols exercise](/docs/misc/fplot/#about-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
   See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
   This table lists the dimensioning attributes for each symbol.
@@ -647,7 +647,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
   &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
 
-  See the [Symbols exercise](/docs/misc/fplot/#on-symbols) for examples.
+  See the [Symbols exercise](/docs/misc/fplot/#about-symbols) for examples.
 
 + **-ey _n_[,&Delta;,_yshft_]**\\
   Add error bars to each point in the next **_data-file_**.\\
@@ -727,7 +727,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   substitute **_expr_** for the ordinate.
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   Many examples appear in document,
-  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#on-symbols).
+  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#about-symbols).
 + **-ab  _expr_**\\
   substitute **_expr_** for the abscissa.\\
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
@@ -938,9 +938,9 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 
 <br>
 
-#### On symbols
+#### About symbols
 {::comment}
-/docs/misc/fplot/#on-symbols
+/docs/misc/fplot/#about-symbols
 {:/comment}
 
 This exercise shows a number of symbols with various kinds of attributes.
@@ -953,13 +953,13 @@ Cut and paste the box below into script file _plot.wiggle_{: style="color: green
 ~~~
 fplot
   -frme .0,.7,0,.7 -x 0,1 -y 0,1 -frmt th=2,3,3 -noyn -ord 1.2 -tp 1.5
-  -s circ:fill=3:bold=0:col=.8,0,0.:.8,50,250 -tp 2~.3,0.7
-  -s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7
-  -s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63
-  -s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55
-  -s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6
+  -s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62
+  -s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7
+  -lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7
+  -s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55
+  -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
-  -lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
+  -lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
   -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
 ~~~
 
@@ -976,9 +976,10 @@ $ open fplot.ps
 
 <br>_Notes:_{: style="color: red"}
 
-+ `-s circ:fill=3:bold=0:col=.8,0,0.:.8,50,250 -tp 2~.3,0.7` draws an incomplete red circle (50-350<sup>o</sup>), **0.8&times;** default size
-+ `-s dia:fill=3:bold=0:col=.9,.8,0:.6,1 -tp 2~.7,0.7` draws a yellow diamond, compressed along _x_ (**:.6,1**)
-+ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.63` draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**bold=6**) cross, compressed along _y_ (**:1,.6**)
++ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` draws an incomplete (50-350<sup>o</sup>) grey (**fill=2,col=.7**{: style="color: red"}) circle, 
+  default size (<b>:1</b>{: style="color: red"})
++ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`, draws a yellow diamond, elongated along _y_ (\:1,1.6{: style="color: red"}))
 + `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
 + `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
@@ -1393,7 +1394,7 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 |---
 &nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) |
 |---
-_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#on-symbols)
+_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
 
 ###### _Tic marks_
@@ -1474,7 +1475,7 @@ Instruction   | Definition                                           | Places to
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#on-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#about-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
 **-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |[Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
