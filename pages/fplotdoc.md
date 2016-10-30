@@ -607,6 +607,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 
 **_S_** is specified in one of the following ways:
+
 + **_S_** is one of the strings in the table below, e.g. **square** (only the first four characters are necessary)\\
 +  **_S_** is an index 1-12, listed in the table below\\
 +  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
@@ -933,7 +934,7 @@ $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,
 
 + An error bar is drawn first, using column 3 (**-ey 3**{: style="color: red"},.75).  The **.75**{: style="color: red"} scales the default with of the horizontal lines in the error bar symbol.
 + A filled circle is drawn after the error bar, concealing part of it.
-+ No line is drawn connecting points: **-lt 0** psuppresses connecting lines](/docs/misc/fplot/#data-switches).
++ No line is drawn connecting points: **-lt 0** [suppresses connecting lines](/docs/misc/fplot/#data-switches).
 
 <br>
 
@@ -1081,7 +1082,7 @@ $ fplot -f plot.text
 $ open fplot.ps
 ~~~
 
-Note the following:
+_Notes:_{: style="color: red"}
 
 + **-xl _string_** and **-yl _string_** create axes labels.
   + Labels are written in 18 point Helvetica (aka Arial) font. This is set by the initial **-font h18**.\\
@@ -1163,6 +1164,8 @@ Run the commands in the box below to create and view the postscript file, or cli
 $ fplot -f plot.frames
 $ open fplot.ps
 ~~~
+
+_Notes:_{: style="color: red"}
 
 + _Bottom panel_ :
   + `-frme:font=h30:col=0,0,1 0,1,0,.1` &nbsp; fills the frame with a [blue](/docs/misc/fplot/#color-specification) background (**col=0,0,1**).\\
