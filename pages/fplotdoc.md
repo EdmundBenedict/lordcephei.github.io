@@ -1268,6 +1268,8 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 /docs/misc/fplot/#flowchart
 {:/comment}
 
+The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/
+
 **fplot**{: style="color: blue"} provides a fair amount of flexbility in making frames.
 The script in the box below draws three small frames.
 Cut and paste into file _plot.qsgwcycle_{: style="color: green"}.
@@ -1335,7 +1337,7 @@ fplot
 <div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
-![Frames Example](/assets/img/frames.svg)
+![Frames Example](/assets/img/qsgwcycle.png)
 {::nomarkdown}</div>{:/}
 
 
