@@ -49,9 +49,10 @@ If the diagonal parts only of &Sigma;<sup>0</sup> is kept, this corresponds to w
 _G_<sup>LDA</sup>W<sup>LDA</sup>.
 
 In the next iteration, &Sigma;<sup>0</sup>&minus;_V_<sub>xc</sub><sup>LDA</sup> is added to the LDA hamiltonian and the density is made
-self-consistent, and handed over to the _GW_ part.  This process is repeated until the RMS change in &Sigma;<sup>0</sup> falls below a
-certain tolerance value.  The final self-energy (QSGW potential) is an effective exchange-correlation functional, tailored to the system,
-that can be conveniently used within the standard DFT setup to calculate properties such as the band structure.
+self-consistent, and handed over to the _GW_ part.  (Note that for a fixed density _V_<sub>xc</sub><sup>LDA</sup> cancels the exchange
+correlation potential from the LDA hamiltonian.)  This process is repeated until the RMS change in &Sigma;<sup>0</sup> falls below a certain
+tolerance value.  The final self-energy (QSGW potential) is an effectively an exchange-correlation functional, tailored to the system, that can
+be conveniently used analogously to the standard DFT setup to calculate properties such as the band structure.
 
 {::nomarkdown}</div>{:/}
 
