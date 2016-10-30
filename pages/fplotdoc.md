@@ -587,7 +587,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
     + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; do not fill symbol
+    + <b>_f_</b>=0 &emsp;&emsp;                                     do not fill symbol
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
     + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
