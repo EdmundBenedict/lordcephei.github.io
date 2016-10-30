@@ -553,8 +553,8 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 {:/comment}
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
-  Line type specification and attributes.  Options separator &nbsp;**~**&nbsp; can be a different character such as &nbsp;**:**&nbsp; or &nbsp;**,**.
-  + **_n_**         &emsp; line type k
+  Line type specification and attributes.  Options separator &nbsp;**'~'**&nbsp; can be a different character such as &nbsp;**':'**&nbsp; or &nbsp;**','**.
+  + **_n_**         &emsp; line type
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
@@ -647,7 +647,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   See the [Frames exercise](/docs/misc/fplot/#things-about-frames) for an illustration.\\
   Symbol 8&nbsp; draws error bars. **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
   _Note:_{: style="color: red"} Error bars may also be drawn through the **-ey** command.  They are drawn before any possible second symbol through **-s**.\\
-  See the [Error bars exercise](/docs/misc/fplot/#error-bars) for an example.
+  See the [Error bars exercise](/docs/misc/fplot/#error-bars) for an example.\\
   Symbol 9&nbsp; (timeline) requires **<i>data-file</i>** to have a third (**_z_**) element of data to indicate size of timeline, in column 3.\\
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
