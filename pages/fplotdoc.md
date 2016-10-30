@@ -585,9 +585,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
   + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. 
     + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
-    + <b>_b_</b>+10 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
+    + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do not fill symbol
+    + <b>_f_</b>=0 &emdash;&emdash;&emdash;&emdash;&emdash;&emdash;&emdash;&emdash; do not fill symbol
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
     + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
@@ -1354,15 +1354,15 @@ $ open fplot.ps
 Note the use of **-shftm** to place the figure at the top of the page.  [This exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 explains how the shift was calculated.
 
-<br>_Notes:_{: style="color: red"}
+_Notes:_{: style="color: red"}
 
 + Bubbles are made in 4 sections: two half-circles, a rectangle with a frame around it, and another rectangle without a frame to blank
-out lines inside the bubble.
+  out lines inside the bubble.
 + Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the 
-[Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
-+ Just for fun, the long curved arrow was made with an arc (**circle** symbol), using\\
+  [Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
++ The long curved arrow was made with an arc (**circle** symbol), using\\
   **-lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083**\\
- Explicit postscript was inserted to stretch the arc.
+  Explicit postscript was inserted (**-ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'**) to stretch the arc.
 
 ### _Index_
 {::comment}
@@ -1519,12 +1519,19 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 {:/comment}
 
 |---
-&nbsp;         | Instruction                             |  Definition/Example
+&nbsp;         | Instruction                                                               |  Definition/Example
 |---
-&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_ | [DATA switches](/docs/misc/fplot/#data-switches) |
+&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_          | [DATA switches](/docs/misc/fplot/#data-switches) |
 |---
 _types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+|---
+_fill color_   | -s _type_**~col=_r_,_g_,_b_**{: style="color: red"}                       | [Symbols exercise](/docs/misc/fplot/#about-symbols)
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
+
+
+{::comment}
++ **-s _S_[~col=#,#,#][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
+{:/comment}
 
 ###### _Tic marks_
 {::comment}
@@ -1578,7 +1585,7 @@ Instruction   | Definition                                           | Places to
 **-frme**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-frmt**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-h**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
-**-ins**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
+**-ins**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Flowchart exercise](/docs/misc/fplot/#flowchart)
 **-insf**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-itrp**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-k**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
@@ -1604,7 +1611,8 @@ Instruction   | Definition                                           | Places to
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#about-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#about-symbols),&nbsp;
+                                                                       [Error bars exercise](/docs/misc/fplot/#error-bars)
 **-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |[Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
