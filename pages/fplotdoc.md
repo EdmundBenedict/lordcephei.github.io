@@ -980,15 +980,17 @@ $ open fplot.ps
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle, 
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
-   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a blue (**-lt 0,col=.1,.2,1**{: style="color: red"}) line, thickness **3**.
+   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**3**) 
+   blue line (**-lt 0,col=.1,.2,1**{: style="color: red"})
 + `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue 5-sided
   (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
-+ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) "square:" rectangle width,height=(**:.6,5**{: style="color: red"})
++ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) 
+  "square" (rectangle width,height=**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
   creates a wiggly line ending at **(0.5,0.5)**:\\
   &ensp; sloping downward with run/rise = (**-0.15,0.16**{: style="color: red"})\\
-  &ensp; with 2.3 periods (:-.15,0.16,**2.3**{: style="color: red"},.05)\\
-  &ensp; excursion 0.05&times; length of line (:-.15,0.16,2.3,**.05**{: style="color: red"})
+  &ensp; with **2.3** periods (:-.15,0.16,**2.3**{: style="color: red"},.05)\\
+  &ensp; excursion around line **0.05&times; [length of line]** (:-.15,0.16,2.3,**.05**{: style="color: red"})
 + `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5`
   creates an arrowhead with:\\
   &ensp; Tip at data point (**-tp 2~0.5,0.5**{: style="color: red"})\\
@@ -1008,9 +1010,9 @@ $ open fplot.ps
 ##### _Things to try_
 
 + Eliminate or change the second argument of the diamond dimensioning parameters (**:.6,1**), and observe how the symbol changes.
-+ Vary the three dimensioning arguments of the circle; also note what happens when you use **fill=0**.
++ Vary the three dimensioning parameters (**:1,50,250**{: style="color: red"}) of the circle; also note what happens as you change **fill** from **0** or **3**.
 + Change the line thickness in the cross symbol (**:bold=6**) and observe how the symbol changes.
-+ Play with the last line, and see what happens as you change the **fill** value between 0 and 3, and the **bold** value between -1 and 5.
++ Play with the first wiggle line: observe what happens as you change **fill** to 0,1,2, or 3, and **bold** between -1 and 10.
 + Play with the various dimensioning arguments in the arrow symbol. (<b>:-.15/4,0.16/4,.99,25,.9</b>).  Append the optional 6<sup>th</sup> argument (placement),
   If you append &nbsp;**,0**&nbsp; nothing changes; but appending &nbsp;**,1**&nbsp; places the back of the arrow to where the tip was.
 
