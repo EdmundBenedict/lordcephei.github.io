@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Kramdown Test Page"
-permalink: "kram"
+permalink: "/kram/"
 header: no
 ---
 
