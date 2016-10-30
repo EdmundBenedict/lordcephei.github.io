@@ -18,6 +18,9 @@ This tutorial begins with an LDA calculation for Si, starting from an init file.
 <hr style="height:5pt; visibility:hidden;" />
 ### QSGW summary
 ________________________________________________________________________________________________
+
+![QSGW flowchart](/assets/img/qsgwcycle.png)
+
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> QSGW - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
@@ -25,8 +28,6 @@ Each iteration of a QSGW calculation has two main parts: a section that uses eff
 the _GW_ code that makes the self-energy &Sigma;(<i>&omega;</i>) of an interacting hamiltonian.  For quaisparticle self-consistency, the
 _GW_ code makes a "quasiparticlized" self-energy &Sigma;<sup>0</sup>, which is used to construct the effective one-body hamiltonian for the
 next cycle.  The process is iterated until the change in &Sigma;<sup>0</sup> becomes small.
-
-![QSGW flowchart](/assets/img/qsgwcycle.png)
 
 The one-body executable is **lmf**{: style="color: blue"}.  **lmfgwd**{: style="color: blue"} is similar
 to **lmf**{: style="color: blue"}, but it is a driver whose purpose is to set up inputs for the _GW_ code.
@@ -36,14 +37,20 @@ by a shell script **lmgwsc**{: style="color: blue"}.
 Before any self-energy &Sigma;<sup>0</sup> exists, it is assumed to be zero.  Thus the one-body hamiltonian is usually the LDA, though it can be something else, e.g. LDA+U.\\
 _Note:_{: style="color: red"} in some circumstances, e.g. to break time reversal symmetry inherent the LDA, you need to start with LDA+U.
 
+Thus, there are two self-energies and two corresponding Green's functions: the interacting _G_[&Sigma;(<i>&omega;</i>)] and noninteracting
+_G_<sup>0</sup>[&Sigma;<sup>0</sup>].  At self-consistency the poles of _G_ and _G_<sup>0</sup> coincide: this is a unique and very
+advantageous feature of QSGW.  It means that there is no "mass renormalization" of the bandwidth --- at least at the GW level.
+
+Usually the interacting &Sigma;(<i>&omega;</i>) isn't made explicitly, but you can do so, as explained in [this tutorial]().  
+
 In short, a QSGW calculation consists of the following steps. The starting point is a self-consistent DFT calculation (usually LDA). The DFT
-eigenfunctions and eigenvalues are used by the GW code to construct a full self-energy, which is then converted into an effective
-exchange-correlation potential (here we call it the GW potential). At this point we have finished a single iteration. In the next iteration,
-the GW potential is used in a self-consistent DFT calculation to obtain new eigenfunctions and eigenvalues. In turn, these are then used to
-form a new self-energy, which is converted into a new GW potential. This process is repeated until the change in the root mean square
-difference between the self-energy of the current and previous iteration is below a certain tolerance value. The final self-consistent
-self-energy (QSGW potential) is an effective exchange-correlation functional, tailored to the system, that can be conveniently used within
-the standard DFT setup to calculate properties such as the band structure.
+eigenfunctions and eigenvalues are used by the GW code to construct a self-energy &Sigma;<sup>0</sup>.  This is called the "0<sup>th</sup> iteration."
+If the diagonal parts only of &Sigma;<sup>0</sup> is kept,
+
+In the next iteration, &Sigma;<sup>0</sup>&minus;_V_<sub>xc</sub><sup>LDA</sup> is added to the LDA hamiltonian and the density is made
+self-consistent, and handed over to the _GW_ part.  This process is repeated until the RMS change in &Sigma;<sup>0</sup> falls below a
+certain tolerance value.  The final self-energy (QSGW potential) is an effective exchange-correlation functional, tailored to the system,
+that can be conveniently used within the standard DFT setup to calculate properties such as the band structure.
 
 {::nomarkdown}</div>{:/}
 

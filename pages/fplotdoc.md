@@ -1269,8 +1269,11 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 {:/comment}
 
 The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.
+The script is rather long but the main parts (green, orange, and blue bubbles)
+are all similar to one another.
 
-<div onclick="elm = document.getElementById('script'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Scripts - Click to show.</button></div>
+<div onclick="elm = document.getElementById('script'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">QSGW flowchart script - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
 
 ~~~
@@ -1338,9 +1341,6 @@ fplot
 ~~~
 {::nomarkdown}</div>{:/}
 
-The script is rather long but the main parts (green, orange, and blue bubbles)
-are all similar to one another.
-
 <div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
@@ -1352,8 +1352,7 @@ $ fplot -shftm=0,792-428 -f plot.qsgwcycle
 $ open fplot.ps
 ~~~
 
-Note the use of **-shftm* to place the figure at the top of the page.
-
+Note the use of **-shftm** to place the figure at the top of the page.
 
 
 ### _Index_
