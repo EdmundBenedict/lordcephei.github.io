@@ -550,28 +550,28 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &nbsp; line type
-    + **_n_**=0     &nbsp; No connecting line. Used to draw symbols at [points without any connecting lines](/docs/misc/fplot/#error-bars).
-    + **_n_**=1     &nbsp; solid, unbroken line.
-    + **_n_**=2     &nbsp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
-    + **_n_**=3     &nbsp; dotted line.
-  + **bold=_b_**    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness or dot size **_b_**.  Default is 3.
-  + **col=_r_,_g_,_b_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=_r_,_g_,_b_**  &nbsp;&nbsp;                   First color weight when line is to be drawn with color weights.
+  + **_n_**         &emsp; line type
+    + **_n_**=0     &ensp; No connecting line. Used to draw symbols at [points without any connecting lines](/docs/misc/fplot/#error-bars).
+    + **_n_**=1     &ensp; solid, unbroken line.
+    + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
+    + **_n_**=3     &ensp; dotted line.
+  + **bold=_b_**    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; line thickness or dot size **_b_**.  Default is 3.
+  + **col=_r_,_g_,_b_**   &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
+  + **colw=_r_,_g_,_b_**  &ensp;&ensp;                   First color weight when line is to be drawn with color weights.
   + **colw2=_r_,_g_,_b_**                          Second color weight when line is to be drawn with color weights.
-  + **clip**        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clips curves when they go outside the frame
-  + **fill=#**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill color.
-    + 1 &nbsp; color line with color given by **col**
-    + 2 &nbsp; fill the area inside of the curve with color
-    + 3 &nbsp; both 1 and 2
-  + **brk=1**       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + **clip**        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; clips curves when they go outside the frame
+  + **fill=#**      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; fill color.
+    + 1 &ensp; color line with color given by **col**
+    + 2 &ensp; fill the area inside of the curve with color
+    + 3 &ensp; both 1 and 2
+  + **brk=1**       &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                     starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
-  + **_la_,_lb_,_lc_,_ld_**   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length of dash and space (for dashed lines only).
+  + **_la_,_lb_,_lc_,_ld_**   &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
-    + **_la_**      &nbsp; First dash length
-    + **_lb_**      &nbsp; First space length
-    + **_lc_**      &nbsp; Second dash length
-    + **_ld_**      &nbsp; Second space length\\
+    + **_la_**      &ensp; First dash length
+    + **_lb_**      &ensp; First space length
+    + **_lc_**      &ensp; Second dash length
+    + **_ld_**      &ensp; Second space length\\
     You can enter anywhere between 1 and 4 numbers. If fewer then three numbers are given, a simple a dashed line will result.\\
     [This exercise](/docs/misc/fplot/#dot-dashed-lines) shows how to make a dot-dashed line.
 
