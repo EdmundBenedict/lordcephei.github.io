@@ -1040,12 +1040,14 @@ fplot -p0 -font h18
       -font t18
       -lbl 0.3,0.2 rc 'Nested subscripts : ~\{Dj}_\{t_\{2_\{g}}}~\{-a}^\{4}'
       -lbl 0.3,0.68 lc,rot=40 'At 40^\{o} :  2^\{~\{b}}~\{P}_\{&\{k}^\{2}}=2^\{~\{a}}'
+
       -font h18
       -lbl 0.5,.94 cc "@\{cc} justification with special subscript &\{k}_\{~\{\{\136}}}"
       -lbl 0.2,.89 rc "arrows ~\{\{\253\254\255\256\257}}
       -lbl 0.2,.84 rc "brackets ~\{\{\173\341A\361\175\355\375\357\364\174}}
       -lbl 0.2,.79 rc "math  ~\{\{\266\245\321\326\327\243\263\055\261\264\265\271\272\273\100}}
       -lbl 0.2,.74 rc "symbols ~\{\{\333\334\335\336\337\362\134\136\262\267\250\274\260}}
+
 ~~~
 
 
@@ -1092,18 +1094,30 @@ Note the following:
 
 ##### _Things to try_
 
-Try other combinations of the justification tags, e.g. turn &nbsp;**lu**&nbsp; into &nbsp;**rc**.
++ Try other combinations of the justification tags, e.g. turn &nbsp;**lu**&nbsp; into &nbsp;**rc**.
 The first character can be one of &nbsp; **l**, **c**, **r**; the second one of &nbsp; **u**, **c**, **d**.
 
-Uncomment the `-plaintext` line and observe how the labels change.
++ Uncomment the `-plaintext` line and observe how the labels change.
 
-Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
++ Swap the **:1** and **:0** in the "Above line" and "Below line" labels and observe how different parts of the horizontal line are blanked out.
 
-Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
++ Replace '**~**' with '**@**' in the labels at the top of the figure..  A completely different group of characters result.\\
   '**~{...}**'&nbsp; [maps characters](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) &nbsp;**...**&nbsp;
   into the postscript Symbol font while &nbsp;'**@{...}**'&nbsp; uses the bold Roman font instead (p 604 of the
   [postscript manual](http://partners.adobe.com/public/developer/en/ps/psrefman.pdf)).
   Dagger (&dagger;) and double dagger (&Dagger;) appear in the Roman set but not the Symbol, for example.
+
++Append the following text to _plot.text_{: style="color: green"} and make the plot again
+
+~~~
+      -font h18
+      -lblu 0.5,0.12 ru '~\{m}_\{0}=4~\{p\{\327}}10^\{7}'
+      -font t18
+      -lblu 0.5,0.07 ru '~\{m}_\{0}=4~\{p\{\327}}10^\{7}'
+~~~
+
+  Compare the fonts in two equations &mu;<sub>0</sub>=&hellip; at the bottom.
+
 
 <br>
 
