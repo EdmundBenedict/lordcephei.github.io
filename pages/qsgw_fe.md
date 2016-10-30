@@ -13,9 +13,12 @@ header: no
 _____________________________________________________________
 
 This tutorial carries out a QSGW calculation for Fe, a bcc magnetic metal.
-It is a starting point for other tutorials, in particular the calculation of the
-[dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
+It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si)
+see in particular the [flowchart](/tutorial/gw/qsgw_si/#qsgw-summary)
+
+This tutorial is a starting point for other tutorials, in particular
+the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
 ### _Table of Contents_
 _____________________________________________________________
@@ -29,8 +32,8 @@ _____________________________________________________________
 _____________________________________________________________
 
 
-Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
-So is the QSGW script **lmgwsc**{: style="color: blue"} and the binaries it requires.
+Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path;
+similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
 ### _Command summary_
 ________________________________________________________________________________________________
@@ -47,7 +50,8 @@ cp basp0.fe basp.fe
 lmf fe > out.lmf
 ~~~
 
-QSGW self-consistency (starting from the self-consistent LDA)
+The GW codes require a separate _GWinput_{: style="color: green"} file.
+Create it with:
 
 ~~~
 lmfgwd --jobgw=-1 ctrl.fe
@@ -64,7 +68,7 @@ Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consi
 This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a fairly large moment of 2.2<i>&mu;<sub>B</sub></i>.
 Self-consistency rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW.
 
-### _Self-consistent LDA calculation for Fe_
+### _Self-consistent_ LDA _calculation for Fe_
 
 QS<i>GW</i> requires a starting point.  We use LDA as it a reasonably
 accurate, and convenient one.
@@ -144,4 +148,18 @@ Make the density self-consistent:
 ~~~
 lmf fe > out.lmf
 ~~~
+
+### QSGW _calculation for Fe_
+
+
+The GW codes require a separate _GWinput_{: style="color: green"} file.
+Create a template with:
+
+~~~
+lmfgwd --jobgw=-1 ctrl.fe
+~~~
+
+lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+
+
 

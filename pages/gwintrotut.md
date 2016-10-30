@@ -29,10 +29,10 @@ _____________________________________________________________
 _____________________________________________________________
 
 
-Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
-So is the QSGW script **lmgwsc**{: style="color: blue"} and the binaries it requires.
+Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path;
+similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
-### Introduction to a QSGW calculation
+### _Introduction to a QSGW calculation_
 ________________________________________________________________________________________________
 
 This tutorial begins with an LDA calculation for Si, starting from an init file. Following this is a demonstration of a quasi-particle
@@ -42,7 +42,11 @@ dropdown menu. Theory for GW and QSGW, and its implementation in the Questaal su
 [Phys. Rev. B76, 165106 (2007)](http://link.aps.org/abstract/PRB/v76/e165106).
 
 <hr style="height:5pt; visibility:hidden;" />
-### QSGW summary
+### _QSGW summary_
+{::comment}
+/tutorial/gw/qsgw_si/#qsgw-summary
+{:/comment}
+
 ________________________________________________________________________________________________
 
 ![QSGW flowchart](/assets/img/qsgwcycle.png)
@@ -83,7 +87,7 @@ be conveniently used analogously to the standard DFT setup to calculate properti
 {::nomarkdown}</div>{:/}
 
 <hr style="height:5pt; visibility:hidden;" />
-### Command summary
+### _Command summary_
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('command'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
@@ -109,12 +113,12 @@ ________________________________________________________________________________
 
 
 <hr style="height:5pt; visibility:hidden;" />
-### LDA calculation
+### _LDA calculation_
 ________________________________________________________________________________________________
 To carry out a self-consistent LDA calculation, we use the lmf code. Try running the commands below. The steps follow those from the lmf tutorial. Please review this page for more details on the set up and running of commands.
 
 <hr style="height:5pt; visibility:hidden;" />
-### LDA commands
+### _LDA commands_
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('commandsummary'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="commandsummary">{:/}
@@ -138,7 +142,7 @@ Now check the output file out.lmfsc. The self-consistent gap is reported to be a
 Now that we have the input eigenfunctions and eigenvalues, the next step is to carry out a GW calculation. For this, we need an input file for the GW code.
 
 <hr style="height:5pt; visibility:hidden;" />
-### Making GWinput
+### _Making GWinput_
 ________________________________________________________________________________________________
 The GW package (both one-shot and QSGW) uses one main user-supplied input file, GWinput. The script lmfgwd can create a template GWinput file for you by running the following command:
 
@@ -155,7 +159,7 @@ When creating the GWinput file, lmfgwd checks the GW section of the ctrl file fo
 The k mesh of 3&\times;3&\times;3 divisions is rough, but it makes the calculation fast and for Si the results are reasonable.
 
 <hr style="height:5pt; visibility:hidden;" />
-### Running QSGW
+### _Running QSGW_
 ________________________________________________________________________________________________
 We are now ready for a QSGW calculation, this is run using the shell script lmgwsc:
 

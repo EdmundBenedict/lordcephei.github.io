@@ -587,7 +587,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
     + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &emdash;&emdash;&emdash;&emdash;&emdash;&emdash;&emdash;&emdash; do not fill symbol
+    + <b>_f_</b>=0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; do not fill symbol
     + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
     + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
@@ -1263,9 +1263,9 @@ the [Frames Exercise](/docs/misc/fplot/#things-about-frames), to make _fplot.svg
 
 _fplot.svg_{: style="color: green"} can now be embedded in a web page without any filling around it.
 
-#### Flowchart
+#### Flowchart exercise
 {::comment}
-/docs/misc/fplot/#flowchart
+/docs/misc/fplot/#flowchart-exercise
 {:/comment}
 
 The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.  The script is rather long but the
@@ -1555,7 +1555,7 @@ _major tic size_ | -tmx\|-tmy &nbsp;_spacing_**,_rmt_**{: style="color: red"}   
 |---
 _minor tic size_ | -tmx\|-tmy &nbsp;_spacing_**;_rmnt_**{: style="color: red"}    | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with [**-frme:lx\|ly\|lz**](/docs/misc/fplot/#frames)
+_for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | Use with [**-frme:lx\|ly**](/docs/misc/fplot/#frames)
 |---
 _user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _numbering, suppress_ | **-noxn\|-noyn**{: style="color: red"}                    | [LABELLING switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
@@ -1587,7 +1587,7 @@ Instruction   | Definition                                           | Places to
 **-frme**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-frmt**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-h**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
-**-ins**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Flowchart exercise](/docs/misc/fplot/#flowchart)
+**-ins**      | [DATA switches](/docs/misc/fplot/#data-switches)     | [Flowchart exercise](/docs/misc/fplot/#flowchart-exercise)
 **-insf**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-itrp**     | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-k**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
