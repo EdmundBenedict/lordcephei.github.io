@@ -543,6 +543,10 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 
+{::comment}
+Roughly: 4 nbsp per emsp, 2 nbsp per ensp
+{:/comment}
+
 ##### _DATA switches_
 {::comment}
 /docs/misc/fplot/#data-switches
@@ -550,23 +554,23 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type c
+  + **_n_**         &emsp; line type d
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &ensp; dotted line.
   + **bold=_b_**    &emsp;&emsp;&nbsp; line thickness or dot size **_b_**.  Default is 3.
   + **col=_r_,_g_,_b_**   &emsp;&ensp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=_r_,_g_,_b_**  &emsp;              First color weight when line is to be drawn with color weights.
-  + **colw2=_r_,_g_,_b_** &nbsp;&thinsp;      Second color weight when line is to be drawn with color weights.
+  + **colw=_r_,_g_,_b_**  &ensp;&nbsp;&thinsp;First color weight when line is to be drawn with color weights.
+  + **colw2=_r_,_g_,_b_** &nbsp;              Second color weight when line is to be drawn with color weights.
   + **clip**        &emsp;&emsp;&emsp;&ensp;&nbsp;  clips curves when they go outside the frame
   + **fill=#**      &emsp;&emsp;&emsp;        fill color
     + **#=1** &emsp; color boundary line with color given by **col**
     + **#=2** &emsp; fill the area inside of the curve with color
     + **#=3** &emsp; both 1 and 2
   + **brk=1**       &emsp;&emsp;&nbsp;        starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
-  + **_la_,_lb_,_lc_,_ld_**   &ensp; length of dash and space (for dashed lines only).
-                    Dash length units are sized so that 1 correspond to a "typical" dash size.
+  + **_la_,_lb_,_lc_,_ld_**  &emsp; length of dash and space (for dashed lines only).
+                    Units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &ensp; First dash length
     + **_lb_**      &ensp; First space length
     + **_lc_**      &ensp; Second dash length
@@ -580,12 +584,12 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches are separated by **~** (or the character following **_S_**):
-  + **col=_r_,_g_,_b_** &emsp; fill color or color of symbol contour
-  + **clip**      &emsp;&emsp;&emsp;&nbsp;&nbsp; If present, clips symbols that fall outside frame
-  + **bold=_b_**  &emsp;&nbsp;&nbsp; line thickness for symbol contour.
-    + <b>_b_</b>=-1  &emsp; fill symbol, but do not draw border (useful for only symbols that are filled)
-    + <b>_b_</b>+100 &emsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
-  + **fill=_f_**   &emsp;&emsp  controls how symbol is filled:
+  + **col=_r_,_g_,_b_** &emsp;                fill color or color of symbol contour
+  + **clip**      &emsp;&emsp;&emsp;&thinsp;  If present, clips symbols that fall outside frame
+  + **bold=_b_**  &emsp;&ensp;&nbsp;          line thickness for symbol contour.
+    + <b>_b_</b>=&minus;1   &emsp;&ensp;      fill symbol, but do not draw border (useful for only symbols that are filled)
+    + <b>_b_</b>+100 &emsp; Add 100 to <b>_b_</b> to draw contour with color taken from **-lt**, making fill and border colors distinct
+  + **fill=_f_**   &emsp;&emsp; controls how symbol is filled:
     + <b>_f_</b>=0 &emsp;&emsp; do not fill symbol
     + <b>_f_</b>=1 &emsp;&emsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &emsp;&emsp; fill symbol with gray.  Specify shading with **col=#**.
