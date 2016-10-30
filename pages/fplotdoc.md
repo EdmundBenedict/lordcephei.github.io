@@ -1268,20 +1268,23 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 /docs/misc/fplot/#flowchart
 {:/comment}
 
-The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the following script.
-Cut and paste into file _plot.qsgwcycle_{: style="color: green"}.
+The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.
+
+<div onclick="elm = document.getElementById('script'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Scripts - Click to show.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
 
 ~~~
 fplot
-  -frme .0,.7,0,.7 -x -1,1 -y 0,1 -frmt th=2,3,3 -noyn 
+  -frme .0,.7,0,.7 -x -1,1 -y 0,1 -frmt th=2,3,3
 
-% var ys=1
-% char filcol=.6,1,0
+# --- Green block ---
+% var ys=1                 # position of block
+% char filcol=.6,1,0       # color of bubble
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:10.4,3.05 -tp 2~0,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.50,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.50,{ys}
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:10.8,2.8 -tp 2~0,{ys}
-
+# ... text and arrow in green block
   -font b18
   -s arrow:fill=3:bold=3:col=.1,.1,1:-.07,0,.5,20,.4,.5 -tp 2~0+.04,{ys}-.01
   -lbl 0.03,{ys}:0 cc '~\{S}^\{0}, &\{n}^\{in}         &\{n}^\{out}'
@@ -1290,13 +1293,14 @@ fplot
   -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
   -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
 
-% var ys=.7
-% char filcol=1,.6,0
+# --- Orange block ---
+% var ys=.7                # position of block
+% char filcol=1,.6,0       # color of bubble  
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
-
+# ... text and arrow in orange block
   -font b18
   -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0-.12,{ys}-.02
   -lbl -.35,{ys}:0 lc '~\{S}^\{0}, &\{n}'
@@ -1307,13 +1311,14 @@ fplot
   -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
   -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
 
-% var ys=.4
-% char filcol=0,.8,1
+# --- Blue block ---
+% var ys=.4                # position of block
+% char filcol=0,.8,1       # color of bubble  
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
-
+# ... text and arrow in blue block
   -font b16
   -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0+.15,{ys}-.02
   -lbl -.70,{ys}:0 rc 'GW inputs'
@@ -1322,6 +1327,7 @@ fplot
   -font b16
   -lbl 0.15,{ys}+.03:0 cc 'lmgwsc'
 
+# --- Arrow looping green to blue block : make stretched circle ---
   -ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'
 #  no shift
 #   -lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99
@@ -1330,6 +1336,10 @@ fplot
   -ins 'grestore'
   -lt 0,bold=2 -s arrow:fill=3:col=0.5,0.5,0.5:.15/4,-.16/4,.99,25,.9 -tp 2~.68,1.01
 ~~~
+{::nomarkdown}</div>{:/}
+
+The script is rather long but the main parts (green, orange, and blue bubbles)
+are all similar to one another.
 
 <div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
@@ -1341,6 +1351,10 @@ Run the commands in the box below to create and view the postscript file, or cli
 $ fplot -shftm=0,792-428 -f plot.qsgwcycle 
 $ open fplot.ps
 ~~~
+
+Note the use of **-shftm* to place the figure at the top of the page.
+
+
 
 ### _Index_
 {::comment}
