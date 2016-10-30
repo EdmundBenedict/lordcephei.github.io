@@ -41,7 +41,7 @@ Thus, there are two self-energies and two corresponding Green's functions: the i
 _G_<sup>0</sup>[&Sigma;<sup>0</sup>].  At self-consistency the poles of _G_ and _G_<sup>0</sup> coincide: this is a unique and very
 advantageous feature of QSGW.  It means that there is no "mass renormalization" of the bandwidth --- at least at the _GW_ level.
 
-Usually the interacting &Sigma;(<i>&omega;</i>) isn't made explicitly, but you can do so, as explained in [this tutorial](/tutorial/gw/gw_self_energy/").
+Usually the interacting &Sigma;(<i>&omega;</i>) isn't made explicitly, but you can do so, as explained in [this tutorial](/tutorial/gw/gw_self_energy/).
 
 In short, a QSGW calculation consists of the following steps. The starting point is a self-consistent DFT calculation (usually LDA). The DFT
 eigenfunctions and eigenvalues are used by the GW code to construct a self-energy &Sigma;<sup>0</sup>.  This is called the "0<sup>th</sup> iteration."
