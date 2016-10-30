@@ -581,16 +581,16 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches are separated by **~** (or the character following **_S_**):
-  + **col=_r_,_g_,_b_** &nbsp;                                      fill color or color of symbol contour
-  + **clip**      &emsp;&emsp;&emsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
+  + **col=_r_,_g_,_b_** &emsp; fill color or color of symbol contour
+  + **clip**      &emsp;&emsp;&emsp;&nbsp;&nbsp; If present, clips symbols that fall outside frame
   + **bold=_b_**  &emsp;&nbsp;&nbsp; line thickness for symbol contour.
-    + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
-    + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
-  + **fill=_f_**  &emsp;&emsp;&emsp;              controls how symbol is filled:
-    + <b>_f_</b>=0 &emsp;&emsp;                                     do not fill symbol
+    + <b>_b_</b>=-1  &emsp; fill symbol, but do not draw border (useful for only symbols that are filled)
+    + <b>_b_</b>+100 &emsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
+  + **fill=_f_**   &emsp;&emsp  controls how symbol is filled:
+    + <b>_f_</b>=0 &emsp;&emsp; do not fill symbol
     + <b>_f_</b>=1 &emsp;&emsp; fill the symbol with whitespace
     + <b>_f_</b>=2 &emsp;&emsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=3 &emsp;&emsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+    + <b>_f_</b>=3 &emsp;&emsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=_r_,_g_,_b_**.
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
@@ -669,11 +669,12 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 + **-map [-i _expr_] _list_**\\
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
-  For each point, **_expr_** can make use of the following variables:\\
-  **i** (row index);  **x** and **y** (columns for abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns),
-  **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
-  **_list_** is required : if you want to map all the points, use **1:nr** for **_list_**.\\
-  _Example_ : &nbsp;&nbsp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
+  For each point, **_expr_** can make use of the following variables:
+  + **i** (row index);  **x** and **y** (abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns),
+  + **xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
+  + **_list_** is required : if you want to map all the points, use **1:nr** for **_list_**.
+
+  _Example_ : &ensp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
   culls an array from rows 1,3,5,4 of the original data.  If the abscissa is &nbsp;&le;4&nbsp; the row is excluded.
 
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
