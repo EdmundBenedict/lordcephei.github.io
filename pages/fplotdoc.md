@@ -1272,80 +1272,9 @@ The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the 
 parts that make the green, orange, and blue bubbles are all similar to one another.
 Cut and paste the content of the box below into file _plot.qsgwcycle_{: style="color: green"}.
 
-<div onclick="elm = document.getElementById('flowchartscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"> 
-QSGW flowchart script - Click to show.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
-
-~~~
-fplot
-  -frme .0,.7,0,.7 -x -1,1 -y 0,1 -frmt th=2,3,3
-
-# --- Green block ---
-% var ys=1                 # position of block
-% char filcol=.6,1,0       # color of bubble
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:10.4,3.05 -tp 2~0,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.50,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.50,{ys}
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:10.8,2.8 -tp 2~0,{ys}
-# ... text and arrow in green block
-  -font b18
-  -s arrow:fill=3:bold=3:col=.1,.1,1:-.07,0,.5,20,.4,.5 -tp 2~0+.04,{ys}-.01
-  -lbl 0.03,{ys}:0 cc '~\{S}^\{0}, &\{n}^\{in}         &\{n}^\{out}'
-  -font b16
-  -lbl 0.04,{ys}+.03:0 cc 'lmf'
-  -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
-  -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
-
-# --- Orange block ---
-% var ys=.7                # position of block
-% char filcol=1,.6,0       # color of bubble
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
-# ... text and arrow in orange block
-  -font b18
-  -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0-.12,{ys}-.02
-  -lbl -.35,{ys}:0 lc '~\{S}^\{0}, &\{n}'
-  -font b16
-  -lbl 0.1,{ys}:0 rc 'GW inputs'
-  -font b16
-  -lbl -.15,{ys}+.03:0 cc 'lmfgwd'
-  -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
-  -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
-
-# --- Blue block ---
-% var ys=.4                # position of block
-% char filcol=0,.8,1       # color of bubble
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
-  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
-  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
-# ... text and arrow in blue block
-  -font b16
-  -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0+.15,{ys}-.02
-  -lbl -.70,{ys}:0 rc 'GW inputs'
-  -font b18
-  -lbl 0.4,{ys}:0 rc '~\{S}^\{0}'
-  -font b16
-  -lbl 0.15,{ys}+.03:0 cc 'lmgw'
-
-# --- Arrow looping green to blue block : make stretched circle ---
-  -ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'
-#  no shift
-#   -lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99
-#  -shftm=0,792-428
-  -lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083
-  -ins 'grestore'
-  -lt 0,bold=2 -s arrow:fill=3:col=0.5,0.5,0.5:.15/4,-.16/4,.99,25,.9 -tp 2~.68,1.01
-~~~
-
-{::nomarkdown}</div>{:/}
-
-xxx
-
-<div onclick="elm = document.getElementById('flowchartscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> Click for description.</button></div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
+<div onclick="elm = document.getElementById('flowscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="flowscript">{:/}
 
 ~~~
 fplot
@@ -1414,9 +1343,9 @@ fplot
 {::nomarkdown}</div>{:/}
 
 
-<div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-QSGW flowchart script - Click to show.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
+<div onclick="elm = document.getElementById('figflow'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="figflow">{:/}
 ![Flowchart example](/assets/img/qsgwcycle.png)
 {::nomarkdown}</div>{:/}
 
@@ -1562,7 +1491,7 @@ _filling_                              | -lt _n_**~fill=#**{: style="color: red"
 |---
 _clip outside frame_                   | -lt _n_**~clip**{: style="color: red"}        |
 |---
-_color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}| | For second and third color weights, use **~colw2=_r2_,_g2_,_b2_~colw3=_r3_,_g3,_b3_**{: style="color: red"}|
+_color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}| | For color weights _n_=2\|3\|4, use **~colw_n_=_rn_,_gn_,_bn_ |
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
