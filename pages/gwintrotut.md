@@ -21,8 +21,8 @@ ________________________________________________________________________________
 
 ![QSGW flowchart](/assets/img/qsgwcycle.png)
 
-<div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> Click for description.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
+<div onclick="elm = document.getElementById('qsgwsummary'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> Click for description.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="qsgwsummary">{:/}
 
 Each iteration of a QSGW calculation has two main parts: a section that uses effective one-body hamiltonians to makes the density _n_, and
 the _GW_ code that makes the self-energy &Sigma;(<i>&omega;</i>) of an interacting hamiltonian.  For quaisparticle self-consistency, the
@@ -90,8 +90,8 @@ To carry out a self-consistent LDA calculation, we use the lmf code. Try running
 <hr style="height:5pt; visibility:hidden;" />
 ### LDA commands
 ________________________________________________________________________________________________
-<div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
+<div onclick="elm = document.getElementById('commandsummary'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="commandsummary">{:/}
 
     $ cp lm/doc/demos/qsgw-si/init.si/init.si .            #copy init file to working directory
     $ blm init.si --express --gmax=5 --nk=4 --nit=20 --gw  #use blm tool to create actrl and site files

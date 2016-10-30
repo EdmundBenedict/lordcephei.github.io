@@ -1270,6 +1270,7 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 
 The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the script in the box below.  The script is rather long but the
 parts that make the green, orange, and blue bubbles are all similar to one another.
+Cut and paste the content of the box below into file _plot.qsgwcycle_{: style="color: green"}.
 
 <div onclick="elm = document.getElementById('flowchartscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">QSGW flowchart script - Click to show.</button></div>
@@ -1523,7 +1524,7 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 |---
 &nbsp;            | **-s**{: style="color: red"} _type_~_options_~_shape-parameters_          | [DATA switches](/docs/misc/fplot/#data-switches) |
 |---
-_types_           | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+_types_           | -s **+\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
 |---
 _fill type_       | -s _type_**~fill=#**{: style="color: red"}                                | [Symbols exercise](/docs/misc/fplot/#about-symbols)
 |---
@@ -1612,8 +1613,7 @@ Instruction   | Definition                                           | Places to
 **-r**        | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-rot**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-rotp**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#about-symbols),&nbsp;
-                                                                       [Error bars exercise](/docs/misc/fplot/#error-bars)
+**-s**        | [DATA switches](/docs/misc/fplot/#data-switches)     | [Symbols exercise](/docs/misc/fplot/#about-symbols),&nbsp; [Error bars exercise](/docs/misc/fplot/#error-bars)
 **-shftm**    | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |[Postscript conversion exercise](/docs/misc/fplot/#adapting-postscript-files-to-other-formats)
 **-sort**     | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-tmx**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
@@ -1625,3 +1625,4 @@ Instruction   | Definition                                           | Places to
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  |
+
