@@ -9,11 +9,37 @@ sidebar: "left"
 header: no
 ---
 <hr style="height:5pt; visibility:hidden;" />
-## Introduction to a QSGW calculation
 
+### _Purpose_
+{:.no_toc}
+_____________________________________________________________
+
+
+This tutorial carries out a basic QSGW calculation for Si, starting from
+structural information.
+
+
+### _Table of Contents_
+{:.no_toc}
+_____________________________________________________________
+*  Auto generated table of contents
+{:toc}
+
+### _Preliminaries_
+_____________________________________________________________
+
+
+Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
+So is the QSGW script **lmgwsc**{: style="color: blue"} and the binaries it requires.
+
+### Introduction to a QSGW calculation
 ________________________________________________________________________________________________
 
-This tutorial begins with an LDA calculation for Si, starting from an init file. Following this is a demonstration of a quasi-particle self-consistent GW (QSGW) calculation. An example of the 1-shot GW code is provided in a separate tutorial. Click on the 'QSGW' dropdown menu below for a brief description of the QSGW scheme. A complete summary of the commands used throughout is provided in the 'Commands' dropdown menu. Theory for GW and QSGW, and its implementation in the Questaal suite, can be found in [Phys. Rev. B76, 165106 (2007)](http://link.aps.org/abstract/PRB/v76/e165106).
+This tutorial begins with an LDA calculation for Si, starting from an init file. Following this is a demonstration of a quasi-particle
+self-consistent GW (QSGW) calculation. An example of the 1-shot GW code is provided in a separate tutorial. Click on the 'QSGW' dropdown
+menu below for a brief description of the QSGW scheme. A complete summary of the commands used throughout is provided in the 'Commands'
+dropdown menu. Theory for GW and QSGW, and its implementation in the Questaal suite, can be found in
+[Phys. Rev. B76, 165106 (2007)](http://link.aps.org/abstract/PRB/v76/e165106).
 
 <hr style="height:5pt; visibility:hidden;" />
 ### QSGW summary
