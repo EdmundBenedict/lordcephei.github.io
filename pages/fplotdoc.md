@@ -554,7 +554,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type g
+  + **_n_**         &emsp; line type h
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
@@ -569,7 +569,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
     + **#=2** &emsp; fill the area inside of the curve with color
     + **#=3** &emsp; both 1 and 2
   + **brk=1**       &emsp;&emsp;&ensp;        starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
-  + **_la_,_lb_,_lc_,_ld_**  &emsp;&nbsp;     length of dash and space (for dashed lines only).
+  + **_la_,_lb_,_lc_,_ld_**  &emsp;&ensp;     length of dash and space (dashed or dot-dashed lines).
                     Units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &ensp; First dash length
     + **_lb_**      &ensp; First space length
@@ -606,7 +606,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 
   {::nomarkdown}<div>{:/}
 
-  How to make symbols is mostly easily explained through examples.
+  See also the [Quick reference](/docs/misc/fplot/#symbols).
   [The Symbols exercise](/docs/misc/fplot/#about-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
   See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
@@ -632,7 +632,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
   Attributes marked with "&dagger;" are optional. By default, **sym1**=1 and **sym2**=**sym1**.\\
   Symbols 1-4 have a width and height given by **sym1** and **sym2** (thus **square** can be a rectangle).\\
   Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
-  Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
+  Symbol 6 (circle) is more generally an arc, if the second and third attribute are used.
   Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
   &emsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
   &emsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the arrowhead as a fraction of arrow length\\
