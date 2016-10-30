@@ -25,18 +25,16 @@ Each iteration of a QSGW calculation has two main parts: a one-body calculation 
 For quaisparticle self-consistency, the _GW_ code makes a "quasiparticlized" self-energy &Sigma;<sup>0</sup>, which feeds back to the one-body code.
 Before any _GW_ self-energy is made, the one-body hamiltonian is usually the LDA, though it can be something else, e.g. LDA+U.  
 
+![QSGW flowchart](/assets/img/qsgwcycle.png)
+
 The one-body executable is **lmf**{: style="color: blue"}.  The _GW_ code is run through shell script, **lmgw**{: style="color: blue"},
 which in turn runs a sequence of executables to make the self-energy.  Another code, **lmfgwd**{: style="color: blue"} is a driver similar
 to **lmf**{: style="color: blue"} but whose purpose is to set up inputs for the _GW_ code.  **lmgwsc**{: style="color: blue"} is a shell
 script that manages the entire cycle, including
 
-
-
-
 for input parameters and a GW calculation to obtain a
 self-energy. The full-potential code (lmf script) carries out the DFT calculation, while the GW code (lmgw) calculates the self-energy. When
 iterating to self-consistency, there is movement between the DFT and GW parts and this is handled by the script lmgwsc.
-
 
 In short, a QSGW calculation consists of the following steps. The starting point is a self-consistent DFT calculation (usually LDA). The DFT eigenfunctions and eigenvalues are used by the GW code to construct a full self-energy, which is then converted into an effective exchange-correlation potential (here we call it the GW potential). At this point we have finished a single iteration. In the next iteration, the GW potential is used in a self-consistent DFT calculation to obtain new eigenfunctions and eigenvalues. In turn, these are then used to form a new self-energy, which is converted into a new GW potential. This process is repeated until the change in the root mean square difference between the self-energy of the current and previous iteration is below a certain tolerance value. The final self-consistent self-energy (QSGW potential) is an effective exchange-correlation functional, tailored to the system, that can be conveniently used within the standard DFT setup to calculate properties such as the band structure.   
 
@@ -112,7 +110,7 @@ When creating the GWinput file, lmfgwd checks the GW section of the ctrl file fo
 
     $ n1n2n3  3  3  3 ! for GW BZ mesh
  
-The k mesh of 3×3×3 divisions is rough, but it makes the calculation fast and for Si the results are reasonable.
+The k mesh of 3&\times;3&\times;3 divisions is rough, but it makes the calculation fast and for Si the results are reasonable.
 
 <hr style="height:5pt; visibility:hidden;" />
 ### Running QSGW
@@ -176,8 +174,8 @@ Check your directory and you will see that a large number of files were created.
 Further details can be found in the Additional exercises below. 
 
 - Correct gap:
-This is actually the Γ-X gap; the true gap is 0.44 eV as can be seen by running lmf with a fine k mesh.
+This is actually the &Gamma;-X gap; the true gap is 0.44 eV as can be seen by running lmf with a fine k mesh.
 - Changing k mesh:
 Test the convergence with respect to the GW k mesh by increasing to a 4x4x4 k mesh.
 - Adding floating orbitals:
-Note  that the basis set for this calculation isn't quite converged. For Si this is not much of an issue but it can matter a bit for other materials (making errors of order 0.1 eV). The atom-centered LMTO basis set is sufficient for LDA calculations, but it is not quite adequate for GW (work is in progress for a next-generation basis which should address this limitation). To make the basis complete you should add floating orbitals (you cannot add (you cannot add APWs in the QSGW context because the self-energy interpolator does not work with delocalized orbitals). Floating orbitals are like the empty spheres often required by the ASA, but they have no augmentation radius. You can automatically locate them using lmchk (the same way the empty sphere locator works for the ASA). 
+Note  that the basis set for this calculation isn't quite converged. For Si this is not much of an issue but it can matter a bit for other materials (making errors of order 0.1 eV). The atom-centered LMTO basis set is sufficient for LDA calculations, but it is not quite adequate for GW (work is in progress for a next-generation basis which should address this limitation). To make the basis complete you should add floating orbitals (you cannot add (you cannot add APWs in the QSGW context because the self-energy interpolator does not work with delocalized orbitals). Floating orbitals are like the empty spheres often required by the ASA, but they have no augmentation radius. You can automatically locate them using lmchk (the same way the empty sphere locator works for the ASA). 
