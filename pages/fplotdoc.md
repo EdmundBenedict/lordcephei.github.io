@@ -957,7 +957,7 @@ fplot
   -s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7
   -lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7
   -s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55
-  -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6
+  -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6  
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5
   -lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5
   -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -ord .5-.05 -tp 0.8
@@ -977,14 +977,15 @@ $ open fplot.ps
 <br>_Notes:_{: style="color: red"}
 
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**bold=6**{: style="color: red"}) cross, compressed along _y_ (**:1,.6**{: style="color: red"})
-+ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` draws an incomplete (50-350<sup>o</sup>{: style="color: red"}) grey (**fill=2,col=.7**{: style="color: red"}) circle, 
-   default size (<b>:1</b>{: style="color: red"})
-+ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`, draws a yellow diamond, elongated along _y_ (:1,1.6{: style="color: red"})
-+ `-s poly:fill=3:bold=0:col=0,0,0.8:.6,5 -tp 2~.7,0.55` draws a blue pentagram (<b>:</b>.6**,5**) scaled in size (<b>:.6</b>,5)
-+ `-s square:fill=3:bold=0:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` draws a rectangle (a square compressed along _x_ and elongated along _y_ (**:.6,5**)
++ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle, 
+   default size (<b>:1</b>{: style="color: red"},50,250)
++ `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**) diamond, elongated along _y_ (**1,1.6**{: style="color: red"}).
+   Adding 100 to **bold** (**:bold=103**) causes the diamond to be framed in blue (**-lt 0,col=.1,.2,1**)
++ `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue pentagram (<b>:</b>.6**,5**{: style="color: red"}) **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
++ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) rectangle ("square" with unequal (_x_,_y_)=(**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -ord .5 -tp 0.5`
   creates a wiggly line ending at **(0.5,0.5)**, sloping downward with run/rise = **(-0.15,0.16)**.
-+ `-lt 0,bold=2 -s arrow:fill=3:col=0.,0.,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
++ `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -ord 0.5 -tp 0.5`
   tacks an arrowhead onto the line with:\\
   &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**)\\
   &nbsp;&nbsp; Tip at data point (**0.5,0.5**)\\
