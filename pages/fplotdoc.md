@@ -550,16 +550,16 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type x
+  + **_n_**         &emsp; line type y
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &ensp; dotted line.
-  + **bold=_b_**    &emsp;&emsp;&ensp;&ensp; line thickness or dot size **_b_**.  Default is 3.
+  + **bold=_b_**    &emsp;&emsp;&ensp; line thickness or dot size **_b_**.  Default is 3.
   + **col=_r_,_g_,_b_**   &emsp;&emsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=_r_,_g_,_b_**  &emsp;&emsp;     First color weight when line is to be drawn with color weights.
+  + **colw=_r_,_g_,_b_**  &emsp;           First color weight when line is to be drawn with color weights.
   + **colw2=_r_,_g_,_b_** &nbsp;           Second color weight when line is to be drawn with color weights.
-  + **clip**        &emsp;&emsp;&emsp;&emsp  clips curves when they go outside the frame
+  + **clip**        &emsp;&emsp;&emsp;&emsp;  clips curves when they go outside the frame
   + **fill=#**      &emsp;&emsp;&ensp;&ensp; fill color
     + **#=1** &emsp; color line with color given by **col**
     + **#=2** &emsp; fill the area inside of the curve with color
