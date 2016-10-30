@@ -554,7 +554,7 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
   Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type f
+  + **_n_**         &emsp; line type g
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
@@ -568,9 +568,8 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
     + **#=1** &emsp; color boundary line with color given by **col**
     + **#=2** &emsp; fill the area inside of the curve with color
     + **#=3** &emsp; both 1 and 2
-  + **bold=_b_**    &emsp;&emsp;&nbsp; line thickness or dot size **_b_**.  Default is 3.
   + **brk=1**       &emsp;&emsp;&ensp;        starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
-  + **_la_,_lb_,_lc_,_ld_**  &emsp; length of dash and space (for dashed lines only).
+  + **_la_,_lb_,_lc_,_ld_**  &emsp;&nbsp;     length of dash and space (for dashed lines only).
                     Units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &ensp; First dash length
     + **_lb_**      &ensp; First space length
@@ -589,7 +588,9 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
   + **clip**      &emsp;&emsp;&emsp;&thinsp;  If present, clips symbols that fall outside frame
   + **bold=_b_**  &emsp;&ensp;&nbsp;          line thickness for symbol contour.
     + <b>_b_</b>=&minus;1   &emsp;&nbsp;      fill symbol, but do not draw border (useful for only symbols that are filled)
-    + <b>_b_</b>+100 &ensp;&nbsp; Add 100 to <b>_b_</b> to draw contour with color taken from **-lt**, making fill and border colors distinct
+    + <b>_b_</b>+100 &ensp;&nbsp; Add 100 to <b>_b_</b> to draw contour with color taken from **-lt**, rendering fill and border colors distinct.\\
+
+   **bold=-1**  and **bold=103** are used in the [Symbols exercise](/docs/misc/fplot/#about-symbols).
   + **fill=_f_**   &emsp;&emsp;&ensp;&thinsp; controls how symbol is filled:
     + <b>_f_</b>=0 &emsp;&emsp; do not fill symbol
     + <b>_f_</b>=1 &emsp;&emsp; fill the symbol with whitespace
