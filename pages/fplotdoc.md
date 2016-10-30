@@ -1272,7 +1272,7 @@ The flow chart in this [QSGW tutorial](/tutorial/gw/qsgw_si/) was made with the 
 parts that make the green, orange, and blue bubbles are all similar to one another.
 Cut and paste the content of the box below into file _plot.qsgwcycle_{: style="color: green"}.
 
-<div onclick="elm = document.getElementById('flowscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('flowscript'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius"> Click for description.</button></div>
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="flowscript">{:/}
 
