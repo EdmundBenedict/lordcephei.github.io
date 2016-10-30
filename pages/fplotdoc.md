@@ -555,18 +555,17 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
     + **_n_**=3     &ensp; dotted line.
-  + **bold=_b_**    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; line thickness or dot size **_b_**.  Default is 3.
-  + **col=_r_,_g_,_b_**   &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
-  + **colw=_r_,_g_,_b_**  &ensp;&ensp;                   First color weight when line is to be drawn with color weights.
-  + **colw2=_r_,_g_,_b_**                          Second color weight when line is to be drawn with color weights.
-  + **clip**        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; clips curves when they go outside the frame
-  + **fill=#**      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; fill color.
-    + 1 &ensp; color line with color given by **col**
-    + 2 &ensp; fill the area inside of the curve with color
-    + 3 &ensp; both 1 and 2
-  + **brk=1**       &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                    starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
-  + **_la_,_lb_,_lc_,_ld_**   &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; length of dash and space (for dashed lines only).
+  + **bold=_b_**    &emsp;&emsp;&ensp;&ensp; line thickness or dot size **_b_**.  Default is 3.
+  + **col=_r_,_g_,_b_**   &emsp;&emsp; [**_r_,_g_,_b_**](/docs/misc/fplot/#color-specification) line color.
+  + **colw=_r_,_g_,_b_**  &emsp;&emsp;     First color weight when line is to be drawn with color weights.
+  + **colw2=_r_,_g_,_b_** &nbsp;           Second color weight when line is to be drawn with color weights.
+  + **clip**        &emsp;&emsp;&emsp;&ensp;&ensp; clips curves when they go outside the frame
+  + **fill=#**      &emsp;&emsp;&ensp;&ensp; fill color
+    + **#=1** &emsp; color line with color given by **col**
+    + **#=2** &emsp; fill the area inside of the curve with color
+    + **#=3** &emsp; both 1 and 2
+  + **brk=1**       &emsp;&emsp;&ensp;&ensp; starts a new line whenever <b><i>x<sub>i</sub></i> ><i>x<sub>i-1</sub></i></b>
+  + **_la_,_lb_,_lc_,_ld_**   &ensp; length of dash and space (for dashed lines only).
                     Dash length units are sized so that 1 correspond to a "typical" dash size.
     + **_la_**      &ensp; First dash length
     + **_lb_**      &ensp; First space length
