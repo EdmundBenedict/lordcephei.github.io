@@ -927,7 +927,11 @@ Example showing an error bar and a circle:
 $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
 
-+ An error bar is drawn first, using column 3 (**-ey 3,.75**).  The **.75** scales the default with of the horizontal lines in the error bar symbol by 0.75.
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
+  print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.
+
+
++ An error bar is drawn first, using column 3 (**-ey 3**{: style="color: red"},.75).  The **.75**{: style="color: red"} scales the default with of the horizontal lines in the error bar symbol.
 + A filled circle is drawn after the error bar, concealing part of it.
 + No line is drawn connecting points: **-lt 0** psuppresses connecting lines](/docs/misc/fplot/#data-switches).
 
