@@ -553,8 +553,8 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
 {:/comment}
 
 + **-lt _n_[~bold=_b_][~col=#,#,#][~colw=#,#,#][~colw2=#,#,#][~colw3=#,#,#][~clip][~fill=#][~brk=#][~_la_,_lb_,_lc_,_ld_]**\\
-  Line type specification and attributes.  Options separator **~** can be a different character such as **:** or **,**.
-  + **_n_**         &emsp; line type j
+  Line type specification and attributes.  Options separator &nbsp;**~**&nbsp; can be a different character such as &nbsp;**:**&nbsp; or &nbsp;**,**.
+  + **_n_**         &emsp; line type k
     + **_n_**=0     &ensp; No connecting line. Used to draw symbols at data points [without any connecting lines](/docs/misc/fplot/#error-bars).
     + **_n_**=1     &ensp; solid, unbroken line.
     + **_n_**=2     &ensp; dashed line, or dot-dashed line. Dash lengths specified through &nbsp;**_la_**&nbsp; and &nbsp;**_lb_**.
@@ -599,10 +599,10 @@ Roughly: 4 nbsp per emsp, 2 nbsp per ensp
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
 
-<br>
+<i> </i>
 
-See also the [Quick reference](/docs/misc/fplot/#symbols).
-[The Symbols exercise](/docs/misc/fplot/#about-symbols) illustrates several symbols, notably the wiggle and arrow symbols.
+For a brief summary of the options, see the [Quick reference](/docs/misc/fplot/#symbols).  [The Symbols
+exercise](/docs/misc/fplot/#about-symbols) illustrates many of symbols and how their attributes and filling modify them in interesting ways.
 See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 
