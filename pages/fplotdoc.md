@@ -981,22 +981,22 @@ $ open fplot.ps
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
    Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a blue (**-lt 0,col=.1,.2,1**{: style="color: red"}) line, thickness **3**.
-+ `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue pentagram 
-  (<b>:</b>.6**,5**{: style="color: red"}),&nbsp; **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
-+ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) "square" (rectangle width,height)=(**:.6,5**{: style="color: red"})
++ `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue 5-sided
+  (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
++ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) "square:" rectangle width,height=(**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
   creates a wiggly line ending at **(0.5,0.5)**:\\
   &ensp; sloping downward with run/rise = (**-0.15,0.16**{: style="color: red"})\\
   &ensp; with 2.3 periods (:-.15,0.16,**2.3**{: style="color: red"},.05)\\
-  &emsp; excursion 0.05&times; length of line (:-.15,0.16,2.3,**.05**{: style="color: red"})\\
+  &ensp; excursion 0.05&times; length of line (:-.15,0.16,2.3,**.05**{: style="color: red"})
 + `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5`
-  tacks an arrowhead onto the line with:\\
-  &nbsp;&nbsp; Arrowhead filled with black (**col=0,0,0**{: style="color: red"})\\
-  &nbsp;&nbsp; Tip at data point (**0.5,0.5**{: style="color: red"})\\
-  &nbsp;&nbsp; Tail at position (**&minus;0.15/4,0.16/4**{: style="color: red"}) in graphics units, relative to head;\\
-  &nbsp;&nbsp; thus the arrowhead line point at the same angle as the wiggle but is 1/4 size.\\
-  &nbsp;&nbsp; Wings with length **0.99 &times; [size of tail]**, subtending angle 25<sup>o</sup>.\\
-  &nbsp;&nbsp; Arrowhead touches line of tail at **0.9&times;[length of tail].**
+  creates an arrowhead with:\\
+  &ensp; Tip at data point (**-tp 2~0.5,0.5**{: style="color: red"})\\
+  &ensp; Tail at position (**&minus;0.15/4,0.16/4**{: style="color: red"}) relative to head, in graphics units;\\
+  &emsp; thus the line of the arrow points at the same angle as the wiggle but is 1/4 size.\\
+  &ensp; Wings with length **0.99 &times; [size of tail]** (:-.15/4,0.16/4,**.99**{: style="color: red"},25,.9), subtending angle 25<sup>o</sup> (:-.15/4,0.16/4,.99,**25**{: style="color: red"},.9).\\
+  &ensp; Arrowhead touches line of tail at **0.9&times;[length of tail]**  (:-.15/4,0.16/4,.99,25,**.9**{: style="color: red"}).\\
+  &ensp; Arrowhead is filled with black (**col=0,0,0**{: style="color: red"})
 + `-lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -tp 2~0.8,.5-.05`
   creates a wiggly line :\\
   &ensp; along the _x_ axis (**:-.35,0.00**{: style="color: red"})\\
