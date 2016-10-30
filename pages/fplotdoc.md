@@ -583,7 +583,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Optional switches are separated by **~** (or the character following **_S_**):
   + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
   + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour. 
+  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour.
     + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
     + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
   + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
@@ -687,7 +687,7 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   sort data in ascending abscissa order (after mapping).
 
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
-  special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values of the function.  
+  special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values of the function.
   Specify with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
   This mode draws contours of constant &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
@@ -957,7 +957,7 @@ fplot
   -s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7
   -lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7
   -s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55
-  -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6  
+  -s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6
   -s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5
   -lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5
   -lt 0 -s wiggle:fill=3:bold=2:col=.5,1,0:-.35,0.00,0.5,.1,40 -tp 2~0.8,.5-.05
@@ -977,14 +977,14 @@ $ open fplot.ps
 <br>_Notes:_{: style="color: red"}
 
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross, compressed along _y_ (:1,**.6**{: style="color: red"})
-+ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle, 
++ `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle,
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
-   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**3**) 
+   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**3**)
    blue line (**-lt 0,col=.1,.2,1**{: style="color: red"})
 + `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue 5-sided
   (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
-+ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"}) 
++ `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"})
   "square" (rectangle width,height=**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
   creates a wiggly line ending at **(0.5,0.5)**:\\
@@ -1297,7 +1297,7 @@ fplot
 
 # --- Orange block ---
 % var ys=.7                # position of block
-% char filcol=1,.6,0       # color of bubble  
+% char filcol=1,.6,0       # color of bubble
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
@@ -1315,7 +1315,7 @@ fplot
 
 # --- Blue block ---
 % var ys=.4                # position of block
-% char filcol=0,.8,1       # color of bubble  
+% char filcol=0,.8,1       # color of bubble
   -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
   -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
@@ -1347,7 +1347,7 @@ Run the commands in the box below to create and view the postscript file, or cli
 {::nomarkdown}</div>{:/}
 
 ~~~
-$ fplot -shftm=0,792-428 -f plot.qsgwcycle 
+$ fplot -shftm=0,792-428 -f plot.qsgwcycle
 $ open fplot.ps
 ~~~
 
@@ -1356,9 +1356,9 @@ explains how the shift was calculated.
 
 _Notes:_{: style="color: red"}
 
-+ Bubbles are made in 4 sections: two half-circles, a rectangle with a frame around it, and another rectangle without a frame to blank
++ Bubbles are assembled out of 4 parts: two half-circles, a first rectangle with a frame around it, and without a frame to blank
   out lines inside the bubble.
-+ Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the 
++ Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the
   [Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
 + The long curved arrow was made with an arc (**circle** symbol), using\\
   **-lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083**\\
@@ -1519,19 +1519,20 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 {:/comment}
 
 |---
-&nbsp;         | Instruction                                                               |  Definition/Example
+&nbsp;            | Instruction                                                               |  Definition/Example
 |---
-&nbsp;         | **-s**{: style="color: red"} _type_:_options_:_shape-parameters_          | [DATA switches](/docs/misc/fplot/#data-switches) |
+&nbsp;            | **-s**{: style="color: red"} _type_~_options_~_shape-parameters_          | [DATA switches](/docs/misc/fplot/#data-switches) |
 |---
-_types_        | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+_types_           | **-s +\|x\|circ\|square\|poly\|wiggle\|arrow\|...**{: style="color: red"} | [Symbols exercise](/docs/misc/fplot/#about-symbols)
 |---
-_fill color_   | -s _type_**~col=_r_,_g_,_b_**{: style="color: red"}                       | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+_fill type_       | -s _type_**~fill=#**{: style="color: red"}                                | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+|---
+_fill color_      | -s _type_**~col=_r_,_g_,_b_**{: style="color: red"}                       | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+|---
+_line thickness_  | -s _type_**~bold=_b_**{: style="color: red"}                              | [Symbols exercise](/docs/misc/fplot/#about-symbols)
+|---
+_clip_            | -s _type_**~clip**{: style="color: red"}
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
-
-
-{::comment}
-+ **-s _S_[~col=#,#,#][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
-{:/comment}
 
 ###### _Tic marks_
 {::comment}
