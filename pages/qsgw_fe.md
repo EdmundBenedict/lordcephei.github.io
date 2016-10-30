@@ -12,20 +12,20 @@ header: no
 ### _Purpose_
 _____________________________________________________________
 
-This tutorial carries out a QSGW calculation for Fe, a bcc magnetic metal.
+This tutorial carries out a QSGW calculation for Fe, a bcc magnetic metal,
+beginning with a self-consistent LDA calculation.
 
 It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si)
-see in particular the [flowchart](/tutorial/gw/qsgw_si/#qsgw-summary)
+see in particular the [flowchart](/tutorial/gw/qsgw_si/#qsgw-summary).
 
-This tutorial is a starting point for other tutorials, in particular
+This tutorial is a starting point for other tutorials; see for example
 the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
 ### _Table of Contents_
-_____________________________________________________________
-
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
+_____________________________________________________________
 
 
 ### _Preliminaries_
@@ -36,6 +36,9 @@ Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and
 similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
 ### _Command summary_
+{::comment}
+/tutorial/gw/qsgw_fe/#command-summary
+{:/comment}
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
@@ -50,16 +53,13 @@ cp basp0.fe basp.fe
 lmf fe > out.lmf
 ~~~
 
-The GW codes require a separate _GWinput_{: style="color: green"} file.
-Create it with:
-
 ~~~
 lmfgwd --jobgw=-1 ctrl.fe
+nano GWinput
 lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 {::nomarkdown}</div>{:/}
-
 
 ### _Introduction_
 
