@@ -577,20 +577,20 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 <i> </i>
 
-+ **-s _S_[~col=#,#,#][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
++ **-s _S_[~col=_r_,_g_,_b_][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
   Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
   Optional switches are separated by **~** (or the character following **_S_**):
-  + **col=#,#,#** &nbsp;                                      fill color or color of symbol contour
-  + **clip**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
-  + **bold=_b_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line thickness for symbol contour.
+  + **col=_r_,_g_,_b_** &nbsp;                                      fill color or color of symbol contour
+  + **clip**      &emsp;&emsp;&emsp;&nbsp;&nbsp;  If present, clips symbols that fall outside frame
+  + **bold=_b_**  &emsp;&nbsp;&nbsp; line thickness for symbol contour.
     + <b>_b_</b>=-1 &nbsp; fill symbol, but do not draw border (useful for only symbols that are filled)
     + <b>_b_</b>+100 &nbsp; Add 10 to <b>_b_</b> to draw contour with color taken from **-lt**: it remains different from fill
-  + **fill=_f_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              controls how symbol is filled:
+  + **fill=_f_**  &emsp;&emsp;&emsp;              controls how symbol is filled:
     + <b>_f_</b>=0 &emsp;&emsp;                                     do not fill symbol
-    + <b>_f_</b>=1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill the symbol with whitespace
-    + <b>_f_</b>=2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with gray.  Specify shading with **col=#**.
-    + <b>_f_</b>=3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
+    + <b>_f_</b>=1 &emsp;&emsp; fill the symbol with whitespace
+    + <b>_f_</b>=2 &emsp;&emsp; fill symbol with gray.  Specify shading with **col=#**.
+    + <b>_f_</b>=3 &emsp;&emsp; fill symbol with [RGB color](/docs/misc/fplot/#color-specification) given by **col=#,#,#**.
   + <b>_sym1_, _sym2_,..</b> symbol attributes (optional for some symbols, required for others) that alter size and shape of symbol.\\
     The number and meaning of attributes depends on the symbol (see Table).\\
   **_S_** is specified in one of the following ways:\\
@@ -629,11 +629,11 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Symbol 5 (polygon) has an third attribute, which sets the angle of 1<sup>st</sup> point relative to the vertical.\\
   Symbol 6 (circle) has one attributes.  It defaults to 1 if not specified.\\
   Symbol 7 draws arrows with the tip at (_x_, _y_).  Attributes refer to:\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the arrowhead as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the projection of the arrowhead onto the axis as a fraction of arrow length\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
+  &emsp; 1,2 **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the tip (graphics units)\\
+  &emsp; 3&nbsp;&nbsp;&nbsp; **head length** is the size of the arrowhead as a fraction of arrow length\\
+  &emsp; 4&nbsp;&nbsp;&nbsp; **head angle** is the angle subtended by the arrowhead\\
+  &emsp; 5&nbsp;&nbsp;&nbsp; **head-on-axis**  the projection of the arrowhead onto the axis as a fraction of arrow length\\
+  &emsp; 6&nbsp;&nbsp;&nbsp; optional **placement**: set to 1 to put the tail at (_x_, _y_), or to 1/2 to center the arrow at (_x_, _y_).\\
   See the [Frames exercise](/docs/misc/fplot/#things-about-frames) for an illustration.\\
   Symbol 8&nbsp; draws error bars. **<i>data-file</i>** must have a third (**_z_**) element of data, in column 3.\\
   _Note:_{: style="color: red"} Error bars may also be drawn through the **-ey** command.  They are drawn before any possible second symbol through **-s**.\\
@@ -642,10 +642,10 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   Symbol 10 (histogram) not documented.\\
   Symbol 11 (row)  not documented.\\
   Symbol 12 (wiggle) draws a wiggly line:\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 1,2&nbsp; **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the head (graphics units)\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp; **excursion** = size of excursion about straight line\\
-  &nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
+  &emsp; 1,2&nbsp; **&Delta;<i>x</i>** and **&Delta;<i>y</i>** are the endpoint of the tail relative to the head (graphics units)\\
+  &emsp; 3&nbsp;&nbsp;&nbsp;&nbsp; **periods** = number of oscillations in the symbol\\
+  &emsp; 4&emsp; **excursion** = size of excursion about straight line\\
+  &emsp; 5&emsp; (optional) **points** = number of points to draw the symbol: more points make the symbol smoother.
 
   See the [Symbols exercise](/docs/misc/fplot/#about-symbols) for examples.
 
