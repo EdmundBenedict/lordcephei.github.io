@@ -90,7 +90,7 @@ The following will plot this function in the interval (0,2), with the abscissa s
 
 <div onclick="elm = document.getElementById('fig1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here to view the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig1">{:/}
-![Example 2.1](https://lordcephei.github.io/assets/img/fplot1.svg)
+![Example 2.1](/assets/img/fplot1.svg)
 {::nomarkdown}</div>{:/}
 
 _Notes:_{: style="color: red"}
@@ -151,7 +151,7 @@ fplot
 <div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
-![Particle in a Box Example](https://lordcephei.github.io/assets/img/box.svg)
+![Particle in a Box Example](/assets/img/box.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -199,7 +199,7 @@ fplot
 <div onclick="elm = document.getElementById('fig2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
-![Example 2.3](https://lordcephei.github.io/assets/img/contours-cr.svg)
+![Example 2.3](/assets/img/contours-cr.svg)
 {::nomarkdown}</div>{:/}
 
     $ fplot -f plot.cr
@@ -251,7 +251,7 @@ fplot
 <div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
-![Example 2.4](https://lordcephei.github.io/assets/img/mobility-tlinp.svg)
+![Example 2.4](/assets/img/mobility-tlinp.svg)
 {::nomarkdown}</div>{:/}
 
     $ fplot -f plot.mobility
@@ -966,7 +966,7 @@ fplot
 <div onclick="elm = document.getElementById('figw'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
-![Symbols Example](https://lordcephei.github.io/assets/img/wiggle.svg)
+![Symbols Example](/assets/img/wiggle.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -1055,7 +1055,7 @@ fplot -p0 -font h18
 <div onclick="elm = document.getElementById('figl'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
-![Labels Example](https://lordcephei.github.io/assets/img/labels.svg)
+![Labels Example](/assets/img/labels.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -1138,7 +1138,7 @@ fplot -frme:font=h30:col=0,0,1 0,1,0,.1 -frmt col=.6,.8,.8,th=4 -tmx 0.2:5,1.001
 <div onclick="elm = document.getElementById('figf'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
-![Frames Example](https://lordcephei.github.io/assets/img/frames.svg)
+![Frames Example](/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -1268,11 +1268,76 @@ _fplot.svg_{: style="color: green"} can now be embedded in a web page without an
 /docs/misc/fplot/#flowchart
 {:/comment}
 
-<div onclick="elm = document.getElementById('flowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+**fplot**{: style="color: blue"} provides a fair amount of flexbility in making frames.
+The script in the box below draws three small frames.
+Cut and paste into file _plot.qsgwcycle_{: style="color: green"}.
+
+~~~
+fplot
+  -frme .0,.7,0,.7 -x -1,1 -y 0,1 -frmt th=2,3,3 -noyn 
+
+% var ys=1
+% char filcol=.6,1,0
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:10.4,3.05 -tp 2~0,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.50,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.50,{ys}
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:10.8,2.8 -tp 2~0,{ys}
+
+  -font b18
+  -s arrow:fill=3:bold=3:col=.1,.1,1:-.07,0,.5,20,.4,.5 -tp 2~0+.04,{ys}-.01
+  -lbl 0.03,{ys}:0 cc '~\{S}^\{0}, &\{n}^\{in}         &\{n}^\{out}'
+  -font b16
+  -lbl 0.04,{ys}+.03:0 cc 'lmf'
+  -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
+  -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
+
+% var ys=.7
+% char filcol=1,.6,0
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
+
+  -font b18
+  -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0-.12,{ys}-.02
+  -lbl -.35,{ys}:0 lc '~\{S}^\{0}, &\{n}'
+  -font b16
+  -lbl 0.1,{ys}:0 rc 'GW inputs'
+  -font b16
+  -lbl -.15,{ys}+.03:0 cc 'lmfgwd'
+  -s arrow:fill=2:bold=4:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
+  -s arrow:fill=2:bold=-1:col=.5,.5,.5:0,+.10,.5,30,.35,1 -tp 2~0+.04,{ys}-.09
+
+% var ys=.4
+% char filcol=0,.8,1
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=103:col={filcol}:12.47,3.05 -tp 2~0,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,90,270 -tp 2~-.60,{ys}
+  -lt 0,col=.5,.5,.5 -s circ:fill=3:bold=103:col={filcol}:3,270,90 -tp 2~0.60,{ys}
+  -lt 0,col=.5,.5,.5 -s square:fill=3:bold=-1:col={filcol}:12.9,2.8 -tp 2~0,{ys}
+
+  -font b16
+  -s arrow:fill=3:bold=3:col=.1,.1,1:-.12,0,.5,15,.4,.5 -tp 2~0+.15,{ys}-.02
+  -lbl -.70,{ys}:0 rc 'GW inputs'
+  -font b18
+  -lbl 0.4,{ys}:0 rc '~\{S}^\{0}'
+  -font b16
+  -lbl 0.15,{ys}+.03:0 cc 'lmgwsc'
+
+  -ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'
+#  no shift
+#   -lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99
+#  -shftm=0,792-428
+  -lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083
+  -ins 'grestore'
+  -lt 0,bold=2 -s arrow:fill=3:col=0.5,0.5,0.5:.15/4,-.16/4,.99,25,.9 -tp 2~.68,1.01
+~~~
+
+<div onclick="elm = document.getElementById('figflowchart'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="flowchart">{:/}
-![Frames Example](https://lordcephei.github.io/assets/img/qsgwcycle.png)
+{::nomarkdown}<div style="display:none;padding:0px;" id="figflowchart">{:/}
+![Frames Example](/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
+
 
 ### _Index_
 {::comment}
