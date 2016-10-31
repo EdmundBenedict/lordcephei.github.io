@@ -432,16 +432,20 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 + **-rotp rot1[,rot2,...]**
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
-  _Example_ : &emsp;  **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**
-
-rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
+  _Example_ : \\
+  **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**\\
+  rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
 #### **LABELLING and NUMBERING** switches govern labels and axis numbering
 {::comment}
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-<br>_Notes:_{: style="color: red"}
+Labels create text in a figure.  In addition to labels you can put anywhere, axes are typically numbered.  Also there is a default format
+specifically for labelling the _x_ and _y_ axes and the title.  Finally, keys are a special label that write a segment of a curve next to
+text
+
+_Notes:_{: style="color: red"}
 
 1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
    The font depends on the character preceding the brackets, as this table shows.
@@ -464,11 +468,12 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
    [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
    _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
-3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
+3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the instructions in this section.
 
 ##### _Labelling switches_
-
+{::comment}
 /docs/misc/fplot/#labelling-switches
+{:/comment}
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -516,6 +521,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
+
+AA1 ?
 
 Within a frame zero or more families of _xy_ data can be drawn. _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
 <pre>
