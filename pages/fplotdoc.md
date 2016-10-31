@@ -514,21 +514,10 @@ AA2x ok
   +  **#** is the size in points.
   +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
 
-AA2y ?
-
-{::comment}
-
-
-
-
-
++ AA2y ?
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
-
-<i> </i>
-
-{/:comment}
 
 AA3  is it here?
 
