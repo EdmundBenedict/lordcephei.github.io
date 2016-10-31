@@ -1522,7 +1522,7 @@ _Notes:_{: style="color: red"}
 
 <br>
 
-###### [_Contour plots_](/docs/misc/fplot/#contour-switch)
+###### _Contour plots_
 
 &nbsp;            | Instruction                    |  Documentation                                    | Example
 |---
@@ -1537,12 +1537,12 @@ _instructions to specify file format_ | **-r**{: style="color: red"}
 _specify number of columns_ | -r**:nc=_n_**{: style="color: red"}
 
 
-###### [_Error bars_](/docs/misc/fplot/#error-bar-switch)
+###### _Error bars_
 
 &nbsp;            | Instruction       |  Documentation/Example | Notes
 &nbsp;            | **-ey _n_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#error-bar-switch), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars) | See also Symbols (**-s**{: style="color: red"}) |
 
-###### [_Fonts_](/docs/misc/fplot/#font-switch)
+###### _Fonts_
 
 &nbsp;            | Instruction                     |  Documentation                                             | Example
 |---
@@ -1552,7 +1552,7 @@ _types_           | -font **t**{: style="color: red"}_n_ \| -font **h**{: style=
 |---
 _size_            | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 
-###### [_Frames_](/docs/misc/fplot/#format-switches)
+###### _Frames_
 {::comment}
 /docs/misc/fplot/#frames
 {:/comment}
@@ -1582,7 +1582,7 @@ _line thickness_  | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches]
 _which axes_      | -frmt th=#**,#,#**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _bounds_          | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
-###### [_Keys_](/docs/misc/fplot/#key-switch)
+###### _Keys_
 
 &nbsp;                                 | Instruction       |  Documentation/Example
 |---
@@ -1598,7 +1598,7 @@ _vertical spacing_                     | -k _x_,_y_...**,_spacing_**{: style="co
 _style_                                | -k _x_,_y_...**;_style_**{: style="color: red"} ...  | |
 _legend_                               | **-l _strn_**{: style="color: red"} ...  | [DATA switches](/docs/misc/fplot/#legend-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
-###### [_Labels_](/docs/misc/fplot/#labelling-switches)
+###### _Labels_
 {::comment}
 /docs/misc/fplot/#labels
 {:/comment}
@@ -1619,7 +1619,7 @@ _abscissa_                             | **-xl _string_**{: style="color: red"} 
 _ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches)
 
-###### [_Line types_](/docs/misc/fplot/#data-switches)
+###### _Line types_
 
 &nbsp;                                 | Instruction       |  Documentation/Example | Notes
 |---
@@ -1659,7 +1659,7 @@ _sort abscissa_    | **-sort**{: style="color: red"} | [DATA switches](/docs/mis
 |---
  _Differences to command-line instructions_ | | see [Additional notes](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line)
 
-###### [_Symbols_](/docs/misc/fplot/#symbols-switch)
+###### _Symbols_
 {::comment}
 /docs/misc/fplot/#symbols
 {:/comment}
@@ -1680,7 +1680,7 @@ _line thickness_  | -s _type_**~bold=_b_**{: style="color: red"}                
 _clip_            | -s _type_**~clip**{: style="color: red"}
 _error bars_   | **-ey**{: style="color: red"} _n_ | [DATA switches](/docs/misc/fplot/#error-bar-switch), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars)
 
-###### [_Tic marks_](/docs/misc/fplot/#tm-switch)
+###### _Tic marks_
 {::comment}
 /docs/misc/fplot/#tic-marks
 {:/comment}
