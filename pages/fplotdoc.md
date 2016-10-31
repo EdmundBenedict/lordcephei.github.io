@@ -497,12 +497,7 @@ AA2 ok
 
 <i> </i>
 
-AA2x ?
-
-{::comment}
-
-
-
+AA2x ok
 
 + <b> -xl _str_ &nbsp;&nbsp; </b> \| &nbsp;&nbsp; <b> -yl _str_ </b> &nbsp;&nbsp; \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
@@ -518,6 +513,15 @@ AA2x ?
   Sets the font for labels following this switch to Times Roman (**t**), Helvetica (**h**), italic (**i**), bold (**b**) or symbol (**s**) font.
   +  **#** is the size in points.
   +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
+
+AA2y ?
+
+{::comment}
+
+
+
+
+
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
