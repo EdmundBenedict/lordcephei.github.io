@@ -520,11 +520,12 @@ test xxx
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-comment before data
-
-{::comment}
 
 _Notes:_{: style="color: red"}
+
+comment after notes
+
+{::comment}
 
 1. Within a frame zero or more families of _xy_ data can be drawn.
    _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
