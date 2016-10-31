@@ -370,6 +370,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 <i> </i>
 
+{::nomarkdown} <a name="frmt-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#frmt-switch
+{:/comment}
+
 + **-frmt &nbsp; [col=_r_,_g_,_b_,][th=#1[,#2,#3]]**\\
   Sets parameters governing the lines composing the frame.
   + **col=_r_,_g_,_b_** specify the line color for the frame ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
@@ -379,6 +384,12 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
     **#3**&nbsp; set to:&nbsp;  **0** for left and right;&nbsp; **1** for left only;&nbsp; **2** for right only;&nbsp; **3** for neither.
 
 <i> </i>
+
+{::nomarkdown} <a name="tm-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#tm-switch
+{:/comment}
+
 
 + **-tmx** \| **-tmy &nbsp; _spacing_[:_mt_][,_pos_][;_rmt_][~_rmnt_][@_mode_]**\\
   tic mark specification and attributes.
@@ -397,6 +408,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 <i> </i>
 
+{::nomarkdown} <a name="x-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#x-switch
+{:/comment}
+
 +  **-x &nbsp; <i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>** \\
     specifies range in abscissa : <b><i>x</i><sub>1</sub></b> = left edge, <b><i>x</i><sub>2</sub></b> = right edge (modified by padding; see &nbsp;**-p#**&nbsp; below).\\
     If this switch is not supplied, **fplot**{: style="color: blue"} will make an initial pass through all the data in the current frame to determine
@@ -414,6 +430,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
    through &nbsp;**-x**&nbsp; or &nbsp;**-y**,  the bounds are still padded.    Use &nbsp;**-p0**&nbsp; to suppress padding.\\
    _Note:_{: style="color: red"}  **<i>x</i><sub>1</sub>**, **<i>x</i><sub>2</sub>**, and **<i>y</i><sub>1</sub>**, **<i>y</i><sub>2</sub>** are called "user's units"
    in contrast to "[graphics units](/docs/misc/fplot/#graphics-units-and-medium-units)" and "[medium units](/docs/misc/fplot/#graphics-units-and-medium-units)."
+
+{::nomarkdown} <a name="onepass-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#onepass-switch
+{:/comment}
 
 + **-1p**\\
   skip parsing of remaining arguments in the frame for the first pass.  Current values for
@@ -492,6 +513,12 @@ _Notes:_{: style="color: red"}
 
 <i> </i>
 
+{::nomarkdown} <a name="lblx-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#lblx-switch
+{:/comment}
+
+
 + **-lblx _xlst_ _y_[:0] _cc_ _str1_ _str2_ ...  &nbsp;&nbsp;** \| **&nbsp;&nbsp; -lbly ylst x[:0] _cc_ _str1_ _str2_ ...**\\
   puts labels **_str1_**, **_str2_**,  at a list **_xlst_** (**_ylst_**) of points distributed on the **_x_** axis (**_y_** axis) for a given
   value of **_y_** (**_x_**).  The number of strings must match the number of elements in **_xlst_**.
@@ -501,16 +528,31 @@ _Notes:_{: style="color: red"}
   **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/misc/integerlists/).
 
 <i> </i>
+{::nomarkdown} <a name="xl-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#xl-switch
+{:/comment}
 
 + <b> -xl _str_ &nbsp;&nbsp; </b> \| &nbsp;&nbsp; <b> -yl _str_ </b> &nbsp;&nbsp; \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
   This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
-+ **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
-  awrite format for &nbsp;**_x_**&nbsp; axis or &nbsp;_**y**_&nbsp; axis label.
+
+{::nomarkdown} <a name="xn-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#xn-switch
+{:/comment}
+
 + <b>-noxn \| -noyn </b>\\
   suppress abscissa (ordinate) axis numbering.
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
   place abscissa (ordinate) axis numbering on top (right) side.
++ **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
+  awrite format for &nbsp;**_x_**&nbsp; axis or &nbsp;_**y**_&nbsp; axis label.
+
+{::nomarkdown} <a name="font-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#font-switch
+{:/comment}
 
 + **-font t# &nbsp;&nbsp;\|&nbsp;&nbsp; -font h# &nbsp;&nbsp;\|&nbsp;&nbsp; -font i# &nbsp;&nbsp;\|&nbsp;&nbsp; -font b# &nbsp;&nbsp;\|&nbsp;&nbsp; -font s#**\\
   Sets the font for labels following this switch to Times Roman (**t**), Helvetica (**h**), italic (**i**), bold (**b**) or symbol (**s**) font.
@@ -518,6 +560,11 @@ _Notes:_{: style="color: red"}
   +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
 
   <i> </i>
+
+{::nomarkdown} <a name="key-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#key-switch
+{:/comment}
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
@@ -581,7 +628,10 @@ _Notes:_{: style="color: red"}
 
 <i> </i>
 
-{::nomarkdown} <a name="symbols-link"></a> {:/}
+{::nomarkdown} <a name="symbols-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#symbols-switch
+{:/comment}
 
 + **-s _S_[~col=_r_,_g_,_b_][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the [table](/docs/misc/fplot/#symbols-table) below.\\
@@ -664,6 +714,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
   See the [Symbols exercise](/docs/misc/fplot/#about-symbols) for examples.
 
+{::nomarkdown} <a name="error-bar-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#error-bar-switch
+{:/comment}
+
 + **-ey _n_[,&Delta;,_yshft_]**\\
   Add error bars to each point in the next **_data-file_**.\\
   The size of the error bar is taken from column **_n_** (**_data-file_** must have at least **_n_** columns)
@@ -671,6 +726,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   point center by optional **_yshft_**.\\
   _Note:_{: style="color: red"} this instruction can be used in place of, or in conjuction with **-s**.
   See the [Error bars exercise](/docs/misc/fplot/#error-bars) for an example.
+
+{::nomarkdown} <a name="legend-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#legend-switch
+{:/comment}
 
 + **-l[0] _legend_**\\
   Add **_legend_** to key for this data set. &nbsp; Optional 0 suppresses blanking of the box where the legend is written.\\
@@ -680,6 +740,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-tp [_nc_~]_list_**\\
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).\\
   See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above.
+
+{::nomarkdown} <a name="map-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#map-switch
+{:/comment}
 
 + **-map [-i _expr_] _list_**\\
   permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
@@ -692,12 +757,22 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   _Example_ : &ensp; **-map &nbsp; -i &nbsp; 'x<=4' &nbsp; 1,3,5,4**\\
   culls an array from rows 1,3,5,4 of the original data.  If the abscissa is &nbsp;&le;4&nbsp; the row is excluded.
 
+{::nomarkdown} <a name="itrp-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#itrp-switch
+{:/comment}
+
 + **-itrp _x1_,_x2_,_dx_[,_ifrat_][,_nord_]**\\
   interpolates data to a uniform mesh of points in the range (**_x1_,_x2_**)
   spaced by **_dx_**, using a polynomial.\\
   Set optional **_ifrat_** to 1 if to use a rational polynomial instead.
   Optional **_nord_** specifies the polynomial order.\\
   See [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) above.
+
+{::nomarkdown} <a name="sort-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#sort-switch
+{:/comment}
 
 + **-sort**\\
   sort data in ascending abscissa order (after mapping).
@@ -726,6 +801,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.\\
   See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.
 
+{::nomarkdown} <a name="read-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#read-switch
+{:/comment}
+
 + **-r:switches [other DATA-switches] _data-file_**\\
   tells **fplot**{: style="color: blue"} how to parse contents **_data-file_**.\\
   Optional **switches** are separated by a colon:
@@ -742,10 +822,20 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-br**\\
   same function as **-r:br**
 
+{::nomarkdown} <a name="col-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#col-switch
+{:/comment}
+
 + **-col _cx_,_cy_[,_cw_]**\\
   Use column **_cx_** for **x** and column **_cy_** for **y**.  In the absence of further
   substitution (**-ord _expr_** or **-ab  _expr_**) **x** and **y** are respectively the abscissa and ordinate.
   Default values are **cx**=1 and **cy**=2.
+
+{::nomarkdown} <a name="ord-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#ord-switch
+{:/comment}
 
 + **-ord _expr_**\\
   substitute **_expr_** for the ordinate.
@@ -758,6 +848,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-abf _expr_**\\
   maps numbering and tic marks on abscissa to **_expr_**
 
+{::nomarkdown} <a name="colsy-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#colsy-switch
+{:/comment}
+
 + **-colsy _list_**\\
   make a family of _xy_ plots for columns in list.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
@@ -768,6 +863,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 + **-colsw _list_**\\
   corresponding list of columns for color weights.
+
+{::nomarkdown} <a name="ins-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#ins-switch
+{:/comment}
 
 + **-ins _strn_**\\
   insert **_strn_** directly into output postscript file.
@@ -1422,12 +1522,12 @@ _instructions to specify file format_ | **-r**{: style="color: red"}
 _specify number of columns_ | -r**:nc=_n_**{: style="color: red"}
 
 
-###### _Error bars_
+###### [_Error bars_](/docs/misc/fplot/#error-bar-switch)
 
 &nbsp;            | Instruction       |  Documentation/Example | Notes
 &nbsp;            | **-ey _n_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#data-switches), &nbsp; [Error bar exercise](/docs/misc/fplot/#error-bars) | See also Symbols (**-s**{: style="color: red"}) |
 
-###### _Fonts_
+###### [_Fonts_](/docs/misc/fplot/#font-switch)
 
 &nbsp;            | Instruction                     |  Documentation                                             | Example
 |---
@@ -1629,8 +1729,8 @@ Instruction   | Definition                                           | Places to
 **-map**      | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nc**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-ndpi**     | [FORMAT switches](/docs/misc/fplot/#format-switches) |
-**-noxn**     | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-noyn**     | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-noxn**     | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-noyn**     | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-nr**       | [DATA switches](/docs/misc/fplot/#data-switches)     |
 **-nx**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
 **-ny**       | [FORMAT switches](/docs/misc/fplot/#format-switches) |
@@ -1650,11 +1750,11 @@ Instruction   | Definition                                           | Places to
 **-tmy**      | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-tp**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 **-x**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-xl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-xn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-xl**       | [DATA switches](/docs/misc/fplot/#xl-switch)       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-xn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  |
+**-yl**       | [DATA switches](/docs/misc/fplot/#xl-switch)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-yn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  |
 
 {::comment}
 Roughly: 4 nbsp per emsp, 2 nbsp per ensp

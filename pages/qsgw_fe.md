@@ -65,7 +65,7 @@ QSGW self-consistency
 ~~~
 lmfgwd --jobgw=-1 ctrl.fe
 nano GWinput
-lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+lmgwsc --mpi=6,6 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 {::nomarkdown}</div>{:/}
@@ -189,7 +189,6 @@ This step overlaps the atomic density, taken from file _atm.fe_{: style="color: 
 and iterates the density until it is self-consistent.
 
 It should converge in 12 iterations.  The density is kept in _rst.fe_{: style="color: green"}.
-
 Inspect  _save.fe_{: style="color: green"}:
 
 ~~~
@@ -199,9 +198,12 @@ i mmom=2.173571 ehf=-2541.0406411 ehk=-2541.0395501
 c mmom=2.2003534 ehf=-2541.0405422 ehk=-2541.0405455
 ~~~
 
+The first line is the what is obtained form the trial Mattheis construction (overlapping free atomic densities).
+The moment gradually increases from 2.0 (the guessed moment) to 2.20.
+
 At self-consistency, the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) Kohn-Sham total energies
 are nearly identical.  (If they are not, something is wrong with the calculation.)
-Note that the magnetic moment **2.2&thinsp;<i>&mu;<sub>B</sub></i>*, is very close to the 
+Note that the magnetic moment **2.20&thinsp;<i>&mu;<sub>B</sub></i>**, is very close to the 
 experimental value.
 
 #### Energy bands
@@ -286,13 +288,14 @@ these levels in the valence through local orbitals, though in this case the leve
 Run the QS<i>GW</i> script as follows:
 
 ~~~
+rm mixm.fe
 $ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 or faster
 
 ~~~
-$ lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+$ lmgwsc --mpi=6,6 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 The QSGW cycle should complete in a couple of hours, after 9 iterations.  When it is finished, do
