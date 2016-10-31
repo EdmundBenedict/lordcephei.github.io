@@ -166,6 +166,10 @@ For a tutorial showing a self-consistent calculation of ferromagnetic metal, see
 _____________________________________________________________
 
 ### _FAQ_
+{::comment}
+/tutorial/lmf/lmf_tutorial/#faq
+{:/comment}
+
 Below is a list of frequently asked questions. Please get in contact if you have other questions.
 
 1) How does **blm**{: style="color: blue"} determine the augmentation sphere radii?

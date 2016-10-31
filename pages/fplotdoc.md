@@ -702,6 +702,11 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-sort**\\
   sort data in ascending abscissa order (after mapping).
 
+{::nomarkdown} <a name="contour-switch"></a> {:/}
+{::comment}
+/docs/misc/fplot/#contour-switch
+{:/comment}
+
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
   special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values
   &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
@@ -1000,22 +1005,22 @@ $ open fplot.ps
 
 _Notes:_{: style="color: red"}
 
-+ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross.
-  There two [dimensioning parameters](/docs/misc/fplot/#symbols-table) (**:1,.6**), which takes the default width (**:1**{: style="color: red"},.6) but shrinks the height (:1,**.6**{: style="color: red"})
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross.\\
+  Of the two [dimensioning parameters](/docs/misc/fplot/#symbols-table) (**:1,.6**): it uses the default width (**:1**{: style="color: red"},.6) but shrinks the height (:1,**.6**{: style="color: red"})
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle,
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
-   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**3**)
-   blue line (**-lt 0,col=.1,.2,1**{: style="color: red"})
+   Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**bold=3**)
+   blue line, taken from **-lt 0,col=.1,.2,1**{: style="color: red"}.
 + `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue 5-sided
   (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
 + `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"})
-  "square" (rectangle width,height=**:.6,5**{: style="color: red"})
+  rectangle with (width,height)=(**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
-  creates a wiggly line ending at **(0.5,0.5)**:\\
-  &ensp; sloping downward with run/rise = (**-0.15,0.16**{: style="color: red"})\\
-  &ensp; with **2.3** periods (:-.15,0.16,**2.3**{: style="color: red"},.05)\\
-  &ensp; excursion around line **0.05&times; [length of line]** (:-.15,0.16,2.3,**.05**{: style="color: red"})
+  creates a wiggly line ending at **(0.5,0.5)** that:\\
+  &ensp; slopes downward with run/rise = (**-0.15,0.16**{: style="color: red"})\\
+  &ensp; has **2.3** periods (:-.15,0.16,**2.3**{: style="color: red"},.05)\\
+  &ensp; makes excursion around the axis **0.05&times; [length of line]** (:-.15,0.16,2.3,**.05**{: style="color: red"})
 + `-lt 0,bold=2 -s arrow:fill=3:col=0,0,0.:-.15/4,0.16/4,.99,25,.9 -tp 2~0.5,0.5`
   creates an arrowhead with:\\
   &ensp; Tip at data point (**-tp 2~0.5,0.5**{: style="color: red"})\\
@@ -1402,7 +1407,7 @@ _Notes:_{: style="color: red"}
 
 <br>
 
-###### _Contour plots_
+###### [_Contour plots_](/docs/misc/fplot/#contour-switch)
 
 &nbsp;            | Instruction                    |  Documentation                                    | Example
 |---
