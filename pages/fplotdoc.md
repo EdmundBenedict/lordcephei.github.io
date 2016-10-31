@@ -473,7 +473,6 @@ test xxx
 /docs/misc/fplot/#labelling-switches
 {/:comment}
 
-
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
@@ -521,7 +520,7 @@ test xxx
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-test 2
+comment before data
 
 {::comment}
 
