@@ -466,14 +466,9 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
-AA1 ok
-
 ##### _Labelling switches_
 
 /docs/misc/fplot/#labelling-switches
-
-
-AA2 ok
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -497,8 +492,6 @@ AA2 ok
 
 <i> </i>
 
-AA2x ok
-
 + <b> -xl _str_ &nbsp;&nbsp; </b> \| &nbsp;&nbsp; <b> -yl _str_ </b> &nbsp;&nbsp; \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
   This switch adds no new functionality **-lbl** already has.  It is convenient because it places the label at a reasonable default position.
@@ -514,7 +507,7 @@ AA2x ok
   +  **#** is the size in points.
   +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
 
-+ AA2y ?
+  <i> </i>
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
