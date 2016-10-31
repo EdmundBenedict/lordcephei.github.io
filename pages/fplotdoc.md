@@ -807,7 +807,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   Options separator &nbsp;'**~**'&nbsp; can be a different character such as &nbsp;'**:**'&nbsp; or &nbsp;'**,**'.
   + **dup=#1[,#2]** &nbsp;   Duplicate row (col) data #1 (#2) times
   + **fn=_filename_** &ensp; writes _xy_ pen moves to file **_filename_**.
-  + **noclose** &emsp;&ensp; suppresses closing contours on boundaries.
+  + **noclose** &emsp;&emsp; suppresses closing contours on boundaries.
 
 
   _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
