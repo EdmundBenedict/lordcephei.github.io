@@ -474,8 +474,6 @@ test xxx
 {/:comment}
 
 
-{::comment}
-
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
@@ -518,8 +516,6 @@ test xxx
 
 <i> </i>
 
-{/:comment}
-
 end of test
 
 #### **DATA** switches draw one or more families of xy data
@@ -527,7 +523,11 @@ end of test
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-<br>_Notes:_{: style="color: red"}
+test 2
+
+{::comment}
+
+_Notes:_{: style="color: red"}
 
 1. Within a frame zero or more families of _xy_ data can be drawn.
    _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
@@ -546,6 +546,8 @@ end of test
 
 5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
+
+{/:comment}
 
 ##### _DATA switches_
 {::comment}
