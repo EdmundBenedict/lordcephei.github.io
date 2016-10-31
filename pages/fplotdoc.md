@@ -512,36 +512,30 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
 
-AA3  is it here?
-
 #### **DATA** switches draw one or more families of xy data
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
+Within a frame zero or more families of _xy_ data can be drawn. _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
+<pre>
+[DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
+</pre>
+
+
 _Notes:_{: style="color: red"}
 
-AA4  after notes ok
-
-1. Within a frame zero or more families of _xy_ data can be drawn.
-   _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
-   <pre>
-   [DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
-   </pre>
-
-2. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
+1. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
    (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis in 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
 
-3. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
+2. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
-4. As an alternative to reading data from a file you can supply it using switch **-tp**.
+3. As an alternative to reading data from a file you can supply it using switch **-tp**.
    Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
 
-5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
+4. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-
-
 
 ##### _DATA switches_
 {::comment}
