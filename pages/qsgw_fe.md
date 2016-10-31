@@ -12,14 +12,14 @@ header: no
 ### _Purpose_
 _____________________________________________________________
 
-This tutorial carries out a QSGW calculation for Fe, a bcc magnetic metal,
-beginning with a self-consistent LDA calculation.
+This tutorial begins with with a self-consistent LDA calculation for Fe, a bcc magnetic metal, and follows it with a QSGW calculation
 
-It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si)
+It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si),
+and forms a starting point for other tutorials; see for example
+the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/).
+
 see in particular the [flowchart](/tutorial/gw/qsgw_si/#qsgw-summary).
 
-This tutorial is a starting point for other tutorials; see for example
-the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
 ### _Table of Contents_
 {:.no_toc}
@@ -63,10 +63,17 @@ lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 
 ### _Introduction_
 
-Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.  Its advantages are briefly described in the [overview](/docs/code/gwoverview/).
-
 This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a fairly large moment of 2.2<i>&mu;<sub>B</sub></i>.
+
+Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.
+
+Its advantages are briefly described in the [overview](/docs/code/gwoverview/), and also in the summary of the
+[basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
 Self-consistency rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW.
+In general magnetic moments predicted by QSGW are signficantly better than the LDA, but tend to be overestimated for
+itinerant magnets because diagrams with spin fluctuations, absent in _GW_, tend to reduce the magnetic moment.
+
+This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
 
 ### _Self-consistent_ LDA _calculation for Fe_
 

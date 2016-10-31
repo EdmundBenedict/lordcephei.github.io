@@ -441,9 +441,18 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-Labels create text in a figure.  In addition to labels you can put anywhere, axes are typically numbered.  Also there is a default format
-specifically for labelling the _x_ and _y_ axes and the title.  Finally, keys are a special label that write a segment of a curve next to
-text
+Labels create text in a figure.  In addition to labels you can put anywhere, axes are typically numbered by labels internally selected.
+Keys are a special label that write a label next to a curve segment, to identify data in a figure.
+Also there is a default format specifically for labelling the _x_ and _y_ axes and the title.
+
+Try
+[this link](/docs/misc/fplot/#data-switches)
+and
+[this link](#data-switches)
+and
+[this link](#symbols-link)
+and
+[this link](/docs/misc/fplot/#symbols-link)
 
 _Notes:_{: style="color: red"}
 
