@@ -75,11 +75,11 @@ Usually the interacting &Sigma;(<i>&omega;</i>) isn't made explicitly, but you c
 
 In short, a QSGW calculation consists of the following steps. The starting point is a self-consistent DFT calculation (usually LDA). The DFT
 eigenfunctions and eigenvalues are used by the GW code to construct a self-energy &Sigma;<sup>0</sup>.  This is called the "0<sup>th</sup> iteration."
-If the diagonal parts only of &Sigma;<sup>0</sup> is kept, this corresponds to what is sometimes called _GW_, but is better referred to as
+If the diagonal parts only of &Sigma;<sup>0</sup> is kept, the "0<sup>th</sup> corresponds to what is sometimes called _GW_, or as
 _G_<sup>LDA</sup>W<sup>LDA</sup>.
 
-In the next iteration, &Sigma;<sup>0</sup>&minus;_V_<sub>xc</sub><sup>LDA</sup> is added to the LDA hamiltonian and the density is made
-self-consistent, and handed over to the _GW_ part.  (Note that for a fixed density _V_<sub>xc</sub><sup>LDA</sup> cancels the exchange
+In the next iteration, &Sigma;<sup>0</sup>&minus;_V_<sub>xc</sub><sup>LDA</sup> is added to the LDA hamiltonian.  The density is made
+self-consistent, and control is handed over to the _GW_ part.  (Note that for a fixed density _V_<sub>xc</sub><sup>LDA</sup> cancels the exchange
 correlation potential from the LDA hamiltonian.)  This process is repeated until the RMS change in &Sigma;<sup>0</sup> falls below a certain
 tolerance value.  The final self-energy (QSGW potential) is an effectively an exchange-correlation functional, tailored to the system, that can
 be conveniently used analogously to the standard DFT setup to calculate properties such as the band structure.

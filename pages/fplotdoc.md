@@ -441,7 +441,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
 {:/comment}
 
-Labels create text in a figure.  In addition to labels you can put anywhere, axes are typically numbered by labels internally selected.
+Labels are text in a figure.  In addition to labels you can place anywhere, axes are typically numbered by labels. whose form and placement are internally selected.
 Keys are a special label that write a label next to a curve segment, to identify data in a figure.
 Also there is a default format specifically for labelling the _x_ and _y_ axes and the title.
 
@@ -458,6 +458,8 @@ _Notes:_{: style="color: red"}
 
 1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
    The font depends on the character preceding the brackets, as this table shows.
+
+{::nomarkdown} <a name="fonts-table"></a> {:/}
 
    {::nomarkdown}<div>{:/}
 
@@ -588,8 +590,8 @@ _Notes:_{: style="color: red"}
 {::nomarkdown} <a name="symbols-link"></a> {:/}
 
 + **-s _S_[~col=_r_,_g_,_b_][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
-  Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
-  Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see Table).\\
+  Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the [table](/docs/misc/fplot/#symbols-table) below.\\
+  Each symbol has one or more attributes **_sym1_, _sym2_** that affect the symbol shape (see [Table]((/docs/misc/fplot/#symbols-table))).\\
   Optional switches are separated by **~** (or the character following **_S_**):
   + **col=_r_,_g_,_b_** &emsp;                fill color or color of symbol contour, [RGB units](/docs/misc/fplot/#color-specification).
   + **clip**      &emsp;&emsp;&emsp;&thinsp;  If present, clips symbols that fall outside frame.
@@ -620,8 +622,9 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 +  **_S_** = &minus;1. This causes **fplot**{: style="color: blue"} to read **S** and the modifiers **_sym1_, _sym2_** from **<i>data-file</i>**.\\
 +  In this case columns of **<i>data-file</i>** must hold: &nbsp;  4: symbol type  (1=>arrow 2=>cone)  5-7: color  8-*, symbol attributes.
 
-  {::nomarkdown}<div>{:/}
+{::nomarkdown} <a name="symbols-table"></a> {:/}
 
+  {::nomarkdown}<div>{:/}
 
   This table lists the dimensioning attributes for each symbol.
 
@@ -972,7 +975,7 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 This exercise shows a number of symbols with various kinds of attributes.
 One or several parameters define the size and shape of the symbol.
 The circle can take only one; the "square" requires one but can accept two, while the wiggle and arrow require five parameters
-(see the dimensioning attributes table in [DATA switches](/docs/misc/fplot/#data-switches)).
+(see the [dimensioning attributes table](/docs/misc/fplot/#symbols-table).
 
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
