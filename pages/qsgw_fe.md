@@ -96,13 +96,12 @@ SITE
    ATOM=Fe X=0 0 0
 ~~~
 
-Supply either the space group [Im-3m](http://www.periodictable.com/Properties/A/SpaceGroupName.html)
+Supply either the space group ([Im-3m](http://www.periodictable.com/Properties/A/SpaceGroupName.html))
 or the bcc lattice vectors.
 
-The first steps are very similar to [the PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/);
-go through that tutorial first if you are not familiar with
-the structure of input file, _ctrl.fe_{: style="color: green"},
-or how to set up an LDA calculation from structural information.
+The input file setup and self-consistent cycle are very similar to [the PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/); review that
+tutorial first if you are not familiar with the structure of input file, _ctrl.fe_{: style="color: green"}, or how to set up an LDA
+calculation from structural information.
 
 Run **blm**{: style="color: blue"} this way:
 
@@ -113,20 +112,20 @@ cp actrl.fe ctrl.fe
 
 The switches do the following:
 
-+ --nit=20     : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
-                 Not rquired, the default (10 iterations) is about how many are needed are needed to make it self-consistent
-+ --mag        : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
-+ --gw         : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
-                 than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged
-			   : that the self-energy can be smoothly inteperpolated between _k_ points.
-+ --nk=16      : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
-                 We use a rather fine mesh here, because Fe is a transition metal with a high density-of-states near the Fermi level.
-+ --nkgw=8     : the _k_ mesh for _GW_  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
-               	 The self-energy varies much more smoothly with _k_ than does the kinetic energy, and 16 divisions is overkill.
-+ --gmax=7.9   : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
-                 It is difficult to determine in advance; however you can leave it out at first and run **lmfa**{: style="color: blue"}.
-               	 You typically need to run **lmfa**{: style="color: blue"} twice anyway, since it may find some local orbitals and
-                 change the valence-core partitioning.  (See the [LDA tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency.)
++ **--nit=20**   : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
+                   Not rquired, the default (10 iterations) is about how many are needed are needed to make it self-consistent
++ **--mag**      : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
++ **--gw**       : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
+                   than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged
+                 : that the self-energy can be smoothly inteperpolated between _k_ points.
++ **--nk=16**    : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
+                   We use a rather fine mesh here, because Fe is a transition metal with a high density-of-states near the Fermi level.
++ **--nkgw=8**   : the _k_ mesh for _GW_  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
+                   The self-energy varies much more smoothly with _k_ than does the kinetic energy, and 16 divisions is overkill.
++ **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
+                   It is difficult to determine in advance; however you can leave it out at first and run **lmfa**{: style="color: blue"}.
+                   You typically need to run **lmfa**{: style="color: blue"} twice anyway, since it may find some local orbitals and
+                   change the valence-core partitioning.  (See the [LDA tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency.)
 
 _Note:_{: style="color: red"} **blm**{: style="color: blue"} writes the input file template to _actrl.fe_{: style="color: green"},
 to avoid overwriting a the _ctrl.fe_{: style="color: green"}, which you may want to preserve.

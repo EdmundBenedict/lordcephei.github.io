@@ -522,9 +522,8 @@ _Notes:_{: style="color: red"}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-AA1 ?
-
 Within a frame zero or more families of _xy_ data can be drawn. _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
+
 <pre>
 [DATA-switches] <i>data-file</i> | -tp <i>list</i> [[DATA-switches] <i>data-file</i> | -tp <i>list</i> ...]
 </pre>
@@ -576,6 +575,8 @@ _Notes:_{: style="color: red"}
     [This exercise](/docs/misc/fplot/#dot-dashed-lines) shows how to make a dot-dashed line.
 
 <i> </i>
+
+{::nomarkdown} <a name="symbols-link"></a> {:/}
 
 + **-s _S_[~col=_r_,_g_,_b_][~clip][~bold=_b_][~fill=_f_]~_sym1_[,_sym2_ ..]** \\
   Draw a symbol at each point in next **<i>data-file</i>**.  **_S_** is one of twelve symbols listed in the table below.\\
