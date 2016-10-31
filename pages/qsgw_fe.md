@@ -15,8 +15,8 @@ _____________________________________________________________
 
 This tutorial begins with with a self-consistent LDA calculation for Fe, a bcc magnetic metal, and follows it with a QSGW calculation.
 
-It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si),
-and forms a starting point for other tutorials, for example
+It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si);
+it also forms a starting point for other tutorials, for example
 the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/).
 
 ### _Table of Contents_
@@ -33,7 +33,7 @@ _____________________________________________________________
 Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path;
 similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
-For parts where a text editor is required, the tutorial uses the **nano**{: style="color: blue"} editor.
+For parts where a text editor is required, the tutorial uses the [**nano**{: style="color: blue"} text editor](https://en.wikipedia.org/wiki/GNU_nano).
 
 ### _Command summary_
 {::comment}
@@ -65,28 +65,27 @@ lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 
 This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a fairly large moment of 2.2<i>&mu;<sub>B</sub></i>.
 
-Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.
-Its advantages are briefly described in the [overview](/docs/code/gwoverview/), and also in the summary of the
-[basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
-Self-consistency rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW.
-For the most part magnetic moments predicted by QSGW are significantly better than the LDA, but they tend to be overestimated for
-itinerant magnets because diagrams with spin fluctuations, absent in _GW_, tend to reduce the magnetic moment.
+Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.  Its advantages are briefly described in
+the [overview](/docs/code/gwoverview/), and also in the summary of the [basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
+Self-consistency is rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW, and is
+somewhat ill-defined.  For the most part magnetic moments predicted by QSGW are significantly better than the LDA.  However, like the LDA,
+they tend to be overestimated for itinerant magnets because diagrams with spin fluctuations, absent in _GW_, tend to reduce the magnetic
+moment.
 
-This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
+This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si).
 
 ### _Self-consistent_ LDA _calculation for Fe_
 
-QS<i>GW</i> requires a starting point.  We use LDA as it a reasonably
-accurate, and convenient one.
+QS<i>GW</i> requires a starting point.  The LDA is a reasonably accurate, and convenient starting point, indeed it is good enough in its own
+right for many magnetic systems.
 
-Following [other tutorials](/tutorial/lmf/lmf_pbte_tutorial/) we build
-the input files using the **blm**{: style="color: blue"} tool, which
+Following [other LDA tutorials](/tutorial/lmf/lmf_pbte_tutorial/), the input file is built with the **blm**{: style="color: blue"} tool, which
 requires file _init.fe_{: style="color: green"}.
 
 #### Input file setup
 
-Fe is a bcc metal with a lattice constant 5.408<i>a</i><sub>0</sub>
-and a magnetic moment of 2.2<i>&mu;<sub>B</sub></i>.
+Fe is a bcc metal with a lattice constant 5.408&thinsp;<i>a</i><sub>0</sub>
+and a magnetic moment of 2.2&thinsp;<i>&mu;<sub>B</sub></i>.
 The LDA needs some breaking of the symmetry to stabilize a nonzero magnetic moment, so we supply
 a trial moment of 2<i>&mu;<sub>B</sub></i>.
 
@@ -99,7 +98,7 @@ LATTICE
 # ALAT=5.408 PLAT= -0.5 0.5 0.5   0.5 -0.5 0.5   0.5 0.5 -0.5
 
 SPEC
-   ATOM=Fe MMOM=0,0,2
+   ATOM=Fe MMOM=0,0,2     # Trial spin moment on the d channel
 SITE
    ATOM=Fe X=0 0 0
 ~~~
@@ -107,8 +106,8 @@ SITE
 Supply either the space group ([Im-3m](http://www.periodictable.com/Properties/A/SpaceGroupName.html))
 or the bcc lattice vectors.
 
-The input file setup and self-consistent cycle are very similar to [the PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/); review
-it first if you are not familiar with the structure of input file, _ctrl.fe_{: style="color: green"}, or how to set up an LDA
+The input file setup and self-consistent cycle are very similar to [the PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/); review it first if
+you are not familiar with the structure of [input file](/docs/input/inputfile/), _ctrl.fe_{: style="color: green"}, or how to set up an LDA
 calculation from structural information.
 
 Run **blm**{: style="color: blue"} this way:
@@ -120,15 +119,15 @@ cp actrl.fe ctrl.fe
 
 The switches do the following:
 
-+ **--nit=20**   : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
++ **--nit=20**   &ensp;: sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
                    Not rquired, the default (10 iterations) is about how many are needed are needed to make it self-consistent
-+ **--mag**      : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
-+ **--gw**       : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
-                   than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged
-                 : that the self-energy can be smoothly inteperpolated between _k_ points.
-+ **--nk=16**    : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
++ **--mag**      &emsp;&emsp;&ensp;: tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
++ **--gw**       &emsp;&emsp;&ensp;&nbsp;: tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
+                   than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged so
+                   that the [quasiparticlized self-energy](/tutorial/gw/qsgw_si/#qsgw-summary) &Sigma;<sup>0</sup> can be smoothly interpolated between _k_ points.
++ **--nk=16**    &ensp;&nbsp;: sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
                    We use a rather fine mesh here, because Fe is a transition metal with a high density-of-states near the Fermi level.
-+ **--nkgw=8**   : the _k_ mesh for _GW_.  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
++ **--nkgw=8**   &emsp;: the _k_ mesh for _GW_.  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
                    The self-energy varies much more smoothly with _k_ than does the kinetic energy; 16 divisions is expensive and overkill.
 + **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
                    It is difficult to determine in advance; however you can leave it out at first and run **lmfa**{: style="color: blue"}.
@@ -149,24 +148,26 @@ lmfa fe
 cp basp0.fe basp.fe
 ~~~
 
-In this case no local orbitals were generated (inspect _basp.fe_{: style="color: green"} for and **PZ** it has),
+In this case no local orbitals were generated (inspect _basp.fe_{: style="color: green"} for any **PZ** present).
 **lmfa**{: style="color: blue"} does not need to be run a second time.
 
-#### Self-consistency in the LDA
+#### The Fe 4_d_ state
 
 We could proceed directly to making a self-consistent LDA density with the setup as given.  But when proceeding to the _GW_ part, it turns
 out the the high-lying Fe 4_d_ state affects the _GW_ potential slightly, enough to affect states near the Fermi level by 0.05-0.1 eV.
 Anticipating that the GW code will need these states for a good description of the Fermi surface, edit _basp.fe_{: style="color: green"}:
 
 ~~~
-$ nano bsap.fe
+$ nano basp.fe
 ~~~
 
-You should see a line beginning with **Fe**.  Append to the line **PZ=0 0 4.5** so that it looks similar to
+You should see a line beginning with **Fe**.  Append **PZ=0 0 4.5** to the line so that it looks similar to
 
 ~~~
  Fe RSMH= 1.561 1.561 1.017 1.561 EH= -0.3 -0.3 -0.3 -0.3 RSMH2= 1.561 1.561 1.017 EH2= -1.1 -1.1 -1.1 P= 4.738 4.538 3.892 4.148 5.102 PZ=0 0 4.5
 ~~~
+
+#### Self-consistency in the LDA
 
 Make the LDA density self-consistent:
 
@@ -188,7 +189,7 @@ Create a template with:
 $ lmfgwd --jobgw=-1 ctrl.fe
 ~~~
 
-We are particularly interested in Fermi liquid properties, states near the Fermi surface.  The raw _GWinput_{: style="color: green"}
+We are particularly interested in Fermi liquid properties, involving states near the Fermi surface.  The raw _GWinput_{: style="color: green"}
 template will generate a reasonable self-energy, but the 3_s_ and 3_p_ core levels affect the Fermi surface enough that we need to treat
 them at a little better level of approximation than the template gives you.
 
@@ -199,6 +200,7 @@ $ nano GWinput
 ~~~
 
 In the core part of the product basis you should see these lines:
+
 ~~~
   atom   l    n  occ unocc   ForX0 ForSxc :CoreState(1=yes, 0=no)
     1    0    1    0    0      0    0    ! 1S *
@@ -220,7 +222,7 @@ the product basis (**occ=1**).  For accurate description of the Fermi surface th
     1    1    2    1    0      1    1    ! 3P
 ~~~
 
-**Caution**{: style="color: red"} these core levels are calculated indpendently of the valence levels, and there is a slight residual
+**Caution:**{: style="color: red"} these core levels are calculated indpendently of the valence levels, and there is a slight residual
 nonorthogonality that can cause problems if the core levels are too shallow.  A safer approach is to include these levels in the valence
 through local orbitals, though in this case the levels are deep enough that the present treatment is adequate.
 
@@ -229,18 +231,19 @@ through local orbitals, though in this case the levels are deep enough that the 
 Run the QSGW script as follows:
 
 ~~~
-lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+$ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 or faster
-~~~
-lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
-~~~
-
-QSGW should complete in a couple of hours, after 9 iterations.  When it is finished, do
 
 ~~~
-grep more out.lmgwsc 
+$ lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+~~~
+
+The QSGW cycle should complete in a couple of hours, after 9 iterations.  When it is finished, do
+
+~~~
+$ grep more out.lmgwsc 
 ~~~
 
 You should see the following:
@@ -258,6 +261,6 @@ You should see the following:
 ~~~
 
 The self-consistent cycle ends when the RMS change in &Sigma;<sup>0</sup> falls below the 
-specified tolerance, **--tol=1e-5**.
+specified tolerance (**--tol=1e-5**).
 
 

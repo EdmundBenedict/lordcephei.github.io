@@ -116,7 +116,7 @@ _Notes:_{: style="color: red"}
 + [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font (**-font**).
   Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
   brackets **{...}**.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
-  ([this table](/docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering) indicates which fonts are selected):
+  ([this table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected):
   `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
   The [Labels exercise](/docs/misc/fplot/#fun-with-labels) provides many illustrations.
 
@@ -445,21 +445,15 @@ Labels are text in a figure.  In addition to labels you can place anywhere, axes
 Keys are a special label that write a label next to a curve segment, to identify data in a figure.
 Also there is a default format specifically for labelling the _x_ and _y_ axes and the title.
 
-Try
-[this link](/docs/misc/fplot/#data-switches)
-and
-[this link](#data-switches)
-and
-[this link](#symbols-link)
-and
-[this link](/docs/misc/fplot/#symbols-link)
-
 _Notes:_{: style="color: red"}
 
 1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
    The font depends on the character preceding the brackets, as this table shows.
 
 {::nomarkdown} <a name="fonts-table"></a> {:/}
+{::comment}
+/docs/misc/fplot/#fonts-table
+{:/comment}
 
    {::nomarkdown}<div>{:/}
 
@@ -972,10 +966,11 @@ and (line,space) pair of **.3,.5,** are drawn in alternation.
 /docs/misc/fplot/#about-symbols
 {:/comment}
 
-This exercise shows a number of symbols with various kinds of attributes.
-One or several parameters define the size and shape of the symbol.
-The circle can take only one; the "square" requires one but can accept two, while the wiggle and arrow require five parameters
-(see the [dimensioning attributes table](/docs/misc/fplot/#symbols-table).
+This exercise shows a number of symbols, each with its own specific set of attributes.
+[One or several parameters](/docs/misc/fplot/#symbols-table) define the size and shape of the symbol.
+The circle can take only one; the "square" requires one but can accept two (making a rectangle), while wiggles and arrows require five parameters.
+Most symbols use defaults for at least some the parameters (for the square you can supply 0, 1, or 2 for example);
+see the [table](/docs/misc/fplot/#symbols-table).
 
 Cut and paste the box below into script file _plot.wiggle_{: style="color: green"}.
 
@@ -1005,7 +1000,8 @@ $ open fplot.ps
 
 _Notes:_{: style="color: red"}
 
-+ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross, compressed along _y_ (:1,**.6**{: style="color: red"})
++ `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross.
+  There two [dimensioning parameters](/docs/misc/fplot/#symbols-table) (**:1,.6**), which takes the default width (**:1**{: style="color: red"},.6) but shrinks the height (:1,**.6**{: style="color: red"})
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle,
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\

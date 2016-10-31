@@ -251,7 +251,7 @@ If you supply only one number it is copied to elements 2 and 3.
 
 ####  4. _Initial setup_
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#initial setup
+/tutorial/lmf/lmf_pbte_tutorial/#initial-setup
 {:/comment}
 
 To carry out a self-consistent calculation, we need to prepare the following:
