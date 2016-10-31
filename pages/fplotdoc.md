@@ -468,14 +468,16 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 AA1 ok
 
-##### _Labelling switches_
 {::comment}
+
+##### _Labelling switches_
+
 /docs/misc/fplot/#labelling-switches
-{/:comment}
+
 
 AA2 missing
 
-{::comment}
+
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -521,6 +523,8 @@ AA2 missing
 
 {/:comment}
 
+AA3  is it here?
+
 #### **DATA** switches draw one or more families of xy data
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
@@ -528,7 +532,7 @@ AA2 missing
 
 _Notes:_{: style="color: red"}
 
-AA3  after notes ok
+AA4  after notes ok
 
 1. Within a frame zero or more families of _xy_ data can be drawn.
    _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
