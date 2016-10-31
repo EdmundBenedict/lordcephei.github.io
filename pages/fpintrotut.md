@@ -180,7 +180,7 @@ Overlaps free atom densities and looks for where potential is flat.
 
 The log file _log.si_{: style="color: green"} keeps a compact record of key outputs in the current directory.  In successive runs, data is appended to the log file.
 
-3) What is the Harris-Foulkes energy?
+3) What is the **Harris-Foulkes** energy?
 
 It is a functional of the input density, rather than the output density.  At self-consistency it should be the same as the standard Kohn-Sham functional.  The Harris-Foulkes functional tends to be more stable, and like the Kohn-Sham functional, it is stationary at the self-consistent density. But it is not necessarily a minimum there. See [this paper](http://dx.doi.org/10.1103/PhysRevB.39.12520) by M. Foulkes and R. Haydock.
  

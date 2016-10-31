@@ -86,7 +86,7 @@ lmf fe --band:fn=syml
 cp bnds.fe bnds.gw
 ~~~
 
-Draw the energy bands using [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) and
+Create and view a postscript the energy bands using [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) and
 [**fplot**{: style="color: blue"}](/docs/misc/fplot/).
 
 ~~~
@@ -97,6 +97,9 @@ rm -f plot.2bands
 echo "% char0 colr=3,bold=5,clip=1,col=1,.2,.3" >>plot.2bands
 echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("lda","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
+
+fplot -f plot.2bands
+open fplot.ps
 ~~~
 
 {::nomarkdown}</div>{:/}
@@ -115,6 +118,9 @@ moment. This is true for both QS_GW_ and _LDA_.
 This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si).
 
 ### _Self-consistent_ LDA _calculation for Fe_
+{::comment}
+/tutorial/gw/qsgw_fe/#self-consistent-lda-calculation-for-fe
+{:/comment}
 
 QS<i>GW</i> requires a starting point.  The LDA is a reasonably accurate, and convenient starting point, indeed it is good enough in its own
 right for many magnetic systems.
@@ -211,6 +217,9 @@ You should see a line beginning with **Fe**.  Append **PZ=0 0 4.5** to the line 
 This adds a 4_d_ state (local orbital) to the basis.
 
 #### Self-consistency in the LDA
+{::comment}
+/tutorial/gw/qsgw_fe/#self-consistency-in-the-lda
+{:/comment}
 
 Make the LDA density self-consistent:
 
@@ -234,7 +243,7 @@ c mmom=2.2003534 ehf=-2541.0405422 ehk=-2541.0405455
 The first line prints what is obtained from the trial Mattheis construction that overlaps free atomic densities.
 The moment gradually increases from 2.0 (the guessed moment) to 2.20.
 
-At self-consistency, the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) Kohn-Sham total energies
+At self-consistency, the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham total energies
 are nearly identical.  (If they are not, something is wrong with the calculation!)
 Note that the magnetic moment (2.20&thinsp;<i>&mu;<sub>B</sub></i>), is very close to the 
 experimental value.
@@ -275,6 +284,9 @@ $ cp bnds.fe bnds.lda
 The latter command renames _bnds.fe_{: style="color: green"} for future use.
 
 ### QSGW _calculation for Fe_
+{::comment}
+/tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe
+{:/comment}
 
 #### Setup: the _GWinput_ file
 
@@ -392,7 +404,10 @@ $ lmf fe --band:fn=syml
 $ cp bnds.fe bnds.gw
 ~~~
 
-#### Compare QSGW and LDA energy bands
+### Compare QSGW and LDA energy bands
+{::comment}
+/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands
+{:/comment}
 
 At this point the LDA (_bnds.lda_{: style="color: green"}) and QSGW (_bnds.gw_{: style="color: green"}) energy bands should in your working directory,
 containing bands along four symmetry lines (&Gamma;-H; H-N, N-P, and P-&Gamma;)
@@ -426,22 +441,22 @@ Start by creating a new file _plot.2bands_{: style="color: green"}, which
 will become the **fplot**{: style="color: blue"} script.
 
 ~~~
-rm -f plot.2bands
-echo "% char0 colr=3,bold=5,clip=1,col=1,.2,.3" >>plot.2bands
-echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
+$ rm -f plot.2bands
+$ echo "% char0 colr=3,bold=5,clip=1,col=1,.2,.3" >>plot.2bands
+$ echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 ~~~
 
 Next, modify _plot.plbnds_{: style="color: green"}.  This could be done with
 a text editor, but it is convenient to accomplish the same with an **awk** command:
 
 ~~~
-awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("dat","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
+$ awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("dat","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
 ~~~
 
 Compare _plot.plbnds_{: style="color: green"} and _plot.2bands_{: style="color: green"}.
 
 ~~~
-diff plot.plbnds plot.2bands
+$ diff plot.plbnds plot.2bands
 ~~~
 
 Character variables are declared at the top; and each line drawing bands from bnd_n_.lda
