@@ -516,8 +516,6 @@ test xxx
 
 <i> </i>
 
-end of test
-
 #### **DATA** switches draw one or more families of xy data
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
@@ -538,6 +536,8 @@ _Notes:_{: style="color: red"}
 2. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
    (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis in 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
 
+{/:comment}
+
 3. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
@@ -547,7 +547,7 @@ _Notes:_{: style="color: red"}
 5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
 
-{/:comment}
+
 
 ##### _DATA switches_
 {::comment}
