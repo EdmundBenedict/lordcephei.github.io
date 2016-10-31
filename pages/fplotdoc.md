@@ -1005,15 +1005,16 @@ is to indicate it in the first line of the file; see for example the charge dens
 ...
 ~~~
 
-Calling **nr** and **nc** the number of rows and columns, respectively,
-**nr** and **nc** can be stipulated in the data file as shown, but the information can be supplied in other ways.
+**nr** and/or **nc** (the number of rows and columns) can be stipulated in the data file as shown in the first line of _chgd.cr_{:
+style="color: green"}, but the information can be supplied in other ways.
 
 + The parser checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.\\
   It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
-+ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` can specify **nr** or **nc**.
-+ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out from the file contents.
++ Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` can specify **nr** and/or **nc**.
 + If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
++ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
+  If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
 
 ### 5. _Other resources_
 
@@ -1503,7 +1504,7 @@ explains how the shift was calculated.
 
 _Notes:_{: style="color: red"}
 
-+ Bubbles are assembled out of 4 parts: two half-circles, and two rectangles (the second has no frame to blank out lines inside the bubble).
++ Bubbles are assembled out of 4 parts: two half-circles, and two rectangles (the latter has no frame to blank out lines inside the bubble).
 + Refer to the [Symbols quick reference](/docs/misc/fplot/#symbols) to see how the arrows are drawn and the
   [Labels quick reference](/docs/misc/fplot/#labels) to see how the text is made.
 + The long curved arrow was made with an arc (**circle** symbol), using\\
@@ -1544,13 +1545,22 @@ _specify number of columns_ | -r**:nc=_n_**{: style="color: red"}
 
 ###### _Fonts_
 
-&nbsp;            | Instruction                     |  Documentation                                             | Example
+&nbsp;            | Instruction                     |  Documentation                                 | Example  | Notes
 |---
                   | **-font**{: style="color: red"} | [LABELLING switches](/docs/misc/fplot/#font-switch) |
 |---
-_types_           | -font **t**{: style="color: red"}_n_ \| -font **h**{: style="color: red"}_n_   | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_roman_           | -font **t**{: style="color: red"}_n_           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 |---
-_size_            | -font t**_n_**{: style="color: red"}                                           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_helvetica_       | -font **h**{: style="color: red"}_n_           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+|---
+_italic_          | -font **i**{: style="color: red"}_n_           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+|---
+_bold_            | -font **b**{: style="color: red"}_n_           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+|---
+_symbol_          | -font **s**{: style="color: red"}_n_           | | 
+|---
+_size_            | -font t**_n_**{: style="color: red"}           | | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_inside frames_   | -frme**[:font=_font_]**{: style="color: red"}  | | | Used only for frame numbering and labels.
 
 ###### _Frames_
 {::comment}
@@ -1571,7 +1581,7 @@ _suppress filling_| -frme**[:nofill]**{: style="color: red"} ... | [Frames Exerc
 |---
 _nonorthogal axes_| -frme**[:theta=#]**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---
-_log scale_       | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | See also [Tic marks](/docs/misc/fplot/#tic-marks), _log scale_
+_log scale_       | -frme**:lx**{: style="color: red"}\|-frme**:ly**{: style="color: red"}\|-frme**:lxy**{: style="color: red"} | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) | See also [Tic marks, _log scale_](/docs/misc/fplot/#tic-marks)
 |---
 _graph paper_     |                                               | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 |---

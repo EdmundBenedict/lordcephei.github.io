@@ -35,6 +35,9 @@ similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binarie
 
 When a text editor is required, the tutorial uses the [**nano**{: style="color: blue"} text editor](https://en.wikipedia.org/wiki/GNU_nano).
 
+The band-plotting part uses the [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) tool
+and to make the figure, the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) graphics tool.
+
 ### _Command summary_
 {::comment}
 /tutorial/gw/qsgw_fe/#command-summary
@@ -55,7 +58,7 @@ nano basp.fe
 lmf fe > out.lmf
 ~~~
 
-Make the energy bands and save in bnds.lda:
+Make the energy bands and save in _bnds.lda_{: style="color: green"}:
 
 ~~~
 nano syml.fe
@@ -70,6 +73,15 @@ QSGW self-consistency
 lmfgwd --jobgw=-1 ctrl.fe
 nano GWinput
 lmgwsc --mpi=6,6 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+grep more out.lmgwsc 
+~~~
+
+Make the energy bands and save in _bnds.gw_{: style="color: green"}:
+
+~~~
+lmf fe --quit=band
+lmf fe --band:fn=syml
+cp bnds.fe bnds.gw
 ~~~
 
 {::nomarkdown}</div>{:/}
@@ -132,17 +144,17 @@ $ cp actrl.fe ctrl.fe
 
 The switches do the following:
 
-+ **--nit=20**   &emsp;&thinsp; : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
++ **\-\-nit=20**   &emsp;&thinsp; : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
                    Not required, the default (10 iterations) is about how many are needed are needed to make it self-consistent
-+ **--mag**      &emsp;&emsp;&nbsp; : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
-+ **--gw**       &emsp;&emsp;&ensp;&nbsp; : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
++ **\-\-mag**      &emsp;&emsp;&nbsp; : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
++ **\-\-gw**       &emsp;&emsp;&ensp;&nbsp; : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
                    than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged so
                    that the [quasiparticlized self-energy](/tutorial/gw/qsgw_si/#qsgw-summary) &Sigma;<sup>0</sup> can be smoothly interpolated between _k_ points.
-+ **--nk=16**    &emsp;&nbsp; : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
++ **\-\-nk=16**    &emsp;&nbsp;&thinsp; : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
                    We use a rather fine mesh here, because Fe is a transition metal with a high density-of-states near the Fermi level.
-+ **--nkgw=8**   &ensp;&nbsp;&thinsp; : the _k_ mesh for _GW_.  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
++ **\-\-nkgw=8**   &ensp;&nbsp;&thinsp; : the _k_ mesh for _GW_.  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
                    The self-energy varies much more smoothly with _k_ than does the kinetic energy; 16 divisions is expensive and overkill.
-+ **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
++ **\-\-gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
                    It is difficult to determine in advance; however you can leave it out at first and run **lmfa**{: style="color: blue"}.
                    You sometimes need to run **lmfa**{: style="color: blue"} twice anyway, since it may find some local orbitals and
                    change the valence-core partitioning.  (See the [LDA tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)).
@@ -212,7 +224,7 @@ are nearly identical.  (If they are not, something is wrong with the calculation
 Note that the magnetic moment (2.20&thinsp;<i>&mu;<sub>B</sub></i>), is very close to the 
 experimental value.
 
-#### Energy bands
+#### LDA Energy bands
 
 In this section we compute the energy bands, which we will compare later with the QSGW result.
 For this tutorial use symmetry lines given in the box below.  Copy its contents 
@@ -303,7 +315,7 @@ Run the QS<i>GW</i> script as follows:
 
 ~~~
 $ rm mixm.fe
-$ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+$ lmgwsc --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 ~~~
 
 or faster
@@ -336,3 +348,33 @@ The self-consistent cycle ends when the RMS change in &Sigma;<sup>0</sup> falls 
 specified tolerance (**--tol=1e-5**).
 
 
+#### QSGW Energy bands
+
+&Sigma;<sup>0</sup> is an effective non interacting potential with one-particle levels, similar to Hartree Fock or the LDA.
+The band structure can be drawn in the same way as in the LDA.  First, find the Fermi level:
+
+~~~
+$ lmf fe --quit=band
+~~~
+
+You should get a table like this one:
+
+~~~
+ BZINTS: Fermi energy:      0.056498;   8.000000 electrons;  D(Ef):   16.413
+         Sum occ. bands:   -0.6890437  incl. Bloechl correction:   -0.000979
+         Mag. moment:       2.269378
+~~~
+
+The Fermi level is higher than in the LDA value (-0.000599); it suggests that the work function would be somewhat smaller.
+The magnetic moment (2.27&thinsp;<i>&mu;<sub>B</sub></i>) comes out slightly larger as well.
+A better converged QSGW calculation (calculating &Sigma;<sup>0</sup> with more _k_ divisions) reduces 
+this value to about (2.2&thinsp;<i>&mu;<sub>B</sub></i>), very similar to what the LDA gets.
+
+Generate the band structure, and copy the file to _bnds.gw_{: style="color: green"}
+
+~~~
+$ lmf fe --band:fn=syml
+$ cp bnds.fe bnds.gw
+~~~
+
+#### Compare QSGW and LDA energy bands
