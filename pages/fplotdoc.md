@@ -383,11 +383,11 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 + **-tmx** \| **-tmy &nbsp; _spacing_[:_mt_][,_pos_][;_rmt_][~_rmnt_][@_mode_]**\\
   tic mark specification and attributes.
   + **_spacing_**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  spacing between tics (spacing may be modified by **@mode**, below)
-  + **\:_mt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no. number of tics per major tic
+  + **\:_mt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;   number of tics per major tic
   + **,_pos_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 specify position of major tic
   + **;_rmt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 size of major tic
   + **\~_rmnt_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                             size of minor tic, as a fraction of major tic size
-  + **@_mode_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             special tic mark placement modes\\
+  + **@_mode_**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                              special tic mark placement modes\\
     @1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "fine grained" log scale: tics put at at 1,2,3,4,5,6,7,8,9 &times; 10</sup>integer</sup>\\
     @2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "medium grained" log scale: tics put at at 1,2,5 &times; 10</sup>integer</sup>\\
     @3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "coarse grained" log scale: tics put at at 1 &times; 10</sup>integer</sup>\\
@@ -432,9 +432,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 + **-rotp rot1[,rot2,...]**
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
-  _Example_
-
-    **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**
+  _Example_ : &emsp;  **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**
 
 rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
@@ -474,6 +472,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 {/:comment}
 
 
+{::comment}
+
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
   + **-lbl** and **-lblu** position label at (_x_,_y_) in user's units; &nbsp; **-lblm** indicates medium units.
@@ -511,10 +511,14 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
   +  **#** is the size in points.
   +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
 
-<i> </i>
-
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key position (and length, spacing or style).
+
+<i> </i>
+
+{/:comment}
+
+end of test
 
 #### **DATA** switches draw one or more families of xy data
 {::comment}
@@ -540,10 +544,6 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 5. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
-
-{::comment}
-Roughly: 4 nbsp per emsp, 2 nbsp per ensp
-{:/comment}
 
 ##### _DATA switches_
 {::comment}
@@ -1642,4 +1642,8 @@ Instruction   | Definition                                           | Places to
 **-y**        | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-yl**       | [DATA switches](/docs/misc/fplot/#data-switches)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-yn**       | [LABELLING switches](/docs/misc/fplot/#labelling-switches)  |
+
+{::comment}
+Roughly: 4 nbsp per emsp, 2 nbsp per ensp
+{:/comment}
 
