@@ -468,8 +468,6 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 AA1 ok
 
-{::comment}
-
 ##### _Labelling switches_
 
 /docs/misc/fplot/#labelling-switches
@@ -477,6 +475,7 @@ AA1 ok
 
 AA2 missing
 
+{::comment}
 
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
