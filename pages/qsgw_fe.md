@@ -33,7 +33,7 @@ _____________________________________________________________
 Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path;
 similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
-For parts where a text editor is required, the tutorial uses the [**nano**{: style="color: blue"} text editor](https://en.wikipedia.org/wiki/GNU_nano).
+When a text editor is required, the tutorial uses the [**nano**{: style="color: blue"} text editor](https://en.wikipedia.org/wiki/GNU_nano).
 
 ### _Command summary_
 {::comment}
@@ -55,9 +55,13 @@ nano basp.fe
 lmf fe > out.lmf
 ~~~
 
-Make the energy bands
+Make the energy bands and save in bnds.lda:
+
 ~~~
 nano syml.fe
+lmf fe --quit=band
+lmf fe --band:fn=syml
+cp bnds.fe bnds.lda
 ~~~
 
 QSGW self-consistency
@@ -77,9 +81,9 @@ This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a
 Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.  Its advantages are briefly described in
 the [overview](/docs/code/gwoverview/), and also in the summary of the [basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
 Self-consistency is rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW, and is
-somewhat ill-defined.  For the most part magnetic moments predicted by QSGW are significantly better than the LDA.  However, like the LDA,
-they tend to be overestimated for itinerant magnets because diagrams with spin fluctuations, absent in _GW_, tend to reduce the magnetic
-moment.
+somewhat ill-defined.  For the most part magnetic moments predicted by QSGW are significantly better than the LDA.  Moments in itinerant
+magnets,  however, tend to be overestimated because diagrams with spin fluctuations (absent in _GW_) tend to reduce the magnetic
+moment. This is true for both QS_GW_ and _LDA_.
 
 This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si).
 
@@ -129,8 +133,9 @@ cp actrl.fe ctrl.fe
 The switches do the following:
 
 + **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
-+ **--nit=20**   &ensp; : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
++ **--nit=20**   &emsp; : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
                    Not required, the default (10 iterations) is about how many are needed are needed to make it self-consistent
++ **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
 + **--mag**      &emsp;&emsp;&ensp; : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
 + **--gw**       &emsp;&emsp;&ensp;&nbsp; : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
                    than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged so
