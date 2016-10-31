@@ -473,10 +473,7 @@ AA1 ok
 /docs/misc/fplot/#labelling-switches
 
 
-AA2 missing
-
-{::comment}
-
+AA2 ok
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -499,6 +496,13 @@ AA2 missing
   **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/misc/integerlists/).
 
 <i> </i>
+
+AA2x ?
+
+{::comment}
+
+
+
 
 + <b> -xl _str_ &nbsp;&nbsp; </b> \| &nbsp;&nbsp; <b> -yl _str_ </b> &nbsp;&nbsp; \| &nbsp;&nbsp; <b> -tl _str_ </b>\\
   supplies a label for the abscissa, ordinate, or title (title appears above the frame).\\
