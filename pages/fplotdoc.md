@@ -466,12 +466,16 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
-test xxx
+AA1 ok
 
 ##### _Labelling switches_
 {::comment}
 /docs/misc/fplot/#labelling-switches
 {/:comment}
+
+AA2 missing
+
+{::comment}
 
 + **-lbl _x_,_y_[:0] _cc_[,rot=#] _string_ [_tex-string_]**\\
   writes **_string_** at (**_x_**, **_y_**).  For examples, see the [exercise on labels](/docs/misc/fplot/#fun-with-labels).
@@ -515,17 +519,16 @@ test xxx
 
 <i> </i>
 
+{/:comment}
+
 #### **DATA** switches draw one or more families of xy data
 {::comment}
 /docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data
 {:/comment}
 
-
 _Notes:_{: style="color: red"}
 
-comment after notes
-
-{::comment}
+AA3  after notes ok
 
 1. Within a frame zero or more families of _xy_ data can be drawn.
    _xy_ data is typically read from a file; the syntax to plot data in **<i>data-file</i>** is
@@ -535,8 +538,6 @@ comment after notes
 
 2. **DATA-switches** preceding **<i>data-file</i>** control how the ordinate, abscissa, and possible additional information
    (e.g. [error bars](/docs/misc/fplot/#error-bars), color weights, the _z_ axis in 3D figures) is extracted from **<i>data-file</i>** and the manner in which data is drawn.
-
-{/:comment}
 
 3. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
