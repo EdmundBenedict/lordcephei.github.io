@@ -135,12 +135,11 @@ The switches do the following:
 + **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
 + **--nit=20**   &emsp;&thinsp; : sets the [maximum number of iterations](/docs/input/inputfile/#iter) in **lmf**{: style="color: blue"} self-consistency cycle.\\
                    Not required, the default (10 iterations) is about how many are needed are needed to make it self-consistent
-+ **--gmax=7.9** : Plane-wave cutoff. You [must supply this number](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
 + **--mag**      &emsp;&emsp;&nbsp;&thinsp; : tells **blm**{: style="color: blue"} that you want to do a spin-polarized calculation.
-+ **--gw**       &emsp;&emsp;&ensp;&nbsp;thinsp; : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
++ **--gw**       &emsp;&emsp;&ensp;&nbsp;&thinsp; : tells **blm**{: style="color: blue"} to prepare for a _GW_ calculation.  The effect is to make the basis set a bit larger
                    than usual and sets the basis Hankel energies deeper than is needed for LDA.  This is to make the basis short enough ranged so
                    that the [quasiparticlized self-energy](/tutorial/gw/qsgw_si/#qsgw-summary) &Sigma;<sup>0</sup> can be smoothly interpolated between _k_ points.
-+ **--nk=16**    &ensp;&nbsp; : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
++ **--nk=16**    &emsp;&nbsp; : sets the _k_ mesh.  You [must supply the mesh](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).\\
                    We use a rather fine mesh here, because Fe is a transition metal with a high density-of-states near the Fermi level.
 + **--nkgw=8**   &emsp; : the _k_ mesh for _GW_.  If you do not supply this mesh, it will use the **lmf**{: style="color: blue"} mesh.
                    The self-energy varies much more smoothly with _k_ than does the kinetic energy; 16 divisions is expensive and overkill.
