@@ -466,6 +466,8 @@ rotates the points by the Euler angles &pi;/4, &pi;/3, &pi;/2.  [This document](
 
 3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates all of the instructions in this section.
 
+test xxx
+
 ##### _Labelling switches_
 {::comment}
 /docs/misc/fplot/#labelling-switches
