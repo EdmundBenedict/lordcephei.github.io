@@ -175,7 +175,7 @@ _Notes:_{: style="color: red"}
   In this case the left hand side of Eq.(1) is drawn in blue-green ([**col=0,0.3,0.8**](/docs/misc/fplot/#color-specification)),
   followed by a reddish dashed horizontal line at _y_=0.015.
   (There are five solutions where the two curves intersect.  As <i>V<sub>0</sub></i> increases the rhs becomes smaller and more solutions appear).
-+ [Tic marks](/docs/misc/fplot/#format-switches) on the _x_ axis are all the same size while those on the _y_ axis are suppressed.
++ [Tic marks](/docs/misc/fplot/#tm-switch) on the _x_ axis are all the same size while those on the _y_ axis are suppressed.
 
 #### Example 2.3. &nbsp; _Charge density contours in Cr_
 {::comment}
@@ -267,8 +267,9 @@ _Notes on [frame formatting switches](/docs/misc/fplot/#format-and-labelling-swi
 + [**-frme:ly**](/docs/misc/fplot/#format-switches) tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
 + [**-frmt th=3,1,2**](/docs/misc/fplot/#frmt-switch) creates a frame with axes on the bottom and right sides.
 + [**-x 0,300**](/docs/misc/fplot/#x-switch) and [**-y .27,5**](/docs/misc/fplot/#x-switch) set the user's units that bound the figure.
-+ [**-p0**](/docs/misc/fplot/#x-switch) suppresses padding of the frame (increasing the range of _x_ and _y_).
-+ [**-1p**](/docs/misc/fplot/#onepass-switch) terminates the first pass (two passes are made for each frame to determine bounds of plot).
++ [**-p0**](/docs/misc/fplot/#x-switch) suppresses padding of the frame (which would increase the range of _x_ and _y_).
++ [**-1p**](/docs/misc/fplot/#onepass-switch) terminates the first pass ([two passes](/docs/misc/fplot/#format-and-labelling-switches-govern-frame-layout-and-labels)
+  are made through each frame to determine bounds of plot).
 + [**-yn:r**](/docs/misc/fplot/#xn-switch) causes the figure numbering to appear on the right side.
 + [**-font t18**](/docs/misc/fplot/#font-switch) causes the labels to be written in 18-point Times Roman font.
 + [**-lbl 310,4.0:0 rc "~\{m}"**](/docs/misc/fplot/#labelling-switches) and **-lbl 250,.21 rc "T(K)"** generate the axes labels.
@@ -285,7 +286,7 @@ _Notes on [frame formatting switches](/docs/misc/fplot/#format-and-labelling-swi
 
 _Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):_{: style="color: red"}
 
-+ [**-l0 In_\{1-x}Tl_\{x}P**](/docs/misc/fplot/#legend-switch) supplies a key corresponding to next set of data.
++ [**-l0 In_\\{1-x}Tl_\\{x}P**](/docs/misc/fplot/#legend-switch) supplies a key corresponding to the set of _xy_ data read next.  Note the subsripts.
 + [**-lt 2,bold=3,1,.5,.2,.5**](/docs/misc/fplot/#data-switches) specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
 + [**-ord x2/1e5**](/docs/misc/fplot/#ord-switch) maps the ordinate to a new number (simple scaling in this case).
 + [**-itrp 10,300,5,1,4**](/docs/misc/fplot/#itrp-switch)  causes the data to be interpolated to a uniform mesh on the _x_ axis.
@@ -449,7 +450,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 + **-1p**\\
   skip parsing of remaining arguments in the frame for the first pass (see
-   [_Notes_{: style="color: red"}](/docs/misc/fplot/#format-and-labelling-switches-govern-frame-layout-and-labels).
+   [_Notes_{: style="color: red"}](/docs/misc/fplot/#format-and-labelling-switches-govern-frame-layout-and-labels)).
   Current values for (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) and (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**) are frozen.
 
 {::comment}
@@ -484,33 +485,33 @@ Also there is a default format specifically for labelling the _x_ and _y_ axes a
 
 _Notes:_{: style="color: red"}
 
-1. Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
-   The font depends on the character preceding the brackets, as this table shows.
+Where labels are used, text inside curly brackets &nbsp;**{..}**&nbsp; may be mapped into other fonts.
+The font depends on the character preceding the brackets, as this table shows.
 
 {::nomarkdown} <a name="fonts-table"></a> {:/}
 {::comment}
 /docs/misc/fplot/#fonts-table
 {:/comment}
 
-   {::nomarkdown}<div>{:/}
+{::nomarkdown}<div>{:/}
 
-   Character  | Function
-   ^{..}      | superscript
-   \_{..}     | subscript
-   \~{..}     | Greek/Symbol
-   @{..}      | bold
-   &{..}      | italic
+Character  | Function
+^{..}      | superscript
+\_{..}     | subscript
+\~{..}     | Greek/Symbol
+@{..}      | bold
+&{..}      | italic
 
-   {::nomarkdown}</div>{:/}
+{::nomarkdown}</div>{:/}
 
-   _Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
-   will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript symbol for &perp;.)
+_Example_  :   \~{D}&{k}\_{~&#123;&#123;\136&#125;&#125;}/&{k}\_{0}\\
+will be drawn as &nbsp; &Delta;<i>k</i><sub>&perp;</sub>/<i>k</i><sub>0</sub>.  (<b>\136</b> is the postscript octal code for &perp;.)
 
-2. When using &nbsp;**{...}**&nbsp; in an **fplot**{: style="color: blue"} script file, you must
+When using &nbsp;**{...}**&nbsp; in an **fplot**{: style="color: blue"} script file, you must
    [prepend the left bracket with a '**\\**'](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line) to avoid substitution by the preprocessor.\\
    _Example modified for script file_ : &nbsp; \~\\{D}&\\{k}\_\\{~\&#123;\&#123;\136&#125;&#125;}/&\\{k}\_\\{0}
 
-3. The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the instructions in this section.
+The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the instructions in this section.
 
 ##### _Labelling switches_
 {::comment}
@@ -870,7 +871,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 + **-ord _expr_**\\
   substitute [algebraic expression](/docs/input/preprocessor/#expr-syntax) **_expr_** for the ordinate.
-  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
+  Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
   Many examples appear in document,
   e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#about-symbols).
 + **-ab  _expr_**\\
@@ -1138,14 +1139,14 @@ $ open fplot.ps
 _Notes:_{: style="color: red"}
 
 + `-s x:fill=0:bold=6:col=.8,0,0.:1,.6 -tp 2~.7,0.62`  draws a very thick (**:bold=6**{: style="color: red"}) cross.\\
-  Of the two [dimensioning parameters](/docs/misc/fplot/#symbols-table) (**:1,.6**): it uses the default width (**:1**{: style="color: red"},.6) but shrinks the height (:1,**.6**{: style="color: red"})
+  Of the two [dimensioning parameters](/docs/misc/fplot/#symbols-table) (**:1,.6**): the default width (**:1**{: style="color: red"},.6) is taken but the height (:1,**.6**{: style="color: red"}) is reduced.
 + `-s circ:fill=2:col=.7:1,50,250 -tp 2~.3,0.7` an incomplete (50-250<sup>o</sup>) grey (**:fill=2:col=.7**{: style="color: red"}) circle,
    default size (<b>:1</b>{: style="color: red"},50,250)
 + `-lt 0,col=.1,.2,1 -s dia:fill=3:bold=103:col=.9,.8,0:1,1.6 -tp 2~.7,0.7`,  yellow (**:col=.9,.8,0**{: style="color: red"}) diamond.\\
    Adding 100 to **bold** (**:bold=103**{: style="color: red"}) causes the diamond to be framed in a moderately thick (**bold=3**)
-   blue line, taken from **-lt 0,col=.1,.2,1**{: style="color: red"}.
+   blue line, color from **-lt 0,col=.1,.2,1**{: style="color: red"}.
 + `-s poly:fill=3:col=0,0,0.8:.6,5 -tp 2~.7,0.55` a blue 5-sided
-  (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;**default size (<b>:.6</b>{: style="color: red"},5)
+  (<b>:</b>.6**,5**{: style="color: red"}) polygon, **0.6&times;default size** (<b>:.6</b>{: style="color: red"},5)
 + `-s square:fill=3:bold=-1:col=0,0.8,0.8:.6,5 -tp 2~.6,0.6` an unframed (**:bold=-1**{: style="color: red"})
   rectangle with (width,height)=(**:.6,5**{: style="color: red"})
 + `-s wiggle:fill=0:bold=4:col=0.,1.,0.:-.15,0.16,2.3,.05 -tp 2~0.5,0.5`
@@ -1165,7 +1166,7 @@ _Notes:_{: style="color: red"}
   creates a wiggly line :\\
   &ensp; along the _x_ axis (**:-.35,0.00**{: style="color: red"})\\
   &ensp; with half a period (:-.35,0.00**,0.5**{: style="color: red"})\\
-  &ensp; making excursion 0.1&times; length of line (:-.35,0.00,0.5,**.1**{: style="color: red"})\\
+  &ensp; making excursion **0.1&times;length of line** (:-.35,0.00,0.5,**.1**{: style="color: red"})\\
   &ensp; using 40 points (:-.35,0.00,0.5,.1,**40**{: style="color: red"})\\
   It fills the symbol with yellow-green (**fill=3:col=.5,1,0**{: style="color: red"}), and frames it with a moderately thin black line (**:bold=2**{: style="color: red"}).
 
@@ -1607,7 +1608,7 @@ _line thickness_  | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches]
 |---
 _which axes_      | -frmt th=#**,#,#**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _bounds_          | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-_bounds, padding_ | **-p#**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)[Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_bounds, padding_ | **-p#**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x),&nbsp;[Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 ###### _Keys_
 
@@ -1645,7 +1646,7 @@ _group of labels_                      | **-lblx**{: style="color: red"} \| **-l
 _abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches)
-_labelling tic marks_                  |                                                             | See [tic marks]/docs/misc/fplot/#tic-marks quick reference
+_labelling tic marks_                  |                                                             | See [tic marks](/docs/misc/fplot/#tic-marks) quick reference
 
 ###### _Line types_
 {::comment}
@@ -1802,9 +1803,9 @@ Instruction   | Definition                                           | Places to
 **-x**        | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-xl**       | [DATA switches](/docs/misc/fplot/#xl-switch)       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-xn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-y**        | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-**-yl**       | [DATA switches](/docs/misc/fplot/#xl-switch)     | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
-**-yn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  |
+**-y**        | [FORMAT switches](/docs/misc/fplot/#x-switch)      | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+**-yl**       | [DATA switches](/docs/misc/fplot/#xl-switch)       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-yn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 {::comment}
 Roughly: 4 nbsp per emsp, 2 nbsp per ensp

@@ -127,9 +127,10 @@ Each of _list1_, &nbsp; _list2_, &nbsp; &hellip; consist of a [list of DOS](/doc
 For each list a new panel will be made.
 
 After the lists are read from standard input (**stdin**) or parsed from **\-\-lst=**, **pldos**{: style="color: blue"} reads four numbers from **stdin**: `dmax, height, emin, emax` :
-+ `dmax` caps the DOS in the figure so as not to exceed this value
-+ `height` is of dmax (ordinate), in cm.
-+ `emin` and `emax` make the lower and upper energies of the figure (the energy appears on the abscissa).
+
++ **dmax** caps the DOS in the figure so as not to exceed this value
++ **height** is of dmax (ordinate), in cm.
++ **emin** and **emax** comprise the lower and upper energies of the figure (the energy appears on the abscissa).
 
 #### Command line switches
 
@@ -140,7 +141,7 @@ Optional switches perform the following functions:
   **-lst2** without arguments means to ust use arguments of **-lst**, but incrementing each element by 1 (see [_Note_{: style="color: red"}](/docs/misc/pldos/#spin-note)).
 
 + **-fplot**\\
-  causes **pldos**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another graphics package.  It does the following:
+  causes **pldos**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another graphics package.  It does the following:\\
   1. writes collated dos to file _dosp.dat_{: style="color: green"}
   2. generates a script _plot.dos_{: style="color: green"}
   3. suppresses creating a postscript file directly
@@ -161,23 +162,23 @@ Optional switches perform the following functions:
 
 <i> </i>
 
-+ **-dif:#[,rat]] \| -int**\\
++ **-dif:#[,rat]] &nbsp;\|&nbsp; -int**\\
   differentiate or integrate DOS
 
 + **-ext=_ext_**\\
   substitute **dat** extension in fplot data files with **_ext_**.
 
-+ **-ef=#||-shiftef=#**\\
-  shift Fermi level to &nbsp;**#**.
++ **-ef=_expr_||-shiftef=_expr_**\\
+  shift Fermi level to &nbsp;**_expr_**.
 
-+ **-shiftef=#**\\
-  shift Fermi level by &nbsp;**#**.
++ **-shiftef=_expr_**\\
+  shift Fermi level by &nbsp;**_expr_**.
 
-+ **-escl=#** \\
-  scale energy axis (abscissa) by &nbsp;**#**
++ **-escl=_expr_** \\
+  scale energy axis (abscissa) by &nbsp;**_expr_**
 
-+ **-esclxy=#**\\
-  scale energy axis (abscissa) by &nbsp;**#** and DOS (ordinate) by &nbsp;**1/#**\\
++ **-esclxy=_expr_**\\
+  scale energy axis (abscissa) by &nbsp;**_expr_** and DOS (ordinate) by &nbsp;**1/_expr_**\\
   This is the appropriate switch to keep units consistent.
 
 _____________________________________________________________

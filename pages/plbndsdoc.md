@@ -258,14 +258,12 @@ echo <i>emin</i>, <i>emax</i>, <i>w</i>, <i>h</i> | plbnds [-switches] <i>filena
 _filename_{: style="color: green"} is the file name (_bnds.co_{: style="color: green"} in this case).  You can also use just the extension
 (_co_{: style="color: green"}).
 
-**plbnds**{: style="color: blue"} reads four numbers from **stdin**:\\
- `emin, emax, width(cm), height(cm)`
-
-`emin` and `emax` comprise the lower and upper bounds of figure.  Data is written
+**plbnds**{: style="color: blue"} reads four numbers from **stdin**: &ensp; `emin, emax, width(cm), height(cm)`\\
+**emin** and **emax** comprise the lower and upper bounds of figure.  Data is written
 only for bands that fall in this range.  The third and fourth arguments determine the size of the figure;
 they are used only when **plbnds**{: style="color: blue"} makes a postscript file directly ([Example 1](/docs/misc/plbnds/#example-1)).
 
-Optional switches perform the following functions:
+Optional switches perform the following functions.  A reference to &nbsp;**<i>expr</i>**&nbsp; indicates a real number or an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
 
 + **-help | \-\-help | \-\-h**\\
   prints out a help message and exits.
@@ -280,14 +278,13 @@ Optional switches perform the following functions:
 + **-wscl=<i>w</i>[,<i>h</i>]**\\
   scales the default figure size by _w_.  _w_ is a real number or [expression](/docs/input/preprocessor/#expr-syntax).\\
   If the second argument is present the width is scaled by _w_, the height by _h_.\\
-  See [comparing QSGW and LDA](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands) bands in Fe for an example.
+  An example can be found in [this tutorial](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands).
 + **-tl=<i>title</i>**\\
    Adds a title to appear at the top of the figure.
 + **-spin1 \| -spin2**\\
   plots bands of first or second spin (_bnds.ext_{: style="color: green"} must contain data for two spins).
 + **-skip=_lst_**\\
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
-
 + **-col3:<i>bnds2</i>,<i>fnout</i>**\\
    merges the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
    file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
@@ -296,9 +293,6 @@ Optional switches perform the following functions:
    into a single _bnds_{: style="color: green"} file, suitable for processsing by **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}.
    + _bnds.ext_{: style="color: green"} should contain two color weights, _bnds2_{: style="color: green"} one color weight.
    + _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
-
-<i> </i>
-
 + **-fplot[:s]** causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
   graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).).  It does the followng:
   1. write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
@@ -313,10 +307,9 @@ Optional switches perform the following functions:
       $ open fplot.ps
 
   To customize the figure, edit _plot.plbnds_{: style="color: green"}.
-  Refer to the [fplot manual](/docs/misc/fplot) to learn about the capabilities and switches in the **fplot**{: style="color: blue"} tool.
-
-  Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
-  _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in standard Questaal form, and easily readable format.
+  Refer to the [fplot manual](/docs/misc/fplot) to learn about the capabilities and switches in the **fplot**{: style="color: blue"} tool.\\
+  Alternatively, generate energy bands with your favorite graphics tool.
+  _bnd1.dat_{: style="color: green"},&nbsp; _bnd2.dat_{: style="color: green"}, &hellip; are in Questaal's [standard form](/docs/misc/fplot/#structure-of-data-files), an easily readable format.
 
 + **-dat=<i>ext</i>** (may be used in conjunction with `-fplot`)\\
    Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands into one figure.
@@ -331,6 +324,11 @@ Optional switches perform the following functions:
 
 ### 4. _Additional exercises_
 _____________________________________________________________
+
+[This tutorial](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands) comparing QSGW
+to LDA energy bands provides a simple demonstration of how to overlap bands generated
+from two calculations in one figure.
+
 
 ### 5. _Other resources_
 _____________________________________________________________
