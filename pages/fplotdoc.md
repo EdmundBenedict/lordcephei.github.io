@@ -596,11 +596,14 @@ _Notes:_{: style="color: red"}
 2. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
-3. As an alternative to reading data from a file you can supply it using switch **-tp**.
+3. As an alternative to reading data from a file you can supply it using the [**-tp**](/docs/misc/fplot/#tp-switch) instruction.
    Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
 
 4. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
+
+5. **fplot**{: style="color: blue"} needs some information about how **<i>data-file</i>** is structured.  See
+   [here](/docs/misc/fplot/#structure-of-data-files) for a brief description.
 
 ##### _DATA switches_
 {::comment}

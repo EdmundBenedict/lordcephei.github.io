@@ -424,18 +424,17 @@ echo -2,2 /  | plbnds -wscl=1,.8 -fplot -ef=0 -scl=13.6 --nocol -dat=gw -spin2 b
 echo -2,2 /  | plbnds -wscl=1,.8 -fplot -ef=0 -scl=13.6 --nocol -lbl=H,N,G,P,H,G -spin2 -dat=lda bnds.lda
 ~~~
 
-Each of these commands generated an [**fplot**{: style="color: blue"}](/docs/misc/fplot/) script,
-(_plot.plbnds_{: style="color: green"}), which will make postscript files of either data.
-It draws four frames, one for each symmety line.
+Each command generates a script (_plot.plbnds_{: style="color: green"}), which [**fplot**{: style="color: blue"}](/docs/misc/fplot/) 
+will turn into postscript files.  The script draws four frames, one for each symmety line.
 
-Here we modify the second _plot.plbnds_{: style="color: green"}, 
+Here we adapt the second _plot.plbnds_{: style="color: green"}, 
 and create a new script _plot.2bands_{: style="color: green"} that combines the bands from the two calculations
-in one figure.  To distinguish bands we will draw _GW_ bands in red dots and LDA bands in blue dashed lines.
+in one figure.  To distinguish bands the _GW_ and LDA bands will be drawn respectively in red dots and blue dashed lines.
 **fplot**{: style="color: blue"} selects line type and colors with the [**-lt**](/docs/misc/fplot/#data-switches) instruction.
 
 To make script use the same color in each frame, it is convenient to make use of the [file preprocessor's](/docs/input/preprocessor/)
 ability to assign and use [character variables](/docs/input/preprocessor/#expression-substitution).  Execture the instructions in the box
-below.  It creates a new file _plot.2bands_{: style="color: green"} with character variables **colr** and **colb**.  These contain strings
+below.  It creates a new file _plot.2bands_{: style="color: green"} with character variables **colr** and **colb**.  They contain strings
 that modify line types, notably the color (see [here](/docs/misc/fplot/#line-types) for a quick reference).
 
 ~~~
@@ -445,7 +444,7 @@ $ echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 ~~~
 
 Next, append _plot.plbnds_{: style="color: green"} to _plot.2bands_{: style="color: green"}, adapt it to draw two kinds of bands in each frame, each with its own color.
-This could be done with a text editor, but it is convenient to accomplish it with an **awk** command:
+This could be accomplished with a text editor, but it is convenient to accomplish it with an **awk** command:
 
 ~~~
 $ awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("dat","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
@@ -478,6 +477,6 @@ $ fplot -f plot.2bands
 $ open fplot.ps
 ~~~
 
-QSGW makes substantial shifts relative to the LDA.  The QSGW bands in this tutorial disagree somewhat with experiment, because the QSGW
+QSGW makes substantial shifts relative to the LDA.  The QSGW bands generated in this tutorial disagree somewhat with experiment, because the QSGW
 potential isn't quite converged.  When well converged, agreement with the available experimental data in the Fermi liquid regime is
 excellent, though a considerable discrepancy with LDA remains.
