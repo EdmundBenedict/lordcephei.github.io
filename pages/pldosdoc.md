@@ -39,17 +39,21 @@ _____________________________________________________________
 
 Densities-of-states (DOS) tell us a great deal about the electronic structure of a system.
 Many programs in the Questaal suite make DOS for noninteracting hamiltonians, e.g.
-**lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; and **tbe**{: style="color: blue"}
+**lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; and **tbe**{: style="color: blue"}.
+These packages write DOS information directly, to file _dos.ext_{: style="color: green"}, or create band weights to enable
+the postprocessing tool **lmdos**{: style="color: blue"} to decompose the DOS into partial contributions.
+The Green's function codes **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"} can also make DOS or partial DOS
+by integrating the imaginary part of _G_ over the Brillouin zone for a particular energy, and rastering over energies.
+See [here](/docs/code/cpadoc/#partial-densities-of-states) for a brief description to make the partial DOS, written in the
+same format as **lmdos**{: style="color: blue"} or **lmf**{: style="color: blue"}.
 
-Other codes make DOS, or spectral functions, for hamiltonians in which the
-Green's function does not consist of a collection of sharp poles at the quasiparticle levels.
-Poles can be broadened by interactions, which at the one-particle level gives rise to
-a frequency-dependent, complex self-energy &Sigma;(<b>k</b>,<i>&omega;</i>).
+Some codes make DOS, or spectral functions, for hamiltonians in which the Green's function does not consist of a collection of sharp poles
+at the quasiparticle levels.  Poles can be broadened by interactions, which at the one-particle level gives rise to a frequency-dependent,
+complex self-energy &Sigma;(<b>k</b>,<i>&omega;</i>).
 
 The _GW_ approximation makes such a &Sigma;; this [_GW_ tutorial](/tutorial/gw/gw_self_energy/)
 gives a little bit of [theory](/tutorial/gw/gw_self_energy/#theory) explaining how the Green's function is modified by interactions.
 It also presents a tutorial to calculate and analyze &Sigma;(<b>k</b>,<i>&omega;</i>) in Fe.
-
 
 [Dynamical Mean Field theory](docs/code/dmftoverview/") makes a _k_-independent (single-site) &Sigma;(<i>&omega;</i>), but the
 &Sigma;(<i>&omega;</i>) it does make includes all local diagrams.  [This tutorial](/tutorial/qsgw_dmft/dmft0/) explains how to carry out a
@@ -57,14 +61,11 @@ DMFT calculation.  One complication is that DMFT calculations are carried out on
 
 The [Coherent Potential Approximation](/docs/code/cpadoc/), or CPA, which replaces disorder by an effective single site self-energy
 &Sigma;(<i>&omega;</i>).  Even though the hamiltonian is non-interacting, disorder gives rise to a complex, frequency-dependent &Sigma;,
-similar to the DMFT form. The [CPA documention](/docs/code/cpadoc/) describes how to compute spectral functions for disordered systems 
+similar to the DMFT form. [This document](/docs/code/spectral-functions/) explains how to compute spectral functions for disordered systems 
 (either chemical disorder or spin disorder) using the **lmgf**{: style="color: blue"} code.
 
-**pldos**{: style="color: blue"} is designed only to analyze noninteracting DOS with a real, static &Sigma;.  The basic packages such as
-**lmf**{: style="color: blue"} write DOS information directly, to file _dos.ext_{: style="color: green"}, or create band weights to enable
-the postprocessing tool **lmdos**{: style="color: blue"} to decompose the DOS into partial contributions.
-
-**pldos**{: style="color: blue"} will provide a synopsis of its usage by typing
+**pldos**{: style="color: blue"} is designed only to analyze files witten in the format **lmf**{: style="color: blue"} or **lmdos**{: style="color: blue"} use.
+It will provide a synopsis of its usage by typing:
 
     $ pldos --h
 

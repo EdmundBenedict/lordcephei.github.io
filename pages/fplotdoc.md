@@ -110,13 +110,14 @@ _Notes:_{: style="color: red"}
   + Select the width, height of the frame, and angle between ordinate and abscissa
   + Select which edges of the frame to draw ([**-frmt**](/docs/misc/fplot/#frmt-switch)),
     or choose some middle position for axes ([**-frme:xor** or **-frme:yab**](/docs/misc/fplot/#format-switches))
-  + Shade the box ([**-frme:col=#,#,#**[(/docs/misc/fplot/#format-switches)) or suppress filling ([**-frme:nofill**](/docs/misc/fplot/#format-switches))
+  + Shade the box ([**-frme:col=#,#,#**](/docs/misc/fplot/#format-switches)) or suppress filling ([**-frme:nofill**](/docs/misc/fplot/#format-switches))
   + Control size, color, positioning, numbering of tic marks ([**-tmx** and/or **-tmy**](/docs/misc/fplot/#tm-switch))
 
 + [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font ([**-font**](/docs/misc/fplot/#font-switch)).
   Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
-  brackets **{...}**.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
-  ([this table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected):\\
+  brackets **{...}**.  [This table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected. 
+  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
+  :\\
   `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
   The [Labels exercise](/docs/misc/fplot/#fun-with-labels) provides many illustrations.
 
@@ -214,7 +215,7 @@ _Notes:_{: style="color: red"}
   similarly to the instructions on command line, but there are
   [small differences](/docs/misc/fplot/#on-the-differences-between-instructions-in-a-script-file-and-on-the-command-line).
   In scripts you must use &nbsp;**\\{...}**&nbsp; for curly brackets.
-+ **fplot**{: style="color: blue"} draws constant-density contours at 0.045 and 0.055 because of **-con .045,.055**.
++ **fplot**{: style="color: blue"} draws constant-density contours at 0.045 and 0.055 because of [**-con .045,.055**](/docs/misc/fplot/#contour-switch).
   By splitting up the four contours into a pair of **-con** commands, distinct colours and line types can be drawn.
 + Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data.  **fplot**{: style="color: blue"} must be told how many
   rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}. It can be indicated in other ways,
@@ -346,12 +347,16 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 <br>_Notes:_{: style="color: red"}
 
 1. A figure is comprised of one or more frames. Each new frame overlays anything below it.
-2. By default, **fplot**{: style="color: blue"} draws a frame around the figure
+2. The units of the frame must be determined.  By default, **fplot**{: style="color: blue"} will make a first pass through all the data in the frame to
+   determine the largest and smallest values for abscissa and ordinate, and use these to set the bounds of the frame, subject to [additional padding]((/docs/misc/fplot/#x-switch))
+   Nothing is drawn in the first pass.  Once the [frame boundaries have been determined](/docs/misc/fplot/#x-switch), 
+   draws the frame and its contents in a second pass.
+3. By default, **fplot**{: style="color: blue"} draws a frame around the figure
    with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)).
    These defaults can be modified with the switches in this section.
-3. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
+4. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
    ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
-4. The [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates most of the instructions in this section.
+5. The [Frames Exercise](/docs/misc/fplot/#things-about-frames) illustrates most of the instructions in this section.
 
 ##### _FORMAT switches_
 {::comment}
@@ -440,9 +445,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 {:/comment}
 
 + **-1p**\\
-  skip parsing of remaining arguments in the frame for the first pass.  Current values for
-   (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) and (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**)
-  are frozen.
+  skip parsing of remaining arguments in the frame for the first pass (see
+   [_Notes_{: style="color: red"}](/docs/misc/fplot/#format-and-labelling-switches-govern-frame-layout-and-labels).
+  Current values for (**<i>x</i><sub>1</sub>,<i>x</i><sub>2</sub>**) and (**<i>y</i><sub>1</sub>,<i>y</i><sub>2</sub>**) are frozen.
 
 {::comment}
 + **-aspect #\\

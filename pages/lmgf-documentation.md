@@ -22,7 +22,7 @@ This package implements the ASA local spin-density approximation using Green's f
 
 + Calculate magnetic exchange interactions 
 + Calculate magnetic susceptibility (spin-spin, spin-orbit, orbit-orbit parts)
-+ Calculate properties of disordered materials, either chemically disordered or spin disorder from finite temperature, within the Coherent Potential Approximation, or CPA.
++ Calculate [properties of disordered materials](/docs/code/cpadoc/), either chemically disordered or spin disorder from finite temperature, within the Coherent Potential Approximation, or CPA.
 + Calculate the ASA static susceptibility at $$q=0$$ to help converge calculations to self-consistency. 
 
 
