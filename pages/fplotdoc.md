@@ -98,7 +98,7 @@ _Notes:_{: style="color: red"}
   To plot a symbol with no line:\\
   `$ fplot -lt 0 -s diamond:0.5`\\
   **+**,&nbsp; **x**,&nbsp; **square**,&nbsp; **diamond**,&nbsp; **circle**&nbsp; are common symbols.
-  See [**-s**](/docs/misc/fplot/#data-switches) and [**-lt**](/docs/misc/fplot/#data-switches) instructions for other symbols and line types, or
+  See [**-s**](/docs/misc/fplot/#symbols) and [**-lt**](/docs/misc/fplot/#line-types) instructions for other symbols and line types, or
   [this example](/docs/misc/fplot/#error-bars).
 + The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined by finding the largest and smallest
   values in the frame, and padding the bounds by 10%.  [Set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
@@ -550,7 +550,7 @@ _Notes:_{: style="color: red"}
 + <b>-noxn \| -noyn </b>\\
   suppress abscissa (ordinate) axis numbering.
 + **-xn:t &nbsp;&nbsp;**\|**&nbsp;&nbsp; -yn:r**\\
-  place abscissa (ordinate) axis numbering on top (right) side.
+  place abscissa (ordinate) axis numbering on top (right) side.  [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) uses this switch.
 + **-fmtnx:_string_ &nbsp;&nbsp;**\|**&nbsp;&nbsp; -fmtny:_string_**\\
   awrite format for &nbsp;**_x_**&nbsp; axis or &nbsp;_**y**_&nbsp; axis label.
 
@@ -562,7 +562,9 @@ _Notes:_{: style="color: red"}
 + **-font t# &nbsp;&nbsp;\|&nbsp;&nbsp; -font h# &nbsp;&nbsp;\|&nbsp;&nbsp; -font i# &nbsp;&nbsp;\|&nbsp;&nbsp; -font b# &nbsp;&nbsp;\|&nbsp;&nbsp; -font s#**\\
   Sets the font for labels following this switch to Times Roman (**t**), Helvetica (**h**), italic (**i**), bold (**b**) or symbol (**s**) font.
   +  **#** is the size in points.
-  +  If this switch precedes the frame specification, it affects the font of the axis numbering (absent a frame-specific **-frme:font=...**)
+  +  If this switch precedes the frame specification, it affects the font of the axis numbering; however:
+  +  If another font declaration appears inside a frame declaration **-frme:font=...**, this font applies to the frame numbering and axes labels only.\\
+     After the frame is made, the existing font is restored.
 
   <i> </i>
 
@@ -572,7 +574,7 @@ _Notes:_{: style="color: red"}
 {:/comment}
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
-  specifies key position (and length, spacing or style).
+  specifies key placement on the figure, and optional length, spacing or style. [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) uses a key.
 
 #### **DATA** switches draw one or more families of xy data
 {::comment}
@@ -594,11 +596,14 @@ _Notes:_{: style="color: red"}
 2. For abscissa and ordinate you can select a particular column (**-col**), choose algebraic combination involving multiple columns of data (**-ab** and **-ord**).
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
-3. As an alternative to reading data from a file you can supply it using switch **-tp**.
+3. As an alternative to reading data from a file you can supply it using the [**-tp**](/docs/misc/fplot/#tp-switch) instruction.
    Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
 
 4. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
+
+5. **fplot**{: style="color: blue"} needs some information about how **<i>data-file</i>** is structured.  See
+   [here](/docs/misc/fplot/#structure-of-data-files) for a brief description.
 
 ##### _DATA switches_
 {::comment}
@@ -807,7 +812,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   Options separator &nbsp;'**~**'&nbsp; can be a different character such as &nbsp;'**:**'&nbsp; or &nbsp;'**,**'.
   + **dup=#1[,#2]** &nbsp;   Duplicate row (col) data #1 (#2) times
   + **fn=_filename_** &ensp; writes _xy_ pen moves to file **_filename_**.
-  + **noclose** &emsp;&ensp; suppresses closing contours on boundaries.
+  + **noclose** &emsp;&emsp; suppresses closing contours on boundaries.
 
 
   _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
@@ -1591,6 +1596,7 @@ _line thickness_  | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches]
 |---
 _which axes_      | -frmt th=#**,#,#**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _bounds_          | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_bounds, padding_ | **-p#**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)[Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 ###### _Keys_
 
@@ -1628,8 +1634,12 @@ _group of labels_                      | **-lblx**{: style="color: red"} \| **-l
 _abscissa_                             | **-xl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _ordinate_                             | **-yl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _title_                                | **-tl _string_**{: style="color: red"}                      | [Labelling switches](/docs/misc/fplot/#labelling-switches)
+_labelling tic marks_                  |                                                             | See [tic marks]/docs/misc/fplot/#tic-marks quick reference
 
 ###### _Line types_
+{::comment}
+/docs/misc/fplot/#line-types
+{:/comment}
 
 &nbsp;                                 | Instruction       |  Documentation/Example | Notes
 |---
@@ -1645,7 +1655,9 @@ _filling_                              | -lt _n_**~fill=#**{: style="color: red"
 |---
 _clip outside frame_                   | -lt _n_**~clip**{: style="color: red"}        |
 |---
-_color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}| | For color weights _n_=2\|3\|4, use **~colw_n_=_rn_,_gn_,_bn_ |
+_color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}|
+|---
+_more color weights_                   | -lt _n_**~colw_i_=_r_,_g_,_b_**{: style="color: red"}| | For color weights _i_=2\|3\|4, use **~colw_i_=_r<sub>i</sub>_,_g<sub>i</sub>_,_b<sub>i</sub>_**
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
@@ -1714,6 +1726,7 @@ _for log scale_  | -tmx\|-tmy &nbsp;_spacing_**@2\|@3\|@4**{: style="color: red"
 |---
 _user-specified_ | -tmx\|-tmy &nbsp;_spacing_**@5**{: style="color: red"}         | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _numbering, suppress_ | **-noxn\|-noyn**{: style="color: red"}                    | [LABELLING switches](/docs/misc/fplot/#xn-switch), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+_numbering, format_ | **-fmtnx\|-fmtny**{: style="color: red"}                    | [LABELLING switches](/docs/misc/fplot/#xn-switch), &nbsp; [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 _numbering, placement_ | **-xn:t \|-yn:r**{: style="color: red"}                  | [LABELLING switches](/docs/misc/fplot/#xn-switch), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#ord-switch)
 
