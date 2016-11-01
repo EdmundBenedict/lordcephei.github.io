@@ -268,13 +268,44 @@ and information about local orbitals).
 
 {::nomarkdown}</div>{:/}
 
-#### Fitting density outside the augmentation radius
+#### Fitting the charge density outside the augmentation radius
 {::comment}
- /docs/outputs/lmfa_output/#fitting-density-outside-the-augmentation-radius
+ /docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius
 {:/comment}
+
+~~~
+ tailsm: fit tails to 6 smoothed hankels, rmt= 3.02869, rsm= 1.51434
+ HNSMFT:  85 points in interval  3.02869  24.73301;  q=  1.433395
+ E:    -1.00000    -2.00000    -4.00000    -6.00000    -9.00000    -15.0000
+ C:    -0.10708    13.99477    -208.816    3199.570    -32652.0    736827.1
+        r          rho         fit         diff
+    3.028689    0.013779    0.013777    0.000002
+    3.888922    0.003349    0.003348    0.000000
+    4.993484    0.000541    0.000541    0.000000
+    6.411769    0.000054    0.000054    0.000000
+    8.232883    0.000003    0.000003    0.000000
+    q(fit):     1.433395    rms diff:   0.000002
+    fit: r>rmt  1.433395   r<rmt  6.387103   qtot  7.820498
+    rho: r>rmt  1.433395   r<rmt  4.566605   qtot  6.000000
+
+ coretail: q=0.00215, rho(rmt)=0.00566.  Fit with Hankel e=-14.401  coeff=639.|
+      r            rhoc          fit
+    3.028689    0.01975240    0.01975240
+    3.347222    0.00650048    0.00651738
+    3.792904    0.00136878    0.00136091
+    4.297927    0.00023338    0.00022687
+    4.870194    0.00003132    0.00002930
+    5.518656    0.00000320    0.00000283
+    6.253461    0.00000024    0.00000020
+    7.086104    0.00000001    0.00000001
+~~~
 
 #### Estimating the plane-wave cutoff GMAX
 {::comment}
  /docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
 {:/comment}
+
+~~~
+ FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.3 (valence)  7.8 (local orbitals)
+~~~
 
