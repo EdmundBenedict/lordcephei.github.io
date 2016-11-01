@@ -125,6 +125,9 @@ _Notes:_{: style="color: red"}
 /docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file
 {:/comment}
 
+try [here](docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
+
+
 Except for very simple cases, figures are too involved to invoked entirely from a command line.
 Usually commands are read from an input file (script file).
 
