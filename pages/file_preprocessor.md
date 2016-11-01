@@ -207,6 +207,11 @@ The final expression may (and typically does) consist of an expression only omit
 
 _Note:_{: style="color: red"} _expr_ may not contain any whitespace.
 
+{::nomarkdown} <a name="expr-syntax"></a> {:/}
+{::comment}
+/docs/input/preprocessor/#expr-syntax
+{:/comment}
+
 _expr_ has a syntax very similar to C.  It is composed of numbers, scalar variables, elements of vector variables, and macros, combined with unary and binary operators.
 <pre>
     <i>Unary</i> operators take first precedence:

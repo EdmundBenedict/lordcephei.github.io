@@ -278,7 +278,7 @@ Optional switches perform the following functions:
 + -scl=<i>expr</i>\\
   scales bands by <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
 + -wscl=<i>w</i>[,<i>h</i>]\\
-  scales the default figure size by _w_.  _w_ is a number or expression.\\
+  scales the default figure size by _w_.  _w_ is a real number or [expression](/docs/input/preprocessor/#expr-syntax).\\
   If the second argument is present the width is scaled by _w_, the height by _h_.\\
   See [comparing QSGW and LDA](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands) bands in Fe for an example.
 + -tl=<i>title</i>\\
