@@ -347,7 +347,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
 
 1. A figure is comprised of one or more frames. Each new frame overlays anything below it.
 2. By default, **fplot**{: style="color: blue"} draws a frame around the figure
-   with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)).
+   with tic marks and numbering (see [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)).
    These defaults can be modified with the switches in this section.
 3. Some switches in this and later sections specify colors through, **col=_r_,_g_,_b_**
    ([RBG](/docs/misc/fplot/#color-specification) conventions red,green,blue)
@@ -600,7 +600,7 @@ _Notes:_{: style="color: red"}
    Also you may rearrange the data or cull out a subset of it (**-map**), or interpolate it (**-itrp**).
 
 3. As an alternative to reading data from a file you can supply it using the [**-tp**](/docs/misc/fplot/#tp-switch) instruction.
-   Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) use this form.
+   Most of the examples in [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x) use this form.
 
 4. [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) provides a simple example of two sets of data
    plotted in a frame; see also [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp).
@@ -757,7 +757,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 + **-tp [_nc_~]_list_**\\
   generates a table of points.  Optional **_nc_~** specifies the number columns in the list (defaults to 1).\\
-  See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) above.
+  See [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x) above.
 
 {::nomarkdown} <a name="map-switch"></a> {:/}
 {::comment}
@@ -864,7 +864,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   substitute **_expr_** for the ordinate.
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   Many examples appear in document,
-  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#about-symbols).
+  e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#about-symbols).
 + **-ab  _expr_**\\
   substitute **_expr_** for the abscissa.\\
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.
@@ -1599,7 +1599,7 @@ _line thickness_  | -frmt **th=#**{: style="color: red"} ... | [FORMAT switches]
 |---
 _which axes_      | -frmt th=#**,#,#**{: style="color: red"} ... | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 _bounds_          | **-x _x1_,_x2_**{: style="color: red"} and **-y _y1_,_y2_**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
-_bounds, padding_ | **-p#**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)[Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+_bounds, padding_ | **-p#**{: style="color: red"} | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)[Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
 ###### _Keys_
 
@@ -1660,7 +1660,7 @@ _clip outside frame_                   | -lt _n_**~clip**{: style="color: red"} 
 |---
 _color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}|
 |---
-_more color weights_                   | -lt _n_**~colw_i_=_r_,_g_,_b_**{: style="color: red"}| | For color weights _i_=2\|3\|4, use **~colw_i_=_r<sub>i</sub>_,_g<sub>i</sub>_,_b<sub>i</sub>_**
+_more color weights_                   | -lt _n_**~colw<i>i</i>=_r_,_g_,_b_**{: style="color: red"}| | For color weights _i_=2\|3\|4, use <b>~colw<i>i</i>=_r<sub>i</sub>_,_g<sub>i</sub>_,_b<sub>i</sub>_</b>
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
@@ -1670,7 +1670,7 @@ _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}
 |---
 _columns for abscissa, ordinate_ | **-col**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#data-switches) |
 _abscissa_ | **-ab _expr_**{: style="color: red"}  | [DATA switches](/docs/misc/fplot/#ord-switch)      |
-_ordinate_ | **-ord _expr_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#ord-switch)      | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
+_ordinate_ | **-ord _expr_**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#ord-switch)      | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
 _multiple columns_ | **-colsy**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#colsy-switch)   |
 _rearrange or exclude data_   | **-map**{: style="color: red"}   | [DATA switches](/docs/misc/fplot/#map-switch)   |
 _interpolate_      | **-itrp**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#itrp-switch)    | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
@@ -1776,8 +1776,8 @@ Instruction   | Definition                                           | Places to
 **-nr**       | [DATA switches](/docs/misc/fplot/#read-switch)     |
 **-nx**       | [FORMAT switches](/docs/misc/fplot/#sort-switch)   |
 **-ny**       | [FORMAT switches](/docs/misc/fplot/#sort-switch)   | 
-**-ord**      | [DATA switches](/docs/misc/fplot/#ord-switch)      | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
-**-p**        | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-y20x2exp-4x)
+**-ord**      | [DATA switches](/docs/misc/fplot/#ord-switch)      | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
+**-p**        | [FORMAT switches](/docs/misc/fplot/#x-switch) | [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
 **-plaintext**| [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-plm**      | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
 **-pr**       | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |

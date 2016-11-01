@@ -75,11 +75,11 @@ These questions will be repeated until you enter a blank list in response to the
 Each group of DOS will generate a new panel; thus multiple panels can be drawn, one below the other.
 
 These interactive questions can be bypassed with the &nbsp;**\-\-lst=**&nbsp; switch.  Create a sequence of one or more lists 
-_list1_, &nbsp; _list2_, &nbsp; &hellip; using `\-\-lst=_list1_;_list2_;...`.
+_list1_, &nbsp; _list2_, &nbsp; &hellip; using `\-\-lst=<i>list1</i>;<i>list2</i>;...`.
 Each of _list1_, &nbsp; _list2_, &nbsp; &hellip; consist of a list of DOS that will be combined ([integer list syntax](/docs/misc/integerlists/)).
 For each list a new panel will be made.
 
-After the lists are read (or parsed from **\-\-lst=**), **pldos**{: style="color: blue"} reads four numbers from **stdin**: `_dmax_, _height_, _emin_, _emax_`
+After the lists are read (or parsed from **\-\-lst=**), **pldos**{: style="color: blue"} reads four numbers from **stdin**: `<i>dmax</i>, <i>height</i>, <i>emin</i>, <i>emax</i>`
 
 + `dmax` caps the DOS in the figure so as not to exceed this value
 + `height` is of dmax (ordinate), in cm.
@@ -100,8 +100,6 @@ Optional switches perform the following functions:
   2. generate a script _plot.dos_{: style="color: green"}.
   3. suppress directly creating a postscript file
 
-&nbsp;
-
 + **-long** \\
   writes fplot _dosp.dat_{: style="color: green"} with 6 decimals, rather than 4.
 
@@ -114,7 +112,7 @@ Optional switches perform the following functions:
   + filename is partial DOS file, standard format, e.g.\\
     pldos -ef=0 -escl=13.6 -fplot '-lst=3;1' -ref:fn=dos.cr:scale dosl.cr
 
-&nbsp;
+<i> </i>
 
 + **-dif:#[,rat]] \| -int**\\
   differentiate or integrate DOS
