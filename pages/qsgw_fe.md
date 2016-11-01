@@ -410,13 +410,13 @@ $ cp bnds.fe bnds.gw
 {:/comment}
 
 At this point the LDA (_bnds.lda_{: style="color: green"}) and QSGW (_bnds.gw_{: style="color: green"}) energy bands should in your working directory,
-containing bands along four symmetry lines (&Gamma;-H; H-N, N-P, and P-&Gamma;)
+containing bands along four symmetry lines (&Gamma;-H,&nbsp; H-N,&nbsp; N-P,&nbsp; and P-&Gamma;).
+For a brief description of the structure of these files, see [here](/docs/misc/plbnds/#examples).
 
 Use the [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) tool render both data sets into files
 (_bnd[1234].lda_{: style="color: green"}) for the four panels of LDA bands, and
 (_bnd[1234].gw_{: style="color: green"}) for the four panels of QSGW bands.
-
-We will be concerned with the bands near the Fermi level
+This tutorial will be concerned with the bands near the Fermi level.
 Restrict the range to <i>E<sub>F</sub></i>&plusmn;2&thinsp;eV, and focus on the minority spin bands:
 
 ~~~

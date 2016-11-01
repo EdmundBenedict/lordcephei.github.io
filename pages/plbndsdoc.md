@@ -5,11 +5,10 @@ title: "The plbnds program"
 permalink: "/docs/misc/plbnds/"
 header: no
 ---
-_____________________________________________________________
-
 
 ### _Purpose_
 {:.no_toc}
+_____________________________________________________________
 
 **plbnds**{: style="color: blue"} is designed to generate data to make figures of energy bands along specified symmetry lines.
 
@@ -18,24 +17,25 @@ Questaal codes into a [simple, easy-to-read format](/docs/misc/fplot/#structure-
 It also makes a script for the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) graphics tool,
 but the simple data format is suitable for use by any graphics package.
 
-_____________________________________________________________
+
 
 ### _Preliminaries_
 {:.no_toc}
+_____________________________________________________________
 
 Executables **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"} are required and are assumed to be in your path. 
 You will also need a postscript viewer.  This document assumes you are using the generic apple-style **open**{: style="color: blue"} command to view postscript files.
 
-_____________________________________________________________
 
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
 
 ### 1. _Introduction_
-
+_____________________________________________________________
 Energy bands provide a great deal of information, and the Questaal codes provide a fair amount of flexibility in generating
 them.  Drawing bands with color weights is a particularly useful feature,
 as shown in Section 2
@@ -68,10 +68,8 @@ Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} o
 
 Section 3 is an operations manual.
 
-_____________________________________________________________
-
-
 ### 2. _Examples_
+_____________________________________________________________
 
 Copy an already prepared bands file for Co, [_bnds.co_{: style="color: green"}](/assets/download/inputfiles/bnds.co) to your working directory.
 It contains energy bands connecting the symmetry lines M, &Gamma;, A, L, &Gamma;, K (5 panels).
@@ -249,6 +247,7 @@ Note the following points:
 {::nomarkdown}</div>{:/}
 
 ### 3. _plbnds manual_
+_____________________________________________________________
 
 Invoke **plbnds**{: style="color: blue"} in one of the following ways:
 
@@ -281,7 +280,8 @@ Optional switches perform the following functions:
   scales bands by <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
 + -wscl=<i>w</i>[,<i>h</i>]\\
   scales the default figure size by _w_.  _w_ is a number or expression.\\
-  If the second argument is present the width is scaled by _w_, the height by _h_.
+  If the second argument is present the width is scaled by _w_, the height by _h_.\\
+  See [comparing QSGW and LDA](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands) bands in Fe for an example.
 + -tl=<i>title</i>\\
    Adds a title to appear at the top of the figure.
 + -spin1 | -spin2\\
@@ -299,7 +299,6 @@ Optional switches perform the following functions:
    + _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} must contain identical bands generated at the same _k_ points.
 
 <i> </i>
-
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
   graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).)\\
@@ -332,8 +331,10 @@ Optional switches perform the following functions:
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
    `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
 
+### 4. _Additional exercises_
 _____________________________________________________________
 
-### 4. _Other resources_
+### 5. _Other resources_
+_____________________________________________________________
 
 See the [fplot](/docs/misc/fplot/) and [pldos](/docs/misc/pldos/) manuals.
