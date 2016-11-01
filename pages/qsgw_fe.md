@@ -412,7 +412,7 @@ $ cp bnds.fe bnds.gw
 At this point the LDA (_bnds.lda_{: style="color: green"}) and QSGW (_bnds.gw_{: style="color: green"}) energy bands should in your working directory,
 containing bands along four symmetry lines (&Gamma;-H; H-N, N-P, and P-&Gamma;)
 
-Use the [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) tool render both sets into files
+Use the [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) tool render both data sets into files
 (_bnd[1234].lda_{: style="color: green"}) for the four panels of LDA bands, and
 (_bnd[1234].gw_{: style="color: green"}) for the four panels of QSGW bands.
 
