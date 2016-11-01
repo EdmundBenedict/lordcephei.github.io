@@ -92,7 +92,7 @@ Enter the following to make and view the postscript file:
     $ echo -0.8,0.6,10,15 | plbnds -lbl=M,G,A,L,G,K bnds.co
     $ open fplot.ps
 
-Note the following:
+_Notes:_{: style="color: red"}
 
 + The energy bands are plotted in an energy window `-0.8,0.6` Ry, in 5 panels.
 + Arguments `10,15` specify the width and height of the entire figure (in cm, approximately).
@@ -230,7 +230,7 @@ Your postscript file should look like the figure below.
 
 ![Energy bands for Co](/assets/img/bnds-co.svg)
 
-Note the following points:
+_Notes:_{: style="color: red"}
 
 + The highly dispersive band between &Gamma; and A in the window (-2,0) eV, is black, indicating its _sp_ character.  The band
   continues on &Gamma;-M line to positive energy. You can also see traces of it on the &Gamma;-K line, starting at &Gamma; near -0.5 eV,

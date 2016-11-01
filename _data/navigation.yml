@@ -61,6 +61,9 @@
       content:
       - title: "lmf standard output"
         url: "/lmf_output/"
+      content:
+      - title: "lmfa standard output"
+        url: "/lmfa_output/"
     - name: "Command Line Options"
       prefix: "/commandline"
       content:

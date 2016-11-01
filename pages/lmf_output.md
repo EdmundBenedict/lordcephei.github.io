@@ -29,13 +29,13 @@ Some portions are adapted from other calculations, as will be indicated.
 The standard output is organised by blocks.  Each section below
 explains a block approximately in the order they are made.
 
-#### Preprocessor's transformation of the input file
+### Preprocessor's transformation of the input file
 {::comment}
 /docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
-Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
+Normally it does this silently.  To see the effects of the preprocessor use `lmf --showp ...`
 
 {::comment}
 <button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
@@ -96,7 +96,7 @@ SPEC                                             |  SPEC
 
 {::nomarkdown}</div>{:/}
 
-#### Display tags parsed in the input file
+### Display tags parsed in the input file
 {::comment}
 /docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file
 {:/comment}
@@ -106,7 +106,7 @@ To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`
 what `--input` gives you.
 
 After transformation by the preprocessor, **lmf**{: style="color: blue"} parses for tags and substitutes default values for tags it does not
-find.  To see the value of tags **lmf**{: style="color: blue"} parses, use `lmf --show` or `lmf --show=2`.  The latter causes **lmf**{:
+find.  To see the value of tags **lmf**{: style="color: blue"}, whether parsed or defaults, use `lmf --show` or `lmf --show=2`.  The latter causes **lmf**{:
 style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmf**{: style="color: blue"} is doing what
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
@@ -157,7 +157,7 @@ The output is quite verbose so only a snippet from the **SPEC** category is show
 
 {::nomarkdown}</div>{:/}
 
-####  Reading basis information from the basp file
+###  Reading basis information from the basp file
 {::comment}
 /docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
 {:/comment}
@@ -196,13 +196,13 @@ and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/inp
 
 {::nomarkdown}</div>{:/}
 
-#### Header information
+### Header information
 {::comment}
 /docs/outputs/lmf_output/#header-information
 {:/comment}
 
 The header information presents a condensed synopsis of some key
-settings that are used in the the calculation.
+settings that are used in the calculation.
 
 ~~~
  LMF:      nbas = 2  nspec = 2  vn 7.11.i  verb 35
@@ -213,7 +213,7 @@ settings that are used in the the calculation.
  bz:       metal(5), tetra, invit
 ~~~
 
-#### Lattice information
+### Lattice information
 {::comment}
 /docs/outputs/lmf_output/#lattice-information
 {:/comment}
@@ -233,7 +233,7 @@ This block prints informations about the lattice vectors and settings used in Ew
 
 _Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance.
 
-#### Symmetry information
+### Symmetry information
 {::comment}
 /docs/outputs/lmf_output/#symmetry-information
 {:/comment}
@@ -263,7 +263,7 @@ Notes: (see also "Additional Exercises" below)
 + The Brillouin zone integration is using Bloechl's generalized tetrahedron method.
   You can also use the Methfessel-Paxton integration scheme or a Fermi function.
 
-#### Augmentation parameters
+### Augmentation parameters
 {::comment}
 /docs/outputs/lmf_output/#augmentation-parameters
 {:/comment}
@@ -284,7 +284,7 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
 + **foca**, **rfoca** allow for differing treatments of the core.
 
-#### Interstitial mesh
+### Interstitial mesh
 {::comment}
 /docs/outputs/lmf_output/#interstitial-mesh
 {:/comment}
@@ -305,7 +305,7 @@ The spacing of the mesh is controlled by the _G_ cutoff (**7.8** for PbTe).
 Information about whether this mesh is sufficiently accurate is given
 in the table beginning with _sugcut_{: style="color: green"} below.
 
-#### Counting the size of the basis
+### Counting the size of the basis
 {::comment}
 /docs/outputs/lmf_output/#counting-the-size-of-the-basis
 {:/comment}
@@ -327,7 +327,7 @@ The total basis (and hamiltonian rank) consists of 55 orbitals.
  suham :  41 augmentation channels, 41 local potential channels  Maximum lmxa=4
 ~~~
 
-#### Envelope function parameters and their G cutoffs
+### Envelope function parameters and their G cutoffs
 {::comment}
 /docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs
 {:/comment}
@@ -360,7 +360,7 @@ Both are assembled in reciprocal space.
 The number of plane waves needed for a particular orbital depends on how sharply peaked the function is,
 so the cutoff is orbital-dependent to allow for faster execution.
 **gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe);
-if it can, _lmf_{: style="color: blue"} will find a **gmax** for each orbital
+if it can, **lmf**{: style="color: blue"} will find a **gmax** for each orbital
 that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating
 not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
 
@@ -372,7 +372,7 @@ The tolerance defaults to 10<sup>&minus;6</sup>, but you can control it with tag
 
 At this stage the potential independent setup is complete.
 
-#### Obtain an input density
+### Obtain an input density
 {::comment}
 /docs/outputs/lmf_output/#obtain-an-input-density
 {:/comment}

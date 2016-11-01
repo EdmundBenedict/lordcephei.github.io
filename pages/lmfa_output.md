@@ -32,35 +32,38 @@ explains a block approximately in the order they are made.
 Some parts are similar to the [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/); in places where they are similar a cursory
 treatment is given here; the reader is referred to that page.
 
-#### Preprocessor's transformation of the input file
+_Note:_{: style="color: red"} This document is annotated for an output vebosity of 35 (medium verbosity)
+Raising the verbosity causes **lmfa**{: style="color: blue"} to print additional information.
+Verbosity 31 is a little terse; verbosity 41 is a little verbose.
+
+### Preprocessor's transformation of the input file
 {::comment}
 /docs/outputs/lmfa_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
-Normally it does this silently.  If you want to see the effects of the preprocessor use `lmf --showp ...`
+Normally it does this silently.  To see the effects of the preprocessor use `lmfa --showp ...`
 
-_Note:_{: style="color: red"} the result is nearly identical to [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file/), which see.
+The result is very similar to `lmf --showp ...`, which is documented 
+[here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file/).
 
-#### How lmf and lmfa read input differently
+### How lmf and lmfa read input differently
 {::comment}
 /docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input-differently
 {:/comment}
 
-To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.
-[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.
-
-The result is simlar to [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).  However
-**lmfa**{: style="color: blue"} parses fewer tags than **lmf**{: style="color: blue"} does; moreoever, some tags they both parse have
-different meaning in the two codes.
+To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  
+[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.  The result is similar to 
+[**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).  However **lmfa**{: style="color: blue"} parses fewer
+tags than **lmf**{: style="color: blue"} does; moreoever, some tags they both parse have different meaning in the two codes.
 
 {::comment}
 <button type="button" class="button tiny radius">Click here to see differences in .</button>
 {:/comment}
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see how lmf and and lmfa parse the input file differently.</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
+Click here to see how lmf and and **lmfa**{: style="color: blue"} parse the input file differently.</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
 
-Add `--input` to the **lmfa**{: style="color: blue"} and **lmfa**{: style="color: blue"} commands
+Add `--input` to the **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} commands
 
 ~~~
 $ lmfa ctrl.pbte --input > out.lmfa
@@ -68,7 +71,7 @@ $ lmf  ctrl.pbte --input > out.lmf
 ~~~
 The output is quite verbose so only some differences are highlighted.
 
-This appears in the lmf output
+This appears in the **lmf**{: style="color: blue"} output
 
 ~~~
  --- Parameters for hamiltonian ---
@@ -78,13 +81,13 @@ This appears in the lmf output
  - If preceding token is not parsed, attempt to read the following:
 ~~~
 
-lmfa does not read **EXPRESS_gmax** (alias for **HAM_GMAX**).
-For this reason you don't need to specify it when running lmfa, 
-but do need to when running lmf.  Similarly, lmfa does not read
-**BZ_NKABC** (another tag lmf requires), and many other tags that are optional in lmf,
+**lmfa**{: style="color: blue"} does not read **EXPRESS_gmax** (alias for **HAM_GMAX**).
+For this reason you don't need to specify it when running **lmfa**{: style="color: blue"}, 
+but do need to when running **lmf**{: style="color: blue"}.  Similarly, **lmfa**{: style="color: blue"} does not read
+**BZ_NKABC** (another tag **lmf**{: style="color: blue"} requires), and many other tags that are optional in **lmf**{: style="color: blue"},
 e.g. **HAM_SO**.
 
-lmfa looks for this tag, but lmf does not:
+**lmfa**{: style="color: blue"} looks for this tag, but **lmf**{: style="color: blue"} does not:
 
 ~~~
  autobas_lmto           opt    i4       1,  1     default = 0
@@ -92,10 +95,10 @@ lmfa looks for this tag, but lmf does not:
    Controls lmfa's autogeneration of LMTO basis parameters (RSMH,EH,RSMH2,EH2)
 ~~~
 
-Two others lmfa looks for but lmf does not are &nbsp;**SPEC\_ATOM\_Q**&nbsp; and &nbsp;**SPEC\_ATOM\_MMOM**.
+Two others **lmfa**{: style="color: blue"} looks for but **lmf**{: style="color: blue"} does not are &nbsp;**SPEC\_ATOM\_Q**&nbsp; and &nbsp;**SPEC\_ATOM\_MMOM**.
 These affect the construction of the [atomic charge density](/docs/outputs/lmfa_output/#self-consistent-density-of-atoms).
 
-The following tag is read by both codes, but the meaning differs.  From the output of lmfa:
+The following tag is read by both codes, but the meaning differs.  From the output of **lmfa**{: style="color: blue"}:
 
 ~~~
  autobas_mto            opt    i4       1,  1     default = 0
@@ -107,7 +110,7 @@ The following tag is read by both codes, but the meaning differs.  From the outp
    ...
 ~~~
 
-From the output of lmf:
+From the output of **lmf**{: style="color: blue"}:
 
 ~~~
  autobas_mto            opt    i4       1,  1     default = 0
@@ -126,22 +129,98 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 {::nomarkdown}</div>{:/}
 
 After transformation by the preprocessor, **lmfa**{: style="color: blue"} parses for tags and substitutes default values for tags it does not
-find.  To see the value of tags **lmfa**{: style="color: blue"} parses, use `lmfa --show` or `lmfa --show=2`.  The latter causes **lmfa**{:
+find.  To see the value of tags **lmfa**{: style="color: blue"}, whether parsed or defaults, use `lmfa --show` or `lmfa --show=2`.  The latter causes **lmfa**{:
 style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmfa**{: style="color: blue"} is doing what
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
-The action of `--show` is similar to what occurs in lmf; see the 
-[lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for further discussion.
+The action of `--show` is similar to what occurs with **lmf**{: style="color: blue"}; see
+[that output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for further discussion.
 
-#### Self-consistent density of atoms
+### Header information
 {::comment}
- /docs/outputs/lmfa_output/#self-consistent-density-of-atoms
+/docs/outputs/lmfa_output/#header-information
 {:/comment}
 
+The header information presents a condensed synopsis of some key
+settings that are used in the calculation.  It is similar to the
+header table [produced by **lmf**{: style="color: blue"}](/docs/outputs/lmf_output/#header-information).
 
-#### Generating basis information for the basp file 
+### Lattice information
 {::comment}
- /docs/outputs/lmfa_output/#generating-basis-information-for-the-basp-file 
+/docs/outputs/lmfa_output/#lattice-information
+{:/comment}
+
+This block prints information about the lattice vectors and settings used in Ewald summations.
+Lattice information is not particularly relevant for **lmfa**{: style="color: blue"};
+but it is printed out anyway and is identical to [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#lattice-information).
+
+### Symmetry information
+{::comment}
+/docs/outputs/lmfa_output/#symmetry-information
+{:/comment}
+
+This block prints information about the crystal symmetry, also not relevant for **lmfa**{: style="color: blue"}.
+
+### Loop over species
+{::comment}
+ /docs/outputs/lmfa_output/#loop-over-species
+{:/comment}
+
+**lmfa**{: style="color: blue"} begins a loop over each species, and performs the following steps.
+
+#### _Self-consistent density_
+{::comment}
+ /docs/outputs/lmfa_output/#self-consistent-density
+{:/comment}
+
+~~~
+ Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
+ mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
+  Pl=  6.5     6.5     5.5     5.5     5.5    
+  Ql=  2.0     2.0     10.0    0.0     0.0    
+
+  iter     qint         drho          vh0          rho0          vsum     beta
+    1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
+   55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
+
+ sumev=-18.068313  etot=-41740.206542  eref=0.000000
+
+~~~
+
+
+#### _Valence wave functions_
+{::comment}
+ /docs/outputs/lmfa_output/#valence-wave-functions
+{:/comment}
+
+~~~
+ Free-atom wavefunctions:
+ valence:      eval       node at      max at       c.t.p.   rho(r>rmt)
+   6s      -0.91143         1.014       1.961       2.814     0.168779
+   6p      -0.27876         1.185       2.643       4.790     0.524423
+   5d      -1.56879         0.523       1.073       2.252     0.007786
+   5f       0.02051         0.620      34.528      47.629*    1.000000
+   5g       0.02823         0.000      35.985      47.629*    1.000000
+~~~
+
+#### _Core wave functions_
+{::comment}
+ /docs/outputs/lmfa_output/#core-wave-functions
+{:/comment}
+
+~~~
+ core:        ecore       node at      max at       c.t.p.   rho(r>rmt)
+   1s   -6465.77343         0.000       0.010       0.022     0.000000
+ ...
+   4f      -9.79627         0.000       0.350       1.108     0.000000
+   5s     -10.60776         0.451       0.789       1.074     0.000002
+   5p      -6.31315         0.486       0.882       1.314     0.000052
+
+~~~
+
+#### _Generating basis information_
+{::comment}
+ /docs/outputs/lmfa_output/#generating-basis-information
 {:/comment}
 
 After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
@@ -158,216 +237,44 @@ _basp.pbte_{: style="color: green"} supplies basis information (parameters **EH*
 ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
 and information about local orbitals).
 
+
+##### Boundary conditions at the augmentation radius
+{::comment}
+ /docs/outputs/lmfa_output/#boundary-conditions-at-the-augmentation-radius
+{:/comment}
+
 ~~~
- rdctrl: reading basis parameters from file basp
- ioorbp: read species Pb        RSMH,EH RSMH2,EH2 P PZ
- ioorbp: read species Te        RSMH,EH RSMH2,EH2 P
-         reset nkaph from 1 to 3
+ Optimise free-atom basis for species Pb, rmt=3.044814
+ l  it    Rsm      Eh     stiffR   stiffE      Eval      Exact     Pnu    Ql
+ 0  50   1.794  -0.698      88.6    108.3   -0.91141  -0.91143    6.89   2.00
+ 1  26   2.026  -0.161     182.6    936.8   -0.27824  -0.27876    6.81   2.00
+ 2  32   1.013  -1.099       3.1      5.0   -1.56878  -1.56879    5.93  10.00
+ eigenvalue sum:  exact -18.06831    opt basis -18.06716    error 0.00116
+
+...
+ Autogenerated Pnu:  6.895 6.809 6.250 5.183 5.089
 ~~~
 
-You can also supply this information in the ctrl file.
-If both are present **lmfa**{: style="color: blue"} decides on which to
-use depending on settings in **EXPRESS_autobas** or **HAM_AUTOBAS**
+##### Identifying local orbitals for shallow cores
+{::comment}
+ /docs/outputs/lmfa_output/#identifying-local-orbitals-for-shallow-cores
+{:/comment}
 
-To see a synopsis of tokens in **AUTOBAS**,
-[invoke `lmf --input`](/docs/input/inputfile/#help-with-finding-tokens-the---input-switch)
-and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/input/inputfile/#ham).
+~~~
+ Find local orbitals which satisfy E > -2 Ry  or  q(r>rmt) > 5e-3
+ l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
+ l=3  eval=-9.796  Q(r>rmt)=3e-8  PZ=4.971  Use: PZ=0.000
+~~~
 
 {::nomarkdown}</div>{:/}
 
-#### Header information
+#### Fitting density outside the augmentation radius
 {::comment}
-/docs/outputs/lmfa_output/#header-information
+ /docs/outputs/lmfa_output/#fitting-density-outside-the-augmentation-radius
 {:/comment}
 
-The header information presents a condensed synopsis of some key
-settings that are used in the the calculation.
-
-~~~
- LMF:      nbas = 2  nspec = 2  vn 7.11.i  verb 35
- special:  forces
- pot:      XC:BH
- float:    float P LDA-style
- autoread: mto basis(4), pz(1), pnu(1)
- bz:       metal(5), tetra, invit
-~~~
-
-#### Lattice information
+#### Estimating the plane-wave cutoff GMAX
 {::comment}
-/docs/outputs/lmfa_output/#lattice-information
+ /docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
 {:/comment}
 
-This block prints informations about the lattice vectors and settings used in Ewald summations:
-
-~~~
-                Plat                                  Qlat
-   0.000000   0.500000   0.500000       -1.000000   1.000000   1.000000
-   0.500000   0.000000   0.500000        1.000000  -1.000000   1.000000
-   0.500000   0.500000   0.000000        1.000000   1.000000  -1.000000
-   alat = 12.147006  Cell vol = 448.071898
-
- LATTC:  as= 2.000   tol=1.00E-08   alat=12.14701   awald= 0.261
-         r1=  1.807   nkd= 87       q1=  5.403   nkg= 169
-~~~
-
-_Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance.
-
-#### Symmetry information
-{::comment}
-/docs/outputs/lmfa_output/#symmetry-information
-{:/comment}
-
-The block below shows symmetry operations it finds in the
-crystal, and the irreducible k mesh it obtains from the point group it is given:
-
-~~~
- SGROUP: 1 symmetry operations from 0 generators
- SYMLAT: Bravais system is cubic with 48 symmetry operations.
- SYMCRY: crystal invariant under 48 symmetry operations for tol=1e-5
- GROUPG: the following are sufficient to generate the space group:
-         i*r3(1,1,-1) r4x
-         i*r3(1,1,-1) r4x
- MKSYM:  found 48 space group operations ... includes inversion
- BZMESH:  16 irreducible QP from 216 ( 6 6 6 )  shift= F F F
- TETIRR: sorting 1296 tetrahedra ... 35 inequivalent ones found
-~~~
-
-Notes: (see also "Additional Exercises" below)
-
-+ You can specify symmetry operations manually.  This is particularly useful
-  when magnetic symmetry must be considered.
-+ The k mesh is specifed through the number of k divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc**.\\
-  You can also specify whether the k-mesh should pass through the origin or straddle it
-  through tag **BZ_BZJOB**.
-+ The Brillouin zone integration is using Bloechl's generalized tetrahedron method.
-  You can also use the Methfessel-Paxton integration scheme or a Fermi function.
-
-#### Augmentation parameters
-{::comment}
-/docs/outputs/lmfa_output/#augmentation-parameters
-{:/comment}
-
-The table below contains a synopsis of key parameters associated with augmentation spheres.
-
-~~~
- species data:  augmentation                           density
- spec       rmt   rsma lmxa kmxa      lmxl     rg   rsmv  kmxv foca   rfoca
- Pb       3.045  1.218    4    3         4  0.761  1.522    15    1   1.218
- Te       3.029  1.211    3    3         3  0.757  1.514    15    1   1.211
-~~~
-
-+ **rmt** is the augmentation radius
-+ **rsma** and **kmxa** are the smoothing radius and polynomial order used to expand envelope function around other sites.
-+ **lmxa** is the _l_-cutoff of the augmentation.  Because of the unique way augmentation is done in this method, **lmxa** can be much lower standard augmented wave methods require
-+ **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.  **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.
-+ **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
-+ **foca**, **rfoca** allow for differing treatments of the core.
-
-#### Interstitial mesh
-{::comment}
-/docs/outputs/lmfa_output/#interstitial-mesh
-{:/comment}
-
-The following block is concerned with the mesh used to represent the charge density,
-and to evaluate matrix elements of the (unaugmented) envelope functions
-The spacing of the mesh is controlled by the _G_ cutoff (**7.8** for PbTe).
-
-~~~
- MSHSIZ: mesh has 18 x 18 x 18 divisions; length 0.477, 0.477, 0.477
-         generated from gmax = 7.8 a.u. : 3647 vectors of 5832 (62%)
-
- GVLIST: gmax = 7.8 a.u. created 3647 vectors of 5832 (62%)
-         mesh has 18 x 18 x 18 divisions; length 0.477, 0.477, 0.477
- SGVSYM: 126 symmetry stars found for 3647 reciprocal lattice vectors
-~~~
-
-Information about whether this mesh is sufficiently accurate is given
-in the table beginning with _sugcut_{: style="color: green"} below.
-
-#### Counting the size of the basis
-{::comment}
-/docs/outputs/lmfa_output/#counting-the-size-of-the-basis
-{:/comment}
-
-In the table below, the size of the basis is presented.
-**lmfa**{: style="color: blue"} doesn't have downfolding capability, so the
-important numbers are those in the "low" column.  Rows 1,2,3 indicate how
-many orbitals are connected respectively with the first Hankel envelope (**EH**),
-the second envelope (**EH2**), and local orbitals.
-The total basis (and hamiltonian rank) consists of 55 orbitals.
-
-~~~
- Makidx:  hamiltonian dimensions Low, Int, High, Negl: 55 0 32 63
- kappa   Low   Int   High  L+I  L+I+H  Neglected
-   1      32     0     9    32    41       9
-   2      18     0    23    18    41       9
-   3       5     0     0     5     5      45
-  all     55     0    32    55    87      63
- suham :  41 augmentation channels, 41 local potential channels  Maximum lmxa=4
-~~~
-
-#### Envelope function parameters and their G cutoffs
-{::comment}
-/docs/outputs/lmfa_output/#envelope-function-parameters-and-their-g-cutoffs
-{:/comment}
-
-In the table envelope function parameters for each species is given,
-which defines their shape.   Also shown is an orbital-dependent **gmax**.
-
-~~~
- sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
- spec      l    rsm    eh     gmax    last term   cutoff
-  Pb       0    1.80  -0.10   4.123    2.68E-06     531
-  Pb       1    2.02  -0.10   3.848    2.42E-06     411
-  Pb       2*   2.03  -0.10   4.013    1.37E-06     531
-  Pb       3    2.03  -0.10   4.193    1.54E-06     537
-  Pb       0    1.80  -0.90   4.123    2.68E-06     531
-  Pb       1    2.02  -0.90   3.848    2.42E-06     411
-  Pb       2    2.03  -0.90   4.013    1.37E-06     531
-  Te       0    1.63  -0.10   4.572    1.45E-06     725
-  Te       1    1.71  -0.10   4.575    1.52E-06     725
-  Te       2*   2.02  -0.10   4.037    1.63E-06     531
-  Te       3    2.02  -0.10   4.218    1.87E-06     537
-  Te       0    1.63  -0.90   4.572    1.45E-06     725
-  Te       1    1.71  -0.90   4.575    1.52E-06     725
-  Te       2    2.02  -0.90   4.037    1.63E-06     531
-~~~
-
-Each envelope function must be expanded in plane waves in order to assemble matrix elements of the interstitial potential
-the output charge density.
-Both are assembled in reciprocal space.
-The number of plane waves needed for a particular orbital depends on how sharply peaked the function is,
-so the cutoff is orbital-dependent to allow for faster execution.
-**gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe);
-if it can, _lmf_{: style="color: blue"} will find a **gmax** for each orbital
-that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating
-not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
-
-If any of the orbitals bump up against the maximum, check the error estimate ("last term") in the Table.
-If it is too high you can expect errors in the hamiltonian and you should increase **gmax**.
-
-The tolerance defaults to 10<sup>&minus;6</sup>, but you can control it with tag **HAM_TOL**.
-10<sup>&minus;5</sup> or smaller is usually safe.
-
-At this stage the potential independent setup is complete.
-
-#### Obtain an input density
-{::comment}
-/docs/outputs/lmfa_output/#obtain-an-input-density
-{:/comment}
-
-The next step is to generate the potential : for this a density must be given.  **lmfa**{: style="color: blue"} tries to read the density
-from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmfa**{: style="color: blue"} was not able
-to find the file, and instead constructs a trial density by overlapping free atom densities:
-
-~~~
- lmfp  : no rst file ... try to overlap atomic densities
- rdovfa: read and overlap free-atom densities (mesh density) ...
- rdovfa: expected Pb,      read Pb       with rmt=  3.0448  mesh   497  0.025
- rdovfa: expected Te,      read Te       with rmt=  3.0287  mesh   461  0.025
-~~~
-
-If you have
-
-
-{::nomarkdown}</div>{:/}
