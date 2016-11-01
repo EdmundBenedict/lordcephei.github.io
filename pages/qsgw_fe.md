@@ -417,7 +417,7 @@ Use the [**plbnds**{: style="color: blue"}](/docs/misc/plbnds) tool render both 
 (_bnd[1234].gw_{: style="color: green"}) for the four panels of QSGW bands.
 
 We will be concerned with the bands near the Fermi level
-Restrict the range to <i>E<sub>F</sub></i>&pm;2&thinsp;eV, and focus on the minority spin bands:
+Restrict the range to <i>E<sub>F</sub></i>&plusmn;2&thinsp;eV, and focus on the minority spin bands:
 
 ~~~
 echo -2,2 /  | plbnds -wscl=1,.8 -fplot -ef=0 -scl=13.6 --nocol -dat=gw -spin2 bnds.gw
@@ -428,15 +428,15 @@ Each of these commands generated an [**fplot**{: style="color: blue"}](/docs/mis
 (_plot.plbnds_{: style="color: green"}), which will make postscript files of either data.
 It draws four frames, one for each symmety line.
 
-Here we modify the second _plot.plbnds_{: style="color: green"}, combine the bands from the two calculations
-in one figure.  To distinguish bands, we will draw _GW_ bands in red dots and LDA bands in blue dashed lines.
-**fplot**{: style="color: blue"}, selects line type and colors with the [**-lt**](/docs/misc/fplot/#data-switches) instruction.
+Here we modify the second _plot.plbnds_{: style="color: green"}, 
+and create a new script _plot.2bands_{: style="color: green"} that combines the bands from the two calculations
+in one figure.  To distinguish bands we will draw _GW_ bands in red dots and LDA bands in blue dashed lines.
+**fplot**{: style="color: blue"} selects line type and colors with the [**-lt**](/docs/misc/fplot/#data-switches) instruction.
 
-to make the script use the same color for each frame, it is convenient to make use of the [file preprocessor's](/docs/input/preprocessor/)
-ability to assign and use [character variables](/docs/input/preprocessor/#expression-substitution).  In the box below, a new file
-_plot.2bands_{: style="color: green"} is created which will become the **fplot**{: style="color: blue"} script.  Character variables
-**colr** and **colb** contain strings that modify line types, notably the the color (see [here](/docs/misc/fplot/#line-types) for a quick
-reference).
+To make script use the same color in each frame, it is convenient to make use of the [file preprocessor's](/docs/input/preprocessor/)
+ability to assign and use [character variables](/docs/input/preprocessor/#expression-substitution).  Execture the instructions in the box
+below.  It creates a new file _plot.2bands_{: style="color: green"} with character variables **colr** and **colb**.  These contain strings
+that modify line types, notably the color (see [here](/docs/misc/fplot/#line-types) for a quick reference).
 
 ~~~
 $ rm -f plot.2bands
@@ -444,7 +444,7 @@ $ echo "% char0 colr=3,bold=5,clip=1,col=1,.2,.3" >>plot.2bands
 $ echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 ~~~
 
-Next, append _plot.plbnds_{: style="color: green"} to _plot.2bands_{: style="color: green"} and adapt to draw two kinds of bands in each frame, each with its own color.
+Next, append _plot.plbnds_{: style="color: green"} to _plot.2bands_{: style="color: green"}, adapt it to draw two kinds of bands in each frame, each with its own color.
 This could be done with a text editor, but it is convenient to accomplish it with an **awk** command:
 
 ~~~
@@ -457,11 +457,11 @@ Compare _plot.plbnds_{: style="color: green"} and _plot.2bands_{: style="color: 
 $ diff plot.plbnds plot.2bands
 ~~~
 
-Character variables are declared at the top; and each in instruction that drawing bands in frame _n_ has been split into two instructions, one for bnd<i>n</i>.lda with line type modifier **{colb}** and another for bnd<i>n</i>.gw with line type modifier **{colr}**.
+Character variables are declared at the top.  Each line in the script that draws bands has been split into two lines, one for bnd<i>n</i>.lda with line type modifier **{colb}** and another for bnd<i>n</i>.gw with line type modifier **{colr}**.
 
-After preprocessing, the script will contain instructions explained in the fplot manual, e.g. 
-[**-colsy 2:6**](/docs/misc/fplot/#colsy-switch), [**lt 3,...**](/docs/misc/fplot/#data-switches),
-and [**-qr**](/docs/misc/fplot/#read-switch).  To see what the script looks like after preprocessing, do
+After preprocessing the script will contain instructions explained in the fplot manual, e.g. 
+[**-colsy 2:6**](/docs/misc/fplot/#colsy-switch), &nbsp; [**lt 3,...**](/docs/misc/fplot/#data-switches),
+&nbsp; and [**-qr**](/docs/misc/fplot/#read-switch).  To see how the script appears after preprocessing, do
 
 ~~~
 $ rdfile plot.2bands
