@@ -92,6 +92,9 @@ The following will plot this function in the interval **(0.02,2)**, with the abs
 
 _Notes:_{: style="color: red"}
 
+  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
++ [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/misc/integerlists/).
++ [**-ord _expr_**](/docs/misc/fplot/#ord-switch) defines the ordinate, for a given point in the list.  **_expr_** is an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
 + Points are connected by straight lines.
 + Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
   `$ fplot -s +:0.2 ...`\\
@@ -866,7 +869,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 {:/comment}
 
 + **-ord _expr_**\\
-  substitute **_expr_** for the ordinate.
+  substitute [algebraic expression](/docs/input/preprocessor/#expr-syntax) **_expr_** for the ordinate.
   Expressions can use variables &nbsp; **x**, **y** (see **-col** above), &nbsp; **i** for row index, and &nbsp;**xn**&nbsp; where &nbsp;**n**&nbsp; is column _n_.\\
   Many examples appear in document,
   e.g. [Example 2.1](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x) and the [Symbols exercise](/docs/misc/fplot/#about-symbols).

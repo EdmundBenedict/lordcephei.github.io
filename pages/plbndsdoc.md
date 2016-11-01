@@ -267,28 +267,28 @@ they are used only when **plbnds**{: style="color: blue"} makes a postscript fil
 
 Optional switches perform the following functions:
 
-+ -help | \-\-help | \-\-h \\
++ **-help | \-\-help | \-\-h**\\
   prints out a help message and exits.
-+ -lbl=_a_,_b_,_c_,_d_,...\\
++ **-lbl=_a_,_b_,_c_,_d_,&hellip;**\\
   _a_,_b_,_c_,_d_,... are _k_ point (symmetry) labels at the points where panels meet.  (See [Example 1](/docs/misc/plbnds/#example-1))\\
   For now, labels must be one character each.  You should supply _n_+1 labels, where _n_ is the number of panels.\\
   _Note:_{: style="color: red"} G is turned into the Greek character &Gamma;.
-+ -ef=<i>expr</i>\\
++ **-ef=<i>expr</i>**\\
   shifts the energy bands so that the Fermi energy lies at <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
-+ -scl=<i>expr</i>\\
++ **-scl=<i>expr</i>**\\
   scales bands by <i>expr</i>.  (See [Example 2](/docs/misc/plbnds/#example-2))
-+ -wscl=<i>w</i>[,<i>h</i>]\\
++ **-wscl=<i>w</i>[,<i>h</i>]**\\
   scales the default figure size by _w_.  _w_ is a real number or [expression](/docs/input/preprocessor/#expr-syntax).\\
   If the second argument is present the width is scaled by _w_, the height by _h_.\\
   See [comparing QSGW and LDA](/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands) bands in Fe for an example.
-+ -tl=<i>title</i>\\
++ **-tl=<i>title</i>**\\
    Adds a title to appear at the top of the figure.
-+ -spin1 | -spin2\\
++ **-spin1 \| -spin2**\\
   plots bands of first or second spin (_bnds.ext_{: style="color: green"} must contain data for two spins).
-+ -skip=_lst_\\
++ **-skip=_lst_**\\
    skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
 
-+ -col3:<i>bnds2</i>,<i>fnout</i>\\
++ **-col3:<i>bnds2</i>,<i>fnout</i>**\\
    merges the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
    file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
    The Questaal codes are equipped to generate energy bands with only one or two color weights; however **plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"}
@@ -299,7 +299,7 @@ Optional switches perform the following functions:
 
 <i> </i>
 
-+ -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
++ **-fplot[:s]** causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
   graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).).  It does the followng:
   1. write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
@@ -318,13 +318,13 @@ Optional switches perform the following functions:
   Alternatively, use _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... to generate energy bands with your favorite graphics tool.
   _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ... are in standard Questaal form, and easily readable format.
 
-+ -dat=<i>ext</i> (may be used in conjunction with `-fplot`)\\
++ **-dat=<i>ext</i>** (may be used in conjunction with `-fplot`)\\
    Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands into one figure.
 
-+ -nocol or --nocol (may be used in conjunction with `-fplot`)\\
++ **-nocol \| --nocol** (may be used in conjunction with `-fplot`)\\
   Ignore information about color weights.
   
-+ -merge=file2[,file3] or  -mergep=file2[,file3]\\
++ **-merge=file2[,file3] \| -mergep=file2[,file3]**\\
    merges two bands file (one for each spin  in the spin-pol case).\\
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
    `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
