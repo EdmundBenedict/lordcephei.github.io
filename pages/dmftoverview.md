@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Implementation of the Dynamical Mean Field Theory"
+title: "Implementation of Dynamical Mean Field Theory"
 permalink: "/docs/code/dmftoverview/"
 sidebar: "left"
 header: no

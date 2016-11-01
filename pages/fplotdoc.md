@@ -101,19 +101,19 @@ _Notes:_{: style="color: red"}
   See [**-s**](/docs/misc/fplot/#symbols) and [**-lt**](/docs/misc/fplot/#line-types) instructions for other symbols and line types, or
   [this example](/docs/misc/fplot/#error-bars).
 + The abscissa ranges from &minus;0.1 to 2.1, the ordinate from &minus;0.033 to +0.71. Bounds were determined by finding the largest and smallest
-  values in the frame, and padding the bounds by 10%.  [Set the bounds](/docs/misc/fplot/#format-switches) (**-x** and/or **-y**) and
-  [specify the padding](/docs/misc/fplot/#format-switches) (**-p**), with e.g.\\
+  values in the frame, and padding the bounds by 10%.  Set the bounds ([**-x** and/or **-y**](/docs/misc/fplot/#x-switch)) and
+  specify the padding ([**-p**]((/docs/misc/fplot/#x-switch))), with e.g.\\
   `$ fplot -x .2,.3 -y .3,.6 -p0 ...`
 + For log scales, modify [**-frme**](/docs/misc/fplot/#format-switches) with **:lx** or **:ly** or **:lxy**, e.g.\\
   `$ fplot -frme:ly 0,1,0,1 ...`\\
   See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + Select the width, height of the frame, and angle between ordinate and abscissa
-  + Select which edges of the frame to draw (**-frmt**),
+  + Select which edges of the frame to draw ([**-frmt**](/docs/misc/fplot/#frmt-switch)),
     or choose some middle point (**-frme:xor** and **-frme:yab**)
   + Shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
-  + Control size, color, positioning, numbering of tic marks (**-tmx** and **-tmy**)
+  + Control size, color, positioning, numbering of tic marks ([**-tmx** and/or **-tmy**](/docs/misc/fplot/#tm-switch))
 
-+ [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font (**-font**).
++ [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font ([**-font**](/docs/misc/fplot/#font-switch)).
   Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
   brackets **{...}**.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
   ([this table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected):

@@ -301,8 +301,7 @@ Optional switches perform the following functions:
 <i> </i>
 
 + -fplot[:s] causes **plbnds**{: style="color: blue"} to create input for **fplot**{: style="color: blue"} or another 
-  graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).)\\
-  This switch causes **plbnds**{: style="color: blue"} to do the following:
+  graphics package.  (See [Example 2](/docs/misc/plbnds/#example-2).).  It does the followng:
   1. write energy bands to files _bnd1.dat_{: style="color: green"}, _bnd2.dat_{: style="color: green"}, ...
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
