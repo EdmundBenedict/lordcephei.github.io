@@ -425,20 +425,18 @@ echo -2,2 /  | plbnds -wscl=1,.8 -fplot -ef=0 -scl=13.6 --nocol -lbl=H,N,G,P,H,G
 ~~~
 
 Each of these commands generated an [**fplot**{: style="color: blue"}](/docs/misc/fplot/) script,
-(_plot.plbnds_{: style="color: green"}).
+(_plot.plbnds_{: style="color: green"}), which will make postscript files of either data.
+It draws four frames, one for each symmety line.
 
-We can edit the latter to combine the bands from the two calculations, and use 
-[**fplot**{: style="color: blue"}](/docs/misc/fplot/) to make the picture.
+Here we modify the second _plot.plbnds_{: style="color: green"}, combine the bands from the two calculations
+in one figure.  To distinguish bands, we will draw _GW_ bands in red dots and LDA bands in blue dashed lines.
+**fplot**{: style="color: blue"}, selects line type and colors with the [**-lt**](/docs/misc/fplot/#data-switches) instruction.
 
-First we need to select colors.  We can make convenient use of the
-file preprocessor's [variables substitution](/docs/input/preprocessor/) capabilities
-With **fplot**{: style="color: blue"}, you choose the line type and colors
-with the [**-lt**](/docs/misc/fplot/#data-switches) instruction
-Use two character variables **colr** and **colb** to contain information about
-the line types; see [here](/docs/misc/fplot/#line-types) for a quick reference.
-
-Start by creating a new file _plot.2bands_{: style="color: green"}, which
-will become the **fplot**{: style="color: blue"} script.
+to make the script use the same color for each frame, it is convenient to make use of the [file preprocessor's](/docs/input/preprocessor/)
+ability to assign and use [character variables](/docs/input/preprocessor/#expression-substitution).  In the box below, a new file
+_plot.2bands_{: style="color: green"} is created which will become the **fplot**{: style="color: blue"} script.  Character variables
+**colr** and **colb** contain strings that modify line types, notably the the color (see [here](/docs/misc/fplot/#line-types) for a quick
+reference).
 
 ~~~
 $ rm -f plot.2bands
@@ -446,8 +444,8 @@ $ echo "% char0 colr=3,bold=5,clip=1,col=1,.2,.3" >>plot.2bands
 $ echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 ~~~
 
-Next, modify _plot.plbnds_{: style="color: green"}.  This could be done with
-a text editor, but it is convenient to accomplish the same with an **awk** command:
+Next, append _plot.plbnds_{: style="color: green"} to _plot.2bands_{: style="color: green"} and adapt to draw two kinds of bands in each frame, each with its own color.
+This could be done with a text editor, but it is convenient to accomplish it with an **awk** command:
 
 ~~~
 $ awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("dat","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
@@ -459,14 +457,20 @@ Compare _plot.plbnds_{: style="color: green"} and _plot.2bands_{: style="color: 
 $ diff plot.plbnds plot.2bands
 ~~~
 
-Character variables are declared at the top; and each line drawing bands from bnd_n_.lda
-gets converted to two lines, one for bnd_n_.lda with line type modifier **{colb}**
-and another for bnd_n_.gw with line type modifier **{colr}**.
+Character variables are declared at the top; and each in instruction that drawing bands in frame _n_ has been split into two instructions, one for bnd<i>n</i>.lda with line type modifier **{colb}** and another for bnd<i>n</i>.gw with line type modifier **{colr}**.
 
-<div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+After preprocessing, the script will contain instructions explained in the fplot manual, e.g. 
+[**-colsy 2:6**](/docs/misc/fplot/#colsy-switch), [**lt 3,...**](/docs/misc/fplot/#data-switches),
+and [**-qr**](/docs/misc/fplot/#read-switch).  To see what the script looks like after preprocessing, do
+
+~~~
+$ rdfile plot.2bands
+~~~
+
+<div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
-![Particle in a Box Example](/assets/img/box.svg)
+{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+![Particle in a Box Example](/assets/img/bnds-fe.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~
@@ -474,7 +478,6 @@ $ fplot -f plot.2bands
 $ open fplot.ps
 ~~~
 
-The shifts relative to the LDA are substantial.  Both disagree somewhat with experiment,
-because the QSGW potential isn't quite converged.  When well converged, agreement
-with the available experimental data in the Fermi liquid regime is excellent.
-A considerable discrepancy with LDA remains.
+QSGW makes substantial shifts relative to the LDA.  The QSGW bands in this tutorial disagree somewhat with experiment, because the QSGW
+potential isn't quite converged.  When well converged, agreement with the available experimental data in the Fermi liquid regime is
+excellent, though a considerable discrepancy with LDA remains.
