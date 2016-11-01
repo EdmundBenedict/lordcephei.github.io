@@ -832,7 +832,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   Optional **switches** are separated by a colon:
   + **nr=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; rows
   + **nc=#**      stipulate that next **_data-file_** has &nbsp;**#**&nbsp; columns
-  + **qr**        &nbsp;&nbsp;&nbsp;&nbsp;read with fortran read (fast, no algebra; useful for large files)
+  + **qr**        &emsp;parse numbers with fortran read (fast, no algebra; useful for large files)
   + **br**        &nbsp;&nbsp;&nbsp;&nbsp;read from binary file
   + **s=#**       &nbsp; skips &nbsp;**#**&nbsp; records before reading data
   + **open**      leaves file open after reading.  Useful when reading muliple blocks of data from a single file.
@@ -880,7 +880,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   make a family of _xy_ plots for columns in list.
   The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
-  Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4, respectively, as the _y_ variable.\\
+  Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4 respectively, as the _y_ variable.\\
   _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In the instance above
   **_y_** entering into **_expr_** will be column 2 for the first curve, and column 4 for the second.
 

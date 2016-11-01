@@ -444,7 +444,7 @@ $ echo "% char0 colb=2,bold=4,clip=1,col=.2,.3,1" >>plot.2bands
 ~~~
 
 Next, append _plot.plbnds_{: style="color: green"} to _plot.2bands_{: style="color: green"}, adapt it to draw two kinds of bands in each frame, each with its own color.
-This could be accomplished with a text editor, but it is convenient to accomplish it with an **awk** command:
+This could be accomplished with a text editor, but it is convenient to accomplish it with an [**awk**](https://www.gnu.org/software/gawk/manual/gawk.html) command:
 
 ~~~
 $ awk '{if ($1 == "-colsy") {sub("-qr","-lt {colg} -qr");sub("dat","green");sub("green","gw");sub("colg","colr");print;sub("gw","lda");sub("colr","colb");print} else {print}}' plot.plbnds >> plot.2bands
@@ -456,7 +456,7 @@ Compare _plot.plbnds_{: style="color: green"} and _plot.2bands_{: style="color: 
 $ diff plot.plbnds plot.2bands
 ~~~
 
-Character variables are declared at the top.  Each line in the script that draws bands has been split into two lines, one for bnd<i>n</i>.lda with line type modifier **{colb}** and another for bnd<i>n</i>.gw with line type modifier **{colr}**.
+Character variables are declared at the top.  Each line in the script that draws bands has been split into two lines, one for bnd<i>n</i>.lda with line type modifier **{colb}** and another for bnd<i>n</i>{: style="color: green"}.gw with line type modifier **{colr}**.
 
 After preprocessing the script will contain instructions explained in the fplot manual, e.g. 
 [**-colsy 2:6**](/docs/misc/fplot/#colsy-switch), &nbsp; [**lt 3,...**](/docs/misc/fplot/#data-switches),
