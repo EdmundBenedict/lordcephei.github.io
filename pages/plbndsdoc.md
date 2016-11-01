@@ -51,7 +51,6 @@ format; but it is often the case that you need only a subset of the bands or to 
 Data for each symmetry line is kept in a separate file.
 
 **plbnds**{: style="color: blue"} may be used in one of several contexts:
-
 1. To make postscript files of bands directly, without other software.  Quick and dirty:  no easy way to modify the figure.
 2. To generate a script and formated files for use with **fplot**{: style="color: blue"}, a plotting package built into Questaal.
 3. Same as 2, but format files ready for use with **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.

@@ -109,14 +109,14 @@ _Notes:_{: style="color: red"}
   See the [Frames Exercise](/docs/misc/fplot/#things-about-frames) for illustrations of the following:
   + Select the width, height of the frame, and angle between ordinate and abscissa
   + Select which edges of the frame to draw ([**-frmt**](/docs/misc/fplot/#frmt-switch)),
-    or choose some middle point (**-frme:xor** and **-frme:yab**)
-  + Shade the box (**-frme:col=#,#,#**) or suppress filling (**-frme:nofill**)
+    or choose some middle position for axes ([**-frme:xor** or **-frme:yab**](/docs/misc/fplot/#format-switches))
+  + Shade the box ([**-frme:col=#,#,#**[(/docs/misc/fplot/#format-switches)) or suppress filling ([**-frme:nofill**](/docs/misc/fplot/#format-switches))
   + Control size, color, positioning, numbering of tic marks ([**-tmx** and/or **-tmy**](/docs/misc/fplot/#tm-switch))
 
 + [Labels](/docs/misc/fplot/#labelling-switches) use Roman or Helvetica font ([**-font**](/docs/misc/fplot/#font-switch)).
   Italic, bold, symbol, superscript and subscript are available by enclosing parts of the string in curly
   brackets **{...}**.  The following writes the equation &nbsp;Y=<i>x</i><sub>0</sub>+&Delta;<i>x</i>, centered at (1.2,0.5)
-  ([this table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected):
+  ([this table](/docs/misc/fplot/#fonts-table) indicates which fonts are selected):\\
   `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
   The [Labels exercise](/docs/misc/fplot/#fun-with-labels) provides many illustrations.
 
@@ -219,7 +219,7 @@ _Notes:_{: style="color: red"}
 + Data is read from _chgd.cr_{: style="color: green"}, which must contain _xy_ data.  **fplot**{: style="color: blue"} must be told how many
   rows or columns the data has; here it is specified in the first line of _chgd.cr_{: style="color: green"}. It can be indicated in other ways,
   as explained [here](/docs/misc/fplot/#structure-of-data-files).
-+ Two of the contours are labelled (**-lblu**) with Helvetica 13pt font; the title uses 16pt Roman font.
++ Two of the contours are labelled ([**-lbl**](/docs/misc/fplot/#labelling-switches)) with [Helvetica 13pt font](/docs/misc/fplot/#font-switch); the title uses 16pt Roman font.
 
 #### Example 2.4. &nbsp; _Mobility in TlInP_
 {::comment}
@@ -260,31 +260,31 @@ Run the commands in the box below to create and view the postscript file, or cli
 
 _Notes on [frame formatting switches](/docs/misc/fplot/#format-and-labelling-switches-govern-frame-layout-and-labels):_{: style="color: red"}
 
-+ **-frme:ly** tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
-+ **-frmt th=3,1,2** creates a frame with axes on the bottom and right sides.
-+ **-x 0,300** and **-y .27,5** set the user's units that bound the figure.
-+ **-p0** suppresses padding of the frame (increasing the range of _x_ and _y_).
-+ **-1p** terminates the first pass (two passes are made for each frame to determine bounds of plot).
-+ **-yn:r** causes the figure numbering to appear on the right side.
-+ **-font t18** causes the labels to be written in 18-point Times Roman font.
-+ **-lbl 310,4.0:0 rc "~\{m}"** and **-lbl 250,.21 rc "T(K)"** generate the axes labels.
-+ **-font t16** sets the font for subsequent labels.
-+ **-tmx 1@5,0,100,200**
++ [**-frme:ly**](/docs/misc/fplot/#format-switches) tells **fplot**{: style="color: blue"} to use a log scale for the _y_ axis.
++ [**-frmt th=3,1,2**](/docs/misc/fplot/#frmt-switch) creates a frame with axes on the bottom and right sides.
++ [**-x 0,300**](/docs/misc/fplot/#x-switch) and [**-y .27,5**](/docs/misc/fplot/#x-switch) set the user's units that bound the figure.
++ [**-p0**](/docs/misc/fplot/#x-switch) suppresses padding of the frame (increasing the range of _x_ and _y_).
++ [**-1p**](/docs/misc/fplot/#onepass-switch) terminates the first pass (two passes are made for each frame to determine bounds of plot).
++ [**-yn:r**](/docs/misc/fplot/#xn-switch) causes the figure numbering to appear on the right side.
++ [**-font t18**](/docs/misc/fplot/#font-switch) causes the labels to be written in 18-point Times Roman font.
++ [**-lbl 310,4.0:0 rc "~\{m}"**](/docs/misc/fplot/#labelling-switches) and **-lbl 250,.21 rc "T(K)"** generate the axes labels.
++ [**-font t16**](/docs/misc/fplot/#font-switch) sets the font for subsequent labels.
++ [**-tmx 1@5,0,100,200**](/docs/misc/fplot/#tm-switch)
   + **@5,#,...**   user chooses the position of tic marks.\\
     Append a list of numbers where you want tics to appear (**0**, **100**, **200** in this case).
   + The **1** in **1@5**, which normally specifies the spacing between tic marks, is not relevant for mode **5**.
-+ **-k 90,3,.25** sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
-+ **-tmy 1:1@2**
++ [**-k 90,3,.25**](/docs/misc/fplot/#key-switch) sets up initial parameters for the key. **90,3** are the _x,y_ coordinates; **0.25** is the _y_ spacing between entries.
++ [**-tmy 1:1@2**](/docs/misc/fplot/#tm-switch)
   + **:1** specifies that every tic mark is labelled.
     **@2** specifies a 'medium' log scale with marks at 1,2,5.\\
     The initial **1:** is needed for the syntax but has no effect for log scales.
 
 _Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-families-of-xy-data):_{: style="color: red"}
 
-+ **-l0 In_\{1-x}Tl_\{x}P** supplies a key corresponding to next set of data.
-+ **-lt 2,bold=3,1,.5,.2,.5** specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
-+ **-ord x2/1e5**          maps the ordinate to a new number (simple scaling in this case).
-+ **-itrp 10,300,5,1,4**  causes the data to be interpolated to a uniform mesh on the _x_ axis.
++ [**-l0 In_\{1-x}Tl_\{x}P**](/docs/misc/fplot/#legend-switch) supplies a key corresponding to next set of data.
++ [**-lt 2,bold=3,1,.5,.2,.5**](/docs/misc/fplot/#data-switches) specifies a [dot-dashed line](/docs/misc/fplot/#dot-dashed-lines).
++ [**-ord x2/1e5**](/docs/misc/fplot/#ord-switch) maps the ordinate to a new number (simple scaling in this case).
++ [**-itrp 10,300,5,1,4**](/docs/misc/fplot/#itrp-switch)  causes the data to be interpolated to a uniform mesh on the _x_ axis.
   + Interpolated points span (<b>10</b>,<b>300</b>), and are spaced by **5** points.
   + The fourth argument (**1**) specifies interpolation by a rational function.
   + the final argument (**4)** specifies that a fourth order polynomial be used.
@@ -1740,7 +1740,7 @@ _mapping_        | **-abf _expr_**{: style="color: red"}                        
 
 Instruction   | Definition                                           | Places to look
 **-1p**       |[FORMAT switches](/docs/misc/fplot/#onepass-switch)   | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp),&nbsp; [Frames Exercise](/docs/misc/fplot/#things-about-frames)
-**-3d**       | [FORMAT switches](/docs/misc/fplot/#threed-switch) |
+**-3d**       | [FORMAT switches](/docs/misc/fplot/#threed-switch)   |
 **-ab**       | [DATA switches](/docs/misc/fplot/#ord-switch)        |
 **-abf**      | [DATA switches](/docs/misc/fplot/#ord-switch)        |
 **-aspect**   | [FORMAT switches](/docs/misc/fplot/#format-switches) |
@@ -1755,7 +1755,7 @@ Instruction   | Definition                                           | Places to
 **-f**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) | [Example 2.2](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 **-fmtnx**    | [DATA switches](/docs/misc/fplot/#xn-switch)         |
 **-fmtny**    | [DATA switches](/docs/misc/fplot/#xn-switch)         |
-**-font**     | [LABELLING switches](/docs/misc/fplot/#font-switch) | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
+**-font**     | [LABELLING switches](/docs/misc/fplot/#font-switch)  | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-frme**     | [FORMAT switches](/docs/misc/fplot/#format-switches) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-frmt**     | [FORMAT switches](/docs/misc/fplot/#frmt-switch) | [Frames Exercise](/docs/misc/fplot/#things-about-frames)
 **-h**        | [INIT switches](/docs/misc/fplot/#init-switches-must-occur-first) |
