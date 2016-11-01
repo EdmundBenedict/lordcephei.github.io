@@ -92,7 +92,7 @@ The following will plot this function in the interval **(0.02,2)**, with the abs
 
 _Notes:_{: style="color: red"}
 
-  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`\\
+  `fplot -ord '20*x^2*exp(-4*x)' -tp .02:2:.02 -lbl 1.2,0.5 cc 'Y=&{x}_{0}+~{D}&{x}'`
 + [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/misc/integerlists/).
 + [**-ord _expr_**](/docs/misc/fplot/#ord-switch) defines the ordinate, for a given point in the list.  **_expr_** is an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
 + Points are connected by straight lines.
