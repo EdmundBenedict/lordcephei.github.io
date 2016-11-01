@@ -1660,7 +1660,7 @@ _clip outside frame_                   | -lt _n_**~clip**{: style="color: red"} 
 |---
 _color weights_                        | -lt _n_**~colw=_r_,_g_,_b_**{: style="color: red"}|
 |---
-_more color weights_                   | -lt _n_**~colw<i>i</i>=_r_,_g_,_b_**{: style="color: red"}| | For color weights _i_=2\|3\|4, use <b>~colw<i>i</i>=_r<sub>i</sub>_,_g<sub>i</sub>_,_b<sub>i</sub>_</b>
+_more color weights_                   | -lt _n_<b>~colw</b><b>i</b>{: style="color: red"}=_r_,_g_,_b_| | For color weights <b>i</b>{: style="color: red"}=2\|3\|4, use <b>~colw<b>i</b>{: style="color: red"}=_r<sub>i</sub>_,_g<sub>i</sub>_,_b<sub>i</sub>_</b>
 |---
 _split nonmonatomic data_              | -lt _n_**~brk=1**{: style="color: red"}    |
 
