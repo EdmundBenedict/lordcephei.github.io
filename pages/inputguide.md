@@ -272,7 +272,7 @@ BZ_NKABC               reqd   i4v      3,  1
 Command-line options
 : `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
   A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).\\
-  See [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks) for an example.
+  See [this annotated output](/docs/outputs/lmfa_output/#help-explained) for an example.
 
 Displaying tags read by the parser
 : To see what is actually read by a particular tool, run your tool with `--show=2` or `--show`.\\
@@ -462,8 +462,10 @@ Portions of HAM are read by these codes:
 **lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp; 
 **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmmag**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('hamtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="hamtable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -514,14 +516,18 @@ AUTOBAS\_ELOC | r | lmfa | Y | -2 Ry | The first of two criteria to decide which
 AUTOBAS\_QLOC | r | lmfa | Y | 0.005 | The second of two criteria to decide which  orbitals should be included in the valence as local orbitals.<br>If the fraction of the free atom wave function’s charge outside the augmentation radius exceeds QLOC, the orbital is included as a local orbital.
 AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the logarithmic derivative parameters Pl are set and floated in the course of a self-consistency cycle.<br>The 1st argument controls default starting values of P and lower bounds to P when it is floated<br>0: Use version 6 defaults and float lower bound<br>1: Use defaults and float lower bound designed for LDA<br>2: Use defaults and float lower bound designed for GW<br>The 2nd argument controls how the band center of gravity (CG) is determined — used when floating P.<br>0: band CG is found by a traditional method<br>1: band CG is found from the true energy moment of the density
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _GF_
 Category GF is intended for parameters specific to the Green’s function code **lmgf**{: style="color: blue"}.
 It is read by **lmgf**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('gftable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="gftable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -531,7 +537,9 @@ DLM | i | ALL | Y | 0 | Governs self-consistency for both chemical CPA and magne
 BXY | 1 | ALL | Y | F | (DLM) Setting this switch to T generates a site-dependent constraining field to properly align magnetic moments.<br><br>In this context constraining field is applied by scaling the LDA exchange-correlation field.<br>The scaling factor is $$[1+bxc(ib)^2]^(1/2)$$. <br><br>A table of bxc is kept for each site in the first column of file shfac.ext.<br>See also HAM_BXCSCAL.
 TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _GW_
 Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (job −1).
