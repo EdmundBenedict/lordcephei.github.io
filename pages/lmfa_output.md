@@ -8,8 +8,6 @@ permalink: "/docs/outputs/lmfa_output/"
 header: no
 ---
 
-Look for [this link](/docs/outputs/lmfa_output/#help-explained)
-
 _____________________________________________________________
 
 ### _Purpose_

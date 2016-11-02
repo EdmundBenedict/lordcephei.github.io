@@ -17,7 +17,7 @@ _____________________________________________________________
 
 {:.no_toc}
 *  Auto generated table of contents
-{:toc}  
+{:toc}
 
 _____________________________________________________________
 
@@ -36,7 +36,7 @@ Here is a sample input file for the compound Bi$$_2$$Te$$_3$$ written for the **
 
         categories                  tokens
         ↓                            ↓
-        
+
         VERS    		LM:7 FP:7
         HAM     		AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
                                 GMAX=8.1
@@ -60,10 +60,10 @@ Here is a sample input file for the compound Bi$$_2$$Te$$_3$$ written for the **
 
 {::nomarkdown}</div>{:/}
 
-Each element of data follows a _token_{: style="color: blue"}. The token tells the reader what the data signifies.  
+Each element of data follows a _token_{: style="color: blue"}. The token tells the reader what the data signifies.
 
-Each token belongs to a _category_{: style="color: red"}. **VERS**{: style="color: red"}, **ITER**{: style="color: red"}, **BZ**{: style="color: red"}, **STRUC**{: style="color: red"}, **SPEC**{: style="color: red"}, **SITE**{: style="color: red"} are categories that organize the input by topic.  
-Any text that begins in the first column is a category.  
+Each token belongs to a _category_{: style="color: red"}. **VERS**{: style="color: red"}, **ITER**{: style="color: red"}, **BZ**{: style="color: red"}, **STRUC**{: style="color: red"}, **SPEC**{: style="color: red"}, **SITE**{: style="color: red"} are categories that organize the input by topic.
+Any text that begins in the first column is a category.
 
 The full identifier (_tag_{: style="color: brown"}) consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
 The leading component (trunk) is the *category*{: style="color: red"}; the last is the *token*{: style="color: blue"},
@@ -82,7 +82,7 @@ The input file offers a very flexible free format: tags identify data to be read
 
 reads a number (.01) from token **W=**. In this case **W=** belongs to the **BZ**{: style="color: red"} category, so the full tag name is **BZ**{: style="color: red"}\_**W**{: style="color: blue"}.
 
-A category holds information for a family of data, for example **BZ**{: style="color: red"} contains parameters associated with Brillouin zone integration. The entire input system has at present a grand total of 17 categories, though any one program uses only a subset of them.  
+A category holds information for a family of data, for example **BZ**{: style="color: red"} contains parameters associated with Brillouin zone integration. The entire input system has at present a grand total of 17 categories, though any one program uses only a subset of them.
 
 {::comment}
 <button type="button" class="button tiny radius">Click here for a more detailed description of the input file's syntax.</button>
@@ -101,9 +101,9 @@ This format style is the most commonly used because it is clean and easy to read
 
     BZ[	N=2 	W=.01]
 
-Now the tree structure is apparent: [..] delimits the scope of tag **BZ**.  
+Now the tree structure is apparent: [..] delimits the scope of tag **BZ**.
 
-Any tag that starts in the first column is a category, so any non-white character appearing in the first column automatically starts a new category, and also terminates any prior category. **N=** and **W=** mark tokens **BZ_N** and **BZ_W**.  
+Any tag that starts in the first column is a category, so any non-white character appearing in the first column automatically starts a new category, and also terminates any prior category. **N=** and **W=** mark tokens **BZ_N** and **BZ_W**.
 
 Apart from the special use of the first column to identify categories, data is largely free-format, though there are a a few mild exceptions. Thus:
 
@@ -112,7 +112,7 @@ Apart from the special use of the first column to identify categories, data is l
     BZ	W=.01	N=2
     BZ[	W=.01	N=2]
 
-all represent the same information.  
+all represent the same information.
 
 _Note:_{: style="color: red"} if two categories appear in an input file, only the first is used. Subsequent categories are ignored. Generally, only the first tag is used when more than one appears within a given scope.
 
@@ -134,7 +134,7 @@ And the scope of the second **SITE_ATOM** is
 
     ATOM=As  POS= .25 .25 .25 
 
-Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) and as a tag holding tokens within it, in this case **SITE_ATOM_POS** and (for the first site) **SITE_ATOM_RELAX**.  
+Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) and as a tag holding tokens within it, in this case **SITE_ATOM_POS** and (for the first site) **SITE_ATOM_RELAX**.
 
 Some tags are required; others are optional; still others (in fact most) may not be used at all by a particular program. If a code needs site data, **SITE_ATOM_POS** is required, but **SITE_ATOM_RELAX** is probably optional, or not read at all.
 
@@ -162,13 +162,13 @@ is turned in to:
         RMAX=3.25
  
 The preprocessor treats text inside brackets {...} as an expression (usually an algebraic expression), which is evaluated and rendered back as an ASCII string.
-See the [annotated lmf output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
+See this [annotated lmf output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 for an example.
 
-The preprocessor's programming language makes it possible for a single file to serve as input for many materials systems in the manner of a database; or as documentation. Also you can easily vary input conditions in a parameteric fashion.  
+The preprocessor's programming language makes it possible for a single file to serve as input for many materials systems in the manner of a database; or as documentation. Also you can easily vary input conditions in a parameteric fashion.
 
 Other files besides _ctrl.ext_{: style="color: green"} are first parsed by the preprocessor ---
-files for site positions, Euler angles for noncollinear magnetism are read through the preprocessor, among others.  
+files for site positions, Euler angles for noncollinear magnetism are read through the preprocessor, among others.
 
 _____________________________________________________________
 
@@ -272,7 +272,7 @@ BZ_NKABC               reqd   i4v      3,  1
 Command-line options
 : `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
   A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).\\
-  See [this annotated output](/docs/outputs/lmfa_output/#help-explained) for an example.
+  See this [annotated lmfa output](/docs/outputs/lmfa_output/#help-explained) for an example.
 
 Displaying tags read by the parser
 : To see what is actually read by a particular tool, run your tool with `--show=2` or `--show`.\\
@@ -366,10 +366,10 @@ Variables declared this way are similar to, but distinct from variables declared
 
         % const nbas=5
 
-In the latter case the preprocessor makes a pass, and may use expressions involving variables declared by e.g. "% const nbas=5" to alter the structure of the input file.  
+In the latter case the preprocessor makes a pass, and may use expressions involving variables declared by e.g. "% const nbas=5" to alter the structure of the input file.
 
 Variables declared for use by the preprocessor lose their definition after
-the preprocessor completes.  
+the preprocessor completes.
 
 The following code segment illustrates both types:
 
@@ -454,7 +454,7 @@ RPAD | r | | Y | 0 | Scale rcutoff by RPAD when lattice vectors padded in oblong
 /docs/input/inputfile/#ham
 {:/comment}
 
-This category contains parameters defining the one-particle hamiltonian.  
+This category contains parameters defining the one-particle hamiltonian.
 
 Portions of HAM are read by these codes: 
 
@@ -891,7 +891,7 @@ The parser returns P,Q according the following priorities:
 * If START_CONTRL=T, P,Q (and possibly other quantities) are read from START for classes you supply (usually all classes). Data read from this category supersedes any that might have been read from disk. If class data read from either of these sources, the input system returns it. For classes where none is available the parser will pick a default:
 
   * If data from a different class but in the same species is available, use it.
-  
+
   * Otherwise use some preset default values for P,Q.
 
 After a calculation finishes you can run **lmctl**{: style="color: blue"} to read P,Q from disk and format it in a form ready to insert into the START category. Thus all the information needed to generate a self-consistent ASA calculation can be contained in the ctrl file.
@@ -954,13 +954,13 @@ ALPHA | r | all | N | | Amount of Voigt strain
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="symtable">{:/}
 {:/comment}
 
-Category SYMGRP provides symmetry information; it helps in two ways. First, it provides the relevant information to find which sites are equivalent, this makes for a simpler and more accurate band calculations. Secondly, it reduces the number of k-points needed in Brillouin zone integrations.  
+Category SYMGRP provides symmetry information; it helps in two ways. First, it provides the relevant information to find which sites are equivalent, this makes for a simpler and more accurate band calculations. Secondly, it reduces the number of k-points needed in Brillouin zone integrations.
 
-Normally you don't need SYMGRP; the program is capable of finding its own symmetry operations. However, there are cases where it is useful or even necessary to manually specify them. For example when including spin-orbit coupling or noncollinear magnetism where the symmetry group isn't only specified by the atomic positions. In this case you need to supply extra information.  
+Normally you don't need SYMGRP; the program is capable of finding its own symmetry operations. However, there are cases where it is useful or even necessary to manually specify them. For example when including spin-orbit coupling or noncollinear magnetism where the symmetry group isn't only specified by the atomic positions. In this case you need to supply extra information.
 
 You can use SYMGRP to explicitly declare a set of generators from which the entire group can be created. For example, the three operations R4X, MX and R3D are sufficient to generate all 48 elements of cubic symmetry.
 
-Unless conditions are set for noncollinear magnetism and/or SO coupling, the inversion is assumed by default as a consequence of time-reversal symmetry.  
+Unless conditions are set for noncollinear magnetism and/or SO coupling, the inversion is assumed by default as a consequence of time-reversal symmetry.
 
 A tag describing a generator for a point group operation has the form O(nx,ny,nz) where O is one of M, I or Rj, or E, for mirror, inversion j-fold rotation and identity operation, respectively. nx,ny,nz are a triplet of indices specifying the axis of rotation. You may use X, Y, Z or D as shorthand for (1,0,0), (0,1,0), (0,0,1), and (1,1,1) respectively. You may also enter products of rotations, such as I*R4X.
 
@@ -968,7 +968,7 @@ Thus
 
     SYMGRP  R4X MX R3D
 
-specifies three generators (4-fold rotation around x, mirror in x, 3-fold rotation around (1,1,1)). Generating all possible combinations of these rotations will result in the 48 symmetry operations of the cube.  
+specifies three generators (4-fold rotation around x, mirror in x, 3-fold rotation around (1,1,1)). Generating all possible combinations of these rotations will result in the 48 symmetry operations of the cube.
 
 To suppress all symmetry operations, use
 
@@ -985,37 +985,37 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 * `find‘ tells the program to determine its own symmetry operations. Thus:
 
       SYMGRP find
-  
-  amounts to the same as not incuding a SYMGRP category in the input at all  
-   
+
+  amounts to the same as not incuding a SYMGRP category in the input at all
+ 
   You can also specify a mix of generators you supply, and tell the program to find any others that might exist. For example:
-  
+
       SYMGRP r4x find
  
   specifies that 4-fold rotation be included, and `find‘ tells the program to look for any additional symops that might exist.
-  
+
 * 'AFM':
   For certain antiferromagnets, certain translation operations exist provided the rotation/shift is accompanied by a spin flip. Say a translation of (-1/2,1/2,1/2)a restores the crystal structure, but all atoms after translation have opposite spin. Specify this symmetry with:
-  
+
       SYMGRP   ...       AFM::-1/2,1/2,1/2
 
   This operation is used only by **lmf**{: style="color: blue"}.
-  
+
 * 'SOC' or 'SOC=2':
-  Tells the symmetry group generator to exclude operations that do not preserve the z axis.  
+  Tells the symmetry group generator to exclude operations that do not preserve the z axis.
   This is used particularly for spin-orbit coupling where the crystal symmetry is reduced (z is the quantization axis).
   SOC=2 is like SOC but allows operations that preserve z or flip z to −z.
-  This works in some cases.  
+  This works in some cases.
 
   **Note:**{: style="color: red"} This keyword is only active when the two spin channels are linked, e.g. SO coupling or noncollinear magnetism.
-  
+
 * 'GRP2' turns on a switch that can force the density among inequivalent classes that share a common species to be averaged. In the ASA codes the density is spherical and the averaging is complete; in the FP case only the spherical part of the densities can be averaged. This helps sometimes with stabilizing difficult cases in the path to self-consistency.
-  You specify which species are to be averaged with the SPEC_ATOM_GRP2 token.  
-  
+  You specify which species are to be averaged with the SPEC_ATOM_GRP2 token.
+
   'GRP2‘ averages the input density;
   'GRP2=2‘ averages the output density;
   'GRP2=3‘ averages both the input and the output density.
-  
+
 * 'RHOPOS' turns on a switch that forces the density positive at all points
 
 {::comment}
@@ -1027,7 +1027,7 @@ This category is used for version control. As of version 7, the input file must 
 
     VERS LM:7
 
-It tells the input system that you have a v7 style input file.  
+It tells the input system that you have a v7 style input file.
 
 For a particular program you need an additional token to tell the parser that this file is set up for that program.
 Thus your VERS category should read:
