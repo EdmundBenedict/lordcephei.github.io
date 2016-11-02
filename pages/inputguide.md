@@ -11,13 +11,12 @@ This guide aims to detail the structure and use of the input file and related to
 _____________________________________________________________
 
 ### _Table of Contents_
-{::comment}
-/docs/input/inputfile/#table-of-contents
-{:/comment}
-
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
+{::comment}
+/docs/input/inputfile/#table-of-contents
+{:/comment}
 
 _____________________________________________________________
 
@@ -920,6 +919,8 @@ In such cases, you want to pick the fractional part of P to be small, but not so
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+Return to [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _STRUC_
 
