@@ -53,15 +53,15 @@ The result is very similar to `lmf --showp ...`, which is documented
 {:/comment}
 
 To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  [This web
-page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.\\
+page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.
 
 The result is similar to [**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 However **lmfa**{: style="color: blue"} parses fewer tags; moreoever, some tags they both parse
 have different meanings
 
-<div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
 Add `--input` to the **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} commands
 
@@ -214,7 +214,7 @@ After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to file _basp0.pbte_{: style="color: green"}
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for explanation of text concerning generation of basis parameters.</span>
+<span style="text-decoration:underline;">Click here for annotation of stdout, generation of basis parameters.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px; id="basp">{:/}
 {::comment}
 text underlined:

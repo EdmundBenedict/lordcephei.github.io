@@ -37,12 +37,12 @@ explains a block approximately in the order they are made.
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmf --showp ...`
 
+<div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see the action of the preprocessor on ctrl.pbte.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px; id="preprocessor">{:/}
 {::comment}
 <button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
 {:/comment}
-<div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see the action of the preprocessor on ctrl.pbte.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/}
 
 Append `--showp` to the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 
