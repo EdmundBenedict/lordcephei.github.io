@@ -185,8 +185,8 @@ of its function, by adding `--input` to the command-line.\\
 Search for keywords in the text to find what you need.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here to see how --input works.</button>
-</div>{::nomarkdown}<div style="display:none;margin:0px 0px 0px -px;" id="input">{:/} 
+<span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
 Example:
 

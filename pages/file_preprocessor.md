@@ -115,6 +115,11 @@ These four forms are as follows, arranged by the precedence they take in parsing
 
 In more detail, the four rules are as follows:
 
+{::nomarkdown} <a name="string-substitution"></a> {:/}
+{::comment}
+/docs/input/preprocessor/#string-substitution
+{:/comment}
+
 1. **strn** consists of (or begins with) a character variable, say **mychar**.
 
    a. **strn** is a character variable.
@@ -143,6 +148,11 @@ In more detail, the four rules are as follows:
        Substitutions are made for the **n**1<sup>th</sup> to **n**2<sup>th</sup> occurrence of **strn1**.\\
        _Example_ If **mychar="foo bar"**, then &nbsp; **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
+
+{::nomarkdown} <a name="conditional-substitution"></a> {:/}
+{::comment}
+/docs/input/preprocessor/#conditional-substitution
+{:/comment}
 
 2. **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
        _expr_ is an algebraic expression; **strn1** and **strn2** are strings.
