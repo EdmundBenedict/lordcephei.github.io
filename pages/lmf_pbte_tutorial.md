@@ -425,39 +425,25 @@ for a more detailed description of how it proceeds in making the atomic density 
 
 Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some
 basis set information, and writes the information to template _basp0.pbte_{: style="color: green"}.  It supplies:\\
-1. basis (parameters **EH** and **RSMH** defining the shape of the envelope functions\\
-2. ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_\\
+1. basis (parameters **EH** and **RSMH**) defining the shape of the envelope functions\\
+2. boundary conditions of the partial waves at the augmentation radius, encapsulated in the ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_\\
 3. information about local orbitals, and sets which partial waves should be included\\
-4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.\\
+4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
   
 
-The envelope functions, [smoothed Hankel functions](/docs/code/smhankels/) are characterized by **RSMH** and **EH**.
+
+The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
 where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
-decay length **<i>&kappa;</i>=EH**. **lmfa**{: style="color: blue"} finds an estimate for
+inverse decay length $$kappa=\sqrt{-\mathrm{EH}}$$. **lmfa**{: style="color: blue"} finds an estimate for
 **RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
 
-Fit to free atomic tails is generally quite good:  this table
+Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
+error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors. 
 
-~~~
- Optimise free-atom basis for species Pb, rmt=3.044814
- l  it    Rsm      Eh     stiffR   stiffE      Eval      Exact     Pnu    Ql
- 0  50   1.794  -0.698      88.6    108.3   -0.91141  -0.91143    6.89   2.00
- 1  26   2.026  -0.161     182.6    936.8   -0.27824  -0.27876    6.81   2.00
- 2  32   1.013  -1.099       3.1      5.0   -1.56878  -1.56879    5.93  10.00
- eigenvalue sum:  exact -18.06831    opt basis -18.06716    error 0.00116
-~~~
-
-This constitutes a reasonable (but not optimal) guess for the shape of crystal envelope functions.
-
-~~~
- Make LMTO basis parms for species Pb to lmxb=3, rmt=3.0448  vbar=0
- l  it    Rsm       Eh        Eval      Exact     Pnu    Ql   Gmax
- 0  30   1.803   -0.706    -0.91141  -0.91143    6.89   2.00   3.9
- 1  18   2.024   -0.160    -0.27825  -0.27876    6.81   2.00   3.6
- 2   1   2.030+  -0.100+   -0.11512   0.01352    6.24  10.00
- 3   1   2.030+  -0.100+    0.20219   0.02051    5.18   0.00
-~~~
+At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.
+These will become envelope parameters unless you change them yourself, or 
+optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.
 
 The basis data for the valence and local orbitals is later written to the basp0 file.
 
