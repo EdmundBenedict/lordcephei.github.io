@@ -111,12 +111,13 @@ find.  To see the value of tags **lmf**{: style="color: blue"}, whether parsed o
 style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmf**{: style="color: blue"} is doing what
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
-{::comment}
-<button type="button" class="button tiny radius">Click here to see how to display and interpret what is read from the ctrl file.</button>
-{:/comment}
+
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for an interpretation of the action of <tt>--show</tt>.
+<span style="text-decoration:underline;">Click here to see --show explained.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
+{::comment}
+<button type="button" class="button tiny radius">Click here for an interpretation of the action of --show.</button>
+{:/comment}
 
 Add `--show=2` to the **lmf**{: style="color: blue"} command from the PbTe tutorial:
 
