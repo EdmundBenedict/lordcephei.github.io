@@ -104,7 +104,7 @@ Standard mode makes limited use of the [preprocessing capabilities](/docs/input/
 it uses [algebraic variables](/docs/input/preprocessor/#variables) which can be modified on the command line.
 Thus `lmf -vnit=10 ...` sets variable **nit** to 10 before doing anything else.  Generally:
 
-* Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `#' in any line is ignored).
+* Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `**#**' in any line is ignored).
 * Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
 
 <div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">

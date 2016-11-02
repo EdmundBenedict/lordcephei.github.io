@@ -120,7 +120,7 @@ In more detail, the four rules are as follows:
 /docs/input/preprocessor/#string-substitution
 {:/comment}
 
-1. **strn** consists of (or begins with) a character variable, say **mychar**.
+1. (_string substitution_) **strn** consists of (or begins with) a character variable, say **mychar**.
 
    a. **strn** is a character variable.
        _rdfiln_{: style="color: green"} replaces **{mychar}** with contents of **mychar**.\\
@@ -149,12 +149,7 @@ In more detail, the four rules are as follows:
        _Example_ If **mychar="foo bar"**, then &nbsp; **{mychar(/'foo'/'boo'/)}** &rarr; "boo bar"
        **n**1 and **n**2 are optional, as are the quotation marks.
 
-{::nomarkdown} <a name="conditional-substitution"></a> {:/}
-{::comment}
-/docs/input/preprocessor/#conditional-substitution
-{:/comment}
-
-2. **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
+2. (_conditional substitution_) **strn** takes the form **{?~**_expr_**~strn1~strn2}** &nbsp; (Note: the '~' can be any character).\\
        _expr_ is an algebraic expression; **strn1** and **strn2** are strings.
        _rdfiln_{: style="color: green"} returns either **strn1** or **strn2**, depending on the result of _expr_.\\
        If _expr_ evaluates to nonzero, **{...}** is replaced by **strn1**.; else **{...}** is replaced by **strn2**.\\
@@ -162,7 +157,7 @@ In more detail, the four rules are as follows:
            **{...}** &nbsp; becomes &nbsp;&nbsp;"**n is less than 2**"&nbsp;&nbsp; if _n_<2;  otherwise it becomes
          **&nbsp;&nbsp;"n is at least 2"&nbsp;&nbsp;**
 
-3. **strn** is name of a vector variable, say **myvec**.
+3. (_vector substitution_) **strn** is name of a vector variable, say **myvec**.
        _rdfiln_{: style="color: green"} replaces  **{myvec}** with a sequence of numbers separated
        by one space, which are the contents of **myvec**.\\
        _Example_ : suppose **myvec**. has been declared as a 5-element quantity in the following way:\\
@@ -170,14 +165,14 @@ In more detail, the four rules are as follows:
        **{myvec}**&nbsp; will be turned into **5 4 3 2 1** \\
        A single element of a vector acts like a scalar.  Thus &nbsp;**{3*myvec(2)-2}**&nbsp; becomes **10**.
 
-4. **strn** is an algebraic expression composed of numbers combined with unary and binary operators. The syntax is very similar to the C programming language.
+4. (_expression substitution_) **strn** is an algebraic expression composed of numbers combined with unary and binary operators. The syntax is very similar to the C programming language.
    _rdfiln_{: style="color: green"} parses &nbsp;**strn**&nbsp; to obtain a binary number, renders the result in ASCII form, and
        substitutes the result.
 
    _Note:_{: style="color: red"} **strn**&nbsp; may consist of a sequence of expressions, separated by commas.
    _rdfiln_{: style="color: green"} returns the value of the last expression.
    A variable should be assigned to each intermediate expression.
-   Assignment may be simple (**=**) or involve an arithmetic operation.
+   Assignment may be simple (**=**) or involve an arithmetic operation.\\
        _Examples:_
    <pre>
      {x=3}               &larr;  assigns x to 3 and returns '3'

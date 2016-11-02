@@ -188,7 +188,7 @@ Search for keywords in the text to find what you need.
 <span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
-Example:
+_Example_:
 
 ~~~
   lmchk --input
@@ -260,6 +260,70 @@ BZ_NKABC               reqd   i4v      3,  1
   Supply one number for all vectors or a separate number for each vector.
 ~~~
 
+
+{::nomarkdown}</div>{:/}
+
+Getting command-line options
+: `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
+  A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).
+
+<div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for an explanation of the `--help` function.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
+
+_Example_:
+
+~~~
+  lmf --help
+~~~
+
+First appears a list of command line options common to most Questaal codes.
+They are described in more detail [here](/docs/commandline/general/).
+
+
+~~~
+ --h
+ --help         Print this message, and quit
+ --input        List categories, tokens, and data program expects, and quit
+ --show         Print control file after parsing by preprocessor,
+                and echo input data as read from the control file
+ --showp        Same as --show, but quit after input parsed
+ --iactiv       (--no-iactiv) Turn on (off) interactive mode
+                This switch overrides input file setting
+ --pr#1[,#2...] Set the verbosity (stack) to values #1,#2, ...
+ --time=#1[,#2] Print timing info to # levels (#1=summary; #2=on-the-fly)
+
+ -vnam=expr     Define numerical variable "nam"; set to result of 'expr'
+ -cnam=strn     Define character variable "nam"; set to 'strn'
+
+ --rpos=filnam  After reading input file, read site positions from "filnam"
+ --fixlat       Adjust lattice vectors and point group ops, attempt to
+                render them internally consistent
+ --fixpos[:tol=#] Adjust positions slightly, rendering them
+                as consistent as possible with the symmetry group
+ --nosym        Suppress symmetry operations
+~~~
+
+Then follow a synopsis of **lmf**{: style="color: blue"}-specific options:
+
+~~~
+ --rs=#1,#2,#3,#4,#5
+      #1=0 start from atm file; 1 from rst file; 2 from rsta file
+           add 10 to shift sm-rho 1st iter
+           add 100 to rotate local rho 1st iter
+      #2=1 save rst file
+      (#3,#4,#5)=0 read (pos,E_f,pnu) from rst file
+ --shorten=no --shorbz=no --no-fixef0 --rdbasp --symsig[=no]
+ --rhopos --wrhomt --wpotmt --window=#,# --wden --etot --ef=# --efrnge
+   Special purpose modes:
+ --optbas[:wbas][:sort][:etol][:spec=..] | --band[~options] | --wden[~options]
+   Switches to generate extra information:
+ --pdos[~options] | --cls[~options] | --mull[~options] | --jdosw=lst [--jdosw2=lst2] --opt:read --opt:write --wrhoat[:l=#][:lx=#]
+   Switches that invoke editors:
+ --chimedit[~..] | --rsedit[~..] | --popted[~..] | --wsig[~edit~..]
+~~~
+
+**lmf**{: style="color: blue"}-specific options are described in more detail [here](/docs/commandline/lmf/).
 
 {::nomarkdown}</div>{:/}
 
