@@ -39,7 +39,7 @@ _____________________________________________________________
 
 ### _Command summary_
 
-The tutorial starts under the heading "Tutorial"; you can see a synopsis of the commands by clicking on the box below.
+To see a synopsis of the commands in this tutorial, click on the box below.
 
 <div onclick="elm = document.getElementById('1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="1">{:/}
@@ -77,7 +77,7 @@ ____________________________________________________________
 /tutorial/lmf/lmf_pbte_tutorial/#building-the-input-file
 {:/comment}
 
-PbTe crystallizes in the rocksalt structure with lattice constant _a_ = 6.428&#x212B;. You need the structural information in the box below to construct the main input file,
+PbTe crystallizes in the rocksalt structure with lattice constant _a_ = 6.428&thinsp;&#x212B;. You need the structural information in the box below to construct the main input file,
 _ctrl.pbte_{: style="color: green"}. Start in a fresh working directory and cut and paste the box's contents to _init.pbte_{: style="color: green"}.
 
     LATTICE
@@ -89,7 +89,7 @@ _ctrl.pbte_{: style="color: green"}. Start in a fresh working directory and cut 
 		ATOM=Pb   X=     0.0000000    0.0000000    0.0000000
 		ATOM=Te   X=     0.5000000    0.5000000    0.5000000
 
-The primitive lattice vectors are in row format (i.e. the first row contains the _x_, _y_ and _z_ components of the first lattice vector and so forth). In the **SITE** section, the atom type and coordinates are shown. **X=** specifies the site coordinates.  They are specified in "direct" representation, i.e., as fractional multiples of lattice vectors **PLAT**.  You can also use Cartesian coordinates; instead of **X=** you would use **POS=** (see additional exercises below).  Positions in Cartesian coordinates are in units of **ALAT**, like the lattice vectors.
+The primitive lattice vectors are in row format (the first row contains the _x_, _y_ and _z_ components of the first lattice vector and so forth). In the **SITE** section, the atom type and coordinates are shown. **X=** specifies the site coordinates.  They are specified in "direct" representation, i.e., as fractional multiples of lattice vectors **PLAT**.  You can also use Cartesian coordinates; instead of **X=** you would use **POS=** (see additional exercises below).  Positions in Cartesian coordinates are in units of **ALAT**, like the lattice vectors.
 
 Use the **blm**{: style="color: blue"} tool as in the box below to create the input file (_ctrl.pbte_{: style="color: green"}) and the site file (_site.pbte_{: style="color: green"}):
 
@@ -105,16 +105,16 @@ it uses algebraic variables which can be modified on the command line. Thus `lmf
 Generally:
 
 * Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `#' in any line is ignored).
-s* Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
+* Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
 
-<div onclick="elm = document.getElementById(''variablesexplained''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'variablesexplained'">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="variablesexplained">{:/}
 
 {::comment}
-<div onclick="elm = document.getElementById(''variablesexplained''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'variablesexplained'">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="variablesexplained">{:/}
 {:/comment}
 
 The beginning of the ctrl file you just generated should look like the following:
@@ -160,9 +160,9 @@ first column.  Each token belongs to a category; for example in box below **IO**
 
 **blm**{: style="color: blue"} normally includes an **EXPRESS** category in _ctrl.pbte_{: style="color: green"}.
 
-<div onclick="elm = document.getElementById(''express''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('express'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see the beginning of the EXPRESS category.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'express'">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="express">{:/}
 
 {::comment}
 <div onclick="elm = document.getElementById('express'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here
@@ -212,9 +212,9 @@ To see what an executable looks for in the ctrl file, invoke the executable with
 The remainder of this section is not essential to this tutorial and you can safely skip to section 5.  It explains what information is printed when you use
 `--input`; it is useful if you want to see how tags and categories are organized, and how missing or partial tags are handled.
 
-<div onclick="elm = document.getElementById(''input''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'input'">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
 {::comment}
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click 
