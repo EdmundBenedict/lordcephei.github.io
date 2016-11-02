@@ -581,7 +581,7 @@ NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 ##### _OPTICS_
 Optics functions available with the ASA extension packages OPTICS.
 
-It is read by **lm**{: style="color: blue"} and is also partially implemented in full-potential **lmf**{: style="color: blue"}.
+It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
 
 <div onclick="elm = document.getElementById('opticstable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="opticstable">{:/}
@@ -678,12 +678,14 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 /docs/input/inputfile/#spec
 {:/comment}
 
-Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=; input of tokens specific to that species must precede the next occurence of ATOM=.  
+Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=;&thinsp; input of tokens specific to that species must precede the next occurence of ATOM=.
 
-The following four species apply to the automatic sphere resizer:
+The following tokens apply to the automatic sphere resizer:
 
+{::comment}
 <div onclick="elm = document.getElementById('spec1table'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="spec1table">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -692,7 +694,9 @@ OMAX1 | r1 r2 r3 | ALL | Y | 0.16, 0.18, 0.2 | Constrains maximum allowed values
 OMAX2 | r1 r2 r3 | ALL | Y | 0.4, 0.45, 0.5 | Constrains maximum allowed values of sphere overlaps defined differently from OMAX1; see lmto.html.<br>Both constraints are applied.
 WSRMAX | r | ALL | Y | 0 | Imposes an upper limit to any one sphere radius
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 {::nomarkdown} <a name="spec-cat"></a> {:/}
 
@@ -708,7 +712,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 ATOM | c | all | N | | A character string (8 characters or fewer) that labels this species. This label is used, e.g. by the SITE category to associate a species with an atom at a given site.<br>Species are split into classes; how and when this is done depends whether you are using an ASA or full-potential implementation.<br><br>ASA-specific:<br>The species ID also names a disk file with information about that atom (potential parameters, moments, potential and some sundry other information). More precisely, species are split into classes, the program differentiates class names by appending integers to the species label. The first class associated with the species has the species label; subsequent ones have integers appended.<br><br>Example: testing/test.ovlp 3
 Z | r | all | N | | Nuclear charge. Normally an integer, but Z can be a fractional number. A fractional number implies a virtual crystal approximation to an alloy with some Z intermediate between the two integers sandwiching it.
-R | r | all | N | | The augmentation sphere radius, in atomic units. This is a required input for most programs:<br>choose one of R=, R/W= or R/A=. Read descriptions of the R/W AND R/A below for further remarks; also see [this page](/docs/code/asaoverview/#selection-of-sphere-radii) for a more complete discussion on the choice of sphere radii.<br><br>lmchk can find sphere radii automatically for you. Invoke lmchk with<br>–getwsr.<br>You can also rescale user-chosen radii to meet constraints with the SCLWSR token.
+R | r | all | N | | The augmentation sphere radius, in atomic units. This is a required input for most programs:<br>choose one of R=, R/W= or R/A=. Read descriptions of the R/W AND R/A below for further remarks; also see [this page](/docs/code/asaoverview/#selection-of-sphere-radii) for a more complete discussion on the choice of sphere radii.<br><br>lmchk can find sphere radii automatically. Invoke lmchk with<br>–getwsr.<br>You can also rescale as-given radii to meet constraints with the SCLWSR token.
 R/W | r | all | N | | R/W= ratio of the augmentation sphere radius to the average Wigner Seitz radius W.<br>W is the radius of a sphere such that (4πW3/3) = V/N, where V/N is the volume per atom.<br>Thus if all radii are equal with R/W=1, the sum of sphere volumes would fill space, as is usual in the ASA.<br><br>ASA-specific:<br>You must choose the radii so that the sum of sphere volumes (4π/3ΣiRi3) equals the unit cell volume V; otherwise results may become unreliable. The space-filling requirement means sphere may overlap quite a lot, particularly in open systems. If sphere overlaps get too large, (>20% or so) accuracy becomes an issue. In such a case you should add “empty spheres” to fill space. Use lmchk to print out sphere overlaps. lmchk also has an automatic empty spheres finder, which you invoke with the –findes switch; see [here](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) for a discussion.<br><br>Example: testing/test.ovlp 3<br><br>FP-specific:<br>FP results are much less sensitive to the choice of sphere radii. Strictly, the spheres should not overlap, but because of lmf‘s unique augmentation scheme, overlaps of up to 10% cause negligibly small errors as a rule.<br>(This does not apply to GW calculations!)<br>Even so, it is not advisable to let the overlaps get too large. As a general rule the L-cutoff should increase as the sphere radius increases. Also it has been found in practice that self-consistency is harder to accomplish when spheres overlap significantly.
 R/A | r | all | N | | R/A = ratio of the aumentation sphere radius to the lattice constant
 A | r | all | Y | | Radial mesh point spacing parameter. All programs dealing with augmentation spheres represent the density on a shifted logarithmic radial mesh. The ith point on the mesh is $$ r_i $$ = b[exp(a(i−1)−1]. b is determined from the number of radial mesh points specified by NR.

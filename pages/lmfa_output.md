@@ -158,28 +158,17 @@ Similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_o
  /docs/outputs/lmfa_output/#self-consistent-density
 {:/comment}
 
-**lmfa**{: style="color: blue"}'s printout for the first atom (Pb) begins with:
+If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s printout for the first atom (Pb) begins with:
 
 ~~~
- Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
+ Species Pb:  Z=82  Qc=78  R=3.044814  Q=0
  mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
-  Pl=  6.5     6.5     5.5     5.5     5.5
-  Ql=  2.0     2.0     10.0    0.0     0.0
+  Pl=  6.5     6.5     6.5     5.5     5.5
+  Ql=  2.0     2.0     0.0     0.0     0.0
 ~~~
 
-Core levels are assumed to be filled; you supply the charges of the valence _s_, _p_, ... orbitals.  The Pb atom, for example has atomic
-configuration of $$s^2p^2d^{10}$$ and
-
-The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)
-(the fractional part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as <i>r</i>&rarr;&infin;).
-Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
-The **Pl** are specified through tag &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)
-
-The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
-
-Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will take default values from a lookup table.
-
-The **Ql** and the boundary condition are sufficient to completely determine the charge density.
+The first line shows the atomic number, number of core charges (core levels are assumed to be filled), augmentation radius
+and net sphere charge.
 
 The next lines show the augmentation radius and radial mesh parameters. 
 It uses a shifted logarithmic mesh: point _i_ has a radius
@@ -189,6 +178,32 @@ $$ r_i = b[exp^{a(i-1)}-1] $$
 The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
 which divides the augmentation from the interstitial part.
 
+Next follow **Pl** and **Ql**.  The **Pl** are the
+[continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) (the fractional
+part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as
+<i>r</i>&rarr;&infin;).
+
+The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+
+Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table if they are missing.
+
+In the tutorial, the Pb 5_d_ [is identified]/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals as a local orbital.
+When _basp.pbte_{: style="color: green"} is present with the 5_d_ local orbital specified by **PZ= 0 0 15.934**,
+**lmfa**{: style="color: blue"} will treat the 5_d_ as a valence.  The printout now reads:
+
+~~~
+ Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
+ mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
+  Pl=  6.5     6.5     5.5     5.5     5.5    
+  Ql=  2.0     2.0     10.0    0.0     0.0    
+~~~
+
+Note that because 5_d_ states are included in the valence through local orbitals, 
+the number of core levels is smaller by 10 and the 5_d_ are included in the valence with 10 electrons.
+
+The **Ql** and the boundary condition are sufficient to completely determine the charge density.  The total self-consistent charge density
+should be the same in either case, but the valence-core partitioning is different.
+
 **lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
 
 ~~~
@@ -196,6 +211,9 @@ which divides the augmentation from the interstitial part.
     1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
    55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
 ~~~
+
+_Note:_{: style="color: red"} 
+
 
 #### _Valence and core wave functions_
 {::comment}
@@ -206,7 +224,7 @@ In this block information about the eigenvalues of the valence and core states i
 what fraction of the state falls outside the augmentation radius.
 
 <div onclick="elm = document.getElementById('wavefunctions'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of wave function information.</span>
+<span style="text-decoration:underline;">Click here for annotation of wave function printout.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="wavefunctions">{:/}
 
 ~~~
@@ -223,8 +241,10 @@ what fraction of the state falls outside the augmentation radius.
    5p      -6.31315         0.486       0.882       1.314     0.000052
 ~~~
 
-For Pb 5_d_, **0.007786** electrons spill out: this is on the ragged edge of whether it needs to be included as a local orbital (see Additional Exercises).
-_Note:_{: style="color: red"} for _GW_ calculations this state is too shallow to be treated as a core.
+For Pb 5_d_, **0.007786** electrons spill out: this is on the ragged edge of whether it needs to be included as a local orbital (see Additional Exercises 
+in the [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)).
+
+_Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too shallow to be treated as a core.
 
 {::nomarkdown}</div>{:/}
 

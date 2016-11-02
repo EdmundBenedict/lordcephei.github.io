@@ -289,16 +289,15 @@ If you supply only one number it is copied to elements 2 and 3.
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-4.1  Find any high-lying core states that should be included in the valence as local orbitals.
-4.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density
-4.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions
+4.1  Find any high-lying core states that should be included in the valence as local orbitals.\\
+4.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
+4.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
 4.4  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
-It will write information about the charge density to file _atm.pbte_{: style="color: green"},
-and basis set information to template _basp0.pbte_{: style="color: green"}.
+It will write basis set information to template _basp0.pbte_{: style="color: green"}.
 The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to
-file basp0 to avoid overwriting a file you may want to preserve.  You can customize the 
+basp0 to avoid overwriting a file you may want to preserve.  You can customize the 
 basis set by editing the file.
 
 As a first step, do:
@@ -308,8 +307,8 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
 ~~~
 
-Note that, in addition to basis set information written _basp0.pbte_{: style="color: green"}.  **lmfa**{: style="color: blue"} writes
-information about the density to file _atm.pbte_{: style="color: green"}.  However, this file will need modification because the
+Note that, in addition to basis set information written _basp0.pbte_{: style="color: green"}.  **lmfa**{: style="color: blue"} saves
+information about the density in file _atm.pbte_{: style="color: green"}.  However, this file will need modification because the
 partitioning between core and valence will change with the introduction of local orbitals, as described next.
 
 #####  4.1 Local orbitals
@@ -317,20 +316,17 @@ partitioning between core and valence will change with the introduction of local
 /tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/
 {:/comment}
 
-Part of **lmfa**{: style="color: blue"}'s function is to identify
-_local orbitals_ that [extend the linear method](/docs/package_overview/#linear-methods-in-band-theory).
-Linear methods are reliable only over a limited energy window; certain elements may require an extension
-to the linear approximation for accurate calculations.  This is accomplished with
-[local orbitals](/docs/package_overview/#linear-methods-in-band-theory).
-**lmfa**{: style="color: blue"} will automatically look for atomic levels that
-if certain criteria are satisfied (as described in "lmfa output" below) it designates as a local orbital,
-and includes this information in the basp0 file.
+Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbitals_ that
+[extend the linear method](/docs/package_overview/#linear-methods-in-band-theory).  Linear methods are reliable only over a limited energy
+window; certain elements may require an extension to the linear approximation for accurate calculations.  This is accomplished with
+[local orbitals](/docs/package_overview/#linear-methods-in-band-theory).  **lmfa**{: style="color: blue"} will automatically look for atomic
+levels which, if certain criteria are satisfied it designates as a local orbital, and includes this information in the basp0 file.
 
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of how local orbitals are specified in the basp file.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="localorbitals">{:/} 
 
-Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text connected with the Pb atom:  
+Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text connected with the Pb atom:
 
 ~~~
     PZ= 0 0 15.934
