@@ -507,11 +507,13 @@ Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} w
 
 The **Ql** and the boundary condition are sufficient to completely determine the charge density.
 
-The next lines show the augmentation radius and radial mesh parameters.  The free atom doesn't need to know about the augmentation radius,
-but it is needed to save only the augmented part of the density in the 
+The next lines show the augmentation radius and radial mesh parameters. 
 It uses a shifted logarithmic mesh: point _i_ has a radius
 
 $$ r_i = b[exp^{a(i-1)}-1] $$
+
+The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
+which divides the augmentation from the interstitial part.
 
 **lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
 
