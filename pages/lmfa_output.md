@@ -35,7 +35,7 @@ _Note:_{: style="color: red"} This document is annotated for an [output vebosity
 Raising the verbosity causes **lmfa**{: style="color: blue"} to print additional information.
 Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 
-### Preprocessor's transformation of the input file
+### 1. Preprocessor's transformation of the input file
 {::comment}
 /docs/outputs/lmfa_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
@@ -45,7 +45,7 @@ Normally it does this silently.  To see the effects of the preprocessor use `lmf
 The result is very similar to `lmf --showp ...`, which is documented 
 [here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file).
 
-### How lmf and lmfa read input
+### 2. How lmf and lmfa read input
 {::comment}
 /docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input
 {:/comment}
@@ -187,7 +187,7 @@ you expect.  Using `--show` is useful if you want to record the input conditions
 The action of `--show` is similar to what occurs with **lmf**{: style="color: blue"}; see
 [see annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for further discussion.
 
-### Header, lattice, and symmetry blockss
+### 3. Header, lattice, and symmetry blockss
 
 The header information presents a condensed synopsis of some key
 settings that are used in the calculation.  It is similar to the
@@ -198,7 +198,7 @@ style="color: blue"}; but it is printed out anyway and is identical to [**lmf**{
 output](/docs/outputs/lmf_output/#lattice-information);
 similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
-### Loop over species
+### 4. Loop over species
 {::comment}
  /docs/outputs/lmfa_output/#loop-over-species
 {:/comment}
@@ -417,7 +417,7 @@ inside the augmentation sphere, it is allowed spill out and included in the inte
 ~~~
 {::nomarkdown}</div>{:/}
 
-### Estimating the plane-wave cutoff GMAX
+### 5. Estimating the plane-wave cutoff GMAX
 {::comment}
  /docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
 {:/comment}
