@@ -107,9 +107,15 @@ Generally:
 * Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `#' in any line is ignored).
 s* Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
 
-<div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here
-to see how variables can be set and used in the ctrl file.</div>
-{::nomarkdown}<div style="display:none;padding:5px;" id="variablesexplained">{:/} 
+<div onclick="elm = document.getElementById(''variablesexplained''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'variablesexplained'">{:/}
+
+{::comment}
+<div onclick="elm = document.getElementById(''variablesexplained''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'variablesexplained'">{:/}
+{:/comment}
 
 The beginning of the ctrl file you just generated should look like the following:
 
@@ -154,9 +160,15 @@ first column.  Each token belongs to a category; for example in box below **IO**
 
 **blm**{: style="color: blue"} normally includes an **EXPRESS** category in _ctrl.pbte_{: style="color: green"}.
 
+<div onclick="elm = document.getElementById(''express''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see the beginning of the EXPRESS category.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'express'">{:/}
+
+{::comment}
 <div onclick="elm = document.getElementById('express'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click here
 to see the beginning of the EXPRESS category.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="express">{:/} 
+{:/comment}
 
 ~~~
 EXPRESS
@@ -200,9 +212,15 @@ To see what an executable looks for in the ctrl file, invoke the executable with
 The remainder of this section is not essential to this tutorial and you can safely skip to section 5.  It explains what information is printed when you use
 `--input`; it is useful if you want to see how tags and categories are organized, and how missing or partial tags are handled.
 
+<div onclick="elm = document.getElementById(''input''); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="'input'">{:/}
+
+{::comment}
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click 
 here for a description of the `--input` function.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/} 
+{:/comment}
 
 Below is snippet of output from `lmchk --input`:
 
@@ -271,13 +289,14 @@ If you supply only one number it is copied to elements 2 and 3.
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-4.1  Find any high-lying core states that should be included in the valence as local orbitals.  
-4.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density  
-4.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions  
+4.1  Find any high-lying core states that should be included in the valence as local orbitals.
+4.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density
+4.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions
 4.4  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
-It will writes writes basis set information to template _basp0.pbte_{: style="color: green"},
+It will write information about the charge density to file _atm.pbte_{: style="color: green"},
+and basis set information to template _basp0.pbte_{: style="color: green"}.
 The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to
 file basp0 to avoid overwriting a file you may want to preserve.  You can customize the 
 basis set by editing the file.
@@ -289,11 +308,14 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
 ~~~
 
+Note that **lmfa**{: style="color: blue"} writes information about the density to file _atm.pbte_{: style="color: green"}, in addition to
+basis set information in _basp0.pbte_{: style="color: green"}.  However, the construction of the density will need to be modified
+because the partitioning between core and valence will change with the introduction of local orbitals, as described next.
+
 #####  4.1 Local orbitals
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/
 {:/comment}
-
 
 Part of **lmfa**{: style="color: blue"}'s function is to identify
 _local orbitals_ that [extend the linear method](/docs/package_overview/#linear-methods-in-band-theory).
@@ -305,8 +327,8 @@ if certain criteria are satisfied (as described in "lmfa output" below) it desig
 and includes this information in the basp0 file.
 
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for a description of how local orbitals are specified in the basp file.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="localorbitals">{:/} 
+<span style="text-decoration:underline;">Click here for a description of how local orbitals are specified in the basp file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="localorbitals">{:/} 
 
 Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text connected with the Pb atom:  
 
@@ -369,8 +391,8 @@ Normally **lmfa**{: style="color: blue"} determines the core levels and core den
 the scalar Dirac equation.  However there is an option to use the full Dirac equation.
 
 <div onclick="elm = document.getElementById('diraccore'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to about calculating core levels from the Dirac equation.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="diraccore">{:/} 
+<span style="text-decoration:underline;">Click here to about calculating core levels from the Dirac equation.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="diraccore">{:/} 
 
 Tag **HAM_REL** controls how the Questaal package manages different levels of relativistic treatment.
 Run `lmfa --input` and look for **HAM_REL**.  You should see:
@@ -459,36 +481,45 @@ Click here for an interpretation of lmfa's output, and how it determines the par
 {::nomarkdown}<div style="display:none;padding:0px;" id="lmfaoutput">{:/} 
 
 **lmfa**{: style="color: blue"} loops over each species, generating a 
-self-consistent density from the charges given to it.  Core levels
-are assumed to be filled; you supply the charges
-of the valence _s_, _p_, ... orbitals.
-The Pb atom, for example has  atomic configuration of $$s^2p^2d^{10}$$ 
-and **lmfa**{: style="color: blue"}'s printout for Pb begins with:
+self-consistent density from the charges given to it.
+
+**lmfa**{: style="color: blue"}'s printout for Pb begins with:
 
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
  mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
-  Pl=  6.5     6.5     5.5     5.5     5.5    
-  Ql=  2.0     2.0     10.0    0.0     0.0    
+  Pl=  6.5     6.5     5.5     5.5     5.5
+  Ql=  2.0     2.0     10.0    0.0     0.0
+~~~
 
+
+Core levels are assumed to be filled; you supply the charges of the valence _s_, _p_, ... orbitals.  The Pb atom, for example has atomic
+configuration of $$s^2p^2d^{10}$$ and
+
+The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)
+(the fractional part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as <i>r</i>&rarr;&infin;).
+Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
+The **Pl** are specified through tag &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)
+
+The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+
+Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will take default values from a lookup table.
+
+The **Ql** and the boundary condition are sufficient to completely determine the charge density.
+
+The next lines show the augmentation radius and radial mesh parameters.  The free atom doesn't need to know about the augmentation radius,
+but it is needed to save only the augmented part of the density in the 
+It uses a shifted logarithmic mesh: point _i_ has a radius
+
+$$ r_i = b[exp^{a(i-1)}-1] $$
+
+**lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
+
+~~~
   iter     qint         drho          vh0          rho0          vsum     beta
     1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
    55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
 ~~~
-
-The first lines show the augmentation radius and radial mesh parameters.  It uses a shifted logarithmic mesh: point _i_ has a radius
-
-$$ r_i = b[exp^{a(i-1)}-1] $$
-
-The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers).
-Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
-
-You can specify the charges **Ql** in the ctrl file; if you do not it has a lookup table of default values for every atom.
-
-The **Ql** and the boundary condition (wave function decays exponentially as <i>r</i>&rarr;&infin;) are sufficient to completely determine
-the charge density.
-
-**lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
 
 Next follow information about the eigenvalues of the valence and core states it finds along with some additional information, such as
 what fraction of the state falls outside the augmentation radius.

@@ -28,11 +28,10 @@ Some portions are adapted from other calculations, as will be indicated.
 
 The standard output is organised by blocks.  The sections below
 annotate each block approximately in the order they are made.
-
 Some parts are similar to the [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/); in places where they are similar a cursory
 treatment is given here; the reader is referred to that page.
 
-_Note:_{: style="color: red"} This document is annotated for an output vebosity of 35 (medium verbosity)
+_Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/commandline/general/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
 Raising the verbosity causes **lmfa**{: style="color: blue"} to print additional information.
 Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 
@@ -162,8 +161,8 @@ Similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_o
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
  mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
-  Pl=  6.5     6.5     5.5     5.5     5.5    
-  Ql=  2.0     2.0     10.0    0.0     0.0    
+  Pl=  6.5     6.5     5.5     5.5     5.5
+  Ql=  2.0     2.0     10.0    0.0     0.0
 
   iter     qint         drho          vh0          rho0          vsum     beta
     1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30

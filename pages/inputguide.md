@@ -694,11 +694,15 @@ WSRMAX | r | ALL | Y | 0 | Imposes an upper limit to any one sphere radius
 
 {::nomarkdown}</div>{:/}
 
+{::nomarkdown} <a name="spec-cat"></a> {:/}
+
 The following tokens are input for each species. Data sandwiched between successive
 occurences of ATOM apply to one species.
 
+{::comment}
 <div onclick="elm = document.getElementById('spec2table'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="spec2table">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -745,7 +749,9 @@ PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential func
 Q | r,r,... | all | Y | | Charges for each l-channel making up free-atom density<br><br>Default: taken from an internal table.
 MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up free-atom density<br>Relevant only for the spin-polarized case.
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _STR_
 Category STR contains information connected with real-space structure constants, used by the ASA programs. It is read by **lmstr**{: style="color: blue"}, **lmxbs**{: style="color: blue"}, **lmchk**{: style="color: blue"}, and **tbe**{: style="color: blue"}.
