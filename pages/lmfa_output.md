@@ -279,15 +279,7 @@ what fraction of the state falls outside the augmentation radius.
 <span style="text-decoration:underline;">Click here for annotation of wave function printout.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="wavefunctions">{:/}
 
-In the table below,:
-
-+ **eval** is the eigenvalue
-+ **node at** is the largest radius for which the wave function has a node
-+ **max at**  is the radius where the wave function has a maximum value
-+ **c.t.p**   is the classical turning point
-+ rho(r&gt;rmt) is the charge spilling outside the augmentation radius.  For Pb 5_d_, **0.007786** electrons spill out: this is on the
-  ragged edge of whether it needs to be included as a local orbital (see Additional Exercises in the
-  [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)).
+The following is taken from standard output:
 
 ~~~
  valence:      eval       node at      max at       c.t.p.   rho(r>rmt)
@@ -302,6 +294,14 @@ In the table below,:
 ...
    5p      -6.31315         0.486       0.882       1.314     0.000052
 ~~~
+
++ **eval** is the eigenvalue
++ **node at** is the largest radius for which the wave function has a node
++ **max at**  is the radius where the wave function has a maximum value
++ **c.t.p**   is the classical turning point
++ rho(r&gt;rmt) is the charge spilling outside the augmentation radius.  For Pb 5_d_, **0.007786** electrons spill out: this is on the
+  ragged edge of whether it needs to be included as a local orbital (see Additional Exercises in the
+  [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)).
 
 _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too shallow to be treated as a core.
 
@@ -362,6 +362,21 @@ _On identifying local orbitals for shallow cores_
  /docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius
 {:/comment}
 
+**lmfa**{: style="color: blue"} retains two densities on the numerical mesh for points
+inside the augmentation sphere: the core and valence densities.
+
+In addition it must keep some information about the density outside.  This density will become part of the interstitial density in the
+crystal.  Thus it must be represented on the interstitial charge density mesh and one-center expansions of it made to include the
+contribution of this atom's density to neighboring sites.
+
+Both can be readily accomplished if the density is represented as a linear combination of [smooth Hankel functions](/docs/code/smhankels).
+**lmfa**{: style="color: blue"} fits the numerical density to a linear combination of such functions; the smoothing radii, energies, and fit
+coefficients are stored in _atm.pbte_{: style="color: green"}.  The fit is done subject to the constraint that the integrated charge is exact.
+
+<div onclick="elm = document.getElementById('valfit'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of lmfa's printout of the valence density fitting.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;"id="valfit">{:/}
+
 ~~~
  tailsm: fit tails to 6 smoothed hankels, rmt= 3.02869, rsm= 1.51434
  HNSMFT:  85 points in interval  3.02869  24.73301;  q=  1.433395
@@ -376,7 +391,18 @@ _On identifying local orbitals for shallow cores_
     q(fit):     1.433395    rms diff:   0.000002
     fit: r>rmt  1.433395   r<rmt  6.387103   qtot  7.820498
     rho: r>rmt  1.433395   r<rmt  4.566605   qtot  6.000000
+~~~
+{::nomarkdown}</div>{:/}
 
+Also the core density spills out into the interstitial.  Rather than renormalizing the core density
+inside the augmentation sphere, it is allowed spill out and included in the interstitial density.
+**lmfa**{: style="color: blue"} fits the core tail to a single smoothed Hankel function.
+
+<div onclick="elm = document.getElementById('corefit'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of lmfa's printout of the valence density fitting.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;"id="corefit">{:/}
+
+~~~
  coretail: q=0.00215, rho(rmt)=0.00566.  Fit with Hankel e=-14.401  coeff=639.|
       r            rhoc          fit
     3.028689    0.01975240    0.01975240
@@ -388,6 +414,7 @@ _On identifying local orbitals for shallow cores_
     6.253461    0.00000024    0.00000020
     7.086104    0.00000001    0.00000001
 ~~~
+{::nomarkdown}</div>{:/}
 
 ### Estimating the plane-wave cutoff GMAX
 {::comment}
