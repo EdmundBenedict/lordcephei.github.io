@@ -26,8 +26,8 @@ The output documented here is mostly taken from the **lmf**{: style="color: blue
 [tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
 Some portions are adapted from other calculations, as will be indicated.
 
-The standard output is organised by blocks.  Each section below
-explains a block approximately in the order they are made.
+The standard output is organised by blocks.  The sections below
+annotate each block approximately in the order they are made.
 
 ### Preprocessor's transformation of the input file
 {::comment}
@@ -169,8 +169,6 @@ basis set information from the basp file.\\
 The basp file is [automatically generated](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set)
 by **lmfa**{: style="color: blue"}.  Tokens in
 **EXPRESS_autobas** or **HAM_AUTOBAS**  control what is read from the basp file.
-
-something wrong ... try4
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description.</span>
