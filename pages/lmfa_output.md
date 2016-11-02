@@ -46,9 +46,9 @@ Normally it does this silently.  To see the effects of the preprocessor use `lmf
 The result is very similar to `lmf --showp ...`, which is documented 
 [here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file/).
 
-### How lmf and lmfa read input differently
+### How lmf and lmfa read input
 {::comment}
-/docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input-differently
+/docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input
 {:/comment}
 
 To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  [This web
@@ -124,6 +124,53 @@ In the first case the token affects how the basis parameters are _generated_;
 in the second how the basis parameters are _read_.
 The same applies to **HAM_AUTOBAS_PNU** and **HAM_AUTOBAS_LOC**;
 also **HAM_AUTOBAS_PFLOAT** have different meanings.
+
+{::nomarkdown}</div>{:/}
+
+`--help` performs a function similar to `--input` but for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
+
+<div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for an explanation of the `--help` function.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
+
+Consider the output of `lmfa --help`.
+
+First appears a list of command line options available in most Questaal codes.
+They are described in more detail [here](/docs/commandline/general/).
+
+~~~
+ --h
+ --help         Print this message, and quit
+ --input        List categories, tokens, and data program expects, and quit
+ --show         Print control file after parsing by preprocessor,
+                and echo input data as read from the control file
+ --showp        Same as --show, but quit after input parsed
+ --iactiv       (--no-iactiv) Turn on (off) interactive mode
+                This switch overrides input file setting
+ --pr#1[,#2...] Set the verbosity (stack) to values #1,#2, ...
+ --time=#1[,#2] Print timing info to # levels (#1=summary; #2=on-the-fly)
+
+ -vnam=expr     Define numerical variable "nam"; set to result of 'expr'
+ -cnam=strn     Define character variable "nam"; set to 'strn'
+
+ --rpos=filnam  After reading input file, read site positions from "filnam"
+ --fixlat       Adjust lattice vectors and point group ops, attempt to
+                render them internally consistent
+ --fixpos[:tol=#] Adjust positions slightly, rendering them
+                as consistent as possible with the symmetry group
+ --nosym        Suppress symmetry operations
+~~~
+
+Then follow a synopsis of **lmfa**{: style="color: blue"}-specific options:
+
+~~~
+ --noopt        Suppress optimization of s.m. Hankel basis
+ --norscnst     In optimization of s.m. Hankel basis, do not constrain rsm < rmt
+ --plotwf       Writes atomic radial wave functions to disk files
+ --dumprho      Writes out the density for each atom to out.ext
+ --basp         Turns on autofind EH,RSMH (better to use HAM_AUTOBAS)
+ --getallloc    Look for local orbitals (better to use HAM_AUTOBAS)
+~~~
 
 {::nomarkdown}</div>{:/}
 

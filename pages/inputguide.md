@@ -263,9 +263,12 @@ BZ_NKABC               reqd   i4v      3,  1
 
 {::nomarkdown}</div>{:/}
 
-Getting command-line options
+Command-line options
 : `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
-  A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).
+  A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).\\
+  See [this tutorial](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for an example.
+
+
 
 <div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for an explanation of the `--help` function.</span>
