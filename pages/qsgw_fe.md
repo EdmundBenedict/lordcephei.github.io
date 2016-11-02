@@ -480,3 +480,7 @@ $ open fplot.ps
 QSGW makes substantial shifts relative to the LDA.  The QSGW bands generated in this tutorial disagree somewhat with experiment, because the QSGW
 potential isn't quite converged.  When well converged, agreement with the available experimental data in the Fermi liquid regime is
 excellent, though a considerable discrepancy with LDA remains.
+
+### _Additional exercises_
+
+1. Tetrahedron vs sampling vs fermi function

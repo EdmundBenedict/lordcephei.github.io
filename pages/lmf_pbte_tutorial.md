@@ -576,8 +576,6 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 
 ### _Additional exercises_
 
-1. You can try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital.  Repeat the calculation but remove the **PZ** part from _basp.pbte_{: style="color: green"}
+1. Try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital.  Repeat the calculation but remove the **PZ** part from _basp.pbte_{: style="color: green"}.
 
-Specify symops yourself
-
-Tetrahedron vs sampling vs fermi function
+2. Specify symops manually.
