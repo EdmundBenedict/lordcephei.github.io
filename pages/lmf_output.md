@@ -170,9 +170,12 @@ by **lmfa**{: style="color: blue"}.  Tokens in
 **EXPRESS_autobas** or **HAM_AUTOBAS**  control what is read from the basp file.
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here for a description.</button>
+<span style="text-decoration:underline;">Click here for a description.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
 {::comment}
+text underlined:
+<span style="text-decoration:underline;">Click here for a description.</span>
+nothing:
 Click here for a description.
 {:/comment}
 

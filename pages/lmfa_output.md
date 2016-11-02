@@ -214,11 +214,13 @@ After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to file _basp0.pbte_{: style="color: green"}
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button tiny radius">Click here for a description.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;background-color: #4CAF50" id="basp">{:/}
+<span style="text-decoration:underline;">Click here for explanation of text concerning generation of basis parameters.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px; id="basp">{:/}
 {::comment}
-<button type="button" class="button tiny radius">Click here for a description.</button>
-Click here for a description.
+text underlined:
+<span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
+text in colored box:
+<button type="button" class="button tiny radius">Click here to compare lmfa's input tags to lmf.</button>
 {:/comment}
 
 _basp.pbte_{: style="color: green"} supplies basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions,
