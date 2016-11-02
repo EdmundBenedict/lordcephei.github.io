@@ -177,6 +177,12 @@ _____________________________________________________________
 /docs/input/inputfile/#help-with-finding-tokens
 {:/comment}
 
+Seeing the effect of the preprocessor
+: The preprocessor can act in nontrivial ways.  To see what the input file looks like after
+preprocessing, use the `--showp` command-line options.\\
+See [this annotated output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
+for an example.
+
 Finding what tags the parser seeks
 : It is often the case that you want to input some information but don't
 know the name of the tag you need.

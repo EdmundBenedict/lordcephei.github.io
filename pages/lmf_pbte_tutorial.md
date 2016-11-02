@@ -256,6 +256,10 @@ Then follow a synopsis of **lmfa**{: style="color: blue"}-specific options:
 
 {::nomarkdown}</div>{:/}
 
+`--show` reads the input through the preprocessor, prints out the preprocessed file, and exits.
+See the [annotated output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
+for a comparison of the pre- and post-processed input file for this tutorial.
+
 `--show` tells **lmfa**{: style="color: blue"} to print out tags as it reads them (or the defaults it uses).
 It is explained in the [annotated output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 
