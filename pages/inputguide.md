@@ -179,7 +179,7 @@ _____________________________________________________________
 <br>
 
 Seeing the effect of the preprocessor
-: The preprocessor can act in nontrivial ways.  To see the effect of the preprocessor, use the `--showp` command-line options.\\
+: The preprocessor can act in nontrivial ways.  To see the effect of the preprocessor, use the `--showp` command-line option.\\
 See [this annotated output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 for an example.
 
@@ -191,10 +191,10 @@ of its function, by adding `--input` to the command-line.\\
 Search for keywords in the text to find what you need.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
+<button type="button" class="button tiny radius">Click here to see --input explained.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
-_Example_:
+Take for an example:
 
 ~~~
   lmchk --input

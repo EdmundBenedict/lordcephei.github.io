@@ -38,10 +38,10 @@ The input file is run through the [preprocessor](/docs/input/preprocessor/), whi
 Normally it does this silently.  To see the effects of the preprocessor use `lmf --showp ...`
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see the action of the preprocessor on ctrl.pbte.</span>
+<button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="preprocessor">{:/}
 {::comment}
-<button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
+<span style="text-decoration:underline;">Click here to see the action of the preprocessor on ctrl.pbte.</span>
 {:/comment}
 
 Append `--showp` to the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
@@ -108,10 +108,10 @@ style="color: blue"} to stop after displaying tags, and is useful if you want to
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see --show explained.</span>
+<button type="button" class="button tiny radius">Click here to see --show explained.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
 {::comment}
-<button type="button" class="button tiny radius">Click here for an interpretation of the action of --show.</button>
+<span style="text-decoration:underline;">Click here to see --show explained.</span>
 {:/comment}
 
 Add `--show=2` to the **lmf**{: style="color: blue"} command from the PbTe tutorial:

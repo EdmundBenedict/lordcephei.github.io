@@ -42,17 +42,16 @@ Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmfa --showp ...`
-
 The result is very similar to `lmf --showp ...`, which is documented 
-[here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file/).
+[here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file).
 
 ### How lmf and lmfa read input
 {::comment}
 /docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input
 {:/comment}
 
-To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  [This web
-page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.
+To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.
+[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains the function of `--input`.
 
 The result is similar to [**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 However **lmfa**{: style="color: blue"} parses fewer tags; moreoever, some tags they both parse
@@ -130,7 +129,7 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 `--help` performs a function similar to `--input` but for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
 
 <div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for an explanation of the `--help` function.</span>
+<span style="text-decoration:underline;">Click here for an explanation of the --help function.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
 
 Consider the output of `lmfa --help`.
