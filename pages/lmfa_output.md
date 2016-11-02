@@ -386,6 +386,32 @@ This information is displayed in the following table.
 <span style="text-decoration:underline;">Click here for annotation of lmfa's treatment of local orbitals.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="lo">{:/}
 
+**lmfa**{: style="color: blue"} may already be given a speficiation about local orbitals.
+It is supplied by **PZ** in the input file or an already-existing basp file
+(depending on how [**HAM_AUTOBAS_LOC**](/docs/input/inputfile/#ham) is set)
+
+In this event it will try to fit the tail of this orbital to a smooth Hankel for
+_r_&;gt;**rmt**, in a manner similar to its fit of the envelope functions.
+For the Pb atom, the fit reads
+
+~~~
+ Fit local orbitals to sm hankels, species Pb, rmt=3.044814
+ l   Rsm    Eh     Q(r>rmt)   Eval      Exact     Pnu     K.E.   fit K.E.  Gmax
+ 2  1.041 -1.083   0.00792  -1.56878  -1.56879   5.934  -0.8111  -0.8111    7.8
+~~~
+
+_Notes:_{: style="color: red"} 
+
++ These functions can be very deep and left unconstrained **Rsm** can become quite small.  This makes for a very sharply peaked function.
+  In such a case the weight of the wave function (measured by **Q(r>rmt)**) is small and the fit does not need to be accurate.  To protect
+  against functions too sharply peaked, a constraint is placed on lower bound **Rsm**.  Most of the time the default is ok, but if not the
+  eigenvalue will deviate significantly from the exact one.  You can set this constraint with tag **SPEC\_ATOM\_RS3**.  Be careful not to
+  allow it to get too small; it makes representation of the interstitial density difficult.
++ Using **Rsm** and **Eh** obtain from the fit it can estimate how many plane waves are needed
+  to accurately represent the intersttial part of this function.  That number is **Gmax**.
+  See the [section on **GMAX**](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
+
+
 ~~~
  Find local orbitals which satisfy E > -2 Ry  or  q(r>rmt) > 5e-3
  l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
@@ -455,7 +481,7 @@ inside the augmentation sphere, it is allowed spill out and included in the inte
 
 ### 5. Estimating the plane-wave cutoff GMAX
 {::comment}
- /docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
+/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
 {:/comment}
 
 ~~~
