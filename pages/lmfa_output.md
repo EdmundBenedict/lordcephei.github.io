@@ -214,8 +214,8 @@ After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to file _basp0.pbte_{: style="color: green"}
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button">Click here for a description.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
+<button type="button tiny radius">Click here for a description.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;background-color: #4CAF50" id="basp">{:/}
 {::comment}
 <button type="button" class="button tiny radius">Click here for a description.</button>
 Click here for a description.
