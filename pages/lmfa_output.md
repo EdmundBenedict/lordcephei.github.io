@@ -158,67 +158,95 @@ Similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_o
  /docs/outputs/lmfa_output/#self-consistent-density
 {:/comment}
 
+**lmfa**{: style="color: blue"}'s printout for the first atom (Pb) begins with:
+
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
  mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
   Pl=  6.5     6.5     5.5     5.5     5.5
   Ql=  2.0     2.0     10.0    0.0     0.0
+~~~
 
+Core levels are assumed to be filled; you supply the charges of the valence _s_, _p_, ... orbitals.  The Pb atom, for example has atomic
+configuration of $$s^2p^2d^{10}$$ and
+
+The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)
+(the fractional part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as <i>r</i>&rarr;&infin;).
+Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
+The **Pl** are specified through tag &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)
+
+The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+
+Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will take default values from a lookup table.
+
+The **Ql** and the boundary condition are sufficient to completely determine the charge density.
+
+The next lines show the augmentation radius and radial mesh parameters. 
+It uses a shifted logarithmic mesh: point _i_ has a radius
+
+$$ r_i = b[exp^{a(i-1)}-1] $$
+
+The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
+which divides the augmentation from the interstitial part.
+
+**lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
+
+~~~
   iter     qint         drho          vh0          rho0          vsum     beta
     1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
    55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
-
- sumev=-18.068313  etot=-41740.206542  eref=0.000000
-
 ~~~
 
-
-#### _Valence wave functions_
+#### _Valence and core wave functions_
 {::comment}
- /docs/outputs/lmfa_output/#valence-wave-functions
+ /docs/outputs/lmfa_output/#valence-wave-and-core-functions
 {:/comment}
 
+In this block information about the eigenvalues of the valence and core states it finds along with some additional information, such as
+what fraction of the state falls outside the augmentation radius.
+
+<div onclick="elm = document.getElementById('wavefunctions'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of wave function information.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="wavefunctions">{:/}
+
 ~~~
- Free-atom wavefunctions:
  valence:      eval       node at      max at       c.t.p.   rho(r>rmt)
    6s      -0.91143         1.014       1.961       2.814     0.168779
    6p      -0.27876         1.185       2.643       4.790     0.524423
    5d      -1.56879         0.523       1.073       2.252     0.007786
-   5f       0.02051         0.620      34.528      47.629*    1.000000
-   5g       0.02823         0.000      35.985      47.629*    1.000000
-~~~
+...
 
-#### _Core wave functions_
-{::comment}
- /docs/outputs/lmfa_output/#core-wave-functions
-{:/comment}
-
-~~~
  core:        ecore       node at      max at       c.t.p.   rho(r>rmt)
    1s   -6465.77343         0.000       0.010       0.022     0.000000
- ...
-   4f      -9.79627         0.000       0.350       1.108     0.000000
-   5s     -10.60776         0.451       0.789       1.074     0.000002
+   2s   -1155.91509         0.020       0.057       0.090     0.000000
+...
    5p      -6.31315         0.486       0.882       1.314     0.000052
-
 ~~~
+
+For Pb 5_d_, **0.007786** electrons spill out: this is on the ragged edge of whether it needs to be included as a local orbital (see Additional Exercises).
+_Note:_{: style="color: red"} for _GW_ calculations this state is too shallow to be treated as a core.
+
+{::nomarkdown}</div>{:/}
 
 #### _Generating basis information_
 {::comment}
  /docs/outputs/lmfa_output/#generating-basis-information
 {:/comment}
 
-After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
-basis set information which is written to file _basp0.pbte_{: style="color: green"}
+From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
+basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
++  basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
++ ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
++ information about local orbitals
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of lmfa's generation of basis parameters.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="basp">{:/}
 {::comment}
 text underlined:
-<span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
+<span style="text-decoration:underline;">Click here.</span>
 text in colored box:
-<button type="button" class="button tiny radius">Click here to compare lmfa's input tags to lmf.</button>
+<button type="button" class="button tiny radius">Click here.</button>
 {:/comment}
 
 _basp.pbte_{: style="color: green"} supplies basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions,

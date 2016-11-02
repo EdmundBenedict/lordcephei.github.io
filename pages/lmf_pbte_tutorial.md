@@ -308,9 +308,9 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
 ~~~
 
-Note that **lmfa**{: style="color: blue"} writes information about the density to file _atm.pbte_{: style="color: green"}, in addition to
-basis set information in _basp0.pbte_{: style="color: green"}.  However, the construction of the density will need to be modified
-because the partitioning between core and valence will change with the introduction of local orbitals, as described next.
+Note that, in addition to basis set information written _basp0.pbte_{: style="color: green"}.  **lmfa**{: style="color: blue"} writes
+information about the density to file _atm.pbte_{: style="color: green"}.  However, this file will need modification because the
+partitioning between core and valence will change with the introduction of local orbitals, as described next.
 
 #####  4.1 Local orbitals
 {::comment}
@@ -476,76 +476,19 @@ relativistic Dirac treatment.
 + finding suitable [boundary conditions](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) for linearization energies
 + deciding on which high-lying cores should be included as local orbitals
 
-<div onclick="elm = document.getElementById('lmfaoutput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here for an interpretation of lmfa's output, and how it determines the parameters outlined above</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="lmfaoutput">{:/} 
+**lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
 
-**lmfa**{: style="color: blue"} loops over each species, generating a 
-self-consistent density from the charges given to it.
+See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
+for a more detailed description of how atomic densities are determined.
 
-**lmfa**{: style="color: blue"}'s printout for Pb begins with:
+Next, **lmfa**{: style="color: blue"} will build some
+basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
+1. basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
+2. ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_
+3. information about local orbitals, and suggestions for which partial waves should be included.
+4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
+  
 
-~~~
- Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
- mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
-  Pl=  6.5     6.5     5.5     5.5     5.5
-  Ql=  2.0     2.0     10.0    0.0     0.0
-~~~
-
-
-Core levels are assumed to be filled; you supply the charges of the valence _s_, _p_, ... orbitals.  The Pb atom, for example has atomic
-configuration of $$s^2p^2d^{10}$$ and
-
-The **Pl** are the [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)
-(the fractional part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as <i>r</i>&rarr;&infin;).
-Note that because 5_d_ states are included in the valence through local orbitals, it treats the 5_d_ as valence with 10 electrons.
-The **Pl** are specified through tag &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)
-
-The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
-
-Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will take default values from a lookup table.
-
-The **Ql** and the boundary condition are sufficient to completely determine the charge density.
-
-The next lines show the augmentation radius and radial mesh parameters. 
-It uses a shifted logarithmic mesh: point _i_ has a radius
-
-$$ r_i = b[exp^{a(i-1)}-1] $$
-
-The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
-which divides the augmentation from the interstitial part.
-
-**lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
-
-~~~
-  iter     qint         drho          vh0          rho0          vsum     beta
-    1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
-   55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
-~~~
-
-Next follow information about the eigenvalues of the valence and core states it finds along with some additional information, such as
-what fraction of the state falls outside the augmentation radius.
-
-~~~
- valence:      eval       node at      max at       c.t.p.   rho(r>rmt)
-   6s      -0.91143         1.014       1.961       2.814     0.168779
-   6p      -0.27876         1.185       2.643       4.790     0.524423
-   5d      -1.56879         0.523       1.073       2.252     0.007786
-...
-
- core:        ecore       node at      max at       c.t.p.   rho(r>rmt)
-   1s   -6465.77343         0.000       0.010       0.022     0.000000
-   2s   -1155.91509         0.020       0.057       0.090     0.000000
-...
-   5p      -6.31315         0.486       0.882       1.314     0.000052
-~~~
-
-For Pb 5_d_, **0.007786** electrons spill out: this is on the ragged edge of whether it needs to be included as a local orbital (see Additional Exercises).
-_Note:_{: style="color: red"} for _GW_ calculations this state is too shallow to be treated as a core.
-
-Next **lmfa**{: style="color: blue"} finds parameters related to the local orbitals: what shape of envelope function is needed to fit the
-tail (**Eh** and **Rsm**), the "continuous principal quantum number" **Pnu**, and finally an estimate for plane wave cutoff **Gmax** that will be
-needed for the density mesh.
 
 ~~~
  Fit local orbitals to sm hankels, species Pb, rmt=3.044814
@@ -553,7 +496,13 @@ needed for the density mesh.
  2  1.041 -1.083   0.00792  -1.56878  -1.56879   5.934  -0.8111  -0.8111    7.8
 ~~~
 
-Next **lmfa**{: style="color: blue"} finds corresponding parameters for the valence envelope functions.
+Next **lmfa**{: style="color: blue"} finds some basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies:
++  basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
++ ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
++ information about local orbitals
+
+
+finds corresponding parameters for the valence envelope functions.
 This constitutes a reasonable (but not optimal) guess for the shape of crystal envelope functions.
 
 ~~~
