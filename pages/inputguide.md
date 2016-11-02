@@ -396,8 +396,10 @@ variables a and nspec are defined and used in the SPEC category.
 
 Contains parameters for molecular statics and dynamics.
 
+{::comment}
 <div onclick="elm = document.getElementById('dyntable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="dyntable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -424,13 +426,17 @@ MD\_TAUP | r | lmmc | Y | 206.71 | Thermostat relaxation time (a.u.)
 MD\_TIME | r | lmmc | N | 20671000 | Total MD time (a.u.)
 MD\_TAUB | r | lmmc | Y | 2067.1 | Barostat relaxation time (a.u.)
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _EWALD_
 Category EWALD holds information controlling the Ewald sums for structure consstants entering into, e.g. the Madelung summations and Bloch summed structure constants (**lmf**{: style="color: blue"}). Most programs use quantities in this category to carry out Ewald sums (exceptions are **lmstr**{: style="color: blue"} and the molecules code **lmmc**{: style="color: blue"}).
 
+{::comment}
 <div onclick="elm = document.getElementById('ewaldtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="ewaldtable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -439,7 +445,9 @@ TOL | r | | Y | 1e-8 | Tolerance in the Ewald sums
 NKDMX | i | | Y | 800 | The maximum number of real-space lattice vectors entering into the Ewald sum, used for memory allocation.<br>Normally you should not need this token. Increase NKDMX if you encounter an error message like this one: xlgen: too many vectors, n=...
 RPAD | r | | Y | 0 | Scale rcutoff by RPAD when lattice vectors padded in oblong geometries
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _HAM_
 {::comment}
