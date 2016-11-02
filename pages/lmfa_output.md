@@ -213,7 +213,7 @@ After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to file _basp0.pbte_{: style="color: green"}
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of stdout, generation of basis parameters.</span>
+<span style="text-decoration:underline;">Click here for annotation of lmfa's generation of basis parameters.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="basp">{:/}
 {::comment}
 text underlined:
