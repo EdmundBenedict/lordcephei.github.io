@@ -145,7 +145,7 @@ Lines corresponding to actual input are divided into
 categories.
 
 A category begins when a character (other than **%** or **#**) occurs in the
-first column.  Each token belongs to a category; for example in box below **IO**{: style="color: red"} contains three tokens, 
+3first column.  Each token belongs to a category; for example in box below **IO**{: style="color: red"} contains three tokens, 
 **SHOWMEM**{: style="color: blue"}, **IACTIV**{: style="color: blue"} and **VERBOS**{: style="color: blue"} :
 
     IO    SHOWMEM=f
@@ -198,12 +198,13 @@ In any case each executable reads its own particular set, though most executable
 
 Executables accept input from two primary streams : tags in the ctrl file and additional information through command-line switches.
 
-There are three special modes designed to facilitate the input.  For definiteness consider the executable **lmfa**{: style="color: blue"}.
+There are four special modes designed to facilitate the input.  For definiteness consider the executable **lmfa**{: style="color: blue"}.
 
 ~~~
 $ lmfa --input
 $ lmfa --help
-$ lmfa --show
+$ lmfa --showp
+$ lmfa --show | lmfa --show=2
 ~~~
 
 `--input` puts **lmfa**{: style="color: blue"} in a special mode.  It doesn't attempt to read anything; instead, it prints out a (large) table of all the tags it would try to read, including a brief description of the tag, and then exits.  See [here](/docs/input/inputfile/#help-with-finding-tokens) for further description.
