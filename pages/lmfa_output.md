@@ -195,8 +195,8 @@ header table [produced by **lmf**{: style="color: blue"}](/docs/outputs/lmf_outp
 
 The next blocks print information about the lattice vectors and settings used in Ewald summations.  This is not relevant for **lmfa**{:
 style="color: blue"}; but it is printed out anyway and is identical to [**lmf**{: style="color: blue"}
-output](/docs/outputs/lmf_output/#lattice-information).
-Similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_output/#/docs/outputs/lmf_output/#symmetry-and-k-mesh).
+output](/docs/outputs/lmf_output/#lattice-information);
+similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
 ### Loop over species
 {::comment}
@@ -226,6 +226,10 @@ All the Questaal codes use a shifted logarithmic mesh: point _i_ has a radius
 
 $$ r_i = b[e^{a(i-1)}-1] $$
 
+The first point is the origin and the last the augmentation radius.  Thus, in addition to the augmentation radius there is a free parameter.
+It is sometimes fixed by spacing _a_ (input through [**SPEC_ATOM_A**](/docs/input/inputfile/#spec)); 
+alternatively it can be fixed by the total number of mesh points (input through [**SPEC_ATOM_NR**](/docs/input/inputfile/#spec)).
+
 The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
 where the the augmentation and interstitial parts are kept separate.
 
@@ -240,8 +244,8 @@ the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table for whatever is missing.
 
 As described in [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
-When _basp.pbte_{: style="color: green"} is present with the 5_d_ local orbital specified by **PZ= 0 0 15.934**,
-**lmfa**{: style="color: blue"} will treat the 5_d_ as a valence.  The printout then reads:
+When the 5_d_ local orbital specified (by **PZ= 0 0 15.934**) in _basp.pbte_{: style="color: green"},
+**lmfa**{: style="color: blue"} will include the 5_d_ in the valence.  The printout then reads:
 
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
@@ -250,10 +254,10 @@ When _basp.pbte_{: style="color: green"} is present with the 5_d_ local orbital 
   Ql=  2.0     2.0     10.0    0.0     0.0    
 ~~~
 
-QC is smaller by 10 and the 5_d_ are included in the valence with 10 electrons (**Pl** is reduced to 5 and **Ql** becomes 10).
+**Qc** is smaller by 10 and the 5_d_ are included in the valence with 10 electrons (**Pl** is reduced to **5.5** and **Ql** becomes **10**).
 
-The **Ql** and the boundary condition are sufficient to completely determine the charge density.  The total self-consistent charge density
-should be the same in either case, but the valence-core partitioning is different.
+The **Ql** and the boundary condition at <i>r</i>&rarr;&infin; are sufficient to completely determine the charge density.  The total
+self-consistent charge density should be the same in either case, but the valence-core partitioning is different.
 
 **lmfa**{: style="color: blue"} starts with a crude guessed density and after 55 iterations converges to the self-consistent one.
 
@@ -275,6 +279,16 @@ what fraction of the state falls outside the augmentation radius.
 <span style="text-decoration:underline;">Click here for annotation of wave function printout.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="wavefunctions">{:/}
 
+In the table below,:
+
++ **eval** is the eigenvalue
++ **node at** is the largest radius for which the wave function has a node
++ **max at**  is the radius where the wave function has a maximum value
++ **c.t.p**   is the classical turning point
++ rho(r&gt;rmt) is the charge spilling outside the augmentation radius.  For Pb 5_d_, **0.007786** electrons spill out: this is on the
+  ragged edge of whether it needs to be included as a local orbital (see Additional Exercises in the
+  [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)).
+
 ~~~
  valence:      eval       node at      max at       c.t.p.   rho(r>rmt)
    6s      -0.91143         1.014       1.961       2.814     0.168779
@@ -288,9 +302,6 @@ what fraction of the state falls outside the augmentation radius.
 ...
    5p      -6.31315         0.486       0.882       1.314     0.000052
 ~~~
-
-For Pb 5_d_, **0.007786** electrons spill out: this is on the ragged edge of whether it needs to be included as a local orbital (see Additional Exercises 
-in the [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)).
 
 _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too shallow to be treated as a core.
 

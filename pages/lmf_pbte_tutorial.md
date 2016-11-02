@@ -20,6 +20,10 @@ It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) bu
 4. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods.
 5. forms the starting point for other tutorials on optics, a QSGW calculation of PbTe, and compares energy bands computed in different ways.
 
+SEe also a [tutorial](/tutorial/gw/qsgw_fe/) for an LDA calculation for Fe.  That tutorial shows some extra features (Fe is metallic and
+ferromagnetic); it also includes a QS<i>GW</i> calculation, and shows how to compare LDA and QS<i>GW</i> energy bands.
+
+
 ### _Table of Contents_
 _____________________________________________________________
 
@@ -192,13 +196,12 @@ collecting the most commonly used tags in one place.
 
 ####  4. _Determining what input an executable seeks_
 
-**blm**{: style="color: blue"} builds input files with only a subset of the tags an executable will try to read.
-Defaults are used for the vast majority of tags.
-In any case each executable reads its own particular set, though most executables share many tags in common.
-
 Executables accept input from two primary streams : tags in the ctrl file and additional information through command-line switches.
+Each executable reads its own particular set, though most executables share many tags in common.
 
-There are four special modes designed to facilitate the input.  For definiteness consider the executable **lmfa**{: style="color: blue"}.
+Usuually an input file contains only a small subset of the tags an executable will try to read; defaults are used for the vast majority of tags.
+
+There are four special modes designed to facilitate managing input files.  For definiteness consider the executable **lmfa**{: style="color: blue"}.
 
 ~~~
 $ lmfa --input
@@ -220,17 +223,17 @@ for a comparison of the pre- and post-processed forms of the input file in this 
 `--show` tells **lmfa**{: style="color: blue"} to print out tags as it reads them (or the defaults it uses).\\
 It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 
-####  4. _Initial setup_
+####  5. _Initial setup_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#initial-setup
 {:/comment}
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-4.1  Find any high-lying core states that should be included in the valence as local orbitals.\\
-4.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
-4.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
-4.4  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
+5.1  Find any high-lying core states that should be included in the valence as local orbitals.\\
+5.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
+5.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
+5.4  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
 It will write basis set information to template _basp0.pbte_{: style="color: green"}.
@@ -249,7 +252,7 @@ Note that, in addition to basis set information written _basp0.pbte_{: style="co
 information about the density in file _atm.pbte_{: style="color: green"}.  However, this file will need modification because the
 partitioning between core and valence will change with the introduction of local orbitals, as described next.
 
-#####  4.1 Local orbitals
+#####  5.1 Local orbitals
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/
 {:/comment}
@@ -303,9 +306,9 @@ the LDA, unoccupied states also contribute to the potential.
 
 {::nomarkdown}</div>{:/}
 
-##### 4.2 Valence-core partitioning of the free atomic density
+##### 5.2 Valence-core partitioning of the free atomic density
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#4.2-valence-core-partitioning-of-the-free-atomic-density/
+/tutorial/lmf/lmf_pbte_tutorial/#5.2-valence-core-partitioning-of-the-free-atomic-density/
 {:/comment}
 
 After _basp.pbte_{: style="color: green"} has been modified, you must run **lmfa**{: style="color: blue"} a second time
@@ -399,7 +402,7 @@ relativistic Dirac treatment.
 
 {::nomarkdown}</div>{:/}
 
-##### 4.3 Automatic determination of basis set
+##### 5.3 Automatic determination of basis set
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set
 {:/comment}
@@ -480,7 +483,7 @@ _atm.pbte_{: style="color: green"}, and exits with the following printout:
 
 This is the _G_ cutoff **gmax** that the ctrl file needs in the next section.  It determines the mesh spacing for the charge density.
 
-####  5. _Self consistency_
+####  6. _Self consistency_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#self-consistency
 {:/comment}
@@ -541,12 +544,13 @@ energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are differen
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration is self-consistent.
 
-####  6. _Annotation of lmfa's output_
+####  7. _Annotation of lmfa's output_
 
-####  6. _Annotation of lmf's output_
+Click [here](/docs/outputs/lmfa_output/) to see **lmfa**{: style="color: blue"}'s standard output annotated.
 
-Click [here](/docs/outputs/lmf_output/) to see
-**lmf**{: style="color: blue"}'s standard output annotated.
+####  8. _Annotation of lmf's output_
+
+Click [here](/docs/outputs/lmf_output/) to see **lmf**{: style="color: blue"}'s standard output annotated.
 
 ### _Other Resources_
 
