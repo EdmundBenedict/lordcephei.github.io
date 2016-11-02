@@ -170,26 +170,27 @@ If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s pr
 The first line shows the atomic number, number of core charges (core levels are assumed to be filled), augmentation radius
 and net sphere charge.
 
-The next lines show the augmentation radius and radial mesh parameters. 
-It uses a shifted logarithmic mesh: point _i_ has a radius
+The next line shows the cutoff radius of the free atom and radial mesh parameters. 
+All the Questaal codes use a shifted logarithmic mesh: point _i_ has a radius
 
-$$ r_i = b[exp^{a(i-1)}-1] $$
+$$ r_i = b[e^{a(i-1)}-1] $$
 
 The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
-which divides the augmentation from the interstitial part.
+where the the augmentation and interstitial parts are kept separate.
 
-Next follow **Pl** and **Ql**.  The **Pl** are the
-[continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) (the fractional
-part is not relevant for free atoms; in this case there is a boundary condition that the wave function decays exponentially as
-<i>r</i>&rarr;&infin;).
+Next follows printouts for **Pl** and **Ql**.  The **Pl** are the
+[continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) 
+for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; (the fractional
+part is not relevant since for free atoms there is a boundary condition that the wave function decay exponentially as
+<i>r</i>&rarr;&infin;).  The integer parts of **Pl** because they define what states are valence.  All states with smaller P.Q.N., e.g.
+the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 
-The _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; charges **Ql** are specified by tag &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+**Pl** and **Ql** are specified by &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat) and &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table for whatever is missing.
 
-Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table if they are missing.
-
-In the tutorial, the Pb 5_d_ [is identified]/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals as a local orbital.
+As described in [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
 When _basp.pbte_{: style="color: green"} is present with the 5_d_ local orbital specified by **PZ= 0 0 15.934**,
-**lmfa**{: style="color: blue"} will treat the 5_d_ as a valence.  The printout now reads:
+**lmfa**{: style="color: blue"} will treat the 5_d_ as a valence.  The printout then reads:
 
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
@@ -198,8 +199,7 @@ When _basp.pbte_{: style="color: green"} is present with the 5_d_ local orbital 
   Ql=  2.0     2.0     10.0    0.0     0.0    
 ~~~
 
-Note that because 5_d_ states are included in the valence through local orbitals, 
-the number of core levels is smaller by 10 and the 5_d_ are included in the valence with 10 electrons.
+QC is smaller by 10 and the 5_d_ are included in the valence with 10 electrons (**Pl** is reduced to 5 and **Ql** becomes 10).
 
 The **Ql** and the boundary condition are sufficient to completely determine the charge density.  The total self-consistent charge density
 should be the same in either case, but the valence-core partitioning is different.
@@ -211,9 +211,6 @@ should be the same in either case, but the valence-core partitioning is differen
     1   82.000000   2.667E+04      410.0000    0.4078E+03     -164.7879   0.30
    55   82.000000   4.614E-05     1283.9616    0.3612E+08     -309.4131   0.30
 ~~~
-
-_Note:_{: style="color: red"} 
-
 
 #### _Valence and core wave functions_
 {::comment}

@@ -469,36 +469,39 @@ relativistic Dirac treatment.
 **lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
 
 + finding estimates for parameters **RSMH** and **EH** that define the shape of envelope functions 
-+ finding suitable [boundary conditions](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) for linearization energies
++ finding suitable boundary conditions for linearization energies, parameterized by the ["continuously principal quantum number" _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 + deciding on which high-lying cores should be included as local orbitals
 
 **lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
 
 See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
-for a more detailed description of how atomic densities are determined.
+for a more detailed description of how it proceeds in making the atomic density self-consistent.
 
-Next, **lmfa**{: style="color: blue"} will build some
-basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
-1. basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
-2. ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_
-3. information about local orbitals, and suggestions for which partial waves should be included.
-4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
+Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some
+basis set information, and writes the information to template _basp0.pbte_{: style="color: green"}.  It supplies:\\
+1. basis (parameters **EH** and **RSMH** defining the shape of the envelope functions\\
+2. ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_\\
+3. information about local orbitals, and sets which partial waves should be included\\
+4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.\\
   
 
+The envelope functions, [smoothed Hankel functions](/docs/code/smhankels/) are characterized by **RSMH** and **EH**.
+**RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
+where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
+decay length **<i>&kappa;</i>=EH**. **lmfa**{: style="color: blue"} finds an estimate for
+**RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
+
+Fit to free atomic tails is generally quite good:  this table
 
 ~~~
- Fit local orbitals to sm hankels, species Pb, rmt=3.044814
- l   Rsm    Eh     Q(r>rmt)   Eval      Exact     Pnu     K.E.   fit K.E.  Gmax
- 2  1.041 -1.083   0.00792  -1.56878  -1.56879   5.934  -0.8111  -0.8111    7.8
+ Optimise free-atom basis for species Pb, rmt=3.044814
+ l  it    Rsm      Eh     stiffR   stiffE      Eval      Exact     Pnu    Ql
+ 0  50   1.794  -0.698      88.6    108.3   -0.91141  -0.91143    6.89   2.00
+ 1  26   2.026  -0.161     182.6    936.8   -0.27824  -0.27876    6.81   2.00
+ 2  32   1.013  -1.099       3.1      5.0   -1.56878  -1.56879    5.93  10.00
+ eigenvalue sum:  exact -18.06831    opt basis -18.06716    error 0.00116
 ~~~
 
-Next **lmfa**{: style="color: blue"} finds some basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies:
-+  basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
-+ ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
-+ information about local orbitals
-
-
-finds corresponding parameters for the valence envelope functions.
 This constitutes a reasonable (but not optimal) guess for the shape of crystal envelope functions.
 
 ~~~
@@ -628,7 +631,7 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 
 ### _Additional exercises_
 
-You can try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital 
+1. You can try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital.  Repeat the calculation but remove the **PZ** part from _basp.pbte_{: style="color: green"}
 
 Specify symops yourself
 
