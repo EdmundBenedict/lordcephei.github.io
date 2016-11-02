@@ -52,16 +52,15 @@ The result is very similar to `lmf --showp ...`, which is documented
 /docs/outputs/lmfa_output/#how-lmf-and-lmfa-read-input-differently
 {:/comment}
 
-To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  
-[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.  The result is similar to 
-[**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).  However **lmfa**{: style="color: blue"} parses fewer
-tags than **lmf**{: style="color: blue"} does; moreoever, some tags they both parse have different meaning in the two codes.
+To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  [This web
+page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.\\
+The result is similar to [**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
+However **lmfa**{: style="color: blue"} parses fewer tags than **lmf**{: style="color: blue"} does; moreoever, some tags they both parse
+have different meaning in the two codes.
 
-{::comment}
-<button type="button" class="button tiny radius">Click here to see differences in .</button>
-{:/comment}
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Click here to see how lmf and and **lmfa**{: style="color: blue"} parse the input file differently.</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
+<span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tags">{:/}
 
 Add `--input` to the **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} commands
 
@@ -136,30 +135,17 @@ you expect.  Using `--show` is useful if you want to record the input conditions
 The action of `--show` is similar to what occurs with **lmf**{: style="color: blue"}; see
 [that output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for further discussion.
 
-### Header information
-{::comment}
-/docs/outputs/lmfa_output/#header-information
-{:/comment}
+### Header, lattice, and symmetry blockss
 
 The header information presents a condensed synopsis of some key
 settings that are used in the calculation.  It is similar to the
 header table [produced by **lmf**{: style="color: blue"}](/docs/outputs/lmf_output/#header-information).
 
-### Lattice information
-{::comment}
-/docs/outputs/lmfa_output/#lattice-information
-{:/comment}
+This block prints information about the lattice vectors and settings used in Ewald summations.  It is not relevant for **lmfa**{:
+style="color: blue"}; but it is printed out anyway and is identical to [**lmf**{: style="color: blue"}
+output](/docs/outputs/lmf_output/#lattice-information).
 
-This block prints information about the lattice vectors and settings used in Ewald summations.
-Lattice information is not particularly relevant for **lmfa**{: style="color: blue"};
-but it is printed out anyway and is identical to [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#lattice-information).
-
-### Symmetry information
-{::comment}
-/docs/outputs/lmfa_output/#symmetry-information
-{:/comment}
-
-This block prints information about the crystal symmetry, also not relevant for **lmfa**{: style="color: blue"}.
+Similarly for the next block on [symmetry and _k_ mesh](/docs/outputs/lmf_output/#/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
 ### Loop over species
 {::comment}
@@ -227,9 +213,10 @@ After parsing the ctrl file, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to file _basp0.pbte_{: style="color: green"}
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here for a description.</button>
+<button type="button">Click here for a description.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
 {::comment}
+<button type="button" class="button tiny radius">Click here for a description.</button>
 Click here for a description.
 {:/comment}
 

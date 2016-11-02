@@ -233,9 +233,9 @@ This block prints informations about the lattice vectors and settings used in Ew
 
 _Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance.
 
-### Symmetry information
+### Symmetry and k mesh
 {::comment}
-/docs/outputs/lmf_output/#symmetry-information
+/docs/outputs/lmf_output/#symmetry-and-k-mesh
 {:/comment}
 
 The block below shows symmetry operations it finds in the
