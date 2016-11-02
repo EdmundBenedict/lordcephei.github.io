@@ -190,7 +190,7 @@ of its function, by adding `--input` to the command-line.\\
 Search for keywords in the text to find what you need.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here to see --input explained.</button>
+<button type="button" class="button tiny radius">Click here to see  --input  explained.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
 Take for an example:
@@ -265,7 +265,6 @@ BZ_NKABC               reqd   i4v      3,  1
   Supply one number for all vectors or a separate number for each vector.
 ~~~
 
-
 {::nomarkdown}</div>{:/}
 
 Command-line options
@@ -278,9 +277,10 @@ Displaying tags read by the parser
 See the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file)
 for an example.
 
-_____________________________________________________________
+These special modes are summarized [here](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks).
 
 ### 3. _The EXPRESS category_
+_____________________________________________________________
 
 Section 4 provides some description of the input and purpose of tags in each category.
 
