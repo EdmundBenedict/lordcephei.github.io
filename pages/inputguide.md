@@ -544,8 +544,10 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 ##### _GW_
 Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (job −1).
 
+{::comment}
 <div onclick="elm = document.getElementById('gwtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="gwtable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -562,7 +564,9 @@ DELTA | r | lmfgwd | Y | -1e-4 | δ-function broadening for calculating $$ χ_0 
 GSMEAR | r | lmfgwd | Y | .003 | Broadening width for smearing pole in the Green’s function when calculating Σ.<br><br>This parameter is sometimes important in metals, e.g. Fe.<br>See Section 3 in this manual.<br><br>When generating a GWinput template, lmfgwd passes GSMEAR to the esmr tag.
 PBTOL | r | lmfgwd | Y | .001 | Overlap criterion for product basis functions inside augmentation spheres.<br>The overlap matrix of the basis of product functions generated and diagonalized for each l. Functions with overlaps less than PBTOL are removed from the product basis.<br><br>When generating a GWinput template, lmfgwd passes PBTOL to the second line after the the start of the PRODUCT_BASIS section.
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _HEADER_
 This category is optional, and merely prints to the standard output whatever text is in the category. For example:
@@ -584,8 +588,10 @@ HEADER [ In this form only two lines reside within the
 ##### _IO_
 This optional category controls what kind of information, and how much, is written to the standard output file.
 
+{::comment}
 <div onclick="elm = document.getElementById('iotable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="iotable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -595,7 +601,9 @@ VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly te
 IACTIV | 1 | all | Y | F | Turn on interactive mode. At some point programs will prompt you with queries.<br>May also be controlled from the command-line: --iactiv or --iactiv=no.
 TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: --time=#1[,#2]
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _ITER_
 The ITER category contains parameters that control the requirements to reach self-consistency.
@@ -603,8 +611,10 @@ The ITER category contains parameters that control the requirements to reach sel
 It applies to all programs that iterate to self-consistency:
 **lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('itertable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="itertable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -618,15 +628,19 @@ UMIX | r | all | Y | 1 | Mixing parameter for density matrix; used with LDA+U
 TOLU | r | all | Y | 0 | Tolerance for density matrix; used with LDA+U
 NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _OPTICS_
 Optics functions available with the ASA extension packages OPTICS.
 
 It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('opticstable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="opticstable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -644,7 +658,9 @@ CHI2\_AXES | i1, i2, i3 | OPTICS | N | | Direction vectors for each of the NCHI2
 ESCISS | r | OPTICS | Y | 0 | Scissors operator (constant energy added to unoccupied levels)
 ECUT | r | OPTICS | Y | 0.2 | Energy safety margin for determining (occ,unocc) window.<br>lmf will attempt to reduce the number of (occ,unocc) pairs by restricting, for each k, transitions that contribute to the response, i.e. to those inside the optics WINDOW.<br>The window is padded by ECUT to include states outside, but near the edge of the window.<br>States outside window may nevertheless make contribution, e.g. because they can be part of a tetrahedron that does contribute.<br>If you do not want lmf to restrict the range, use ECUT<0.
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _OPTIONS_
 Portions of OPTIONS are read by these codes:
@@ -653,8 +669,10 @@ Portions of OPTIONS are read by these codes:
 **lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; 
 **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('optionstable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="optionstable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -675,15 +693,19 @@ ASA\_NOHYB | 1 | NC | Y | F | Set to 1 to turn off hybridization
 ASA\_MTCOR | 1 | NC | Y | F | Set to T to turn on Ewald MT correction
 ASA\_QMT | r | NC | Y | 0 | Override standard background charge for Ewald MT correction<br>Input only meaningful if MTCOR=T
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _PGF_
 Category PGF concerns calculations with the layer Green’s function program **lmpg**{: style="color: blue"}.
 
 It is read by **lmpg**{: style="color: blue"} and **lmstr**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('pgftable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="pgftable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -693,13 +715,17 @@ PLATL | r | ASA | N | | The third lattice vector of left bulk region
 PLATR | r | ASA | N | | The third lattice vector of right bulk region
 GFOPTS | c | ASA | Y | | ASCII string with switches governing execution of lmgf or lmpg. Use `;‘ to separate the switches.<br><br>Available switches:<br><br>‘p1‘ First order of potential function<br><br>‘p3‘ Third order of potential function<br><br>‘pz‘ Exact potential function (some problems; not recommended)<br><br>Use only one of the above; if none are used, the code makes second order potential functions<br><br>‘idos‘ integrated DOS (by principal layer in the lmpg case)<br><br>‘noidos‘ suppress calculation of integrated DOS<br><br>‘pdos‘ accumulate partial DOS<br><br>‘emom‘ accumulate output moments; use ‘noemom‘ to suppress<br><br>‘noemom‘ suppresss accumulation of output moments<br><br>‘sdmat‘ make site density-matrix<br><br>‘dmat‘ make density-matrix<br><br>‘frzvc‘ do not update potential shift needed to obtain charge neutrality<br><br>'padtol‘ Tolerance in Pade correction to charge. If tolerance exceeded, lmgf will repeat the band pass with an updated Fermi level<br><br>‘omgtol‘ (CPA) tolerance criterion for convergence in coherent potential<br><br>‘omgmix‘ (CPA) linear mixing parameter for iterating convergence in coherent potential<br><br>‘nitmax‘ (CPA) maximum number of iterations to iterate for coherent potential<br><br>‘lotf‘ (CPA)<br><br>‘dz‘ (CPA)
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _SITE_
 Category SITE holds site information. As in the SPEC category, tokens must read for each site entry; a similar restriction applies to the order of tokens. Token ATOM= must be the first token for each site, and all tokens defining parameters for that site must occur before a subsequent ATOM=.
 
+{::comment}
 <div onclick="elm = document.getElementById('sitetable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="sitetable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -713,7 +739,9 @@ ATOM\_RMAXS | r | FP | Y | | Site-dependent radial cutoff for structure constant
 ATOM\_ROT | c | ASA | Y | | Rotation of spin quantization axis at this site
 ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _SPEC_
 {::comment}
@@ -802,8 +830,10 @@ MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up fre
 ##### _STR_
 Category STR contains information connected with real-space structure constants, used by the ASA programs. It is read by **lmstr**{: style="color: blue"}, **lmxbs**{: style="color: blue"}, **lmchk**{: style="color: blue"}, and **tbe**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('strtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="strtable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -828,13 +858,17 @@ IINV\_TOL | r | lmstr | Y | 0 | Tolerance in errors
 
 *IINV parameters govern iterative solutions to screened strux
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _START_
 Category START is specific to the ASA. It controls whether the code starts with moments P,Q or potential parameters; also the moments P,Q may be input in this category. It is read by **lm**{: style="color: blue"}, **lmgf**{: style="color: blue"}, **lmpg**{: style="color: blue"}, and **tbe**{: style="color: blue"}.
 
+{::comment}
 <div onclick="elm = document.getElementById('starttable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="starttable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -883,12 +917,16 @@ The high-lying Ga 4d state is a classic example. To restrict P to a fixed value,
 
 In such cases, you want to pick the fractional part of P to be small, but not so low as to cause problems (about 0.15).
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _STRUC_
 
+{::comment}
 <div onclick="elm = document.getElementById('structable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="structable">{:/}
+{:/comment}
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
@@ -905,18 +943,22 @@ DEFGRD | r | all | Y | | A 3×3 matrix defining a general linear transformation 
 STRAIN | r | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
 ALPHA | r | all | N | | Amount of Voigt strain
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _SYMGRP_
 
+{::comment}
 <div onclick="elm = document.getElementById('symtable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show SYMGRP.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="symtable">{:/}
+{:/comment}
 
 Category SYMGRP provides symmetry information; it helps in two ways. First, it provides the relevant information to find which sites are equivalent, this makes for a simpler and more accurate band calculations. Secondly, it reduces the number of k-points needed in Brillouin zone integrations.  
 
 Normally you don't need SYMGRP; the program is capable of finding its own symmetry operations. However, there are cases where it is useful or even necessary to manually specify them. For example when including spin-orbit coupling or noncollinear magnetism where the symmetry group isn't only specified by the atomic positions. In this case you need to supply extra information.  
 
-You can use SYMGRP to explicitly declare a set of generators from which the entire group can be created. For example, the three operations R4X, MX and R3D are sufficient to generate all 48 elements of cubic symmetry.  
+You can use SYMGRP to explicitly declare a set of generators from which the entire group can be created. For example, the three operations R4X, MX and R3D are sufficient to generate all 48 elements of cubic symmetry.
 
 Unless conditions are set for noncollinear magnetism and/or SO coupling, the inversion is assumed by default as a consequence of time-reversal symmetry.  
 
@@ -976,7 +1018,9 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
   
 * 'RHOPOS' turns on a switch that forces the density positive at all points
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 ##### _VERS_
 This category is used for version control. As of version 7, the input file must have the following tokens for any program in the suite:
