@@ -212,7 +212,7 @@ $ lmfa --show | lmfa --show=2
 `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
 
 <div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for an explanation of the `--help` function.</span>
+<button type="button" class="button tiny radius">Click here for an explanation of the `--help` function.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
 
 First appears a list of command line options available in most Questaal codes.
