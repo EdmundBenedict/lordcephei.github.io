@@ -102,17 +102,10 @@ SPEC                                             |  SPEC
 /docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file
 {:/comment}
 
-To see what tags **lmf**{: style="color: blue"} will look for, use `lmf --input`.
-[This web page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.
-
 After transformation by the preprocessor, **lmf**{: style="color: blue"} parses for tags and substitutes default values for tags it does not
 find.  To see the value of tags **lmf**{: style="color: blue"}, whether parsed or defaults, use `lmf --show` or `lmf --show=2`.  The latter causes **lmf**{:
 style="color: blue"} to stop after displaying tags, and is useful if you want to see whether **lmf**{: style="color: blue"} is doing what
 you expect.  Using `--show` is useful if you want to record the input conditions in the output (be advised that the output is verbose).
-
-`lmf --help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
-See [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
-for further description.
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see --show explained.</span>
@@ -160,6 +153,14 @@ The output is quite verbose so only a snippet from the **SPEC** category is show
    from the basp file.
 
 {::nomarkdown}</div>{:/}
+
+There are two other special modes to help with managing the input.
+
+`$lmf --input` doesn't attempt to read anything; instead, it prints out a (large) table of all the tags it would try to read, including a brief description of the tag, and then exits.  See [here](/docs/input/inputfile/#help-with-finding-tokens) for further description.
+
+`$ lmf --help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
+See [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
+for further description.
 
 ###  Reading basis information from the basp file
 {::comment}
