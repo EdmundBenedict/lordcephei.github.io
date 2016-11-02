@@ -265,6 +265,8 @@ Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbital
 window; certain elements may require an extension to the linear approximation for accurate calculations.  This is accomplished with
 [local orbitals](/docs/package_overview/#linear-methods-in-band-theory).  **lmfa**{: style="color: blue"} will automatically look for atomic
 levels which, if certain criteria are satisfied it designates as a local orbital, and includes this information in the basp0 file.
+The [annotated lmfa output](/docs/outputs/lmfa_output/#generating-basis-information) explains how **lmfa**{: style="color: blue"} presents information
+it finds about local orbitals.
 
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of how local orbitals are specified in the basp file.</span>

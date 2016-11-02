@@ -27,7 +27,7 @@ _____________________________________________________________
 
 ##### _Introduction_
 
-Here is a sample input file for the compound Bi$$_2$$Te$$_3$$ written for the **lmf**{: style="color: blue"} package.
+Here is a sample input file for the compound Bi<sub>_2</sub>Te<sub>_3</sub> written for the **lmf**{: style="color: blue"} code.
 
 <div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show.</button>
