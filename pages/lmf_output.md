@@ -42,7 +42,7 @@ Normally it does this silently.  To see the effects of the preprocessor use `lmf
 {:/comment}
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Click here to see the action of the preprocessor on ctrl.pbte.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="preprocessor">{:/}
+</div>{::nomarkdown}<div style="display:inline-block;padding:0px;" id="preprocessor">{:/}
 
 Add `--input` to the **lmf**{: style="color: blue"} command in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 

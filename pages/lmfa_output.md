@@ -54,9 +54,10 @@ The result is very similar to `lmf --showp ...`, which is documented
 
 To see what tags **lmfa**{: style="color: blue"} will look for, use `lmfa --input`.  [This web
 page](/docs/input/inputfile/#help-with-finding-tokens) explains what `--input` gives you.\\
+
 The result is similar to [**lmf**{: style="color: blue"} produces](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
-However **lmfa**{: style="color: blue"} parses fewer tags than **lmf**{: style="color: blue"} does; moreoever, some tags they both parse
-have different meaning in the two codes.
+However **lmfa**{: style="color: blue"} parses fewer tags; moreoever, some tags they both parse
+have different meanings
 
 <div onclick="elm = document.getElementById('tags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>

@@ -44,10 +44,11 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 <div onclick="elm = document.getElementById('1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="1">{:/}
 
-    blm init.pbte                                 #makes template actrl.pbte and site.pbte
-    cp actrl.pbte ctrl.pbte
-    lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
-    cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
+blm init.pbte                                 #makes template actrl.pbte and site.pbte
+cp actrl.pbte ctrl.pbte
+lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
+cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
+lmfa ctrl.pbte                                #remake atomic density with updated valence-core partitioning
 
     ... to be finished
 
