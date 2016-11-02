@@ -316,7 +316,7 @@ From the self-consistent density and potential, **lmfa**{: style="color: blue"} 
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
 
 + envelope function (parameters **EH** and **RSMH** defining the shape of the envelope functions)
-+ ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
++ ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_
 + information about local orbitals
 
 These bits of information are written to file _basp0.pbte_{: style="color: green"}.
@@ -325,12 +325,10 @@ These bits of information are written to file _basp0.pbte_{: style="color: green
 <span style="text-decoration:underline;">Click here for annotation of lmfa's generation of envelope function parameters and boundary condition at the augmentation radius.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="envelope">{:/}
 
-Fitting **RSMH** and **EH** to the numerically derived wave functions
-can be readily accomplished.  **lmfa**{: style="color: blue"} does it
-in two steps.  First it does the estimate for the occupied levels only
-and at the same time computes a variational estimate for the energy.
-In peturbation theory this differs from the exact value computed from
-numerical wave functions as the difference in in single-particle sum.
+Fitting **RSMH** and **EH** to the numerically derived wave functions can be readily accomplished. (It is a nonlinear procedure.) **lmfa**{:
+style="color: blue"} actually does it twice.  First it does the estimate for the occupied levels only and at the same time computes a
+variational estimate for the energy.  In perturbation theory this differs from the exact value computed from numerical wave functions as the
+difference in in single-particle sum.
 
 The information is displayed in the following table for each _l_ that
 carries electrons.  **rmt** is the augmentation radius.
@@ -343,11 +341,10 @@ carries electrons.  **rmt** is the augmentation radius.
  eigenvalue sum:  exact  -2.38037    opt basis  -2.37931    error 0.00106
 ~~~
 
-+ **Rsm** and **Eh* are the optimum **RSMH** and **EH** for the atom
-+ **StiffR and stiffE** are the sensitivity of the total energy to 
-  changes in **Rsm** and **Eh*
-+ **Eval**    is the expectation value of the numerical wave function for _r_&;lt;**rmt**
-  and the fit function for _r_&;gt;**rmt**, from the variational principle.
++ **Rsm** and **Eh** are the optimum values for **RSMH** and **EH** in the free atom
++ **StiffR and stiffE** are the sensitivity of the total energy to changes in **Rsm** and **Eh**
++ **Eval**    is the expectation value of the numerical wave function for _r_&lt;**rmt**
+  and the fit function for _r_&gt;**rmt**, from the variational principle.
 + **Exact**   is the exact eigenvalue of the self-consistent potential.
 + **Pnu** is the logarithmic derivative of the exact atomic wave function at **rmt**,
   converted into the "continuous principal quantum number".
@@ -386,13 +383,11 @@ This information is displayed in the following table.
 <span style="text-decoration:underline;">Click here for annotation of lmfa's treatment of local orbitals.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="lo">{:/}
 
-**lmfa**{: style="color: blue"} may already be given a speficiation about local orbitals.
-It is supplied by **PZ** in the input file or an already-existing basp file
-(depending on how [**HAM_AUTOBAS_LOC**](/docs/input/inputfile/#ham) is set)
+Local orbitals may already be specified when **lmfa**{: style="color: blue"} begins execution.  Information about them is supplied by **PZ** in the input file
+or an already-existing basp file (depending on how [**HAM_AUTOBAS_LOC**](/docs/input/inputfile/#ham) is set)
 
-In this event it will try to fit the tail of this orbital to a smooth Hankel for
-_r_&;gt;**rmt**, in a manner similar to its fit of the envelope functions.
-For the Pb atom, the fit reads
+In this event **lmfa**{: style="color: blue"} will try to fit the tail of this orbital to a smooth Hankel for _r_&gt;**rmt**, in a manner
+similar to its fit of the envelope functions.  For the Pb atom, the fit reads
 
 ~~~
  Fit local orbitals to sm hankels, species Pb, rmt=3.044814
@@ -402,12 +397,12 @@ For the Pb atom, the fit reads
 
 _Notes:_{: style="color: red"} 
 
-+ These functions can be very deep and left unconstrained **Rsm** can become quite small.  This makes for a very sharply peaked function.
-  In such a case the weight of the wave function (measured by **Q(r>rmt)**) is small and the fit does not need to be accurate.  To protect
++ The eigenvalues can be quite deep with the wave function steeply decaying. Left unconstrained **Rsm** can become quite small.  This makes for a very sharply peaked function.
+  In such a case the weight of the wave function (measured by **Q(r>rmt)**) is small and the fit does not need to be especially accurate.  To protect
   against functions too sharply peaked, a constraint is placed on lower bound **Rsm**.  Most of the time the default is ok, but if not the
-  eigenvalue will deviate significantly from the exact one.  You can set this constraint with tag **SPEC\_ATOM\_RS3**.  Be careful not to
-  allow it to get too small; it makes representation of the interstitial density difficult.
-+ Using **Rsm** and **Eh** obtain from the fit it can estimate how many plane waves are needed
+  eigenvalue will deviate significantly from the exact one.  You can set the lower bound with tag [**SPEC\_ATOM\_RS3**](/docs/input/inputfile/#spec).
+  Be careful not to allow it to become too small; it makes representation of the interstitial density difficult and numerically unstable.
++ Using the fit **Rsm** and **Eh** **lmfa**{: style="color: blue"} can estimate how many plane waves are needed
   to accurately represent the intersttial part of this function.  That number is **Gmax**.
   See the [section on **GMAX**](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
 
