@@ -226,7 +226,7 @@ for a comparison of the pre- and post-processed forms of the input file in this 
 `--show` tells **lmfa**{: style="color: blue"} to print out tags as it reads them (or the defaults it uses).\\
 It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 
-####  5. _Initial setup_
+####  5. _Initial setup: free atomic density and parameters for basis_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#initial-setup
 {:/comment}

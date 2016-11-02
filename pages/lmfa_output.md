@@ -314,6 +314,7 @@ _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too sha
 
 From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
+
 +  basis information (parameters **EH** and **RSMH** defining the shape of the envelope functions
 + ["continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P_
 + information about local orbitals
@@ -367,7 +368,7 @@ inside the augmentation sphere: the core and valence densities.
 
 In addition it must keep some information about the density outside.  This density will become part of the interstitial density in the
 crystal.  Thus it must be represented on the interstitial charge density mesh and one-center expansions of it made to include the
-contribution of this atom's density to neighboring sites.
+contribution to neighboring sites from this atom's density.
 
 Both can be readily accomplished if the density is represented as a linear combination of [smooth Hankel functions](/docs/code/smhankels).
 **lmfa**{: style="color: blue"} fits the numerical density to a linear combination of such functions; the smoothing radii, energies, and fit
@@ -399,7 +400,7 @@ inside the augmentation sphere, it is allowed spill out and included in the inte
 **lmfa**{: style="color: blue"} fits the core tail to a single smoothed Hankel function.
 
 <div onclick="elm = document.getElementById('corefit'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of lmfa's printout of the valence density fitting.</span>
+<span style="text-decoration:underline;">Click here for annotation of lmfa's printout of the core density fitting.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="corefit">{:/}
 
 ~~~

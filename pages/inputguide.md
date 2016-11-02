@@ -315,6 +315,8 @@ _Note:_{: style="color: red"} The tables below list the input systems’ tokens 
 *   The Default column indicates the default value, if any
 *   The Explanation column describes the token’s function.
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _BZ_
 {::comment}
 /docs/input/inputfile/#bz
@@ -355,6 +357,8 @@ MULL | i | tbe | Y | 0 | Mulliken population analysis. Mulliken population analy
 
 {::nomarkdown}</div>{:/}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _CONST_
 
 Category CONST enables the user to declare variables for use in algebraic expressions. The syntax is a string of declarations inside the category, e.g:
@@ -387,6 +391,8 @@ SPEC    ALAT=a  NSPEC=nspec NBAS=5
 
 When the CONST category is read (it is read before other categories),
 variables a and nspec are defined and used in the SPEC category.
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _DYN_
 {::comment}
@@ -429,6 +435,8 @@ MD\_TAUB | r | lmmc | Y | 2067.1 | Barostat relaxation time (a.u.)
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _EWALD_
 Category EWALD holds information controlling the Ewald sums for structure consstants entering into, e.g. the Madelung summations and Bloch summed structure constants (**lmf**{: style="color: blue"}). Most programs use quantities in this category to carry out Ewald sums (exceptions are **lmstr**{: style="color: blue"} and the molecules code **lmmc**{: style="color: blue"}).
 
@@ -447,6 +455,8 @@ RPAD | r | | Y | 0 | Scale rcutoff by RPAD when lattice vectors padded in oblong
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _HAM_
 {::comment}
@@ -519,6 +529,8 @@ AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the logarithmic de
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _GF_
 Category GF is intended for parameters specific to the Green’s function code **lmgf**{: style="color: blue"}.
 It is read by **lmgf**{: style="color: blue"}.
@@ -539,6 +551,8 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _GW_
 Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (job −1).
@@ -567,6 +581,8 @@ PBTOL | r | lmfgwd | Y | .001 | Overlap criterion for product basis functions in
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _HEADER_
 This category is optional, and merely prints to the standard output whatever text is in the category. For example:
 
@@ -583,6 +599,8 @@ HEADER [ In this form only two lines reside within the
         category delimiters,]
         and only two lines are printed.
 ~~~
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _IO_
 This optional category controls what kind of information, and how much, is written to the standard output file.
@@ -603,6 +621,8 @@ TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _ITER_
 The ITER category contains parameters that control the requirements to reach self-consistency.
@@ -630,6 +650,8 @@ NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTICS_
 Optics functions available with the ASA extension packages OPTICS.
@@ -660,6 +682,8 @@ ECUT | r | OPTICS | Y | 0.2 | Energy safety margin for determining (occ,unocc) w
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTIONS_
 Portions of OPTIONS are read by these codes:
@@ -696,6 +720,8 @@ ASA\_QMT | r | NC | Y | 0 | Override standard background charge for Ewald MT cor
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _PGF_
 Category PGF concerns calculations with the layer Green’s function program **lmpg**{: style="color: blue"}.
 
@@ -717,6 +743,8 @@ GFOPTS | c | ASA | Y | | ASCII string with switches governing execution of lmgf 
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _SITE_
 Category SITE holds site information. As in the SPEC category, tokens must read for each site entry; a similar restriction applies to the order of tokens. Token ATOM= must be the first token for each site, and all tokens defining parameters for that site must occur before a subsequent ATOM=.
@@ -741,6 +769,8 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _SPEC_
 {::comment}
@@ -826,6 +856,8 @@ MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up fre
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _STR_
 Category STR contains information connected with real-space structure constants, used by the ASA programs. It is read by **lmstr**{: style="color: blue"}, **lmxbs**{: style="color: blue"}, **lmchk**{: style="color: blue"}, and **tbe**{: style="color: blue"}.
 
@@ -860,6 +892,8 @@ IINV\_TOL | r | lmstr | Y | 0 | Tolerance in errors
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _START_
 Category START is specific to the ASA. It controls whether the code starts with moments P,Q or potential parameters; also the moments P,Q may be input in this category. It is read by **lm**{: style="color: blue"}, **lmgf**{: style="color: blue"}, **lmpg**{: style="color: blue"}, and **tbe**{: style="color: blue"}.
@@ -920,7 +954,7 @@ In such cases, you want to pick the fractional part of P to be small, but not so
 {::nomarkdown}</div>{:/}
 {:/comment}
 
-Return to [Table of Contents](/docs/input/inputfile/#table-of-contents)
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _STRUC_
 
@@ -947,6 +981,8 @@ ALPHA | r | all | N | | Amount of Voigt strain
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _SYMGRP_
 
@@ -1023,6 +1059,8 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 {::nomarkdown}</div>{:/}
 {:/comment}
 
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 ##### _VERS_
 This category is used for version control. As of version 7, the input file must have the following tokens for any program in the suite:
 
@@ -1044,3 +1082,6 @@ VERS LM:7 TB:9               for the empirical tight-binding tbe
 ~~~
 
 Add version control tokens for whatever programs your input file is capable of handling.
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
