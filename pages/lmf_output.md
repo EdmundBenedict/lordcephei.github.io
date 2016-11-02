@@ -39,7 +39,7 @@ Normally it does this silently.  To see the effects of the preprocessor use `lmf
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see the action of the preprocessor on ctrl.pbte.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px; id="preprocessor">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;"id="preprocessor">{:/}
 {::comment}
 <button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
 {:/comment}
@@ -172,7 +172,7 @@ by **lmfa**{: style="color: blue"}.  Tokens in
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id=" basp">{:/}
 {::comment}
 text underlined:
 <span style="text-decoration:underline;">Click here for a description.</span>

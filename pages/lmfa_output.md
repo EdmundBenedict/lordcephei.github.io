@@ -60,7 +60,7 @@ However **lmfa**{: style="color: blue"} parses fewer tags; moreoever, some tags 
 have different meanings
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
+<span style="text-decoration:underline;">Click here to compare input tags in lmfa to lmf.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
 
 Add `--input` to the **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} commands
@@ -145,7 +145,6 @@ header table [produced by **lmf**{: style="color: blue"}](/docs/outputs/lmf_outp
 This block prints information about the lattice vectors and settings used in Ewald summations.  It is not relevant for **lmfa**{:
 style="color: blue"}; but it is printed out anyway and is identical to [**lmf**{: style="color: blue"}
 output](/docs/outputs/lmf_output/#lattice-information).
-
 Similarly for the next block on [symmetry and _k_ mesh](/docs/outputs/lmf_output/#/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
 ### Loop over species
@@ -215,7 +214,7 @@ basis set information which is written to file _basp0.pbte_{: style="color: gree
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of stdout, generation of basis parameters.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px; id="basp">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;"id="basp">{:/}
 {::comment}
 text underlined:
 <span style="text-decoration:underline;">Click here to compare lmfa's input tags to lmf.</span>
