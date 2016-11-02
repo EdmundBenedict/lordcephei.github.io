@@ -175,12 +175,6 @@ by **lmfa**{: style="color: blue"}.  Tokens in
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
 
 {::comment}
-...problem here
-<div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for a description.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id=" basp">{:/}
-
-
 text underlined:
 <span style="text-decoration:underline;">Click here for a description.</span>
 nothing:

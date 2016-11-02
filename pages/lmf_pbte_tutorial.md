@@ -44,13 +44,27 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 <div onclick="elm = document.getElementById('1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="1">{:/}
 
+[Make an input file:](/tutorial/lmf/lmf_pbte_tutorial/#building-the-input-file)
+
+~~~
+nano init.pbte
 blm init.pbte                                 #makes template actrl.pbte and site.pbte
 cp actrl.pbte ctrl.pbte
+~~~
+
+[Free atomic density and basis parameters](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup)
+
+~~~
 lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
 cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
 lmfa ctrl.pbte                                #remake atomic density with updated valence-core partitioning
+~~~
 
-    ... to be finished
+[Self-consistency:](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
+
+~~~
+lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
+~~~
 
 {::nomarkdown}</div>{:/}
 

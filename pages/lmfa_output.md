@@ -251,7 +251,7 @@ _On identifying local orbitals for shallow cores_
 
 {::nomarkdown}</div>{:/}
 
-#### Fitting the charge density outside the augmentation radius
+#### _Fitting the charge density outside the augmentation radius_
 {::comment}
  /docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius
 {:/comment}
@@ -283,7 +283,7 @@ _On identifying local orbitals for shallow cores_
     7.086104    0.00000001    0.00000001
 ~~~
 
-#### Estimating the plane-wave cutoff GMAX
+### Estimating the plane-wave cutoff GMAX
 {::comment}
  /docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
 {:/comment}
