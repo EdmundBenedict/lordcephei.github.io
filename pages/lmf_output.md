@@ -170,12 +170,19 @@ The basp file is [automatically generated](/tutorial/lmf/lmf_pbte_tutorial/#auto
 by **lmfa**{: style="color: blue"}.  Tokens in
 **EXPRESS_autobas** or **HAM_AUTOBAS**  control what is read from the basp file.
 
-something wrong ...
+something wrong ... try2
 
 <div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id=" basp">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="basp">{:/}
+
 {::comment}
+...problem here
+<div onclick="elm = document.getElementById('basp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for a description.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id=" basp">{:/}
+
+
 text underlined:
 <span style="text-decoration:underline;">Click here for a description.</span>
 nothing:
