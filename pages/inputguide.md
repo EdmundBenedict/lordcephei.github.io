@@ -181,7 +181,7 @@ Finding what tags the parser seeks
 : It is often the case that you want to input some information but don't
 know the name of the tag you need.
 : You can list each tag a particular tool sees with a synopsis
-of its function, by adding `--input` to the command-line.  
+of its function, by adding `--input` to the command-line.\\
 Search for keywords in the text to find what you need.
 
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -218,6 +218,9 @@ in the following format.  A snippet of the output is reproduced below:
  STRUC_PLAT             reqd   r8v      9,  9
    Primitive lattice vectors, in units of alat
 ...
+ SPEC_ATOM_LMX          opt    i4       1,  1     (default depends on prior input)
+   l-cutoff for basis
+...
  SITE_ATOM_POS          reqd*  r8v      3,  1
    Atom coordinates, in units of alat
  - If preceding token is not parsed, attempt to read the following:
@@ -225,26 +228,38 @@ in the following format.  A snippet of the output is reproduced below:
    Atom coordinates, as (fractional) multiples of the lattice vectors
 ~~~
 
-The table tells you **IO_VERBOS** and **IO_IACTIV** are optional tags; 
-default values are 35 and 0, respectively.
-A single integer will be read from the latter tag, and
-between one and five integers will be read from **IO_VERBOS**.
+The table tells you **IO_VERBOS** and **IO_IACTIV** are optional tags; default values are 35 and 0, respectively.  A single integer will be
+read from the latter tag, and between one and five integers will be read from **IO_VERBOS**.
 
-There is a brief synopsis explaining the functions of each.
-For these particular cases, the output gives alternative means to perform equivalent functions
-through command-line switches.
+There is a brief synopsis explaining the functions of each.  For these particular cases, the output gives alternative means to perform
+equivalent functions through command-line switches.
 
 **STRUC_FILE=fname** is optional.  Here **fname** is a character string: it should be the site file name _fname.ext_{: style="color: green"}
 from which lattice information is read. If you do use this tag, other tags in the **STRUC** category (**NBAS**, **PLAT**, **ALAT**) may be omitted.
 Otherwise, **STRUC_PLAT** is required input; the parser requires 9 numbers.\\
 The synopsis also tells you that you can specify the same information using **EXPRESS_file=fname** (see **EXPRESS** category below).
 
+**SPEC_ATOM_LMX** is optional input whose default value depends on other input (in this case, atomic number).
+
 **SITE_ATOM_POS** is required input in the sense that you must supply either it
-or **SITE_ATOM_XPOS**.  The \* in reqd\* indicates that you can supply the information in **SITE_ATOM_POS** 
-by an alternate tag -- **SITE_ATOM_XPOS** in this case. 
+or **SITE_ATOM_XPOS**.  The <b>\*</b> in <b>reqd\*</b> the information in **SITE_ATOM_POS** 
+can be supplied by an alternate tag -- **SITE_ATOM_XPOS** in this case. 
 
 _Note:_{: style="color: red"} if site data is given through a site file, 
 all the other tags in the **SITE** category will be ignored.
+
+The cast (real, integer, character) of each tag is indicated, and also how many numbers are to be read.  Sometimes tags will look for more
+than one number, but allow you to supply fewer.  For example, **BZ_NKABC** in the snippet below looks for three numbers to determine the
+_k_-mesh, which are the number of divisions only each of the reciprocal lattice vectors.  If you supply only one number it is copied to
+elements 2 and 3.
+
+~~~
+BZ_NKABC               reqd   i4v      3,  1
+  (Not used if data read from EXPRESS_nkabc)
+  No. qp along each of 3 lattice vectors.
+  Supply one number for all vectors or a separate number for each vector.
+~~~
+
 
 {::nomarkdown}</div>{:/}
 

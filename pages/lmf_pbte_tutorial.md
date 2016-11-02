@@ -100,24 +100,18 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
 
 In this tutorial, **blm**{: style="color: blue"} is used in "standard" mode. (The [basic tutorial](/tutorial/lmf/lmf_tutorial/)
 creates a simpler file with `blm --express init.si`). 
-Standard mode makes limited use of the [preprocessing capabilities](/docs/input/inputfile/) of the Questaal input system : 
-it uses algebraic variables which can be modified on the command line. Thus `lmf -vnit=10 ...` sets variable **nit** to 10 before doing anything else.
-Generally:
+Standard mode makes limited use of the [preprocessing capabilities](/docs/input/inputfile/#preprocessor) of the Questaal input system : 
+it uses [algebraic variables](/docs/input/preprocessor/#variables) which can be modified on the command line.
+Thus `lmf -vnit=10 ...` sets variable **nit** to 10 before doing anything else.  Generally:
 
 * Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `#' in any line is ignored).
 * Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
 
 <div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
+<span style="text-decoration:underline;">Click here to see how variables are set and used in the ctrl file.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="variablesexplained">{:/}
 
-{::comment}
-<div onclick="elm = document.getElementById('variablesexplained'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see how variables can be set and used in the ctrl file.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="variablesexplained">{:/}
-{:/comment}
-
-The beginning of the ctrl file you just generated should look like the following:
+The beginning of the ctrl file **blm**{: style="color: blue"} generated should look like the following:
 
 ~~~
 # Variables entering into expressions parsed by input
@@ -129,7 +123,10 @@ The beginning of the ctrl file you just generated should look like the following
 % const nkabc=0 gmax=0
 ~~~ 
 
-**% const** tells the proprocessor that it is declaring one or more variables.  **nit**, **met**, etc,  used in expressions later on.  The parser interprets the contents of brackets **{...}** as algebraic expressions: The contents of **{...}** is evaluated and the numerical result is substituted for it.  Expression substitution works for input lines proper, and also in the directives.  
+**% const** tells the proprocessor that it is declaring one or more variables.  **nit**, **met**, etc,  used in expressions later on.
+The parser interprets the contents of brackets **{...}** as [algebraic expressions](/docs/input/preprocessor/#expression-substitution):
+The contents of **{...}** is evaluated and the numerical result is substituted for it.
+Expression substitution works for input lines proper, and also in the directives.  
 
 For example this line
 
@@ -143,8 +140,10 @@ because **met** is a numerical expression (admittedly a trivial one).  It evalua
 
 {::nomarkdown}</div>{:/}
 
-Lines corresponding to actual input are divided into **categories**{: style="color: red"}
-and **tokens**{: style="color: blue"} within the categories.
+Lines corresponding to actual input are divided into
+[**categories**{: style="color: red"} and **tokens**{: style="color: blue"}](/docs/input/inputfile/#tags-categories-and-tokens) within the
+categories.
+
 A category begins when a character (other than **%** or **#**) occurs in the
 first column.  Each token belongs to a category; for example in box below **IO**{: style="color: red"} contains three tokens, 
 **SHOWMEM**{: style="color: blue"}, **IACTIV**{: style="color: blue"} and **VERBOS**{: style="color: blue"} :
@@ -203,84 +202,11 @@ To see what an executable looks for in the ctrl file, invoke the executable with
 
     $ lmchk --input
 
-`--input` puts **lmchk**{: style="color: blue"} in a special mode.  It doesn't attempt to read anything; instead, it prints out a (large) table of all the tags it would try to read, including a brief description of the tag, and then exits.
+`--input` puts **lmchk**{: style="color: blue"} in a special mode.  It doesn't attempt to read anything; instead, it prints out a (large) table of all the tags it would try to read, including a brief description of the tag, and then exits.  See [here](/docs/input/inputfile/#help-with-finding-tokens) for further description.
 
 `$ lmchk --help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
 
 `$ lmchk --show` tells **lmchk**{: style="color: blue"} to print out tags as it reads them (or the defaults it uses)
-
-The remainder of this section is not essential to this tutorial and you can safely skip to section 5.  It explains what information is printed when you use
-`--input`; it is useful if you want to see how tags and categories are organized, and how missing or partial tags are handled.
-
-<div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for an explanation of the `--input` function.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
-
-{::comment}
-<div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">Click 
-here for a description of the `--input` function.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/} 
-{:/comment}
-
-Below is snippet of output from `lmchk --input`:
-
-
-~~~
-    Tag                    Input   cast  (size,min)
-    ------------------------------------------
-
-    ...
-
-    --- Parameters for species data ---
-    ... The next four tokens apply to the automatic sphere resizer
-    SPEC_SCLWSR            opt    r8       1,  1     default = 0
-      Scales sphere radii, trying to reach volume = SCLWSR * cell volume
-      SCLWSR=0 turns off this option.
-      Add  10  to initially scale non-ES first;
-       or  20  to scale ES independently.
-    SPEC_OMAX1             opt    r8v      3,  1     default = 0.16 0.18 0.2
-      Limits max sphere overlaps when adjusting MT radii
-
-    ...
-
-    SPEC_ATOM              reqd   chr      1,  0
-      Species label
-    SPEC_ATOM_Z            reqd   r8       1,  1
-      Atomic number
-    SPEC_ATOM_R            reqd*  r8       1,  1
-      Augmentation sphere radius rmax
-
-    ...
-     SPEC_ATOM_LMX          opt    i4       1,  1     (default depends on prior input)
-       l-cutoff for basis
-     SPEC_ATOM_LMXA         opt    i4       1,  1     (default depends on prior input)
-       l-cutoff for augmentation
-
-    ...
-
-    BZ_NKABC               reqd   i4v      3,  1
-      (Not used if data read from EXPRESS_nkabc)
-      No. qp along each of 3 lattice vectors.
-      Supply one number for all vectors or a separate number for each vector.
-~~~ 
-
-**lmchk**{: style="color: blue"} prints the full name of each tag, e.g. **SPEC_ATOM** and **SPEC_ATOM_Z**, 
-even though components of the tag are separated in the ctrl file.  _ctrl.pbte_{: style="color: green"} contains these lines
-
-    SPEC 
-      ATOM=Pb         Z= 82  R= 3.044814  LMX=3  LMXA=4
-
-Many tags (**SPEC_SCLWSR**, **SPEC_ATOM_LMX**, **SPEC_ATOM_LMXA**) are optional:
-**lmchk**{: style="color: blue"} will substitute defaults if you don't supply them.
-Those marked **reqd** (**SPEC_ATOM**, **SPEC_ATOM_Z**, **SPEC_ATOM_R**) you must supply.
-
-The cast (real, integer, character) of each tag is indicated, and also how many numbers are to be read.
-Sometimes tags will look for more than one number, but allow you to supply fewer.
-For example, **BZ_NKABC** looks for three numbers to determine the k-mesh, which are the number of divisions only each of the reciprocal lattice vectors.
-If you supply only one number it is copied to elements 2 and 3.
-
-{::nomarkdown}</div>{:/}
-
 
 ####  4. _Initial setup_
 {::comment}

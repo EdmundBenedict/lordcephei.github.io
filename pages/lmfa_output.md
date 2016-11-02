@@ -169,8 +169,7 @@ If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s pr
 
 The first line shows the atomic number, number of core charges (core levels are assumed to be filled), augmentation radius
 and net sphere charge.
-
-The next line shows the cutoff radius of the free atom and radial mesh parameters. 
+The next line shows the augmentation radius and cutoff radius of the free atom and radial mesh parameters. 
 All the Questaal codes use a shifted logarithmic mesh: point _i_ has a radius
 
 $$ r_i = b[e^{a(i-1)}-1] $$
