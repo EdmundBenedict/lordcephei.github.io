@@ -186,7 +186,7 @@ to avoid overwriting a the _ctrl.fe_{: style="color: green"}, which you may want
 #### Free atom density
 
 Generate the free atom density and copy the basis set information it generates to
-_basp.fe_{: style="color: green"}.  See the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup)
+_basp.fe_{: style="color: green"}.  See the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 for further explanation.
 
 ~~~

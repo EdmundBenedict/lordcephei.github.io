@@ -56,7 +56,7 @@ blm init.pbte                                 #makes template actrl.pbte and sit
 cp actrl.pbte ctrl.pbte
 ~~~
 
-[Free atomic density and basis parameters](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup)
+[Free atomic density and basis parameters](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 
 ~~~
 lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
@@ -228,7 +228,7 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 ####  5. _Initial setup: free atomic density and parameters for basis_
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#initial-setup
+/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis
 {:/comment}
 
 To carry out a self-consistent calculation, we need to prepare the following:
