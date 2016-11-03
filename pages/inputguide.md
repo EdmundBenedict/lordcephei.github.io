@@ -847,7 +847,7 @@ EREF= | r | all | Y | 0 | Reference energy subtracted from total energy
 AMASS= | r | FP | Y | | Nuclear mass in a.u. (for dynamics)
 C-HOLE | c | lmf, lm | Y | | Channel for core hole. You can force partial core occupation.<br>Syntax consists of two characters, the principal quantum number and the second one of `s’,`d’,`d’,`f’ for the l quantum number, e.g. `2s’<br>See Partially occupied core holes for description and examples.<br><br>Default: nothing
 C-HQ | r[,r] | all | Y | -1 0 | First number specifies the number of electrons to remove from the l channel specified by C-HOLE=.<br>Second (optional) number specifies the hole magnetic moment.<br>See Partially occupied core holes for description and examples.
-P | r,r,... | all | Y | | Starting values for potential functions, one for each of l=0..LMXA<br><br>Default: taken from an internal table.
+P | r,r,... | all | Y | | Starting values for ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers), one for each of l=0..LMXA<br><br>Default: taken from an internal table.
 PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential functions, one for each of l=0..LMX. Setting PZ=0 for any l means that no local orbital is specified for this l. Each integer part of PZ must be either one less than P (semicore state) or one greater (high-lying state).
 Q | r,r,... | all | Y | | Charges for each l-channel making up free-atom density<br><br>Default: taken from an internal table.
 MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up free-atom density<br>Relevant only for the spin-polarized case.
