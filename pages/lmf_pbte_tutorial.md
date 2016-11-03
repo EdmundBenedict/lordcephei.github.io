@@ -545,7 +545,7 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 The first line prints out the change in Harris-Foulkes energy relative to the prior iteration and some norm of RMS change in the
 (output-input) charge density (see arrows), followed by the tolerances required for self-consistency.
 
-The last line prints out a table of variables you specify on the command line, and total
+The last line prints out a table of variables that were specified on the command line, and total
 energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are different
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration is self-consistent.
