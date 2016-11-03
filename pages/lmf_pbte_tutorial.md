@@ -466,7 +466,7 @@ This boundary condition is needed for fixing the partial waves in the crystal co
 ["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)\\
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained) for more details.
 
-<i></i>
+<i> </i>
 
 ##### 5.4 Fitting the interstital density
 
@@ -474,7 +474,7 @@ Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explai
 This information will be used to overlap free-atomic densities to obtain a trial starting density.
 This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
-{::nomarkdown}</div>{:/}
+##### 5.5 Estimate for **GMAX**
 
 After looping over all species **lmfa**{: style="color: blue"} writes basis information to 
 _basp0.pbte_{: style="color: green"}, atomic charge density data to file
