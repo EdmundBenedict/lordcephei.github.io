@@ -315,10 +315,11 @@ From the self-consistent density and potential, **lmfa**{: style="color: blue"} 
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
 
 + envelope function (parameters **EH** and **RSMH**) defining the shape of the envelope functions
-+ Boundary condition at the augmentation radius, encapsulated as logarithmic derivative parameter **P**, aka ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
++ Boundary condition at the augmentation radius, encapsulated as logarithmic derivative parameter **P**\\
+  **P** is also called the ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 + information about local orbitals, indicated as **PZ** in the input.
 
-These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#ham).
+These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).
 
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
@@ -327,7 +328,7 @@ These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; *
 
 
 <div onclick="elm = document.getElementById('envelope'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of lmfa's analysis to fine envelope function and boundary condition parameters.</span>
+<span style="text-decoration:underline;">Click here for annotation of lmfa's analysis to determine envelope function and boundary condition parameters.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="envelope">{:/}
 
 Fitting **RSMH** and **EH** to the numerically derived wave functions can be readily accomplished. (It is a nonlinear procedure.) **lmfa**{:
@@ -424,7 +425,7 @@ _Notes:_{: style="color: red"}
 
 {::nomarkdown}</div>{:/}
 
-**Rsm**, **Eh**, and **Pnu** are saved in _basp0.pbte_{: style="color: green"}.
+**RSMH**, **EH**, **P**, and **PZ** are saved in _basp0.pbte_{: style="color: green"}.
 
 
 #### _Fitting the charge density outside the augmentation radius_

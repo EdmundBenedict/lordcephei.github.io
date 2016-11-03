@@ -672,14 +672,7 @@ NPTS | i | OPTICS | N | 501 | Number of mesh points in the energy (frequency) wi
 DW | r1 [r2] | OPTICS | Y | | Frequency mesh spacing DW[,OMG]. You can supply either one argument, or two.<br>If one argument (DW) is supplied, the mesh will consist of evenly spaced points separated by DW.<br>If a second argument (OMG) is supplied, points are spaced quadratically as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1) + [DW×(i−1)]2/OMG/2<br>Spacing is approximately uniform up to frequency OMG; beyond which it increases linearly.<br>Note: The quadratic spacing can be used only with LTET=3.
 FILBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest occupied band<br>i2 = highest occupied band (defaults to no. electrons)
 EMPBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest unoccupied band<br>i2 = highest unoccupied band (defaults to no. bands)
-PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext.
-<br>0. No decomposition
-<br>1. Resolve ε or DOS into individual (occ,unocc) contributions
-<br>Example: optics/test/test.optics ogan 5
-<br>2. Resolve ε or DOS by k
-<br>Example: optics/test/test.optics --all 6
-<br>3. Both 1 and 2
-<br>Add 10 to write popt as a binary file.
+PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext. <br>0. No decomposition <br>1. Resolve ε or DOS into individual (occ,unocc) contributions <br>Example: optics/test/test.optics ogan 5 <br>2. Resolve ε or DOS by k <br>Example: optics/test/test.optics --all 6 <br>3. Both 1 and 2 <br>Add 10 to write popt as a binary file.
 CHI2[..] | | OPTICS | Y | | Tag containing parameters for second harmonic generation.<br>Not calculated unless tag is parsed.<br><br>Example: optics/test/test.optics sic
 CHI2\_NCHI2 | i | OPTICS | N | 0 | Number of direction vectors for which to calculate $$ χ_2 $$
 CHI2\_AXES | i1, i2, i3 | OPTICS | N | | Direction vectors for each of the NCHI2 sets
