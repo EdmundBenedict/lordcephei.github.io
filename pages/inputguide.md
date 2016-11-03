@@ -478,15 +478,15 @@ Portions of HAM are read by these codes:
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-NSPIN | i | ALL | Y | 1 | 1 for non-spin-polarized calculations<br>2 for spin-polarized calculations
-REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation<br><br>NB: For the magnetic parameters below to be active, HAM_NSPIN must be 2
+NSPIN | i | ALL | Y | 1 | 1 for non-spin-polarized calculations<br>2 for spin-polarized calculations<br>NB: For the magnetic parameters below to be active, use NSPIN=2.
+REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation
 SO | i | ALL | Y | 0 | 0: no SO coupling<br>1: Add L·S to hamiltonian<br>2: Add Lz·Sz only to hamiltonian<br>3: Like 2, but also add L·S−LzSz in an approximate manner that preserves indpendence in the spin channels.<br>See [here](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/spin-orbit-coupling.html) for analysis and description of the different approximations
 NONCOL | l | ASA | Y | F | F: collinear magnetism<br>T: non-collinear magnetism
 SS | 4 r | ASA | Y | 0 | Magnetic spin spiral, direction vector and angle.<br><br>Example: nc/test/test.nc 1
 BFIELD | i | lm, lmf | Y | 0 | 0: no external magnetic field applied.<br>1: add site-dependent constant external Zeeman field (requires NONCOL=T).<br>Fields are read from file bfield.ext.<br>2: add Bz·Sz only to hamiltonian.<br><br>Examples:<br>fp/test/test.fp gdn<br>nc/test/test.nc 5
 BXCSCAL | i | lm, lmgf | Y | 0 | This tag provides an alternative means to add an effective external magnetic field in the LDA.<br>0: no special scaling of the exchange-correlation field.<br>1: scale the magnetic part of the LDA XC field by a site-dependent factor 1 + sbxci as described below.<br>2: scale the magnetic part of the LDA XC field by a site-dependent factor $$(1 + sbxc_i^2)^{1/2}$$ as described below.<br>This is a special mode used to impose constraining fields on rotations, used, e.g. by the CPA code.<br>Site-dependent scalings sbxci are read from file bxc.ext.
-XCFUN | i | ALL LDA | Y | 2 | Specifies local exchange correlation functional:<br>1: Ceperly-Alder<br>2: Barth-Hedin (ASW fit)<br>3: PW91 (same as PBE)<br>4: PBE (Same as PW91)
-GGA | i | ALL LDA | Y | 0 | Specifies a GGA functional:{::nomarkdown}<ol><li>No GGA (LDA only)</li><li>Langreth-Mehl</li><li>PW91</li><li>PBE</li><li>PBE with Becke exchange<br>Example: fp/test/test.fp te</li></ol>{:/}
+XCFUN | i | ALL LDA | Y | 2 | Specifies local exchange correlation functional<br>0,#,#: Use libxc exchange functional #2 and correlation functional #3<br>1: Ceperly-Alder<br>2: Barth-Hedin (ASW fit)<br>3: PW91 (same as PBE)<br>4: PBE (Same as PW91)
+GGA | i | ALL LDA | Y | 0 | Specifies a GGA functional (not used when libxc functionals are specified in XCFUN)<br>1. No GGA (LDA only)<br>2. Langreth-Mehl<br>3. PW91<br>4. PBE<br>5. PBE with Becke exchange<br>Example: fp/test/test.fp te
 PWMODE | i | lmf, lmfgwd | Y | | Controls how APWs are added to the LMTO basis.{::nomarkdown}<br><br>1s digit:<ol><li>LMTO basis only</li><li>Mixed LMTO+PW<br>Examples: <br>fp/test/test.fp srtio3 and fp/test/test.fp felz 4</li><li>PW basis only</li></ol>10s digit:<ol><li>PW basis fixed (less accurate, but simpler)</li><li>PW basis k-dependent. Symmetry-consistent but basis and basis dimension depend on k.<br>Example: fp/test/test.fp te</li></ol>{:/}
 PWEMIN | r | lmf, lmfgwd | Y | 0 | Include APWs with energy E > PWEMIN (Ry)
 PWEMAX | r | lmf, lmfgwd | Y | -1 | Include APWs with energy E < PWEMAX (Ry)
