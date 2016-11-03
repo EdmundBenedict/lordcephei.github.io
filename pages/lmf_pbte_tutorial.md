@@ -317,17 +317,17 @@ the LDA, unoccupied states also contribute to the potential.
 /tutorial/lmf/lmf_pbte_tutorial/#5.2-valence-core-partitioning-of-the-free-atomic-density/
 {:/comment}
 
-After _basp.pbte_{: style="color: green"} has been modified, you must run **lmfa**{: style="color: blue"} a second time
+After _basp.pbte_{: style="color: green"} has been modified, you must run **lmfa**{: style="color: blue"} a second time:
 
 ~~~
 $ lmfa ctrl.pbte
 ~~~
 
-This is necessary whenever the valence-core partitioning changes through the addition or removal of a local orbital.
+This is necessary whenever the [valence-core partitioning changes]( /docs/outputs/lmfa_output/#self-consistent-density) through the addition or removal of a local orbital.
 
 ###### _Relativistic core levels_
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels/
+/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels
 {:/comment}
 
 Normally **lmfa**{: style="color: blue"} determines the core levels and core density from
@@ -509,9 +509,9 @@ $ lmf ctrl.pbte
  Exit -1 bzmesh: illegal or missing k-mesh
 ~~~
 
-We haven't yet specified a k mesh: 
+We haven't yet specified a _k_ mesh.
 You must supply it yourself since there are too many contexts to supply a sensible default value.
-In this case a k-mesh of 6&times;6&times;6
+In this case a _k_-mesh of 6&times;6&times;6
 divisions is adequate.   With your text editor change **nkabc=0** in the ctrl file
 to **nkabc=6**, or alternatively assign variable **nkabc** on the command line (which is what this tutorial will do).
 
@@ -522,7 +522,7 @@ based in the shape of envelope functions it found.  In this case the valence
 _G_ cutoff is quite small (**4.3**), but the Pb 5_d_ local orbital is a much sharper function,
 and requires a larger cutoff (**7.8**).  You must use use the larger of the two.
 
-_Note:_{: style="color: red"} if you change the shape of the envelope funnctions
+_Note:_{: style="color: red"} if you change the shape of the envelope functions
 you must take care that **gmax** is large enough. This is described in the 
 lmf output below.
 

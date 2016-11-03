@@ -249,8 +249,8 @@ When the 5_d_ local orbital specified (by **PZ= 0 0 15.934**) in _basp.pbte_{: s
 ~~~
  Species Pb:  Z=82  Qc=68  R=3.044814  Q=0
  mesh:   rmt=3.044814  rmax=47.629088  a=0.025  nr=497  nr(rmax)=607
-  Pl=  6.5     6.5     5.5     5.5     5.5    
-  Ql=  2.0     2.0     10.0    0.0     0.0    
+  Pl=  6.5     6.5     5.5     5.5     5.5
+  Ql=  2.0     2.0     10.0    0.0     0.0
 ~~~
 
 **Qc** is smaller by 10 and the 5_d_ are included in the valence with 10 electrons (**Pl** is reduced to **5.5** and **Ql** becomes **10**).
