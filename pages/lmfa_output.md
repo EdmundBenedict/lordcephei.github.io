@@ -321,6 +321,10 @@ basis set information which is written to template _basp0.pbte_{: style="color: 
 
 These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).
 
+**RSMH**, **EH**, **P**, and **PZ** are also saved in _basp0.pbte_{: style="color: green"}: 
+**lmf**{: style="color: blue"} can read these paramters from _basp.pbte_{: style="color: green"},
+depending on the settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
+
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
 /docs/outputs/lmfa_output/#envelopes-explained
@@ -424,8 +428,6 @@ _Notes:_{: style="color: red"}
 ~~~
 
 {::nomarkdown}</div>{:/}
-
-**RSMH**, **EH**, **P**, and **PZ** are saved in _basp0.pbte_{: style="color: green"}.
 
 
 #### _Fitting the charge density outside the augmentation radius_
