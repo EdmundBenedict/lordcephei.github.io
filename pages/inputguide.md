@@ -809,6 +809,8 @@ The following tokens are input for each species. Data sandwiched between success
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 ATOM | c | all | N | | A character string (8 characters or fewer) that labels this species. This label is used, e.g. by the SITE category to associate a species with an atom at a given site.<br>Species are split into classes; how and when this is done depends whether you are using an ASA or full-potential implementation.<br><br>ASA-specific:<br>The species ID also names a disk file with information about that atom (potential parameters, moments, potential and some sundry other information). More precisely, species are split into classes, the program differentiates class names by appending integers to the species label. The first class associated with the species has the species label; subsequent ones have integers appended.<br><br>Example: testing/test.ovlp 3
+
+
 {::comment} testing 812
 Z | r | all | N | | Nuclear charge. Normally an integer, but Z can be a fractional number. A fractional number implies a virtual crystal approximation to an alloy with some Z intermediate between the two integers sandwiching it.
 R | r | all | N | | The augmentation sphere radius, in atomic units. This is a required input for most programs:<br>choose one of R=, R/W= or R/A=. Read descriptions of the R/W AND R/A below for further remarks; also see [this page](/docs/code/asaoverview/#selection-of-sphere-radii) for a more complete discussion on the choice of sphere radii.<br><br>lmchk can find sphere radii automatically. Invoke lmchk with \-\–getwsr.<br>You can also rescale as-given radii to meet constraints with the SCLWSR token.
