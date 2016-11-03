@@ -823,13 +823,9 @@ EH2 | r | lmf, lmfgwd | Y | | Basis Hankel function energies, second group
 LMXA | i | FP | Y | NL - 1 | Angular momentum l-cutoff for projection of wave functions tails centered at other sites in this sphere.<br>Must be at least the basis l-cutoff (specified by LMX=).
 IDXDN | i | ASA | Y | 1 | A set of integers, one for each l-channel marking which orbitals should be downfolded.<br>0 use automatic downfolding in this channel.<br>1 leaves the orbitals in the basis.<br>2 folds down about the inverse potential function at $$ E_ν $$ <br>3 folds down about the screening constant alpha.<br>In the FP case, 1 includes the orbital in the basis; >1 removes it
 KMXA | i | lmf, lmfgwd | Y | 3 | Polynomial cutoff for projection of wave functions in sphere.<br>Smoothed Hankels are expanded in polynomials around other sites instead of Bessel functions as in the case of normal Hankels.
-
-
-{::comment} testing 812
 RSMA | r | lmf, lmfgwd | Y | R * 0.4 | Smoothing radius for projection of smoothed Hankel tails onto augmentation spheres. These functions are expanded in polynomials by integrating with Gaussians of radius RSMA at that site. RSMA very small reduces the polynomial expansion to a Taylor series expansion about the origin. For large KMXA the choice is irrelevant, but RSMA is best chosen that maximizes the convergence of smooth Hankel functions with KMXA.
 LMXL | i | lmf, lmfgwd | Y | NL - 1 | Angular momentum l-cutoff for explicit representation of local charge on a radial mesh.
-RSMG | r | lmf, lmfgwd | Y | R/4 | Smoothing radius for Gaussians added to sphere densities to correct multipole moments needed for electrostatics. Value should be as large as possible but small enough that the 
-Gaussian doesn’t spill out significantly beyond rmt.
+RSMG | r | lmf, lmfgwd | Y | R/4 | Smoothing radius for Gaussians added to sphere densities to correct multipole moments needed for electrostatics. Value should be as large as possible but small enough that the Gaussian doesn’t spill out significantly beyond rmt.
 LFOCA | i | FP | Y | 1 | Prescribes how the core density is treated.<br>0 confines core to within RMT. Usually the least accurate.<br>1 treats the core as frozen but lets it spill into the interstitial<br>2 same as 1, but interstitial contribution to vxc treated perturbatively.
 RFOCA | r | FP | Y | R &times; 0.4 | Smoothing radius fitting tails of core density. A large radius produces smoother interstitial charge, but less accurate fit.
 RSMFA | r | FP | Y | R/2 | Smoothing radius for tails of free-atom charge density. <br>Irrelevant except first iteration only (non-self-consistent calculations using Harris functional).<br>A large radius produces smoother interstitial charge, but somewhat less accurate fit.
@@ -839,8 +835,7 @@ HCR/R | r | lm | Y | 0.7 | Hard sphere radii for structure constants, in units o
 ALPHA | r | ASA | Y | | Screening parameters for structure constants
 DV | r | ASA | Y | 0 | Artificial constant potential shift added to spheres belonging to this species
 MIX | 1 | ASA | Y | F | Set to suppress self-consistency of classes in this species
-IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter _P<sub>l</sub>_ aka [continuous principal quantum number](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
-to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
+IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter _P<sub>l</sub>_ aka [continuous principal quantum number](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
 CSTRMX | 1 | all | Y | F | Set to T to exclude this species when automatically resizing sphere radii
 GRP2 | i | ASA | Y | 0 | Species with a common nonzero value of GRP2 are symmetrized, independent of symmetry operations.<br>The sign of GRP2 is used as a switch, so species with negative GRP2 are symmetrized but with spins flipped (NSPIN=2)
 FRZWF | 1 | FP | Y | F | Set to freeze augmentation wave functions for this species
@@ -855,6 +850,7 @@ P | r,r,... | all | Y | | Starting values for log derivative parameter _P<sub>l<
 PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential functions, one for each of l=0..LMX. Setting PZ=0 for any l means that no local orbital is specified for this l. Each integer part of PZ must be either one less than P (semicore state) or one greater (high-lying state).
 Q | r,r,... | all | Y | | Charges for each _l_-channel making up free-atom density<br><br>Default: taken from an internal table.
 MMOM | r,r,... | all | Y | 0 | Magnetic moments for each _l_-channel making up free-atom density<br>Relevant only for the spin-polarized case.
+
 {:/comment}
 
 {::comment}
