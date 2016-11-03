@@ -22,6 +22,8 @@
     url: "/package_overview/"
   - title: "Installation"
     url: "/install/"
+  - title: "Troubleshooting"
+    url: "/troubleshooting/"
   - program:
     - name: "Description by code"
       prefix: "/code"
@@ -126,6 +128,8 @@
         url: "/fermisurface/"
       - title: "Performing Core Level Spectroscopy"
         url: "/cls/"
+      - title: "Adding Augmented Plane Waves"
+        url: "/apw/"
       - title: "Extremal points and calculating effective mass"
         url: "/lmf_bandedge/"
     - name: "ASA"
