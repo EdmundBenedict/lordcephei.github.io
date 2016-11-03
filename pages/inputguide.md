@@ -827,8 +827,7 @@ RSMA | r | lmf, lmfgwd | Y | R * 0.4 | Smoothing radius for projection of smooth
 LMXL | i | lmf, lmfgwd | Y | NL - 1 | Angular momentum l-cutoff for explicit representation of local charge on a radial mesh.
 RSMG | r | lmf, lmfgwd | Y | R/4 | Smoothing radius for Gaussians added to sphere densities to correct multipole moments needed for electrostatics. Value should be as large as possible but small enough that the 
 Gaussian doesn’t spill out significantly beyond rmt.
-
-testing 831
+testing 831 |
 {::comment}
 
 LFOCA | i | FP | Y | 1 | Prescribes how the core density is treated.<br>0 confines core to within RMT. Usually the least accurate.<br>1 treats the core as frozen but lets it spill into the interstitial<br>2 same as 1, but interstitial contribution to vxc treated perturbatively.
