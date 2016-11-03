@@ -434,14 +434,12 @@ basis set information, and writes the information to template _basp0.pbte_{: sty
 Envelope functions
 : The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
-{::comment}
 where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
 decay length $$1/\kappa=1/\sqrt{-\mathbf{EH}}$$. **lmfa**{: style="color: blue"} finds an estimate for
 **RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
-{:/comment}
 
 test
-:Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
+: Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
 error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors.
 
 
@@ -450,23 +448,23 @@ error in the energy (estimated from the single particle sum) is is 0.00116 Ry --
 This process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained).
 
 test2
-:At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
+: At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
 will become envelope parameters unless you change them yourself, or optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.
 
 test3
-:_Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
+: _Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial.
 
 Local orbitals
-:**lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
+: **lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
 using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria.
 ~~~
  Find local orbitals which satisfy E > -2 Ry  or  q(r>rmt) > 5e-3
  l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
  l=3  eval=-9.796  Q(r>rmt)=3e-8  PZ=4.971  Use: PZ=0.000
 ~~~
-:In the first run, **lmfa**{: style="color: blue"} [singled out](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals) the Pb 5_d_ state, using
+: In the first run, **lmfa**{: style="color: blue"} [singled out](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals) the Pb 5_d_ state, using
 information from this table.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
 partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) for more details.
