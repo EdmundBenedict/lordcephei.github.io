@@ -233,10 +233,11 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-5.1  Find any high-lying core states that should be included in the valence as local orbitals.\\
+[5.1](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Find any high-lying core states that should be included in the valence as local orbitals.\\
 5.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
 5.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
-5.4  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
+5.4  Fit the density in the interstial to analytic smooth Hankel functions\\
+5.5  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
 It will write basis set information to template _basp0.pbte_{: style="color: green"}.
@@ -474,7 +475,7 @@ Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explai
 This information will be used to overlap free-atomic densities to obtain a trial starting density.
 This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
-##### 5.5 Estimate for **GMAX**
+##### 5.5 Estimate for GMAX
 
 After looping over all species **lmfa**{: style="color: blue"} writes basis information to 
 _basp0.pbte_{: style="color: green"}, atomic charge density data to file
