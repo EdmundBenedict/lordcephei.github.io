@@ -315,8 +315,8 @@ From the self-consistent density and potential, **lmfa**{: style="color: blue"} 
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
 
 + envelope function (parameters **EH** and **RSMH**) defining the shape of the envelope functions
-+ Boundary condition at the augmentation radius, encapsulated as logarithmic derivative parameter **P**\\
-  **P** is also called the ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
++ Boundary condition at the augmentation radius, encapsulated as logarithmic derivative parameter **P**.\\
+  **P** is also called the ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 + information about local orbitals, indicated as **PZ** in the input.
 
 These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).
