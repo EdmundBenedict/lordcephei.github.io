@@ -468,18 +468,29 @@ It is important that the system is charge neutral (last line).
 
 If, on the other hand, the charge density has been saved in a restart file,
 **lmf**{: style="color: blue"} reads it.  Usually restart files are
-save in a binary form in a file named *rst.ext*{: style="color: green"}
+saved in a binary form in a file named *rst.ext*{: style="color: green"}.
 
 <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
 
+When **lmf**{: style="color: blue"} reads from a restart file it prints out
+a message similar to this:
 
 ~~~
  iors  : read restart file (binary, mesh density) 
          use from  restart file: ef window, positions, pnu 
          ignore in restart file: *
 ~~~
+
+The restart file contains:
+
++ Information about the Fermi level and (in the sampling case) parameters
+that were used to assemble the density from a Brillouin zone integration
++ lattice vectors and site positions
++ boundary conditions for partial waves, kept as logarithmic derivative parameters (also called [continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
++ valence and core densities inside augmentation spheres
++ mesh density
 
 {::nomarkdown}</div>{:/}
 
