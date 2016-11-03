@@ -274,9 +274,9 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 
       i*r3z::(1/3,-1/3,-1/2) r2z::(1/3,-1/3,1/2) r2x
 
-  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category.
+  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category for syntax
 
-+ You can also specify symmetry operations manually.  This is particularly useful when magnetic symmetry must be considered.
++ You can also specify symmetry operations manually in the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category.  This is particularly useful when magnetic symmetry must be considered.
 + The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or [**BZ_NABC**](/docs/input/inputfile/#bz).\\
   You can also specify whether the k-mesh should pass through the origin or straddle it
   through tag [**BZ_BZJOB**](/docs/input/inputfile/#bz).

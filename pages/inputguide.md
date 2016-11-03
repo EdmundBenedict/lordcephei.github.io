@@ -326,9 +326,6 @@ Category BZ holds information concerning the numerical integration of quantities
 
 These tokens are read by programs that make hamiltonians in periodic crystals (lmf,lm,lmgf,lmpg,tbe). Some tokens apply only to codes that make energy bands, (lmf,lm,tbe).
 
-<div onclick="elm = document.getElementById('bztable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="bztable">{:/}
-
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | - 
 GETQP | l | | Y | F | Read list of k-points from a disk file. This is a special mode, and you normally would let the program choose its own mesh by specifying the number of divisions (see NKABC). <br> If token is not parsed, the program will attempt to parse NKABC.
@@ -354,8 +351,6 @@ DMAT | l | lmf,lmgf | Y | F | Calculate the density matrix.
 INVIT | l | lmf,lm | Y | F | Enables inverse iteration generate eigenvectors (this is the default). It is more efficient than the QL method, but occasionally fails to find all the vectors. When this happens, the program stops with the message:<br> DIAGNO: tinvit cannot find all evecs<br>If you encounter this message set INVIT=F.
 EMESH | r | lmgf,lmpg | Y | 10,0,-1,... | Parameters defining contour integration for Green’s function methods.<br><br>Element: {::nomarkdown} <ol><li>number of energy points n</li><li>contour type:<ul><li>0: Uniform mesh of nz points: Real part of energy z between emin and emax</li><li>1: Same as 0, but reverse sign of Im z</li><li>10: elliptical contour</li><li>11: same as 10, but reverse sign of Im z</li><li>100s digit used for special modifications</li><li>Add 100 for nonequil part using Im(z)=delne</li><li>Add 200 for nonequil part using Im(z)=del00</li><li>Add 300 for mixed elliptical contour + real axis to find fermi level</li><li>Add 1000 to set nonequil part only.</li></ul></li><li>lower bound for energy contour emin (on the real axis)</li><li>upper bound for energy contour emax, e.g. Fermi level (on the real axis)</li><li>(elliptical contour) eccentricity: ranges between 0 (circle) and 1 (line)<br>(uniform contour) Im z</li><li>(elliptical contour) bunching parameter eps : ranges between 0 (distributed symmetrically) and 1 (bunched toward emax)<br>(uniform contour) not used</li><li>(nonequilibrium GF, lmpg) nzne = number of points on nonequilibrium contour</li><li>(nonequilibrium GF, lmpg) vne = difference in fermi energies of right and left leads</li><li>(nonequilibrium GF, lmpg) delne = Im part of E for nonequilibrium contour</li><li>(nonequilibrium GF, lmpg) substitutes for delne when making the surface self-energy.</li></ol> {:/}
 MULL | i | tbe | Y | 0 | Mulliken population analysis. Mulliken population analysis is also implemented in lmf, but you specify the analysis with a command-line argument.
-
-{::nomarkdown}</div>{:/}
 
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
