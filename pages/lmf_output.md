@@ -240,7 +240,8 @@ This block prints informations about the lattice vectors and settings used in Ew
          r1=  1.807   nkd= 87       q1=  5.403   nkg= 169
 ~~~
 
-_Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance.
+_Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance,
+input through [**EWALD\_TOL**](/docs/input/inputfile/#ewald).
 
 ### Symmetry and k mesh
 {::comment}

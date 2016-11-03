@@ -704,8 +704,7 @@ SHARM | 1 | ASA, lmf, lmfgwd | Y | F | If T, use true spherical harmonics, rathe
 FRZ | l | all | Y | F | (ASA) If T, freezes core wave functions.<br>(FP) If T, freezes the potential used to make augmented partial waves, so that the basis set does not change with potential.
 SAVVEC | 1 | lm | Y | F | Save eigenvectors on disk. (This may be enabled automatically in some circumstances)
 Q | c | all | Y | | Q=HAM, Q=BAND,&thinsp;Q=MAD,&thinsp;Q=ATOM,&thinsp;Q=SHOW<br>make the program stop at selected points without completing a full iteration.
-SCR | i | ASA | Y | 0 | Is connected with the generation or use of the q->0 ASA dielectric response function. It is useful in cases when there is difficulty in making the density self-consistent.<br>See linear-response-asa.html for documentation.
-0. do not screen qout−qin. <br>1. Make the ASA response function P0. <br>2. Use P0 to screen qout−qin and the change in ves. <br>3. 1+2 (lmgf only) <br>4. screen qout−qin from a model P0 <br>5. illegal input <br>6. Use P0 to screen the change in ves only<br> P0 and U should be updated every iteration, but this is expensive and not worth the cost. However, you can: <br>Add 10*k* to recompute intra-site contribution U every kth iteration, 0<k≤9.<br>Add 100*k* to recompute P0 every kth iteration (lmgf only).<br><br>Examples: testing/test.scr and gf/test/test.gf mnpt 6
+SCR | i | ASA | Y | 0 | Is connected with the generation or use of the q->0 ASA dielectric response function. It is useful in cases when there is difficulty in making the density self-consistent.<br>See linear-response-asa.html for documentation.<br>0. do not screen qout−qin. <br>1. Make the ASA response function P0. <br>2. Use P0 to screen qout−qin and the change in ves. <br>3. 1+2 (lmgf only) <br>4. screen qout−qin from a model P0 <br>5. illegal input <br>6. Use P0 to screen the change in ves only<br> P0 and U should be updated every iteration, but this is expensive and not worth the cost. However, you can: <br>Add 10*k* to recompute intra-site contribution U every kth iteration, 0<k≤9.<br>Add 100*k* to recompute P0 every kth iteration (lmgf only).<br><br>Examples: testing/test.scr and gf/test/test.gf mnpt 6
 ASA[...] | r | ASA | N | | Parameters associated with ASA-specific input.
 ASA\_ADNF | 1 | ASA | Y | F | Enables automatic downfolding of orbitals
 ASA\_NSPH | 1 | ASA | Y | 0 | Set to 1 to generate l>0 contributions (from neighboring sites) to l=0 electrostatic potential
@@ -829,8 +828,6 @@ LMXL | i | lmf, lmfgwd | Y | NL - 1 | Angular momentum l-cutoff for explicit rep
 RSMG | r | lmf, lmfgwd | Y | R/4 | Smoothing radius for Gaussians added to sphere densities to correct multipole moments needed for electrostatics. Value should be as large as possible but small enough that the Gaussian doesn’t spill out significantly beyond rmt.
 LFOCA | i | FP | Y | 1 | Prescribes how the core density is treated.<br>0 confines core to within RMT. Usually the least accurate.<br>1 treats the core as frozen but lets it spill into the interstitial<br>2 same as 1, but interstitial contribution to vxc treated perturbatively.
 RFOCA | r | FP | Y | R &times; 0.4 | Smoothing radius fitting tails of core density. A large radius produces smoother interstitial charge, but less accurate fit.
-
-{::comment}
 RSMFA | r | FP | Y | R/2 | Smoothing radius for tails of free-atom charge density. <br>Irrelevant except first iteration only (non-self-consistent calculations using Harris functional).<br>A large radius produces smoother interstitial charge, but somewhat less accurate fit.
 RS3 | r | FP | Y | 1 | Minimum allowed smoothing radius for local orbital
 HCR | r | lm | Y | | Hard sphere radii for structure constants.<br>If token is not parsed, attempt to read HCR/R below
