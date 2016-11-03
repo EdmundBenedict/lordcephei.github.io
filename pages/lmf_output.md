@@ -263,15 +263,28 @@ crystal, and the irreducible k mesh it obtains from the point group it is given:
  TETIRR: sorting 1296 tetrahedra ... 35 inequivalent ones found
 ~~~
 
-Notes: (see also "Additional Exercises" below)
+_Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises))
 
-+ You can specify symmetry operations manually.  This is particularly useful
-  when magnetic symmetry must be considered.
-+ The k mesh is specifed through the number of k divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc**.\\
++ The group operations were determined automatically from the given lattice.  PbTe is cubic, with 48 group operations.\\
+  First the crystal system is determined; then the symmetry operations inconsistent with the basis are discarded.\\
+  Finally the operations are distilled into a minimum set of generators **(i*r3(1,1,-1) r4x**) that make the entire group.
+  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/misc/rotations)
+  This is not true in general; for example hcp Co, with one atom at the origin has 24 space group operations.  The generators
+  defining the group can be written as
+
+      i*r3z::(1/3,-1/3,-1/2) r2z::(1/3,-1/3,1/2) r2x
+
+  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category.
+
++ You can also specify symmetry operations manually.  This is particularly useful when magnetic symmetry must be considered.
++ The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or [**BZ_NABC**](/docs/input/inputfile/#bz).\\
   You can also specify whether the k-mesh should pass through the origin or straddle it
-  through tag **BZ_BZJOB**.
+  through tag [**BZ_BZJOB**](/docs/input/inputfile/#bz).
 + The Brillouin zone integration is using Bloechl's generalized tetrahedron method.
   You can also use the Methfessel-Paxton integration scheme or a Fermi function.
+
+
+
 
 ### Augmentation parameters
 {::comment}

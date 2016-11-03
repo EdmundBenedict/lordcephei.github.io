@@ -578,6 +578,9 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 <b>535</b>, 114-147. H. Dreysse, ed. (Springer-Verlag, Berlin) 2000.
 
 ### _Additional exercises_
+{::comment}
+/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises
+{:/comment}
 
 1. Try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital.  Repeat the calculation but remove the **PZ** part from _basp.pbte_{: style="color: green"}.
 
