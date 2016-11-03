@@ -324,7 +324,7 @@ $ lmfa ctrl.pbte
 
 This is necessary whenever the valence-core partitioning changes through the addition or removal of a local orbital.
 
-##### Relativistic core levels
+###### _Relativistic core levels_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels/
 {:/comment}
@@ -333,7 +333,7 @@ Normally **lmfa**{: style="color: blue"} determines the core levels and core den
 the scalar Dirac equation.  However there is an option to use the full Dirac equation.
 
 <div onclick="elm = document.getElementById('diraccore'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to about calculating core levels from the Dirac equation.</span>
+<span style="text-decoration:underline;">Click here for discussion about calculating core levels from the Dirac equation.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="diraccore">{:/} 
 
 Tag **HAM_REL** controls how the Questaal package manages different levels of relativistic treatment.
@@ -419,7 +419,6 @@ relativistic Dirac treatment.
 + deciding on which high-lying cores should be included as local orbitals
 
 **lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
-
 See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
 for a more detailed description of how it proceeds in making the atomic density self-consistent.
 
@@ -430,7 +429,6 @@ basis set information, and writes the information to template _basp0.pbte_{: sty
 3. information about local orbitals, and sets which partial waves should be included\\
 4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
   
-
 Envelope functions
 : The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
@@ -442,16 +440,16 @@ error in the energy (estimated from the single particle sum) is is 0.00116 Ry --
 The fitting process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained).
 : For _crystal_ envelope functions these shapes are reasonable, but not optimal.  These parameters 
 will become the ones **lmf**{: style="color: blue"} uses unless you change them by hand, or optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.\\
-_Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
+_Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  High quality
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
-interstitial.
+interstitial; the kinetic energy of the envelope functions are continuous across the augmentation boundary.
 
 Local orbitals
 : **lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
 using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria; see [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained).
 : In the first time it was run, **lmfa**{: style="color: blue"} [singled out](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals) the Pb 5_d_ state, using
-information from the table below.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
-partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.\\
+information from the table below taken from **lmfa**{: style="color: blue"}'s standard output.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
+partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) for more details.
 
 ~~~
@@ -465,11 +463,12 @@ Boundary conditions
 Thus, the value and slope of this function at **rmt** are determined by the asymptotic boundary condition.
 This boundary condition is needed for fixing the partial waves in the crystal code.
 **lmfa**{: style="color: blue"} generates this information and encapsulates it into the 
-["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) 
-[annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained)
+["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)\\
+Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained) for more details.
 
-Finally, **lmfa**{: style="color: blue"}
-first valence and core densities to a linear combination of smooth Hankel functions.
+##### 5.4 Fitting the interstital density
+
+**lmfa**{: style="color: blue"} fits valence and core densities to a linear combination of smooth Hankel functions.
 This information will be used to overlap free-atomic densities to obtain a trial starting density.
 This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
@@ -485,8 +484,7 @@ _atm.pbte_{: style="color: green"}, and exits with the following printout:
 
 This is the _G_ cutoff **gmax** that the ctrl file needs in the next section.  It determines the mesh spacing for the charge density.
 Two values are printed, one determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present
-the largest value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained).
-
+the largest value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
 
 ####  6. _Self consistency_
 {::comment}
