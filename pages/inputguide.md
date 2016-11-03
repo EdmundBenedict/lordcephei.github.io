@@ -542,10 +542,10 @@ It is read by **lmgf**{: style="color: blue"}.
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-MODE | i | ASA | Y | 0 | 0: do nothing<br>1:self-consistent cycle<br>10: Transverse magnetic exchange interactions J(q)<br>11: Read J(q) from disk and analyze results<br>14: Longitudinal exchange interactions<br>20: Transverse <i>&chi;</i>^<sup>+-</sup> from ASA Green's function<br>21: Read <i>&chi;</i> from disk and analyze results<br>20: Transverse <i>&chi;</i>^<sup>++</sup>, <i>&chi;</i>^<sup>--</sup> from ASA Green's function<br>Caution: Modes 14 and higher have not been maintained.
+MODE | i | ASA | Y | 0 | 0: do nothing<br>1:self-consistent cycle<br>10: Transverse magnetic exchange interactions J(q)<br>11: Read J(q) from disk and analyze results<br>14: Longitudinal exchange interactions<br>20: Transverse <i>&chi;</i><sup>+&minus;</sup> from ASA Green's function<br>21: Read <i>&chi;</i> from disk and analyze results<br>20: Transverse <i>&chi;</i><sup>++</sup>, <i>&chi;</i><sup>&minus;&minus;</sup> from ASA Green's function<br>Caution: Modes 14 and higher have not been maintained.
 GFOPTS | c | ASA | Y | | ASCII string with switches governing execution of lmgf. Use &nbsp;**';'**&nbsp; to separate the switches.<br>Available switches:<br>**p1** First order of potential function<br>**p3** Third order of potential function<br>**pz** Exact potential function (some problems; not recommended)<br>Use only one of the above; if none are used, the code generates second order potential functions.<br>**idos** integrated DOS (by principal layer in the lmpg case)<br>**noidos** suppress calculation of integrated DOS<br>**pdos** accumulate partial DOS<br>**emom** accumulate output moments; use **noemom** to suppress<br>**noemom** suppresss accumulation of output moments<br>**sdmat** make site density-matrix<br>**dmat** make density-matrix<br>**frzvc** do not update potential shift needed to obtain charge neutrality<br>**padtol** Tolerance in Pade correction to charge. If tolerance exceeded, lmgf will repeat the band pass with an updated Fermi level<br>**omgtol** (CPA) tolerance criterion for convergence in coherent potential<br>**omgmix** (CPA) linear mixing parameter for iterating convergence in coherent potential<br>**nitmax** (CPA) maximum number of iterations to iterate for coherent potential<br>**lotf** (CPA)<br>**dz** (CPA)
 DLM | i | ALL | Y | 0 | Governs self-consistency for both chemical CPA and magnetic CPA (disordered local moments).<br>12 : normal CPA/DLM calculation: charge and coherent potential Ω both iterated to self-consistency.<br>32 : Ω alone is iterated to self-consistency.
-BXY | 1 | ALL | Y | F | (DLM) Setting this switch to T generates a site-dependent constraining field to properly align magnetic moments.<br><br>In this context constraining field is applied by scaling the LDA exchange-correlation field.<br>The scaling factor is $$[1+bxc(ib)^2]^(1/2)$$. <br><br>A table of bxc is kept for each site in the first column of file shfac.ext.<br>See also HAM_BXCSCAL.
+BXY | 1 | ALL | Y | F | (DLM) Setting this switch to T generates a site-dependent constraining field to properly align magnetic moments.<br><br>In this context constraining field is applied by scaling the LDA exchange-correlation field.<br>The scaling factor is $$[1+bxc(ib)^2]^{1/2}$$. <br><br>A table of bxc is kept for each site in the first column of file shfac.ext.<br>See also HAM_BXCSCAL.
 TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 
 {::comment}
@@ -879,7 +879,7 @@ VLFUN | i | all | Y | 0 | Functions for val-lap basis (this is experimental)<br>
 MXNBR | i | ASA | Y | 0 | Make lmstr allocate enough memory in dimensioning arrays for MXNBR neighbors in the neighbor table. This is rarely needed.
 SHOW | 1 | lmstr | Y | F | Show strux after generating them
 EQUIV | 1 | lmstr | Y | F | If true, try to find equivalent neighbor tables, to reduce the computational effort in generating strux.<br>Not generally recommended
-LMAXW | i | lmstr | Y | -1 | _l--cutoff for (optional) Watson sphere, used to help localize strux
+LMAXW | i | lmstr | Y | -1 | <i>l</i>-cutoff for (optional) Watson sphere, used to help localize strux
 DELRW | r | lmstr | Y | 0.1 | Range extending beyond cluster radius for Watson sphere
 IINV\_NIT= | i | lmstr | Y | 0 | Number of iterations
 IINV\_NCUT | i | lmstr | Y | 0 | Number of sites for inner block
@@ -907,7 +907,7 @@ BEGMOM | i | ASA | Y | 1 | When true, causes program lm to begin with moments fr
 FREE | 1 | ASA | Y | F | Is intended to facilitate a self-consistent free-atom calculation. When FREE is true, the program uses rmax=30 for the sphere radius rather than whatever rmax is passed to it; the boundary conditions at rmax are taken to be value=slope=0 (rmax=30 should be large enough that these boundary conditions are sufficiently close to that of a free atom.); subroutine atscpp does not calculate potential parameters or save anything to disk; and lm terminates after all the atoms have been calculated.
 CNTROL | 1 | ASA | Y | F | 	When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
 ATOM | c | ASA | Y | | Class label. P,Q (and possibly other data) is given by class.<br>Tokens following a class label and preceding the next class label belong to that class.
-ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br<br>>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have been read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
+ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have been read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
 RDVES | 1 | ASA | Y | F | Read Ves(RMT) from the START category along with P,Q
 ATOM\_ENU | r | ASA | Y | | Linearization energies
 
@@ -944,7 +944,7 @@ Because the P‘s float to the band center-of gravity (i.e. center of gravity of
 
 **Caution:**{: style="color: red"} Sometimes it is necessary to override this default: If the band CG (of the occupied states) is far removed from the natural CG of a particular channel, you must restrict how far P can be shifted to the band CG. In some cases, allowing P to float completely will result in “ghost bands”.
 
-The high-lying Ga 4d state is a classic example. To restrict P to a fixed value, see SPEC_IDMOD.
+The high-lying Ga 4_d_ state is a classic example. To restrict P to a fixed value, see **SPEC_IDMOD**.
 
 In such cases, you want to pick the fractional part of P to be small, but not so low as to cause problems (about 0.15).
 
@@ -1079,7 +1079,6 @@ VERS LM:7 TB:9               for the empirical tight-binding tbe
 
 ~~~
 
-Add version control tokens for whatever programs your input file is capable of handling.
+Add version control tokens for whatever programs your input file supports.
 
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
-

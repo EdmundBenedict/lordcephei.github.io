@@ -513,7 +513,7 @@ We haven't yet specified a k mesh:
 You must supply it yourself since there are too many contexts to supply a sensible default value.
 In this case a k-mesh of 6&times;6&times;6
 divisions is adequate.   With your text editor change **nkabc=0** in the ctrl file
-to **nkabc=6*8, or alternatively assign variable **nkabc* on the command line (which is what this tutorial will do).
+to **nkabc=6**, or alternatively assign variable **nkabc** on the command line (which is what this tutorial will do).
 
 We also haven't specified the _G_ cutoff for the density mesh.  **blm**{: style="color: blue"} does not determine this parameter automatically
 because it is sensitive to the selection of basis parameters, hich local orbitals are included.

@@ -510,14 +510,12 @@ The core density was fit to a single smooth Hankel function.  The energy (**-14.
 {:/comment}
 
 The charge density is represented on a uniform mesh of points.  The spacing between points
-or equivalently the plane-wave cutoff used to represent the density in reciprocal space
+or equivalently the plane-wave cutoff **GMAX** used to represent the density in reciprocal space
 is governed by how sharply peaked the envelope functions are.
 
-The plane-wave cutoff **GMAX** that will reasonably represent
-the expansion of envelope functions is determined separately for
-[valence orbitals](/docs/outputs/lmfa_output/#envelopes-explained) and
-[local orbitals](/docs/outputs/lmfa_output/#lo-explained).  Both maximum values
-for all species are printed in the table below.
+The cutoff that will reasonably represent the expansion of envelope functions is determined separately for
+[valence orbitals](/docs/outputs/lmfa_output/#envelopes-explained) and [local orbitals](/docs/outputs/lmfa_output/#lo-explained).  Both
+maximum values for all species are printed in the table below.
 
 ~~~
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.3 (valence)  7.8 (local orbitals)
