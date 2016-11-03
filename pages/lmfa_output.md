@@ -319,11 +319,10 @@ basis set information which is written to template _basp0.pbte_{: style="color: 
   **P** is also called the ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 + Information about local orbitals, indicated as **PZ** in the input.
 
-These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).
-
-**RSMH**, **EH**, **P**, and **PZ** are also saved in _basp0.pbte_{: style="color: green"}: 
-**lmf**{: style="color: blue"} can read these paramters from _basp.pbte_{: style="color: green"},
-depending on the settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
+These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).\\
+**RSMH**, **EH**, **P**, and **PZ** are also saved in _basp0.pbte_{: style="color: green"}.
+**lmf**{: style="color: blue"} may read these parameters from _basp.pbte_{: style="color: green"},
+depending on settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
 
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
@@ -444,7 +443,7 @@ contribution to neighboring sites from this atom's density.
 
 Both can be readily accomplished if the density is represented as a linear combination of [smooth Hankel functions](/docs/code/smhankels).
 **lmfa**{: style="color: blue"} fits the numerical density to a linear combination of such functions; the smoothing radii, energies, and fit
-coefficients are stored in _atm.pbte_{: style="color: green"}.  The fit is done subject to the constraint that the integrated charge is exact.
+coefficients are stored in _atm.pbte_{: style="color: green"}.
 
 <div onclick="elm = document.getElementById('valfit'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of lmfa's printout of the valence density fitting.</span>
@@ -465,6 +464,10 @@ coefficients are stored in _atm.pbte_{: style="color: green"}.  The fit is done 
     fit: r>rmt  1.433395   r<rmt  6.387103   qtot  7.820498
     rho: r>rmt  1.433395   r<rmt  4.566605   qtot  6.000000
 ~~~
+
+The valence density was fit to a linear combination of 6 smooth Hankel functions, with varying energies but a fixed smoothing radius **rsm=1.51434**.
+The fit is carried out subject to the constraint that the integrated charge is exact (and the integrated magnetic moment, in the spin polarized case).
+
 {::nomarkdown}</div>{:/}
 
 Also the core density spills out into the interstitial.  Rather than renormalizing the core density
@@ -487,6 +490,9 @@ inside the augmentation sphere, it is allowed spill out and included in the inte
     6.253461    0.00000024    0.00000020
     7.086104    0.00000001    0.00000001
 ~~~
+
+The core density was fit to a single smooth Hankel function.
+
 {::nomarkdown}</div>{:/}
 
 ### 5. Estimating the plane-wave cutoff GMAX
