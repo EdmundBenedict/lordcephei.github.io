@@ -482,7 +482,7 @@ _atm.pbte_{: style="color: green"}, and exits with the following printout:
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.3 (valence)  7.8 (local orbitals)
 ~~~
 
-This is the _G_ cutoff **gmax** that the ctrl file needs in the next section.  It determines the mesh spacing for the charge density.
+This is the _G_ cutoff **EXPRESS\_gmax** or [**HAM\_GMAX**](/docs/input/inputfile/#spec) that the ctrl file needs in the next section.  It determines the mesh spacing for the charge density.
 Two values are printed, one determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present
 the largest value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
 
