@@ -257,7 +257,7 @@ partitioning between core and valence will change with the introduction of local
 
 #####  5.1 Local orbitals
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals/
+/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals
 {:/comment}
 
 Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbitals_ that
@@ -265,8 +265,8 @@ Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbital
 window; certain elements may require an extension to the linear approximation for accurate calculations.  This is accomplished with
 [local orbitals](/docs/package_overview/#linear-methods-in-band-theory).  **lmfa**{: style="color: blue"} will automatically look for atomic
 levels which, if certain criteria are satisfied it designates as a local orbital, and includes this information in the basp0 file.
-The [annotated lmfa output](/docs/outputs/lmfa_output/#generating-basis-information) explains how **lmfa**{: style="color: blue"} presents information
-it finds about local orbitals.
+The [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) explains how **lmfa**{: style="color: blue"} analyzes core states for
+local orbitals.
 
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of how local orbitals are specified in the basp file.</span>
@@ -431,36 +431,48 @@ basis set information, and writes the information to template _basp0.pbte_{: sty
 4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
   
 
-
-The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
+Envelope functions
+: The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
 where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
-inverse decay length $$kappa=\sqrt{-\mathrm{EH}}$$. **lmfa**{: style="color: blue"} finds an estimate for
+decay length $$1/\kappa=1/\sqrt{-\mathbf{EH}}$$. **lmfa**{: style="color: blue"} finds an estimate for
 **RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
+:Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
+error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors.
+This process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained)
+:At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
+will become envelope parameters unless you change them yourself, or optimize them with **lmf**{: style="color: blue"}'s optimizing function,
+`--opt`.  
 
-Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
-error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors. 
+:_Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
+envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
+interstitial.
 
-At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.
-These will become envelope parameters unless you change them yourself, or 
-optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.
-
-The basis data for the valence and local orbitals is later written to the basp0 file.
-
-It searches for core states which are shallow enough to be treated as local orbitals,
-using the core energy and charge spillout as criteria.
-
+Local orbitals
+:**lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
+using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria.
 ~~~
  Find local orbitals which satisfy E > -2 Ry  or  q(r>rmt) > 5e-3
  l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
  l=3  eval=-9.796  Q(r>rmt)=3e-8  PZ=4.971  Use: PZ=0.000
 ~~~
+:In the first run, **lmfa**{: style="color: blue"} [singled out](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals) the Pb 5_d_ state, using
+information from this table.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
+partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.
+Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) for more details.
 
-We had already specified that the Pb 5_d_ as a local orbital, information obtained from a prior run.  **lmfa**{: style="color: blue"} uses
-this information to appropriately partition the valence and core densities.
+Boundary conditions
+: The free atomic wave function satisfies the boundary condition that the wave function decay as <i>r</i>&rarr;&infin;.
+Thus, the value and slope of this function at **rmt** are determined by the asymptotic boundary condition.
+This boundary condition is needed for fixing the partial waves in the crystal code.
+**lmfa**{: style="color: blue"} generates this information and encapsulates it into the 
+["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) 
+[annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained)
 
-As a last step it fits the valence and core densities to a linear combination of smooth Hankel functions.
+Finally, **lmfa**{: style="color: blue"}
+first valence and core densities to a linear combination of smooth Hankel functions.
 This information will be used to overlap free-atomic densities to obtain a trial starting density.
+This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
 {::nomarkdown}</div>{:/}
 
@@ -473,6 +485,9 @@ _atm.pbte_{: style="color: green"}, and exits with the following printout:
 ~~~
 
 This is the _G_ cutoff **gmax** that the ctrl file needs in the next section.  It determines the mesh spacing for the charge density.
+Two values are printed, one determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present
+the largest value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained).
+
 
 ####  6. _Self consistency_
 {::comment}

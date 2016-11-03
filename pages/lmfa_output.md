@@ -131,7 +131,6 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 /docs/outputs/lmfa_output/#help-explained
 {:/comment}
 
-
 `--help` performs a function similar to `--input` but for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
 
 <div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -315,14 +314,18 @@ _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too sha
 From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
 
-+ envelope function (parameters **EH** and **RSMH** defining the shape of the envelope functions)
++ envelope function (parameters **EH** and **RSMH**) defining the shape of the envelope functions
 + ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_
 + information about local orbitals
 
-These bits of information are written to file _basp0.pbte_{: style="color: green"}.
+{::nomarkdown} <a name="envelopes-explained"></a> {:/}
+{::comment}
+/docs/outputs/lmfa_output/#envelopes-explained
+{:/comment}
+
 
 <div onclick="elm = document.getElementById('envelope'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of lmfa's generation of envelope function parameters and boundary condition at the augmentation radius.</span>
+<span style="text-decoration:underline;">Click here for annotation of lmfa's analysis of envelope function parameters and boundary conditions.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="envelope">{:/}
 
 Fitting **RSMH** and **EH** to the numerically derived wave functions can be readily accomplished. (It is a nonlinear procedure.) **lmfa**{:
@@ -330,7 +333,7 @@ style="color: blue"} actually does it twice.  First it does the estimate for the
 variational estimate for the energy.  In perturbation theory this differs from the exact value computed from numerical wave functions as the
 difference in in single-particle sum.
 
-The information is displayed in the following table for each _l_ that
+The following table displays this information for each _l_ that
 carries electrons.  **rmt** is the augmentation radius.
 
 ~~~
@@ -345,7 +348,7 @@ carries electrons.  **rmt** is the augmentation radius.
 + **StiffR and stiffE** are the sensitivity of the total energy to changes in **Rsm** and **Eh**
 + **Eval**    is the expectation value of the numerical wave function for _r_&lt;**rmt**
   and the fit function for _r_&gt;**rmt**, from the variational principle.
-+ **Exact**   is the exact eigenvalue of the self-consistent potential.
++ **Exact**   is the exact eigenvalue for the given (self-consistent) potential.
 + **Pnu** is the logarithmic derivative of the exact atomic wave function at **rmt**,
   converted into the "continuous principal quantum number".
 
@@ -354,8 +357,8 @@ _Notes:_{: style="color: red"}
 + The variational **Eval** should be less binding than the **Exact** value
 + The error in the total energy, using the envelope functions, is given in the last line.
 + The fit is evidently very good.  Unfortunately, it is less good in the crystal because crystal eigenfunctions consist of tails from
-  envelopes centered elsewhere as well this atom.  So even at **rmt**, and even if the potential were the same as atomic potential there (in
-  reality is is slightly different) the crystal eigenfunction will not be perfect.  The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis
+  envelopes centered elsewhere as well this atom.  So, even if the potential were the same as atomic potential there (in
+  reality is is slightly different) the crystal eigenfunction will not be perfect at **rmt**. The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis
   is designed to deal exactly with these issues.
 
 
@@ -379,8 +382,14 @@ This information is displayed in the following table.
 {::nomarkdown}</div>{:/}
 
 
+{::nomarkdown} <a name="lo-explained"></a> {:/}
+{::comment}
+/docs/outputs/lmfa_output/#lo-explained
+{:/comment}
+
+
 <div onclick="elm = document.getElementById('lo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of lmfa's treatment of local orbitals.</span>
+<span style="text-decoration:underline;">Click here for annotation of lmfa's analysis of local orbitals.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="lo">{:/}
 
 Local orbitals may already be specified when **lmfa**{: style="color: blue"} begins execution.  Information about them is supplied by **PZ** in the input file
