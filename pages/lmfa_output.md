@@ -516,8 +516,8 @@ is governed by how sharply peaked the envelope functions are.
 The plane-wave cutoff **GMAX** that will reasonably represent
 the expansion of envelope functions is determined separately for
 [valence orbitals](/docs/outputs/lmfa_output/#envelopes-explained) and
-[local orbitals](/docs/outputs/lmfa_output/#lo-explained).  The maximum value of both,
-for all species, is printed in the table below.
+[local orbitals](/docs/outputs/lmfa_output/#lo-explained).  Both maximum values
+for all species are printed in the table below.
 
 ~~~
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.3 (valence)  7.8 (local orbitals)

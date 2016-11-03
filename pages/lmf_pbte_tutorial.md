@@ -519,7 +519,7 @@ We also haven't specified the _G_ cutoff for the density mesh.  **blm**{: style=
 because it is sensitive to the selection of basis parameters, hich local orbitals are included.
 **lmfa**{: style="color: blue"} conveniently supplied that information for us,
 based in the shape of envelope functions it found.  In this case the valence
-_G_ cutoff is quite small (**4.388**), but the Pb 5_d_ local orbital is a much sharper function,
+_G_ cutoff is quite small (**4.3**), but the Pb 5_d_ local orbital is a much sharper function,
 and requires a larger cutoff (**7.8**).  You must use use the larger of the two.
 
 _Note:_{: style="color: red"} if you change the shape of the envelope funnctions
