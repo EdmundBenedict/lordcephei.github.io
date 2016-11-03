@@ -672,7 +672,14 @@ NPTS | i | OPTICS | N | 501 | Number of mesh points in the energy (frequency) wi
 DW | r1 [r2] | OPTICS | Y | | Frequency mesh spacing DW[,OMG]. You can supply either one argument, or two.<br>If one argument (DW) is supplied, the mesh will consist of evenly spaced points separated by DW.<br>If a second argument (OMG) is supplied, points are spaced quadratically as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1) + [DW×(i−1)]2/OMG/2<br>Spacing is approximately uniform up to frequency OMG; beyond which it increases linearly.<br>Note: The quadratic spacing can be used only with LTET=3.
 FILBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest occupied band<br>i2 = highest occupied band (defaults to no. electrons)
 EMPBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest unoccupied band<br>i2 = highest unoccupied band (defaults to no. bands)
-PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext.{::nomarkdown}<ul><li>0. No decomposition</li><li>1. Resolve ε or DOS into individual (occ,unocc) contributions<br><br>Example: optics/test/test.optics ogan 5</li><li>2. Resolve ε or DOS by k<br><br>Example: optics/test/test.optics --all 6</li><li>3. Both 1 and 2<br>Add 10 to write popt as a binary file.</li></ul> {:/}
+PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext.
+<br>0. No decomposition
+<br>1. Resolve ε or DOS into individual (occ,unocc) contributions
+<br>Example: optics/test/test.optics ogan 5
+<br>2. Resolve ε or DOS by k
+<br>Example: optics/test/test.optics --all 6
+<br>3. Both 1 and 2
+<br>Add 10 to write popt as a binary file.
 CHI2[..] | | OPTICS | Y | | Tag containing parameters for second harmonic generation.<br>Not calculated unless tag is parsed.<br><br>Example: optics/test/test.optics sic
 CHI2\_NCHI2 | i | OPTICS | N | 0 | Number of direction vectors for which to calculate $$ χ_2 $$
 CHI2\_AXES | i1, i2, i3 | OPTICS | N | | Direction vectors for each of the NCHI2 sets
@@ -811,7 +818,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 ATOM | c | all | N | | A character string (8 characters or fewer) that labels this species. This label is used, e.g. by the SITE category to associate a species with an atom at a given site.<br>Species are split into classes; how and when this is done depends whether you are using an ASA or full-potential implementation.<br><br>ASA-specific:<br>The species ID also names a disk file with information about that atom (potential parameters, moments, potential and some sundry other information). More precisely, species are split into classes, the program differentiates class names by appending integers to the species label. The first class associated with the species has the species label; subsequent ones have integers appended.<br><br>Example: testing/test.ovlp 3
 Z | r | all | N | | Nuclear charge. Normally an integer, but Z can be a fractional number. A fractional number implies a virtual crystal approximation to an alloy with some Z intermediate between the two integers sandwiching it.
-R | r | all | N | | The augmentation sphere radius, in atomic units. This is a required input for most programs:<br>choose one of R=, R/W= or R/A=. Read descriptions of the R/W AND R/A below for further remarks; also see [this page](/docs/code/asaoverview/#selection-of-sphere-radii) for a more complete discussion on the choice of sphere radii.<br><br>lmchk can find sphere radii automatically. Invoke lmchk with<br>–getwsr.<br>You can also rescale as-given radii to meet constraints with the SCLWSR token.
+R | r | all | N | | The augmentation sphere radius, in atomic units. This is a required input for most programs:<br>choose one of R=, R/W= or R/A=. Read descriptions of the R/W AND R/A below for further remarks; also see [this page](/docs/code/asaoverview/#selection-of-sphere-radii) for a more complete discussion on the choice of sphere radii.<br><br>lmchk can find sphere radii automatically. Invoke lmchk with \-\–getwsr.<br>You can also rescale as-given radii to meet constraints with the SCLWSR token.
 R/W | r | all | N | | R/W= ratio of the augmentation sphere radius to the average Wigner Seitz radius W.<br>W is the radius of a sphere such that (4πW3/3) = V/N, where V/N is the volume per atom.<br>Thus if all radii are equal with R/W=1, the sum of sphere volumes would fill space, as is usual in the ASA.<br><br>ASA-specific:<br>You must choose the radii so that the sum of sphere volumes (4π/3ΣiRi3) equals the unit cell volume V; otherwise results may become unreliable. The space-filling requirement means sphere may overlap quite a lot, particularly in open systems. If sphere overlaps get too large, (>20% or so) accuracy becomes an issue. In such a case you should add “empty spheres” to fill space. Use lmchk to print out sphere overlaps. lmchk also has an automatic empty spheres finder, which you invoke with the –findes switch; see [here](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) for a discussion.<br><br>Example: testing/test.ovlp 3<br><br>FP-specific:<br>FP results are much less sensitive to the choice of sphere radii. Strictly, the spheres should not overlap, but because of lmf‘s unique augmentation scheme, overlaps of up to 10% cause negligibly small errors as a rule.<br>(This does not apply to GW calculations!)<br>Even so, it is not advisable to let the overlaps get too large. As a general rule the L-cutoff should increase as the sphere radius increases. Also it has been found in practice that self-consistency is harder to accomplish when spheres overlap significantly.
 R/A | r | all | N | | R/A = ratio of the aumentation sphere radius to the lattice constant
 A | r | all | Y | | Radial mesh point spacing parameter. All programs dealing with augmentation spheres represent the density on a shifted logarithmic radial mesh. The ith point on the mesh is $$ r_i $$ = b[exp(a(i−1)−1]. b is determined from the number of radial mesh points specified by NR.
@@ -836,7 +843,8 @@ HCR/R | r | lm | Y | 0.7 | Hard sphere radii for structure constants, in units o
 ALPHA | r | ASA | Y | | Screening parameters for structure constants
 DV | r | ASA | Y | 0 | Artificial constant potential shift added to spheres belonging to this species
 MIX | 1 | ASA | Y | F | Set to suppress self-consistency of classes in this species
-IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter $$ P_l $$ to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
+IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter _P<sub>l</sub>_ aka [continuous principal quantum number](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
 CSTRMX | 1 | all | Y | F | Set to T to exclude this species when automatically resizing sphere radii
 GRP2 | i | ASA | Y | 0 | Species with a common nonzero value of GRP2 are symmetrized, independent of symmetry operations.<br>The sign of GRP2 is used as a switch, so species with negative GRP2 are symmetrized but with spins flipped (NSPIN=2)
 FRZWF | 1 | FP | Y | F | Set to freeze augmentation wave functions for this species
@@ -845,12 +853,12 @@ UH | r | all | Y | 0 0 0 0 | Hubbard U for LDA+U
 JH | r | all | Y | 0 0 0 0 | Exchange parameter J for LDA+U
 EREF= | r | all | Y | 0 | Reference energy subtracted from total energy
 AMASS= | r | FP | Y | | Nuclear mass in a.u. (for dynamics)
-C-HOLE | c | lmf, lm | Y | | Channel for core hole. You can force partial core occupation.<br>Syntax consists of two characters, the principal quantum number and the second one of `s’,`d’,`d’,`f’ for the l quantum number, e.g. `2s’<br>See Partially occupied core holes for description and examples.<br><br>Default: nothing
-C-HQ | r[,r] | all | Y | -1 0 | First number specifies the number of electrons to remove from the l channel specified by C-HOLE=.<br>Second (optional) number specifies the hole magnetic moment.<br>See Partially occupied core holes for description and examples.
-P | r,r,... | all | Y | | Starting values for ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers), one for each of l=0..LMXA<br><br>Default: taken from an internal table.
+C-HOLE | c | lmf, lm | Y | | Channel for core hole. You can force partial core occupation.<br>Syntax consists of two characters, the principal quantum number and the second one of 's’,&thinsp;'p’,&thinsp;'d’,&thinsp;'f’ for the _l_ quantum number, e.g. '2s’<br>See Partially occupied core holes for description and examples.<br><br>Default: nothing
+C-HQ | r[,r] | all | Y | -1 0 | First number specifies the number of electrons to remove from the _l_ channel specified by C-HOLE=.<br>Second (optional) number specifies the hole magnetic moment.<br>See Partially occupied core holes for description and examples.
+P | r,r,... | all | Y | | Starting values for log derivative parameter _P<sub>l</sub>_, aka ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers), one for each _l_=0..LMXA<br><br>Default: taken from an internal table.
 PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential functions, one for each of l=0..LMX. Setting PZ=0 for any l means that no local orbital is specified for this l. Each integer part of PZ must be either one less than P (semicore state) or one greater (high-lying state).
-Q | r,r,... | all | Y | | Charges for each l-channel making up free-atom density<br><br>Default: taken from an internal table.
-MMON | r,r,... | all | Y | 0 | Magnetic moments for each l-channel making up free-atom density<br>Relevant only for the spin-polarized case.
+Q | r,r,... | all | Y | | Charges for each _l_-channel making up free-atom density<br><br>Default: taken from an internal table.
+MMOM | r,r,... | all | Y | 0 | Magnetic moments for each _l_-channel making up free-atom density<br>Relevant only for the spin-polarized case.
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -875,13 +883,13 @@ ENV\_MODE | i | all | Y | 0 | Type of envelope functions:<br>0 2nd generation<br
 ENV\_NEL | i | lm, lmstr | Y | | (NMTO only) Number of NMTO energies
 ENV\_EL | r | lm, lmstr | N | 0 | SSSW of NMTO energies, in a.u.
 DELRX | r | ASA | Y | 3 | Range of screened function beyond last site in cluster
-TOLG | r | FP | Y | 1e-6 | Tolerance in l=0 gaussians, which determines their range
+TOLG | r | FP | Y | 1e-6 | Tolerance in _l_=0 gaussians, which determines their range
 RVL/R | r | all | Y | 0.7 | Radial cutoff for val-lap basis (this is experimental)
 VLFUN | i | all | Y | 0 | Functions for val-lap basis (this is experimental)<br>0 G0 + G1<br>1 G0 + Hsm<br>2 G0 + Hsm-dot
 MXNBR | i | ASA | Y | 0 | Make lmstr allocate enough memory in dimensioning arrays for MXNBR neighbors in the neighbor table. This is rarely needed.
 SHOW | 1 | lmstr | Y | F | Show strux after generating them
 EQUIV | 1 | lmstr | Y | F | If true, try to find equivalent neighbor tables, to reduce the computational effort in generating strux.<br>Not generally recommended
-LMAXW | i | lmstr | Y | -1 | l-cutoff for (optional) Watson sphere, used to help localize strux
+LMAXW | i | lmstr | Y | -1 | _l--cutoff for (optional) Watson sphere, used to help localize strux
 DELRW | r | lmstr | Y | 0.1 | Range extending beyond cluster radius for Watson sphere
 IINV\_NIT= | i | lmstr | Y | 0 | Number of iterations
 IINV\_NCUT | i | lmstr | Y | 0 | Number of sites for inner block

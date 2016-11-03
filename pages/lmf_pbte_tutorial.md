@@ -437,13 +437,13 @@ Envelope functions
 where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
 decay length $$1/\kappa=1/\sqrt{-\mathbf{EH}}$$. **lmfa**{: style="color: blue"} finds an estimate for
 **RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
+
+test
 :Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
 error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors.
 This process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained)
 :At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
-will become envelope parameters unless you change them yourself, or optimize them with **lmf**{: style="color: blue"}'s optimizing function,
-`--opt`.  
-
+will become envelope parameters unless you change them yourself, or optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.
 :_Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial.
