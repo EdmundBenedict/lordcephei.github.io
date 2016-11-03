@@ -233,11 +233,11 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-[5.1](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Find any high-lying core states that should be included in the valence as local orbitals.\\
-5.2  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
-5.3  Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
-5.4  Fit the density in the interstial to analytic smooth Hankel functions\\
-5.5  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
+[5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.\\
+[5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
+[5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
+[5.4](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density)  Fit the density in the interstial to analytic smooth Hankel functions\\
+[5.5](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
 It will write basis set information to template _basp0.pbte_{: style="color: green"}.
@@ -314,7 +314,7 @@ the LDA, unoccupied states also contribute to the potential.
 
 ##### 5.2 Valence-core partitioning of the free atomic density
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#5.2-valence-core-partitioning-of-the-free-atomic-density/
+/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density
 {:/comment}
 
 After _basp.pbte_{: style="color: green"} has been modified, you must run **lmfa**{: style="color: blue"} a second time:
