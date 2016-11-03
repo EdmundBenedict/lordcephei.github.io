@@ -442,10 +442,11 @@ decay length $$1/\kappa=1/\sqrt{-\mathbf{EH}}$$. **lmfa**{: style="color: blue"}
 
 test
 :Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
-{::comment}
 error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors.
 This process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained).
-{:/comment}
+
+{::comment}
+
 
 test2
 :At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
@@ -456,7 +457,6 @@ test3
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial.
 
-{::comment}
 Local orbitals
 :**lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
 using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria.
