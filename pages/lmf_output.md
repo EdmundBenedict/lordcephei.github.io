@@ -268,13 +268,13 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 + The group operations were determined automatically from the given lattice.  PbTe is cubic, with 48 group operations.\\
   First the crystal system is determined; then the symmetry operations inconsistent with the basis are discarded.\\
   Finally the operations are distilled into a minimum set of generators **(i*r3(1,1,-1) r4x**) that make the entire group.
-  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/misc/rotations)
-  This is not true in general; for example hcp Co with one atom at the origin has 24 space group operations.  The generators
-  defining the group can be written as
+  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/misc/rotations).
+  This is not true in general; for example hcp Co has 24 space group operations.  If one atom is at the origin the generators
+  defining the group can be written as the following set of (point group + translation):
 
       i*r3z::(1/3,-1/3,-1/2) r2z::(1/3,-1/3,1/2) r2x
 
-  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category for syntax
+  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category for syntax.
 
 + You can also specify symmetry operations [manually](/lordcephei.github.io/docs/input/inputfile/#symgrp).  This is particularly useful when magnetic symmetry must be considered.
 + The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or [**BZ_NABC**](/docs/input/inputfile/#bz).\\
@@ -313,8 +313,8 @@ The table below contains a synopsis of key parameters associated with augmentati
 {:/comment}
 
 The following block is concerned with the mesh used to represent the charge density,
-and to evaluate matrix elements of the (unaugmented) envelope functions
-The spacing of the mesh is controlled by the _G_ cutoff (**7.8** for PbTe).
+and to evaluate matrix elements of the (unaugmented) envelope functions.
+The spacing of the mesh is controlled by the _G_ cutoff ([**7.8** for PbTe](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax)).
 
 ~~~
  MSHSIZ: mesh has 18 x 18 x 18 divisions; length 0.477, 0.477, 0.477
@@ -349,6 +349,14 @@ The total basis (and hamiltonian rank) consists of 55 orbitals.
   all     55     0    32    55    87      63
  suham :  41 augmentation channels, 41 local potential channels  Maximum lmxa=4
 ~~~
+
+The last line refers to augmentation channels.  An envelope of a particular _l_
+must be expanded around remote sites.  The _l_-cutoff for expanding tails of envelope functions centered elsewhere is
+**lmxa**, input though tag [**SPEC\_ATOM\_LMXA**](/docs/input/inputfile/#spec-cat).
+For **lmf**{: style="color: blue"}, typically make **lmxa** about 2&times; larger than the basis _l_-cutoff.
+The special augmentation
+
+
 
 ### Envelope function parameters and their G cutoffs
 {::comment}
