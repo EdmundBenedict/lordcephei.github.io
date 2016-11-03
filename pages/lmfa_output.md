@@ -232,10 +232,10 @@ alternatively it can be fixed by the total number of mesh points (input through 
 The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
 where the the augmentation and interstitial parts are kept separate.
 
-Next follows printouts for **Pl** and **Ql**.  The **Pl** are the
-[continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers) 
-for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; (the fractional
-part is not relevant since for free atoms there is a boundary condition that the wave function decay exponentially as
+Next follows printouts for **Pl** and **Ql**.  The **Pl** are the logarithmic derivative parameters, (also called
+[continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers))
+for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip;.  For free atoms the fractional
+part is not relevant since there is a boundary condition that the wave function decay exponentially as
 <i>r</i>&rarr;&infin;).  The integer parts of **Pl** because they define what states are valence.  All states with smaller P.Q.N., e.g.
 the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 
@@ -314,7 +314,7 @@ _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too sha
 From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
 basis set information which is written to template _basp0.pbte_{: style="color: green"}.  It supplies
 
-+ envelope function (parameters **EH** and **RSMH**) defining the shape of the envelope functions
++ envelope function (parameters **EH** and **RSMH**) defining the shape of the envelope functions.
 + Boundary condition at the augmentation radius, encapsulated as logarithmic derivative parameter **P**.\\
   **P** is also called the ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 + information about local orbitals, indicated as **PZ** in the input.

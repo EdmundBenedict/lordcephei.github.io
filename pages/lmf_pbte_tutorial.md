@@ -456,6 +456,7 @@ test3
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial.
 
+{::comment}
 Local orbitals
 :**lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
 using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria.
@@ -468,6 +469,7 @@ using the core energy and charge spillout of the augmentation radius (**rmt**) a
 information from this table.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
 partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) for more details.
+{:/comment}
 
 Boundary conditions
 : The free atomic wave function satisfies the boundary condition that the wave function decay as <i>r</i>&rarr;&infin;.
