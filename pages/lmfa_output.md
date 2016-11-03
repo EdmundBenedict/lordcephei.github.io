@@ -500,7 +500,7 @@ inside the augmentation sphere, it is allowed spill out and included in the inte
     7.086104    0.00000001    0.00000001
 ~~~
 
-The core density was fit to a single smooth Hankel function.
+The core density was fit to a single smooth Hankel function.  The energy (**-14.401**) was determined by the fitting procedure.
 
 {::nomarkdown}</div>{:/}
 

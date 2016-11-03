@@ -466,6 +466,8 @@ This boundary condition is needed for fixing the partial waves in the crystal co
 ["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)\\
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained) for more details.
 
+<i></i>
+
 ##### 5.4 Fitting the interstital density
 
 **lmfa**{: style="color: blue"} fits valence and core densities to a linear combination of smooth Hankel functions.
