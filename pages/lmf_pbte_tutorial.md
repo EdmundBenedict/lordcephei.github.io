@@ -442,8 +442,6 @@ error in the energy (estimated from the single particle sum) is is 0.00116 Ry --
 : This process is described in more detail in the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained).
 : At the same time the fitting procedure gives a reasonable (but not optimal) estimate for the shape of crystal envelope functions.  These
 will become envelope parameters unless you change them yourself, or optimize them with **lmf**{: style="color: blue"}'s optimizing function, `--opt`.
-
-test3
 : _Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  Higher quality
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial.
@@ -451,16 +449,15 @@ interstitial.
 Local orbitals
 : **lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
 using the core energy and charge spillout of the augmentation radius (**rmt**) as criteria.
-~~~
+<pre>
  Find local orbitals which satisfy E > -2 Ry  or  q(r>rmt) > 5e-3
  l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
  l=3  eval=-9.796  Q(r>rmt)=3e-8  PZ=4.971  Use: PZ=0.000
-~~~
+</pre>
 : In the first run, **lmfa**{: style="color: blue"} [singled out](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals) the Pb 5_d_ state, using
 information from this table.  Once local orbitals are specified **lmfa**{: style="color: blue"} is able to appropriately
 partition the valence and core densities.  This is essential because the two densities are treated differently in the crystal code.
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) for more details.
-{:/comment}
 
 Boundary conditions
 : The free atomic wave function satisfies the boundary condition that the wave function decay as <i>r</i>&rarr;&infin;.
