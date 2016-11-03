@@ -29,7 +29,7 @@ Some portions are adapted from other calculations, as will be indicated.
 The standard output is organised by blocks.  The sections below
 annotate each block approximately in the order they are made.
 
-### Preprocessor's transformation of the input file
+### _Preprocessor's transformation of the input file_
 {::comment}
 /docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
@@ -97,7 +97,7 @@ SPEC                                             |  SPEC
 
 {::nomarkdown}</div>{:/}
 
-### Display tags parsed in the input file
+### _Display tags parsed in the input file_
 {::comment}
 /docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file
 {:/comment}
@@ -162,7 +162,7 @@ There are two other special modes to help with managing the input.
 See [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
 for further description.
 
-###  Reading basis information from the basp file
+###  _Reading basis information from the basp file_
 {::comment}
 /docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
 {:/comment}
@@ -205,7 +205,7 @@ and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/inp
 
 {::nomarkdown}</div>{:/}
 
-### Header information
+### _Header information_
 {::comment}
 /docs/outputs/lmf_output/#header-information
 {:/comment}
@@ -222,7 +222,7 @@ settings that are used in the calculation.
  bz:       metal(5), tetra, invit
 ~~~
 
-### Lattice information
+### _Lattice information_
 {::comment}
 /docs/outputs/lmf_output/#lattice-information
 {:/comment}
@@ -243,7 +243,7 @@ This block prints informations about the lattice vectors and settings used in Ew
 _Note:_{: style="color: red"} When long, thin cells are used, or when APW's are added to the basis set, some attention needs to be paid to the Ewald tolerance,
 input through [**EWALD\_TOL**](/docs/input/inputfile/#ewald).
 
-### Symmetry and k mesh
+### _Symmetry and k mesh_
 {::comment}
 /docs/outputs/lmf_output/#symmetry-and-k-mesh
 {:/comment}
@@ -286,7 +286,8 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 
 
 
-### Augmentation parameters
+
+### _Augmentation parameters_
 {::comment}
 /docs/outputs/lmf_output/#augmentation-parameters
 {:/comment}
@@ -307,7 +308,7 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
 + **foca**, **rfoca** allow for differing treatments of the core.
 
-### Interstitial mesh
+### _Interstitial mesh_
 {::comment}
 /docs/outputs/lmf_output/#interstitial-mesh
 {:/comment}
@@ -328,7 +329,7 @@ The spacing of the mesh is controlled by the _G_ cutoff ([**7.8** for PbTe](/doc
 Information about whether this mesh is sufficiently accurate is given
 in the table beginning with _sugcut_{: style="color: green"} below.
 
-### Counting the size of the basis
+### _Counting the size of the basis_
 {::comment}
 /docs/outputs/lmf_output/#counting-the-size-of-the-basis
 {:/comment}
@@ -347,24 +348,27 @@ The total basis (and hamiltonian rank) consists of 55 orbitals.
    2      18     0    23    18    41       9
    3       5     0     0     5     5      45
   all     55     0    32    55    87      63
- suham :  41 augmentation channels, 41 local potential channels  Maximum lmxa=4
+ suham : s 41 augmentation channels, 41 local potential channels  Maximum lmxa=4
 ~~~
 
 The last line refers to augmentation channels.  An envelope of a particular _l_
 must be expanded around remote sites.  The _l_-cutoff for expanding tails of envelope functions centered elsewhere is
-**lmxa**, input though tag [**SPEC\_ATOM\_LMXA**](/docs/input/inputfile/#spec-cat).
-For **lmf**{: style="color: blue"}, typically make **lmxa** about 2&times; larger than the basis _l_-cutoff.
-The special augmentation
+**lmxa**, input though tag ope[**SPEC\_ATOM\_LMXA**](/docs/input/inputfile/#spec-cat).
+For **lmf**{: style="color: blue"}, **lmxa** is usually reasonably converged if it is
+3 for _sp_ systems, 4 for _d_ atoms and 6 for _f_ shell elements.
 
-
-
-### Envelope function parameters and their G cutoffs
+### _Envelope function parameters and their G cutoffs_
 {::comment}
 /docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs
 {:/comment}
 
 In the table envelope function parameters for each species is given,
-which defines their shape.   Also shown is an orbital-dependent **gmax**.
+which defines their shape.   Also shown is :
+
++  **gmax** : the _G_ cutoff that represents that envelope to the 
+   given tolerance
++  **last term** : an estimate for the precision of the plane-wave repesentation
++  **cutoff** : the number of plane waves with _G_<**gmax**.
 
 ~~~
  sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
@@ -385,32 +389,49 @@ which defines their shape.   Also shown is an orbital-dependent **gmax**.
   Te       2    2.02  -0.90   4.037    1.63E-06     531
 ~~~
 
-Each envelope function must be expanded in plane waves in order to assemble matrix elements of the interstitial potential
-the output charge density.
-Both are assembled in reciprocal space.
-The number of plane waves needed for a particular orbital depends on how sharply peaked the function is,
-so the cutoff is orbital-dependent to allow for faster execution.
-**gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe);
-if it can, **lmf**{: style="color: blue"} will find a **gmax** for each orbital
-that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating
-not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
+Each envelope function must be expanded in plane waves in order to assemble matrix elements of the interstitial potential the output charge
+density. Both are assembled in reciprocal space.
+The number of plane waves needed for a particular orbital depends on how sharply peaked the function is, so the cutoff is orbital-dependent
+to allow for faster execution.
+**gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will
+find a **gmax** for each orbital that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*'
+to the number indicating not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
 
-If any of the orbitals bump up against the maximum, check the error estimate ("last term") in the Table.
-If it is too high you can expect errors in the hamiltonian and you should increase **gmax**.
+It can happen that some of the orbitals bump up against the global cutoff.  This is flagged by
+a &thinsp;<b>*</b>&thinsp; appended to the cutoff, e.g.
+
+~~~
+  Te       0    1.63  -0.10   4.572    1.74E-06     701*
+~~~
+
+In this case check **last term**.  If it is too high you can expect errors in the hamiltonian and you should increase **gmax**.
 
 The tolerance defaults to 10<sup>&minus;6</sup>, but you can control it with tag **HAM_TOL**.
 10<sup>&minus;5</sup> or smaller is usually safe.
 
+_Note:_{: style="color: red"} With APW's also in the basis, it the overlap matrix becomes nearly singular.
+To stabilize the overlap matrix, you can set **HAM_TOL** to something close to machine precision
+
 At this stage the potential independent setup is complete.
 
-### Obtain an input density
+### _Obtain an input density_
 {::comment}
 /docs/outputs/lmf_output/#obtain-an-input-density
 {:/comment}
 
 The next step is to generate the potential : for this a density must be given.  **lmf**{: style="color: blue"} tries to read the density
 from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmf**{: style="color: blue"} was not able
-to find the file, and instead constructs a trial density by overlapping free atom densities:
+to find the file, and instead constructs a trial density by overlapping free atom densities.
+
+It reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
+and overlaps them (Mattheis construction).  This makes a reasonable guessed density.
+
+<div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of Mattheis construction printout.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mattheis">{:/}
+
+This table indicates what **lmf**{: style="color: blue"} is doing, and checks
+that *atm.pbte*{: style="color: green"} is consistent the input file.
 
 ~~~
  lmfp  : no rst file ... try to overlap atomic densities
@@ -419,7 +440,49 @@ to find the file, and instead constructs a trial density by overlapping free ato
  rdovfa: expected Te,      read Te       with rmt=  3.0287  mesh   461  0.025
 ~~~
 
-If you have
+Next follows a table with some useful information about the overlapping process
 
+~~~
+ ovlpfa: overlap smooth part of FA densities
+ site   1  spec  1  pos  0.0000  0.0000  0.0000  Qsmooth 7.659845
+ site   2  spec  2  pos  0.0000  0.0000  0.5000  Qsmooth 7.820498
+ total smooth Q = 15.480342
+
+ Free atom and overlapped crystal site charges:
+   ib    true(FA)    smooth(FA)  true(OV)    smooth(OV)    local
+    1   12.535727    6.195571   12.881552    6.541397    6.340155
+    2    4.566605    6.387103    4.926059    6.746557   -1.820498
+
+ Smooth charge on mesh:           15.480342
+ Sum of local charges:             4.519657
+ Total valence charge:            20.000000
+ Sum of core charges:            114.000000
+ Sum of nuclear charges:        -134.000000
+ Homogeneous background:           0.000000
+ Deviation from neutrality:       -0.000000
+~~~
+
+It is important that the system is charge neutral (last line).
 
 {::nomarkdown}</div>{:/}
+
+If, on the other hand, the charge density has been saved in a restart file,
+**lmf**{: style="color: blue"} reads it.  Usually restart files are
+save in a binary form in a file named *rst.ext*{: style="color: green"}
+
+<div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
+
+
+~~~
+ iors  : read restart file (binary, mesh density) 
+         use from  restart file: ef window, positions, pnu 
+         ignore in restart file: *
+~~~
+
+{::nomarkdown}</div>{:/}
+
+
+xxx
+

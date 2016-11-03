@@ -520,3 +520,12 @@ maximum values for all species are printed in the table below.
 ~~~
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.3 (valence)  7.8 (local orbitals)
 ~~~
+
+{::nomarkdown} <a name="summary"></a> {:/}
+{::comment}
+/docs/outputs/lmfa_output/#summary
+{:/comment}
+
+**lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
+are saved in _atm.pbte_{: style="color: green"} for each species, and basis information parameters are saved in _basp0.pbte_{: style="color: green"}.
+
