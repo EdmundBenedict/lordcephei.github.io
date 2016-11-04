@@ -13,7 +13,8 @@ _____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features
-([Another tutorial](/tutorial/gw/qsgw_fe/) presents an LDA calculation for Fe, a ferromagnetic metal, showing still other features).  This tutorial:
+([Another tutorial](/tutorial/gw/qsgw_fe/) presents an LDA calculation for Fe, a ferromagnetic metal).\\
+This tutorial:
 
 1. explains the input file's structure and illustrates some of its programming language capabilities
 2. generates self consistent atomic densities, to provide information for the crystal calculation
@@ -232,16 +233,16 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 To carry out a self-consistent calculation, we need to prepare the following.
 
 + Make [self-consistent atomic densities](/docs/outputs/lmfa_output/#self-consistent-density), which **lmf**{: style="color: blue"} will overlap to make a 
-  [starting trial density](/docs/outputs/lmfa_output/#mattheis-construction).
-+ Fit the [density in the interstial](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density) to analytic smooth Hankel functions\\
+  [starting trial density](/docs/outputs/lmf_output/#mattheis-construction).
++ Fit the [density outside the augmentation radius](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density) to analytic smooth Hankel functions\\
   Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
-+ Provide a reasonable estimate for parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>]
-  (/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
++ Provide a reasonable estimate for parameters 
+  [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
   that fix the [shape of the envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
   for _l_=0,&thinsp;1,&hellip;\\
   These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
-+ Provide a reasonable estimate for boundary conditions that fix linearization energies, parameterized by the
-  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers),
++ Provide a reasonable estimate for boundary conditions that fix [linearization energies](/docs/package_overview/#linear-methods-in-band-theory), parameterized by the
+  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
   aka the "continuous principal quantum number"\\
   These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
 + Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\

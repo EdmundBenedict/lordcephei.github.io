@@ -113,7 +113,7 @@ specifying potential parameters, or with the atomic part, specifying the moments
 ### _Augmentation sphere boundary conditions and continuous principal quantum numbers_
 ________________________________________________________________________________________________
 {::comment}
-/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers/
+/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 {:/comment}
 
 [Linear augmented wave](/docs/package_overview/#linear-methods-in-band-theory) methods almost invariably construct the basis set inside
@@ -139,12 +139,21 @@ The energy <i>&epsilon;</i> fixes _D_, or alternatively _D_ can be specified whi
 over a finite window of energy, after which it starts again at +&infin;.
 There is thus a multiplicity of energies for a given <i>D<sub>l</sub></i>, one branch for each principal quantum number.
 
-For that reason the Questaal package uses a "continuous principal quantum number" defined as
+{::nomarkdown} <a name="logderpar"></a> {:/}
+{::comment}
+(/docs/code/asaoverview/#logderpar)
+{:/comment}
+
+For that reason the Questaal suite uses a <i>P<sub>l</sub></i>, called a "logarithmic derivative parameter" or a "continuous principal quantum number"
 
 $$P_l = 0.5 - \arctan(D_l)/\pi + \hbox{(principal quantum number)} $$
 
 <i>P<sub>l</sub></i> increases smoothly and monotically with energy, acquiring an extra integer each time a new node appears.
-This construction is due to Michael Methfessel. <i>P<sub>l</sub></i> called a "continuous principal quantum number."
+
+<i>P<sub>l</sub></i> is called a "logarithmic derivative parameter" or a "continuous principal quantum number."\\
+_Note:_{: style="color: red"} there is a one-to-one correspondence to <i>P<sub>l</sub></i> and the energy of the partial wave, <i>&epsilon;<sub>l</sub></i>.
+
+This construction is due to Michael Methfessel. 
 
 _Note:_{: style="color: red"} <i>P<sub>l</sub></i> should not be confused with O.K. Andersen's "Potential function."
 It is unfortunate that these distinct but related functions have the same symbol.

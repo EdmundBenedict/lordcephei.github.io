@@ -428,7 +428,7 @@ and overlaps them (Mattheis construction).  This makes a reasonable guessed dens
 
 {::nomarkdown} <a name="mattheis-construction"></a> {:/}
 {::comment}
-(/docs/outputs/lmfa_output/#mattheis-construction)
+(/docs/outputs/lmf_output/#mattheis-construction)
 {:/comment}
 
 <div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">

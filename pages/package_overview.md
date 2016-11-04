@@ -60,7 +60,7 @@ partial waves are obtained by integrating the Schr&ouml;dinger equation numerica
 
 #### _Linear Methods in Band Theory_
 {::comment}
-/docs/package_overview/#linear-methods-in-band-theory
+(/docs/package_overview/#linear-methods-in-band-theory)
 {:/comment}
 
 Nearly all modern electronic structure methods make use of the [linear
