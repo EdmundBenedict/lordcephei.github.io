@@ -1125,8 +1125,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('figw'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
 ![Symbols Example](/assets/img/wiggle.svg)
 {::nomarkdown}</div>{:/}
 

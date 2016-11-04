@@ -439,8 +439,8 @@ relativistic Dirac treatment.
 
 **lmfa**{: style="color: blue"} loops over each species, generating a [self-consistent density](/docs/outputs/lmfa_output/#self-consistent-density).
 
-Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some basis set information, namely the
-generation of envelope function paramters **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending
+Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some estimates for the basis set, namely the
+generation of envelope function parameters **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending
 on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), analyzing which cores should be promoted to local orbitals, and
 reasonable estimates for the boundary condition of the partial wave that dete
 
@@ -493,8 +493,10 @@ Boundary conditions
 Thus, the value and slope of this function at **rmt** are determined by the asymptotic boundary condition.
 This boundary condition is needed for fixing the [linearization energy](/docs/package_overview/#linear-methods-in-band-theory)
 of the partial waves in the crystal code. 
-**lmfa**{: style="color: blue"} generates this information and encapsulates it into the 
-["continuous principal quantum number"](/docs/code/asaoverview/#logderpar), and saves it as **P** in _basp0.pbte_{: style="color: green"}.\\
+**lmfa**{: style="color: blue"} generates an estimate for this energy and encapsulates it into the 
+["continuous principal quantum number"](/docs/code/asaoverview/#logderpar). 
+It is saved as **P** in _basp0.pbte_{: style="color: green"} (normally **P** will updated in the
+self-consistency cycle).\\
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained) for more details.
 
 <i> </i>
@@ -510,7 +512,7 @@ This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitt
 
 ##### 5.5 Estimate for GMAX
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax
+(/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)
 {:/comment}
 
 After looping over all species **lmfa**{: style="color: blue"} writes basis information to 
@@ -553,7 +555,7 @@ to **nkabc=6**, or alternatively assign variable **nkabc** on the command line (
 
 We also haven't specified the _G_ cutoff for the density mesh.  **blm**{: style="color: blue"} does not determine this parameter automatically
 because it is sensitive to the selection of basis parameters, hich local orbitals are included.
-**lmfa**{: style="color: blue"} conveniently supplied that information for us,
+**lmfa**{: style="color: blue"} conveniently [supplies](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) that information for us,
 based in the shape of envelope functions it found.  In this case the valence
 _G_ cutoff is quite small (**4.3**), but the Pb 5_d_ local orbital is a much sharper function,
 and requires a larger cutoff (**7.8**).  You must use use the larger of the two.
@@ -562,8 +564,7 @@ _Note:_{: style="color: red"} if you change the shape of the envelope functions
 you must take care that **gmax** is large enough. This is described in the 
 lmf output below.
 
-Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line.
-Now run
+Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line:
 
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
@@ -578,8 +579,8 @@ At the end of the file it prints out
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
-The first line prints out the change in Harris-Foulkes energy relative to the prior iteration and some norm of RMS change in the
-(output-input) charge density (see arrows), followed by the tolerances required for self-consistency.
+The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) energy relative to the prior iteration and some norm of RMS change in the
+charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
 
 The last line prints out a table of variables that were specified on the command line, and total
 energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are different
