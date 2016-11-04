@@ -202,7 +202,7 @@ collecting the most commonly used tags in one place.
 
 ####  4. _Determining what input an executable seeks_
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks
+(/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
 {:/comment}
 
 Executables accept input from two primary streams : tags in the ctrl file and additional information through command-line switches.

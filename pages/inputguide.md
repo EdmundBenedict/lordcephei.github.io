@@ -597,6 +597,7 @@ HEADER [ In this form only two lines reside within the
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _IO_
+(/docs/input/inputfile/#io)
 This optional category controls what kind of information, and how much, is written to the standard output file.
 
 {::comment}

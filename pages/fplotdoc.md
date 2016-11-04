@@ -1008,7 +1008,7 @@ _fplot.ps_{: style="color: green"} into _.svg_{: style="color: green"} format.
 
 #### Structure of data files
 {::comment}
-/docs/misc/fplot/#structure-of-data-files
+(/docs/misc/fplot/#structure-of-data-files)
 {:/comment}
 
 Data files follow a standard Questaal format for two-dimensional arrays.
