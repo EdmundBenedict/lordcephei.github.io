@@ -5,12 +5,12 @@ permalink: "/docs/misc/data_format/"
 header: no
 ---
 
-### _Purpose_
+#### _Purpose_
 {:.no_toc}
 
 To explain the structure of data files in the Questaal suite.
 
-### _Table of Contents_
+#### _Table of Contents_
 _____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
@@ -19,11 +19,10 @@ _____________________________________________________________
 (/docs/input/preprocessor/#table-of-contents)
 {:/comment}
 
-
 #### Standard data formats for 2D arrays
 
-Many Questaal programs, for example as [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility, and electronic structure programs such
-as **lm**{: style="color: blue"}, read at some files containing 2D arrays.  Most of the time they follow a standard format.
+Many Questaal programs, for example the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility, and electronic structure programs such
+as **lm**{: style="color: blue"}, read some files containing 2D arrays.  Most of the time they follow a standard format.
 
 Most files of this type are read through the file [file preprocessor](/docs/input/preprocessor), which can [modify the input](/docs/input/preprocessor/#main-features)
 before it is parsed for data.  It also has looping constructs, which can be useful in many contexts.
