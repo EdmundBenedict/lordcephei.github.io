@@ -276,18 +276,18 @@ Command-line switches:
     **\-\-shell:tab[&hellip;]**.\\
     Options for tab style:
       + :tab[=#] Invokes in a table format, positions of neighbors
-        relative to site specified in site-list above
+        relative to site specified in site-list above.\\
         Tab style has several formats, specifed by #, described below. In the modes (#) below:\\
           &emsp; ib is the site around which the table is made;\\
           &emsp; jb is the site index of a particular neighbor;\\
           &emsp; dpos(1..3,jb) is the connecting vector (relative position) between sites ib and jb\\
-        \#  format
-        1.  (default) ib jb dpos(1..3,jb)
-        2.  (just the positions) dpos(1..3,jb)
-        3.  (in conjunction with :disp=fnam) dpos0(1..3,jb) dpos(1..3,jb)\\
+        &nbsp;\#  &nssp;format
+        1.   ib jb dpos(1..3,jb)  (default)
+        2.   dpos(1..3,jb)  (ib and jb are left out)
+        3.  dpos0(1..3,jb) dpos(1..3,jb)  (in conjunction with :disp=fnam)\\
            dpos= displacements relative to dpos0, calculated from the
-                 differences in positions read from file 'fnam' (see disp:fnam below)
-                 Relative to dpos0.\\
+                 differences in positions read from 'fnam'\\
+                 relative to dpos0. (see disp:fnam below)
            In this mode, only neighbors for which there
            is some nonzero displacement are written.\\
            This mode is useful in conjuction with <b>lmscell</b>.
