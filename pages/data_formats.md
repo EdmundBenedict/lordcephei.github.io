@@ -33,7 +33,7 @@ The preprocessor can [modify the input](/docs/input/preprocessor/#main-features)
 
 #### Standard data formats for 2D arrays
 {::comment}
-(docs/misc/data_format/#standard-data-formats-for-2d-arrays)
+(/docs/misc/data_format/#standard-data-formats-for-2d-arrays)
 {:/comment}
 
 Many Questaal programs, for example the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility, and electronic structure programs such
