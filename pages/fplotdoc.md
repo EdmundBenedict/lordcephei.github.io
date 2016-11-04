@@ -826,8 +826,8 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   + **noclose** &emsp;&emsp; suppresses closing contours on boundaries.
 
 
-  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
-  print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.\\
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (**-pr80**), it will
+  print out the areas of contours it makes.  This is very useful in determining areas of a Fermi surface, for example.\\
   See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.
 
 {::nomarkdown} <a name="read-switch"></a> {:/}

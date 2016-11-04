@@ -326,7 +326,7 @@ _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too sha
 
 #### _Generating basis information_
 {::comment}
-/docs/outputs/lmfa_output/#generating-basis-information
+(/docs/outputs/lmfa_output/#generating-basis-information)
 {:/comment}
 
 From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
