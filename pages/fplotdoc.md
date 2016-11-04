@@ -1036,6 +1036,7 @@ style="color: green"}, but the information can be supplied in other ways.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
 
+These rules follow the standard [Questaal protocol](/docs/misc/data_format/#standard-data-formats-for-2d-arrays).
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 

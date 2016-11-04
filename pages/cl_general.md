@@ -5,18 +5,20 @@ permalink: "/docs/commandline/general/"
 header: no
 ---
 
+#### _Purpose_
+_____________________________________________________________
+{:.no_toc}
+This page serves to document the command line switches generally applicable to most of the packages in the suite, and to give an idea of the usage cases of certain switches and switch types.
+
 ____________________________________________________________
 
-### _Table of Contents_
+#### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-### _Purpose_
-_____________________________________________________________
-This page serves to document the command line switches generally applicable to most of the packages in the suite, and to give an idea of the usage cases of certain switches and switch types.
-
-### _Documentation_
+#### _Introduction_
 _____________________________________________________________
 All of the programs have special branches that may be (and sometimes must be) set from command-line switches.
 
@@ -33,7 +35,7 @@ In the example above, `-vns=4 -vnm=5` assigns variables **ns** and **nm** to 4 a
 _pos.cafeas_{: style="color: green"}.
 
 
-##### _Switches Common to Most or All Programs_
+#### _Switches Common to Most or All Programs_
 
 + **\-\-help** \| **\-\-h**
   + Lists command-line switches for that program and exits.
@@ -83,12 +85,12 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
 
 <i> </i>
 
-##### _Switches Common To Programs Using Site Information_
+#### _Switches Common To Programs Using Site Information_
 Additionally, for any program utilizing site information, the following switches apply
 
 + **\-\-rpos=fnam**
   + Tells the program to read site positions from file _fnam.ext_{: style="color: green"} after the input file has been read.
-    _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/misc/fplot/#structure-of-data-files) for 2D arrays.
+    _fnam.ext_{: style="color: green"} is in standard [Questaal format][Questaal protocol](/docs/misc/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
 
 + **\-\-fixpos[:tol=#]** \| **\-\-fixpos[:#]**
   + Adjust positions slightly, rendering them as consistent as possible with the symmetry group.
@@ -118,4 +120,8 @@ Additionally, for any program utilizing site information, the following switches
     unix wildcards. For each class, the program makes a system call "ls fnam | grep class"
     and any class which grep finds is included in the list.\\
     Example: "-sfill~style=3~a[1-6]"
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
+#### _Switches for the **blm*{: style="color: blue"} tool_
 
