@@ -232,11 +232,11 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 To carry out a self-consistent calculation, we need to prepare the following:
 
 [5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
-&emsp;Complete information about the augmented and interstitial parts of the density are written to file atm.pbte_{: style="color: green"}.\\
+&emsp; Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.\\
 [5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set 
-
-with parameters **RSMH** and **EH** defining the envelope functions\\
-
+     (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon</i>](/docs/code/smhankels/#sm-hankel-diffe))
+     for _l_=0,&thinsp;1,&hellip;\\
+&emsp; These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.\\
 [5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.\\
 [5.4](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density)  Fit the density in the interstial to analytic smooth Hankel functions\\
 [5.5](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
