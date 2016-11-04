@@ -455,7 +455,7 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _HAM_
 {::comment}
-/docs/input/inputfile/#ham
+(/docs/input/inputfile/#ham)
 {:/comment}
 
 This category contains parameters defining the one-particle hamiltonian.

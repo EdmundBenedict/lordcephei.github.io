@@ -458,7 +458,7 @@ _Notes:_{: style="color: red"}
 
 #### _Fitting the charge density outside the augmentation radius_
 {::comment}
- /docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius
+(/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
 {:/comment}
 
 **lmfa**{: style="color: blue"} retains two densities on the numerical mesh for points

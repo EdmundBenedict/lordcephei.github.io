@@ -232,23 +232,23 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following.
 
-+ Make [self-consistent atomic densities](/docs/outputs/lmfa_output/#self-consistent-density), which **lmf**{: style="color: blue"} will overlap to make a 
-  [starting trial density](/docs/outputs/lmf_output/#mattheis-construction).
-+ Fit the [density outside the augmentation radius](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density) to analytic smooth Hankel functions\\
-  Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
-+ Provide a reasonable estimate for parameters 
-  [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
-  that fix the [shape of the envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
-  for _l_=0,&thinsp;1,&hellip;\\
-  These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
-+ Provide a reasonable estimate for boundary conditions that fix [linearization energies](/docs/package_overview/#linear-methods-in-band-theory), parameterized by the
-  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
-  aka the "continuous principal quantum number"\\
-  These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
-+ Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
-  Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
-+ Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
-+ Supply an estimate for the [mesh density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
+1. Make [self-consistent atomic densities](/docs/outputs/lmfa_output/#self-consistent-density).
+2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
+   to analytic functions. **lmf**{: style="color: blue"} will [overlap atomic densities](/docs/outputs/lmf_output/#mattheis-construction) to make a starting trial density.\\
+   Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
+3. Provide a reasonable estimate for the
+   [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
+   that fix the shape of the [smooth Hankel envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
+   for _l_=0,&thinsp;1,&hellip;.  The _l_ cutoff is determined internally, depending on the setting of &thinsp;[**HAM\_AUTOBAS\_LMTO**](/docs/input/inputfile/#ham)\\
+   These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
+4. Provide a reasonable estimate for boundary conditions that fix [linearization energies](/docs/package_overview/#linear-methods-in-band-theory), parameterized by the
+   [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
+   aka the "continuous principal quantum number"\\
+   These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
+5. Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
+   Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
+6. Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
+7. Supply an estimate for the [interstitial density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write basis set information to
 template _basp0.pbte_{: style="color: green"}.  The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to

@@ -423,7 +423,7 @@ The next step is to generate the potential : for this a density must be given.  
 from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmf**{: style="color: blue"} was not able
 to find the file, and instead constructs a trial density by overlapping free atom densities.
 
-It reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
+**lmf**{: style="color: blue"} reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
 and overlaps them (Mattheis construction).  This makes a reasonable guessed density.
 
 {::nomarkdown} <a name="mattheis-construction"></a> {:/}

@@ -68,9 +68,14 @@ method](http://dx.doi.org/10.1103/PhysRevB.12.3060) pioneered by O.K. Andersen. 
 expanding them in a Taylor series to first order about some "linearization energy."  This is explained in detail in
 Richard Martin's book, _Electronic Structure_.
 
+{::comment}
 <div onclick="elm = document.getElementById('linear'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here for a brief description of the linear method and its extension using local orbitals.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="linear">{:/}
+{:/comment}
+
+<div class="dropButtonMid" onclick="dropdown( this );">Click here for a brief description of the linear method and its extension using local orbitals.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 The linear approximation rests on the fact that a partial wave
 $$\phi_l(\varepsilon,r)$$ for an atom centered at the origin varies
