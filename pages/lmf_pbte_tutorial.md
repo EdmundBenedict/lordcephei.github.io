@@ -437,22 +437,13 @@ relativistic Dirac treatment.
 /tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set
 {:/comment}
 
-**lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
-generation of **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending on the setting of 
-[**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), logarithmic derivative parameter [**P**](/docs/code/asaoverview/#logderpar),
-which cores should be promoted to [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#lo-explained).
+**lmfa**{: style="color: blue"} loops over each species, generating a [self-consistent density](/docs/outputs/lmfa_output/#self-consistent-density).
 
-**lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
-See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
-for a more detailed description of how it proceeds in making the atomic density self-consistent.
+Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some basis set information, namely the
+generation of envelope function paramters **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending
+on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), analyzing which cores should be promoted to [local
+orbitals](/tutorial/lmf/lmf_pbte_tutorial/#lo-explained), and reasonable estimates for the boundary condition of the partial wave
 
-Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some
-basis set information, and writes the information to template _basp0.pbte_{: style="color: green"}.  It supplies:\\
-1. 
-2. boundary conditions of the partial waves at the augmentation radius, encapsulated in the ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_\\
-3. information about local orbitals, and sets which partial waves should be included\\
-4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
-  
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
 (/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
@@ -491,6 +482,11 @@ Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) fo
  l=2  eval=-1.569  Q(r>rmt)=0.0078  PZ=5.934  Use: PZ=15.934
  l=3  eval=-9.796  Q(r>rmt)=3e-8  PZ=4.971  Use: PZ=0.000
 ~~~
+
+{::nomarkdown} <a name="bc-explained"></a> {:/}
+{::comment}
+(/tutorial/lmf/lmf_pbte_tutorial/#bc-explained)
+{:/comment}
 
 Boundary conditions
 : The free atomic wave function satisfies the boundary condition that the wave function decay as <i>r</i>&rarr;&infin;.
