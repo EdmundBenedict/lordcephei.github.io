@@ -4,10 +4,9 @@ title: "The fplot tool"
 permalink: "/docs/misc/fplot/"
 header: no
 ---
-_____________________________________________________________
-
 
 ### _Purpose_
+_____________________________________________________________
 {:.no_toc}
 
 **fplot**{: style="color: blue"} is a general purpose plotting package, with functionality roughly similar to **gnuplot**{: style="color: blue"}.
@@ -26,19 +25,18 @@ Questaal codes into easy-to-read files [with a simple data format](/docs/misc/fp
 
 For quick reference, there is a handy [concept index](/docs/misc/fplot/#concept-index).
 
-_____________________________________________________________
 
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 {::comment}
-/docs/misc/fplot/#table-of-contents
+(/docs/misc/fplot/#table-of-contents)
 {:/comment}
 
-_____________________________________________________________
-
 ### _Preliminaries_
+_____________________________________________________________
 
 **fplot**{: style="color: blue"} is required and is assumed to be in your path.
 You will also need a postscript viewer.  This document assumes you are using the apple-style **open**{: style="color: blue"} command to view postscript files.
@@ -49,9 +47,8 @@ This manual is written for fplot version 3.50.  To see what version you are usin
 
 The exercise [adapting postscript files to other formats](/docs/misc/fplot/#adapting-postscript-coordinates) also makes use of inkscape.
 
-_____________________________________________________________
-
 ### 1. _Introduction_
+_____________________________________________________________
 
 **fplot**{: style="color: blue"} is mainly designed to draw _xy_ data; it has some capability for contour plots and a very limited ability
 for 3D graphics.
@@ -181,7 +178,7 @@ _Notes:_{: style="color: red"}
 /docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
 {:/comment}
 
-Th figure in this example shows a contour plot of the charge density of the Cr charge density in (100), (011) plane.
+The figure in this example shows a contour plot of the Cr charge density in the (100), (011) plane.
 
 Commands are read from script _plot.cr_{: style="color: green"}.
 To make this plot you will need to copy the already-prepared charge density contour file [chgd.cr](../../../assets/download/inputfiles/chgd.cr) to your working directory,

@@ -6,24 +6,28 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
+{:.no_toc}
 
 This manual documents the functioning of Questaal's preprocessor.
 Many files in the Questaal suite (e.g. the main input file
 _ctrl.ext_{: style="color: green"}) are read through the prepocessor
 before they are used.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}  
+{::comment}
+(/docs/input/preprocessor/#table-of-contents)
+{:/comment}
 
-_____________________________________________________________
 
 ### _Main Features_
+_____________________________________________________________
 {::comment}
-/docs/input/preprocessor/#main-features
+(/docs/input/preprocessor/#main-features)
 {:/comment}
 
 The preprocessor allows you to declare variables and evaluate expressions. It also possesses some
@@ -31,8 +35,8 @@ programming language capability, with branching control to skip or loop over a s
 lines.
 
 The preprocesor is built into 
-the source code, _rdfiln.f_{: style="color: green"}.
-Comments at the beginning of _rdfiln.f_{: style="color: green"}
+the source code, <b>rdfiln.f</b>{: style="color: green"}.
+Comments at the beginning of <b>rdfiln.f</b>{: style="color: green"}
 document directives it can process.  Here we use _rdfiln_{: style="color: green"}
 as a name for the preprocessor.
 
