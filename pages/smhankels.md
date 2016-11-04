@@ -207,10 +207,6 @@ smoothed Hankels around remote sites (see Ref 1, Eq. 12.7).
 
 hello
 
-{::nomarkdown} <a name="sm-hankel-diffe></a> {:/}
-{::comment}
-/docs/code/smhankels/#sm-hankel-diffe
-{:/comment}
 
 Comparing the last form Eq. (14) to Eq. (10)
 and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
