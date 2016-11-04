@@ -1012,7 +1012,7 @@ _fplot.ps_{: style="color: green"} into _.svg_{: style="color: green"} format.
 (/docs/misc/fplot/#structure-of-data-files)
 {:/comment}
 
-Data files follow a standard Questaal format for two-dimensional arrays.
+Data files follow a standard [Questaal format for two-dimensional arrays](docs/misc/data_format/#standard-data-formats-for-2d-arrays).
 **fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
 
 **fplot**{: style="color: blue"} must be given information about the number of rows and columns in the file.  The safest way to specify this,
