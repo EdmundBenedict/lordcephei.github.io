@@ -527,6 +527,10 @@ AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the Pnu are set an
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _GF_
+{::comment}
+(/docs/input/inputfile/#gf)
+{:/comment}
+
 Category GF is intended for parameters specific to the Green’s function code **lmgf**{: style="color: blue"}.
 It is read by **lmgf**{: style="color: blue"}.
 
