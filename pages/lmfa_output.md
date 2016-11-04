@@ -211,7 +211,7 @@ similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_o
 
 #### _Self-consistent density_
 {::comment}
- /docs/outputs/lmfa_output/#self-consistent-density
+(/docs/outputs/lmfa_output/#self-consistent-density)
 {:/comment}
 
 If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s printout for the first atom (Pb) begins with:
@@ -226,25 +226,38 @@ If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s pr
 The first line shows the atomic number, number of core charges (core levels are assumed to be filled), augmentation radius
 and net sphere charge.
 The next line shows the augmentation radius and cutoff radius of the free atom and radial mesh parameters. 
-All the Questaal codes use a shifted logarithmic mesh: point _i_ has a radius
+
+###### Radial mesh
+{::comment}
+ /docs/outputs/lmfa_output/#radial-mesh
+{:/comment}
+
+Wave functions are integrated on a uniform radial mesh of points.
+All the Questaal codes use a shifted logarithmic radial mesh: point _i_ has a radius
 
 $$ r_i = b[e^{a(i-1)}-1] $$
 
-The first point is the origin and the last the augmentation radius.  Thus, in addition to the augmentation radius there is a free parameter.
-It is sometimes fixed by spacing _a_ (input through [**SPEC_ATOM_A**](/docs/input/inputfile/#spec)); 
-alternatively it can be fixed by the total number of mesh points (input through [**SPEC_ATOM_NR**](/docs/input/inputfile/#spec)).
+Mesh points are linearly spaced by _ab_ near the nucleus.  For <i>r<sub>i</sub></i> large compared to
+_a_, the mesh points are spaced exponentially (uniformly on a log scale, spacing _a_).
 
-The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
-where the the augmentation and interstitial parts are kept separate.
+Three numbers are used to specify the mesh: augmentation radius, the number of points inside it, and the spacing parameter _a_ (_b_ can be
+determined from them). These can be specified in the input file as [**SPEC\_ATOM\_R**,&thinsp;**SPEC\_ATOM\_NR**,&thinsp;
+**SPEC\_ATOM\_A**](/docs/input/inputfile/#spec-cat) though usually you can rely on default values.
 
-Next follows printouts for **Pl** and **Ql**.  The **Pl** are the logarithmic derivative parameters, (also called
+The first point falls the origin and the last the augmentation radius.  The free atom calculation doesn't need to know about the
+augmentation radius, but it is needed for _atm.pbte_{: style="color: green"}, where the the augmentation and interstitial parts are kept
+separate.
+
+###### Parameters that specify the charge density
+
+The **Pl** in the table are the logarithmic derivative parameters, (also called
 [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers))
-for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip;.  For free atoms the fractional
+for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; valence orbitals.  For free atoms the fractional
 part is not relevant since there is a boundary condition that the wave function decay exponentially as
-<i>r</i>&rarr;&infin;).  The integer parts of **Pl** because they define what states are valence.  All states with smaller P.Q.N., e.g.
+<i>r</i>&rarr;&infin;).  The integer parts of **Pl** are important because they define what states are valence.  All states with smaller principal quantum number, e.g.
 the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 
-**Pl** and **Ql** are specified by &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat) and &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+**Pl** and **Ql** are specified by &thinsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)&thinsp; and &thinsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
 Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table for whatever is missing.
 
 As described in [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.

@@ -416,7 +416,7 @@ At this stage the potential independent setup is complete.
 
 ### _Obtain an input density_
 {::comment}
-/docs/outputs/lmf_output/#obtain-an-input-density
+(/docs/outputs/lmf_output/#obtain-an-input-density)
 {:/comment}
 
 The next step is to generate the potential : for this a density must be given.  **lmf**{: style="color: blue"} tries to read the density
@@ -425,6 +425,11 @@ to find the file, and instead constructs a trial density by overlapping free ato
 
 It reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
 and overlaps them (Mattheis construction).  This makes a reasonable guessed density.
+
+{::nomarkdown} <a name="mattheis-construction"></a> {:/}
+{::comment}
+(/docs/outputs/lmfa_output/#mattheis-construction)
+{:/comment}
 
 <div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of Mattheis construction printout.</span>
