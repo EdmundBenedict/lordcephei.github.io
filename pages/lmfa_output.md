@@ -133,15 +133,14 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 
 `--help` performs a function similar to `--input` but for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
 
-{::comment}
 <div onclick="elm = document.getElementById('clo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here to see --help explained.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
-{:/comment}
 
+{::comment}
 <div class="dropButtonMid" onclick="dropdown( this );">Click here to see --help explained.</div>
 {::nomarkdown}<div class="dropContent">{:/}
-
+{:/comment}
 
 Consider the output of `lmfa --help`.
 
