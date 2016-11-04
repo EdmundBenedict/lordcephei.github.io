@@ -99,6 +99,10 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
     $ blm init.pbte
     $ cp actrl.pbte ctrl.pbte
 
+_Note:_{: style="color: red"} If you are going through this tutorial in preparation for a later QS_GW_ calculation,
+use `blm --gw init.pbte`.
+
+
 #### 2. _How the input file is organized_
 {::comment}
 (/tutorial/lmf/lmf_pbte_tutorial/#how-the-input-file-is-organized)
@@ -228,6 +232,8 @@ for a comparison of the pre- and post-processed forms of the input file in this 
 `--show` tells **lmfa**{: style="color: blue"} to print out tags as it reads them (or the defaults it uses).\\
 It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file).
 
+See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
+
 ####  5. _Initial setup: free atomic density and parameters for basis_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis
@@ -235,7 +241,7 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following.
 
-1. Make [self-consistent atomic densities](/docs/outputs/lmfa_output/#self-consistent-density).
+1. Make a [self-consistent atomic density](/docs/outputs/lmfa_output/#self-consistent-density) for each species.
 2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
    to analytic functions. **lmf**{: style="color: blue"} will [overlap atomic densities](/docs/outputs/lmf_output/#mattheis-construction) to make a starting trial density.\\
    Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
@@ -250,8 +256,7 @@ To carry out a self-consistent calculation, we need to prepare the following.
    These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
 5. Decide on which shallow cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
    Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
-6. Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
-7.  Supply an estimate for the [interstitial density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
+6. Supply an [estimate](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) for the interstitial density plane wave cutoff **GMAX**.
 
 **lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write atomic density information
 to _atm.pbte_{: style="color: green"} and basis set information to template _basp0.pbte_{: style="color: green"}.  The Questaal suite reads
@@ -341,8 +346,10 @@ $ lmfa ctrl.pbte
 ~~~
 
 This is necessary whenever the [valence-core partitioning changes]( /docs/outputs/lmfa_output/#self-consistent-density) through the addition or removal of a local orbital.
-Even though **lmfa**{: style="color: blue"} writes the atomic to _atm.pbte_{: style="color: green"}, this file will need modification because the
-partitioning between core and valence will change (core and valence densities are kept separate) with the introduction of local orbitals, as described next.
+Even though **lmfa**{: style="color: blue"} writes the atomic to _atm.pbte_{: style="color: green"}, this file will change when
+partitioning between core and valence will change with the introduction of local orbitals, as described next.
+This is because core and valence densities are kept separately.
+
 
 ###### _Relativistic core levels_
 {::comment}
@@ -464,7 +471,8 @@ reasonable, but unfortunately not optimal choices for the crystal, as explained 
 output](/docs/outputs/lmfa_output/#generating-basis-information). You can change them by hand, or optimize them with **lmf**{: style="color: blue"}'s
 optimizing function, `--opt`.   To make an accurate basis, a second envelope function is added through **RSMH2** and **EH2**.
 (**lmfa**{: style="color: blue"} automatically does this, depending on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)).
-Alternatively you can add APW's to the basis.\\
+Alternatively you can add APW's to the basis.
+For a detailed discussion on how to select the basis set, see [this tutorial](/tutorial/lmf/lmf_bi2te3_tutorial).\\
 _Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected significantly improve on the accuracy of the existing Questaal basis.
 High quality envelope functions are automatically constructed that continuously extrapolate the accurate augmented partial waves
 smoothly into the interstitial; the kinetic energy of the envelope functions are continuous across the augmentation boundary.
@@ -532,6 +540,8 @@ This is the _G_ cutoff **EXPRESS\_gmax** or [**HAM\_GMAX**](/docs/input/inputfil
 Two values are printed, one determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present
 the largest value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
 
+See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
+
 ####  6. _Self consistency_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#self-consistency
@@ -594,6 +604,8 @@ energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are differen
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration is self-consistent.
 
+See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
+
 ### _Other Resources_
 
 + Click [here](/docs/outputs/lmfa_output/) to see annotated standard output from **lmfa**{: style="color: blue"}, and
@@ -607,7 +619,7 @@ The **c** at the beginning of the line indicates that this iteration is self-con
 
 + [This tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) more fully explains the **lmf**{: style="color: blue"} basis set.
   There is a corresponding tutorial on the basics of a [self-consistent ASA calculation for PbTe](/tutorial/asa/lm_pbte_tutorial).
-  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have understood this one.
+  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have finished this one.
 
 + [This document](/docs/code/fpoverview/) gives an overview of some of **lmf**{: style="color: blue"}'s unique features and capabilities.
 

@@ -304,7 +304,8 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **rmt** is the augmentation radius
 + **rsma** and **kmxa** are the smoothing radius and polynomial order used to expand envelope function around other sites.
 + **lmxa** is the _l_-cutoff of the augmentation.  Because of the unique way augmentation is done in this method, **lmxa** can be much lower standard augmented wave methods require
-+ **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.  **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.
++ **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.
+  **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.  There is little efficiency gain, however.
 + **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
 + **foca**, **rfoca** allow for differing treatments of the core.
 

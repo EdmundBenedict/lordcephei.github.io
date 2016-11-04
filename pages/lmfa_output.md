@@ -40,7 +40,7 @@ Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 /docs/outputs/lmfa_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
-The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
+The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmfa --showp ...`
 The result is very similar to `lmf --showp ...`, which is documented 
 [here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file).
@@ -238,14 +238,14 @@ All the Questaal codes use a shifted logarithmic radial mesh: point _i_ has a ra
 $$ r_i = b[e^{a(i-1)}-1] $$
 
 Mesh points are linearly spaced by _ab_ near the nucleus.  For <i>r<sub>i</sub></i> large compared to
-_a_, the mesh points are spaced exponentially (uniformly on a log scale, spacing _a_).
+_a_, the mesh points are spaced exponentially (equally spaced on a log scale, spacing _a_).
 
 Three numbers are used to specify the mesh: augmentation radius, the number of points inside it, and the spacing parameter _a_ (_b_ can be
 determined from them). These can be specified in the input file as [**SPEC\_ATOM\_R**,&thinsp;**SPEC\_ATOM\_NR**,&thinsp;
 **SPEC\_ATOM\_A**](/docs/input/inputfile/#spec-cat) though usually you can rely on default values.
 
-The first point falls the origin and the last the augmentation radius.  The free atom calculation doesn't need to know about the
-augmentation radius, but it is needed for _atm.pbte_{: style="color: green"}, where the the augmentation and interstitial parts are kept
+The first point falls the origin and the last at the augmentation radius **R**.  The free atom calculation doesn't need to know about the
+augmentation radius, but it is needed for _atm.pbte_{: style="color: green"} where the  augmentation and interstitial parts are kept
 separate.
 
 ###### Parameters that specify the charge density
@@ -260,7 +260,7 @@ the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 **Pl** and **Ql** are specified by &thinsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)&thinsp; and &thinsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
 Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table for whatever is missing.
 
-As described in [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
+As described in the [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
 When the 5_d_ local orbital specified (by **PZ= 0 0 15.934**) in _basp.pbte_{: style="color: green"},
 **lmfa**{: style="color: blue"} will include the 5_d_ in the valence.  The printout then reads:
 
@@ -355,7 +355,7 @@ depending on settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
 Fitting **RSMH** and **EH** to the numerically derived wave functions can be readily accomplished. (It is a nonlinear procedure.) **lmfa**{:
 style="color: blue"} actually does it twice.  First it fits the occupied levels only, for which boundary conditions are known, and at the
 same time it computes a variational estimate for the energy.  In perturbation theory this differs from the exact value computed from
-numerical wave functions as the difference in in single-particle sum.
+numerical wave functions as the difference in the single-particle sum.
 
 The following table displays this information for each _l_ that
 carries electrons.  **rmt** is the augmentation radius.

@@ -22,9 +22,10 @@ All of the programs have special branches that may be (and sometimes must be) se
 
 Here is an example:
 
-    $lmf cafeas -vns=4 -vnm=5 --rpos=pos 
+    $ lmf cafeas -vns=4 -vnm=5 --rpos=pos 
 
-Following unix style, switches always begin with “-”. There are many command-line switches that are specific to a particular main program, while a number of others are common to several or all programs.
+Following unix style, switches always begin with dash (**&minus;**). Many codes have command-line switches unique to their purpose,
+but there are a number of other switches they share in common
 
 Some switches have a single dash ; some have two. Those with two tend to control program flow (e.g. `--show`), while those with a single dash tend to have an “assignment” function, such as a variables declaration (e.g. `-vx=3`). Sometimes there is not a clear distinction between the two, e.g. the printout verbosity `--pr` accepts either one or two dashes (see below).
 

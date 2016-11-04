@@ -294,9 +294,11 @@ _Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-famil
   + the final argument (**4)** specifies that a fourth order polynomial be used.
 + Three data sets are drawn, each with its own line type and key label.  The third set is interpolated with an ordinary polynomial.
 
-_____________________________________________________________
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 3. _fplot manual_
+_____________________________________________________________
 {::comment}
 /docs/misc/fplot/#fplot-manual
 {:/comment}
@@ -909,9 +911,10 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-bs _radius_[;file-list]**\\
   (3D only) connects points within radius and file-list.
 
-_____________________________________________________________
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 4. _Additional notes_
+_____________________________________________________________
 {::comment}
 /docs/misc/fplot/#additional-notes
 {:/comment}
@@ -1277,8 +1280,7 @@ The first character can be one of &nbsp; **l**, **c**, **r**; the second one of 
 
   Compare the fonts in the two equations &mu;<sub>0</sub>=&hellip; at the bottom.
 
-
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### Things about frames
 {::comment}
@@ -1526,6 +1528,8 @@ _Notes:_{: style="color: red"}
 + The long curved arrow was made with an arc (**circle** symbol), using\\
   **-lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083**\\
   Explicit postscript was inserted (**-ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'**) to stretch the arc.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### _Index_
 {::comment}
