@@ -273,13 +273,12 @@ Command-line switches:
       + :sites=site-list restricts neighbors in shell to list. NB: this option must be the last one.
     + _Tab style_: (**\-\-shell:tab[&hellip;]**) a table of neighbors is printed in a table format
     suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
-    Options for tab style:
-      + :tab[=#] Invokes in a table format, positions of neighbors
-        relative to site specified in site-list above.\\
-        Tab style has several formats, specifed by #, described below. For all modes: 
+    Invokes in a table format, positions of neighbors relative to site specified in site-list above.\\
+    Tab style has several formats, specifed by #, described below. For all modes the table entries have the following meaning: \\
           &emsp; **ib** is the site around which the table is made;\\
           &emsp; **jb** is the site index of a particular neighbor;\\
           &emsp; **dpos(1..3,jb)** is the connecting vector (relative position) between sites ib and jb\\
+     Options for tab style:
         &nbsp;\#  &nbsp;format
         1.  **ib** **jb** **dpos(1..3,jb)**  &emsp; (default)
         2.  **dpos(1..3,jb)**  &emsp;(**ib** and **jb** are left out)
