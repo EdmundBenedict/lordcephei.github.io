@@ -265,9 +265,6 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
 ~~~
 
-Even though **lmfa**{: style="color: blue"} writes the atomic to _atm.pbte_{: style="color: green"}, this file will need modification because the
-partitioning between core and valence will change with the introduction of local orbitals, as described next.
-
 #####  5.1 Local orbitals
 {::comment}
 (/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
@@ -344,6 +341,8 @@ $ lmfa ctrl.pbte
 ~~~
 
 This is necessary whenever the [valence-core partitioning changes]( /docs/outputs/lmfa_output/#self-consistent-density) through the addition or removal of a local orbital.
+Even though **lmfa**{: style="color: blue"} writes the atomic to _atm.pbte_{: style="color: green"}, this file will need modification because the
+partitioning between core and valence will change (core and valence densities are kept separate) with the introduction of local orbitals, as described next.
 
 ###### _Relativistic core levels_
 {::comment}
@@ -351,11 +350,16 @@ This is necessary whenever the [valence-core partitioning changes]( /docs/output
 {:/comment}
 
 Normally **lmfa**{: style="color: blue"} determines the core levels and core density from
-the scalar Dirac equation.  However there is an option to use the full Dirac equation.
+the scalar Dirac equation.  However there is an option to use the full Dirac equation for the core levels.
 
+{::comment}
 <div onclick="elm = document.getElementById('diraccore'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for discussion about calculating core levels from the Dirac equation.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="diraccore">{:/} 
+{:/comment}
+
+<div class="dropButtonMid" onclick="dropdown( this );">Click here for discussion about calculating core levels from the Dirac equation.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 Tag **HAM_REL** controls how the Questaal package manages different levels of relativistic treatment.
 Run `lmfa --input` and look for **HAM_REL**.  You should see:
