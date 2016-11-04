@@ -246,9 +246,9 @@ Command-line switches:
     + By default, site-list' is a list of integers.  These enumerate
       site indices for which positions you wish to move, eg 1,5,9
       or 2:11.  See [here](/docs/misc/integerlists/) for the complete syntax of integer lists of this type.
-    + Alternatively, you can enumerate a `class-list'.  **lmchk**{: style="color: blue"} will expand
+    + Alternatively, you can enumerate a _class-list_.  **lmchk**{: style="color: blue"} will expand
       the class-list into a site-list.  For this alternative, use
-      `--mino~style=1~class-list', e.g.  `--mino~style=1~1,6'
+      **--mino~style=1~class-list**, e.g.  **--mino~style=1~1,6**.
     + Another alternative, or "style" to specifying a class-list uses
       the following:  `--mino~style=2~expression'
       It is just like `-sfill~style=2 ... above, but now the class
@@ -270,12 +270,11 @@ Command-line switches:
     Options for this style:
       + :r=# Specifies range of neighbors for this table. Default value is 5.
       + :v   prints electrostatic potential for each pair
-      + :e   prints inner product between euler angles (noncollinear magnetism)
+      + :e   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + :sites=site-list restricts neighbors in shell to list. NB: this option must be the last one.
-    + _Tab style: a table of neighbors is printed in a table format
-    suitable for subsequent processing; see in particular the
-    --disp switch in <b>lmscell</b>.  To invoke tab style, use
-    --shell:tab[...].  Options for tab style:
+    + _Tab style_: a table of neighbors is printed in a table format
+    suitable for subsequent processing, in particular the\-\-disp switch in **lmscell**{: style="color: blue"}.  To invoke tab style, use
+    **\-\-shell:tab[&hellip;]**.  Options for tab style:
       + :tab[=#] Invokes in a table format, positions of neighbors
         relative to site specified in site-list above
         Tab style has several formats, specifed by #, described below\\
