@@ -134,8 +134,7 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 + **\-\-express[=_n_]**
   + Express style input file level _n_.  If _n_>0, an [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category) is created.\\
     If **\-\-express** is missing, a default value of _n_=3 is used.\\
-    If _n_ is missing, a default value of _n_=6 is used.
-    
+    If _n_ is missing, a default value of _n_=6 is used.\\
     For _n_>0, an EXPRESS category is created and a site file is created.  Lattice and site information are not included in the ctrl file
     but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.\\
     Level mode
