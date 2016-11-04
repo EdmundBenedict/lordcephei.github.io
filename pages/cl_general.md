@@ -283,6 +283,8 @@ Command-line switches:
           jb is the site index of a particular neighbor;
           dpos(1..3,jb) is the connecting vector (relative position) between
           sites ib and jb\\
+        # | format
+        1 | (default) ib jb dpos(1..3,jb)
         #  format
         1.  (default) ib jb dpos(1..3,jb)
         2.  (just the positions) dpos(1..3,jb)
