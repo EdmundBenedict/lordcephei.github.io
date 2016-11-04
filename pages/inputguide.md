@@ -550,6 +550,10 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _GW_
+{::comment}
+(/docs/input/inputfile/#gw)
+{:/comment}
+
 Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (**\-\-jobgw -1**).
 
 {::comment}
