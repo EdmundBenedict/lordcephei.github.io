@@ -17,6 +17,9 @@ _____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
+{::comment}
+(/docs/commandline/general/#table-of-contents)
+{:/comment}
 
 #### _Introduction_
 _____________________________________________________________
@@ -125,7 +128,7 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### _Switches for the **blm** tool_
 {::comment}
-(/docs/misc/fplot/#switches-for-the-blm-tool)
+(/docs/commandline/general/#switches-for-the-blm-tool)
 {:/comment}
 
 + **\-\-express[=_n_]**
@@ -134,10 +137,8 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
     If _n_ is missing, a default value of _n_=6 is used.
     
     For _n_>0, an EXPRESS category is created and a site file is created.  Lattice and site information are not included in the ctrl file
-    but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.
-
+    but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.\\
     Level mode
-
     + 0:&emsp;  standalone All input through standard categories.  No supporting comments are given.
     + 1:&emsp;  Expert Similar to mode 9, but EXPRESS category is added.
       +  Input is terse with no supporting comments
