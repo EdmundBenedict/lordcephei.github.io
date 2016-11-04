@@ -220,7 +220,8 @@ input in a largely format-free, tree-structured format.  Input is read through a
 read, you can declare variables and use algebraic expressions.  Thus the
 input file can be quite simple as it is in this [introductory tutorial](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
 or very detailed, even serving as a database for many materials. [This page](https://lordcephei.github.io/docs/input/inputfile/)
-explains how an input file is structured, and how input is organized by 
+and [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#how-the-input-file-is-organized)
+explain how an input file is structured, and how input is organized by 
 [_categories_ and _tokens_](/docs/input/inputfile/#tags-categories-and-tokens).
 
 ### _Other Resources_

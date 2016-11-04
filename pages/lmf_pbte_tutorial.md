@@ -100,6 +100,9 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
     $ cp actrl.pbte ctrl.pbte
 
 #### 2. _How the input file is organized_
+{::comment}
+(/tutorial/lmf/lmf_pbte_tutorial/#how-the-input-file-is-organized)
+{:/comment}
 
 In this tutorial, **blm**{: style="color: blue"} is used in "standard" mode. (The [basic tutorial](/tutorial/lmf/lmf_tutorial/)
 creates a simpler file with `blm --express init.si`). 
@@ -239,20 +242,21 @@ To carry out a self-consistent calculation, we need to prepare the following.
 3. Provide a reasonable estimate for the
    [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
    that fix the shape of the [smooth Hankel envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
-   for _l_=0,&thinsp;1,&hellip;.  The _l_ cutoff is determined internally, depending on the setting of &thinsp;[**HAM\_AUTOBAS\_LMTO**](/docs/input/inputfile/#ham)\\
+   for _l_=0,&thinsp;1,&hellip;.  The _l_ cutoff is determined internally, depending on the setting of &thinsp;[**HAM\_AUTOBAS\_LMTO**](/docs/input/inputfile/#ham).\\
    These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
 4. Provide a reasonable estimate for boundary conditions that fix [linearization energies](/docs/package_overview/#linear-methods-in-band-theory), parameterized by the
    [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
-   aka the "continuous principal quantum number"\\
+   aka the "continuous principal quantum number."\\
    These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
 5. Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
    Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
 6. Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
-7. Supply an estimate for the [interstitial density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
+7.  Supply an estimate for the [interstitial density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
 
-**lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write basis set information to
-template _basp0.pbte_{: style="color: green"}.  The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to
-basp0 to avoid overwriting a file you may want to preserve.  You can customize the basis set by editing the file.
+**lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write atomic density information
+to _atm.pbte_{: style="color: green"} and basis set information to template _basp0.pbte_{: style="color: green"}.  The Questaal suite reads
+from _basp.pbte_{: style="color: green"}, but **lmfa**{: style="color: blue"} writes to basp0 to avoid overwriting a file you may want to
+preserve.  You can edit _basp.pbte_{: style="color: green"} and customize the basis set.
 
 As a first step, do:
 
@@ -261,8 +265,7 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix   
 ~~~
 
-Note that, in addition to basis set information written _basp0.pbte_{: style="color: green"}.  **lmfa**{: style="color: blue"} saves
-information about the density in file _atm.pbte_{: style="color: green"}.  However, this file will need modification because the
+Even though **lmfa**{: style="color: blue"} writes the atomic to _atm.pbte_{: style="color: green"}, this file will need modification because the
 partitioning between core and valence will change with the introduction of local orbitals, as described next.
 
 #####  5.1 Local orbitals
@@ -278,15 +281,23 @@ levels which, if certain criteria are satisfied it designates as a local orbital
 The [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) explains how **lmfa**{: style="color: blue"} analyzes core states for
 local orbitals.
 
+{::comment}
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of how local orbitals are specified.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="localorbitals">{:/} 
+{:/comment}
+
+<div class="dropButtonMid" onclick="dropdown( this );">Click here for a brief description of the linear method and its extension using local orbitals.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text connected with the Pb atom:
 
 ~~~
     PZ= 0 0 15.934
 ~~~
+
+(The same information can be supplied in the input file, 
+through [**SPEC\_ATOM\_PZ*](/docs/input/inputfile/#spec),)
 
 **lmfa**{: style="color: blue"} is suggesting that the Pb 5_d_ state is shallow enough that it be included in the valence.  Since this state
 is far removed from the fermi level, we would badly cover the hilbert space spanned by Pb 6_d_ state were we to use Pb 5_d_ as the valence partial
@@ -424,7 +435,7 @@ relativistic Dirac treatment.
 
 **lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
 
-+ basis (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon</i>](/docs/code/smhankels/#sm-hankel-diffe)) 
++ basis (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon</i>](/docs/code/smhankels/#sm-hankel-diffe)
   for _l_=0,&thinsp;1,&hellip;
   These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
 + suitable boundary conditions for linearization energies, parameterized by the
