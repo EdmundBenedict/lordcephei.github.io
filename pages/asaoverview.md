@@ -323,7 +323,7 @@ MT potentials are exactly solvable
 
 #### _Algorithm to automatically determine sphere radii_
 {::comment}
-/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii/
+(/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii)
 {:/comment}
 
 The ideal choice of sphere radii best approximates a potential that is spherical within the augmentation spheres and flat outside.  

@@ -126,13 +126,15 @@ Additionally, for any program utilizing site information, the following switches
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
-#### _Switches for the **blm** tool_
+#### _Switches for the_ **blm** _tool_
 {::comment}
 (/docs/commandline/general/#switches-for-the-blm-tool)
 {:/comment}
 
+**blm**{: style="color: blue"} creates input (ctrl) files from structural information.
+
 + **\-\-express[=_n_]**
-  + Express style input file level _n_.  If _n_>0, an [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category) is created.\\
+  + Express style input file level _n_.  If _n_>0, an [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-express-category) is created.\\
     For _n_>0, an EXPRESS category is created and a site file is created.  Lattice and site information are not included in the ctrl file
     but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.\\
     If **\-\-express** is missing, a default value of _n_=3 is used.\\
@@ -140,8 +142,8 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
     Level&emsp; mode
     + 0:&emsp;  _Standalone_: All input through standard categories, and site file is not automatically made.  No supporting comments are given.
     + 1:&emsp;  _Expert_: Similar to mode 9, but EXPRESS category is added.\\
-      &emsp;&ensp; Input is terse with no supporting comments\\
-      &emsp;&ensp; Tags duplicated by EXPRESS are retained to facilitate editing by the user (EXPRESS takes precedence).
+      &emsp;&emsp; Input is terse with no supporting comments\\
+      &emsp;&emsp; Tags duplicated by EXPRESS are retained to facilitate editing by the user (EXPRESS takes precedence).
     + 2:&emsp;  _Verbose_:   Similar to mode 1, with comments added
     + 3:&emsp;  _Large_:     Similar to mode 2, but duplicate tags are removed
     + 4:&emsp;  _Standard_:  Most tags covered by defaults are removed.
@@ -210,4 +212,140 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 + **\-\-wpos=_fnam_**
   + write site positions to file **_fnam_**.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
+#### _Switches for_ **lmchk**
+{::comment}
+(/docs/commandline/general/#switches-for-lmchk)
+{:/comment}
+
+**lmchk**{: style="color: blue"} has two main functions: to check augmentation sphere overlaps (and optionally to determine augmentation
+sphere radii), and to generate neighbor tables in various contexts.
+
++ **\-\-getwsr**\\
+  + tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
+    initial sphere radii automatically.
+
++ **\-\-findes**\\
+  + tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
+    It works by adding adding empty spheres (largest possible first)
+    until space is filled with sum-of-sphere volumes = cell volume.\\
+    Inputs affecting this switch are:
+    + OPTIONS RMAXES  : maximum allowed radius of ES to use when when adding new spheres
+    + OPTIONS RMINES  : minimum allowed radius of ES to use
+    + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
+
+    --findes uses these parameters to constrain size of spheres as new ones are added
+
++ **\-\-mino~site-list**\\
+  + tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
+                   simple function of the overlap. (For now, the function has been set
+                   arbitrarily to the sixth power of the overlap).
+                  *By default, site-list' is a list of integers.  These enumerate
+                   site indices for which positions you wish to move, eg 1,5,9
+                   or 2:11.  See [here](/docs/misc/integerlists/) for the complete syntax of integer lists of this type.
+                  *Alternatively, you can enumerate a `class-list'.  **lmchk**{: style="color: blue"} will expand
+                   the class-list into a site-list.  For this alternative, use
+                   `--mino~style=1~class-list', e.g.  `--mino~style=1~1,6'
+                  *Another alternative, or "style" to specifying a class-list uses
+                   the following:  `--mino~style=2~expression'
+                   It is just like `-sfill~style=2 ... above, but now the class
+                   list is expanded into a site-list.
+                  *Similarly, you can specify a class-list is with style=3 like
+                   the -sfill~style=3, above.
+                  *As a special case, you can invoke --mino:z, which specifies in
+                   the list all sites with atomic number Z=0 (empty spheres).
+
++ **\-\-wpos=_filename_**\\
+  + writes the site positions to file _filename_.
+
++ **\-\-shell[:opts]**\\
+  + print out a neighbor table, in one of two styles.
+
+                   Standard style: a table of neighbors is printed, grouped in
+                   shells of neighbors centered the site in question.  By
+                   default a table is printed for one site of each inequivalent
+                   class.
+                   Options for this style:
+
+                   :r=# Specifies range of neighbors for this table. Default
+                        value is 5.
+
+                   :v   prints electrostatic potential for each pair
+
+                   :e   prints inner product between euler angles
+                        (noncollinear magnetism)
+
+                   :sites=site-list restricts neighbors in shell to list.
+                        NB this option must be the last one.
+
+
+                   Tab style: a table of neighbors is printed in a table format
+                   suitable for subsequent processing; see in particular the
+                   --disp switch in <b>lmscell</b>.  To invoke tab style, use
+                   --shell:tab[...].  Options for tab style:
+
+                   :tab[=#] Invokes in a table format, positions of neighbors
+                            relative to site specified in site-list above
+                            Tab style has several formats, specifed by #, described below
+
+                            In the modes (#) below:
+                              ib is the site around which the table is made;
+                              jb is the site index of a particular neighbor;
+                              dpos(1..3,jb) is the connecting vector (relative position) between
+                              sites ib and jb
+                            #  format
+
+                            1  (default)
+                                ib jb dpos(1..3,jb)
+
+                            2  (just the positions)
+                               dpos(1..3,jb)
+
+                            2  (in conjunction with :disp=fnam)
+                               dpos0(1..3,jb) dpos(1..3,jb)
+
+                               dpos= displacements relative to dpos0, calculated from the
+                                     differences in positions read from file 'fnam' (see disp:fnam below)
+                                     Relative to dpos0.
+
+                               In this mode, only neighbors for which there
+                               is some nonzero displacement are written.
+
+                               This mode is useful in conjuction with <b>lmscell</b>.
+
+                            3 (sparse matrix format)
+                                 1 jb dpos(1,jb)
+                                 2 jb dpos(2,jb)
+                                 3 jb dpos(3,jb)
+
+                   :disp=fnam
+                            read a second (displaced) set of positions from a positions
+                            file `fnam'.  Its format is the same as files read with switch --rpos.
+                            In this mode, a neighbor table for both original and displaced
+                            positions is written (See tab=2 above).
+
+                   :fn=fnam write neighbor table to file fnam
+
+                   :r=#     Specifies range of neighbors for this table. Default
+                            value is 5.
+
+                   :nn      only print first (closest neighbor) entry for a
+                            given pair of indices (ib,jb)
+
++ **\-\-angles[opts]**\\
+  + similar to --shell, but prints angles between triples of
+                   sites.  opts are as follows (you may substitute another
+                   character for `:' below)
+                   :r=# Specifies range for this table. Default value is 2.5.
+                   :sites=site-list  loops over only sites in site-list
+                   :bonds=site-list prints out table only for triples
+                   :                   whose neighbors are in site-list
+                   Example : --angles/r=3/sites/style=3/Si/bonds/style=3/Cr
+
+
++ **\-\-terse**\\
+  + print out minimum information about overlaps
+
 
