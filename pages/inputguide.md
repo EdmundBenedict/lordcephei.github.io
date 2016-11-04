@@ -607,11 +607,11 @@ This optional category controls what kind of information, and how much, is writt
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-SHOW | 1 | all | Y | F | Echo lines as it is read from input file and parsed by the proprocessor.<br>Command-line argument --show provides the same functionality.
-HELP | 1 | all | Y | F | Show what input would be sought, without attempting to read data.<br>Command-line argument --input provides the same functionality.
-VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly terse, 40 slightly verbose, 50 verbose, and so on. If more than one number is given, later numbers control verbosity in subsections of the code, notably the parts dealing with augmentation spheres.<br>May also be set from the command-line: --pr#1[,#2]
-IACTIV | 1 | all | Y | F | Turn on interactive mode. At some point programs will prompt you with queries.<br>May also be controlled from the command-line: --iactiv or --iactiv=no.
-TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: --time=#1[,#2]
+SHOW | 1 | all | Y | F | Echo lines as they is read from input file and parsed by the proprocessor.<br>Command-line argument \-\-show provides the same functionality.
+HELP | 1 | all | Y | F | Show what input would be sought, without attempting to read data.<br>Command-line argument \-\-input provides the same functionality.
+VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly terse, 40 slightly verbose, 50 verbose, and so on. If more than one number is given, later numbers control verbosity in subsections of the code, notably the parts dealing with augmentation spheres.<br>May also be set from the command-line: \-\-pr#1[,#2]
+IACTIV | 1 | all | Y | F | Turn on interactive mode. At some point programs will prompt you with queries.<br>May also be controlled from the command-line: \-\-iactiv or \-\-iactiv=no.
+TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: \-\-time=#1[,#2]
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -660,14 +660,14 @@ It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-MODE | i | OPTICS | Y | 0 | 0: make no optics calculations<br>1: generate linear $$ ε_2 $$<br>20: generate second harmonic ε<br>&emsp;Example: optics/test/test.optics sic<br>The following cases (MODE&lt;0) generate joint or single density-of-states.<br>_Note:_{: style="color: red"} MODE&lt;0 works only with LTET=3 described below.<br> −1: generate joint density-of-states <br>&emsp;Examples: <br>&emsp;(ASA) optics/test/test.optics --all 4 <br>&emsp;(FP) fp/test/test.fp zbgan <br>−2: generate joint density-of-states, spin 2 <br>&emsp;Example:optics/test/test.optics fe 6 <br>−3: generate up-down joint density-of-states <br>−4: generate down-up joint density-of-states <br>−5: generate spin-up single density-of-states<br>&emsp;Example: optics/test/test.optics --all 7 <br>−6: generate spin-dn single density-of-states
+MODE | i | OPTICS | Y | 0 | 0: make no optics calculations<br>1: generate linear $$ ε_2 $$<br>20: generate second harmonic ε<br>&emsp;Example: optics/test/test.optics sic<br>The following cases (MODE&lt;0) generate joint or single density-of-states.<br>_Note:_{: style="color: red"} MODE&lt;0 works only with LTET=3 described below.<br> −1: generate joint density-of-states <br>&emsp;Examples: <br>&emsp;(ASA) optics/test/test.optics \-\-all 4 <br>&emsp;(FP) fp/test/test.fp zbgan <br>−2: generate joint density-of-states, spin 2 <br>&emsp;Example:optics/test/test.optics fe 6 <br>−3: generate up-down joint density-of-states <br>−4: generate down-up joint density-of-states <br>−5: generate spin-up single density-of-states<br>&emsp;Example: optics/test/test.optics \-\-all 7 <br>−6: generate spin-dn single density-of-states
 LTET | i | OPTICS | Y | 0 | 0: Integration by Methfessel-Paxton sampling<br>1: standard tetrahedron integration<br>2: same as 1<br>3: enhanced tetrahedron integration <br>_Note:_{: style="color: red"} In the metallic case, states near the Fermi level must be treated with partial occupancy. LTET=3 is the only scheme that handles this properly.<br>It was adapted from the GW package and has extensions, e.g. the ability to handle non-vertical transitions $$ k^{occ} \ne k^{unocc} $$.
 WINDOW | r1 r2 | OPTICS | N | 0 1 | Energy (frequency) window over which to calculate Im[ε(ω)].<br>Im ε is calculated on a mesh of points $$ ω_i $$.<br>The mesh spacing is specified by NPTS or DW, below.
 NPTS | i | OPTICS | N | 501 | Number of mesh points in the energy (frequency) window. Together with WINDOW, NPTS specifies the frequency mesh as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1)<br>where DW = (WINDOW(2)−WINDOW(1))/(NPTS−1)<br>Note: you may alternatively specify DW below.
 DW | r1 [r2] | OPTICS | Y | | Frequency mesh spacing DW[,OMG]. You can supply either one argument, or two.<br>If one argument (DW) is supplied, the mesh will consist of evenly spaced points separated by DW.<br>If a second argument (OMG) is supplied, points are spaced quadratically as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1) + [DW×(i−1)]2/OMG/2<br>Spacing is approximately uniform up to frequency OMG; beyond which it increases linearly.<br>Note: The quadratic spacing can be used only with LTET=3.
 FILBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest occupied band<br>i2 = highest occupied band (defaults to no. electrons)
 EMPBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest unoccupied band<br>i2 = highest unoccupied band (defaults to no. bands)
-PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext. <br>0. No decomposition <br>1. Resolve ε or DOS into individual (occ,unocc) contributions <br>&emsp;Example: optics/test/test.optics ogan 5 <br>2. Resolve ε or DOS by k <br>&emsp;Example: optics/test/test.optics --all 6 <br>3. Both 1 and 2 <br>Add 10 to write popt as a binary file.
+PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext. <br>0. No decomposition <br>1. Resolve ε or DOS into individual (occ,unocc) contributions <br>&emsp;Example: optics/test/test.optics ogan 5 <br>2. Resolve ε or DOS by k <br>&emsp;Example: optics/test/test.optics \-\-all 6 <br>3. Both 1 and 2 <br>Add 10 to write popt as a binary file.
 CHI2[..] | | OPTICS | Y | | Tag containing parameters for second harmonic generation.<br>Not calculated unless tag is parsed.<br>&emsp;Example: optics/test/test.optics sic
 CHI2\_NCHI2 | i | OPTICS | N | 0 | Number of direction vectors for which to calculate <i>&chi;</i><sub>2</sub>.
 CHI2\_AXES | i1, i2, i3 | OPTICS | N | | Direction vectors for each of the NCHI2 sets
@@ -811,7 +811,7 @@ R/A | r | all | N | | R/A = ratio of the aumentation sphere radius to the lattic
 A | r | all | Y | | Radial mesh point spacing parameter. All programs dealing with augmentation spheres represent the density on a shifted logarithmic radial mesh. The ith point on the mesh is $$ r_i $$ = b[exp(a(i−1)−1]. b is determined from the number of radial mesh points specified by NR.
 NR | i | all | Y | Depends on other input | Number of radial mesh points
 LMX | i | all | Y | | Basis l-cutoff inside the sphere. If not specified, it defaults to NL−1
-RSMH | r | lmf, lmfgwd | Y | 0 | Smoothing radii defining basis, one radius for each l.<br>RSMH and EH together define the shape of basis function in lmf.<br>To optimize, try running lmf with --optbas
+RSMH | r | lmf, lmfgwd | Y | 0 | Smoothing radii defining basis, one radius for each l.<br>RSMH and EH together define the shape of basis function in lmf.<br>To optimize, try running lmf with \-\-optbas
 EH | r | lmf, lmfgwd | Y | | Hankel energies for basis, one energy for each l. RSMH and EH together define the shape of basis function in lmf.
 RSMH2 | r | lmf, lmfgwd | Y | 0 | Basis smoothing radii, second group
 EH2 | r | lmf, lmfgwd | Y | | Basis Hankel function energies, second group
@@ -913,7 +913,7 @@ Thus the ASA codes use several ways to read these important quantities.
 
 The parser returns P,Q according the following priorities:
 
-* P,Q are read from the disk, if supplied, (along possibly with other quantities such as potential parameters El, C, Δ, γ.) One file is created for each class that contains this data and other class-specific information. Some or all of the data may be missing from the disk files. Alternatively, you may read these data from a restart file rsta.ext, which if it exists contains data for all classes in one file. The program will not read this data by default; use --rs=1 to have it read from the rsta file. To write class data to rsta, use --rs=*,1 (* must be be 0 or 1)
+* P,Q are read from the disk, if supplied, (along possibly with other quantities such as potential parameters El, C, Δ, γ.) One file is created for each class that contains this data and other class-specific information. Some or all of the data may be missing from the disk files. Alternatively, you may read these data from a restart file rsta.ext, which if it exists contains data for all classes in one file. The program will not read this data by default; use \-\-rs=1 to have it read from the rsta file. To write class data to rsta, use \-\-rs=*,1 (* must be be 0 or 1)
 
 * If START_CONTRL=T, P,Q (and possibly other quantities) are read from START for classes you supply (usually all classes). Data read from this category supersedes any that might have been read from disk. If class data read from either of these sources, the input system returns it. For classes where none is available the parser will pick a default:
 

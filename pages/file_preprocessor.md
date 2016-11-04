@@ -368,12 +368,11 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
+{::nomarkdown} <a name="vardec"></a> {:/}
 {::comment}
-Note: kramdown needs 3-space indentation for outside list
-      code blocks 3+4 spaces.
-      nested lists 3+2 spaces
-      <pre> ... </pre> must also be indented
+(/docs/input/preprocessor/#vardec)
 {:/comment}
+
 
 1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
    <pre>% const  myvar=<i>expr</i> </pre>
@@ -795,3 +794,10 @@ _Note:_{: style="color: red"}&nbsp; the ASCII representation of a floating-point
 is represented to 8 or 9 decimal places; thus it has
 less precision than the binary form.  For example, **'{1.2345678987654e-8}'**&nbsp;
 is turned into **1.2345679e-8**.
+
+{::comment}
+Note: kramdown needs 3-space indentation for outside list
+      code blocks 3+4 spaces.
+      nested lists 3+2 spaces
+      <pre> ... </pre> must also be indented
+{:/comment}

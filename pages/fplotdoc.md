@@ -475,6 +475,8 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**\\
   rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
 
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 #### **LABELLING and NUMBERING** switches govern labels and axis numbering
 {::comment}
 /docs/misc/fplot/#labelling-and-numbering-switches-govern-labels-and-axis-numbering
@@ -588,6 +590,8 @@ The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key placement on the figure, and optional length, spacing or style. [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) uses a key.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### **DATA** switches draw one or more families of xy data
 {::comment}
@@ -1062,7 +1066,7 @@ Example showing an error bar and a circle:
 $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
 
-  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (**-pr80**), it will
   print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.
 
 
@@ -1521,12 +1525,7 @@ _Notes:_{: style="color: red"}
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
-### _Index_
-{::comment}
-/docs/misc/fplot/#index
-{:/comment}
-
-#### Concept Index
+### _Concept Index_
 {::comment}
 /docs/misc/fplot/#concept-index
 {:/comment}
@@ -1735,7 +1734,9 @@ _numbering, format_ | **-fmtnx\|-fmtny**{: style="color: red"}                  
 _numbering, placement_ | **-xn:t \|-yn:r**{: style="color: red"}                  | [LABELLING switches](/docs/misc/fplot/#xn-switch), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#ord-switch)
 
-#### Command Index
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
+### _Command Index_
 {::comment}
 /docs/misc/fplot/#command-index
 {:/comment}
@@ -1799,6 +1800,8 @@ Instruction   | Definition                                           | Places to
 **-y**        | [FORMAT switches](/docs/misc/fplot/#x-switch)      | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 **-yl**       | [DATA switches](/docs/misc/fplot/#xl-switch)       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-yn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 {::comment}
 Roughly: 4 nbsp per emsp, 2 nbsp per ensp
