@@ -248,7 +248,7 @@ To carry out a self-consistent calculation, we need to prepare the following.
    [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
    aka the "continuous principal quantum number."\\
    These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
-5. Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
+5. Decide on which shallow cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
    Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
 6. Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
 7.  Supply an estimate for the [interstitial density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
@@ -438,18 +438,9 @@ relativistic Dirac treatment.
 {:/comment}
 
 **lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
-
-+ basis (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon</i>](/docs/code/smhankels/#sm-hankel-diffe)
-  for _l_=0,&thinsp;1,&hellip;
-  These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
-+ suitable boundary conditions for linearization energies, parameterized by the
-  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers),
-  aka the "continuous principal quantum number"\\
-  These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
-+ deciding on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
-  Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
-+ estimate [plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) that is needed for the charge density basis, from **EH** and **RSMH**.\\
-  This value is written to standard output.
+generation of **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending on the setting of 
+[**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), logarithmic derivative parameter [**P**](/docs/code/asaoverview/#logderpar),
+which cores should be promoted to [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#lo-explained).
 
 **lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
 See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
@@ -481,6 +472,11 @@ will become the ones **lmf**{: style="color: blue"} uses unless you change them 
 _Note:_{: style="color: red"} The new [Jigsaw Puzzle Orbital](/docs/code/jpos) basis is expected to resolve these drawbacks.  High quality
 envelope functions are automatically constructed that continuously extrapolate the high quality augmented partial waves smoothly into the
 interstitial; the kinetic energy of the envelope functions are continuous across the augmentation boundary.
+
+{::nomarkdown} <a name="lo-explained"></a> {:/}
+{::comment}
+(/tutorial/lmf/lmf_pbte_tutorial/#lo-explained)
+{:/comment}
 
 Local orbitals
 : **lmfa**{: style="color: blue"} searches for core states which are shallow enough to be treated as local orbitals,
