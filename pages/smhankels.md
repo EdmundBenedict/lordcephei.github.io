@@ -205,6 +205,8 @@ They obey a recurrence relation (see Ref 1, Eq. 5.19), which is how they are eva
 They are proportional to the polynomials <i>P<sub>kL</sub></i> used in one-center expansions of 
 smoothed Hankels around remote sites (see Ref 1, Eq. 12.7).
 
+{::nomarkdown} <a name="sm-hankel-diffe></a> {:/}
+
 Comparing the last form Eq. (14) to Eq. (10)
 and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
