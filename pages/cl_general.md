@@ -123,5 +123,89 @@ Additionally, for any program utilizing site information, the following switches
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
-#### _Switches for the **blm*{: style="color: blue"} tool_
+#### _Switches for the **blm**{: style="color: blue"} tool_
+
++ **--express[=_n_]**
+  + Express style input file level _n_\\
+    An [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category) is created.\\
+    If **--express** is missing, a default value of _n_=3 is used.\\
+    If _n_ is missing, a default value of _n_=6 is used.
+    
+    For n>0, an EXPRESS category is created and a site file is created.  Thus input conditions are set up so lattice and site information
+    are read through the site file. As the express level increase, the input files become simpler, but contain less information.
+
+    Level mode\\
+    + 0:&emsp;  standalone All input through standard categories.  No supporting comments are given.
+    + 1:&emsp;  Expert Similar to mode 9, but EXPRESS category is added.
+      +  Input is terse with no supporting comments
+      +  Tags duplicated by EXPRESS are retained to facilitate editing by the user.
+      +  For duplicated tags, EXPRESS takes precedence.
+    + 2:&emsp;  Verbose   Similar to mode 1, with comments
+    + 3:&emsp;  Large     Similar to mode 2, duplicate tags removed
+    + 4:&emsp;  Standard  Most tags covered by defaults are removed.
+    + 5:&emsp;  Simple    No variables or expressions are used
+    + 6:&emsp;  Light     Some nonessential tags are removed
+    + 7:&emsp;  Skeleton  Minimal input file
+
++ **--asa**
+  + tailor input file to an ASA calculation
+
++ **--gw**
+  + tailor input file to a GW calculation
+
++ **--gf**
+  + add tokens for lmgf input file (adds energy mesh to BZ and GF category)
+
++ **--pgf**
+  + add tokens for lmpg input file
+   (adds energy mesh to BZ and PGF category)
+
++ **--fpandasa**
+  + tags for both ASA and FP
+
++ **--addes**
+  + add tags to prepare for later addition of empty spheres
+
++ **--findes**
+  + search for empty sphere sites to improve lattice packing
+
++ **--mag**
+  + set nsp=2 for spin polarized calculation
+
++ **--noshorten**
+  + suppress shortening of site positions
+
++ **--nk=#1[,#2,#3]**
+  + k-mesh for BZ integration
+
++ **--nkgw=#[,#,#]**
+  + Same as --nk but for _GW_ _k_-mesh
+
++ **--gmax=#**
+  + specify mesh density cutoff **GMAX**
+
++ **--nit=#**
+  + specify max number of iterations to self-consistency
+
++ **--scala=#**
+  + multiply ALAT by #, and PLAT and POS by 1/#
+
++ **--scalp=#**
+  + like scala, but # specifies PLAT volume
+
++ **--rdsite[=_fn_]**
+  + read structural data from site file _fn_.  Default _fn_ is _sitein_{: style="color: green"}
+
++ **--xpos**
+  + write site positions as multiples of PLAT
+
++ **--wsrmax=#**
+  + when finding sphere radii, do not permit any radius to exceed #
+
++ **--wsite** \| **--wsitex**
+  + write site file for structural data
+  + **--wsitex** writes site positions as fractional multiples of PLAT
+
++ **--wpos=_fnam_**
+  + write site positions to file **_fnam_**.
 

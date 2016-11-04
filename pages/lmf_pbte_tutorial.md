@@ -166,6 +166,7 @@ A category begins when a character (other than **%** or **#**) occurs in the
 [This link](/docs/input/inputfile/#input-file-structure) explains the structure of the input file in more detail.
 
 ####  3. _The **EXPRESS** category_
+(/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category)
 
 **blm**{: style="color: blue"} normally includes an **EXPRESS** category in _ctrl.pbte_{: style="color: green"}.
 
