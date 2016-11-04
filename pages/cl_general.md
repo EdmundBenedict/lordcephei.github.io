@@ -137,6 +137,7 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
     but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.
 
     Level mode
+
     + 0:&emsp;  standalone All input through standard categories.  No supporting comments are given.
     + 1:&emsp;  Expert Similar to mode 9, but EXPRESS category is added.
       +  Input is terse with no supporting comments
