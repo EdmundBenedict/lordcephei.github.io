@@ -283,10 +283,10 @@ Command-line switches:
         &nbsp;\#  &nbsp;format
         1.  **ib** **jb** **dpos(1..3,jb)**  &emsp; (default)
         2.  **dpos(1..3,jb)**  &emsp;(**ib** and **jb** are left out)
-        3.  **dpos0(1..3,jb)** **dpos(1..3,jb)**  &emsp; (in conjunction with :disp=fnam)\\
+        3.  **dpos0(1..3,jb)** **dpos(1..3,jb)**  &emsp; (in conjunction with :disp=fnam; setup for **lmscell**{: style="color: blue"})\\
            dpos= displacements relative to dpos0, calculated from the
                  differences in positions read from 'fnam'\\
-                 relative to dpos0. (see disp:fnam below)
+                 relative to dpos0 (see disp:fnam below).\\
            In this mode, only neighbors for which there
            is some nonzero displacement are written.\\
            This mode is useful in conjuction with <b>lmscell</b>.
