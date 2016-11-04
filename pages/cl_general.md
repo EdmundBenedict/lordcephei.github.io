@@ -282,7 +282,9 @@ Command-line switches:
           ib is the site around which the table is made;
           jb is the site index of a particular neighbor;
           dpos(1..3,jb) is the connecting vector (relative position) between
-          sites ib and jb\\
+          sites ib and jb
+
+        - | - | 
         # | format
         1 | (default) ib jb dpos(1..3,jb)
         #  format
