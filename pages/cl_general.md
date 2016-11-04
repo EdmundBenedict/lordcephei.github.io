@@ -271,20 +271,19 @@ Command-line switches:
       + :v   prints electrostatic potential for each pair
       + :e   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + :sites=site-list restricts neighbors in shell to list. NB: this option must be the last one.
-    + _Tab style_: a table of neighbors is printed in a table format
-    suitable for subsequent processing, in particular the\-\-disp switch in **lmscell**{: style="color: blue"}.  To invoke tab style, use
-    **\-\-shell:tab[&hellip;]**.\\
+    + _Tab style_: (**\-\-shell:tab[&hellip;]**) a table of neighbors is printed in a table format
+    suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
     Options for tab style:
       + :tab[=#] Invokes in a table format, positions of neighbors
         relative to site specified in site-list above.\\
-        Tab style has several formats, specifed by #, described below. In the modes (#) below:\\
-          &emsp; ib is the site around which the table is made;\\
-          &emsp; jb is the site index of a particular neighbor;\\
-          &emsp; dpos(1..3,jb) is the connecting vector (relative position) between sites ib and jb\\
+        Tab style has several formats, specifed by #, described below. For all modes: 
+          &emsp; **ib** is the site around which the table is made;\\
+          &emsp; **jb** is the site index of a particular neighbor;\\
+          &emsp; **dpos(1..3,jb)** is the connecting vector (relative position) between sites ib and jb\\
         &nbsp;\#  &nssp;format
-        1.   ib jb dpos(1..3,jb)  (default)
-        2.   dpos(1..3,jb)  (ib and jb are left out)
-        3.  dpos0(1..3,jb) dpos(1..3,jb)  (in conjunction with :disp=fnam)\\
+        1.  **ib** **jb** **dpos(1..3,jb)**  (default)
+        2.  **dpos(1..3,jb)**  (**ib** and **jb** are left out)
+        3.  **dpos0(1..3,jb)** **dpos(1..3,jb)**  (in conjunction with :disp=fnam)\\
            dpos= displacements relative to dpos0, calculated from the
                  differences in positions read from 'fnam'\\
                  relative to dpos0. (see disp:fnam below)
