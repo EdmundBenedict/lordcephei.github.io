@@ -290,10 +290,10 @@ Command-line switches:
            In this mode, only neighbors for which there
            is some nonzero displacement are written.\\
            This mode is useful in conjuction with <b>lmscell</b>.
-        4. (sparse matrix format)
-             1 jb dpos(1,jb)
-             2 jb dpos(2,jb)
-             3 jb dpos(3,jb)
+        4. (sparse matrix format)\\
+             **1 jb dpos(1,jb)**\\
+             **2 jb dpos(2,jb)**\\
+             **3 jb dpos(3,jb)**\\
     + :disp=fnam
       read a second (displaced) set of positions from a positions
       file `fnam'.  Its format is the same as files read with switch \-\-rpos.
