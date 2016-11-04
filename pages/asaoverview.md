@@ -169,7 +169,6 @@ It is unfortunate that these distinct but related functions have the same symbol
 <div class="dropButtonMid" onclick="dropdown( this );">Click here for a brief description of the linear method and its extension using local orbitals.</div>
 {::nomarkdown}<div class="dropContent">{:/}
 
-
 _Core levels_
 : A core state is exponentially decaying as it approaches _s_; therefore its logarithmic derivative <i>D<sub>l</sub></i> is approximately
 <i>s</i>/<i>&epsilon;<sub>l</sub></i>, which is large and negative.  Using the fact that arctan(<i>x&rarr;-&infin;</i>)/<i>&pi;</i>&rarr;-1/2,

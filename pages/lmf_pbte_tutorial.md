@@ -350,7 +350,7 @@ partitioning between core and valence will change (core and valence densities ar
 {:/comment}
 
 Normally **lmfa**{: style="color: blue"} determines the core levels and core density from
-the scalar Dirac equation.  However there is an option to use the full Dirac equation for the core levels.
+the scalar Dirac equation.  However there is an option to compute the core levels from the full Dirac equation.
 
 {::comment}
 <div onclick="elm = document.getElementById('diraccore'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -441,8 +441,8 @@ relativistic Dirac treatment.
 
 Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some basis set information, namely the
 generation of envelope function paramters **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending
-on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), analyzing which cores should be promoted to [local
-orbitals](/tutorial/lmf/lmf_pbte_tutorial/#lo-explained), and reasonable estimates for the boundary condition of the partial wave
+on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), analyzing which cores should be promoted to local orbitals, and
+reasonable estimates for the boundary condition of the partial wave that dete
 
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
@@ -453,7 +453,7 @@ Envelope functions
 : The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,
 where the envelope varies as <i>r<sup>l</sup></i>, and asymptotic behavior where it decays exponentially with
-decay length 1/&kappa;1/&radic;<span style="text-decoration: overline">&minus;**EH**</span>. **lmfa**{: style="color: blue"} finds an estimate for
+decay length 1/<i>&kappa;<sub>l</sub></i>=1/&radic;<span style="text-decoration: overline">&minus;<i>&epsilon;</i></span>, where <i>&epsilon;<sub>l</sub></i> is one of the **EH**. **lmfa**{: style="color: blue"} finds an estimate for
 **RSMH** and **EH** by fitting them to the "interstial" part of the atomic wave functions (the region outside the augmentation radius).
 : Fitting numerically tabulated functions beyond the augmentation radius to a smooth Hankel function is generally quite accurate.  For Pb, the
 error in the energy (estimated from the single particle sum) is is 0.00116 Ry --- very small on the scale of other errors.\\
@@ -491,9 +491,10 @@ Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) fo
 Boundary conditions
 : The free atomic wave function satisfies the boundary condition that the wave function decay as <i>r</i>&rarr;&infin;.
 Thus, the value and slope of this function at **rmt** are determined by the asymptotic boundary condition.
-This boundary condition is needed for fixing the partial waves in the crystal code.
+This boundary condition is needed for fixing the [linearization energy](/docs/package_overview/#linear-methods-in-band-theory)
+of the partial waves in the crystal code. 
 **lmfa**{: style="color: blue"} generates this information and encapsulates it into the 
-["continuous principal quantum number"](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers)\\
+["continuous principal quantum number"](/docs/code/asaoverview/#logderpar), and saves it as **P** in _basp0.pbte_{: style="color: green"}.\\
 Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explained) for more details.
 
 <i> </i>
