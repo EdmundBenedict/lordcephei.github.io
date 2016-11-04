@@ -3,6 +3,11 @@
   side: left
   prefix: ""
 
+- title: "About"
+  url: "/about/"
+  side: left
+  prefix: ""
+
 - title: "Functionality"
   url: ""
   side: left
@@ -200,17 +205,12 @@
   side: left
   prefix: ""
 
-- title: "Search"
-  url: "/search/"
-  side: right
-  prefix: ""
-
 - title: "Contact"
   url: "/contact/"
-  side: right
+  side: left
   prefix: ""
   
-- title: "About"
-  url: "/about/"
-  side: right
+- title: "Search"
+  url: "/search/"
+  side: left
   prefix: ""

@@ -19,7 +19,7 @@ function dropdown( self, tar = null ) {
         return;
     }
 
-    if(elm.style.display == 'none') {
+    if(elm.style.display != 'block') {
         elm.style.display = 'block';
         self.style.textAlign = 'left';
         self.style.borderBottom = '5px solid #575757';

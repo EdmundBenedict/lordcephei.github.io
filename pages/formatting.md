@@ -158,14 +158,14 @@ Code here
 ~~~~~
 
 ##### _Drop Down Boxes_
-Drop down boxes allow for hiding of information unless the user manually opens it, enabling tutorials and documentation to be condensed and easier to follow while not removing information. Drop down boxes are not included within standard Kramdown formatting and are implemented with html. To use a dropdown box, the syntax is:
+Drop down boxes allow for hiding of information unless the user manually opens it, enabling tutorials and documentation to be condensed and easier to follow while not removing information. Drop down boxes are not included within standard Kramdown formatting and are implemented with html. To use a dropdown box, the syntax for a medium box is:
 
-<div onclick="elm = document.getElementById('box0'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="box0">{:/}
+<div class="dropButtonMid" onclick="dropdown( this );">Click to show.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 ~~~
-<div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
+<div class="dropButtonMid" onclick="dropdown( this );">Click to show.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 Content
 
@@ -174,7 +174,22 @@ Content
 
 {::nomarkdown}</div>{:/}
 
-When using a dropdown box, both instances of the "foobar" ID need to be changed and also be unique to that dropdown box.
+There are two different ways to implement this html. The method shown above finds the next _"dropContent"_ div container and the button assumes control over it. This is the default action, the easiest and probably the one you want. If for some reason you want to define the button **not** next to the _"dropContent"_ div, e.g. 
+
+    ...class="dropButtonMid"...
+    some other markdown
+    ...class="dropContent"...
+
+Then you must manually set the target. To do this, you must change _dropdown( this );_ to _dropdown( this, tar );_ where _tar_ is the id name of the _"dropContent"_ box (we will see what this is next). You must then set the ID of the _"dropContent"_ div to tar, e.g. your end result should look like:
+
+    <div class="dropButtonMid" onclick="dropdown( this, 'foobar' );">Click to show.</div>
+    {::nomarkdown}<div id="foobar" class="dropContent">{:/}
+    
+    Content
+    
+    {::nomarkdown}</div>{:/}
+
+Note _"foobar"_ used in the two locations. If you use this method, then _foobar_ **must** be unique for each dropdown box you make. You should also use this method if you encounter errors or broken dropdown boxes - this method is more involved, and requires management of unique IDs, but it is more robust and should not fail.
 
 ##### _Equations_
 Mathematical equations can be added in-line within the markdown files by enclosing the equation in double dollar signs:
