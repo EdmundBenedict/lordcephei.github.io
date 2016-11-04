@@ -576,7 +576,9 @@ $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
 ~~~
 
 **lmf**{: style="color: blue"} should converge to self-consistency in 10 iterations.
-At the end of the file it prints out
+The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
+
+Just before exiting, **lmf**{: style="color: blue"} prints out
 
 ~~~
 
@@ -594,11 +596,14 @@ The **c** at the beginning of the line indicates that this iteration is self-con
 
 ### _Other Resources_
 
-+ An input file's structure, and features of the programming language capability, is explained in some detail
-[here](/docs/input/inputfile/). The full syntax of categories and tokens can be found in the [input manual](/docs/input/inputfilesyntax).
++ Click [here](/docs/outputs/lmfa_output/) to see annotated standard output from **lmfa**{: style="color: blue"}, and
+  [here](/docs/outputs/lmf_output/) to see annotated standard output from **lmf**{: style="color: blue"}.
 
-+ [This tutorial](https://lordcephei.github.io/buildingfpinput/) more fully describes some important tags the **lmf**{: style="color: blue"} reads.
-[This tutorial](/tutorial/gw/poscar_qsgw) presents alternative ways to build input files from various sources such as the VASP _POSCAR_{: style="color: green"} file.
++ An input file's structure, and features of the programming language capability, is explained in some detail
+  [here](/docs/input/inputfile/). The full syntax of categories and tokens can be found in the [input file manual](/docs/input/inputfilesyntax).
+
++ [This tutorial](https://lordcephei.github.io/buildingfpinput/) more fully describes some important tags the **lmf**{: style="color: blue"} reads,
+  and [this one](/tutorial/gw/poscar_qsgw) presents alternative ways to build input files from various sources such as the VASP _POSCAR_{: style="color: green"} file.
 
 + [This tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) more fully explains the **lmf**{: style="color: blue"} basis set.
   There is a corresponding tutorial on the basics of a [self-consistent ASA calculation for PbTe](/tutorial/asa/lm_pbte_tutorial).
@@ -611,9 +616,6 @@ M. Methfessel, M. van Schilfgaarde, and R. A. Casali, ``A full-potential LMTO me
 on smooth Hankel functions,'' in _Electronic Structure and Physical Properties of
 Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 <b>535</b>, 114-147. H. Dreysse, ed. (Springer-Verlag, Berlin) 2000.
-
-+ Click [here](/docs/outputs/lmfa_output/) to see annotated standard output from **lmfa**{: style="color: blue"}, and
-  [here](/docs/outputs/lmf_output/) to see annotated standard output from **lmf**{: style="color: blue"}.
 
 ### _Additional exercises_
 {::comment}
