@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Command Line switches"
+title: "Questaal Data Formats"
 permalink: "/docs/misc/data_format/"
 header: no
 ---
@@ -10,14 +10,23 @@ header: no
 
 To explain the structure of data files in the Questaal suite.
 
+### _Table of Contents_
+_____________________________________________________________
+{:.no_toc}
+*  Auto generated table of contents
+{:toc}  
+{::comment}
+(/docs/input/preprocessor/#table-of-contents)
+{:/comment}
+
+
 #### Standard data formats for 2D arrays
 
 Many Questaal programs, for example as [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility, and electronic structure programs such
 as **lm**{: style="color: blue"}, read at some files containing 2D arrays.  Most of the time they follow a standard format.
 
 Most files of this type are read through the file [file preprocessor](/docs/input/preprocessor), which can [modify the input](/docs/input/preprocessor/#main-features)
-before it is parsed for data.
-
+before it is parsed for data.  It also has looping constructs, which can be useful in many contexts.
 
 The array reader must be given information about the number of rows and columns in the file.  (They are called **nr** and **nc** in this
 documentation.)
