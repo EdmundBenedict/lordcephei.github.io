@@ -124,6 +124,9 @@ Additionally, for any program utilizing site information, the following switches
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### _Switches for the **blm** tool_
+{::comment}
+(/docs/misc/fplot/#switches-for-the-blm-tool)
+{:/comment}
 
 + **\-\-express[=_n_]**
   + Express style input file level _n_.  If _n_>0, an [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category) is created.\\

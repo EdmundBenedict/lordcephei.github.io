@@ -99,9 +99,8 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
     $ blm init.pbte
     $ cp actrl.pbte ctrl.pbte
 
-_Note:_{: style="color: red"} If you are going through this tutorial in preparation for a later QS_GW_ calculation,
-use `blm --gw init.pbte`.
-
+_Note:_{: style="color: red"} If you are preparating for a later QS<i>GW</i> calculation,
+use `blm --gw init.pbte`.  See [this page](/docs/misc/fplot/#switches-for-the-blm-tool)
 
 #### 2. _How the input file is organized_
 {::comment}
