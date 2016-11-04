@@ -297,7 +297,7 @@ Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text conne
 ~~~
 
 (The same information can be supplied in the input file, 
-through [**SPEC\_ATOM\_PZ*](/docs/input/inputfile/#spec),)
+through [**SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec-cat).)
 
 **lmfa**{: style="color: blue"} is suggesting that the Pb 5_d_ state is shallow enough that it be included in the valence.  Since this state
 is far removed from the fermi level, we would badly cover the hilbert space spanned by Pb 6_d_ state were we to use Pb 5_d_ as the valence partial
