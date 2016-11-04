@@ -57,9 +57,14 @@ The result is similar to [**lmf**{: style="color: blue"} produces](/docs/outputs
 However **lmfa**{: style="color: blue"} parses fewer tags; moreoever, some tags they both parse
 have different meanings.
 
+{::comment}
 <div onclick="elm = document.getElementById('input'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to compare input tags in lmfa to lmf.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="input">{:/}
+{:/comment}
+
+<div class="dropButtonMid" onclick="dropdown( this );">Click here to compare input tags in lmfa to lmf.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 Add `--input` to the **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} commands
 
