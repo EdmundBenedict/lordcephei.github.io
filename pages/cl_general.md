@@ -239,23 +239,23 @@ Command-line switches:
     + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
 
     \-\-findes uses these parameters to constrain size of spheres as new ones are added.
-+ **\-\-mino~site-list**\\
++ **\-\-mino~_site-list_**\\
   + tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
-    + By default, site-list' is a list of integers.  These enumerate
+    + By default, _site-list_ is a list of integers.  These enumerate
       site indices for which positions you wish to move, eg 1,5,9
       or 2:11.  See [here](/docs/misc/integerlists/) for the complete syntax of integer lists of this type.
     + Alternatively, you can enumerate a _class-list_.  **lmchk**{: style="color: blue"} will expand
       the class-list into a site-list.  For this alternative, use
-      **--mino~style=1~class-list**, e.g.  **--mino~style=1~1,6**.
+      **\-\-mino~style=1~class-list**, e.g.  **\-\-mino~style=1~1,6**.
     + Another alternative, or "style" to specifying a class-list uses
-      the following:  `--mino~style=2~expression'
-      It is just like `-sfill~style=2 ... above, but now the class
+      the following:  **\-\-mino~style=2~expression**
+      It is just like **-sfill~style=2 ...** above, but now the class
       list is expanded into a site-list.
     + Similarly, you can specify a class-list is with style=3 like
       the -sfill~style=3, above.
-    + As a special case, you can invoke --mino:z, which specifies in
+    + As a special case, you can invoke \-\-mino:z, which specifies in
       the list all sites with atomic number Z=0 (empty spheres).
 
 + **\-\-wpos=_filename_**\\
@@ -265,8 +265,7 @@ Command-line switches:
   + print out a neighbor table, in one of two styles.
     + _Standard style_: a table of neighbors is printed, grouped in
     shells of neighbors centered the site in question.  By
-    default a table is printed for one site of each inequivalent
-    class.
+    default a table is printed for one site of each inequivalent class.\\
     Options for this style:
       + :r=# Specifies range of neighbors for this table. Default value is 5.
       + :v   prints electrostatic potential for each pair
@@ -274,7 +273,8 @@ Command-line switches:
       + :sites=site-list restricts neighbors in shell to list. NB: this option must be the last one.
     + _Tab style_: a table of neighbors is printed in a table format
     suitable for subsequent processing, in particular the\-\-disp switch in **lmscell**{: style="color: blue"}.  To invoke tab style, use
-    **\-\-shell:tab[&hellip;]**.  Options for tab style:
+    **\-\-shell:tab[&hellip;]**.\\
+    Options for tab style:
       + :tab[=#] Invokes in a table format, positions of neighbors
         relative to site specified in site-list above
         Tab style has several formats, specifed by #, described below\\
@@ -299,7 +299,7 @@ Command-line switches:
              3 jb dpos(3,jb)
     + :disp=fnam
       read a second (displaced) set of positions from a positions
-      file `fnam'.  Its format is the same as files read with switch --rpos.
+      file `fnam'.  Its format is the same as files read with switch \-\-rpos.
       In this mode, a neighbor table for both original and displaced
       positions is written (See tab=2 above).
     + :fn=fnam write neighbor table to file fnam
@@ -307,14 +307,14 @@ Command-line switches:
     + :nn      only print first (closest neighbor) entry for a given pair of indices (ib,jb)
 
 + **\-\-angles[opts]**\\
-  + similar to --shell, but prints angles between triples of
+  + similar to \-\-shell, but prints angles between triples of
                    sites.  opts are as follows (you may substitute another
                    character for `:' below)
                    :r=# Specifies range for this table. Default value is 2.5.
                    :sites=site-list  loops over only sites in site-list
                    :bonds=site-list prints out table only for triples
                    :                   whose neighbors are in site-list
-                   Example : --angles/r=3/sites/style=3/Si/bonds/style=3/Cr
+                   Example : \-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr
 
 
 + **\-\-terse**\\
