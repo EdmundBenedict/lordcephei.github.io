@@ -13,13 +13,14 @@ _____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features
-(Another [tutorial](/tutorial/gw/qsgw_fe/) an LDA calculation for Fe, a ferromagnetic metal, demonstrates still other features).  This one:
+([Another tutorial](/tutorial/gw/qsgw_fe/) presents an LDA calculation for Fe, a ferromagnetic metal, showing still other features).  This tutorial:
 
 1. explains the input file's structure and illustrates some of its programming language capabilities
-2. generates a self consistent potential within the LDA
-3. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
-4. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods.
-5. forms the starting point for other tutorials on optics, a QSGW calculation of PbTe, and compares energy bands computed in different ways.
+2. generates self consistent atomic densities, to provide information for the crystal calculation
+3. generates a self consistent potential within the LDA
+5. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
+5. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods
+6. forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
 
 ### _Table of Contents_
 _____________________________________________________________
@@ -230,10 +231,13 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-+ [5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.
-+ [5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density
+[5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
+&emsp;Complete information about the augmented and interstitial parts of the density are written to file atm.pbte_{: style="color: green"}.\\
+[5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set 
 
-[5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
+with parameters **RSMH** and **EH** defining the envelope functions\\
+
+[5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.\\
 [5.4](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density)  Fit the density in the interstial to analytic smooth Hankel functions\\
 [5.5](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
 
