@@ -1035,22 +1035,12 @@ style="color: green"}, but the information can be supplied in other ways.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
 
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 ### 5. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
-
-
-{::comment}
-Need to explain
-
-+ bs
-
-+ more on map.  Eg. variable nr.
-
-+ expand on -tp
-
-expand on -map
-{:/comment}
 
 ### 6. _Additional exercises_
 {::comment}
@@ -1099,7 +1089,7 @@ the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash 
 In this case a second sequence (**.3,.5**) is present.  This specifies that (line,space) pair of **1,.5,**
 and (line,space) pair of **.3,.5,** are drawn in alternation.
 
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### About symbols
 {::comment}
@@ -1182,7 +1172,7 @@ _Notes:_{: style="color: red"}
   Append the optional 6<sup>th</sup> argument (placement).
   If you append &nbsp;**,0**&nbsp; nothing changes; but appending &nbsp;**,1**&nbsp; places the back of the arrow to where the tip was.
 
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### Fun with labels
 {::comment}
@@ -1812,5 +1802,14 @@ Instruction   | Definition                                           | Places to
 
 {::comment}
 Roughly: 4 nbsp per emsp, 2 nbsp per ensp
-{:/comment}
 
+Need to explain
+
++ bs
+
++ more on map.  Eg. variable nr.
+
++ expand on -tp
+
+expand on -map
+{:/comment}
