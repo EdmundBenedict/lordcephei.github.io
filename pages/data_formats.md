@@ -19,20 +19,32 @@ _____________________________________________________________
 (/docs/input/preprocessor/#table-of-contents)
 {:/comment}
 
+#### Introduction
+
+Questaal codes require a wide variety of data formats to meet the diverse range of purposes they serve.  When files are not too large they
+are usually written in ASCII format.  In many cases, such files are passed through the [file preprocessor](/docs/input/preprocessor) before
+being scanned for data.  The preprocessor's facilities (e.g. to evaluate expressions and to make looping constructs) can be useful in many
+contexts.
+
+The preprocessor can [modify the input](/docs/input/preprocessor/#main-features) before it is parsed for data.  Note also:
+
+* Lines which begin with '**#**' are comment lines and are ignored. (More generally, text following a `**#**' in any line is ignored).
+* Lines beginning with '**%**' are directives to the [preprocessor](/docs/input/preprocessor/).
+
 #### Standard data formats for 2D arrays
+{::comment}
+(docs/misc/data_format/#standard-data-formats-for-2d-arrays)
+{:/comment}
 
 Many Questaal programs, for example the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility, and electronic structure programs such
-as **lm**{: style="color: blue"}, read some files containing 2D arrays.  Most of the time they follow a standard format.
+as **lm**{: style="color: blue"}, read some files containing 2D arrays.  Most of the time they follow a standard format described in this section.
 
-Most files of this type are read through the file [file preprocessor](/docs/input/preprocessor), which can [modify the input](/docs/input/preprocessor/#main-features)
-before it is parsed for data.  It also has looping constructs, which can be useful in many contexts.
-
-The array reader must be given information about the number of rows and columns in the file.  (They are called **nr** and **nc** in this
-documentation.)
+The array reader must be given information about the number of rows and columns in the file.  (They are called **nr** and **nc** here.)
 
 The safest way to specify **nr** and **nc** is to indicate the number of rows and columns in the first line of the file, as illustrated in
-the code snippet below used in an [**fplot**{: style="color: blue"}
-exercise](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).
+the code snippet below (the beginning of _chgd.cr_{: style="color: green"} used in an [**fplot**{: style="color: blue"}
+exercise](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)).
+**nr** and/or **nc** (the number of rows and columns) can be stipulated in the file as shown in the first line of _chgd.cr_{: style="color: green"}:
 
 ~~~~
 % rows 101 cols 101
@@ -40,17 +52,35 @@ exercise](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).
 ...
 ~~~
 
-The first line
+_Note:_{: style="color: red"} `% rows...` is not a preprocessor instruction because **rows** is not a
+[directive](/docs/input/preprocessor/#preprocessor-directives) the preprocessor recognizes.
 
+The reader attempts to work out **nr** and **nc** in the following sequence:
 
-**nr** and/or **nc** (the number of rows and columns) can be stipulated in the file as shown in the first line of _chgd.cr_{:
-style="color: green"}, but the information can be supplied in other ways.
-
-+ The parser checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.\\
++ The reader  checks to see whether the first nonblank, non-preprocessor directive, begins with `% ... rows nr` or `% ... cols nc`.\\
   It uses whatever information is supplied to set the number of rows to **nr** and/or columns to **nc**.
+  + In some cases **nr** or **nc** is known in advance, for example a file containing site positions has **nc=3**.
+    In such case the reader is told of the dimension in advance; if redundant information is given in the file it checks that the two are consistent.
 + Command-line switches &nbsp; `-r:nr=#` or `-r:nc=#` can specify **nr** and/or **nc**.
 + If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
   For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
-+ If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
-  If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
++ If **nr** has not been stipulated in some manner, the reader works out a sensible guess from the file contents.\\
+  If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.\\
+  If the number of rows it deduces is not an integer, a warning is given.
+
+Where possible, the 2D array reader uses **rdm.f**{: style="color: green"}, so that the files are read in a uniform style.  Unless told
+otherwise, the reader treats data as algebraic expressions.  Thus you can use expressions in these files, in addition to expressions
+in curly brackets **{&hellip;}** the preprocessor handles.
+
+##### Complex arrays
+
+If the array contains complex numbers, the firs line should contain **complex**, e.g.
+
+~~~
+% ... complex
+~~~
+
+
+
+
 
