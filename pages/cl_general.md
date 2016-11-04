@@ -44,21 +44,17 @@ _pos.cafeas_{: style="color: green"}.
 
 + **\-\-showp**
   + Prints out input file after parsing by preprocessor, and exits.
-                    This can be useful because it shows the action of the preprocessor.
+   It shows the action of the preprocessor, without parsing any tags.
 
-+ **\-\-show**
-  + Prints the input file parsed by preprocessor, and the value of the tags
-                    parsed or default values taken.
-
-+ **\-\-show=2**
-  + Same as \-\-show, except program exits after printing out results
-                    from parsing the input file.
++ **\-\-show** \| **\-\-show=2**
+  + Prints the input file parsed by preprocessor, and the value of the tags parsed or default values taken.\\
+    **\-\-show=2** causes the program to exits after printing.
 
 _Note:_{: style="color: red"} the preceding switches are intended to assist in managing and reading input files.
 They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks).
 
 
-+ **\-\-pr#1[,#2]** |\ **-pr#1[,#2]**
++ **\-\-pr#1[,#2]** \| **-pr#1[,#2]**
   + Sets output verbosities, overriding any specification in the ctrl file.
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
@@ -73,17 +69,17 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
 + **\-\-iactive=no** \| **\-\-no-iactive**
   + Turns off 'interactive' mode.
 
-+ **-c_name_=_string_"**
++ **-c<i>name</i>=_string_"**
   + Declares a character variable _name_ and assigns it to value _string_.
 
-+ **-v_name_=_expr_**
++ **-v<i>name</i>=_expr_**
   + Declares a numeric variable _name_ and assigns its value to the result of expression _expr_.
     Only the first declaration of a variable is used. Later declarations have no effect.
 
-    In addition to the assignment operators _name_**=**{: style="color: red"} there are generalized assignment
-    operators <b>*=</b>{: style="color: red"}, <b>/=</b>{: style="color: red"}, <b>+=</b>{: style="color: red"},
-    <b>-=</b>{: style="color: red"}, and <b>^=</b>{: style="color: red"} that [modify existing variables](/docs/input/preprocessor/#vardec),
-     following C syntax.
+    In addition to the assignment operator (**=**{: style="color: red"}) there are generalized assignment
+    operators &thinsp;<b>*=</b>{: style="color: red"},&thinsp; <b>/=</b>{: style="color: red"}, <b>+=</b>{: style="color: red"},&thinsp;
+    <b>-=</b>{: style="color: red"},&thinsp; and <b>^=</b>{: style="color: red"} that [modify already-declared variables](/docs/input/preprocessor/#vardec),
+    following C syntax.
 
 <i> </i>
 
