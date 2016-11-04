@@ -12,17 +12,14 @@ header: no
 _____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
-It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features.   It:
+It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features
+(Another [tutorial](/tutorial/gw/qsgw_fe/) an LDA calculation for Fe, a ferromagnetic metal, demonstrates still other features).  This one:
 
 1. explains the input file's structure and illustrates some of its programming language capabilities
 2. generates a self consistent potential within the LDA
 3. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
 4. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods.
 5. forms the starting point for other tutorials on optics, a QSGW calculation of PbTe, and compares energy bands computed in different ways.
-
-SEe also a [tutorial](/tutorial/gw/qsgw_fe/) for an LDA calculation for Fe.  That tutorial shows some extra features (Fe is metallic and
-ferromagnetic); it also includes a QS<i>GW</i> calculation, and shows how to compare LDA and QS<i>GW</i> energy bands.
-
 
 ### _Table of Contents_
 _____________________________________________________________
@@ -233,8 +230,9 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 
 To carry out a self-consistent calculation, we need to prepare the following:
 
-[5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.\\
-[5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density\\
++ [5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.
++ [5.2](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)  Make atomic densities, which **lmf**{: style="color: blue"} will overlap to make a starting trial density
+
 [5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set with parameters **RSMH** and **EH** defining the envelope functions\\
 [5.4](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density)  Fit the density in the interstial to analytic smooth Hankel functions\\
 [5.5](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
@@ -415,9 +413,17 @@ relativistic Dirac treatment.
 
 **lmfa**{: style="color: blue"} automatically generates parameters for the basis set, including
 
-+ finding estimates for parameters **RSMH** and **EH** that define the shape of envelope functions 
-+ finding suitable boundary conditions for linearization energies, parameterized by the ["continuously principal quantum number" _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
-+ deciding on which high-lying cores should be included as local orbitals
++ basis (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon</i>](/docs/code/smhankels/#sm-hankel-diffe)) 
+  for _l_=0,&thinsp;1,&hellip;
+  These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
++ suitable boundary conditions for linearization energies, parameterized by the
+  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers),
+  aka the "continuous principal quantum number"\\
+  These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
++ deciding on which high-lying cores should be included as local orbitals.\\
+  Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
++ estimate [plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) that is needed for the charge density basis, from **EH** and **RSMH**.\\
+  This number is written to standard output.
 
 **lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
 See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
@@ -425,7 +431,7 @@ for a more detailed description of how it proceeds in making the atomic density 
 
 Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some
 basis set information, and writes the information to template _basp0.pbte_{: style="color: green"}.  It supplies:\\
-1. basis (parameters **EH** and **RSMH**) defining the shape of the envelope functions\\
+1. 
 2. boundary conditions of the partial waves at the augmentation radius, encapsulated in the ["continuous principal quantum numbers"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) _P<sub>l</sub>_\\
 3. information about local orbitals, and sets which partial waves should be included\\
 4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
@@ -470,12 +476,18 @@ Refer to the [annotated lmfa output](/docs/outputs/lmfa_output/#envelopes-explai
 <i> </i>
 
 ##### 5.4 Fitting the interstital density
+{::comment}
+/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density
+{:/comment}
 
 **lmfa**{: style="color: blue"} fits valence and core densities to a linear combination of smooth Hankel functions.
 This information will be used to overlap free-atomic densities to obtain a trial starting density.
 This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
 ##### 5.5 Estimate for GMAX
+{::comment}
+/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax
+{:/comment}
 
 After looping over all species **lmfa**{: style="color: blue"} writes basis information to 
 _basp0.pbte_{: style="color: green"}, atomic charge density data to file

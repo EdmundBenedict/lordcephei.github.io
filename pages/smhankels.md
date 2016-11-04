@@ -205,6 +205,11 @@ They obey a recurrence relation (see Ref 1, Eq. 5.19), which is how they are eva
 They are proportional to the polynomials <i>P<sub>kL</sub></i> used in one-center expansions of 
 smoothed Hankels around remote sites (see Ref 1, Eq. 12.7).
 
+{::nomarkdown} <a name="frmt-switch"></a> {:/}
+{::comment}
+/docs/code/smhankels/#sm-hankel-diffe
+{:/comment}
+
 Comparing the last form Eq. (14) to Eq. (10)
 and the definition of $$H_{kL}$$ Eq. (9), we obtain the useful relations
 \begin{eqnarray}
@@ -215,7 +220,7 @@ H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mat
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
-\quad\quad\quad\quad\quad\quad\quad (16)
+\quad\quad\quad\quad\quad\quad\quad\quad (16)
 \end{eqnarray}
 This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 
