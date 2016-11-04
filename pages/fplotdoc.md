@@ -153,8 +153,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
 ![Particle in a Box Example](/assets/img/box.svg)
 {::nomarkdown}</div>{:/}
 
@@ -201,8 +201,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('fig2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
 ![Example 2.3](/assets/img/contours-cr.svg)
 {::nomarkdown}</div>{:/}
 
@@ -253,8 +253,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
 ![Example 2.4](/assets/img/mobility-tlinp.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1215,8 +1215,8 @@ fplot -p0 -font h18
 
 
 <div onclick="elm = document.getElementById('figl'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
 ![Labels Example](/assets/img/labels.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1298,8 +1298,8 @@ fplot -frme:font=h30:col=0,0,1 0,1,0,.1 -frmt col=.6,.8,.8,th=4 -tmx 0.2:5,1.001
 ~~~
 
 <div onclick="elm = document.getElementById('figf'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
 ![Frames Example](/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1505,8 +1505,8 @@ fplot
 
 
 <div onclick="elm = document.getElementById('figflow'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figflow">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figflow">{:/}
 ![Flowchart example](/assets/img/qsgwcycle.png)
 {::nomarkdown}</div>{:/}
 
