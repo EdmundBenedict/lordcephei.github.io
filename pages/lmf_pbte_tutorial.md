@@ -229,24 +229,29 @@ It is explained in the [annotated lmf output](/docs/outputs/lmf_output/#display-
 /tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis
 {:/comment}
 
-To carry out a self-consistent calculation, we need to prepare the following:
+To carry out a self-consistent calculation, we need to prepare the following.
 
 + Make [self-consistent atomic densities](/docs/outputs/lmfa_output/#self-consistent-density), which **lmf**{: style="color: blue"} will overlap to make a 
-  [starting trial density](/docs/outputs/lmfa_output/#mattheis-construction).\\
-  Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.\\
-[5.3](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) Provide a reasonable basis set 
-     (shape parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#sm-hankel-diffe))
-     for _l_=0,&thinsp;1,&hellip;\\
-&emsp;&nbsp;These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.\\
-[5.1](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)  Find any high-lying core states that should be included in the valence as local orbitals.\\
-[5.4](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density)  Fit the density in the interstial to analytic smooth Hankel functions\\
-[5.5](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)  Supply an automatic estimate for the mesh density plane wave cutoff **GMAX**.
+  [starting trial density](/docs/outputs/lmfa_output/#mattheis-construction).
++ Fit the [density in the interstial](/tutorial/lmf/lmf_pbte_tutorial/#fitting-the-interstital-density) to analytic smooth Hankel functions\\
+  Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
++ Provide a reasonable estimate for parameters [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>]
+  (/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
+  that fix the [shape of the envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
+  for _l_=0,&thinsp;1,&hellip;\\
+  These parameters are written to file _basp0.pbte_{: style="color: green"} as &thinsp;**RSMH**&thinsp; and &thinsp;**EH**.
++ Provide a reasonable estimate for boundary conditions that fix linearization energies, parameterized by the
+  [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers),
+  aka the "continuous principal quantum number"\\
+  These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
++ Decide on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
+  Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
++ Find any high-lying core states that should be included in the valence as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).
++ Supply an estimate for the [mesh density plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
 
-**lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.
-It will write basis set information to template _basp0.pbte_{: style="color: green"}.
-The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to
-basp0 to avoid overwriting a file you may want to preserve.  You can customize the 
-basis set by editing the file.
+**lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write basis set information to
+template _basp0.pbte_{: style="color: green"}.  The Questaal package reads from _basp.pbte_{: style="color: green"}, but it is written to
+basp0 to avoid overwriting a file you may want to preserve.  You can customize the basis set by editing the file.
 
 As a first step, do:
 
@@ -261,7 +266,7 @@ partitioning between core and valence will change with the introduction of local
 
 #####  5.1 Local orbitals
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals
+(/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 {:/comment}
 
 Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbitals_ that
@@ -273,7 +278,7 @@ The [annotated lmfa output](/docs/outputs/lmfa_output/#lo-explained) explains ho
 local orbitals.
 
 <div onclick="elm = document.getElementById('localorbitals'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for a description of how local orbitals are specified in the basp file.</span>
+<span style="text-decoration:underline;">Click here for a description of how local orbitals are specified.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="localorbitals">{:/} 
 
 Inspect _basp.pbte_{: style="color: green"}.  Note in particular this text connected with the Pb atom:
@@ -425,10 +430,10 @@ relativistic Dirac treatment.
   [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers),
   aka the "continuous principal quantum number"\\
   These parameters are written to _basp0.pbte_{: style="color: green"} as &thinsp;**P**.
-+ deciding on which high-lying cores should be included as local orbitals.\\
++ deciding on which high-lying cores should be included as [local orbitals](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals).\\
   Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
 + estimate [plane wave cutoff **GMAX**](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) that is needed for the charge density basis, from **EH** and **RSMH**.\\
-  This number is written to standard output.
+  This value is written to standard output.
 
 **lmfa**{: style="color: blue"} loops over each species, generating a self-consistent density from the charges given to it.
 See [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#self-consistent-density)
@@ -441,6 +446,11 @@ basis set information, and writes the information to template _basp0.pbte_{: sty
 3. information about local orbitals, and sets which partial waves should be included\\
 4. estimate plane wave cutoff **Gmax** that will be needed for the density mesh, from **EH** and **RSMH**.
   
+{::nomarkdown} <a name="envelopes-explained"></a> {:/}
+{::comment}
+(/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
+{:/comment}
+
 Envelope functions
 : The envelope functions ([smoothed Hankel functions](/docs/code/smhankels/)) are characterized by **RSMH** and **EH**.
 **RSMH** is the Gaussian "smoothing radius" and approximately demarcates the transition between short-range behavior,

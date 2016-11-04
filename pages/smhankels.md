@@ -217,7 +217,7 @@ H_{k+1,L}(\varepsilon,r_s;{\mathbf{r}})+\varepsilon H_{kL}(\varepsilon,r_s;{\mat
 \begin{eqnarray}
 \left(\Delta+\varepsilon\right)H_{kL}(\varepsilon,r_s;{\mathbf{r}})
 =-4\pi G_{kL}(\varepsilon,r_s;{\mathbf{r}})
-\quad\quad\quad\quad\quad\quad\quad\quad (16)
+\quad\quad\quad\quad\quad\quad\quad\  (16)
 \end{eqnarray}
 This shows that $$H_{kL}$$ is the solution to the Helmholz operator $$\Delta+\varepsilon$$
 in response to a source term smeared out in the form of a gaussian.  A 
