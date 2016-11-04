@@ -82,3 +82,11 @@ If the array contains complex numbers, the first line should contain **complex**
 
 The entire real part of the array must occur first, followed by the imginary part.
 
+#### Site files
+{::comment}
+(/docs/input/data_format/#site-files)
+{:/comment}
+
+Site files can assume a variety of formats.
+Their structure is documented [here](/docs/input/sitefile/).
+
