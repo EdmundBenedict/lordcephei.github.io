@@ -278,15 +278,11 @@ Command-line switches:
       + :tab[=#] Invokes in a table format, positions of neighbors
         relative to site specified in site-list above
         Tab style has several formats, specifed by #, described below\\
-        In the modes (#) below:
-          ib is the site around which the table is made;
-          jb is the site index of a particular neighbor;
-          dpos(1..3,jb) is the connecting vector (relative position) between
-          sites ib and jb
+        In the modes (#) below:\\
+          ib is the site around which the table is made;\\
+          jb is the site index of a particular neighbor;\\
+          dpos(1..3,jb) is the connecting vector (relative position) between sites ib and jb\\
 
-        - | - | 
-        # | format
-        1 | (default) ib jb dpos(1..3,jb)
         #  format
         1.  (default) ib jb dpos(1..3,jb)
         2.  (just the positions) dpos(1..3,jb)
