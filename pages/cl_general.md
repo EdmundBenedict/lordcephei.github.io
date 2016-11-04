@@ -277,13 +277,11 @@ Command-line switches:
     Options for tab style:
       + :tab[=#] Invokes in a table format, positions of neighbors
         relative to site specified in site-list above
-        Tab style has several formats, specifed by #, described below\\
-        In the modes (#) below:\\
-          ib is the site around which the table is made;\\
-          jb is the site index of a particular neighbor;\\
-          dpos(1..3,jb) is the connecting vector (relative position) between sites ib and jb\\
-
-        #  format
+        Tab style has several formats, specifed by #, described below. In the modes (#) below:\\
+          &emsp; ib is the site around which the table is made;\\
+          &emsp; jb is the site index of a particular neighbor;\\
+          &emsp; dpos(1..3,jb) is the connecting vector (relative position) between sites ib and jb\\
+        \#  format
         1.  (default) ib jb dpos(1..3,jb)
         2.  (just the positions) dpos(1..3,jb)
         3.  (in conjunction with :disp=fnam) dpos0(1..3,jb) dpos(1..3,jb)\\
