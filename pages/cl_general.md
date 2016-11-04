@@ -90,7 +90,7 @@ Additionally, for any program utilizing site information, the following switches
 
 + **\-\-rpos=fnam**
   + Tells the program to read site positions from file _fnam.ext_{: style="color: green"} after the input file has been read.
-    _fnam.ext_{: style="color: green"} is in standard [Questaal format][Questaal protocol](/docs/misc/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
+    _fnam.ext_{: style="color: green"} is in standard [Questaal format][Questaal protocol](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
 
 + **\-\-fixpos[:tol=#]** \| **\-\-fixpos[:#]**
   + Adjust positions slightly, rendering them as consistent as possible with the symmetry group.

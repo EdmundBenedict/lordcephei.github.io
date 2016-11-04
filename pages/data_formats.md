@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Questaal Data Formats"
-permalink: "/docs/misc/data_format/"
+permalink: "/docs/input/data_format/"
 header: no
 ---
 
@@ -33,7 +33,7 @@ The preprocessor can [modify the input](/docs/input/preprocessor/#main-features)
 
 #### Standard data formats for 2D arrays
 {::comment}
-(/docs/misc/data_format/#standard-data-formats-for-2d-arrays)
+(/docs/input/data_format/#standard-data-formats-for-2d-arrays)
 {:/comment}
 
 Many Questaal programs, for example the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility and electronic structure programs such
@@ -63,7 +63,7 @@ The reader attempts to work out **nr** and **nc** in the following sequence:
     In such case the reader is told of the dimension in advance; if redundant information is given the reader checks that the two are consistent.\\
     If they are not, usually the program aborts with an error message.
 + If **nc** has not been stipulated, the parser will count the number of elements in the first line containing data elements, and assign **nc** to it.\\
-  For the particular file _chgd.cr_{: style="color: green"}, **fplot**{: style="color: blue"} would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
+  For the particular file _chgd.cr_{: style="color: green"}, the reader would incorrectly infer **nc**=4: so **nc** must be stipulated in this case.
 + If **nr** has not been stipulated in some manner, the reader works out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.\\
   If the number of rows it deduces is not an integer, a warning is given.
@@ -72,15 +72,13 @@ Where possible, the 2D array reader uses **rdm.f**{: style="color: green"}, so t
 otherwise, the reader treats data as algebraic expressions.  Thus you can use expressions in these files, in addition to expressions
 in [curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) **{&hellip;}** managed by the preprocessor.
 
-##### Complex arrays
+##### _Complex arrays_
 
-If the array contains complex numbers, the firs line should contain **complex**, e.g.
+If the array contains complex numbers, the first line should contain **complex**, e.g.
 
 ~~~
 % ... complex
 ~~~
 
-
-
-
+The entire real part of the array must occur first, followed by the imginary part.
 

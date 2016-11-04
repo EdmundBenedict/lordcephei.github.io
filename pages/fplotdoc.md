@@ -1012,7 +1012,7 @@ _fplot.ps_{: style="color: green"} into _.svg_{: style="color: green"} format.
 (/docs/misc/fplot/#structure-of-data-files)
 {:/comment}
 
-Data files follow a standard [Questaal format for two-dimensional arrays](/docs/misc/data_format/#standard-data-formats-for-2d-arrays).
+Data files follow a standard [Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 **fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
 
 **fplot**{: style="color: blue"} must be given information about the number of rows and columns in the file.  The safest way to specify this,
@@ -1036,7 +1036,7 @@ style="color: green"}, but the information can be supplied in other ways.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
 
-These rules follow the standard [Questaal protocol](/docs/misc/data_format/#standard-data-formats-for-2d-arrays).
+These rules follow the standard [Questaal protocol](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 

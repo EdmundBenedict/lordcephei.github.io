@@ -63,6 +63,8 @@
         url: "/sitefile/"
       - title: "Symmetry Line Files"
         url: "/symfile/"
+      - title: "Other Standard File Formats"
+        url: "/data_format/"
     - name: "Annotated Output Files"
       prefix: "/outputs"
       content:
