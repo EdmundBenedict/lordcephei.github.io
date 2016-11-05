@@ -354,7 +354,7 @@ Definition list inside definition list
 + **\-\-terse**\\
   + print out minimum information about overlaps
 
-#### _Site-list syntax_
+### _Site-list syntax_
 _____________________________________________________________
 {::comment}
 (/docs/commandline/general/#site-list-syntax)
@@ -362,8 +362,8 @@ _____________________________________________________________
 
 Site-lists are used in command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s **\-\-shell** and
 **\-\-angles** switches.\\
-For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the command-line segment is **sites~_site-list_**.\\
-**_site-list_** can take one of the following forms:
+For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the command-line segment being parsed is **sites~_site-list_**.\\
+**sites~_site-list_** can take one of the following forms:
 
 **sites~_list_**
 : **_list_** is an integer list of site indices, e.g. **1,3,5:9**.
@@ -380,8 +380,7 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the command-l
 
   The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
   All sites which belong a species in the species (or class) list form the site list.
-
-**~style=3~_spec1_,_spec2_,&hellip;
+**~style=3~_spec1_,_spec2_,&hellip;**
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
   The species list (or class list) is composed of species with a name in the list.
 
