@@ -390,6 +390,8 @@ Definition list inside definition list
 + **\-\-shorten**
   + shorten basis vectors
 
+{::nomarkdown}</div>{:/}
+
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Site-list syntax_
