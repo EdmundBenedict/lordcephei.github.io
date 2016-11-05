@@ -370,7 +370,7 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
   The syntax for integer lists is described [here](/docs/misc/integerlists).
 
 **sites~style=1~_list_**
-: **_list_** is an integer list of species or class indices.  Whether species or class depends on the switch.
+: **_list_** is an [integer list](/docs/misc/integerlists) of species or class indices.  Whether species or class depends on the switch.
 
   All sites which belong a species in the species (or class) list get included in the site list.
   
@@ -378,11 +378,12 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 : **_expr_** is an integer expression. 
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.\\
   The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
-  All sites which belong a species in the species (or class) list form the site list.\\
+  All sites which belong a species in the species (or class) list form the site list.
+: ^
 **~style=3~_spec1_,_spec2_,&hellip;**
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
   The species list (or class list) is composed of species with a name in the list.
 
   All sites which belong a species in the species (or class) list form the site list.
 
-end
+end2
