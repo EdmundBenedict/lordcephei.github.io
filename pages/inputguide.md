@@ -6,11 +6,11 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
 This guide aims to detail the structure and use of the input file and related topics. Additionally, the guide details the different categories that the input file uses and the tokens that can be set within each category.  A more careful description of the input file's syntax can be found in [this manual](/docs/input/inputfilesyntax/).
 
-_____________________________________________________________
-
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}

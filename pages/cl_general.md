@@ -10,8 +10,6 @@ _____________________________________________________________
 {:.no_toc}
 This page serves to document the command line switches generally applicable to most of the packages in the suite, and to give an idea of the usage cases of certain switches and switch types.
 
-____________________________________________________________
-
 #### _Table of Contents_
 _____________________________________________________________
 {:.no_toc}
