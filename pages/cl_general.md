@@ -27,59 +27,47 @@ _____________________________________________________________
 **lmscell**{: style="color: blue"} is a supercell maker.  It also has a limited capability to make 
 Special QuasiRandom Structures.
 
-**--wsite[x]~[map~]fnam**
-: xx
+**--wsite[x]~[map~][fn=_file_]**
+: Writes a site-file to disk.  ... refers to arguments:
+: ^
+  + **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
+  + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
+  + **~map**: &ensp; appends the correspondence of the original sites to the supercell sites.  Maps are used elsewhere, e.g. for supercell FP charge densities and self-energies
 
-**--sort:expr [expr] [expr]**
-: xx
+**--sort~expr [expr] [expr]**
+: orders site table according to expressions involving Cartesian components of positions, e.g. --sort:'x3 x2'
 
-**--rsta[,amom]**
-: xx
+**--rsta &thinsp;\|&thinsp; --rsta,amom**
+: Makes supercell ASA restart file from original rsta file
 
-**--ring:i1,i2 | swap:i1,i2[,i3,i4]**
-: xx
+**--ring:i1,i2**
+:       :ring:i1,i2 shifts i1..i2-1 one register higher, and site i2 becomes site it
+
+**--swap:i1,i2[,i3,i4]**
+: swap:i1,i2 swaps pairs i1 and i2
 
 **--sites:site-list**
-: xx
+: Make supercell of subset of sites in original basis
 
 **--shorten**
-: xx
+: Suppress all shortening of basis vectors (?)
 
 **--pl:expr**
-: xx
+: Define principal layers by expr, e.g. '--pl:flor(x3)'
 
 **--wrsj[:fn=name][:scl=#]**
-: xx
+: Write pairwise exchange interactions
 
 **--disp:fname:site-list**
-: xx
+: Displace a set of atoms in the neighborhood of a given one
+  e.g. --disp:tab2:style=3:21x
 
-**--rsta       :Makes supercell ASA restart file from original rsta file**
-: xx
+**--seed=#**
+: Used with SQS
 
-**--rsta,amom  :Same as --rsta, but in noncolinear case, if moment is < 0**
-: xx
+**--wpos=fn**
+: Write positions to file fn
 
-**--seed=#     : Used with SQS**
-: xx
-
-**--wpos=fn    :Write positions to file fn**
-: xx
-
-**--ring:      :ring:i1,i2 shifts i1..i2-1 one register higher, and site**
-: xx
-
-**--swap:      :swap:i1,i2 swaps pairs i1 and i2**
-: xx
-
-**--sites~lst  :Make supercell of subset of sites in original basis**
-: xx
-
-**--pl:expr    :Define principal layers by expr, e.g. '--pl:flor(x3)'**
-: xx
-
-**--shorten=   :Suppress all shortening of basis vectors (?)**
-: xx
 
 #### _Introduction_
 _____________________________________________________________
