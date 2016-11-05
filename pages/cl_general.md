@@ -19,6 +19,34 @@ _____________________________________________________________
 (/docs/commandline/general/#table-of-contents)
 {:/comment}
 
+#### _Switches for lmscell
+{::comment}
+(/docs/commandline/general/#switches-for-lmscell)
+{:/comment}
+
+**lmscell**{: style="color: blue"} is a supercell maker.  It also has a limited capability to make 
+Special QuasiRandom Structures.
+
+**--wsite[x]~[map~]fnam**
+: xx
+**--sort:expr [expr] [expr]**
+: xx
+**--rsta[,amom]**
+: xx
+**--ring:i1,i2 | swap:i1,i2[,i3,i4]**
+: xx
+**--sites:site-list**
+: xx
+**--shorten**
+: xx
+**--pl:expr**
+: xx
+**--wrsj[:fn=name][:scl=#]**
+: xx
+**--disp:fname:site-list**
+: xx
+
+
 #### _Introduction_
 _____________________________________________________________
 All of the programs have special branches that may be (and sometimes must be) set from command-line switches.
@@ -380,7 +408,7 @@ Definition list inside definition list
   + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
   + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
-  + **\-\-wsitep** &nbsp; writes a _POSCAR_{: style="color: green"} file.
+  + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
 
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
 : ^
@@ -394,8 +422,8 @@ Definition list inside definition list
 **\-\-basis=_file_**
 : checks whether the given basis matches the basis in site file, up to a fixed translation
 
-+ **\-\-shorten**
-  + shorten basis vectors
+**\-\-shorten**
+: shorten basis vectors
 
 {::nomarkdown}</div>{:/}
 
