@@ -225,22 +225,23 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 sphere radii), and to generate neighbor tables in various contexts.\\
 Command-line switches:
 
-+ **\-\-getwsr**\\
-  + tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
+**\-\-getwsr**
+:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
     initial sphere radii automatically.
 
-+ **\-\-findes**
-  + tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
-    It works by adding adding empty spheres (largest possible first)
-    until space is filled with sum-of-sphere volumes = cell volume.\\
-    Inputs affecting this switch are:
-    + OPTIONS RMAXES  : maximum allowed radius of ES to use when when adding new spheres
-    + OPTIONS RMINES  : minimum allowed radius of ES to use
-    + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
+**\-\-findes**
+: tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
+  It works by adding adding empty spheres (largest possible first)
+  until space is filled with sum-of-sphere volumes = cell volume.\\
+  Inputs affecting this switch are:
+  + OPTIONS RMAXES  : maximum allowed radius of ES to use when when adding new spheres
+  + OPTIONS RMINES  : minimum allowed radius of ES to use
+  + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
 
-    \-\-findes uses these parameters to constrain size of spheres as new ones are added.
-+ **\-\-mino~_site-list_**\\
-  + tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
+  \-\-findes uses these parameters to constrain size of spheres as new ones are added.
+
+: **\-\-mino~_site-list_**
+   tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
     + By default, _site-list_ is a list of integers.  These enumerate
