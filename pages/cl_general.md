@@ -276,7 +276,7 @@ Definition list inside definition list
 
     This mode prints out (_ib_,_jb_) pairs, connecting vector and length, and class labels.
 
-    + _Compact Tab style_: (**\-\-shell~tab=2**)
+    + _Compact Tab style_: (**\-\-shell~tab=2**) prints out connecting vector only
     <pre>
     # neighbor list for site 1, class K1      
         0.0000000   0.0000000   0.0000000
@@ -284,10 +284,8 @@ Definition list inside definition list
         0.0000000   0.0000000   0.6814628
     </pre>
 
-    This mode prints out connecting vector only.
-
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
-^
+
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **v**   prints electrostatic potential for each pair
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
