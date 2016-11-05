@@ -226,7 +226,8 @@ sphere radii), and to generate neighbor tables in various contexts.
 
 Command-line switches:
 
-Also works for definition lists, but is tricky.
+{::comment}
+Lists in definition lists are tricky.
 : ^
 
   * Foo
@@ -235,6 +236,18 @@ Also works for definition lists, but is tricky.
   Still part of the definition description.
 
 end
+{:/comment}
+
+
+Definition list inside definition list
+: a 
+
+  still part of list
+
+  second definition
+  : try this
+
+  and this
 
 
 **\-\-getwsr**
@@ -244,48 +257,42 @@ end
 **\-\-findes**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
   It works by adding adding empty spheres (largest possible first)
-  until space is filled with **sum-of-sphere volumes&& = **unit cell volume**.\\
+  until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
   Inputs affecting this switch are:
 : ^
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
-**\-\-mino~_site-list_**
+**\-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_** \| \-\-mino~z
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
 : ^
-    + By default, _site-list_ is a list of integers.  These enumerate
-      site indices for which positions you wish to move, eg 1,5,9
-      or 2:11.  See [here](/docs/misc/integerlists/) for the complete syntax of integer lists of this type.
-    + Alternatively, you can enumerate a _class-list_.  **lmchk**{: style="color: blue"} will expand
-      the class-list into a site-list.  For this alternative, use
-      **\-\-mino~style=1~class-list**, e.g.  **\-\-mino~style=1~1,6**.
-    + Another alternative, or "style" to specifying a class-list uses
-      the following:  **\-\-mino~style=2~expression**
-      It is just like **-sfill~style=2 ...** above, but now the class
-      list is expanded into a site-list.
-    + Similarly, you can specify a class-list is with style=3 like
-      the -sfill~style=3, above.
-    + As a special case, you can invoke \-\-mino:z, which specifies in
-      the list all sites with atomic number Z=0 (empty spheres).
+    + **~z** : list consists of sites with atomic number Z=0
+    + **_site-list_** is a list of integers, enumerating indices to sites free to move, eg **1,5,9**.\\
+      See [here](/docs/misc/integerlists/) for the syntax of integer lists.
+    + **~style=1~_class-list_**  list of classes. **lmchk**{: style="color: blue"} will expand it into a site-list
+    + **~style=2~_expr_** list of classes satisfying _expr_.  Expanded into a site list.\\
+      The expression can involve the class index ic and atomic number z.
 
-**\-\-wpos=_filename_**\\
+**\-\-wpos=_filename_**
 : writes the site positions to file _filename_.
 
-**\-\-shell[:opts]**\\
-:  print out a neighbor table, in one of two styles.
+**\-\-shell[~opts]** \| **\-\-shell~tab[~opts]**
+:  print out a neighbor table, in one of the following styles.
 
-   + _Standard style_: a table of neighbors is printed, grouped in
-    shells of neighbors centered the site in question.  By
-    default a table is printed for one site of each inequivalent class.\\
-    Options for this style:
-      + :r=# Specifies range of neighbors for this table. Default value is 5.
-      + :v   prints electrostatic potential for each pair
-      + :e   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
-      + :sites=site-list restricts neighbors in shell to list. NB: this option must be the last one.
-    + _Tab style_: (**\-\-shell:tab[&hellip;]**) a table of neighbors is printed in a table format
+   + _Standard style_: a neighbors is printed, grouped in
+    shells of neighbors centered the site in question.  
+    A table is made for one site in each inequivalent class.\\
+    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.
+    Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
+      + **r=#** Specifies range of neighbors for this table. Default value is 5.
+      + **v**   prints electrostatic potential for each pair
+      + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
+      + **sites=_site-list_** restricts sites considered to _site-list_. NB: this option must be the last one.
+    + _Special tab style_: (**\-\-shell~tab*=#*) a table of neighbors is printed in a table format, for each site.
+
     suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
     Invokes in a table format, positions of neighbors relative to site specified in site-list above.\\
     Tab style has several formats, specifed by #, described below. For all modes the table entries have the following meaning: \\
@@ -329,5 +336,4 @@ end
 
 + **\-\-terse**\\
   + print out minimum information about overlaps
-
 
