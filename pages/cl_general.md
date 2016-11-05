@@ -226,8 +226,7 @@ sphere radii), and to generate neighbor tables in various contexts.
 
 Command-line switches:
 
-{:xx:comment}
-
+{::comment}
 Lists in definition lists are tricky.
 : ^
 
@@ -248,8 +247,7 @@ Definition list inside definition list
 
   and this
 
-{:xx/comment}
-
+{:/comment}
 
 
 **\-\-shell[~opts]** &nbsp;\|&nbsp; **\-\-shell~tab[~opts]**
