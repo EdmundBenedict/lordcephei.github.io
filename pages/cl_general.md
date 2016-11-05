@@ -355,13 +355,14 @@ Definition list inside definition list
   + print out minimum information about overlaps
 
 #### _Site-list syntax_
+_____________________________________________________________
 {::comment}
 (/docs/commandline/general/#site-list-syntax)
-{/:comment}
+{:/comment}
 
-Site-lists may form part of command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s **\-\-shell** and
+Site-lists are used in command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s **\-\-shell** and
 **\-\-angles** switches.\\
-For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the context is **sites~_site-list_**.\\
+For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the command-line segment is **sites~_site-list_**.\\
 **_site-list_** can take one of the following forms:
 
 **sites~_list_**
@@ -369,16 +370,19 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the context i
   The syntax for integer lists is described [here](/docs/misc/integerlists).
 
 **sites~style=1~_list_**
-: **_list_** is an integer list of species or class indices (depending on the switch)
-  All sites which belong a species in the species (or class) list get included in the site list
+: **_list_** is an integer list of species or class indices.  Whether species or class depends on the switch.
+
+  All sites which belong a species in the species (or class) list get included in the site list.
   
 **~style=2~_expr_** 
 : **_expr_** is an integer expression. 
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.
-  The species list (or class list) is composed of members for which the _expr_ is nonzero.
+
+  The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
   All sites which belong a species in the species (or class) list form the site list.
 
 **~style=3~_spec1_,_spec2_,&hellip;
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
-  The species list (or class list) is composed of species with a name in the list
+  The species list (or class list) is composed of species with a name in the list.
+
   All sites which belong a species in the species (or class) list form the site list.
