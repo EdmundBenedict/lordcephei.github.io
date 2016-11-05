@@ -224,7 +224,11 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 **lmchk**{: style="color: blue"} has two main functions: to check augmentation sphere overlaps (and optionally to determine augmentation
 sphere radii), and to generate neighbor tables in various contexts.
 
-Command-line switches:
+
+<div onclick="elm = document.getElementById('lmchk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click to show command-line switches.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="lmchk">{:/} 
+
 
 {::comment}
 Lists in definition lists are tricky.
@@ -329,7 +333,7 @@ Definition list inside definition list
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 : ^
   + **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.\\
-    If **_rmin_** is also given, exclude pairs closer than **_rman_**.
+    If **_rmin_** is also given, exclude pairs closer than **_rmin_**.
   + **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
   + **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
 
@@ -388,7 +392,9 @@ Definition list inside definition list
 + **\-\-shorten**
   + shorten basis vectors
 
-### _Site-list syntax_
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
+#### _Site-list syntax_
 _____________________________________________________________
 {::comment}
 (/docs/commandline/general/#site-list-syntax)
