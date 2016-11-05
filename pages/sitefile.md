@@ -72,6 +72,11 @@ Usually the first line contains the lattice constant as well. Consider the follo
  Fe1       0.3750000   0.1250000   0.2500000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000    0.0000000 0.000000  0 111
 ~~~
 
+{::nomarkdown} <a name="site-file-syntax"></a> {:/}
+{::comment}
+(/docs/input/sitefile/#site-file-syntax)
+{:/comment}
+
 The first line tells the parser the following:
 
 + **io=62** indicates that the following information is available for each site, in the order listed:

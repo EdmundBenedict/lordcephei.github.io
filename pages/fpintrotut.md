@@ -62,6 +62,12 @@ Si forms in the diamond cubic structure, space group 227 as you can readily dete
              0.5    0.0    0.5
              0.5    0.5    0.0
 
+{::nomarkdown} <a name="site-file-syntax"></a> {:/}
+{::comment}
+(/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors)
+{:/comment}
+
+
 Lattice vectors are given in Cartesian coordinates in units of the lattice constant **A**.
 You supply them in row format (i.e. the first row contains the x, y and z components of the first lattice vector and so forth).
 **UNITS=A** tells **blm**{: style="color: blue"} that **A** is in &#x212B;.  If you do not specify the units, **A** is given in atomic units. (Questaal uses Atomic Rydberg units.)

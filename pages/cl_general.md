@@ -338,7 +338,7 @@ Definition list inside definition list
 
 **\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp; \-\-nescut=#**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
-  It works by adding adding empty spheres (largest possible first)
+  It works by adding adding empty spheres (largest possible first)\\
   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
   Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
   Tokens in the ctrl file affecting this switch are:
@@ -348,22 +348,45 @@ Definition list inside definition list
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
-    augmentation sphere radii.  Results are printed to stdout.
+    augmentation sphere radii.  Results are printed to stdout.\\
+    You must modify the input file by hand
 
-**\-\-mino~z \| \-\-mino~_site-list_**
+**\-\-mino~z &thinsp;\|&thinsp; \-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
-     simple function of the overlap. (For now, the function has been set
-     arbitrarily to the sixth power of the overlap).
+     simple function of the overlap.\\
+     (For now, the function has been set arbitrarily to the sixth power of the overlap).
 : ^
     + **\-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0
-    + **\-\-mino~_site-list_** : &ensp; the syntax for **_site-list_** is given [here](/docs/commandline/general/#site-list-syntax).
+    + **\-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
 **\-\-terse**
-: print minimum information about overlaps
+: print minimum information about overlaps.
 
 **\-\-wpos=_file_**
 : writes the site positions to _file.ext_{: style="color: green"}
 
+**\-\-wsite[options]_ &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep**
+: writes the site positions to file.
+
+  + **\-\-wsite** &ensp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
+  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+  + **\-\-wsitep** &nbsp; writes a _POSCAR_{: style="color: green"} file.
+
+  Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
+
+: ^
+    + **short* : write site file in [short form](/docs/input/sitefile/#site-file-syntax)
+    + **fn=~_filename_** : &ensp; write site file to _file.ext_{: style="color: green"}.
+
+  If used in conjunction with **\-\-findes** **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
+  the basis atoms, including the new empty sites found.
+  In this special mode there are two options: **\-\-wsite** and **\-\-wsitex** .
+
+**\-\-basis=_file_**
+: checks whether the given basis matches the basis in site file, up to a fixed translation
+
++ **\-\-shorten**
+  + shorten basis vectors
 
 ### _Site-list syntax_
 _____________________________________________________________
