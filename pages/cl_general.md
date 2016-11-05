@@ -124,10 +124,15 @@ Additionally, for any program utilizing site information, the following switches
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
-#### _Switches for the_ **blm** _tool_
+#### _Switches for the_ blm _tool_
 {::comment}
 (/docs/commandline/general/#switches-for-the-blm-tool)
 {:/comment}
+
+<div onclick="elm = document.getElementById('blm'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<button type="button" class="button tiny radius">Click to show command-line switches.</button>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="blm">{:/} 
+
 
 **blm**{: style="color: blue"} creates input (ctrl) files from structural information.\\
 Command-line switches:
@@ -211,6 +216,8 @@ Command-line switches:
 
 + **\-\-wpos=_fnam_**
   + write site positions to file **_fnam_**.
+
+{::nomarkdown}</div>{:/}
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
