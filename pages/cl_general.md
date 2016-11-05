@@ -276,7 +276,7 @@ Definition list inside definition list
 
     This mode prints out (_ib_,_jb_) pairs, connecting vector and length, and class labels.
 
-    + _Compact Tab style_: (**\-\-shell~tab=2**) prints out connecting vector only
+    + _Compact Tab style_: (**\-\-shell~tab=2**) prints out the connecting vector only.
     <pre>
     # neighbor list for site 1, class K1      
         0.0000000   0.0000000   0.0000000
@@ -286,8 +286,8 @@ Definition list inside definition list
 
     + _Tab displacement style_: (**\-\-shell~tab=2~disp=_filenam_**) special purpose mode that
       reads in a second set of site positions from file **_filenam_**.
-      It prints out only connecting vectors that are displaced relative the original vectors.\\
-      Moreover the table prints out both the original vector and displacement, e.g.
+      It lists only connecting vectors that are displaced relative the original vectors.\\
+      Moreover the table prints out both the original vector and the displacement vector, e.g.
     <pre>
     # neighbor list for site 1, class K1      
         0.0000000   0.0000000   0.0000000     0.0000000   0.0000000   0.0100000
@@ -295,7 +295,7 @@ Definition list inside definition list
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
-    The last columns are the displacement vector.
+    This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
@@ -303,6 +303,7 @@ Definition list inside definition list
       + **v**   prints electrostatic potential for each pair
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + **sites=_site-list_** restricts sites considered to _site-list_. NB: this option must be the last one.
+      + fn=_filename_ neighbor table to file _filename_{: style="color: green"}
     + _Special tab style_: (**\-\-shell~tab=#**) a table of neighbors is printed in a table format, for each site.
 
 
