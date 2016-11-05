@@ -24,18 +24,29 @@ _____________________________________________________________
 (/docs/commandline/general/#switches-for-lmscell)
 {:/comment}
 
-**lmscell**{: style="color: blue"} is a supercell maker.  It also has a limited capability to make 
-Special QuasiRandom Structures.
+**lmscell**{: style="color: blue"} is a supercell maker.  You must supply a set of new (supercell) lattice vectors.  You can do so using
+token **STRUC\_SLAT**; if you do not, you will be prompted to input 9 numbers from the terminal.  
 
-**--wsite[x]~[map~][fn=_file_]**
-: Writes a site-file to disk.  ... refers to arguments:
+**lmscell*{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding these lattice
+vectors to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded An expanded list of basis
+vectors is thus generated.  
+
+**Caution:**: style="color: red"} Warning: **lmscell*{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
+original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
+
+**lmscell**{: style="color: blue"} also has a limited capability to make Special QuasiRandom Structures.
+
+**--wsite[x][~map][~sort][~fn=_file_]**
+: Writes a [site file](/docs/input/sitefile) to disk.
 : ^
   + **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-  + **~map**: &ensp; appends the correspondence of the original sites to the supercell sites.  Maps are used elsewhere, e.g. for supercell FP charge densities and self-energies
+  + **~map**: &ensp; appends a table mapping sites in the original cell to the supercell
 
-**--sort~expr [expr] [expr]**
+**--sort~expr1 [expr2] [expr]**
 : orders site table according to expressions involving Cartesian components of positions, e.g. --sort:'x3 x2'
+  sort basis vectors, ordering positions by increasing value of `expr'.  Allowed values in expr are x-, y-, and z- coordinates of basis.
+  Optional `expr2' sorts subsets of sites with equivalent values of `expr1'
 
 **--rsta &thinsp;\|&thinsp; --rsta,amom**
 : Makes supercell ASA restart file from original rsta file
@@ -50,15 +61,15 @@ Special QuasiRandom Structures.
 : Make supercell of subset of sites in original basis
 
 **--shorten**
-: Suppress all shortening of basis vectors (?)
+: shorten basis vectors
 
-**--pl:expr**
-: Define principal layers by expr, e.g. '--pl:flor(x3)'
+**--pl:_expr_**
+: (lmpg code) Assign principal-layer index according to <i>expr</i>. Sites with equivalent values of <i>expr</i> are assigned the same index.
 
-**--wrsj[:fn=name][:scl=#]**
-: Write pairwise exchange interactions
+**--wrsj[~fn=name][~scl=#]**
+: Used in writing the pairwise exchange parameters of the supercell generated, e.g., from a Green's function code. Input file 'rsj' must be present.
 
-**--disp:fname:site-list**
+**--disp~fnam~<i>site-list</i>**
 : Displace a set of atoms in the neighborhood of a given one
   e.g. --disp:tab2:style=3:21x
 
