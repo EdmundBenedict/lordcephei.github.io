@@ -250,7 +250,7 @@ Definition list inside definition list
 {:/comment}
 
 
-**\-\-shell[~opts]** &nbsp;\|&nbsp; **\-\-shell~tab[~opts]**
+**\-\-shell[~options]** &nbsp;\|&nbsp; **\-\-shell~tab[~options]**
 :  print out a neighbor table, in one of the following styles.
 
    + _Standard style_: a neighbors is printed, grouped in
@@ -308,7 +308,7 @@ Definition list inside definition list
 
     Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
 
-**\-\-angles[opts]**
+**\-\-angles[optionss]**
 : Prints angles between triples of sites.  
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
@@ -320,11 +320,11 @@ Definition list inside definition list
   Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
-**\-\-euler[opts]**
+**\-\-euler[options]**
 : Prints angles between spins (applicable to noncollinear magnetism, ASA)
 
   Euler angles must be supplied either in the input file, or in the Euler angles file
-  _eula.ext_{: style="color: green"}.  (It takes the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).)
+  _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 : ^
@@ -336,16 +336,15 @@ Definition list inside definition list
   Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
-**\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp;\|&thinsp; \-\-nescut=#**
+**\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp; \-\-nescut=#**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
   It works by adding adding empty spheres (largest possible first)
   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
-  Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.
+  Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
   Tokens in the ctrl file affecting this switch are:
 : ^
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
-  \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
