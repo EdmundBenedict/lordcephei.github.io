@@ -284,8 +284,8 @@ Definition list inside definition list
         0.0000000   0.0000000   0.6814628
     </pre>
 
-    + _Tab displacement style_: (**\-\-shell~tab=2~disp=_filenam_**) special purpose mode that
-      reads in a second set of site positions from file **_filenam_**.
+    + _Tab displacement style_: (**\-\-shell~tab=2~disp=_file_**) special purpose mode that
+      reads in a second set of site positions from file **_file_**.\\
       It lists only connecting vectors that are displaced relative the original vectors.\\
       Moreover the table prints out both the original vector and the displacement vector, e.g.
     <pre>
@@ -295,49 +295,20 @@ Definition list inside definition list
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
+    **_file_** can be made with `--pos``: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
       + **r=#** Specifies range of neighbor-list. Default value is 5.
+{::comment}
       + **v**   prints electrostatic potential for each pair
+{:/comment}
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
-      + **sites=_site-list_** restricts sites considered to _site-list_. NB: this option must be the last one.
-      + fn=_filename_ neighbor table to file _filename_{: style="color: green"}
-    + _Special tab style_: (**\-\-shell~tab=#**) a table of neighbors is printed in a table format, for each site.
-
-
-    suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
-    Invokes in a table format, positions of neighbors relative to site specified in site-list above.\\
-    Tab style has several formats, specifed by #, described below. For all modes the table entries have the following meaning: \\
-          &emsp; **ib** is the site around which the table is made;\\
-          &emsp; **jb** is the site index of a particular neighbor;\\
-          &emsp; **dpos(1..3,jb)** is the connecting vector (relative position) between sites ib and jb\\
-     Options for tab style:
-        &nbsp;\#  &nbsp;format
-        1.  **ib** **jb** **dpos(1..3,jb)**  &emsp; (default)
-        2.  **dpos(1..3,jb)**  &emsp;(**ib** and **jb** are left out)
-        3.  **dpos0(1..3,jb)** **dpos(1..3,jb)**  &emsp; (in conjunction with :disp=fnam; setup for **lmscell**{: style="color: blue"})\\
-           dpos= displacements relative to dpos0, calculated from the
-                 differences in positions read from 'fnam'\\
-                 relative to dpos0 (see disp:fnam below).\\
-           In this mode, only neighbors for which there
-           is some nonzero displacement are written.\\
-           This mode is useful in conjuction with <b>lmscell</b>.
-        4. (sparse matrix format)\\
-             **1 jb dpos(1,jb)**\\
-             **2 jb dpos(2,jb)**\\
-             **3 jb dpos(3,jb)**\\
-    + :disp=fnam
-      read a second (displaced) set of positions from a positions
-      file `fnam'.  Its format is the same as files read with switch \-\-rpos.
-      In this mode, a neighbor table for both original and displaced
-      positions is written (See tab=2 above).
-    + :fn=fnam write neighbor table to file fnam
-    + :r=#     Specifies range of neighbors for this table. Default value is 5.
-    + :nn      only print first (closest neighbor) entry for a given pair of indices (ib,jb)
-
-
+      + **sites~_site-list_** restricts sites considered to _site-list_.
+      + **pair~_list_** restricts neighbors to _list_.
+      + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
+      + *nn*    only print first (closest neighbor) entry for a given pair of site in the unit cell.
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
