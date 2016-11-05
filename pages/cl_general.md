@@ -308,7 +308,7 @@ Definition list inside definition list
       + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
       + **sites~_site-list_** restricts sites considered to _site-list_.
       + **pair~_list_** restricts neighbors to _list_.
-      + **nn**  restrict table to nearest-neighbor shell
+      + **nn**  restrict table to nearest-neighbor shell (tab mode only)
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
