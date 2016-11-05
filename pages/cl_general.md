@@ -315,15 +315,27 @@ Definition list inside definition list
   Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
   + **r=#** Specifies range of neighbor-list. Default value is 2.5.
-  + **sites~_site-list_** loops over center atoms in in site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+  + **sites~_site-list_** loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
   + **bonds~_site-list_** prints out table only for triples whose neighbors are in _site-list_.
 
-  Example: **\-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr**
+  Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
+  finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
+**\-\-euler[opts]**
+: prints angles between spins (noncollinear magnetism, ASA)
 
-**\-\-getwsr**
-:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
-    initial sphere radii automatically.
+  Euler angles must be supplied either in the input file, or in the Euler angles file,
+  _eula.ext_{: style="color: green"}.  This files takes the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+
+  Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
+: ^
+  + **r=_rmax_[,_rmin_]**  Include in table only pairs closer than **_rmax_**.\\
+    If **_rmin_** is also given, exclude pairs closer than **_rman_**.
+  + **sites~_site-list_** include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+  + **sign**  If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
+
+  Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
+  finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart
 
 **\-\-findes**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
@@ -335,24 +347,24 @@ Definition list inside definition list
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
-** \-\-mino~z \| \-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_**
+**\-\-getwsr**
+:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
+    initial sphere radii automatically.
+
+** \-\-mino~z \| \-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
 : ^
     + **~z** &ensp; build list from sites with atomic number _Z_=0
-    + **_site-list_** is a list of integers, listing sites free to move, eg **1,5,9**.\\
-      See [here](/docs/misc/integerlists/) for the syntax of integer lists.
-    + **~style=1~_class-list_**  list of classes. **lmchk**{: style="color: blue"} will expand it into a site-list
-    + **~style=2~_expr_** list of classes satisfying _expr_.  Expanded into a site list.\\
-      The expression can involve the class index **ic** and atomic number **z**.
+    + The syntax for **_site-list_** is given [here](/docs/commandline/general/#site-list-syntax)
+
+**\-\-terse**\\
+: print minimum information about overlaps
 
 **\-\-wpos=_file_**
 : writes the site positions to _file.ext_{: style="color: green"}
 
-
-+ **\-\-terse**\\
-  + print out minimum information about overlaps
 
 ### _Site-list syntax_
 _____________________________________________________________
@@ -378,13 +390,12 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 : **_expr_** is an integer expression. 
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.\\
   The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
-  All sites which belong a species in the species (or class) list form the site list.\\
-  Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
-  finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
+  All sites which belong a species in the species (or class) list form the site list.
     
 **~style=3~_spec1_,_spec2_,&hellip;**
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
   The species list (or class list) is composed of species with a name in the list.
 
   All sites which belong a species in the species (or class) list form the site list.
+
 
