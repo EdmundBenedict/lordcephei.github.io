@@ -351,7 +351,7 @@ Definition list inside definition list
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
-    initial sphere radii automatically.
+    augmentation sphere radii.  Results are printed to stdout.
 
 **\-\-mino~z \| \-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
