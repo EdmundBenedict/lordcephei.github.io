@@ -336,18 +336,16 @@ Definition list inside definition list
   Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
-**\-\-findes**
-*\-\-nescut=#**
+**\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp;\|&thinsp; \-\-nescut=#**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
   It works by adding adding empty spheres (largest possible first)
   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
+  Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.
   Tokens in the ctrl file affecting this switch are:
 : ^
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
-
-  **\-\-nescut=#** (used in conjunction with **\-\-findes**) stop adding sites once the number crosses threshold &thinsp;**#**.
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
