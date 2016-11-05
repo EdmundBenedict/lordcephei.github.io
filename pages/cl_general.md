@@ -226,19 +226,6 @@ sphere radii), and to generate neighbor tables in various contexts.
 
 Command-line switches:
 
-* This is a list
-  * Sub item 1
-  * Sub item 2
-
-* Next list item. We can also nest code:
-
-      def foo
-        "hello!"
-      end
-
-  ... and continue writing. This still is part of the list item.
-
-
 Also works for definition lists, but is tricky.
 : ^
 
@@ -247,31 +234,28 @@ Also works for definition lists, but is tricky.
   
   Still part of the definition description.
 
-
-
-
 end
 
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
     initial sphere radii automatically.
+
 **\-\-findes**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
   It works by adding adding empty spheres (largest possible first)
-  until space is filled with sum-of-sphere volumes = cell volume.\\
+  until space is filled with **sum-of-sphere volumes&& = **unit cell volume**.\\
   Inputs affecting this switch are:
 : ^
-  + OPTIONS RMAXES  : maximum allowed radius of ES to use when when adding new spheres
-  + OPTIONS RMINES  : minimum allowed radius of ES to use
+  + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
-
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
 **\-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
+: ^
     + By default, _site-list_ is a list of integers.  These enumerate
       site indices for which positions you wish to move, eg 1,5,9
       or 2:11.  See [here](/docs/misc/integerlists/) for the complete syntax of integer lists of this type.
