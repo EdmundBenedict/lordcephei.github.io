@@ -236,8 +236,6 @@ Lists in definition lists are tricky.
   Still part of the definition description.
 
 end
-{:/comment}
-
 
 Definition list inside definition list
 : a 
@@ -249,35 +247,9 @@ Definition list inside definition list
 
   and this
 
+{:/comment}
 
-**\-\-getwsr**
-:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
-    initial sphere radii automatically.
 
-**\-\-findes**
-: tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
-  It works by adding adding empty spheres (largest possible first)
-  until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
-  Inputs affecting this switch are:
-: ^
-  + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
-  + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
-  \-\-findes uses these parameters to constrain size of spheres as new ones are added.
-
-**\-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_** \| \-\-mino~z
-:  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
-     simple function of the overlap. (For now, the function has been set
-     arbitrarily to the sixth power of the overlap).
-: ^
-    + **~z** : list consists of sites with atomic number Z=0
-    + **_site-list_** is a list of integers, enumerating indices to sites free to move, eg **1,5,9**.\\
-      See [here](/docs/misc/integerlists/) for the syntax of integer lists.
-    + **~style=1~_class-list_**  list of classes. **lmchk**{: style="color: blue"} will expand it into a site-list
-    + **~style=2~_expr_** list of classes satisfying _expr_.  Expanded into a site list.\\
-      The expression can involve the class index ic and atomic number z.
-
-**\-\-wpos=_filename_**
-: writes the site positions to file _filename_.
 
 **\-\-shell[~opts]** &nbsp;\|&nbsp; **\-\-shell~tab[~opts]**
 :  print out a neighbor table, in one of the following styles.
@@ -285,7 +257,21 @@ Definition list inside definition list
    + _Standard style_: a neighbors is printed, grouped in
     shells of neighbors centered the site in question.  
     A table is made for one site in each inequivalent class.
+    <pre>
+    Shell decomposition for class K1        class   1  z=19
+    shell   d     nsh csiz  class ...
+      1  0.000000   1    1  1:K1
+      4  0.880105   8   15  4:Se1(8)
+      5  1.000000   4   19  1:K1(4)
+      6  1.026646   8   27  2:Fe1(4)      3:Fe2(4)
+    </pre>
     + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.\\
+    <pre>
+    # neighbor list for site 1, class 21x     
+        1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
+        1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
+        1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
+    </pre>
     Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **v**   prints electrostatic potential for each pair
@@ -293,12 +279,6 @@ Definition list inside definition list
       + **sites=_site-list_** restricts sites considered to _site-list_. NB: this option must be the last one.
     + _Special tab style_: (**\-\-shell~tab=#**) a table of neighbors is printed in a table format, for each site.
 
-    <pre>
-    # neighbor list for site 1, class 21x     
-        1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
-        1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
-        1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
-    </pre>
 
     suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
     Invokes in a table format, positions of neighbors relative to site specified in site-list above.\\
@@ -329,6 +309,37 @@ Definition list inside definition list
     + :fn=fnam write neighbor table to file fnam
     + :r=#     Specifies range of neighbors for this table. Default value is 5.
     + :nn      only print first (closest neighbor) entry for a given pair of indices (ib,jb)
+
+
+
+**\-\-getwsr**
+:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
+    initial sphere radii automatically.
+
+**\-\-findes**
+: tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
+  It works by adding adding empty spheres (largest possible first)
+  until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
+  Inputs affecting this switch are:
+: ^
+  + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
+  + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
+  \-\-findes uses these parameters to constrain size of spheres as new ones are added.
+
+**\-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_** \| \-\-mino~z
+:  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
+     simple function of the overlap. (For now, the function has been set
+     arbitrarily to the sixth power of the overlap).
+: ^
+    + **~z** : list consists of sites with atomic number Z=0
+    + **_site-list_** is a list of integers, enumerating indices to sites free to move, eg **1,5,9**.\\
+      See [here](/docs/misc/integerlists/) for the syntax of integer lists.
+    + **~style=1~_class-list_**  list of classes. **lmchk**{: style="color: blue"} will expand it into a site-list
+    + **~style=2~_expr_** list of classes satisfying _expr_.  Expanded into a site list.\\
+      The expression can involve the class index ic and atomic number z.
+
+**\-\-wpos=_filename_**
+: writes the site positions to file _filename_.
 
 + **\-\-angles[opts]**\\
   + similar to \-\-shell, but prints angles between triples of
