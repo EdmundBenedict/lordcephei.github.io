@@ -286,8 +286,8 @@ Definition list inside definition list
 
     This mode prints out connecting vector only.
 
-    Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
-
+    Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
+^
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **v**   prints electrostatic potential for each pair
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
