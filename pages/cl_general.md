@@ -229,7 +229,7 @@ Command-line switches:
   + tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
     initial sphere radii automatically.
 
-+ **\-\-findes**\\
++ **\-\-findes**
   + tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
     It works by adding adding empty spheres (largest possible first)
     until space is filled with sum-of-sphere volumes = cell volume.\\
