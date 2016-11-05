@@ -287,16 +287,18 @@ Definition list inside definition list
     A table is made for one site in each inequivalent class.
     + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.\\
     Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
-      + **r=#** Specifies range of neighbors for this table. Default value is 5.
+      + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **v**   prints electrostatic potential for each pair
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + **sites=_site-list_** restricts sites considered to _site-list_. NB: this option must be the last one.
     + _Special tab style_: (**\-\-shell~tab=#**) a table of neighbors is printed in a table format, for each site.
 
-    	# neighbor list for site 1, class 21x     
-    	    1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
-    	    1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
-    	    1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
+    <pre>
+    # neighbor list for site 1, class 21x     
+        1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
+        1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
+        1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
+    </pre>
 
     suitable for the\-\-disp switch in **lmscell**{: style="color: blue"}.\\
     Invokes in a table format, positions of neighbors relative to site specified in site-list above.\\
