@@ -295,7 +295,7 @@ Definition list inside definition list
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
-    **_file_** can be made with **--wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
+    **_file_** can be generated with **\-\-wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
@@ -305,10 +305,10 @@ Definition list inside definition list
       + **v**   prints electrostatic potential for each pair
 {:/comment}
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
+      + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
       + **sites~_site-list_** restricts sites considered to _site-list_.
       + **pair~_list_** restricts neighbors to _list_.
-      + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
-      + *nn*    only print first (closest neighbor) entry for a given pair of site in the unit cell.
+      + **nn**  restrict table to nearest-neighbor shell
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
