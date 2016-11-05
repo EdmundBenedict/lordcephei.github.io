@@ -299,12 +299,12 @@ Definition list inside definition list
 
     Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
-      + **r=#** Specifies range of neighbor-list. Default value is 5.
-      + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
-      + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
-      + **sites~_site-list_** restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_
-      + **pair~_site-list_** restricts neighbors to _site-list_.
-      + **nn**  restrict table to nearest-neighbor shell (tab mode only)
+      + **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 5.
+      + **~e**:&ensp;   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
+      + **~fn=_filename_**:&ensp; writes neighbor table to file _filename.ext_{: style="color: green"}
+      + **~sites~_site-list_**:&ensp; restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_
+      + **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.
+      + **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
 
     Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
 
@@ -313,9 +313,9 @@ Definition list inside definition list
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
-  + **r=#** Specifies range of neighbor-list. Default value is 2.5.
-  + **sites~_site-list_** loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-  + **bonds~_site-list_** prints out table only for triples whose neighbors are in _site-list_.
+  + **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.
+  + **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+  + **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
 
   Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
@@ -328,10 +328,10 @@ Definition list inside definition list
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 : ^
-  + **r=_rmax_[,_rmin_]**  Include in table only pairs closer than **_rmax_**.\\
+  + **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.\\
     If **_rmin_** is also given, exclude pairs closer than **_rman_**.
-  + **sites~_site-list_** include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-  + **sign**  If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
+  + **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+  + **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
 
   Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
@@ -375,8 +375,8 @@ Definition list inside definition list
 
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
 : ^
-    + **short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-    + **fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
+    + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
+    + **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
 
   If used in conjunction with **\-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
   with the basis enlarged by the new empty sites.\\
