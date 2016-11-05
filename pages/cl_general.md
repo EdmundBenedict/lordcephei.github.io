@@ -29,23 +29,57 @@ Special QuasiRandom Structures.
 
 **--wsite[x]~[map~]fnam**
 : xx
+
 **--sort:expr [expr] [expr]**
 : xx
+
 **--rsta[,amom]**
 : xx
+
 **--ring:i1,i2 | swap:i1,i2[,i3,i4]**
 : xx
+
 **--sites:site-list**
 : xx
+
 **--shorten**
 : xx
+
 **--pl:expr**
 : xx
+
 **--wrsj[:fn=name][:scl=#]**
 : xx
+
 **--disp:fname:site-list**
 : xx
 
+**--rsta       :Makes supercell ASA restart file from original rsta file**
+: xx
+
+**--rsta,amom  :Same as --rsta, but in noncolinear case, if moment is < 0**
+: xx
+
+**--seed=#     : Used with SQS**
+: xx
+
+**--wpos=fn    :Write positions to file fn**
+: xx
+
+**--ring:      :ring:i1,i2 shifts i1..i2-1 one register higher, and site**
+: xx
+
+**--swap:      :swap:i1,i2 swaps pairs i1 and i2**
+: xx
+
+**--sites~lst  :Make supercell of subset of sites in original basis**
+: xx
+
+**--pl:expr    :Define principal layers by expr, e.g. '--pl:flor(x3)'**
+: xx
+
+**--shorten=   :Suppress all shortening of basis vectors (?)**
+: xx
 
 #### _Introduction_
 _____________________________________________________________
