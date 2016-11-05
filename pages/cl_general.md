@@ -257,6 +257,7 @@ Definition list inside definition list
    + _Standard style_: a neighbors is printed, grouped in
     shells of neighbors centered the site in question.  
     A table is made for one site in each inequivalent class.
+    Neighbors are grouped by shell:
     <pre>
     Shell decomposition for class K1        class   1  z=19
     shell   d     nsh csiz  class ...
@@ -265,14 +266,16 @@ Definition list inside definition list
       5  1.000000   4   19  1:K1(4)
       6  1.026646   8   27  2:Fe1(4)      3:Fe2(4)
     </pre>
-    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.\\
+    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.
     <pre>
     # neighbor list for site 1, class 21x     
         1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
         1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
         1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
     </pre>
+
     Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
+
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **v**   prints electrostatic potential for each pair
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
