@@ -226,7 +226,8 @@ sphere radii), and to generate neighbor tables in various contexts.
 
 Command-line switches:
 
-{::comment}
+{:xx:comment}
+
 Lists in definition lists are tricky.
 : ^
 
@@ -247,7 +248,7 @@ Definition list inside definition list
 
   and this
 
-{:/comment}
+{:xx/comment}
 
 
 
@@ -312,7 +313,7 @@ Definition list inside definition list
 **\-\-angles[opts]**
 : Prints angles between triples of sites.  
 
-  Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
   + **r=#** Specifies range of neighbor-list. Default value is 2.5.
   + **sites~_site-list_** loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
@@ -327,7 +328,7 @@ Definition list inside definition list
   Euler angles must be supplied either in the input file, or in the Euler angles file
   _eula.ext_{: style="color: green"}.  (It takes the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).)
 
-  Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 : ^
   + **r=_rmax_[,_rmin_]**  Include in table only pairs closer than **_rmax_**.\\
     If **_rmin_** is also given, exclude pairs closer than **_rman_**.
