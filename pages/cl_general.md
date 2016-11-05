@@ -346,20 +346,20 @@ Definition list inside definition list
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
-**\-\-nescut=#**
-: (used in conjunction with **\-\-findes**) stop adding sites once the number crosses threshold &thinsp;**#**.
+
+  **\-\-nescut=#** (used in conjunction with **\-\-findes**) stop adding sites once the number crosses threshold &thinsp;**#**.
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
     initial sphere radii automatically.
 
-** \-\-mino~z \| \-\-mino~_site-list_**
+**\-\-mino~z \| \-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
 : ^
-    + **~z** &ensp; build list from sites with atomic number _Z_=0
-    + The syntax for **_site-list_** is given [here](/docs/commandline/general/#site-list-syntax)
+    + **\-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0
+    + **\-\-mino~_site-list_** : &ensp; the syntax for **_site-list_** is given [here](/docs/commandline/general/#site-list-syntax).
 
 **\-\-terse**
 : print minimum information about overlaps
