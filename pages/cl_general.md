@@ -298,27 +298,27 @@ Definition list inside definition list
     **_file_** can be generated with **\-\-wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
-    Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
+    Options are delimited by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
-      + **sites~_site-list_** restricts sites considered to _site-list_.
-      + **pair~_list_** restricts neighbors to _list_.
+      + **sites~_site-list_** restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_
+      + **pair~_site-list_** restricts neighbors to _site-list_.
       + **nn**  restrict table to nearest-neighbor shell (tab mode only)
 
-    Example: **--shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
+    Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
 
 **\-\-angles[opts]**
-:  prints angles between triples of sites.  
+: prints angles between triples of sites.  
 
   Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
-  + r=# Specifies range for this table. Default value is 2.5.
-  + sites=site-list  loops over only sites in site-list
-  + bonds=site-list prints out table only for triples whose neighbors are in site-list
+  + **r=#** Specifies range of neighbor-list. Default value is 2.5.
+  + **sites~_site-list_** loops over center atoms in in site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+  + **bonds~_site-list_** prints out table only for triples whose neighbors are in _site-list_.
 
-  Example : \-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr
+  Example: **\-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr**
 
 
 **\-\-getwsr**
@@ -354,3 +354,29 @@ Definition list inside definition list
 + **\-\-terse**\\
   + print out minimum information about overlaps
 
+#### _Site-list syntax_
+(/docs/commandline/general/#site-list-syntax)
+
+Site lists are part of command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s
+**\-\-shell** and **\-\-angles** switches.
+
+assuming &thinsp;**~**&thinsp; is the delimiter, site-lists have one of the following syntax
+
+**sites~_list_**
+: **_list_** is an integer list of site indices, e.g. 5:9
+  The syntax for integer lists is described [here](/docs/misc/integerlists).
+
+**sites~style=1~_list_**
+: **_list_** is an integer list of species or class indices (depending on the switch)
+  All sites which belong a species in the species (or class) list get included in the site list
+  
+**~style=2~_expr_** 
+: **_expr_** is an integer expression. 
+  The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.
+  The species list (or class list) is composed of members for which the _expr_ is nonzero.
+  All sites which belong a species in the species (or class) list form the site list.
+
+**~style=3~_spec1_,_spec2_,&hellip;
+: _spec1_,_spec2_,&hellip; are a string of one or more species names.
+  The species list (or class list) is composed of species with a name in the list
+  All sites which belong a species in the species (or class) list form the site list.
