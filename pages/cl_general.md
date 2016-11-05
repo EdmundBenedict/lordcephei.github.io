@@ -226,6 +226,72 @@ sphere radii), and to generate neighbor tables in various contexts.
 
 Command-line switches:
 
+* This is a list
+  * Sub item 1
+  * Sub item 2
+
+* Next list item. We can also nest code:
+
+      def foo
+        "hello!"
+      end
+
+  ... and continue writing. This still is part of the list item.
+
+
+Also works for definition lists, but is tricky.
+: ^
+
+  * Foo
+  * Bar
+  
+  Still part of the definition description.
+
+
+end
+
+
+
+kramdown
+: A Markdown-superset converter
+
+Maruku
+:     Another Markdown-superset converter
+
+
+end
+
+
+
+definition term 1
+definition term 2
+: This is the first line. Since the first non-space characters appears in
+column 3, all other lines have to be indented 2 spaces (or lazy syntax may
+  be used after an indented line). This tells kramdown that the lines
+  belong to the definition.
+:       This is the another definition for the same term. It uses a
+        different number of spaces for indentation which is okay but
+        should generally be avoided.
+   : The definition marker is indented 3 spaces which is allowed but
+     should also be avoided.
+
+end
+
+
+{:#term} Term with id="term"
+: {:.cls} Definition with class "cls"
+
+{:#term1} First term
+{:#term2} Second term
+: {:.cls} Definition
+
+
+
+end
+
+
+
+
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
     initial sphere radii automatically.
