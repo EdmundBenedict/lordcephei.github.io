@@ -378,12 +378,13 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 : **_expr_** is an integer expression. 
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.\\
   The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
-  All sites which belong a species in the species (or class) list form the site list.
-: ^
+  All sites which belong a species in the species (or class) list form the site list.\\
+  Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
+  finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
+    
 **~style=3~_spec1_,_spec2_,&hellip;**
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
   The species list (or class list) is composed of species with a name in the list.
 
   All sites which belong a species in the species (or class) list form the site list.
 
-end2
