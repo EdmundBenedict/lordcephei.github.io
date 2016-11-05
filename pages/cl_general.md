@@ -338,10 +338,11 @@ Definition list inside definition list
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
 **\-\-findes**
+*\-\-nescut=#**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
   It works by adding adding empty spheres (largest possible first)
   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
-  Inputs affecting this switch are:
+  Tokens in the ctrl file affecting this switch are:
 : ^
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
