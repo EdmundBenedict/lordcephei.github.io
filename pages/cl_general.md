@@ -368,12 +368,12 @@ Definition list inside definition list
 **\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep**
 : writes structural data to a site file
 
-  + **\-\-wsite** &ensp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
-  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+  + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
+  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
+    [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
   + **\-\-wsitep** &nbsp; writes a _POSCAR_{: style="color: green"} file.
 
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
-
 : ^
     + **short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
     + **fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
