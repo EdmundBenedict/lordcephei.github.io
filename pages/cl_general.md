@@ -298,7 +298,7 @@ Definition list inside definition list
     **_file_** can be generated with **\-\-wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
-    Options are delimited by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
+    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
       + **r=#** Specifies range of neighbor-list. Default value is 5.
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
@@ -312,7 +312,7 @@ Definition list inside definition list
 **\-\-angles[opts]**
 : prints angles between triples of sites.  
 
-  Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
+  Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
   + **r=#** Specifies range of neighbor-list. Default value is 2.5.
   + **sites~_site-list_** loops over center atoms in in site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
@@ -355,15 +355,17 @@ Definition list inside definition list
   + print out minimum information about overlaps
 
 #### _Site-list syntax_
+{::comment}
 (/docs/commandline/general/#site-list-syntax)
+{/:comment}
 
-Site lists are part of command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s
-**\-\-shell** and **\-\-angles** switches.
-
-assuming &thinsp;**~**&thinsp; is the delimiter, site-lists have one of the following syntax
+Site-lists may form part of command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s **\-\-shell** and
+**\-\-angles** switches.\\
+For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the context is **sites~_site-list_**.\\
+**_site-list_** can take one of the following forms:
 
 **sites~_list_**
-: **_list_** is an integer list of site indices, e.g. 5:9
+: **_list_** is an integer list of site indices, e.g. **1,3,5:9**.
   The syntax for integer lists is described [here](/docs/misc/integerlists).
 
 **sites~style=1~_list_**
