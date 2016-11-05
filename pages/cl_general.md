@@ -274,7 +274,7 @@ Definition list inside definition list
         1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
     </pre>
 
-    This mode prints out (_ib_,_jb_) pairs, connecting vector and length, and class labels.
+    This mode prints out site indices to pairs, connecting vector and length, and class labels.
 
     + _Compact Tab style_: (**\-\-shell~tab=2**) prints out the connecting vector only.
     <pre>
@@ -295,7 +295,7 @@ Definition list inside definition list
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
-    **_file_** can be made with `--pos``: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
+    **_file_** can be made with **--wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
