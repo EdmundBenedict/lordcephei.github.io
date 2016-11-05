@@ -274,9 +274,17 @@ Definition list inside definition list
         1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
     </pre>
 
-    This mode prints out
-    + _Compact Tab style_: (**\-\-shell~tab=2**)
+    This mode prints out (_ib_,_jb_) pairs, connecting vector and length, and class labels.
 
+    + _Compact Tab style_: (**\-\-shell~tab=2**)
+    <pre>
+    # neighbor list for site 1, class K1      
+        0.0000000   0.0000000   0.0000000
+        0.0000000   0.0000000  -0.6814628
+        0.0000000   0.0000000   0.6814628
+    </pre>
+
+    This mode prints out connecting vector only.
 
     Options are separated by &thinsp;**~**&thinsp; (or character following \-\-shell):
 
