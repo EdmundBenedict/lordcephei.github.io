@@ -284,6 +284,19 @@ Definition list inside definition list
         0.0000000   0.0000000   0.6814628
     </pre>
 
+    + _Tab displacement style_: (**\-\-shell~tab=2~disp=_filenam_**) special purpose mode that
+      reads in a second set of site positions from file **_filenam_**.
+      It prints out only connecting vectors that are displaced relative the original vectors.\\
+      Moreover the table prints out both the original vector and displacement, e.g.
+    <pre>
+    # neighbor list for site 1, class K1      
+        0.0000000   0.0000000   0.0000000     0.0000000   0.0000000   0.0100000
+        1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
+       -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
+        0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
+    </pre>
+    The last columns are the displacement vector.
+
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
       + **r=#** Specifies range of neighbor-list. Default value is 5.
