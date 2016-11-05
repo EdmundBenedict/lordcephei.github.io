@@ -62,11 +62,10 @@ Si forms in the diamond cubic structure, space group 227 as you can readily dete
              0.5    0.0    0.5
              0.5    0.5    0.0
 
-{::nomarkdown} <a name="site-file-syntax"></a> {:/}
+{::nomarkdown} <a name="lattice-and-basis-vectors"></a> {:/}
 {::comment}
 (/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors)
 {:/comment}
-
 
 Lattice vectors are given in Cartesian coordinates in units of the lattice constant **A**.
 You supply them in row format (i.e. the first row contains the x, y and z components of the first lattice vector and so forth).

@@ -365,8 +365,8 @@ Definition list inside definition list
 **\-\-wpos=_file_**
 : writes the site positions to _file.ext_{: style="color: green"}
 
-**\-\-wsite[options]_ &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep**
-: writes the site positions to file.
+**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep**
+: writes structural data to a site file
 
   + **\-\-wsite** &ensp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
   + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
@@ -375,11 +375,11 @@ Definition list inside definition list
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
 
 : ^
-    + **short* : write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-    + **fn=~_filename_** : &ensp; write site file to _file.ext_{: style="color: green"}.
+    + **short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
+    + **fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
 
-  If used in conjunction with **\-\-findes** **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
-  the basis atoms, including the new empty sites found.
+  If used in conjunction with **\-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
+  with the basis enlarged by the new empty sites.\\
   In this special mode there are two options: **\-\-wsite** and **\-\-wsitex** .
 
 **\-\-basis=_file_**
