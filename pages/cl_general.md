@@ -122,7 +122,7 @@ Additionally, for any program utilizing site information, the following switches
     and any class which grep finds is included in the list.\\
     Example: "-sfill~style=3~a[1-6]"
 
-See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Switches for the_ **blm** _tool_
 {::comment}
@@ -212,7 +212,7 @@ Command-line switches:
 + **\-\-wpos=_fnam_**
   + write site positions to file **_fnam_**.
 
-See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Switches for lmchk_
 {::comment}
@@ -390,7 +390,7 @@ Definition list inside definition list
 + **\-\-shorten**
   + shorten basis vectors
 
-See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Site-list syntax_
 _____________________________________________________________
