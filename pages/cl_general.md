@@ -310,7 +310,7 @@ Definition list inside definition list
     Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
 
 **\-\-angles[opts]**
-: prints angles between triples of sites.  
+: Prints angles between triples of sites.  
 
   Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
@@ -322,10 +322,10 @@ Definition list inside definition list
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
 **\-\-euler[opts]**
-: prints angles between spins (noncollinear magnetism, ASA)
+: Prints angles between spins (applicable to noncollinear magnetism, ASA)
 
-  Euler angles must be supplied either in the input file, or in the Euler angles file,
-  _eula.ext_{: style="color: green"}.  This files takes the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+  Euler angles must be supplied either in the input file, or in the Euler angles file
+  _eula.ext_{: style="color: green"}.  (It takes the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).)
 
   Options are separated by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 : ^
@@ -335,7 +335,7 @@ Definition list inside definition list
   + **sign**  If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
 
   Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
-  finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart
+  finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
 **\-\-findes**
 : tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
@@ -346,6 +346,8 @@ Definition list inside definition list
   + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
+**\-\-nescut=#**
+: (used in conjunction with **\-\-findes**) stop adding sites once the number crosses threshold &thinsp;**#**.
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
@@ -359,7 +361,7 @@ Definition list inside definition list
     + **~z** &ensp; build list from sites with atomic number _Z_=0
     + The syntax for **_site-list_** is given [here](/docs/commandline/general/#site-list-syntax)
 
-**\-\-terse**\\
+**\-\-terse**
 : print minimum information about overlaps
 
 **\-\-wpos=_file_**
@@ -382,14 +384,14 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
   The syntax for integer lists is described [here](/docs/misc/integerlists).
 
 **sites~style=1~_list_**
-: **_list_** is an [integer list](/docs/misc/integerlists) of species or class indices.  Whether species or class depends on the switch.
+: **_list_** is an [integer list](/docs/misc/integerlists) of species or class indices (depending on the switch).
 
   All sites which belong a species in the species (or class) list get included in the site list.
   
 **~style=2~_expr_** 
 : **_expr_** is an integer expression. 
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.\\
-  The species list (or class list) is composed of members for which the _expr_ is nonzero.\\
+  The species list (or class list) is composed of members for which **_expr_** is nonzero.\\
   All sites which belong a species in the species (or class) list form the site list.
     
 **~style=3~_spec1_,_spec2_,&hellip;**
