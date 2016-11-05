@@ -222,7 +222,8 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 {:/comment}
 
 **lmchk**{: style="color: blue"} has two main functions: to check augmentation sphere overlaps (and optionally to determine augmentation
-sphere radii), and to generate neighbor tables in various contexts.\\
+sphere radii), and to generate neighbor tables in various contexts.
+
 Command-line switches:
 
 **\-\-getwsr**
@@ -240,8 +241,8 @@ Command-line switches:
 
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
-: **\-\-mino~_site-list_**
-   tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
+**\-\-mino~_site-list_**
+:  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
     + By default, _site-list_ is a list of integers.  These enumerate
@@ -259,12 +260,13 @@ Command-line switches:
     + As a special case, you can invoke \-\-mino:z, which specifies in
       the list all sites with atomic number Z=0 (empty spheres).
 
-+ **\-\-wpos=_filename_**\\
-  + writes the site positions to file _filename_.
+**\-\-wpos=_filename_**\\
+: writes the site positions to file _filename_.
 
-+ **\-\-shell[:opts]**\\
-  + print out a neighbor table, in one of two styles.
-    + _Standard style_: a table of neighbors is printed, grouped in
+**\-\-shell[:opts]**\\
+:  print out a neighbor table, in one of two styles.
+
+   + _Standard style_: a table of neighbors is printed, grouped in
     shells of neighbors centered the site in question.  By
     default a table is printed for one site of each inequivalent class.\\
     Options for this style:
