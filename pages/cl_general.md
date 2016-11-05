@@ -266,7 +266,7 @@ Definition list inside definition list
       5  1.000000   4   19  1:K1(4)
       6  1.026646   8   27  2:Fe1(4)      3:Fe2(4)
     </pre>
-    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for each site.
+    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for all sites.
     <pre>
     # neighbor list for site 1, class 21x     
         1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
@@ -285,8 +285,8 @@ Definition list inside definition list
     </pre>
 
     + _Tab displacement style_: (**\-\-shell~tab=2~disp=_file_**) special purpose mode that
-      reads in a second set of site positions from file **_file_**.\\
-      It lists only connecting vectors that are displaced relative the original vectors.\\
+      reads in a second set of site positions from _file.ext_{: style="color: green"}.\\
+      It lists only connecting vectors that are changed relative the original vectors.\\
       Moreover the table prints out both the original vector and the displacement vector, e.g.
     <pre>
     # neighbor list for site 1, class K1      
@@ -301,17 +301,28 @@ Definition list inside definition list
     Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
 
       + **r=#** Specifies range of neighbor-list. Default value is 5.
-{::comment}
-      + **v**   prints electrostatic potential for each pair
-{:/comment}
       + **e**   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
       + **fn=_filename_** writes neighbor table to file _filename.ext_{: style="color: green"}
       + **sites~_site-list_** restricts sites considered to _site-list_.
       + **pair~_list_** restricts neighbors to _list_.
       + **nn**  restrict table to nearest-neighbor shell (tab mode only)
 
+    Example: **--shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
+
+**\-\-angles[opts]**
+:  prints angles between triples of sites.  
+
+  Options are separated by &thinsp;**~**&thinsp; (or any character following **\-\-shell**):
+
+  + r=# Specifies range for this table. Default value is 2.5.
+  + sites=site-list  loops over only sites in site-list
+  + bonds=site-list prints out table only for triples whose neighbors are in site-list
+
+  Example : \-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr
+
+
 **\-\-getwsr**
-:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to find reasonable
+:   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
     initial sphere radii automatically.
 
 **\-\-findes**
@@ -324,30 +335,20 @@ Definition list inside definition list
   + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
   \-\-findes uses these parameters to constrain size of spheres as new ones are added.
 
-**\-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_** \| \-\-mino~z
+** \-\-mino~z \| \-\-mino~_site-list_** \| \-\-mino~style=1~_class-list_** \| \-\-mino~style=2~_expr_** \| \-\-mino~style=3~_class-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap. (For now, the function has been set
      arbitrarily to the sixth power of the overlap).
 : ^
-    + **~z** : list consists of sites with atomic number Z=0
-    + **_site-list_** is a list of integers, enumerating indices to sites free to move, eg **1,5,9**.\\
+    + **~z** &ensp; build list from sites with atomic number _Z_=0
+    + **_site-list_** is a list of integers, listing sites free to move, eg **1,5,9**.\\
       See [here](/docs/misc/integerlists/) for the syntax of integer lists.
     + **~style=1~_class-list_**  list of classes. **lmchk**{: style="color: blue"} will expand it into a site-list
     + **~style=2~_expr_** list of classes satisfying _expr_.  Expanded into a site list.\\
-      The expression can involve the class index ic and atomic number z.
+      The expression can involve the class index **ic** and atomic number **z**.
 
-**\-\-wpos=_filename_**
-: writes the site positions to file _filename_.
-
-+ **\-\-angles[opts]**\\
-  + similar to \-\-shell, but prints angles between triples of
-                   sites.  opts are as follows (you may substitute another
-                   character for `:' below)
-                   :r=# Specifies range for this table. Default value is 2.5.
-                   :sites=site-list  loops over only sites in site-list
-                   :bonds=site-list prints out table only for triples
-                   :                   whose neighbors are in site-list
-                   Example : \-\-angles/r=3/sites/style=3/Si/bonds/style=3/Cr
+**\-\-wpos=_file_**
+: writes the site positions to _file.ext_{: style="color: green"}
 
 
 + **\-\-terse**\\
