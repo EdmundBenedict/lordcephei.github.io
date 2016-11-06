@@ -325,7 +325,7 @@ Definition list inside definition list
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
   &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.\\
   &ensp; **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
-  &ensp; **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.\\
+  &ensp; **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
 
   Example: **\-\-angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
@@ -336,12 +336,11 @@ Definition list inside definition list
   Euler angles must be supplied either in the input file, or in the Euler angles file
   _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).
 
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
-: ^
-  + **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.\\
-    If **_rmin_** is also given, exclude pairs closer than **_rmin_**.
-  + **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-  + **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.\\
+    If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
+  &ensp; **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
+  &ensp; **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative.\\
 
   Example: **\-\-euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
@@ -353,21 +352,20 @@ Definition list inside definition list
   Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
   Tokens in the ctrl file affecting this switch are:
 : ^
-  + OPTIONS RMINES RMAXES minimum and maximum allowed radius of empty spheres to be added
-  + SPEC  SCLWSR OMAX1  OMAX2  WSRMAX
+  + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
+  + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
-    augmentation sphere radii.  Results are printed to stdout.\\
-    You must modify the input file by hand
+    augmentation sphere radii.\\
+    Results are printed to stdout; you must modify the input file by hand.
 
 **\-\-mino~z &thinsp;\|&thinsp; \-\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap.\\
-     (For now, the function has been set arbitrarily to the sixth power of the overlap).
-: ^
-    + **\-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0
-    + **\-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+     (For now, the function has been set arbitrarily to the sixth power of the overlap).\\
+    &ensp; **\-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0\\
+    &ensp; **\-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
 **\-\-terse**
 : print minimum information about overlaps.

@@ -658,6 +658,10 @@ NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTICS_
+{::comment}
+(/docs/input/inputfile/#optics)
+{:/comment}
+
 Optics functions available with the ASA extension packages OPTICS.
 
 It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
@@ -690,6 +694,10 @@ ECUT | r | OPTICS | Y | 0.2 | Energy safety margin for determining (occ,unocc) w
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTIONS_
+{::comment}
+(/docs/input/inputfile/#options)
+{:/comment}
+
 Portions of OPTIONS are read by these codes:
 
 **lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
