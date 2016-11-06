@@ -346,13 +346,14 @@ Definition list inside definition list
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
 **\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp; \-\-nescut=#**
-: tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
-  It works by adding adding empty spheres (largest possible first)\\
-  until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
-  Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
-  Tags in the ctrl file affecting this switch are:
-  + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
-  + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
+:  tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
+   It works by adding adding empty spheres (largest possible first)\\
+   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
+   Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
+   Tags in the ctrl file affecting this switch are:
+
+   + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
+   + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
 
 **\-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine

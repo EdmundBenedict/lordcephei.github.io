@@ -729,7 +729,7 @@ ASA\_MTCOR | 1 | NC | Y | F | Set to T to turn on Ewald MT correction
 ASA\_QMT | r | NC | Y | 0 | Override standard background charge for Ewald MT correction<br>Input only meaningful if MTCOR=T
 RMINES | r | lmchk | N | 1 | Minimum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
 RMAXES | r | lmchk | N | 2 | Maximum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
-NESABC | i,i,i | lmchk | N | 100 | number of mesh divisions when searching for empty spheres [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
+NESABC | i,i,i | lmchk | N | 100 | Number of mesh divisions when searching for empty spheres [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
 
 {::comment}
 {::nomarkdown}</div>{:/}
