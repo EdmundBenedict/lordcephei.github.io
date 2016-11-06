@@ -28,6 +28,13 @@ _____________________________________________________________
 
 Command-line switches:
 
+**\-\-rpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
+   _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+^
+**\-\-wpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
+^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 	:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
    Enter anywhere between 1 and five integers.
@@ -71,8 +78,6 @@ Command-line switches:
    + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
    + **spec=_spid_\hellip,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
-     
-
 ^
 **\-\-rdbasp[:_fn_]**
 :  tells the program to read basis parameters from file **_fn_**.
