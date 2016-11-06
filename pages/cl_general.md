@@ -91,11 +91,11 @@ Command-line switches:
    This list can sometimes be rather long and complex.  To accomodate this, 
    some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
 
-   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet have this capability.
-
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
       With this option you can make band plots with three independent colors.
    + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
+
+   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability
 ^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
@@ -106,8 +106,9 @@ Command-line switches:
    +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
    +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
    +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
-   +  Add 10 to additionally adjust the mesh and local densities for shifts or rotations in site positions relative to those used in the generation of the
+   +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
       restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
+   +  Add 100 to rotate local densities, if the lattice has been rotated.
 
    +  **#2=0:** serves same function as **#1**, but for writing output densities.
    +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}

@@ -327,9 +327,8 @@ the effect, but in typical PE experiments it is not negligible.
 <P>
 
 There are two ways to transform the <b>k</b> point.  The first is to use
-the <FONT size="+1"><tt>~rot=</tt></FONT> option to
-the <FONT size="+1"><tt>--band</tt></FONT> switch (see above).  The second
-is through a sequence of algebraic expressions which you specify in the
+the **~rot** options to the [**--band** switch](/docs/commandline/general/#switches-for-lmf).
+The second expressions which you specify in the
 first line of the <i>k</i>-points input file.  This line consists of a sequence of algebraic expressions,
 which generate one or more of <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or 
 <i>k</i><sub><i>z</i></sub>, which modifies one of more of the Cartesian components of <b>k</b>.
@@ -375,30 +374,26 @@ It should contain the following lines:
  kx=(q^2+.1^2-qy^2-qz^2)^.5
 </pre>
 
-The <FONT size="+1"><tt>~rot=</tt></FONT> switch may be used in conjuction
-with the modification through alegbraic expresssions.  For example suppose
-you want to modify <i>k</i><sub>&perp;</sub> normal to the (1,-1,0) direction,
-while preserving <b>k</b><sub>&#8741;</sub> in the (1,1,0),(0,0,1) plane.
+The **~rot** option may be used in conjuction with the modification through alegbraic expresssions.  For example suppose you want to modify
+<i>k</i><sub>&perp;</sub> normal to the (1,-1,0) direction, while preserving <b>k</b><sub>&#8741;</sub> in the (1,1,0),(0,0,1) plane.
 
-<P> Take Cu as a concrete example.  If <FONT size="+1"><tt>lm</tt></FONT>
-is your top-level directory, set up the calculation for Cu with
+<P> Take Cu as a concrete example.  If &thinsp;**lm**&thinsp; is your top-level directory, set up the calculation for Cu with
 <pre>
 ~/lm/fp/test/test.fp cu 1
 </pre>
 This should set up a self-consistent potential for Cu and save generate energy bands in file
-<FONT size="+1"><tt>bnds.cu-pwmode11</tt></FONT>.
+_bnds.cu-pwmode11_{: style="color: green"}
 
 The input file as constructed uses the normal Cartesian coordinates for a cube.  But if
-you invoke <b>lmf</b> with <FONT size="+1"><tt>-vrot=t</tt></FONT>, viz
+you invoke **lmf**{: style="color: blue"} with **-vrot=t**, viz
 <pre>
 lmf -vrot=t cu --showp 
 </pre>
-you will see that token <FONT size="+1"><tt>STRUC_ROT=z:pi/4</tt></FONT> appears in the preprocessed input file.
-This tells <b>lmf</b> to rotate the crystal axes, the basis vectors, and the symmetry group operations.
-Rotation <FONT size="+1"><tt>(1,-1,0)pi/2</tt></FONT> rotates (1/2,1/2,0) to the -z axis.
-Do this:
+you will see that tag **STRUC\_ROT=z:pi/4**appears in the preprocessed input file.
+This tells **lmf**{: style="color: blue"} to rotate the crystal axes, the basis vectors, and the symmetry group operations.
+This rotates (1/2,1/2,0) to the -z axis.  Do the following:
 <pre>
-lmf -vrot=t cu --quit=ham
+$ lmf -vrot=t cu --quit=ham
 </pre>
 and you should see:
 <pre>
@@ -411,21 +406,20 @@ and you should see:
 Run the band calculation exactly as was done in the test case, but modify it as follows.
 Replace the original
 <pre>
-  lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 --band:fn=syml
+$ lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 --band:fn=syml
 </pre>
 with:
 <pre>
-  lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 -vrot=t --rs=101 '--band~rot=(1,-1,0)pi/2~fn=syml'
+$  lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 -vrot=t --rs=101 '--band~rot=(1,-1,0)pi/2~fn=syml'
 </pre>
-<FONT size="+1"><tt>--rs=101</tt></FONT> tells the charge density reader to rotate the local densites (the density was generated in the unrotated coordinate system).
-<P>
-<FONT size="+1"><tt>--band~rot=</tt></FONT> is necessary because lmf will not automatically rotate
-the k-points read from the <FONT size="+1"><tt>syml</tt></FONT> file.
++ **--rs=101** tells the charge density reader to rotate the local densites (the density was generated in the unrotated coordinate system).
++ &&--band~rot=** is necessary because lmf will not automatically rotate
+the k-points read from the _syml.ext_{: style="color: green"}.
 
 <P>
-Run modifed band pass calculation and compare
-<FONT size="+1"><tt>bnds.cu</tt></FONT> with 
-<FONT size="+1"><tt>bnds.cu-pwmode11</tt></FONT>.
+Run a modifed band pass calculation and compare
+_bnds.cu_{: style="color: green"} with
+_bnds.cu-pwmode11_{: style="color: green"}.
 You should see that the <i>k</i>-points are different, but that the
 bands are essentially identical.  (There are slight differences
 relating to the numerical instabilities in the overlap originating from the
@@ -435,11 +429,11 @@ This shows that the bands are replicated in the rotated coordinate system.
 
 <P>
 
-Finally, modify <FONT size="+1"><tt>syml.cu</tt></FONT> by uncommenting the first line so it reads:
+Finally, modify _syml.cu_{: style="color: green"} by uncommenting the first line so it reads:
 <pre>
 % map kz=(q^2+.01^2-qx^2-qy^2)^.5*(qz>0?1:-1)
 </pre>
-and repeat the <b>lmf</b> band pass.  You should see that <i>k<sub>x</sub></i> and
+and repeat the **lmf**{: style="color: blue"} band pass.  You should see that <i>k<sub>x</sub></i> and
 <i>k<sub>y</sub></i> are unchanged, but <i>k<sub>z</sub></i> is slightly modified.
 Similarly the bands are slightly modified.
 
