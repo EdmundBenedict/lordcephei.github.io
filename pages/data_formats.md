@@ -155,7 +155,7 @@ a format specially tailored to symmetry lines.
 The first line consists of of a header, which contains the (maximum) number of
 bands, the Fermi level, and the number of color weights, e.g.:
 <pre>
-   44  -0.01870     0
+ 36  -0.02136     2  col= 5:9,14:18  col2= 23:27,32:36
 </pre>
 Next follow, for each symmetry line:
 <UL>
@@ -189,9 +189,9 @@ Use this mode to generate energy levels for a particular set of
 <i>k</i>-points.  The <i>k</i>-points file consists of a list of points, e.g.
 
 <pre>
-                 -.01  0  0
-                   0   0  0
-                  .01  0  0
+-.01  0  0
+  0   0  0
+ .01  0  0
 </pre>
 
 The file format is very flexible; data is read according to a standard
@@ -217,9 +217,9 @@ specifies the number of
 e.g.
 
 <pre>
-   nkp=2  
-    1  0.100000000000D+00  0.000000000000D+00  0.000000000000D+00
-    2 -2.600000000000D-01  2.500000000000D-01  2.500000000000D-01
+ nkp=2  
+  1  0.100000000000D+00  0.000000000000D+00  0.000000000000D+00
+  2 -2.600000000000D-01  2.500000000000D-01  2.500000000000D-01
 </pre>
 
 The file reader will automatically distinguish between
