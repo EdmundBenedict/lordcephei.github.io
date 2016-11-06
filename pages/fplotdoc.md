@@ -122,7 +122,7 @@ _Notes:_{: style="color: red"}
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
-/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file
+(/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 {:/comment}
 
 try [here](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
