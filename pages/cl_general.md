@@ -28,19 +28,19 @@ _____________________________________________________________
 href="generating-density-of-states.html#pdos">this document</A>.  It reads the weights file _moms.ext_{: style="color: green"} and 
 generates partial contributions to the total DOS, using either tetrahedron integration or sampling method.
  _moms.ext_{: style="color: green"} must be made in advance by a generating program; see for example
-**lmf*{: style="color: blue"} command line switch **--pdos**.
+**lmf**{: style="color: blue"} command line switch **--pdos**.
 
-How the channels for partial DOS are specified depends on the context. **lmdos**{: style="color: blue"} doesn't need to know what the origin
-of the channels is; it simply reads the number of channels from the weights file.  However, to assist you in making an identification of the
-channels with (atom-centered) functions, it will print out what it thinks the connection is.  
-
-**Caution:**{: style="color: red"} if you use the generating program inconsistently with **lmdos**{: style="color: blue"}, it may print out
-an erroneous table.
-
+How the channels for partial DOS are specified depends on the context. 
 Typically you generate the weights file specifying channels with &thinsp;**--pdos**.
 **lmdos**{: style="color: blue"} assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
-are generated and stored by class.  This is default mode of **lm**{: style="color: blue"} and **tbe**{: style="color: blue"}),
+are generated and stored by class.  This works with **lm**{: style="color: blue"} and **tbe**{: style="color: blue"},
 but otherwise, specify the channels with &thinsp;**--pdos**.
+
+**lmdos**{: style="color: blue"} doesn't need to know what the origin of the channels is; it simply reads the number of channels from the
+weights file.  However, to assist you in making an identification of the channels with (atom-centered) functions, it will print out what it
+thinks the connection is.
+
+**Caution:**{: style="color: red"} **lmdos**{: style="color: blue"} may print out if you use the generating program inconsistently with it.
 
 **lmdos**{: style="color: blue"} has a variety of options; for example it can generate the ballistic
 conductivity as matrix elements of the velocity operator.
