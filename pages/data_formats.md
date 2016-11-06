@@ -324,8 +324,6 @@ surface, whereas <b>k</b><sub>&#8741;</sub> is conserved.  This means that
 from the band structure.  The larger the kinetic energy the smaller
 the effect, but in typical PE experiments it is not negligible.
 
-<P>
-
 There are two ways to transform the <b>k</b> point.  The first is to use
 the **~rot** options to the [**--band** switch](/docs/commandline/general/#switches-for-lmf).
 The second expressions which you specify in the
@@ -333,14 +331,14 @@ first line of the <i>k</i>-points input file.  This line consists of a sequence 
 which generate one or more of <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or 
 <i>k</i><sub><i>z</i></sub>, which modifies one of more of the Cartesian components of <b>k</b>.
 
-<P>
+{::comment}
 
 To modify <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or <i>k</i><sub><i>z</i></sub>
 insert a line at the beginning of the file.
 The first character must be a '%', followed by one or more strings with algebraic expressions defining the <i>x</i>-, 
 <i>y</i>, and <i>z</i> components of the modified <b>q</b>:
 <pre>
-%   [var=<i>expr</i> var=<i>expr</i> ...]   kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
+% [var=<i>expr</i> var=<i>expr</i> ...]   kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
 </pre>
 <FONT size="+1"><tt>kx,ky,kz</tt></FONT> are the Cartesian coordinates of the modified <i>k</i>-point.
 
