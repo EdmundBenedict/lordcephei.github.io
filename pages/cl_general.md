@@ -370,16 +370,17 @@ Definition list inside definition list
 **\-\-terse**
 : print minimum information about overlaps.
 
-**\-\-wpos=_file_**
+
 : writes the site positions to _file.ext_{: style="color: green"}
 
-**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep**
-: writes structural data to a site file
+**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep &thinsp;\|&thinsp; **\-\-wpos=_file_**
+: writes structural data to a site file or a positions file.
 
-  + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates
+  + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates.
   + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
   + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
+  + **\-\-wpos** &nbsp; writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
 : ^
@@ -419,7 +420,7 @@ original, because the list of lattice vectors may not encompass all the translat
 **\-\-wsite[x][~map][~sort][~fn=_file_] &thinsp;\|&thinsp; \-\-wpos=_file_**
 : Writes a [site file](/docs/input/sitefile) to disk, or a positions file to dist.\\
   **\-\-wsite[x]** writes a site file with positions expressed as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
-  **\-\-wpos** writes a positions file in standard [Questaal format][Questaal protocol](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
+  **\-\-wpos** writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 : ^
   + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
