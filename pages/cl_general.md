@@ -61,21 +61,21 @@ Command-line switches:
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 ^
-   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified. 
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
-   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
-   + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}. NB: works only with **~qp** and **~con** modes.
-   + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
-   + **~ef=#**:&ensp;        Use **#** for Fermi level.
-   + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
-   + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
-   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
-   + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
-   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
-   + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
-   + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
-   + **~col=<b>orbital-list</b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+      + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified. 
+                See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
+      + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
+                See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
+      + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}. NB: works only with **~qp** and **~con** modes.
+      + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
+      + **~ef=#**:&ensp;        Use **#** for Fermi level.
+      + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
+      + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
+      + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
+      + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
+      + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
+      + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
+      + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
+      + **~col=<b>orbital-list</b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
 
      This option tells the band generator to save, in addition to
      the energy bands, a corresponding weight for each energy.

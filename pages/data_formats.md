@@ -99,6 +99,7 @@ Their structure is documented [here](/docs/input/sitefile/).
 <i>k</i>-points and which energy bands or quasiparticles are to be generated
 are specified in one of three types, or modes.  
 
+{::nomarkdown}
 
 <LI>  The (default)
 <B><A href="#symmetrylinemode">symmetry line mode</A></B>
