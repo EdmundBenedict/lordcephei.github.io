@@ -115,11 +115,15 @@ purpose is to generate contour plots of constant energy surfaces,
 e.g. the Fermi surface. Data file output is written in a special mode, with 
 levels for a particular band at all <i>k</i> written as a group.
 
+{::nomarkdown}
 <FONT color="#bb3300">
+{:/nomarkdown}
 
 ##### Symmetry line mode
 
+{::nomarkdown}
 </FONT>
+{:/nomarkdown}
 
 This is the default mode.  The <i>k</i>-points file consists of a list
 of symmetry lines and the number of <i>k</i>-points in each line.
