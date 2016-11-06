@@ -19,66 +19,77 @@ _____________________________________________________________
 (/docs/commandline/general/#table-of-contents)
 {:/comment}
 
-#### _Switches for lmscell
+#### _Switches for lmscell_
 {::comment}
 (/docs/commandline/general/#switches-for-lmscell)
 {:/comment}
 
-**lmscell**{: style="color: blue"} is a supercell maker.  You must supply a set of new (supercell) lattice vectors.  You can do so using
-token **STRUC\_SLAT**; if you do not, you will be prompted to input 9 numbers from the terminal.  
+**lmscell*{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
+to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded. An expanded list of basis
+vectors is thus generated.  You must supply a set of new (supercell) lattice vectors.  You can do so with
+tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.  
+It also has a limited capability to make [Special QuasiRandom Structures](http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353).
 
-**lmscell*{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding these lattice
-vectors to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded An expanded list of basis
-vectors is thus generated.  
-
-**Caution:**: style="color: red"} Warning: **lmscell*{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
+**Caution:**: style="color: red"} Warning: **lmscell**{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
 original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
 
-**lmscell**{: style="color: blue"} also has a limited capability to make Special QuasiRandom Structures.
 
 **--wsite[x][~map][~sort][~fn=_file_]**
 : Writes a [site file](/docs/input/sitefile) to disk.
+  **--wsite[x]** writes the basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
 : ^
-  + **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
+  + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-  + **~map**: &ensp; appends a table mapping sites in the original cell to the supercell
+  + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
 
-**--sort~expr1 [expr2] [expr]**
-: orders site table according to expressions involving Cartesian components of positions, e.g. --sort:'x3 x2'
-  sort basis vectors, ordering positions by increasing value of `expr'.  Allowed values in expr are x-, y-, and z- coordinates of basis.
-  Optional `expr2' sorts subsets of sites with equivalent values of `expr1'
+**--sort:' _expr1_ [_expr2_] [_expr3_]'**
+: Sorts the basis by ordering algebraic expressions associated with them, e.g. --sort:'x3 x2'
+  Allowed values in expressions are Cartesian components **x1**, **x2**, **x3**.
+  Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
 
 **--rsta &thinsp;\|&thinsp; --rsta,amom**
-: Makes supercell ASA restart file from original rsta file
+: Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.
+  Optional **amom** is for noncollinear magnetism only: it flips the majority and minority spins,
+  while rotating the Euler angle by 180&deg;
 
 **--ring:i1,i2**
-:       :ring:i1,i2 shifts i1..i2-1 one register higher, and site i2 becomes site it
+: (cyclic ring) shifts sites **i1&hellip;i2-1** to one position higher, and site *i2* takes the position of site **i1**
 
-**--swap:i1,i2[,i3,i4]**
-: swap:i1,i2 swaps pairs i1 and i2
+**--swap:i1,i2**
+: swaps pairs **i1** and **i2**
 
-**--sites:site-list**
+**--sites:_site-list_**
 : Make supercell of subset of sites in original basis
+ See [here](/docs/commandline/general/#site-list-syntax) for  _site-list_ syntax.
 
 **--shorten**
 : shorten basis vectors
 
 **--pl:_expr_**
-: (lmpg code) Assign principal-layer index according to <i>expr</i>. Sites with equivalent values of <i>expr</i> are assigned the same index.
+: (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
 
 **--wrsj[~fn=name][~scl=#]**
-: Used in writing the pairwise exchange parameters of the supercell generated, e.g., from a Green's function code. Input file 'rsj' must be present.
+: Used in writing the pairwise exchange parameters of the supercell generated, e.g., from a Green's function code. Input file _rsj.ext_{: style="color: green"} must be present.
 
 **--disp~fnam~<i>site-list</i>**
-: Displace a set of atoms in the neighborhood of a given one
-  e.g. --disp:tab2:style=3:21x
+: Displace a set of atoms in the neighborhood of a given one, **--disp:tab2:style=3:21x**
+  Use in conjuction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**)
 
-**--seed=#**
-: Used with SQS
+**--sqs[~seed=#][~r2max=#][~r3max=#][r3mode=#]**
+: Make Special QuasiRandom Structure.  It works by minimizing a norm function.
+  The norm is obtained by assigning a weight to each pair and three body correlator,
+  and summing the individual weights.\\
 
-**--wpos=fn**
-: Write positions to file fn
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
+    + **~seed=#**:&ensp; initial seed for random number generator.  For a fixed seed the algorithm proceeds the same way each time.
+    + **~r2max=#**:&bsp; Maximum distance between pairs for pair participate in the norm
+    + **~r3max=#**:&bsp; Maximum sum of legs between for triples to participate in the norm.
+
+  **Caution:**: style="color: red"} This mode is still experimental.
+
+**--wpos=_file_**
+: Write positions to _file.ext_{: style="color: green"}.
 
 #### _Introduction_
 _____________________________________________________________
