@@ -597,10 +597,10 @@ Command-line switches:
 ^
 +  **-bs=expr**:&ensp;   factor that scales the default ball (sphere) size. This factor scales **SPEC\_RMAX** by _expr_. By default, the scaling is 0.5.
 +  **-ss=expr**:&ensp; controls the criterion for what length defines a connected bond.  This switch scales the default
-   factor scaling a 'bond' which must be less close than RMAX<sub>i</sub>+RMAX<sub>j</sub>
-+  **-shift=x1,x2,x3**:&ensp; shifts all the coordinates by this amount, in units of ALAT
-+  **-scale=val**:&emsp;   sets the **xbs**{: style="color: blue"} variable **scale**
-+  **-spec**:&ensp; shifts   sites organized by species.  The default is that sites are organized by classes.
+   factor scaling a 'bond' which must be less close than RMAX<sub>i</sub>+RMAX<sub>j</sub>.
++  **-shift=x1,x2,x3**:&ensp; shifts all the coordinates by this amount, in units of ALAT.
++  **-scale=val**:&emsp;   sets the **xbs**{: style="color: blue"} variable **scale**.
++  **-spec**:&ensp; shifts   sites organized by species.  By default sites are organized by classes.
 
 +  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.\\
    _rule_ has the syntax\\
@@ -620,7 +620,7 @@ Command-line switches:
    + p1,p2,p3   site positions, as [projections onto plat](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors)
    + ic,ib,z,r  class index, basis index, atomic number, and radius
 
-   Example: **lmxbs "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
+   Example: **lmxbs &thinsp; "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
 
 
