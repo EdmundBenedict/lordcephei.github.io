@@ -577,7 +577,7 @@ sphere moments from class files and writes the data in a form suitable
 for the input file.  It is an easy way to collect the results into the ctrl file.
 
 Command-line switches:
-
+^
 + **-spin1**:&ensp;   add spin-polarized moments into a non-polarized set
 + **-spinf**:&ensp;   exchange up- and down- moments
 + **-mad**:&emsp;     also write out the ves at RMAX.
