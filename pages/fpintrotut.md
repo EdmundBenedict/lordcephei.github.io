@@ -170,7 +170,7 @@ This [tutorial on PbTe](/tutorial/lmf/lmf_pbte_tutorial/) also covers the basic 
 There is [a more detailed tutorial](https://lordcephei.github.io/buildingfpinput/)
 with some description of important tags the **lmf**{: style="color: blue"} reads, and of the **lmf**{: style="color: blue"} basis set.
 
-For a tutorial showing a self-consistent calculation of ferromagnetic metal, see [this tutorial](xx). [This tutorial](xxx) shows how to calculate optical properties for PbTe.  See [this tutorial](xx) for the calculation of the optical mode frequency in Si.  [This document](xxx) gives an overview of the lmf implementation; the formalism behind the method is described in this [book chapter](xx).
+For a tutorial showing a self-consistent calculation of ferromagnetic metal, see [this tutorial](/tutorial/gw/qsgw_fe/). [This tutorial](xxx) shows how to calculate optical properties for PbTe.  See [this tutorial](xx) for the calculation of the optical mode frequency in Si.  [This document](/docs/code/fpoverview/) gives an overview of the lmf implementation; the formalism behind the method is described in this [book chapter](xx).
 
 _____________________________________________________________
 

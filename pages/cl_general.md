@@ -24,40 +24,36 @@ _____________________________________________________________
 (/docs/commandline/general/#switches-for-lmf)
 {:/comment}
 
-**lmf**{: style="color: blue"} is the main density-functional code in this package.
+**lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
 Command-line switches:
 
-**\-\-rs=#1,#2,#3,#4,#5**
-:  tells **lmf**{: style="color: blue"} what parts to read from the restart file.
+**\-\-rs=#1[,#2,#3,#4,#5**]
+	:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
+   Enter anywhere between 1 and five integers.
 
-   +  #1=0: do not read the restart file on the first iteration, but overlap free-atom densities.  Requires _atm.ext_{: style="color: green"}.
-   +  #1=1: read restart data from binary _rst.ext_{: style="color: green"}
-   +  #1=2: read restart data from ascii _rsta.ext_{: style="color: green"}
-   +  #1=3: same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
-   +  #1=11 or 12: same as 1, or 2 but additionally adjust
-      the mesh density for shifts in site positions
-      relative to those used in the generation of the
-      restart file.  Note: see \-\-rs switch #3 below
-      for which site positions the program uses.  The
-      same principle for adjusting the density is used
-      as in computing corrections to the Helman-Feynman
-      forces; see token FORCES= in <A href="tokens.html#HAMcat">HAM</A>.
+   +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
+      Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
+   +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
+   +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
+   +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
+   +  Add 10 to additionally adjust the mesh and local densities for shifts or rotations in site positions relative to those used in the generation of the
+      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
 
-   +  #2=0: exactly as #1, but except switches apply to writing. Value zero suppresses writing.
-   +  #2=1: write binary restart file rst (default)
-   +  #2=2: write ascii restart file rsta
-   +  #2=3: write binary file to rst.#, where # = iteration number
+   +  **#2=0:** serves same function as **#1**, but for writing output densities.
+   +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
+   +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
+   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
 
-   +  #3=0: read site positions from restart file, overwriting positions from input file (this is the default)
-   +  #3=1: ignore positions in restart file
+   +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
+   +  **#3=1:** ignore positions in restart file
 
-   +  #4=0: read guess for Fermi level and window from restart file, overwriting data from input file.\\
-      This data is needed when the BZ integration is performed by sampling (this is the default).
-   +  #4=1: ignore data in restart file
+   +  **#4=0:** read guess for Fermi level and window from restart file, overwriting data from input file (default).
+      This data is needed when the BZ integration is performed by sampling.
+   +  **#4=1:** ignore data in restart file
 
-   +  #5=0: read linearization pnu from restart file, overwriting data from input file (this is the default).
-   +  #5=1: ignore pnu in restart file
+   +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
+   +  **#5=1:** ignore **P** in restart file
 
     Default switches:
     If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0

@@ -237,7 +237,7 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
 ####  5. _Initial setup: free atomic density and parameters for basis_
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis
+(/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 {:/comment}
 
 To carry out a self-consistent calculation, we need to prepare the following.
