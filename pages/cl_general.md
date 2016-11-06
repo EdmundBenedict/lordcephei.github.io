@@ -24,23 +24,26 @@ _____________________________________________________________
 (/docs/commandline/general/#switches-for-lmscell)
 {:/comment}
 
-**lmdos**{: style="color: blue"} requires as input a moments file, and uses it to generate partial densities-of-states as described in <A
-href="generating-density-of-states.html#pdos">this document</A>.  It reads the moments file _moms.ext_{: style="color: green"} and uses
-either a tetrahedron integration or sampling method to generate a partial contributions to the total DOS.
+**lmdos**{: style="color: blue"} generates partial densities-of-states as described in <A
+href="generating-density-of-states.html#pdos">this document</A>.  It reads the weights file _moms.ext_{: style="color: green"} and 
+generates partial contributions to the total DOS, using either tetrahedron integration or sampling method.
+ _moms.ext_{: style="color: green"} must be made in advance by a generating program; see for example
+**lmf*{: style="color: blue"} command line switch **--pdos**.
 
-Note: **lmdos**{: style="color: blue"} doesn't need to know what the origin of the channels is; it simply reads the number of channels from
-the the weights file.  However, to assist you in making an identification of the channels with (atom-centered) functions, **lmdos**{:
-style="color: blue"} will print out what it thinks the connection is.  If you use the generating program inconsistently with **lmdos**{:
-style="color: blue"}, it may print out an erroneous table.
+How the channels for partial DOS are specified depends on the context. **lmdos**{: style="color: blue"} doesn't need to know what the origin
+of the channels is; it simply reads the number of channels from the weights file.  However, to assist you in making an identification of the
+channels with (atom-centered) functions, it will print out what it thinks the connection is.  
 
-When &thinsp;**--pdos**&thinsp; is specified, it assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
-are generated and stored by class (the default mode of **lm**{: style="color: blue"} and **tbe**{: style="color: blue"}).
+**Caution:**{: style="color: red"} if you use the generating program inconsistently with **lmdos**{: style="color: blue"}, it may print out
+an erroneous table.
+
+Typically you generate the weights file specifying channels with &thinsp;**--pdos**.
+**lmdos**{: style="color: blue"} assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
+are generated and stored by class.  This is default mode of **lm**{: style="color: blue"} and **tbe**{: style="color: blue"}),
+but otherwise, specify the channels with &thinsp;**--pdos**.
 
 **lmdos**{: style="color: blue"} has a variety of options; for example it can generate the ballistic
 conductivity as matrix elements of the velocity operator.
-
-One of these switches must be run by a generating program first.
-They are described in <A href="generating-density-of-states.html#pdosswitches">this document</A>.
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
