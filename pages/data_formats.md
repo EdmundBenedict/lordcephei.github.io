@@ -268,10 +268,6 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) and append
 
 ##### Mesh mode
 
-{::comment}
-<H2><A name="contourmode"><FONT size="+1" color="#bb3300">Mesh mode</FONT></A></H2>
-{:/comment}
-
 In this mode <i>k</i>-points are generated on a uniform 2D mesh,
 useful for [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).  Invoke with
 <pre>
@@ -348,17 +344,15 @@ are algebraic expressions involving these variables:
   q    |<b>k</b>|=[<i>k<sub>x</sub></i><sup>2</sup>+<i>k<sub>y</sub></i><sup>2</sup>+<i>k<sub>z</sub></i><sup>2</sup>]<sup>1/2</sup>
 </pre>
 
-{::comment}
-
 The expression should be integer (returning 0 or nonzero). 
-Example:
-<FONT size="+1"><tt>qx,qy,qz,q</tt></FONT> are the cartesian components and absolute value of the unmodified <i>k</i>-point.
-
+Example: let **qx**, **qy**, **qz**, **q** be the Cartesian components and absolute value of the unmodified <i>k</i>-point.
 Any of the 
-<FONT size="+1"><tt>kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i></tt></FONT>
+<pre>
+kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
+</pre>
 may be present; any missing component will be left unchanged from its original value.
 
-This example in symmetry line mode modifies <i>k<sub>x</sub></i> such that the kinetic energy is increased by .1^2 a.u.
+This example (in symmetry line mode) modifies <i>k<sub>x</sub></i> such that the kinetic energy is increased by 0.1^2 a.u.
 <pre>
 % map kx=(q^2+.1^2-qy^2-qz^2)^.5
 41  .5 .5 .5     0  0 0                L to Gamma

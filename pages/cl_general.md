@@ -51,10 +51,10 @@ Command-line switches:
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
      this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
      [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).
-   + The [list mode](/docs/input/data_format/#listmode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
+   + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
      of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
      with k-points followed by eigenvalues.
-   + The [mesh mode](/docs/input/data_format/#contourmode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
+   + The [mesh mode](/docs/input/data_format/#mesh-mode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
      purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
      Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for 
      [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
@@ -80,7 +80,7 @@ Command-line switches:
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
       With this option you can make band plots with three independent colors.
 
-   The *col** option tells the band generator to save, in addition to
+   The **col** option tells the band generator to save, in addition to
    the energy bands, a corresponding weight for each energy.
    Each band is resolved into individual orbital character by a Mulliken decomposition
    The sum of Mulliken weights from <b><i>orbital-list</i></b> is the weight assigned to a state.
