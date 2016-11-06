@@ -57,7 +57,11 @@ Command-line switches:
 
     Default switches:
     If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
-
+^
+**\-\-rdbasp[:_fn_]**
+:  tells the program to read basis parameters from file **_fn_**.
+   If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
+   This supersedes settings in **HAM\_AUTOBAS**.
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
