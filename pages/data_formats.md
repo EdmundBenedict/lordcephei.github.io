@@ -196,9 +196,6 @@ format automatically generated if **BZ_PUTQP** is set or if the command-line swi
 <div onclick="elm = document.getElementById('putqp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of this mode.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="putqp">{:/}
-![Particle in a Box Example](/assets/img/box.svg)
-{::nomarkdown}</div>{:/}
-
 
 When this switch is set, <b>lm</b> (or similar programs that do numerical
 integrations over the Brillouin zone) will save information about the

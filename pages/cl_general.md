@@ -95,7 +95,7 @@ Command-line switches:
 
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
       With this option you can make band plots with three independent colors.
-   + **~evn=#**       keep track of smallest and largest eval for #th band. Print result at close.
+   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
 ^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
