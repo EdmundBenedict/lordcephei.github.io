@@ -58,6 +58,21 @@ Command-line switches:
    Default switches:
    If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
 ^
+**\-\-optbas[:sort][:spec=name[,rs][,e][,l=###]...]**
+: operates the program in a special mode to optimize
+  the total energy wrt the basis set. **lmf**{: style="color: blue"} makes
+  several band passes (not generating the output density
+  or adding to the save file), varying selected
+  parameters belonging to tokens RSMH= and EH= to
+  miniminize the total energy wrt these parameters.
+  Either the smoothing radius [,rs] or the energy [,e]
+  must be selected for optimization (you can select
+  both).  Select which <I>l</I> quantum numbers whose parameters
+  you want to optimize using `,l=##..', e.g. l=02 .  The
+  optimization routine is rather primitive, but it seems
+  to work reasonably well. See the <A href="FPoptbas.html">basis optimization tutorial</A>
+  for a more complete description and an example.
+
 **\-\-rdbasp[:_fn_]**
 :  tells the program to read basis parameters from file **_fn_**.
    If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
