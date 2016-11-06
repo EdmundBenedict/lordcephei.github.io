@@ -35,9 +35,58 @@ Command-line switches:
 **\-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
-**\-\-pdos[~options]**
-:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states resolved into partial waves.
+**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
    Options are described [here](/docs/commandline/general/#switches-for-lmdos).
+^
+**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
+:  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
+                   elements and weights for core-level-spectroscopy.
+   See **subs/suclst.f**{: style="color: green"} for a description of options.
+^
+**\-\-band[~options]**
+: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands can be
+   generated in one of several formats.\\
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+
+   + ~qp     list mode. An arbitrary list of <i>k</i> points can be specified. 
+             See <A href="#formatmode">Modes for Reading <i>k</i>-point Lists</A> for further description.
+   + ~con    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
+             See <A href="#formatmode">Modes for Reading <i>k</i>-point Lists</A> for further description.
+   + ~bin         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
+   + ~fn=<b>fnam</b>     read <i>k</i> points from file <b>fnam</b>.<i>ext</i>. Default name is qp.<i>ext</i> .
+   + ~ef=#        Use # for Fermi level.
+   + ~spin1       generate bands for 1st spin only (spin polarized case)
+   + ~spin2       generate bands for 2nd spin only (spin polarized case)
+   + ~mq          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
+   + ~long        write bands with extra digits precision (has no effect for default mode)
+   + ~rot=<i>strn</i>    rotates the given <i>k</i> by a rotation defined by <i>strn</i>. The syntax is defined in <A href="rotations.html">rotations.html</A>.
+   + ~lst=<i>list</i>    write only a subset of energy levels by an integer list. (contour mode only)
+               For syntax of <i>list</i>, see <A href="Integer-list-syntax.html">Integer-list-syntax.html</A>.
+   + ~nband=#     Write out no more than # bands (not to be used in conjunction with ~lst !)
+   + ~col=<b>orbital-list</b>    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+
+     This option tells the band generator to save, in addition to
+     the energy bands, a corresponding weight for each energy.
+     Each band is resolved into individual orbital character by a Mulliken decomposition
+     The sum of Mulliken weights from <b>orbital-list</b> is the weight assigned to a state.
+     Thus if <b>orbital-list</b> contains all orbitals the weights will be unity.
+
+     The individual orbitals make up the hamiltonian basis. States specified in <b>orbital-list</b>
+     corresponding to the ordering of the orbitals in the hamiltonian.  You can get a
+     table of this ordering by invoking <FONT size="+1"><tt>[<b>lm|lmf</b>] --pr55 --quit=ham ...</tt></FONT>
+     Choose <b>orbital-list</b> from the orbitals you want to select out of the Table.
+
+     This list can sometimes be rather long and complex.  To accomodate this, 
+     there are simple enchancements to the standard <A href="Integer-list-syntax.html">integer-list syntax</A>.
+     See below and in the <A href="ASAtutorial.html#section3">this section</A> of ASA tutorial for further
+     description of how the bands were generated for Co shown above.
+
+     _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet have this capability.
+^
+   + ~col2=<b>orbital-list</b>   generate a second weight to orbitals specified in a list.
+      With this option you can make band plots with three independent colors.
+   + ~evn=#       keep track of smallest and largest eval for #th band. Print result at close.
 ^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
