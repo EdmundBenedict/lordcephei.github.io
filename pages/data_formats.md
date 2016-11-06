@@ -322,16 +322,14 @@ surface (<i>k</i><sub>&perp;</sub>) is modified on exiting the
 surface, whereas <b>k</b><sub>&#8741;</sub> is conserved.  This means that
 <b>k</b> measured by ARPES slightly different from <b>k</b> calculated
 from the band structure.  The larger the kinetic energy the smaller
-the effect, but in typical PE experiments it is not negligible.
+the effect, but in typical photoemission experiments it is not negligible.
 
 There are two ways to transform the <b>k</b> point.  The first is to use
-the **~rot** options to the [**--band** switch](/docs/commandline/general/#switches-for-lmf).
+the **~rot** options to the [**\-\-band** switch](/docs/commandline/general/#switches-for-lmf).
 The second expressions which you specify in the
 first line of the <i>k</i>-points input file.  This line consists of a sequence of algebraic expressions,
 which generate one or more of <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or 
 <i>k</i><sub><i>z</i></sub>, which modifies one of more of the Cartesian components of <b>k</b>.
-
-{::comment}
 
 To modify <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or <i>k</i><sub><i>z</i></sub>
 insert a line at the beginning of the file.
@@ -340,15 +338,18 @@ The first character must be a '%', followed by one or more strings with algebrai
 <pre>
 % [var=<i>expr</i> var=<i>expr</i> ...]   kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
 </pre>
-<FONT size="+1"><tt>kx,ky,kz</tt></FONT> are the Cartesian coordinates of the modified <i>k</i>-point.
 
-<FONT size="+1"><tt><i>expr</i></tt></FONT> are algebraic expressions involving these variables:
+**kx**, **ky**, **kz** are the Cartesian coordinates of the modified <i>k</i>-point.  _expr_
+are algebraic expressions involving these variables:
 <pre>
   qx   <i>k<sub>x</sub></i>
   qy   <i>k<sub>y</sub></i>
   qz   <i>k<sub>z</sub></i>
   q    |<b>k</b>|=[<i>k<sub>x</sub></i><sup>2</sup>+<i>k<sub>y</sub></i><sup>2</sup>+<i>k<sub>z</sub></i><sup>2</sup>]<sup>1/2</sup>
 </pre>
+
+{::comment}
+
 The expression should be integer (returning 0 or nonzero). 
 Example:
 <FONT size="+1"><tt>qx,qy,qz,q</tt></FONT> are the cartesian components and absolute value of the unmodified <i>k</i>-point.
