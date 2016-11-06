@@ -260,14 +260,12 @@ may be extended with any of these switches:
   Example: **--band~qp,inc=q<1/2**\\
   In this case only <i>k</i>-points read from the file whose magnitude is less than 0.5 will be retained.
 
-+ [,merge=fnam] causes the list reader
-  to read a <i>second</i> file (named <FONT
-  size="+1"><tt>fnam.ext</tt></FONT>, (in an acceptable qp format mode)
-  and append the list read from it to the original list.
++ [,merge=_fnam_] causes the list reader
+  to read a <i>second</i> file _fnam.ext_{: style="color: green"} (in [standard Questaal
+format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) and append the list read from it to the original list.
 
-+ [,save=fnam] causes the list reader to
-  write the final <i>k</i>-points list to file <FONT
-  size="+1"><tt>fnam.ext</tt></FONT>.  After writing the program automatically stops.
++ [,save=_fnam_] causes the list reader to
+  write the final <i>k</i>-points list to _fnam.ext_{: style="color: green"}. After writing this file the program automatically stops.
 
 ^
 
