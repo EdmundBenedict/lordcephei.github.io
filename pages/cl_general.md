@@ -59,12 +59,13 @@ Command-line options:
    **\-\-pdos**  partial DOS\\
    **\-\-mull**  Mulliken DOS\\
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-pdos**):
+^
    +  **~mode=#**:&ensp;
       + **#=0** for DOS resolved by site
       + **#=1** for DOS resolved by _l_ and site
       + **#=2** for DOS resolved by _lm_ and site.
    +  **~sites=_site-list_**:&ensp; make DOS for a list of sites.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-   +  **~group=_lst1_;_lst2_;&hellip;**:  DOS for a list of groups.  A group can consist of one or more sites.  They are combined to make a single channel
+   +  **~group=_lst1_;_lst2_;&hellip;**:&ensp;  DOS for a list of groups.  A group can consist of one or more sites, which are combined to make a single channel.
    +  **~nl=#**:&ensp; **#&minus;1** is a global _l_ cutoff.
    +  **~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,&hellip;**: _l_-cutoff for each group or site in the group or site list.
 
