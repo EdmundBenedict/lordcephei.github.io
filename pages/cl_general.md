@@ -40,9 +40,9 @@ _____________________________________________________________
 
    To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are p1, p2
    and p3, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the point (**l1**=**#1**,**#2**,**#3**) corresponds to\\
-      &emsp; **#1/n1 p1 + #2/n2 p2 + #3/n3 p3** .\\
+      &emsp; **r1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
    Specify the origin (a point through which the plane must pass) by\\
-      &emsp; **~o=i1,i2,i3**
+      &emsp; **~o=i1,i2,i3**\\
    Default value is **o=0,0,0**.
 
    Alternatively you can specify a point in Cartesian coordinates by:\\
@@ -51,6 +51,8 @@ _____________________________________________________________
    (**x1**,**x2**,**x3**) is converted into the nearest integers **i1**,**i2**,**i3**.
    Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
    
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+
    Specify the direction vectors by
       ~l1=#1,#2,#3[,#4]
       ~l2=#1,#2,#3[,#4]
@@ -68,7 +70,6 @@ _____________________________________________________________
       l1=1,0,0,n1+1
       l2=0,1,0,n2+1
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
    Other options~
 
