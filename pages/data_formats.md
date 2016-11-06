@@ -153,18 +153,12 @@ bands, the Fermi level, and the number of color weights, e.g.:
  36  -0.02136     2  col= 5:9,14:18  col2= 23:27,32:36
 </pre>
 Next follow, for each symmetry line:
-<UL>
-<LI>
- A line with specifying the number of points for the current symmetry line.
- Next follow for each point <i>i</i>:
-<UL>
-<LI>
-a line containing <i>k<sub>i</sub></i> (3 numbers).
-<LI>
-one or more lines with the energy levels for <i>k<sub>i</sub></i>
-</LI>
-</UL>
-</LI>
+
++  A line with specifying the number of points for the current symmetry line.\\
+   Next follow for each point <i>i</i>:
+   + a line containing <i>k<sub>i</sub></i> (3 numbers).
+   + one or more lines with the energy levels for <i>k<sub>i</sub></i>
+^
 
 <i>Plotting, symmetry-line mode</i> <BR>
 
