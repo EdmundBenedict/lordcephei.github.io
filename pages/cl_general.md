@@ -566,6 +566,24 @@ original, because the list of lattice vectors may not encompass all the translat
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
+#### _Switches for_ lmctl
+{::comment}
+(/docs/commandline/general/#switches-for-lmctl)
+{:/comment}
+
+**lmctl**{: style="color: blue"} is an adjunct to the ASA, that read
+sphere moments from class files and writes the data in a form suitable
+for the input file.  It is an easy way to collect the results of a
+self-consistent calculation into a single file (the input file).
+
+Command-line switches:
+
++  -spin1           add spin-polarized moments into a non-polarized set
++  -spinf           exchange up- and down- moments
++  -mad             also write out the ves at RMAX.
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
 #### _Site-list syntax_
 _____________________________________________________________
 {::comment}
