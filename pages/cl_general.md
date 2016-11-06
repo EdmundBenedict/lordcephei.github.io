@@ -462,6 +462,7 @@ Command-line options:
 
    Example **--pdos~mode=2~group=1:3;4:9~lcut=2,1**\\
    makes DOS for sites 1:3 combined for the first channel, sites 4:9 for the second.  DOS is resolved by _l_ and _m_ (**mode=2**), with _l_=0,1,2 for the first group and _l_=0,1 for the second.
+^
 **\-\-dos~options**
 :  Various options that affect the action of **lmdos**{: style="color: blue"}.\\
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-dos**):
