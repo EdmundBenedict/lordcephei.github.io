@@ -321,7 +321,7 @@ from the band structure.  The larger the kinetic energy the smaller
 the effect, but in typical photoemission experiments it is not negligible.
 
 <div onclick="elm = document.getElementById('transformk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for a description of this format.</span>
+<span style="text-decoration:underline;">Click here for a description.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="transformk">{:/}
 
 There are two ways to transform the <b>k</b> point.  The first is to use

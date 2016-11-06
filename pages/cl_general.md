@@ -26,23 +26,144 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
+**\-\-wden[~options]**
+:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.  \\
+   Options syntax:\\
+   **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
+                   
+   Information for the plane is specified by three
+   groups of numbers: the origin (i.e. a point through
+   which the plane must pass), a first direction
+   vector with its number of points, and a second
+   direction vector with its number of points.
+   Default values will be taken for any of the three
+   sets you do not specify.  The density generated is
+   the smooth density, augmented by the local
+   densities in a polynomial approximation (see option
+   core= below)
+
+   The options are specifications (see below) and
+   different options are separated by delimiters
+   (chosen to be **~** in this text; the delimiter
+   actually taken is the first character after **wden**)
+
+   At present, there is no capability to interpolate
+   the smoothed density to an arbitrary plane, so you
+   are restricted to choosing a plane that has points
+   on the mesh.  
+
+   To comply with this restriction, all three groups of
+   numbers may be given sets of integers.  Supposing
+   your lattice vectors are p1, p2 and p3, which the
+   smooth mesh having (n1,n2,n3) divisions.  Then the
+   point (#1,#2,#3) corresponds to the Cartesian
+   coordinate
+      #1/n1 p1 + #2/n2 p2 + #3/n3 p3
+   Specify the origin (a point through which the plane
+   must pass) by
+      ~o=i1,i2,i3
+   Default value~ o=0,0,0.
+
+   Alternatively you can specify a point in Cartesian
+   coordinates by:
+      ~ro=x1,x2,x3
+   x1..x3 is a vector, Cartesian coordinates, units of alat.
+   x1..x3 are converted into the nearest integers i1..i3.
+   The actual origin may not exactly coincide with x1..x3.
+   
+   Specify the direction vectors by
+      ~l1=#1,#2,#3[,#4]
+      ~l2=#1,#2,#3[,#4]
+   l1 and l2 specify the first and second direction
+    vectors, respectively.  The first three numbers
+    specify the orientation and the fourth specifies the
+    **length**.  #1,#2,#3 select the increments in mesh
+    points along each of the three lattice vectors that
+    define the direction vector.  Thus a direction
+    vector in Cartesian coordinates is
+      #1/n1 p1 + #2/n2 p2 + #3/n3 p3
+   The last number (#4) specifies how many points to take
+   in that direction and therefore corresponds to a length.
+   Default values~
+      l1=1,0,0,n1+1
+      l2=0,1,0,n2+1
+
+   Other options~
+
+    core=#   specifies how local densities is to be included.
+             Any local density added is expanded as
+             polynomial * gaussian, and added to the
+             smoothed mesh density.
+            #=0 includes core densities + nuclear contributions
+            #=1 includes core densities, no nuclear contributions
+            #=2 exclude core densities
+            #=-1 no local densities to be included (only interstitial)
+            #=-2 local density, with no smoothed part
+            #=-3 interstitial and local smoothed densities
+
+             Default~ core=2
+
+    fn=name  specifies the file name for file I/O
+             The default name is **smrho**.
+
+    3d       causes a 3D mesh density to be saved in XCRYSDEN format
+
+    q=q1,q2,q3
+    and
+    lst=list-of-band-indices
+
+            These switches should be taken together.
+            They generate the density from 1 k-point only (at q)
+            and for a particular set of bands (given by lst=)
+
+   Example: use **~** as the delimiter, and suppose
+            n1=n2=48 and n3=120.  Then
+               \-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121
+            writes 'myrho.ext' a mesh (49,121) points.
+            The origin (first point) lies at (p3/2).
+            The first vector points along (p1+p2), and
+            has that length; the second vector points
+            along p3, and has that length.
+
+   Example: suppose the lattice is fcc with n1=n2=n3=40.  Then
+              \-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41
+            generates the smoothed part of the density from the 7th band at Gamma,
+            in a plane normal to the z axis, passing through (0,0,1/4).
+
+^
+
 Command-line switches:
 
-**\-\-rpos=_fnam_**
-:  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
-   _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
-^
-**\-\-wpos=_fnam_**
-:  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
-^
-**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
-:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
-   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
-^
-**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
-:  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
-                   elements and weights for core-level-spectroscopy.
-   See **subs/suclst.f**{: style="color: green"} for a description of options.
+**\-\-rs=#1[,#2,#3,#4,#5**]
+:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
+   Enter anywhere between 1 and five integers.
+
+   +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
+      Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
+   +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
+   +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
+   +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
+   +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
+      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
+   +  Add 100 to rotate local densities, if the lattice has been rotated.
+
+   +  **#2=0:** serves same function as **#1**, but for writing output densities.
+   +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
+   +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
+   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
+
+   +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
+   +  **#3=1:** ignore positions in restart file
+
+   +  **#4=0:** read guess for Fermi level and window from restart file, overwriting data from input file (default).
+      This data is needed when the BZ integration is performed by sampling.
+   +  **#4=1:** ignore data in restart file
+
+   +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
+   +  **#5=1:** ignore **P** in restart file
+
+   Default switches:
+   If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
 ^
 **\-\-band[~options]**
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
@@ -96,36 +217,21 @@ Command-line switches:
 
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
-**\-\-rs=#1[,#2,#3,#4,#5**]
-:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
-   Enter anywhere between 1 and five integers.
-
-   +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
-      Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
-   +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
-   +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
-   +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
-   +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
-      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
-   +  Add 100 to rotate local densities, if the lattice has been rotated.
-
-   +  **#2=0:** serves same function as **#1**, but for writing output densities.
-   +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
-   +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
-   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
-
-   +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
-   +  **#3=1:** ignore positions in restart file
-
-   +  **#4=0:** read guess for Fermi level and window from restart file, overwriting data from input file (default).
-      This data is needed when the BZ integration is performed by sampling.
-   +  **#4=1:** ignore data in restart file
-
-   +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
-   +  **#5=1:** ignore **P** in restart file
-
-   Default switches:
-   If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
+**\-\-rpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
+   _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+^
+**\-\-wpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
+^
+**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
+   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
+^
+**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
+:  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
+                   elements and weights for core-level-spectroscopy.
+   See **subs/suclst.f**{: style="color: green"} for a description of options.
 ^
 **\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
 :  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
