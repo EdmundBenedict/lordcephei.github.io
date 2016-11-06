@@ -971,21 +971,21 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | Provides a mechanism to read structural data from an independent [site file](/docs/input/sitefile) using alternate input styles.<br>If SITE is not present in the STRUC category, NBAS, PLAT and ALAT are read from the ctrl file.<br><br>File subs/iosite.f documents the syntax of the file structure.<br><br>The first line should contain a "% sign and a "version" token vn=#. On the same line, supply tokens nbas= and plat=, similar to the input file.<br>You can also include alat on this line.<br>If you omit it, alat is read from ALAT in the ctrl file.<br>Example: % vn=3.0 nbas=7 plat= -0.5 0.5 1 0.5 -0.5 1 0.5 0.5 1<br><br>Following the header line comes a table of site positions possibly followed by other site-related data. That table is not read in the STRUC category. To read site data from this file, specify FILE in the SITE category.<br><br>Kotani format (documented here but no longer maintained) The first line should contain a "%" sign and a "version" token vn=kotani. Then follow four lines containing real numbers:<br><br> #        <-- alat<br> # # #     <-- plat(1,1) plat(2,1) plat(3,1)<br> # # #     <-- plat(1,2) plat(2,2) plat(3,2)<br> # # #     <-- plat(1,3) plat(2,3) plat(3,3)
+FILE | c | all | Y | | Provides a mechanism to read structural data (ALAT, NBAS, PLAT) from an independent [site file](/docs/input/sitefile) using alternate input styles.<br><br>The file structure is documented [here](/docs/input/sitefile).
 NBAS | i | all | N&dagger; | | Size of the basis
-ALAT | r | all | N&dagger; | | A scaling, in atomic units, of the primitive translation and basis vectors
-DALAT | r | all | Y | 0 | is added to ALAT. It can be useful because the average Wigner-Seitz radius W is computed from ALAT, so quantities scaled by W are fixed while ALAT varies.<br>Note: this token is Not Particularly Useful for the ASA, since spheres must be space-filling.
+NSPEC | i | all | Y | | Number of atom species
+ALAT | r | all | N&dagger; | | A scaling, in atomic units, of the primitive lattice and basis vectors
+DALAT | r | all | Y | 0 | is added to ALAT. It can be useful in contexts where you want to keep certain quantities fixed (e.g. augmentation radius) while ALAT varies.
 PLAT | r,r,&hellip; | all | N&dagger; | | (dimensionless) primitive translation vectors
 SLAT | r,r,&hellip; | lmscell | N | | Superlattice vectors
-NSPEC | i | all | Y | | Number of atom species
-NL= | i | all | Y | 3 | Sets a global default value for l-cutoffs $$ l^(cut) $$ : NL = [1 + $$ l^(cut) $$]. This default is used for both the basis and augmentation cutoffs.
-SHEAR | r | all | Y | | Enables shearing of the lattice in a volume-conserving manner. For SHEAR=#1,#2,#3,#4, #4 is the distortion amplitude, and #1,#2,#3 are a direction vector.<br><br>Example:<br>SHEAR=0,0,1,0.01 <br>This distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
-ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br><br>Example:<br>ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles α=π/4, β=π/3 γ=π/2. See [This document](/docs/misc/rotations/) for the general syntax.<br><br>Note:<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
-DEFGRD | r | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
-STRAIN | r | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
-ALPHA | r | all | N | | Amount of Voigt strain
+NL   | i | all | Y | 3 | Sets a global default value for _l_-cutoffs NL = 1+_l_<sub>cut</sub>. NL is used for both the basis and augmentation cutoffs.
+SHEAR | r,r,r,r | all | Y | | Enables shearing of the lattice in a volume-conserving manner.<br>If SHEAR=#1,#2,#3,#4, #1,#2,#3=direction vector; #4=distortion amplitude<br><br>Example:  SHEAR=0,0,1,0.01<br> distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
+ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br>Example:  ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles &alpha;=&pi;/4, &beta;=&pi;/3, &gamma;=&pi;/2. See [this document](/docs/misc/rotations/) for the general syntax.<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
+DEFGRD | r,r,&hellip; | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
+STRAIN | r,r,&hellip; | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
+ALPHA  | r            | all | N | | Amount of Voigt strain
 
-&dagger;Information may be obtained from reading a [site file](/docs/input/sitefile)
+&dagger;Information may be obtained from a [site file](/docs/input/sitefile)
 
 {::comment}
 {::nomarkdown}</div>{:/}
