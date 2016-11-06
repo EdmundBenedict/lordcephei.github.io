@@ -55,12 +55,10 @@ Use the same switch when invoking **lmdos**{: style="color: blue"}.
 Command-line options:
 
 **\-\-pdos\|mull[~mode=#][~sites=site-list][~group=lst1;lst2;...][~nl=#][~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,...]**
-:  Specifies the channels for which partial DOS are generated or analyzed.
-
+:  Specifies the channels for which partial DOS are generated or analyzed.\\
    **\-\-pdos**  partial DOS\\
    **\-\-mull**  Mulliken DOS\\
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-pdos**):
-
    +  **~mode=#**:&ensp;
       + **#=0** for DOS resolved by site
       + **#=1** for DOS resolved by _l_ and site
