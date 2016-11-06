@@ -589,29 +589,33 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 (/docs/commandline/general/#switches-for-lmxbs)
 {:/comment}
 
-**lmxbs**{: style="color: blue"} generates input for the graphics program xbs, a program
+**lmxbs**{: style="color: blue"} generates input for the graphics program **xbs**{: style="color: blue"}, a program
 written by M. Methfessel, which draws cartoons of crystals.  See 
-[this page](http://www.ihp-ffo.de/~msm/)
+[this page](http://newton.ex.ac.uk/research/qsystems/people/goss/xbshelp.html).
 
 Command-line switches:
 ^
 +  **-bs=expr**:&ensp;   factor that scales the default ball (sphere) size. This factor scales **SPEC\_RMAX** by _expr_. By default, the scaling is 0.5.
 +  **-ss=expr**:&ensp; controls the criterion for what length defines a connected bond.  This switch scales the default
-   factor scaling a 'bond' which must be less close than RMAX_i+RMAX_j
-+  **-scale=val**:&emsp;   sets the xbs variable **scale**
-+  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.
+   factor scaling a 'bond' which must be less close than RMAX<sub>i</sub>+RMAX<sub>j</sub>
++  **-shift=x1,x2,x3**:&ensp; shifts all the coordinates by this amount, in units of ALAT
++  **-scale=val**:&emsp;   sets the **xbs**{: style="color: blue"} variable **scale**
++  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.\\
    _rule_ has the syntax\\
    _expr_,_rmax_,_red_,_green_,_blue_\\
     _expr_ is a logical expression involving the class index ic and atomic number z.  
    If _expr_ evalates to true, the rule applies to this class.
    _rmax_, _red_, _green_, _blue_ are the ball size, and [RGB colors](/docs/misc/fplot/#color-specification) for the ball.
    Default values are taken for those numbers omitted.  For the colors, the defaults are  random numbers between 0 and 1.
-+  **-dup=_n1_,_n2_,_n3_[,_expr_]:&emsp;   makes replicas of the unit cell by adding all combinations (0.._n1_,0.._n2_,0.._n3_) of the lattice
-   translation vectors (p1,p3,p3) to every site in the cell.  Optional **_expr_** is a constraint that can be used to exclude sites that don't satisfy it.
+
+   Example: **lmxbs -sp:z==0,.5,.1,.1,.1:z==13&ic>3,,1,0,0:z==13,,0,1,0'**
+^
++  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1** **n2+1** **n3+1** times in the three lattice directions.  
+   Optional **_expr_** is a constraint.  If **_expr_** is present, sites whose for which **_expr_** is zero are excluded.\\
    Variables that may be used in **_expr_** are:\\
-   + x1,x2,x3 site positions, in units of ALAT
-   + p1,p2,p3 are the same positions, as projections onto plat
-   + ic,z     class index, basis index and atomic number
+   + x1,x2,x3   site positions, in units of ALAT
+   + p1,p2,p3   are the same positions, as projections onto plat
+   + ic,ib,z,r  class index, basis index and atomic number, and radius
 
    Example: **lmxbs "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
