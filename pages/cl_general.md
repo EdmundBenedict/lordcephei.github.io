@@ -132,7 +132,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 {::comment}
 <div onclick="elm = document.getElementById('blm'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show command-line switches.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="blm">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="blm">{:/}
 {:/comment}
 
 **blm**{: style="color: blue"} creates input (ctrl) files from structural information.\\
@@ -235,7 +235,7 @@ sphere radii), and to generate neighbor tables in various contexts.
 {::comment}
 <div onclick="elm = document.getElementById('lmchk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show command-line switches.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="lmchk">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="lmchk">{:/}
 {:/comment}
 
 {::comment}
@@ -244,13 +244,13 @@ Lists in definition lists are tricky.
 
   * Foo
   * Bar
-  
+
   Still part of the definition description.
 
 end
 
 Definition list inside definition list
-: a 
+: a
 
   still part of list
 
@@ -276,7 +276,7 @@ Note : without it a blank line is inserted before sub-bullets
 :  print out a neighbor table, in one of the following styles.
 
    + _Standard style_: a neighbors is printed, grouped in
-    shells of neighbors centered the site in question.  
+    shells of neighbors centered the site in question.
     A table is made for one site in each inequivalent class.
     Neighbors are grouped by shell:
     <pre>
@@ -289,17 +289,17 @@ Note : without it a blank line is inserted before sub-bullets
     </pre>
     + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for all sites.
     <pre>
-    # neighbor list for site 1, class 21x     
-        1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x     
-        1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21      
-        1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21      
+    # neighbor list for site 1, class 21x
+        1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x
+        1  44  -0.2500000   0.2500000  -0.2500000     0.4330127  21x      21
+        1  48   0.2500000  -0.2500000  -0.2500000     0.4330127  21x      21
     </pre>
 
     This mode prints out site indices to pairs, connecting vector and length, and class labels.
 
     + _Compact Tab style_: (**\-\-shell~tab=2**) prints out the connecting vector only.
     <pre>
-    # neighbor list for site 1, class K1      
+    # neighbor list for site 1, class K1
         0.0000000   0.0000000   0.0000000
         0.0000000   0.0000000  -0.6814628
         0.0000000   0.0000000   0.6814628
@@ -310,7 +310,7 @@ Note : without it a blank line is inserted before sub-bullets
       It lists only connecting vectors that are changed relative the original vectors.\\
       Moreover the table prints out both the original vector and the displacement vector, e.g.
     <pre>
-    # neighbor list for site 1, class K1      
+    # neighbor list for site 1, class K1
         0.0000000   0.0000000   0.0000000     0.0000000   0.0000000   0.0100000
         1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
@@ -331,7 +331,7 @@ Note : without it a blank line is inserted before sub-bullets
     writes to _tab2.ext_{: style="color: green"} a table in this format.  The table is restricted to displacements around site **1**, distance less than 3 a.u.
 
 **\-\-angles[options]**
-: Prints angles between triples of sites.  
+: Prints angles between triples of sites.
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
   &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.\\
@@ -385,7 +385,7 @@ Note : without it a blank line is inserted before sub-bullets
 : Writes structural data to a [site file](/docs/input/sitefile) or a positions file.
 
   + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates.
-  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
+  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
   + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
   + **\-\-wpos** &ensp;&nbsp;  writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
@@ -417,11 +417,11 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 **lmdos**{: style="color: blue"} is a postprocessing step that generates partial densities-of-states.
 It reads the weights file _moms.ext_{: style="color: green"} generated by another program
-and makes partial contributions to the total DOS.  The partial does are computed  either with tetrahedron integration or with sampling method. 
+and makes partial contributions to the total DOS.  The partial does are computed  either with tetrahedron integration or with sampling method.
 _moms.ext_{: style="color: green"} must be made in advance by a generating program; see for example
 **lmf**{: style="color: blue"} command line switch **\-\-pdos**.
 
-How the channels for partial DOS are specified depends on the context. 
+How the channels for partial DOS are specified depends on the context.
 Typically you generate _moms.ext_{: style="color: green"} specifying channels with **\-\-pdos**.
 **lmdos**{: style="color: blue"} assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
 are generated and stored by class.  This works with **lm**{: style="color: blue"} and **tbe**{: style="color: blue"},
@@ -495,7 +495,7 @@ Command-line options:
 
    _Example_: compute the ballistic conductance in the z direction over an energy range (-0.8,0.5)Ry:\\
    **--dos:mode=1:npts=501:window=-.8,.5:vec=0,0,1**
-
+^
 **\-\-cls**
 :  tells **lmdos**{: style="color: blue"} that the _moms.ext_{: style="color: green"} holds data for core-level (EELS) spectrosopy (**lmf**{: style="color: blue"} output).
 
@@ -509,7 +509,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 **lmscell**{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
 to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded. An expanded list of basis
 vectors is thus generated.  You must supply a set of new (supercell) lattice vectors.  You can do so with
-tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.  
+tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.
 It also has a limited capability to make [Special QuasiRandom Structures](http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353).
 
 **Caution:**{: style="color: red"} **lmscell**{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
@@ -537,7 +537,7 @@ original, because the list of lattice vectors may not encompass all the translat
 
 **\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
 : (ASA only) Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
-  Optional **amom** applies to noncollinear magnetism: it flips the majority and minority spins for sites where the magnetic moment is negative, 
+  Optional **amom** applies to noncollinear magnetism: it flips the majority and minority spins for sites where the magnetic moment is negative,
   while rotating the Euler angle by 180&deg;
 
 **\-\-shorten**
@@ -574,14 +574,13 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 **lmctl**{: style="color: blue"} is an adjunct to the ASA, that read
 sphere moments from class files and writes the data in a form suitable
-for the input file.  It is an easy way to collect the results of a
-self-consistent calculation into a single file (the input file).
+for the input file.  It is an easy way to collect the results into the ctrl file.
 
 Command-line switches:
 
-+  -spin1           add spin-polarized moments into a non-polarized set
-+  -spinf           exchange up- and down- moments
-+  -mad             also write out the ves at RMAX.
++ **-spin1**:&ensp;   add spin-polarized moments into a non-polarized set
++ **-spinf**:&ensp;   exchange up- and down- moments
++ **-mad**:&emsp;     also write out the ves at RMAX.
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
@@ -599,18 +598,18 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 **sites~_list_**
 : **_list_** is an integer list of site indices, e.g. **1,5:9**.
   The syntax for integer lists is described [here](/docs/misc/integerlists).
-
+^
 **sites~style=1~_list_**
 : **_list_** is an [integer list](/docs/misc/integerlists) of species or class indices (depending on the switch).
 
   All sites which belong a species in the species (or class) list get included in the site list.
-  
-**~style=2~_expr_** 
-: **_expr_** is an integer expression. 
+^
+**~style=2~_expr_**
+: **_expr_** is an integer expression.
   The expression can involve the species index **is** (or class index **ic**) and atomic number **z**.\\
   The species list (or class list) is composed of members for which **_expr_** is nonzero.\\
   All sites which belong a species in the species (or class) list form the site list.
-    
+^
 **~style=3~_spec1_,_spec2_,&hellip;**
 : _spec1_,_spec2_,&hellip; are a string of one or more species names.
   The species list (or class list) is composed of species with a name in the list.
