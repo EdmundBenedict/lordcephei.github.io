@@ -118,15 +118,16 @@ purpose is to generate contour plots of constant energy surfaces,
 e.g. the Fermi surface. Data file output is written in a special mode, with 
 levels for a particular band at all <i>k</i> written as a group.
 
-{::nomarkdown}
-
-
-
 <FONT color="#bb3300">
 
 ##### Symmetry line mode
 
 </FONT>
+
+{::nomarkdown}
+
+
+
 
 <UL>
 <H2><A name="symmetrylinemode"><FONT size="+1" color="#bb3300">Symmetry line mode</FONT></A></H2>
