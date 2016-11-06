@@ -32,8 +32,8 @@ but there are a number of other switches are shared in common.
 
 Some switches have a single dash ; some have two. Those with two tend to control program flow (e.g. `--show`), while those with a single dash tend to have an “assignment” function, such as a variables declaration (e.g. `-vx=3`). Sometimes there is not a clear distinction between the two, e.g. the printout verbosity `--pr` accepts either one or two dashes (see below).
 
-In the example above, `-vns=4 -vnm=5` assigns variables **ns** and **nm** to 4 and 5, respectively, while `--rpos=pos` tells **lmf**{: style="color: blue"} to read site positions from file
-_pos.cafeas_{: style="color: green"}.
+In the example above, `-vns=4 -vnm=5` assigns variables **ns** and **nm** to 4 and 5, respectively, while `--rpos=pos` tells **lmf**{:
+style="color: blue"} to read site positions from file _pos.cafeas_{: style="color: green"}.
 
 
 #### _Switches Common to Most or All Programs_
@@ -600,7 +600,7 @@ Command-line switches:
    factor scaling a 'bond' which must be less close than RMAX<sub>i</sub>+RMAX<sub>j</sub>
 +  **-shift=x1,x2,x3**:&ensp; shifts all the coordinates by this amount, in units of ALAT
 +  **-scale=val**:&emsp;   sets the **xbs**{: style="color: blue"} variable **scale**
-+  **-spec:&ensp; shifts   sites organized by species.  The default is that sites are organized by classes.
++  **-spec**:&ensp; shifts   sites organized by species.  The default is that sites are organized by classes.
 
 +  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.\\
    _rule_ has the syntax\\
@@ -611,14 +611,14 @@ Command-line switches:
    Default values are taken for those numbers omitted.  For the colors, the defaults are  random numbers between 0 and 1.
 
    Example: **lmxbs -sp:z==0,.5,.1,.1,.1:z==13&ic>3,,1,0,0:z==13,,0,1,0'**\\
-   specifies that empty spheres are nearly black, with rmax=.5 and that Al atoms class index > 3 are red (rmax not spec'd) and that all remaining Al atoms are green.
+   Empty spheres are nearly black, with rmax=.5 and Al atoms class index > 3 are red, with all remaining Al atoms green.
 ^
-+  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1** **n2+1** **n3+1** times in the three lattice directions.  
++  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1**,**n2+1**,**n3+1** times in the three lattice directions.  
    Optional **_expr_** is a constraint.  If **_expr_** is present, sites whose for which **_expr_** is zero are excluded.\\
    Variables that may be used in **_expr_** are:\\
    + x1,x2,x3   site positions, in units of ALAT
-   + p1,p2,p3   are the same positions, as projections onto plat
-   + ic,ib,z,r  class index, basis index and atomic number, and radius
+   + p1,p2,p3   site positions, as [projections onto plat](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors)
+   + ic,ib,z,r  class index, basis index, atomic number, and radius
 
    Example: **lmxbs "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
