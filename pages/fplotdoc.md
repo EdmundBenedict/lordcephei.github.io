@@ -175,7 +175,7 @@ _Notes:_{: style="color: red"}
 
 #### Example 2.3. &nbsp; _Charge density contours in Cr_
 {::comment}
-/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
+(/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 {:/comment}
 
 The figure in this example shows a contour plot of the Cr charge density in the (100), (011) plane.

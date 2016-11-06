@@ -191,7 +191,7 @@ in the array are the number of <i>k</i> points.
 <i>Alternative file format</i> <BR>
 
 There is an alternative format available for this mode: it is the
-format automatically generated if **BZ_PUTQP** is set or if the command-line switch **--putqp** is prsent.
+format automatically generated if &thinsp;**BZ_PUTQP**&thinsp; is set or if the command-line switch &thinsp;**--putqp**&thinsp; is prsent.
 
 <div onclick="elm = document.getElementById('putqp'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of this format.</span>
@@ -199,8 +199,8 @@ format automatically generated if **BZ_PUTQP** is set or if the command-line swi
 
 When this switch is set, <b>lm</b> (or similar programs that do numerical
 integrations over the Brillouin zone) will save information about the
-<i>k</i>-points it uses for integration to file <FONT
-size="+1"><tt>qpts.ext</tt></FONT>.  "List" mode can read this format;
+<i>k</i>-points it uses for integration to file _qpts.ext_{: style="color: green"}.
+List mode can read this format;
 there is some flexibility in the format also.  As a minimum the first
 line should consist of <FONT size="+1"><tt>nkp=#</tt></FONT>, which
 specifies the number of
@@ -215,21 +215,19 @@ e.g.
 
 {::nomarkdown}</div>{:/}
 
-The file reader will automatically distinguish between these formats.
+The <i>k</i>-points file reader will automatically distinguish between these formats.
 
 <i>Output, list mode</i>
 
-Bands are written in the standard 2D array format used by matrix
-calculator <b>mc</b>.  The first three columns are the <i>k</i> point;
-the remaining columns are the bands.  If color weights are specified,
-an additional group of columns are appended.
+Bands are written in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays), used, e.g.  by the matrix
+calculator **mc**{: style="color: blue"}.  The first three columns are the <i>k</i> point; the remaining columns are the bands.  If color
+weights are specified, an additional group of columns are appended.
 
 <i>Plotting, list mode</i>
 
-Because the <i>k</i>-points need not follow any particular pattern,
-there is no generic plotting scheme.  As noted, the format can be read by
-<b>fplot</b>, and easily read by other programs such as MATLAB.
-
+Because the <i>k</i>-points need not follow any particular pattern, there is no generic plotting scheme.  As noted, the file
+is in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) which
+can be easily read by programs such as MATLAB.
 
 <i>Additional options, list mode</i>
 
@@ -237,24 +235,23 @@ The list mode has additional sub-options, that make it convenient to
 collate distinct groups of <i>k</i>-points into a single list.
 Switch
 <pre>
-  --band~qp~...
+--band~qp~...
 </pre>
 may be extended with any of these switches:
 <pre>
-  --band~qp[,inc=<i>expr</i>][,merge=fnam][,save=fnam]~...
+--band~qp[,inc=<i>expr</i>][,merge=fnam][,save=fnam]~...
 </pre>
 
 + [,inc=expr] causes the list reader to
-  parse each <i>k</i>-point, and exclude those for which <i>expr</i> is
-  not satisfied.  <i>expr</i> is an ASCII string containing an algebraic
-  expression.  <i>expr</i> can (and is expected to) contain <i>k</i>-point
-  specific variables, which include:
+  parse each <i>k</i>-point, and exclude those for which <i>expr</i> is zero.
+  <i>expr</i> is an ASCII string containing an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
+  <i>expr</i> can (and is expected to) contain <i>k</i>-point specific variables, which include:
   <pre>
-    iq   <i>k</i>-point index
-    qx   <i>k<sub>x</sub></i>
-    qy   <i>k<sub>y</sub></i>
-    qz   <i>k<sub>z</sub></i>
-    q    |<b>k</b>|=[<i>k<sub>x</sub></i><sup>2</sup>+<i>k<sub>y</sub></i><sup>2</sup>+<i>k<sub>z</sub></i><sup>2</sup>]<sup>1/2</sup>
+  iq   <i>k</i>-point index
+  qx   <i>k<sub>x</sub></i>
+  qy   <i>k<sub>y</sub></i>
+  qz   <i>k<sub>z</sub></i>
+  q    |<b>k</b>|=[<i>k<sub>x</sub></i><sup>2</sup>+<i>k<sub>y</sub></i><sup>2</sup>+<i>k<sub>z</sub></i><sup>2</sup>]<sup>1/2</sup>
   </pre>
   The expression should be integer (returning 0 or nonzero). 
   Example: **--band~qp,inc=q<1/2**\\
@@ -276,44 +273,43 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) and append
 {:/comment}
 
 In this mode <i>k</i>-points are generated on a uniform 2D mesh,
-intended for contour plots.  Invoke with
+useful for [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).  Invoke with
 <pre>
   --band~con~...
 </pre>
 
 The mesh is specified by a file containing lines of the form
 <pre>
-                    <i>v<sub>x</sub>     range  n<sub>x</sub>     v<sub>y</sub>     range  n<sub>y</sub>   height  band</i>
+ <i>v<sub>x</sub>     range  n<sub>x</sub>     v<sub>y</sub>     range  n<sub>y</sub>   height  band</i>
 </pre>      
 where:
-<pre>
-                   <i>v<sub>x</sub></i> and <i>v<sub>y</sub></i> are two reciprocal lattice vectors defining a plane
-                   <i>range</i> is a pair of numbers marking starting and ending points along each vector
-                   <i>n<sub>x</sub></i> and <i>n<sub>y</sub></i> are the number of divisions along the first and second vectors
-                   <i>height</i> specifies the offset normal to the plane
-                   <i>band</i> specifies which band is to be saved. 
-</pre>
+
++  <i>v<sub>x</sub></i> and <i>v<sub>y</sub></i> are two reciprocal lattice vectors defining a plane
++  <i>range</i> is a pair of numbers marking starting and ending points along each vector
++  <i>n<sub>x</sub></i> and <i>n<sub>y</sub></i> are the number of divisions along the first and second vectors
++  <i>height</i> specifies the offset normal to the plane
++  <i>band</i> specifies which band is to be saved. 
+
 Example:
 <pre>
-       1 0 0   -1 1   51   0 1 0   -1 1   51   0.00    4,5
+ 1 0 0   -1 1   51   0 1 0   -1 1   51   0.00    4,5
 </pre>
 
-<BR> <i>Output, mesh mode</i> <BR>
+<i>Output, mesh mode</i> <BR>
 
-Bands are written in the standard 2D array format used by matrix
-calculator <b>mc</b> and the <i>xy</i> plotting program <b>fplot</b>.
+Bands are written in [standard Questaal
+format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+used by matrix calculator **mc**{: style="color: blue"} and the graphics package **fplot**{: style="color: blue"}.
 The number of rows is the number of divisions in the first vector; the
 number of columns is the number of divisions in the second vector.  No
 <i>k</i> point information is written (it is implicit in the uniform
 mesh).
 
-<BR> <i>Plotting, mesh mode</i> <BR>
+<i>Plotting, mesh mode</i> <BR>
 
-If you have the graphics package <b>fplot</b> installed, you can
-easily plot Fermi surfaces in conjunction with the files generated in the mesh mode.
+See [this example](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).
 
-
-<H2><A name="deform"><FONT size="+1">Transformation of the supplied <i>k</i>-points</FONT></A></H2>
+##### Transformation of the supplied _k_-points
 
 The <i>k</i>-points as supplied from the input file can be transformed.
 
