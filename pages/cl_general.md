@@ -48,7 +48,7 @@ Command-line switches:
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
-   + [Symmetry line mode](/docs/input/data_format/#symmetrylinemode) (default) is designed for plotting energy bands along symmetry lines.  In
+   + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
      this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
      [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).
    + The [list mode](/docs/input/data_format/#listmode) is a general purpose mode to be used when energy levels are sought at some arbitrary set

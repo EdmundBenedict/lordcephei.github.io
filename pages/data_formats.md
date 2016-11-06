@@ -133,9 +133,10 @@ Each line of text in the file specifies one symmetry line with the syntax
 #pts  start-k   end-k
 </pre>
 
-<FONT size="+1"><tt>start-k</tt></FONT> and <FONT size="+1"><tt>end-k</tt></FONT> each consist of three
-numbers specifying a <i>k</i>-point.  The set of lines is ended by a final line,
-where <FONT size="+1"><tt>#pts</tt></FONT> is zero.  For example:
+**start-k** and **end-k** each consist of three numbers specifying a <i>k</i>-point.
+You can terminate the list with a line beginning with **0**.
+For example:
+
 <pre>
 51   0  0  0    0  0  1
 51   0  0  1    0 .5 .5
@@ -164,18 +165,20 @@ one or more lines with the energy levels for <i>k<sub>i</sub></i>
 </LI>
 </UL>
 </LI>
-</UL>
 
 <i>Plotting, symmetry-line mode</i> <BR>
 
-An auxillary program, <b>plbnds</b>, can read this file format and
-generate a band picture in postscript.  Alternatively, <b>plbnds</b>
-can generate data files and a set of plotting instructions for the
-plotting program <b>fplot</b>.
-<b>plbnds</b> and <b>fplot</b> come in a separate
-package, <b>FPLOT.vsn.tar.gz</b>.
+Use [**plbnds**{: style="color: blue"}](/docs/misc/plbnds/) to read this file format.  It can generate directly a (not very pretty) picture
+in [postscript](/docs/misc/plbnds/example-1).  Better, **plbnds**{: style="color: blue"} can generate data files and a set of plotting
+instructions for the plotting program **fplot**{: style="color: blue"}](/docs/misc/fplot/).  You can use **fplot**{: style="color: blue"}
+directly or your favorite graphics package.  **plbnds**{: style="color: blue"} generates energy bands in a simple to read,
+[standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
+##### List mode
+
+{::comment}
 <H2><A name="listmode"><FONT size="+1" color="#bb3300">List mode</FONT></A></H2>
+{:/comment}
 
 This mode is specifed by, e.g. command line argument <FONT size="+1"><tt>--band~qp</tt></FONT>. <BR>
 
