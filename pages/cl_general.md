@@ -34,48 +34,46 @@ It also has a limited capability to make [Special QuasiRandom Structures](http:/
 original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
 
 
-**--wsite[x][~map][~sort][~fn=_file_]**
+**\-\-wsite[x][~map][~sort][~fn=_file_]**
 : Writes a [site file](/docs/input/sitefile) to disk.
-  **--wsite[x]** writes the basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+  **\-\-wsite[x]** writes the basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
 : ^
   + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
   + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
 
-**--sort:' _expr1_ [_expr2_] [_expr3_]'**
-: Sorts the basis by ordering algebraic expressions associated with them, e.g. --sort:'x3 x2'
-  Allowed values in expressions are Cartesian components **x1**, **x2**, **x3**.
+** \-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'
+: Sorts the basis by ordering algebraic expressions associated with them
+  Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **\-\-sort:'x3 x2'**.
   Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
 
-**--rsta &thinsp;\|&thinsp; --rsta,amom**
-: Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.
+**\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
+: Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
   Optional **amom** is for noncollinear magnetism only: it flips the majority and minority spins,
   while rotating the Euler angle by 180&deg;
 
-**--ring:i1,i2**
-: (cyclic ring) shifts sites **i1&hellip;i2-1** to one position higher, and site *i2* takes the position of site **i1**
+**\-\-ring:i1,i2** &thinsp;\|&thinsp; **\-\-swap:i1,i2**
+: (cyclic ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
+  (swap) swaps pairs **i1** and **i2**
 
-**--swap:i1,i2**
-: swaps pairs **i1** and **i2**
+**\-\-sites:_site-list_**
+: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
-**--sites:_site-list_**
-: Make supercell of subset of sites in original basis
- See [here](/docs/commandline/general/#site-list-syntax) for  _site-list_ syntax.
-
-**--shorten**
+**\-\-shorten**
 : shorten basis vectors
 
-**--pl:_expr_**
+**\-\-pl:_expr_**
 : (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
 
-**--wrsj[~fn=name][~scl=#]**
+**\-\-wrsj[~fn=name][~scl=#]**
 : Used in writing the pairwise exchange parameters of the supercell generated, e.g., from a Green's function code. Input file _rsj.ext_{: style="color: green"} must be present.
 
-**--disp~fnam~<i>site-list</i>**
-: Displace a set of atoms in the neighborhood of a given one, **--disp:tab2:style=3:21x**
-  Use in conjuction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**)
+**\-\-disp~fnam~<i>site-list</i>**
+: Displace a set of atoms in the neighborhood of a given one, **\-\-disp:tab2:style=3:Fex**\\
+  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**).
+  See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
-**--sqs[~seed=#][~r2max=#][~r3max=#][r3mode=#]**
+**\-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
 : Make Special QuasiRandom Structure.  It works by minimizing a norm function.
   The norm is obtained by assigning a weight to each pair and three body correlator,
   and summing the individual weights.\\
@@ -83,12 +81,12 @@ original, because the list of lattice vectors may not encompass all the translat
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
 
     + **~seed=#**:&ensp; initial seed for random number generator.  For a fixed seed the algorithm proceeds the same way each time.
-    + **~r2max=#**:&bsp; Maximum distance between pairs for pair participate in the norm
-    + **~r3max=#**:&bsp; Maximum sum of legs between for triples to participate in the norm.
+    + **~r2max=#**:&nbsp; Maximum distance between pairs for pair participate in the norm
+    + **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
 
-  **Caution:**: style="color: red"} This mode is still experimental.
+  **Caution:**{: style="color: red"} This mode is still experimental.
 
-**--wpos=_file_**
+**\-\-wpos=_file_**
 : Write positions to _file.ext_{: style="color: green"}.
 
 #### _Introduction_
@@ -398,7 +396,7 @@ Definition list inside definition list
   + **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
   + **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
 
-  Example: **--angles~sites~1,2~bonds~style=2~z==34**\\
+  Example: **\-\-angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
 **\-\-euler[options]**
@@ -414,7 +412,7 @@ Definition list inside definition list
   + **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
   + **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative
 
-  Example: **--euler~r=10,6~sign~sites~style=2~z==26**\\
+  Example: **\-\-euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
 **\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp; \-\-nescut=#**
@@ -479,13 +477,13 @@ _____________________________________________________________
 (/docs/commandline/general/#site-list-syntax)
 {:/comment}
 
-Site-lists are used in command-line arguments in several contexts, e.g. in **lmchk**{: style="color: blue"}'s **\-\-shell** and
-**\-\-angles** switches.\\
+Site-lists are used in command-line arguments in several contexts, e.g. in **lmscell**{: style="color: blue"}, **lmgf**{: style="color:
+blue"}'s exchange maker, and **lmchk**{: style="color: blue"}'s **\-\-shell** and **\-\-angles** switches.\\
 For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment being parsed is **sites~_site-list_**.\\
 **sites~_site-list_** can take one of the following forms:
 
 **sites~_list_**
-: **_list_** is an integer list of site indices, e.g. **1,3,5:9**.
+: **_list_** is an integer list of site indices, e.g. **1,5:9**.
   The syntax for integer lists is described [here](/docs/misc/integerlists).
 
 **sites~style=1~_list_**
@@ -505,4 +503,4 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 
   All sites which belong a species in the species (or class) list form the site list.
 
-
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
