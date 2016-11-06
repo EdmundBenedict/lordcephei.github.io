@@ -39,6 +39,10 @@ The preprocessor can [modify the input](/docs/input/preprocessor/#main-features)
 Many Questaal programs, for example the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility and electronic structure programs such
 as **lm**{: style="color: blue"}, read files containing 2D arrays.  Most of the time they follow a standard format described in this section.
 
+Where possible, the 2D array reader uses **rdm.f**{: style="color: green"}, so that the files are read in a uniform style.  Unless told
+otherwise, the reader treats data as algebraic expressions.  Thus you can use expressions in these files, in addition to expressions
+in [curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) **{&hellip;}** managed by the preprocessor.
+
 The array reader must be given information about the number of rows and columns in the file.  (They are called **nr** and **nc** here.)
 
 The safest way to specify **nr** and **nc** is to indicate the number of rows and columns in the first line of the file, as illustrated in
@@ -67,10 +71,6 @@ The reader attempts to work out **nr** and **nc** in the following sequence:
 + If **nr** has not been stipulated in some manner, the reader works out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.\\
   If the number of rows it deduces is not an integer, a warning is given.
-
-Where possible, the 2D array reader uses **rdm.f**{: style="color: green"}, so that the files are read in a uniform style.  Unless told
-otherwise, the reader treats data as algebraic expressions.  Thus you can use expressions in these files, in addition to expressions
-in [curly brackets](/docs/input/preprocessor/#curly-brackets-contain-expressions) **{&hellip;}** managed by the preprocessor.
 
 ##### _Complex arrays_
 
