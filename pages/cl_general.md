@@ -45,16 +45,27 @@ Command-line switches:
    See **subs/suclst.f**{: style="color: green"} for a description of options.
 ^
 **\-\-band[~options]**
-: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands can be
-   generated in one of several formats.\\
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
+   can be generated at specified k-points in one of three formats.
 
+   + The (default) <B><A href="#symmetrylinemode">symmetry line mode</A></B> is designed for plotting energy bands along symmetry lines.  In
+     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a specially adapted format.
+
+   + The <B><A href="#listmode">list mode</A></B> is a general purpose mode to be used when energy levels are sought at some arbitrary set
+     of <i>k</i>-points, specified by the user.  Data is written in a standard format with k-points followed by eigenvalues.
+
+   + The <B><A href="#contourmode">mesh mode</A></B> is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
+     purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface. Data file output is written in a special mode,
+     with levels for a particular band at all <i>k</i> written as a group.
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+^
    + ~qp     list mode. An arbitrary list of <i>k</i> points can be specified. 
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
    + ~con    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
    + ~bin         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
-   + ~fn=<b>fnam</b>     read <i>k</i> points from file <b>fnam</b>.<i>ext</i>. Default name is qp.<i>ext</i> .
+   + ~fn=<b>fnam</b>  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
    + ~ef=#        Use # for Fermi level.
    + ~spin1       generate bands for 1st spin only (spin polarized case)
    + ~spin2       generate bands for 2nd spin only (spin polarized case)
