@@ -403,19 +403,17 @@ Note : without it a blank line is inserted before sub-bullets
     &ensp; **\-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
 **\-\-terse**
-: print minimum information about overlaps.
+:  print minimum information about overlaps.
+   Writes the site positions to _file.ext_{: style="color: green"}
 
-
-: writes the site positions to _file.ext_{: style="color: green"}
-
-**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep &thinsp;\|&thinsp; **\-\-wpos=_file_**
-: writes structural data to a site file or a positions file.
+**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep &thinsp;\|&thinsp; \-\-wpos=_file_**
+: Writes structural data to a [site file](/docs/input/sitefile) or a positions file.
 
   + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates.
   + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
   + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
-  + **\-\-wpos** &emsp; writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+  + **\-\-wpos** &ensp;&nbsp;  writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
   Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
     &ensp; **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)\\
