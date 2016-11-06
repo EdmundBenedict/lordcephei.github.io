@@ -35,6 +35,10 @@ Command-line switches:
 **\-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
+**\-\-pdos[~options]**
+:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states resolved into partial waves.
+   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
+^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
    Enter anywhere between 1 and five integers.
