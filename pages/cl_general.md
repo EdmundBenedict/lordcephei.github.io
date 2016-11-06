@@ -42,22 +42,24 @@ original, because the list of lattice vectors may not encompass all the translat
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
   + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
 
-** \-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'
-: Sorts the basis by ordering algebraic expressions associated with them
+**\-\-wpos=_file_**
+: Write positions to _file.ext_{: style="color: green"}.
+
+**\-\-ring:i1,i2** &thinsp;\|&thinsp; **\-\-swap:i1,i2 &thinsp;\|&thinsp; **\-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'
+: Rearrange order of sites in the supercell.\
+: (ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
+  (swap) swaps pairs **i1** and **i2**\\
+  (sort) Sorts the basis by ordering algebraic expressions associated with them
   Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **\-\-sort:'x3 x2'**.
   Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
+
+**\-\-sites:_site-list_**
+: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
 **\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
 : Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
   Optional **amom** is for noncollinear magnetism only: it flips the majority and minority spins,
   while rotating the Euler angle by 180&deg;
-
-**\-\-ring:i1,i2** &thinsp;\|&thinsp; **\-\-swap:i1,i2**
-: (cyclic ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
-  (swap) swaps pairs **i1** and **i2**
-
-**\-\-sites:_site-list_**
-: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
 **\-\-shorten**
 : shorten basis vectors
@@ -85,9 +87,6 @@ original, because the list of lattice vectors may not encompass all the translat
     + **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
 
   **Caution:**{: style="color: red"} This mode is still experimental.
-
-**\-\-wpos=_file_**
-: Write positions to _file.ext_{: style="color: green"}.
 
 #### _Introduction_
 _____________________________________________________________
