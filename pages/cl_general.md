@@ -50,10 +50,8 @@ Command-line switches:
 
    + The (default) <B><A href="#symmetrylinemode">symmetry line mode</A></B> is designed for plotting energy bands along symmetry lines.  In
      this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a specially adapted format.
-
    + The <B><A href="#listmode">list mode</A></B> is a general purpose mode to be used when energy levels are sought at some arbitrary set
      of <i>k</i>-points, specified by the user.  Data is written in a standard format with k-points followed by eigenvalues.
-
    + The <B><A href="#contourmode">mesh mode</A></B> is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
      purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface. Data file output is written in a special mode,
      with levels for a particular band at all <i>k</i> written as a group.
