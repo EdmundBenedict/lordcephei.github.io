@@ -600,6 +600,8 @@ Command-line switches:
    factor scaling a 'bond' which must be less close than RMAX<sub>i</sub>+RMAX<sub>j</sub>
 +  **-shift=x1,x2,x3**:&ensp; shifts all the coordinates by this amount, in units of ALAT
 +  **-scale=val**:&emsp;   sets the **xbs**{: style="color: blue"} variable **scale**
++  **-spec:&ensp; shifts   sites organized by species.  The default is that sites are organized by classes.
+
 +  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.\\
    _rule_ has the syntax\\
    _expr_,_rmax_,_red_,_green_,_blue_\\
@@ -608,7 +610,8 @@ Command-line switches:
    _rmax_, _red_, _green_, _blue_ are the ball size, and [RGB colors](/docs/misc/fplot/#color-specification) for the ball.
    Default values are taken for those numbers omitted.  For the colors, the defaults are  random numbers between 0 and 1.
 
-   Example: **lmxbs -sp:z==0,.5,.1,.1,.1:z==13&ic>3,,1,0,0:z==13,,0,1,0'**
+   Example: **lmxbs -sp:z==0,.5,.1,.1,.1:z==13&ic>3,,1,0,0:z==13,,0,1,0'**\\
+   specifies that empty spheres are nearly black, with rmax=.5 and that Al atoms class index > 3 are red (rmax not spec'd) and that all remaining Al atoms are green.
 ^
 +  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1** **n2+1** **n3+1** times in the three lattice directions.  
    Optional **_expr_** is a constraint.  If **_expr_** is present, sites whose for which **_expr_** is zero are excluded.\\
