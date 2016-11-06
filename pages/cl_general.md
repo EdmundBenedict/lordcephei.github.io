@@ -335,8 +335,7 @@ Definition list inside definition list
 : Prints angles between spins (applicable to ASA noncollinear magnetism)
 
   Euler angles must be supplied either in the input file, or in the Euler angles file
-  _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).
-
+  _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).\\
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
   &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.
          If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
@@ -351,8 +350,7 @@ Definition list inside definition list
   It works by adding adding empty spheres (largest possible first)\\
   until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
   Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
-  Tokens in the ctrl file affecting this switch are:
-: ^
+  Tags in the ctrl file affecting this switch are:
   + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
   + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
 
