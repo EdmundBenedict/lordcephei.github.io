@@ -56,15 +56,18 @@ Command-line options
 
 **\-\-pdos\|mull[~mode=#][~sites=site-list][~group=lst1;lst2;...][~nl=#][~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,...]**
 :  Specifies the channels for which partial DOS are generated or analyzed.
+
    **\-\-pdos**  partial DOS\\
    **\-\-mull**  Mulliken DOS\\
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-pdos**):
 
-   + **~mode=#**:&ensp; **#=0** for DOS resolved by site; **#=1** for DOS resolved by _l_ and site; **#=2** for DOS resolved by _lm_ and site.
-   + **~sites=_site-list_**:&ensp; make DOS for a list of sites.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-   + **~group=_lst1_;_lst2_;&hellip;**:  for a list of groups.  A group can consist of one or more sites.  They are combined to make a single channel
-   + **~nl=#**:&ensp; **#&minus;1** is a global _l_ cutoff.
-   + **~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,&hellip;**:
+   +  **~mode=#**:&ensp;
+      + **#=0** for DOS resolved by site; 
+      + **#=1** for DOS resolved by _l_ and site; **#=2** for DOS resolved by _lm_ and site.
+   +  **~sites=_site-list_**:&ensp; make DOS for a list of sites.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
+   +  **~group=_lst1_;_lst2_;&hellip;**:  for a list of groups.  A group can consist of one or more sites.  They are combined to make a single channel
+   +  **~nl=#**:&ensp; **#&minus;1** is a global _l_ cutoff.
+   +  **~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,&hellip;**:
 
    Example **--pdos~mode=2~group=1:3;4:9~lcut=2,1**\\
    makes DOS for sites 1:3 combined for the first channel, sites 4:9 for the second.  DOS is resolved by _l_ and _m_ (**mode=2**), with _l_=0,1,2 for the first group and _l_=0,1 for the second.
@@ -90,7 +93,7 @@ Command-line options
                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<i>E</i>(<b>k</b>)\\
                  In this mode, you must supply vector **vec** to indicate which direction the gradient is to be projected.
      +  2     diffusive conductivity in the relaxation time approximation
-                 &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;_1<i>E</i>(<b>k</b>)<sup>.</sup> &nabla;_2<i>E</i>(<b>k</b>)
+                 &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;_1<i>E</i>(<b>k</b>) &middot; &nabla;_2<i>E</i>(<b>k</b>)
                  In this mode you must supply both **vec** and **vec2**.
    + **vec=#1,#2,#3**:   **k** direction vector 1 for **mode=1** or **mode=2**.
    + **vec2=#1,#2,#3**:  **k** direction vector 2 for **mode=2**.
