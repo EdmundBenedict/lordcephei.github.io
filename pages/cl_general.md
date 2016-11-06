@@ -81,21 +81,15 @@ Command-line options
    + npts=# number of energy points.  If not specified with command-line **\-\-dos**, user is prompted for input.
    + window=_emin_,_emax_ energy window over which data is to be computed.  If not specified using command-line argument *\-\-dos**m, the user is prompted for input.
    + mode=#  compute quantities other than the DOS.
-     |---
-     | **-con**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#contour-switch)  | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
-     | **-con**{: style="color: red"} | [DATA switches](/docs/misc/fplot/#contour-switch)  | [Example 2.3](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
+     +  mode  lmdos calculates
+     +  0     Standard DOS, i.e. &int; <i>d</i><sup>3</sup><b>k</b> &delta;</i>(<i>E(<b>k</b>)-E</i>)
 
-{::comment}
-
-                        mode  lmdos calculates
-                        0     Standard DOS, i.e. &int; <i>d</i><sup>3</sup><b>k</b> &delta;</i>(<i>E(<b>k</b>)-E</i>)
-
-                        1     Ballistic conductance, Landauer formula, i.e.
+     +  1     Ballistic conductance, Landauer formula, i.e.
                               &int; <i>d</i><sup>3</sup><b>k</b> &delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<i>E</i>(<b>k</b>)
                               In this mode, you must supply vector `vec' to
                               indicate which direction the gradient is to be projected.
 
-                        2     `diffusive conductivity' in the relaxation
+     +  2     `diffusive conductivity' in the relaxation
                               time approximation apart from scattering time)
                               &int; <i>d</i><sup>3</sup><b>k</b> &delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;_1<i>E</i>(<b>k</b>)<sup>.</sup> &nabla;_2<i>E</i>(<b>k</b>)
                               In this mode you must supply both 'vec' and 'vec2'.
@@ -116,8 +110,6 @@ Command-line options
                         for all classes; it is incompatible
                         with, e.g., the \-\-pdos switch which stores
                         weights by site.
-{:/comment}
-
 
 <I>Example</I>: compute the ballistic conductance in the z direction
 over an energy range (-0.8,0.5)Ry:
