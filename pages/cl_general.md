@@ -19,6 +19,31 @@ _____________________________________________________________
 (/docs/commandline/general/#table-of-contents)
 {:/comment}
 
+#### _Switches for_ lmdos
+{::comment}
+(/docs/commandline/general/#switches-for-lmscell)
+{:/comment}
+
+**lmdos**{: style="color: blue"} requires as input a moments file, and uses it to generate partial densities-of-states as described in <A
+href="generating-density-of-states.html#pdos">this document</A>.  It reads the moments file _moms.ext_{: style="color: green"} and uses
+either a tetrahedron integration or sampling method to generate a partial contributions to the total DOS.
+
+Note: **lmdos**{: style="color: blue"} doesn't need to know what the origin of the channels is; it simply reads the number of channels from
+the the weights file.  However, to assist you in making an identification of the channels with (atom-centered) functions, **lmdos**{:
+style="color: blue"} will print out what it thinks the connection is.  If you use the generating program inconsistently with **lmdos**{:
+style="color: blue"}, it may print out an erroneous table.
+
+When &thinsp;**--pdos**&thinsp; is specified, it assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
+are generated and stored by class (the default mode of **lm**{: style="color: blue"} and **tbe**{: style="color: blue"}).
+
+**lmdos**{: style="color: blue"} has a variety of options; for example it can generate the ballistic
+conductivity as matrix elements of the velocity operator.
+
+One of these switches must be run by a generating program first.
+They are described in <A href="generating-density-of-states.html#pdosswitches">this document</A>.
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
 #### _Introduction_
 _____________________________________________________________
 All of the programs have special branches that may be (and sometimes must be) set from command-line switches.
@@ -259,6 +284,16 @@ Definition list inside definition list
 
   and this
 
+Note : with extra space ":  xx" the sub-bullets begin without inserting blank line (??)
+:  print out a neighbor table, in one of the following styles.
+
+   + _Standard style_: a neighbors is printed, grouped in
+
+Note : without it a blank line is inserted before sub-bullets
+: print out a neighbor table, in one of the following styles.
+
+  + _Standard style_: a neighbors is printed, grouped in
+
 {:/comment}
 
 
@@ -380,12 +415,11 @@ Definition list inside definition list
   + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as 
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
   + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
-  + **\-\-wpos** &nbsp; writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+  + **\-\-wpos** &emsp; writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
-  Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):  
-: ^
-    + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-    + **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
+  Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+    &ensp; **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)\\
+    &ensp; **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
 
   If used in conjunction with **\-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
   with the basis enlarged by the new empty sites.\\
@@ -466,6 +500,8 @@ original, because the list of lattice vectors may not encompass all the translat
     &ensp; **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
 
   **Caution:**{: style="color: red"} This mode is still experimental.
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Site-list syntax_
 _____________________________________________________________
