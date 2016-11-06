@@ -36,7 +36,7 @@ Command-line switches:
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
 **\-\-rs=#1[,#2,#3,#4,#5**]
-	:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
+:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
    Enter anywhere between 1 and five integers.
 
    +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
@@ -72,11 +72,11 @@ Command-line switches:
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-optbas**):
 
    + **etol=#**:&ensp;  only adjust parameter if energy gain exceeds **#**.
-   + No options:&ensp; **lmf**{: style="color: blue"} optimizes wrt RSMH in each species.
+   + No species given:&ensp; **lmf**{: style="color: blue"} optimizes wrt RSMH in each species.
    + **spec=_spid_,rs**: Optimize wrt RSMH for a particular species.
    + **spec=_spid_,e**:  Optimize wrt EH for a particular species.
    + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
-   + **spec=_spid_\hellip,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
+   + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
 ^
 **\-\-rdbasp[:_fn_]**
