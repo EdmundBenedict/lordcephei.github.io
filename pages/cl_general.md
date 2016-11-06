@@ -598,22 +598,17 @@ Command-line switches:
 +  **-bs=expr**:&ensp;   factor that scales the default ball (sphere) size. This factor scales **SPEC\_RMAX** by _expr_. By default, the scaling is 0.5.
 +  **-ss=expr**:&ensp; controls the criterion for what length defines a connected bond.  This switch scales the default
    factor scaling a 'bond' which must be less close than RMAX_i+RMAX_j
-+  **-scale=val:&emsp;   sets the xbs variable **scale**
-+  **-sp:rule1[:rule2][...]:&emsp;   modifies the species rmax and colors.
-   _rule_ has the syntax
-   [expr],[rmax],[red],[green],[blue] _expr_ is a
-   logical expression involving the class index ic and
-   atomic number z.  Optional rmax, red, green, blue
-   are the ball size, and intensity of those colors
-   for the ball.  Default values are taken for those
-   numbers omitted.  For the colors, the defaults are
-   random numbers between 0 and 1.
-+  **-dup=n1,n2,n3[,expr]:&emsp;   makes replicas of the unit cell by adding
-   all combinations (0..n1,0..n2,0..n3) of the lattice
-   translation vectors (p1,p3,p3) to every site in the
-   cell.  The optional _expr_ is a constraint that can
-   be used to exclude sites that don't satisfy it.
-   Variables that may be used in _expr_ are:
++  **-scale=val**:&emsp;   sets the xbs variable **scale**
++  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.
+   _rule_ has the syntax\\
+   _expr_,_rmax_,_red_,_green_,_blue_\\
+    _expr_ is a logical expression involving the class index ic and atomic number z.  
+   If _expr_ evalates to true, the rule applies to this class.
+   _rmax_, _red_, _green_, _blue_ are the ball size, and [RGB colors](/docs/misc/fplot/#color-specification) for the ball.
+   Default values are taken for those numbers omitted.  For the colors, the defaults are  random numbers between 0 and 1.
++  **-dup=_n1_,_n2_,_n3_[,_expr_]:&emsp;   makes replicas of the unit cell by adding all combinations (0.._n1_,0.._n2_,0.._n3_) of the lattice
+   translation vectors (p1,p3,p3) to every site in the cell.  Optional **_expr_** is a constraint that can be used to exclude sites that don't satisfy it.
+   Variables that may be used in **_expr_** are:\\
    + x1,x2,x3 site positions, in units of ALAT
    + p1,p2,p3 are the same positions, as projections onto plat
    + ic,z     class index, basis index and atomic number
