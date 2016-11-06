@@ -306,7 +306,7 @@ Definition list inside definition list
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
-    **_file_** can be generated with **\-\-wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
+    **_file_** should take he [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).  It can be generated with **\-\-wpos**.\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
     Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
@@ -317,7 +317,8 @@ Definition list inside definition list
     &ensp; **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.\\
     &ensp; **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
 
-    Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
+    Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**\\
+    writes to _tab2.ext_{: style="color: green"} a table in this format.  The table is restricted to displacements around site **1**, distance less than 3 a.u.
 
 **\-\-angles[options]**
 : Prints angles between triples of sites.  
@@ -331,16 +332,16 @@ Definition list inside definition list
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
 **\-\-euler[options]**
-: Prints angles between spins (applicable to noncollinear magnetism, ASA)
+: Prints angles between spins (applicable to ASA noncollinear magnetism)
 
   Euler angles must be supplied either in the input file, or in the Euler angles file
   _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
-  &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.\\
-    If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
+  &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.
+         If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
   &ensp; **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
-  &ensp; **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative.\\
+  &ensp; **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative.
 
   Example: **\-\-euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
