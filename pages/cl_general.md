@@ -19,75 +19,6 @@ _____________________________________________________________
 (/docs/commandline/general/#table-of-contents)
 {:/comment}
 
-#### _Switches for lmscell_
-{::comment}
-(/docs/commandline/general/#switches-for-lmscell)
-{:/comment}
-
-**lmscell**{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
-to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded. An expanded list of basis
-vectors is thus generated.  You must supply a set of new (supercell) lattice vectors.  You can do so with
-tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.  
-It also has a limited capability to make [Special QuasiRandom Structures](http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353).
-
-**Caution:**: style="color: red"} Warning: **lmscell**{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
-original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
-
-
-**\-\-wsite[x][~map][~sort][~fn=_file_]**
-: Writes a [site file](/docs/input/sitefile) to disk.
-  **\-\-wsite[x]** writes the basis as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
-: ^
-  + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
-  + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
-  + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
-
-**\-\-wpos=_file_**
-: Write positions to _file.ext_{: style="color: green"}.
-
-**\-\-ring:i1,i2** &thinsp;\|&thinsp; **\-\-swap:i1,i2 &thinsp;\|&thinsp; **\-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'
-: Rearrange order of sites in the supercell.\
-: (ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
-  (swap) swaps pairs **i1** and **i2**\\
-  (sort) Sorts the basis by ordering algebraic expressions associated with them
-  Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **\-\-sort:'x3 x2'**.
-  Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
-
-**\-\-sites:_site-list_**
-: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
-
-**\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
-: Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
-  Optional **amom** is for noncollinear magnetism only: it flips the majority and minority spins,
-  while rotating the Euler angle by 180&deg;
-
-**\-\-shorten**
-: shorten basis vectors
-
-**\-\-pl:_expr_**
-: (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
-
-**\-\-wrsj[~fn=name][~scl=#]**
-: Used in writing the pairwise exchange parameters of the supercell generated, e.g., from a Green's function code. Input file _rsj.ext_{: style="color: green"} must be present.
-
-**\-\-disp~fnam~<i>site-list</i>**
-: Displace a set of atoms in the neighborhood of a given one, **\-\-disp:tab2:style=3:Fex**\\
-  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**).
-  See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
-
-**\-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
-: Make Special QuasiRandom Structure.  It works by minimizing a norm function.
-  The norm is obtained by assigning a weight to each pair and three body correlator,
-  and summing the individual weights.\\
-
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
-
-    + **~seed=#**:&ensp; initial seed for random number generator.  For a fixed seed the algorithm proceeds the same way each time.
-    + **~r2max=#**:&nbsp; Maximum distance between pairs for pair participate in the norm
-    + **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
-
-  **Caution:**{: style="color: red"} This mode is still experimental.
-
 #### _Introduction_
 _____________________________________________________________
 All of the programs have special branches that may be (and sometimes must be) set from command-line switches.
@@ -198,10 +129,11 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 (/docs/commandline/general/#switches-for-the-blm-tool)
 {:/comment}
 
+{::comment}
 <div onclick="elm = document.getElementById('blm'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show command-line switches.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="blm">{:/} 
-
+{:/comment}
 
 **blm**{: style="color: blue"} creates input (ctrl) files from structural information.\\
 Command-line switches:
@@ -286,11 +218,13 @@ Command-line switches:
 + **\-\-wpos=_fnam_**
   + write site positions to file **_fnam_**.
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
-#### _Switches for lmchk_
+#### _Switches for_ lmchk
 {::comment}
 (/docs/commandline/general/#switches-for-lmchk)
 {:/comment}
@@ -298,11 +232,11 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 **lmchk**{: style="color: blue"} has two main functions: to check augmentation sphere overlaps (and optionally to determine augmentation
 sphere radii), and to generate neighbor tables in various contexts.
 
-
+{::comment}
 <div onclick="elm = document.getElementById('lmchk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show command-line switches.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="lmchk">{:/} 
-
+{:/comment}
 
 {::comment}
 Lists in definition lists are tricky.
@@ -466,9 +400,75 @@ Definition list inside definition list
 **\-\-shorten**
 : shorten basis vectors
 
+{::comment}
 {::nomarkdown}</div>{:/}
+{:/comment}
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ lmscell
+{::comment}
+(/docs/commandline/general/#switches-for-lmscell)
+{:/comment}
+
+**lmscell**{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
+to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded. An expanded list of basis
+vectors is thus generated.  You must supply a set of new (supercell) lattice vectors.  You can do so with
+tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.  
+It also has a limited capability to make [Special QuasiRandom Structures](http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353).
+
+**Caution:**{: style="color: red"} Warning: **lmscell**{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
+original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
+
+**\-\-wsite[x][~map][~sort][~fn=_file_] &thinsp;\|&thinsp; \-\-wpos=_file_**
+: Writes a [site file](/docs/input/sitefile) to disk, or a positions file to dist.\\
+  **\-\-wsite[x]** writes a site file with positions expressed as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+  **\-\-wpos** writes a positions file in standard [Questaal format][Questaal protocol](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
+: ^
+  + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
+  + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
+  + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
+
+**\-\-ring:i1,i2** &thinsp;\|&thinsp; \-\-swap:i1,i2 &thinsp;\|&thinsp; \-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'**
+: Rearrange order of sites in the supercell.\\
+  (ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
+  (swap) swaps pairs **i1** and **i2**\\
+  (sort) Sorts the basis by ordering algebraic expressions associated with them.\\
+  Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **\-\-sort:'x3 x2'**.\\
+  Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
+
+**\-\-sites:_site-list_**
+: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+
+**\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
+: (ASA only) Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
+  Optional **amom** applies to noncollinear magnetism: it flips the majority and minority spins for sites where the magnetic moment is negative, 
+  while rotating the Euler angle by 180&deg;
+
+**\-\-shorten**
+: shorten basis vectors.
+
+**\-\-pl:_expr_**
+: (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
+
+**\-\-wrsj[~fn=name][~scl=#]**
+: Writing the pairwise exchange parameters of the supercell generated, e.g., from **lmgf**{: style="color: blue"}. Input file _rsj.ext_{: style="color: green"} must be present.
+
+**\-\-disp~fnam~<i>site-list</i>**
+: Displace a set of atoms in the neighborhood of a given one, e.g. **\-\-disp:tab2:style=3:Fex**\\
+  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**).
+  See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+
+**\-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
+: Make a  Special QuasiRandom Structure.  It works by minimizing a norm function.\\
+  The norm is obtained by assigning a weight to each pair and three body correlator, and summing the individual weights.\\
+
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+    &ensp; **~seed=#**:&emsp;  initial seed for random number generator.  For a fixed seed the algorithm proceeds the same way each time.\\
+    &ensp; **~r2max=#**:&nbsp; Maximum distance between pairs for pair participate in the norm\\
+    &ensp; **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
+
+  **Caution:**{: style="color: red"} This mode is still experimental.
 
 #### _Site-list syntax_
 _____________________________________________________________
