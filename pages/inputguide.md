@@ -971,7 +971,8 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | Read structural data (ALAT, NBAS, PLAT) from an independent site file using alternate input styles. The file structure is documented [here](/docs/input/sitefile).
+FILE | c | all | Y | | Read structural data (ALAT, NBAS, PLAT) from an independent site file. The file structure is documented [here](/docs/input/sitefile).
+[this tutorial](/tutorial/lmf/lmf_tutorial)
 NBAS | i | all | N&dagger; | | Size of the basis
 NSPEC | i | all | Y | | Number of atom species
 ALAT | r | all | N&dagger; | | A scaling, in atomic units, of the primitive lattice and basis vectors

@@ -309,25 +309,23 @@ Definition list inside definition list
     **_file_** can be generated with **\-\-wpos**: it uses the [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
-    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
-
-      + **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 5.
-      + **~e**:&ensp;   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)
-      + **~fn=_filename_**:&ensp; writes neighbor table to file _filename.ext_{: style="color: green"}
-      + **~sites~_site-list_**:&ensp; restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_
-      + **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.
-      + **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
+    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+    &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 5.\\
+    &ensp; **~e**:&ensp;   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)\\
+    &ensp; **~fn=_filename_**:&ensp; writes neighbor table to file _filename.ext_{: style="color: green"}\\
+    &ensp; **~sites~_site-list_**:&ensp; restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_\\
+    &ensp; **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.\\
+    &ensp; **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
 
     Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**
 
-**\-\-angles[optionss]**
+**\-\-angles[options]**
 : Prints angles between triples of sites.  
 
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):
-
-  + **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.
-  + **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.
-  + **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.\\
+  &ensp; **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
+  &ensp; **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.\\
 
   Example: **\-\-angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
