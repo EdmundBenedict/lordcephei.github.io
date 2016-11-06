@@ -99,8 +99,6 @@ Their structure is documented [here](/docs/input/sitefile/).
 <i>k</i>-points and which energy bands or quasiparticles are to be generated
 are specified in one of three types, or modes.  
 
-{::nomarkdown}
-
 <LI>  The (default)
 <B><A href="#symmetrylinemode">symmetry line mode</A></B>
 is designed for plotting energy bands along symmetry lines.  In this
@@ -120,8 +118,15 @@ purpose is to generate contour plots of constant energy surfaces,
 e.g. the Fermi surface. Data file output is written in a special mode, with 
 levels for a particular band at all <i>k</i> written as a group.
 
-<OL>
+{::nomarkdown}
 
+
+
+<FONT color="#bb3300">
+
+##### Symmetry line mode
+
+</FONT>
 
 <UL>
 <H2><A name="symmetrylinemode"><FONT size="+1" color="#bb3300">Symmetry line mode</FONT></A></H2>
@@ -130,16 +135,16 @@ of symmetry lines and the number of <i>k</i>-points in each line.
 Each line of text in the file specifies one symmetry line with the syntax
 
 <pre>
-                   #pts  start-k   end-k
+#pts  start-k   end-k
 </pre>
 
 <FONT size="+1"><tt>start-k</tt></FONT> and <FONT size="+1"><tt>end-k</tt></FONT> each consist of three
 numbers specifying a <i>k</i>-point.  The set of lines is ended by a final line,
 where <FONT size="+1"><tt>#pts</tt></FONT> is zero.  For example:
 <pre>
-                   51   0  0  0    0  0  1
-                   51   0  0  1    0 .5 .5
-                   0    0  0  0    0  0  0
+51   0  0  0    0  0  1
+51   0  0  1    0 .5 .5
+0    0  0  0    0  0  0
 </pre>
 
 <i>Output, symmetry-line mode</i> <BR>
