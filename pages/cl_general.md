@@ -59,7 +59,7 @@ Command-line options:
    **\-\-pdos**  partial DOS\\
    **\-\-mull**  Mulliken DOS\\
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-pdos**):
-^
+
    +  **~mode=#**:&ensp;
       + **#=0** for DOS resolved by site
       + **#=1** for DOS resolved by _l_ and site
@@ -84,12 +84,11 @@ Command-line options:
    + **window=_emin_,_emax_**: energy window over which data is to be computed.  Defines the mesh together with **npts**.\\
      If unspecified with this command-line argument, the user is prompted for this number
    + mode=#  compute quantities other than the DOS.\\
-     mode  lmdos calculates
-     +  0     Standard DOS, i.e. &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E(<b>k</b>)-E</i>)
-     +  1     Ballistic conductance, Landauer formula, i.e.
+     +  **#=0**   Standard DOS, i.e. &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E(<b>k</b>)-E</i>)
+     +  **#=1**   Ballistic conductance, Landauer formula, i.e.
                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<i>E</i>(<b>k</b>)\\
                  In this mode, you must supply vector **vec** to indicate which direction the gradient is to be projected.
-     +  2     diffusive conductivity in the relaxation time approximation
+     +  **#=2**   diffusive conductivity in the relaxation time approximation
                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;_1<i>E</i>(<b>k</b>) &middot; &nabla;_2<i>E</i>(<b>k</b>)
                  In this mode you must supply both **vec** and **vec2**.
    + **vec=#1,#2,#3**:   **k** direction vector 1 for **mode=1** or **mode=2**.
