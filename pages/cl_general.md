@@ -75,9 +75,12 @@ Command-line switches:
    + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
    + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
    + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
+   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
    + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
+      With this option you can make band plots with three independent colors.
 
-   This option tells the band generator to save, in addition to
+   The *col** option tells the band generator to save, in addition to
    the energy bands, a corresponding weight for each energy.
    Each band is resolved into individual orbital character by a Mulliken decomposition
    The sum of Mulliken weights from <b><i>orbital-list</i></b> is the weight assigned to a state.
@@ -91,11 +94,7 @@ Command-line switches:
    This list can sometimes be rather long and complex.  To accomodate this, 
    some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
 
-   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
-      With this option you can make band plots with three independent colors.
-   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
-
-   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability
+   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
