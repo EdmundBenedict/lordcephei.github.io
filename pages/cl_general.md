@@ -50,9 +50,9 @@ Command-line switches:
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
    + ~qp     list mode. An arbitrary list of <i>k</i> points can be specified. 
-             See <A href="#formatmode">Modes for Reading <i>k</i>-point Lists</A> for further description.
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
    + ~con    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
-             See <A href="#formatmode">Modes for Reading <i>k</i>-point Lists</A> for further description.
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
    + ~bin         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
    + ~fn=<b>fnam</b>     read <i>k</i> points from file <b>fnam</b>.<i>ext</i>. Default name is qp.<i>ext</i> .
    + ~ef=#        Use # for Fermi level.
@@ -60,10 +60,9 @@ Command-line switches:
    + ~spin2       generate bands for 2nd spin only (spin polarized case)
    + ~mq          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
    + ~long        write bands with extra digits precision (has no effect for default mode)
-   + ~rot=<i>strn</i>    rotates the given <i>k</i> by a rotation defined by <i>strn</i>. The syntax is defined in <A href="rotations.html">rotations.html</A>.
-   + ~lst=<i>list</i>    write only a subset of energy levels by an integer list. (contour mode only)
-               For syntax of <i>list</i>, see <A href="Integer-list-syntax.html">Integer-list-syntax.html</A>.
-   + ~nband=#     Write out no more than # bands (not to be used in conjunction with ~lst !)
+   + ~rot=<i>strn</i>    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
+   + ~lst=<i>list</i>    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
+   + ~nband=#     Write out no more than # bands (not to be used in conjunction with **~lst** !)
    + ~col=<b>orbital-list</b>    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
 
      This option tells the band generator to save, in addition to
