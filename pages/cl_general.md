@@ -27,7 +27,9 @@ _____________________________________________________________
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
 **\-\-wden[~options]**
-:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.  \\
+:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
+   At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
+   that has points on the mesh.\\
    Options syntax:\\
    **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
                    
@@ -47,10 +49,6 @@ _____________________________________________________________
    (chosen to be **~** in this text; the delimiter
    actually taken is the first character after **wden**)
 
-   At present, there is no capability to interpolate
-   the smoothed density to an arbitrary plane, so you
-   are restricted to choosing a plane that has points
-   on the mesh.  
 
    To comply with this restriction, all three groups of
    numbers may be given sets of integers.  Supposing
