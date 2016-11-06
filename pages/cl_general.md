@@ -65,9 +65,9 @@ Command-line switches:
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
    + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
-   + **~bin**:&ensp;         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
+   + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}. NB: works only with **~qp** and **~con** modes.
    + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
-   + **~ef=#**:&ensp;        Use # for Fermi level.
+   + **~ef=#**:&ensp;        Use **#** for Fermi level.
    + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
    + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
    + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only

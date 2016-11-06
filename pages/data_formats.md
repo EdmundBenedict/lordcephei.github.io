@@ -96,9 +96,9 @@ Their structure is documented [here](/docs/input/sitefile/).
 (/docs/input/data_format/#file-formats-for-k-point-lists)
 {:/comment}
 
-<i>k</i>-point are specified in the input files as one of three types, or modes.  
+<i>k</i>-points and which energy bands or quasiparticles are to be generated
+are specified in one of three types, or modes.  
 
-{::nomarkdown}
 
 <LI>  The (default)
 <B><A href="#symmetrylinemode">symmetry line mode</A></B>
