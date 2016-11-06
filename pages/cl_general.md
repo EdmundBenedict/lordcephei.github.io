@@ -24,7 +24,7 @@ _____________________________________________________________
 (/docs/commandline/general/#switches-for-lmscell)
 {:/comment}
 
-**lmscell*{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
+**lmscell**{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
 to the basis vectors.  Basis vectors which differ by a lattice vector in the supercell are discarded. An expanded list of basis
 vectors is thus generated.  You must supply a set of new (supercell) lattice vectors.  You can do so with
 tag [**STRUC\_SLAT**](/docs/input/inputfile/#struc); if you do not, you will be prompted to input 9 numbers from the terminal.  

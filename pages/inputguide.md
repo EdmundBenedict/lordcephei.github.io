@@ -971,15 +971,15 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | Provides a mechanism to read structural data (ALAT, NBAS, PLAT) from an independent [site file](/docs/input/sitefile) using alternate input styles.<br><br>The file structure is documented [here](/docs/input/sitefile).
+FILE | c | all | Y | | Read structural data (ALAT, NBAS, PLAT) from an independent site file using alternate input styles. The file structure is documented [here](/docs/input/sitefile).
 NBAS | i | all | N&dagger; | | Size of the basis
 NSPEC | i | all | Y | | Number of atom species
 ALAT | r | all | N&dagger; | | A scaling, in atomic units, of the primitive lattice and basis vectors
-DALAT | r | all | Y | 0 | is added to ALAT. It can be useful in contexts where you want to keep certain quantities fixed (e.g. augmentation radius) while ALAT varies.
+DALAT | r | all | Y | 0 | is added to ALAT. It can be useful in contexts certain quantities that depend on ALAT are to be kept fixed (e.g. **SPEC\_ATOM\_R/A**) while ALAT varies.
 PLAT | r,r,&hellip; | all | N&dagger; | | (dimensionless) primitive translation vectors
 SLAT | r,r,&hellip; | lmscell | N | | Superlattice vectors
-NL   | i | all | Y | 3 | Sets a global default value for _l_-cutoffs NL = 1+_l_<sub>cut</sub>. NL is used for both the basis and augmentation cutoffs.
-SHEAR | r,r,r,r | all | Y | | Enables shearing of the lattice in a volume-conserving manner.<br>If SHEAR=#1,#2,#3,#4, #1,#2,#3=direction vector; #4=distortion amplitude<br><br>Example:  SHEAR=0,0,1,0.01<br> distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
+NL   | i | all | Y | 3 | Sets a global default value for _l_-cutoffs _l_<sub>cut</sub> = NL&minus;1. NL is used for both basis set and augmentation cutoffs.
+SHEAR | r,r,r,r | all | Y | | Enables shearing of the lattice in a volume-conserving manner.<br>If SHEAR=#1,#2,#3,#4, &ensp;#1,#2,#3=direction vector; &ensp;#4=distortion amplitude.<br>Example:  SHEAR=0,0,1,0.01<br> distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
 ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br>Example:  ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles &alpha;=&pi;/4, &beta;=&pi;/3, &gamma;=&pi;/2. See [this document](/docs/misc/rotations/) for the general syntax.<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
 DEFGRD | r,r,&hellip; | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
 STRAIN | r,r,&hellip; | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
