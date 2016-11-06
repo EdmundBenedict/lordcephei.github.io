@@ -55,8 +55,8 @@ Command-line switches:
    +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
    +  **#5=1:** ignore **P** in restart file
 
-    Default switches:
-    If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
+   Default switches:
+   If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
 ^
 **\-\-rdbasp[:_fn_]**
 :  tells the program to read basis parameters from file **_fn_**.
