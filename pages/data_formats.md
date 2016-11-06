@@ -320,6 +320,10 @@ surface, whereas <b>k</b><sub>&#8741;</sub> is conserved.  This means that
 from the band structure.  The larger the kinetic energy the smaller
 the effect, but in typical photoemission experiments it is not negligible.
 
+<div onclick="elm = document.getElementById('transformk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for a description of this format.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="transformk">{:/}
+
 There are two ways to transform the <b>k</b> point.  The first is to use
 the **~rot** options to the [**\-\-band** switch](/docs/commandline/general/#switches-for-lmf).
 The second expressions which you specify in the
@@ -346,10 +350,7 @@ are algebraic expressions involving these variables:
 
 The expression should be integer (returning 0 or nonzero). 
 Example: let **qx**, **qy**, **qz**, **q** be the Cartesian components and absolute value of the unmodified <i>k</i>-point.
-Any of the 
-<pre>
-kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
-</pre>
+Any of the **kx=**<i>expr</i> &ensp; **ky=**<i>expr</i> &ensp; **kz=**<i>expr</i>
 may be present; any missing component will be left unchanged from its original value.
 
 This example (in symmetry line mode) modifies <i>k<sub>x</sub></i> such that the kinetic energy is increased by 0.1^2 a.u.
@@ -409,7 +410,6 @@ $  lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 -vrot=t --rs=1
 + &&--band~rot=** is necessary because lmf will not automatically rotate
 the k-points read from the _syml.ext_{: style="color: green"}.
 
-<P>
 Run a modifed band pass calculation and compare
 _bnds.cu_{: style="color: green"} with
 _bnds.cu-pwmode11_{: style="color: green"}.
@@ -420,8 +420,6 @@ addition of APW's.)
 
 This shows that the bands are replicated in the rotated coordinate system.
 
-<P>
-
 Finally, modify _syml.cu_{: style="color: green"} by uncommenting the first line so it reads:
 <pre>
 % map kz=(q^2+.01^2-qx^2-qy^2)^.5*(qz>0?1:-1)
@@ -430,4 +428,4 @@ and repeat the **lmf**{: style="color: blue"} band pass.  You should see that <i
 <i>k<sub>y</sub></i> are unchanged, but <i>k<sub>z</sub></i> is slightly modified.
 Similarly the bands are slightly modified.
 
-{:/}
+{::nomarkdown}</div>{:/}
