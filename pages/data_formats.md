@@ -278,7 +278,9 @@ The mesh is specified by a file containing lines of the form
 <pre>
  <i>v<sub>x</sub>     range  n<sub>x</sub>     v<sub>y</sub>     range  n<sub>y</sub>   height  band</i>
 </pre>      
+
 where:
+
 +  <i>v<sub>x</sub></i> and <i>v<sub>y</sub></i> are two reciprocal lattice vectors defining a plane
 +  <i>range</i> is a pair of numbers marking starting and ending points along each vector
 +  <i>n<sub>x</sub></i> and <i>n<sub>y</sub></i> are the number of divisions along the first and second vectors

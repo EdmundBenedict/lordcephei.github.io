@@ -33,41 +33,23 @@ _____________________________________________________________
    Options syntax:\\
    **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
                    
-   Information for the plane is specified by three
-   groups of numbers: the origin (i.e. a point through
-   which the plane must pass), a first direction
-   vector with its number of points, and a second
-   direction vector with its number of points.
-   Default values will be taken for any of the three
-   sets you do not specify.  The density generated is
-   the smooth density, augmented by the local
-   densities in a polynomial approximation (see option
-   core= below)
+   Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
+   direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
+   any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
+   approximation (see option **core**)
 
-   The options are specifications (see below) and
-   different options are separated by delimiters
-   (chosen to be **~** in this text; the delimiter
-   actually taken is the first character after **wden**)
+   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are p1, p2
+   and p3, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the point (**l1**=**#1**,**#2**,**#3**) corresponds to\\
+      &emsp; **#1/n1 p1 + #2/n2 p2 + #3/n3 p3** .\\
+   Specify the origin (a point through which the plane must pass) by\\
+      &emsp; **~o=i1,i2,i3**
+   Default value is **o=0,0,0**.
 
-
-   To comply with this restriction, all three groups of
-   numbers may be given sets of integers.  Supposing
-   your lattice vectors are p1, p2 and p3, which the
-   smooth mesh having (n1,n2,n3) divisions.  Then the
-   point (#1,#2,#3) corresponds to the Cartesian
-   coordinate
-      #1/n1 p1 + #2/n2 p2 + #3/n3 p3
-   Specify the origin (a point through which the plane
-   must pass) by
-      ~o=i1,i2,i3
-   Default value~ o=0,0,0.
-
-   Alternatively you can specify a point in Cartesian
-   coordinates by:
-      ~ro=x1,x2,x3
-   x1..x3 is a vector, Cartesian coordinates, units of alat.
-   x1..x3 are converted into the nearest integers i1..i3.
-   The actual origin may not exactly coincide with x1..x3.
+   Alternatively you can specify a point in Cartesian coordinates by:\\
+      &emsp; **~ro=x1,x2,x3**\\
+   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat.
+   (**x1**,**x2**,**x3**) is converted into the nearest integers **i1**,**i2**,**i3**.
+   Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
    
    Specify the direction vectors by
       ~l1=#1,#2,#3[,#4]
@@ -85,6 +67,8 @@ _____________________________________________________________
    Default values~
       l1=1,0,0,n1+1
       l2=0,1,0,n2+1
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
    Other options~
 
