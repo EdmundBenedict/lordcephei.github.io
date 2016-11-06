@@ -75,25 +75,25 @@ Command-line switches:
    + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
    + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
    + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
-   + **~col=<b>orbital-list</b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+   + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
 
    This option tells the band generator to save, in addition to
    the energy bands, a corresponding weight for each energy.
    Each band is resolved into individual orbital character by a Mulliken decomposition
-   The sum of Mulliken weights from <b>orbital-list</b> is the weight assigned to a state.
-   Thus if <b>orbital-list</b> contains all orbitals the weights will be unity.
+   The sum of Mulliken weights from <b><i>orbital-list</i></b> is the weight assigned to a state.
+   Thus if <b><i>orbital-list</i></b> contains all orbitals the weights will be unity.
 
-   The individual orbitals make up the hamiltonian basis. States specified in <b>orbital-list</b>
+   The individual orbitals make up the hamiltonian basis. States specified in <b><i>orbital-list</i></b>
    corresponding to the ordering of the orbitals in the hamiltonian.  You can get a
-   table of this ordering by invoking <FONT size="+1"><tt>[<b>lm|lmf</b>] --pr55 --quit=ham ...</tt></FONT>
-   Choose <b>orbital-list</b> from the orbitals you want to select out of the Table.
+   table of this ordering by invoking `lm|lmf --pr55 --quit=ham ...`.
+   Choose <b><i>orbital-list</i></b> from the orbitals you want to select out of the Table.
 
    This list can sometimes be rather long and complex.  To accomodate this, 
-   there are simple enchancements to the standard [integer list syntax](/docs/misc/integerlists/).
+   some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
 
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet have this capability.
 ^
-   + ~col2=<b>orbital-list</b>   generate a second weight to orbitals specified in a list.
+   + ~col2=<b><i>orbital-list</i></b>   generate a second weight to orbitals specified in a list.
       With this option you can make band plots with three independent colors.
    + ~evn=#       keep track of smallest and largest eval for #th band. Print result at close.
 ^
