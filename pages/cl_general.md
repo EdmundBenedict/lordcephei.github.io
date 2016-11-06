@@ -53,66 +53,44 @@ _____________________________________________________________
    
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
-   Specify the direction vectors by
-      ~l1=#1,#2,#3[,#4]
-      ~l2=#1,#2,#3[,#4]
-   l1 and l2 specify the first and second direction
-    vectors, respectively.  The first three numbers
-    specify the orientation and the fourth specifies the
-    **length**.  #1,#2,#3 select the increments in mesh
-    points along each of the three lattice vectors that
-    define the direction vector.  Thus a direction
-    vector in Cartesian coordinates is
-      #1/n1 p1 + #2/n2 p2 + #3/n3 p3
-   The last number (#4) specifies how many points to take
-   in that direction and therefore corresponds to a length.
-   Default values~
-      l1=1,0,0,n1+1
-      l2=0,1,0,n2+1
+    + ~l1=#1,#2,#3[,#4]  first direction vector as noted above, that is:
+       **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
+       The last number (**#4&&) specifies how many points to take in this direction and therefore corresponds to a length.
+       Default values : l1=1,0,0,n1+1 where n1 is the number of points on the third axis.
+    + ~l2=#1,#2,#3[,#4] second direction vector as noted above, and number of points (**#4**)
+       Default values : l2=0,1,0,n2+1 where n2 is the number of points on the second axis.
 
+    + core=#   specifies how local densities is to be included.
+       Any local density added is expanded as
+       polynomial * gaussian, and added to the
+       smoothed mesh density.
+       + #=0 includes core densities + nuclear contributions
+       + #=1 includes core densities, no nuclear contributions
+       + #=2 exclude core densities
+       + #=-1 no local densities to be included (only interstitial)
+       + #=-2 local density, with no smoothed part
+       + #=-3 interstitial and local smoothed densities
 
-   Other options~
+       Default~ core=2
 
-    core=#   specifies how local densities is to be included.
-             Any local density added is expanded as
-             polynomial * gaussian, and added to the
-             smoothed mesh density.
-            #=0 includes core densities + nuclear contributions
-            #=1 includes core densities, no nuclear contributions
-            #=2 exclude core densities
-            #=-1 no local densities to be included (only interstitial)
-            #=-2 local density, with no smoothed part
-            #=-3 interstitial and local smoothed densities
+    + fn=name  specifies the file name for file I/O. The default name is **smrho**.
 
-             Default~ core=2
+    + 3d       causes a 3D mesh density to be saved in XCRYSDEN format
 
-    fn=name  specifies the file name for file I/O
-             The default name is **smrho**.
+    + q=q1,q2,q3 and lst=list-of-band-indices\\
+      These switches should be taken together.
+      They generate the density from 1 k-point only (at q)
+      and for a particular set of bands (given by lst=)
 
-    3d       causes a 3D mesh density to be saved in XCRYSDEN format
+     Example: suppose n1=n2=48 and n3=120.  Then\\
+     **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
+     writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (p3/2).  The first vector points along (p1+p2), and has
+     that length; the second vector points along p3, and has that length.
 
-    q=q1,q2,q3
-    and
-    lst=list-of-band-indices
+     Example: suppose the lattice is fcc with n1=n2=n3=40.  Then\\
+     \-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41
 
-            These switches should be taken together.
-            They generate the density from 1 k-point only (at q)
-            and for a particular set of bands (given by lst=)
-
-   Example: use **~** as the delimiter, and suppose
-            n1=n2=48 and n3=120.  Then
-               \-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121
-            writes 'myrho.ext' a mesh (49,121) points.
-            The origin (first point) lies at (p3/2).
-            The first vector points along (p1+p2), and
-            has that length; the second vector points
-            along p3, and has that length.
-
-   Example: suppose the lattice is fcc with n1=n2=n3=40.  Then
-              \-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41
-            generates the smoothed part of the density from the 7th band at Gamma,
-            in a plane normal to the z axis, passing through (0,0,1/4).
-
+     generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis, passing through (0,0,1/4).
 ^
 
 Command-line switches:
