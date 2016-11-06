@@ -48,31 +48,34 @@ Command-line switches:
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats.
 
-   + The (default) <B><A href="#symmetrylinemode">symmetry line mode</A></B> is designed for plotting energy bands along symmetry lines.  In
-     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a specially adapted format.
-   + The <B><A href="#listmode">list mode</A></B> is a general purpose mode to be used when energy levels are sought at some arbitrary set
-     of <i>k</i>-points, specified by the user.  Data is written in a standard format with k-points followed by eigenvalues.
-   + The <B><A href="#contourmode">mesh mode</A></B> is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
-     purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface. Data file output is written in a special mode,
-     with levels for a particular band at all <i>k</i> written as a group.
+   + [Symmetry line mode](/docs/input/data_format/#file-formats-for-k-point-lists) (default) is designed for plotting energy bands along symmetry lines.  In
+     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
+     [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).
+   + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
+     of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+     with k-points followed by eigenvalues.
+   + The [mesh mode](/docs/input/data_format/#contourmode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
+     purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
+     Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for 
+     [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 ^
-   + ~qp     list mode. An arbitrary list of <i>k</i> points can be specified. 
+   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified. 
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
-   + ~con    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
+   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
-   + ~bin         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
-   + ~fn=<b>fnam</b>  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
-   + ~ef=#        Use # for Fermi level.
-   + ~spin1       generate bands for 1st spin only (spin polarized case)
-   + ~spin2       generate bands for 2nd spin only (spin polarized case)
-   + ~mq          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
-   + ~long        write bands with extra digits precision (has no effect for default mode)
-   + ~rot=<i>strn</i>    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
-   + ~lst=<i>list</i>    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
-   + ~nband=#     Write out no more than # bands (not to be used in conjunction with **~lst** !)
-   + ~col=<b>orbital-list</b>    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+   + **~bin**:&ensp;         write bands as a binary file, file name <b>bbnds.ext</b>. NB: works only with ~qp and ~con options.
+   + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
+   + **~ef=#**:&ensp;        Use # for Fermi level.
+   + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
+   + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
+   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
+   + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
+   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
+   + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
+   + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
+   + **~col=<b>orbital-list</b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
 
      This option tells the band generator to save, in addition to
      the energy bands, a corresponding weight for each energy.
@@ -86,9 +89,7 @@ Command-line switches:
      Choose <b>orbital-list</b> from the orbitals you want to select out of the Table.
 
      This list can sometimes be rather long and complex.  To accomodate this, 
-     there are simple enchancements to the standard <A href="Integer-list-syntax.html">integer-list syntax</A>.
-     See below and in the <A href="ASAtutorial.html#section3">this section</A> of ASA tutorial for further
-     description of how the bands were generated for Co shown above.
+     there are simple enchancements to the standard [integer list syntax](/docs/misc/integerlists/).
 
      _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet have this capability.
 ^

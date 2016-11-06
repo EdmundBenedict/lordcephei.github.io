@@ -67,8 +67,13 @@ Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} o
 
 Section 3 is an operations manual.
 
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 ### 2. _Examples_
 _____________________________________________________________
+{::comment}
+(/docs/misc/plbnds/examples)
+{:/comment}
 
 Copy an already prepared bands file for Co, [_bnds.co_{: style="color: green"}](/assets/download/inputfiles/bnds.co) to your working directory.
 It contains energy bands connecting the symmetry lines M, &Gamma;, A, L, &Gamma;, K (5 panels).
@@ -245,6 +250,8 @@ _Notes:_{: style="color: red"}
 
 {::nomarkdown}</div>{:/}
 
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 ### 3. _plbnds manual_
 _____________________________________________________________
 
@@ -322,6 +329,8 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
    `-mergep` pads a file containing fewer bands so that the number of bands in the merged file is fixed.
 
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 ### 4. _Additional exercises_
 _____________________________________________________________
 
@@ -334,3 +343,5 @@ from two calculations in one figure.
 _____________________________________________________________
 
 See the [fplot](/docs/misc/fplot/) and [pldos](/docs/misc/pldos/) manuals.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
