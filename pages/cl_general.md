@@ -791,31 +791,42 @@ Command-line switches:
 
 + **-\-rs=#1,#2**\\
   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-
 + **-\-pdos[~options]**\\
   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-
 + **-\-mix=#**\\
   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-
 + **-\-ef=_ef_**\\
   Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
 
-The following are specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
+The following is specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
 
 + **--sites[~pair]~_site-list_**\\
   + **GF\_MODE=10** | **GF\_MODE>11**:&ensp; calculate exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax)\\
     Additional **~pair** also restricts coupling to neighors for sites in the list.
   + **GF\_MODE=11**:&ensp; Analyze exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax).
++ **--vshft**\\
+  Read and apply constant potential shifts from file _vshft.ext_{: style="color: green"}
 
 The following are specific to the exchange-analysis mode [**GF\_MODE=11**](/docs/input/inputfile/#gf)
 
-+ **--wrsj[:j00][:amom][:sscl][:[g]scl=#][:tol=#] 
++ **--wrsj[:j00][:amom][:sscl][:[g]scl=#][:tol=#]**:\\
+  Write exchange parameters to file, which can be used, e.g. by **lmmag**{: style="color: blue"}.
 + **--wmfj**:&ensp;
-+ **--rcut=#**:&ensp;
-+ **--tolJq=#**:&ensp;
-+ **--amom[s]=mom1,mom2,\hellip;**:&ensp;
-+ **--2xmsh**:&ensp;
++ **--rcut=_rcut_**:\\
+  Truncate J(R-R') to radius **_rcut_**
++ **--tolJq=#**:\\
+  Sets tolerance for allowed deviation from symmetry in Jr
++ **--amom[s]=mom1,mom2,\hellip;**:\\
+  Overrides moments calulated from ASA **Q** parameters.
+  Affects scaling of exchange parameters.
+  Particularly when **lmgf**{: style="color: blue"} is being used to analyze exchange interactions computed from the _GW_ code.
++ **--2xrpa**:
+  Doubles the mesh of <i>J</i>(<i>q</i>) when estimating the critical temperature in RPA.
++ **--long**:\\
+  Write spin wave energies with extra digits
++ **--qp=_fn_**:\\
+  Read qp for SW energies from file **_fn_**
+
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
