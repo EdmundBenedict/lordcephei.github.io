@@ -26,9 +26,9 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
-Summary of command line switches, organized by function:
+This table gives a synopsis of command line switches, organized by function:
 
-| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **[\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; [**\-\-pdos**](/docs/commandline/general/#pdos)&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
@@ -125,7 +125,7 @@ Command-line switches:
 **\-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
-{::nomarkdown}<a name="band"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+{::nomarkdown}<a name="lmfpdos"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
 :  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
    Options are described [here](/docs/commandline/general/#switches-for-lmdos).
 ^
@@ -134,7 +134,7 @@ Command-line switches:
                    elements and weights for core-level-spectroscopy.
    See **subs/suclst.f**{: style="color: green"} for a description of options.
 ^
-**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
+**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**<a name="optbas"></a>{:/}
 :  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
    passes (not generating the output density or adding to the save file), varying selected parameters belonging to tokens RSMH= and EH= to
    minimize the total energy wrt these parameters.\\
@@ -755,6 +755,8 @@ The generating program creates _moms.ext_{: style="color: green"} with a switch 
 Use the same switch when invoking **lmdos**{: style="color: blue"}.
 
 Command-line options:
+
+{::nomarkdown}<a name="pdos"></a>{:/}
 
 **\-\-pdos\|mull[~mode=#][~sites=site-list][~group=lst1;lst2;...][~nl=#][~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,...]**
 :  Specifies the channels for which partial DOS are generated or analyzed.\\
