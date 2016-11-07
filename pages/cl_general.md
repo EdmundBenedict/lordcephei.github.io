@@ -19,329 +19,6 @@ _____________________________________________________________
 (/docs/commandline/general/#table-of-contents)
 {:/comment}
 
-#### _Switches for_ lmf
-{::comment}
-(/docs/commandline/general/#switches-for-lmf)
-{:/comment}
-
-**lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
-
-Command line switches with links are organized by function in the table below.  Use the links for quick reference.
-
-| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
-| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **[\-\-cls](/docs/commandline/general/#cls)**&nbsp; **[\-\-cv](/docs/commandline/general/#cv)**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **[\-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[\-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wrhoat](/docs/commandline/general/#wrhoat)** |
-| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **[\-\-SOefield](/docs/commandline/general/#SOefield)** |
-| [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
-| [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
-| [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
-
-Command-line switches:
-
-{::nomarkdown}<a name="rs"></a>{:/}**\-\-rs=#1[,#2,#3,#4,#5**]
-:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
-
-   +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
-      Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
-   +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
-   +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
-   +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
-   +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
-      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
-   +  Add 100 to rotate local densities, if the lattice has been rotated.
-
-   +  **#2=0:** serves same function as **#1**, but for writing output densities.
-   +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
-   +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
-   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
-
-   +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
-   +  **#3=1:** ignore positions in restart file
-
-   +  **#4=0:** read guess for Fermi level and window from restart file, overwriting data from input file (default).
-      This data is needed when the BZ integration is performed by sampling.
-   +  **#4=1:** ignore data in restart file
-
-   +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
-   +  **#5=1:** ignore **P** in restart file
-
-   Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
-^
-{::nomarkdown}<a name="band"></a>{:/}**\-\-band[~options]**
-: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
-   can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
-
-   + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
-     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
-     [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).
-   + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
-     of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
-     with k-points followed by eigenvalues.
-   + The [mesh mode](/docs/input/data_format/#mesh-mode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
-     purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
-     Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
-     [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
-
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
-
-   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
-   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands.
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
-   + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}.  Works only with **~qp** and **~con** modes.
-   + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
-   + **~ef=#**:&ensp;        Use **#** for Fermi level.
-   + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
-   + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
-   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
-   + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
-   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
-   + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
-   + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
-   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
-   + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
-   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
-      With this option you can make band plots with three independent colors.
-
-   The **col** option tells the band generator to save, in addition to
-   the energy bands, a corresponding weight for each energy.
-   Each band is resolved into individual orbital character by a Mulliken decomposition
-   The sum of Mulliken weights from <b><i>orbital-list</i></b> is the weight assigned to a state.
-   Thus if <b><i>orbital-list</i></b> contains all orbitals the weights will be unity.
-
-   The individual orbitals make up the hamiltonian basis. States specified in <b><i>orbital-list</i></b>
-   corresponding to the ordering of the orbitals in the hamiltonian.  You can get a
-   table of this ordering by invoking `lm|lmf --pr55 --quit=ham ...`.
-   Choose <b><i>orbital-list</i></b> from the orbitals you want to select out of the Table.
-
-   This list can sometimes be rather long and complex.  To accomodate this,
-   some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
-
-   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
-^
-{::nomarkdown}<a name="rhopos"></a>{:/}**\-\-rhopos**
-:  Render all three components density everywhere positive.  (This can be in an issue because of the 
-   [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
-^
-{::nomarkdown}<a name="rpos"></a>{:/}**\-\-rpos=_fnam_**
-:  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
-   _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
-^
-{::nomarkdown}<a name="wpos"></a>{:/}**\-\-wpos=_fnam_**
-:  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
-^
-{::nomarkdown}<a name="lmfpdos"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
-:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
-   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
-^
-{::nomarkdown}<a name="cls"></a>{:/}**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
-:  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
-                   elements and weights for core-level-spectroscopy.
-   See **subs/suclst.f**{: style="color: green"} for a description of options.
-^
-{::nomarkdown}<a name="optbas"></a>{:/}**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
-:  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
-   passes (not generating the output density or adding to the save file), varying selected parameters belonging to tokens RSMH= and EH= to
-   minimize the total energy wrt these parameters.\\
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-optbas**):
-
-   + **etol=#**:&ensp;  only adjust parameter if energy gain exceeds **#**.
-   + No species given:&ensp; **lmf**{: style="color: blue"} optimizes wrt RSMH in each species.
-   + **spec=_spid_,rs**: Optimize wrt RSMH for a particular species.
-   + **spec=_spid_,e**:  Optimize wrt EH for a particular species.
-   + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
-   + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
-   + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
-^
-{::nomarkdown}<a name="rdbasp"></a>{:/}**\-\-rdbasp[:_fn_]**
-:  tells the program to read basis parameters from file **_fn_**.
-   If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
-   This supersedes settings in **HAM\_AUTOBAS**.
-^
-{::nomarkdown}<a name="wden"></a>{:/}**\-\-wden[~options]**
-:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
-   At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
-   that has points on the mesh.\\
-   Options syntax:\\
-   **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
-
-   Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
-   direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
-   any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
-   approximation (see option **core**)
-
-   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are
-   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
-      &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
-   Specify the origin (a point through which the plane must pass) by\\
-      &emsp; **~o=i1,i2,i3**\\
-   Default value is **o=0,0,0**. Alternatively you can specify a the origin in Cartesian coordinates by:\\
-      &emsp; **~ro=x1,x2,x3**\\
-   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
-   Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
-
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
-
-    + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
-       **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
-       The last number (**#4**) specifies how many points to take in this direction and therefore corresponds to a length.
-       Default values : **l1=1,0,0,n1+1** where **n1** is the number of points on the third axis.
-    + **~l2=#1,#2,#3[,#4]**&ensp; second direction vector as noted above, and number of points (**#4**)\\
-       Default values : **l2=0,1,0,n2+1** where **n2** is the number of points on the second axis.
-    + **core=#**   specifies how local densities are to be included in the mesh.\\
-       Any local density added is expanded as polynomial * gaussian, and added to the smoothed mesh density.
-       + **#=0**&ensp; includes core densities + nuclear contributions
-       + **#=1**&ensp; includes core densities, no nuclear contributions
-       + **#=2**&ensp; exclude core densities
-       + **#=-1**&ensp; no local densities to be included (only interstitial)
-       + **#=-2**&ensp; local density, with no smoothed part
-       + **#=-3**&ensp; interstitial and local smoothed densities\\
-       Default: **core=2**
-
-    + **fn=_filnam_**&ensp;  specifies the file name for file I/O. The default name is _smrho.ext_{: style="color: green"}
-    + **3d**&ensp;           causes a 3D mesh density to be saved in XCRYSDEN format
-    + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
-      These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands.
-      Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
-
-    Example: suppose **n1=n2=48** and **n3=120**.  Then\\
-    **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
-    writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
-    The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
-
-    Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
-    **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
-    generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
-    (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
-^
-{::nomarkdown}<a name="cv"></a>{:/}**\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
-: Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
-  You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
-  Data is written to file _cv.ext_{: style="color: green"}.
-^
-{::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
-:  Override file Fermi level; use with **-\-band**
-^
-{::nomarkdown}<a name="efrnge"></a>{:/}**\-\-efrnge**
-:  Print out indices to bands that bracket the Fermi level
-^
-{::nomarkdown}<a name="nofixef0"></a>{:/}**\-\-no-fixef0**
-:  Do not adjust estimate of Fermi level after first band pass
-^
-{::nomarkdown}<a name="oldvc"></a>{:/}**\-\-oldvc**
-:  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
-   boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
-^
-{::nomarkdown}<a name="quit"></a>{:/}**\-\-quit=_keyword_**
-:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
-^
-{::nomarkdown}<a name="shortenno"></a>{:/}**\-\-shorten=no**
-:  suppress shortening of site positions
-^
-{::nomarkdown}<a name="symsig"></a>{:/}**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
-:  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
-^
-{::nomarkdown}<a name="SOefield"></a>{:/}**\-\-SOefield**
-:  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
-^
-{::nomarkdown}<a name="vext"></a>{:/}**\-\-vext**
-:  Add external potential.  Not documented yet.
-
-{::nomarkdown}<a name="wrhoat"></a>{:/}**\-\-wrhoat**
-:  Write partial atomic densities to atom files
-
-{::nomarkdown}<a name="wrhomt"></a>{:/}**\-\-wrhomt &thinsp;\|&thinsp; \-\-wpotmt**
-:  Not documented yet.
-
-{::nomarkdown} <a name="optics"></a> {:/}
-{::comment}
-(/docs/commandline/general/#optics)
-{:/comment}
-
-<i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
-
-**\-\-jdosw &thinsp;\|&thinsp; \-\-jdosw2**
-:  Channels for optical properties.  See optics documentation.
-^
-**\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
-:  Read or write optical matrix elements.  See optics documentation.
-
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
-
-{::nomarkdown} <a name="editors"></a> {:/}
-
-<i>The following switches invoke editors.
-Invoke the editor to see see their usage.</i>
-
-**\-\-chimedit**
-:  Magnetic susceptibility editor
-^
-**\-\-rsedit**
-:  Restart file editor
-^
-**\-\-popted**
-:  Optics editor
-^
-**\-\-wsig~edit**
-:  QS<i>GW</i> self-energy editor
-
-{::nomarkdown} <a name="qsgw"></a> {:/}
-{::comment}
-(/docs/commandline/general/#qsgw)
-{:/comment}
-
-<i>The following switches affect how</i> **lmf**{: style="color: blue"} <i>reads, writes, or modifies the QSGW self-energy</i>
- &Sigma;<sup>0</sup>.\\
-_Note:_{: style="color: red"}&nbsp; &Sigma;<sup>0</sup> is stored in practice as $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$, so that this potential can be added
-to the LDA potential.
-
-**\-\-mixsig=#1[,#2]**
-:  **lmf**{: style="color: blue"} reads QS<i>GW</i> self-energy &Sigma;<sup>0</sup> from
-   two files, _sigm.ext_{: style="color: green"} and _sigm1.ext_{: style="color: green"}.
-   For &Sigma;<sup>0</sup> it takes the linear combination &ensp;**#1&times;**_sigm.ext_{: style="color: green"} + **#2&times;**_sigm1.ext_{: style="color: green"}.\\
-   If **#2** is missing, it does not read _sigm1.ext_{: style="color: green"} but scales &Sigma;<sup>0</sup> by **#1**.
-^
-**\-\-rsig[~options]**
-:  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file.
-
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-rsig**).
-
-   + **~ascii**:&ensp;  read sigm in ascii format.
-   + **~rs**:&ensp;     read sigm in real space.
-   + **~null**:&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
-   + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
-   + **~spinav**:&ensp; average spin channels in spin-polarized sigma
-   + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
-
-   If either **~ascii** or **~rs** is used, the input file name may change:
-
-   | :- | :-: | :-: |
-   &nbsp; |   k-space | real-space
-   binary |    sigm   |   sigmrs
-   ascii  |    sigma  |   sigmars
-
-^
-**\-\-wsig[~options]**
-:  Writes a possibly modified QS<i>GW</i> self-energy to _sigm2.ext_{: style="color: green"} and exits.
-
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
-
-   + **~newkp**:&ensp;  	 generate sigma on a new k-mesh
-   + **~edit**:&ensp;   	 invoke the sigma editor.  This editor has many options, which you can see by running the editor.
-
-   The following are special-purpose modes
-
-   + **~spinav**:&ensp; 	 average spin channels in spin-polarized sigma
-   + **~onesp**:&ensp;  	 average spin channels in spin-polarized sigma
-   + **~rot**:&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
-   + **~trans=#**:&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
-   + **~phase**:&ensp;  	 Add phase shift to sigma
-   + **~fbz**:&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
-   + **~sumk**:&ensp;   	 sum sigma over _k_.  Implies fbz
-   + **~shftq**:&ensp;  	 add qp offset to qp where sigma is made
-   + **~wvxcf**:&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
-
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
-
 #### _Introduction_
 _____________________________________________________________
 All of the programs have special branches that may be (and sometimes must be) set from command-line switches.
@@ -731,6 +408,329 @@ Note : without it a blank line is inserted before sub-bullets
 {::comment}
 {::nomarkdown}</div>{:/}
 {:/comment}
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ lmf
+{::comment}
+(/docs/commandline/general/#switches-for-lmf)
+{:/comment}
+
+**lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
+
+Command line switches with links are organized by function in the table below.  Use the links for quick reference.
+
+| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
+| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **[\-\-cls](/docs/commandline/general/#cls)**&nbsp; **[\-\-cv](/docs/commandline/general/#cv)**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **[\-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[\-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wrhoat](/docs/commandline/general/#wrhoat)** |
+| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **[\-\-SOefield](/docs/commandline/general/#SOefield)** |
+| [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
+| [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
+| [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
+
+Command-line switches:
+
+{::nomarkdown}<a name="rs"></a>{:/}**\-\-rs=#1[,#2,#3,#4,#5**]
+:  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
+
+   +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
+      Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
+   +  **#1=1:** read restart data from binary _rst.ext_{: style="color: green"}
+   +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
+   +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
+   +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
+      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
+   +  Add 100 to rotate local densities, if the lattice has been rotated.
+
+   +  **#2=0:** serves same function as **#1**, but for writing output densities.
+   +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
+   +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
+   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
+
+   +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
+   +  **#3=1:** ignore positions in restart file
+
+   +  **#4=0:** read guess for Fermi level and window from restart file, overwriting data from input file (default).
+      This data is needed when the BZ integration is performed by sampling.
+   +  **#4=1:** ignore data in restart file
+
+   +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
+   +  **#5=1:** ignore **P** in restart file
+
+   Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
+^
+{::nomarkdown}<a name="band"></a>{:/}**\-\-band[~options]**
+: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
+   can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
+
+   + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
+     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
+     [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).
+   + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
+     of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+     with k-points followed by eigenvalues.
+   + The [mesh mode](/docs/input/data_format/#mesh-mode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
+     purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
+     Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
+     [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+
+   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
+   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands.
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
+   + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}.  Works only with **~qp** and **~con** modes.
+   + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
+   + **~ef=#**:&ensp;        Use **#** for Fermi level.
+   + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
+   + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
+   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
+   + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
+   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
+   + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
+   + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
+   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
+   + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
+      With this option you can make band plots with three independent colors.
+
+   The **col** option tells the band generator to save, in addition to
+   the energy bands, a corresponding weight for each energy.
+   Each band is resolved into individual orbital character by a Mulliken decomposition
+   The sum of Mulliken weights from <b><i>orbital-list</i></b> is the weight assigned to a state.
+   Thus if <b><i>orbital-list</i></b> contains all orbitals the weights will be unity.
+
+   The individual orbitals make up the hamiltonian basis. States specified in <b><i>orbital-list</i></b>
+   corresponding to the ordering of the orbitals in the hamiltonian.  You can get a
+   table of this ordering by invoking `lm|lmf --pr55 --quit=ham ...`.
+   Choose <b><i>orbital-list</i></b> from the orbitals you want to select out of the Table.
+
+   This list can sometimes be rather long and complex.  To accomodate this,
+   some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
+
+   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
+^
+{::nomarkdown}<a name="rhopos"></a>{:/}**\-\-rhopos**
+:  Render all three components density everywhere positive.  (This can be in an issue because of the 
+   [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
+^
+{::nomarkdown}<a name="rpos"></a>{:/}**\-\-rpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
+   _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
+^
+{::nomarkdown}<a name="wpos"></a>{:/}**\-\-wpos=_fnam_**
+:  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
+^
+{::nomarkdown}<a name="lmfpdos"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+:  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
+   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
+^
+{::nomarkdown}<a name="cls"></a>{:/}**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
+:  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
+                   elements and weights for core-level-spectroscopy.
+   See **subs/suclst.f**{: style="color: green"} for a description of options.
+^
+{::nomarkdown}<a name="optbas"></a>{:/}**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
+:  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
+   passes (not generating the output density or adding to the save file), varying selected parameters belonging to tokens RSMH= and EH= to
+   minimize the total energy wrt these parameters.\\
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-optbas**):
+
+   + **etol=#**:&ensp;  only adjust parameter if energy gain exceeds **#**.
+   + No species given:&ensp; **lmf**{: style="color: blue"} optimizes wrt RSMH in each species.
+   + **spec=_spid_,rs**: Optimize wrt RSMH for a particular species.
+   + **spec=_spid_,e**:  Optimize wrt EH for a particular species.
+   + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
+   + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
+   + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
+^
+{::nomarkdown}<a name="rdbasp"></a>{:/}**\-\-rdbasp[:_fn_]**
+:  tells the program to read basis parameters from file **_fn_**.
+   If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
+   This supersedes settings in **HAM\_AUTOBAS**.
+^
+{::nomarkdown}<a name="wden"></a>{:/}**\-\-wden[~options]**
+:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
+   At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
+   that has points on the mesh.\\
+   Options syntax:\\
+   **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
+
+   Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
+   direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
+   any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
+   approximation (see option **core**)
+
+   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are
+   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
+      &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
+   Specify the origin (a point through which the plane must pass) by\\
+      &emsp; **~o=i1,i2,i3**\\
+   Default value is **o=0,0,0**. Alternatively you can specify a the origin in Cartesian coordinates by:\\
+      &emsp; **~ro=x1,x2,x3**\\
+   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
+   Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
+
+    + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
+       **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
+       The last number (**#4**) specifies how many points to take in this direction and therefore corresponds to a length.
+       Default values : **l1=1,0,0,n1+1** where **n1** is the number of points on the third axis.
+    + **~l2=#1,#2,#3[,#4]**&ensp; second direction vector as noted above, and number of points (**#4**)\\
+       Default values : **l2=0,1,0,n2+1** where **n2** is the number of points on the second axis.
+    + **core=#**   specifies how local densities are to be included in the mesh.\\
+       Any local density added is expanded as polynomial * gaussian, and added to the smoothed mesh density.
+       + **#=0**&ensp; includes core densities + nuclear contributions
+       + **#=1**&ensp; includes core densities, no nuclear contributions
+       + **#=2**&ensp; exclude core densities
+       + **#=-1**&ensp; no local densities to be included (only interstitial)
+       + **#=-2**&ensp; local density, with no smoothed part
+       + **#=-3**&ensp; interstitial and local smoothed densities\\
+       Default: **core=2**
+
+    + **fn=_filnam_**&ensp;  specifies the file name for file I/O. The default name is _smrho.ext_{: style="color: green"}
+    + **3d**&ensp;           causes a 3D mesh density to be saved in XCRYSDEN format
+    + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
+      These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands.
+      Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
+
+    Example: suppose **n1=n2=48** and **n3=120**.  Then\\
+    **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
+    writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
+    The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
+
+    Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
+    **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
+    generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
+    (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
+^
+{::nomarkdown}<a name="cv"></a>{:/}**\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
+: Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
+  You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
+  Data is written to file _cv.ext_{: style="color: green"}.
+^
+{::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
+:  Override file Fermi level; use with **-\-band**
+^
+{::nomarkdown}<a name="efrnge"></a>{:/}**\-\-efrnge**
+:  Print out indices to bands that bracket the Fermi level
+^
+{::nomarkdown}<a name="nofixef0"></a>{:/}**\-\-no-fixef0**
+:  Do not adjust estimate of Fermi level after first band pass
+^
+{::nomarkdown}<a name="oldvc"></a>{:/}**\-\-oldvc**
+:  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
+   boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
+^
+{::nomarkdown}<a name="quit"></a>{:/}**\-\-quit=_keyword_**
+:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
+^
+{::nomarkdown}<a name="shortenno"></a>{:/}**\-\-shorten=no**
+:  suppress shortening of site positions
+^
+{::nomarkdown}<a name="symsig"></a>{:/}**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
+:  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
+^
+{::nomarkdown}<a name="SOefield"></a>{:/}**\-\-SOefield**
+:  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
+^
+{::nomarkdown}<a name="vext"></a>{:/}**\-\-vext**
+:  Add external potential.  Not documented yet.
+^
+{::nomarkdown}<a name="wrhoat"></a>{:/}**\-\-wrhoat**
+:  Write partial atomic densities to atom files
+^
+{::nomarkdown}<a name="wrhomt"></a>{:/}**\-\-wrhomt &thinsp;\|&thinsp; \-\-wpotmt**
+:  Not documented yet.
+
+{::nomarkdown} <a name="optics"></a> {:/}
+{::comment}
+(/docs/commandline/general/#optics)
+{:/comment}
+
+<i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
+
+**\-\-jdosw &thinsp;\|&thinsp; \-\-jdosw2**
+:  Channels for optical properties.  See optics documentation.
+^
+**\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
+:  Read or write optical matrix elements.  See optics documentation.
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+{::nomarkdown} <a name="editors"></a> {:/}
+
+<i>The following switches invoke editors.
+Invoke the editor to see see their usage.</i>
+
+**\-\-chimedit**
+:  Magnetic susceptibility editor
+^
+**\-\-rsedit**
+:  Restart file editor
+^
+**\-\-popted**
+:  Optics editor
+^
+**\-\-wsig~edit**
+:  QS<i>GW</i> self-energy editor
+
+{::nomarkdown} <a name="qsgw"></a> {:/}
+{::comment}
+(/docs/commandline/general/#qsgw)
+{:/comment}
+
+<i>The following switches affect how</i> **lmf**{: style="color: blue"} <i>reads, writes, or modifies the QSGW self-energy</i>
+ &Sigma;<sup>0</sup>.\\
+_Note:_{: style="color: red"}&nbsp; &Sigma;<sup>0</sup> is stored in practice as $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$, so that this potential can be added
+to the LDA potential.
+
+**\-\-mixsig=#1[,#2]**
+:  **lmf**{: style="color: blue"} reads QS<i>GW</i> self-energy &Sigma;<sup>0</sup> from
+   two files, _sigm.ext_{: style="color: green"} and _sigm1.ext_{: style="color: green"}.
+   For &Sigma;<sup>0</sup> it takes the linear combination &ensp;**#1&times;**_sigm.ext_{: style="color: green"} + **#2&times;**_sigm1.ext_{: style="color: green"}.\\
+   If **#2** is missing, it does not read _sigm1.ext_{: style="color: green"} but scales &Sigma;<sup>0</sup> by **#1**.
+^
+**\-\-rsig[~options]**
+:  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file.
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-rsig**).
+
+   + **~ascii**:&ensp;  read sigm in ascii format.
+   + **~rs**:&ensp;     read sigm in real space.
+   + **~null**:&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
+   + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
+   + **~spinav**:&ensp; average spin channels in spin-polarized sigma
+   + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
+
+   If either **~ascii** or **~rs** is used, the input file name may change:
+
+   | :- | :-: | :-: |
+   &nbsp; |   k-space | real-space
+   binary |    sigm   |   sigmrs
+   ascii  |    sigma  |   sigmars
+
+^
+**\-\-wsig[~options]**
+:  Writes a possibly modified QS<i>GW</i> self-energy to _sigm2.ext_{: style="color: green"} and exits.
+
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
+
+   + **~newkp**:&ensp;  	 generate sigma on a new k-mesh
+   + **~edit**:&ensp;   	 invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+
+   The following are special-purpose modes
+
+   + **~spinav**:&ensp; 	 average spin channels in spin-polarized sigma
+   + **~onesp**:&ensp;  	 average spin channels in spin-polarized sigma
+   + **~rot**:&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
+   + **~trans=#**:&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
+   + **~phase**:&ensp;  	 Add phase shift to sigma
+   + **~fbz**:&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
+   + **~sumk**:&ensp;   	 sum sigma over _k_.  Implies fbz
+   + **~shftq**:&ensp;  	 add qp offset to qp where sigma is made
+   + **~wvxcf**:&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
