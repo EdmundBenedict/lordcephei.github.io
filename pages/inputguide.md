@@ -1165,7 +1165,7 @@ If there are no prior iterations, the scheme is a linear one:\\
 
 It is evident from Eq. 1 that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
 it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
-potential change associated with &delta;<i>n</n> goes as <i>G</i><sup>&minus;2</i></sup>&times;&delta;<i>n</n> and is dominated by the 
+potential change associated with &delta;<i>n</i> goes as <i>G</i><sup>&minus;2</i></sup>&times;&delta;<i>n</n> and is dominated by the 
 small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The simplest choice
 is to make **beta** small.
 
