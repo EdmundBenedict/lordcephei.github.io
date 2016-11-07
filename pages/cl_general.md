@@ -30,7 +30,6 @@ Command-line switches:
 
 **\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
-   Enter anywhere between 1 and five integers.
 
    +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
       Requires [_atm.ext_{: style="color: green"}](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis).
@@ -56,8 +55,7 @@ Command-line switches:
    +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
    +  **#5=1:** ignore **P** in restart file
 
-   Default switches:
-   If not specified, **lmf**{: style="color: blue"} defaults to \-\-rs=1,1,0,0,0
+   Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
 **\-\-band[~options]**
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
@@ -71,14 +69,14 @@ Command-line switches:
      with k-points followed by eigenvalues.
    + The [mesh mode](/docs/input/data_format/#mesh-mode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
      purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
-     Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for 
+     Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
      [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
-   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified. 
+   + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
-   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands. 
+   + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands.
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
    + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}.  Works only with **~qp** and **~con** modes.
    + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file **fnam.ext**{: style="color: blue"}. Default name is _qp.ext_{: style="color: green"}.
@@ -106,7 +104,7 @@ Command-line switches:
    table of this ordering by invoking `lm|lmf --pr55 --quit=ham ...`.
    Choose <b><i>orbital-list</i></b> from the orbitals you want to select out of the Table.
 
-   This list can sometimes be rather long and complex.  To accomodate this, 
+   This list can sometimes be rather long and complex.  To accomodate this,
    some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
 
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
@@ -152,13 +150,13 @@ Command-line switches:
    that has points on the mesh.\\
    Options syntax:\\
    **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
-                   
+
    Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
    direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
    any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
    approximation (see option **core**)
 
-   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are 
+   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are
    **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
       &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
    Specify the origin (a point through which the plane must pass) by\\
@@ -167,7 +165,7 @@ Command-line switches:
       &emsp; **~ro=x1,x2,x3**\\
    (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
    Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
-   
+
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
 
     + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
@@ -199,12 +197,41 @@ Command-line switches:
 
     Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
     **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
-    generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis 
+    generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
 **\-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
+
+The following switches affect how **lmf**{: style="color: blue"} reads, writes, or modifies the self-energy &Sigma;<sup>0</sup> generated by the QS<i>GW</i> suite.\\
+_Note:_{: style="color: red"} &Sigma;<sup>0</sup> is stored in practice as $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$, so that this potential can be added
+to the LDA potential.
+
+**\-\-mixsig=#1[,#2]**
+:  **lmf**{: style="color: blue"} reads QS<i>GW</i> self-energy &Sigma;<sup>0</sup> from
+   two files, _sigm.ext_{: style="color: green"} and _sigm1.ext_{: style="color: green"}.
+   For &Sigma;<sup>0</sup> it uses **#1&times;**_sigm.ext_{: style="color: green"} + **#2&times;**_sigm1.ext_{: style="color: green"}.
+   If **#2** is missing, it does not read _sigm1.ext_{: style="color: green"} but scales &Sigma;<sup>0</sup> by **#1**.
+
+
+**\-\-rsig[~options]**
+: Tells **lmf**{: style="color: blue"} about the form of the input self-energy file. See <B><A href="gw.html#section3.6">here</A></B> in the <i>GW</i> documentation.
+:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
+    + ~null    generate a null sigma consistent with the hamiltonian dimensions
+               Useful in combination with the sigma editor.
+    + ~fbz     sigma is stored for k in the full Brillouin zone
+    + ~ascii   read sigm in ascii format (file name is
+    + ~rs      read sigm in real space.\\
+
+  If either ~ascii or ~rs is used, the file name changes:
+
+| - | - |
+        |   k-space  real-space
+ binary |    sigm      sigmrs
+ ascii  |    sigma     sigmars
+
+
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
@@ -779,7 +806,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 {:/comment}
 
 **lmxbs**{: style="color: blue"} generates input for the graphics program **xbs**{: style="color: blue"}, a program
-written by M. Methfessel, which draws cartoons of crystals.  See 
+written by M. Methfessel, which draws cartoons of crystals.  See
 [this page](http://newton.ex.ac.uk/research/qsystems/people/goss/xbshelp.html).
 
 Command-line switches:
@@ -794,7 +821,7 @@ Command-line switches:
 +  **-sp:rule1[:rule2][...]**:&emsp;   modifies the species rmax and colors.\\
    _rule_ has the syntax\\
    _expr_,_rmax_,_red_,_green_,_blue_\\
-    _expr_ is a logical expression involving the class index ic and atomic number z.  
+    _expr_ is a logical expression involving the class index ic and atomic number z.
    If _expr_ evalates to true, the rule applies to this class.
    _rmax_, _red_, _green_, _blue_ are the ball size, and [RGB colors](/docs/misc/fplot/#color-specification) for the ball.
    Default values are taken for those numbers omitted.  For the colors, the defaults are  random numbers between 0 and 1.
@@ -802,7 +829,7 @@ Command-line switches:
    Example: **lmxbs -sp:z==0,.5,.1,.1,.1:z==13&ic>3,,1,0,0:z==13,,0,1,0'**\\
    Empty spheres are nearly black, with rmax=.5 and Al atoms class index > 3 are red, with all remaining Al atoms green.
 ^
-+  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1**,**n2+1**,**n3+1** times in the three lattice directions.  
++  **-dup=_n1_,_n2_,_n3_[,_expr_]**:&emsp;   duplicates the unit cell **n1+1**,**n2+1**,**n3+1** times in the three lattice directions.
    Optional **_expr_** is a constraint.  If **_expr_** is present, sites whose for which **_expr_** is zero are excluded.\\
    Variables that may be used in **_expr_** are:\\
    + x1,x2,x3   site positions, in units of ALAT
