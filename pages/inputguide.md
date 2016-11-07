@@ -1127,7 +1127,7 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 <div style="text-align:center;">
 <i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;&emsp;  (1)
-</div>
+</div><br>
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
 <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
@@ -1138,9 +1138,9 @@ which reads in reciprocal space
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 
 Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>.
-It can be estimated given the total number of electrons **qval** from the free electron gas formula.  The Fermi level of the free electron gas is
+It can be estimated given the total number of electrons **qval** from the free electron gas formula.
 <div style="text-align:center;">
-<i>E</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;**qval&&)<sup>2/3</sup> = <i>k</i><sub><i>F</i></sub></sup>2</sup>
+<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;**qval**)<sup>1/3</sup>
 </div>
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
@@ -1166,7 +1166,7 @@ Mixing algorithms mix linear combinations of
 (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 If there are no prior iterations, then
 <div style="text-align:center;">
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 </div>
 
 It is evident from Eq.(1) that **beta** should be connected with the dielectric function.  However, **beta** is just a number.  If **beta** is one,
