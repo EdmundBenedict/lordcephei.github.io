@@ -1090,31 +1090,31 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 ... to be redesigned
 
-~~~
-+  **--1shot**:     evals do not correspond with QP levels
-
 _Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
 &Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
 **nw** and **domg** are designed to interpolate &Sigma;.\\
 In the following, choose either **nw** or **domg**.
 
 +  **--nw=# **:   Subdivide input energy mesh nw times
-+  **--domg=#**:    Target energy spacing for <i>A</i>(&omega;), eV
-                    domg chooses the nw that approximately yields target spacing.
-+  **--range=_&omega;_1,_&omega;_2 **: restrict generated results to _&omega;_1 < _&omega;_< _&omega;_2
++  **--domg=#**:  Target energy spacing for <i>A</i>(&omega;), eV.
+                  **nw** is chosen that bests fits target **domg**.
++  **--1shot**:   evals do not correspond with QP levels
++  **--range=<i>&omega;</i>1,<i>&omega;</i>2**: restrict generated results to <i>&omega;</i>1 < <i>&omega;</i>< <i>&omega;</i>2
 +  **--eps=#**:   smearing width, in eV
 +  **--ws**:\\
    Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
-   suitable for reading [**lmfgws**{: style="color: blue"}](/docs/commandline/general/#switches-for-lmfgws).
+   suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/commandline/general/#switches-for-lmfgws).
    Individual files are not written.\\
-   When using this switch, --nw=1 is advised.
+   When using this switch, **--nw=1** is advised.  **lmfgws**{: style="color: blue"} can do its own interpolation.
 +  **--cnst:_expr_**:\\
-   Exclude entries in SEComg.(UP,DN) for which expr is nonzero. _expr_ is an integer expression that can include the following variables:
-   +                 ib (band index)
-   +                 iq (k-point index)
-   +                 qx,qy,qz,q (components of q, and amplitude)
-   +                 eqp (quasiparticle level)
-   +                spin (1 or 2)
+   Exclude entries in _SEComg.(UP,DN)_{: style="color: green"} for which **_expr_** is nonzero.
+   **_expr_** is an integer expression that can include the following variables:
+   +    ib (band index)
+   +    iq (k-point index)
+   +    qx,qy,qz,q (components of q, and amplitude)
+   +    eqp (quasiparticle level)
+   +   spin (1 or 2)
+
    Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.
    **--cnst:iq==1&eqp>-10**
 
