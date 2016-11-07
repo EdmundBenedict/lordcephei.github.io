@@ -619,7 +619,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 SHOW | 1 | all | Y | F | Echo lines as they is read from input file and parsed by the proprocessor.<br>Command-line argument \-\-show provides the same functionality.
 HELP | 1 | all | Y | F | Show what input would be sought, without attempting to read data.<br>Command-line argument \-\-input provides the same functionality.
 VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly terse, 40 slightly verbose, 50 verbose, and so on. If more than one number is given, later numbers control verbosity in subsections of the code, notably the parts dealing with augmentation spheres.<br>May also be set from the command-line: \-\-pr#1[,#2]
-IACTIV | 1 | all | Y | F | Turn on interactive mode. At some point programs will prompt you with queries.<br>May also be controlled from the command-line: \-\-iactiv or \-\-iactiv=no.
+IACTIV | 1 | all | Y | F | Turn on interactive mode. Programs will prompt you with queries, in various contexts.<br>May also be controlled from the command-line: \-\-iactiv or \-\-iactiv=no.
 TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: \-\-time=#1[,#2]
 
 {::comment}
@@ -1289,7 +1289,10 @@ The options are described below.  They are parsed in routine **subs/parmxp.f**{:
 
 + **locm**:&ensp; (FP only) not documented yet.
 
-+ **r=_expr_**:&ensp; continue this block of mixing sequence until **rms error < _expr_.
++ **r=_expr_**:&ensp; continue this block of mixing sequence until **rms error < _expr_**.
+
+  _Example_: &emsp;**MIX=A4,b=.2,k=4
+  uses the Anderson method, killing the mixing file each fourth iteration.  The mixing **beta** is 0.2.
 
 You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set.\\
 Rules are separated by a "&thinsp;;&thinsp;".

@@ -63,11 +63,11 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
 + **-\-quit=_keyword_**
-  + quit after execution of certain blocks (electronic structure programs only).  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
+  + quit after execution of certain blocks (electronic structure programs only).&thinsp;Keywords are:&nbsp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
 
 + **-\-noinv &thinsp;\|&thinsp; -\-nosym** apply to programs that use symmetry operations
-  + **-\-noinv&ensp; suppresses the automatic inclusion of inversion symmetry (follows from time reversal)
-  + **-\-nosym**     suppresses symmetry operations all together 
+  + **-\-noinv**&ensp; suppresses the automatic inclusion of inversion symmetry (this symmetry follows from time reversal symmetry).
+  + **-\-nosym**&ensp; suppresses symmetry operations all together 
 
 + **-\-time=#1[,#2]**
   + Prints out a summary of timings in various sections of the code.
@@ -75,13 +75,13 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
     If #2 is nonzero, timings are printed on the fly.
 
 + **-\-iactive**
-  + Turns on 'interactive' mode, overriding any specification through IO_IACTIV in the ctrl file.
+  + Turns on ['interactive' mode](/docs/input/inputfile/#io), overriding any specification through IO_IACTIV in the ctrl file.
 
 + **-\-iactive=no** \| **-\-no-iactive**
   + Turns off 'interactive' mode.
 
 + **-c<i>name</i>=_string_"**
-  + Declares a character variable _name_ and assigns it to value _string_.
+  + Declares a character variable **_name_(( and gives it a value **_string_**.
 
 + **-v<i>name</i>=_expr_**
   + Declares a numeric variable _name_ and assigns its value to the result of expression _expr_.
@@ -773,6 +773,52 @@ Command-line switches:
   + invoke the shell **_cmd_** after every iteration.  (Not maintained).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ lmgf
+{::comment}
+(/docs/commandline/general/#switches-for-lm)
+{:/comment}
+
+**lmgf**{: style="color: blue"} is Green's function code based on the [ASA](/docs/code/asaoverview/)
+See also **lm**{: style="color: blue"} and **lmpg**{: style="color: blue"}.
+
+To obtain the charge density or other integrated properties, **lmgf**{: style="color: blue"} requires an energy integration in addition to
+the _k_ integration.  The Fermi level must be found by iteration; alternatively
+(which is what this code does), it shifts the system by a potential to reach
+the prescribed Fermi level.
+
+Command-line switches:
+
++ **-\-rs=#1,#2**\\
+  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
+
++ **-\-pdos[~options]**\\
+  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
+
++ **-\-mix=#**\\
+  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
+
++ **-\-ef=_ef_**\\
+  Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
+
+The following are specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
+
++ **--sites[~pair]~_site-list_**\\
+  + **GF\_MODE=10** | **GF\_MODE>11**:&ensp; calculate exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax)\\
+    Additional **~pair** also restricts coupling to neighors for sites in the list.
+  + **GF\_MODE=11**:&ensp; Analyze exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax).
+
+The following are specific to the exchange-analysis mode [**GF\_MODE=11**](/docs/input/inputfile/#gf)
+
++ **--wrsj[:j00][:amom][:sscl][:[g]scl=#][:tol=#] 
++ **--wmfj**:&ensp;
++ **--rcut=#**:&ensp;
++ **--tolJq=#**:&ensp;
++ **--amom[s]=mom1,mom2,\hellip;**:&ensp;
++ **--2xmsh**:&ensp;
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
 
 #### _Switches for_ lmdos
 {::comment}
