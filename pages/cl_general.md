@@ -66,6 +66,10 @@ Command-line switches:
 
    Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
+{::nomarkdown} <a name="band"></a> {:/}
+{::comment}
+(/docs/commandline/general/#band)
+{:/comment}
 **\-\-band[~options]**
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
@@ -262,15 +266,15 @@ Invoke the editor to see see their usage.</i>
 
 **\-\-chimedit**
 :  Magnetic susceptibility editor
-
+^
 **\-\-rsedit**
 :  Restart file editor
-
+^
 **\-\-popted**
-:  Optics
-
+:  Optics editor
+^
 **\-\-wsig~edit**
-:  QS<i>GW</> self-energy editor
+:  QS<i>GW</i> self-energy editor
 
 {::nomarkdown} <a name="qsgw"></a> {:/}
 {::comment}
