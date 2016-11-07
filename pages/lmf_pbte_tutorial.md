@@ -641,6 +641,26 @@ It mixes the input density <i>n</i><sup>in</sup> with output density <i>n</i><su
 to construct a new input density <i>n</i><sup>in</sup>.  This process is repeated until <i>n</i><sup>out</sup>=<i>n</i><sup>in</sup>
 (within a specified tolerance). The actual mixing algorithm can be quite involved; see [this page](/docs/input/inputfile/#itermix).
 
+2. The gap is small and Pb is a heavy element.  Doesn't spin-orbit coupling affect the band structure?
+
+Yes, it does.  The bandgap will change significantly when spin-orbit coupling is added.
+
+3. The LDA is supposed to underestimate bandgaps.  But the PbTe bandgap looks pretty good.  Why is that?
+
+This turns out to be largely an accident.  If spin orbit coupling is included, the bandgap appears to be pretty good, but in fact the levels
+L<sup>+</sup><sub>6</sub> and L<sup>-</sup><sub>6</sub> the form the valence and conduction band edges are inverted in the LDA.  In
+QS<i>GW</i>, however, they are well described.  See in particular Table I of [this paper](http://prb.aps.org/abstract/PRB/v81/i24/e245120).
+
+4. How do you know where the band edges are?
+
+In this case the material is quite simple with high symmetry. It's a good be that the
+band edges are on high-symmetry lines.  But in general the position of band edges can be
+quite complex.  A slightly more complicated case is Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge).
+
+5. Is there an easy way to calculate effective masses?
+
+Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf_bandedge).
+
 ### _Additional exercises_
 {::comment}
 /tutorial/lmf/lmf_pbte_tutorial/#additional-exercises
@@ -650,6 +670,7 @@ to construct a new input density <i>n</i><sup>in</sup>.  This process is repeate
 
 2. Specify symops manually.
 
+3. Turn on spin orbit coupling and observe how the band structure changes.
 
 {::comment}
 
