@@ -225,10 +225,10 @@ to the LDA potential.
 
    If either **~ascii** or **~rs** is used, the file name changes:
 
-   | - | - |
-           |   k-space  real-space
-    binary |    sigm      sigmrs
-    ascii  |    sigma     sigmars
+   | :- | :-: | :-: |
+           |   k-space | real-space
+    binary |    sigm   |   sigmrs
+    ascii  |    sigma  |   sigmars
 
 
 
