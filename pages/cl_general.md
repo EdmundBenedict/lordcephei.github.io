@@ -548,7 +548,7 @@ Command-line switches:
    + **spec=_spid_,rs**: Optimize wrt RSMH for a particular species.
    + **spec=_spid_,e**:  Optimize wrt EH for a particular species.
    + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
-   + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
+   + **spec=_spid_&hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
 ^
 {::nomarkdown}<a name="rdbasp"></a>{:/}**-\-rdbasp[:_fn_]**
@@ -792,9 +792,9 @@ Command-line switches:
 +  **-\-rs=#1,#2**\\
    [Same function](/docs/commandline/general/#switches-for-lm) as **lm**
 +  **-\-pdos[~options]**\\
-   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
+   [Same function](/docs/commandline/general/#switches-for-lm) as **lm**
 +  **-\-mix=#**\\
-   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
+   [Same function](/docs/commandline/general/#switches-for-lm) as [**lm**]
 +  **-\-ef=_ef_**\\
    Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
 
@@ -811,24 +811,54 @@ The following are specific to the exchange-analysis mode [**GF\_MODE=11**](/docs
 
 + **--wrsj[:j00][:amom][:sscl][:[g]scl=#][:tol=#]**:\\
   Write exchange parameters to file, which can be used, e.g. by **lmmag**{: style="color: blue"}.
-+ **--wmfj**:&ensp;
++ **--wmfj**:\\
+  Output J(q=0) as input for mean-field calculation
 + **--rcut=_rcut_**:\\
   Truncate J(R-R') to radius **_rcut_**
 + **--tolJq=#**:\\
   Sets tolerance for allowed deviation from symmetry in Jr
-+ **--amom[s]=mom1,mom2,\hellip;**:\\
-  Overrides moments calulated from ASA **Q** parameters.
-  Affects scaling of exchange parameters.
-  Particularly when **lmgf**{: style="color: blue"} is being used to analyze exchange interactions computed from the _GW_ code.
-+ **--2xrpa**:
++ **--amom[s]=mom1,mom2,&hellip;**:\\
+  Overrides moments calculated from [ASA moments **Q**](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q).
+  Affects scaling of exchange parameters.\
+  Particularly useful when **lmgf**{: style="color: blue"} is being used to analyze exchange interactions computed from the _GW_ code.
++ **--2xrpa**:\\
   Doubles the mesh of <i>J</i>(<i>q</i>) when estimating the critical temperature in RPA.
 + **--long**:\\
   Write spin wave energies with extra digits
 + **--qp=_fn_**:\\
   Read qp for SW energies from file **_fn_**
 
-
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ tbe
+
+... to be rewritten
+
+~~~
+ --band[~option...] --wpos=fnam -cont -dumph --st --md=# --mv=# --xyz=#
+   The last 4 switches apply to molecular dynamics simulations
+
+  Mixing options
+ --mxq          Mix multipole moments and magnetic moments togther: beta
+ --mxq2         Mix multipole moments and magnetic moments separately: beta, betav
+ --mxr          Mix Hamiltonian
+
+  MPI process mapping options. In most cases the default mapping is the optimal choice
+ --kblocks=#    Number of rectangular processor blocks over which to distribute the k-points
+ --nprows=#     Number of rows of the ScaLAPACK/BLACS process arrays/blocks.
+
+  Linear scalling playground options
+ --linscl {msi|ls++}
+                Switch to linear scalling branch:
+                  msi : matrix sign iterations/polynomial mode
+                  ls++: use the LS++ library (MPI C++),from T. Kuehne et. al.
+ --bgc          Set expected band gap centre
+ --lstol        Set tolerance/accuracy for iterations
+                and threshold for values stored in sparse matrices (second argument, if present)
+ --lsxxp        the LS++ p parameter (ls++ branch only)
+ --lsxxb        the LS++ beta parameter (ls++ branch only)
+~~~
+
 
 
 #### _Switches for_ lmdos
@@ -1049,6 +1079,49 @@ Command-line switches:
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
+#### _Switches for_ lmfgws
+
++ **--sfuned**\\
+  Run the spectral function editor. Invoke the editor to see see its usage.
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ spectral
+
+... to be redesigned
+
+~~~
+    --1shot :     evals do not correspond with QP levels
+
+     Choose either nw or domg.
+     Note: spectral function is only reliable on a fine energy mesh.
+     When --ws is used, --nw=1 is advised.
+       -nw=#  :
+      --nw=#  :   Subdivide input energy mesh nw times
+     -domg=# :
+    --domg=# :    Target energy spacing for A(omega), eV
+                  domg chooses the nw that approximately yields target spacing.
+
+    --range=#1,#2:restrict generated files to #1 < omega < #2
+
+    --eps=# :     smearing width, eV
+
+    --ws :        Write a self-energy file (se) for all q.
+                  Individual files are not writen.
+
+    --cnst:expr : Exclude entries in SEComg.(UP,DN) for which expr is nonzero.
+                  'expr' is an integer expression that can include the following variables:
+                    ib (band index)
+                    iq (k-point index)
+                    qx,qy,qz,q (components of q, and amplitude)
+                    eqp (quasiparticle level)
+                    spin (1 or 2)
+                  Example: Use only the first k-point and exclude bands 1..3
+                  --cnst:iq==1&eqp>-10
+~~~
+
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Site-list syntax_
 _____________________________________________________________
