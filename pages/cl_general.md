@@ -62,6 +62,9 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
   + Sets output verbosities, overriding any specification in the ctrl file.
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
++ **-\-quit=_keyword_**
+  + quit after execution of certain blocks.  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
+
 + **-\-time=#1[,#2]**
   + Prints out a summary of timings in various sections of the code.
     Timings are kept to a nesting level of #1.\\
@@ -420,7 +423,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
-| Affects program flow       | **[-\-ef](/docs/commandline/general/#ef)**&nbsp; **[-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[-\-quit](/docs/commandline/general/#quit)**&nbsp; **[-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[-\-rs](/docs/commandline/general/#rs)**&nbsp; **[-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[-\-vext](/docs/commandline/general/#vext)**
+| Affects program flow       | **[-\-ef](/docs/commandline/general/#ef)**&nbsp; **[-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[-\-quit](/docs/commandline/general/#pr)**&nbsp; **[-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[-\-rs](/docs/commandline/general/#rs)**&nbsp; **[-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[-\-vext](/docs/commandline/general/#vext)**
 | Additional files generated | [**-\-band**](/docs/commandline/general/#band)&nbsp; **[-\-cls](/docs/commandline/general/#cls)**&nbsp; **[-\-cv](/docs/commandline/general/#cv)**&nbsp; **[-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[-\-wden](/docs/commandline/general/#wden)**&nbsp; **[-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/commandline/general/#wrhoat)** |
 | Additional printout        | **[-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[-\-pr](/docs/commandline/general/#pr)**&nbsp; **[-\-SOefield](/docs/commandline/general/#SOefield)** |
 | [Optics specific](/docs/commandline/general/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
@@ -622,9 +625,6 @@ Command-line switches:
 {::nomarkdown}<a name="oldvc"></a>{:/}**-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
-^
-{::nomarkdown}<a name="quit"></a>{:/}**-\-quit=_keyword_**
-:  quit after execution of certain blocks.  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
 ^
 {::nomarkdown}<a name="shortenno"></a>{:/}**-\-shorten=no**
 :  suppress shortening of site positions
