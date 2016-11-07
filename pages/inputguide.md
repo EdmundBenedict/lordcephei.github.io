@@ -1123,10 +1123,10 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 <div style="text-align:center;">
-<i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
+<i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
 </div>
 
-[//]: #  <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
+[//]: test
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
 <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
@@ -1135,6 +1135,9 @@ The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&
 which reads in reciprocal space
 
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
+
+Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>, which can be estimated given the total number of
+electrons from the free electron gas formula.
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
 a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).
@@ -1163,11 +1166,12 @@ If there are no prior iterations, the scheme is a linear one:
   <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 </div>
 
-It is evident from Eq.(1) that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
-it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
-potential change associated with &delta;<i>n</i> goes as <i>&delta;V</i> &prop; <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is
-dominated by the small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The
-simplest choice is to make **beta** small.  
+It is evident from Eq.(1) that **beta** is connected with the dielectric function.  However, **beta** is just a number.  If **beta** is one,
+<b>X</b><sup>*</sup> = <b>X</b><sup>out</sup>; if **beta**&rarr;0, <b>X</b><sup>*</sup> scarcely changes from <b>X</b><sup>in</sup>.  For
+small systems, it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a
+problem (the potential change associated with &delta;<i>n</i> goes as <i>&delta;V</i> ~ <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i>
+and is dominated by the small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.
+The simplest choice is to make **beta** small.
 
 The beauty of the Kerker mixing scheme is that charges in small _G_ components of the density
 get damped out, while the short-ranged, large _G_ components do not.
