@@ -1117,17 +1117,20 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 This token is part of the [**ITER**](/docs/input/inputfile/#iter) category.
 Its contents are a string consisting of mixing options, described here.
 
+<div style="text-align:center;"> try this </div>
+
+
 This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
 trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
-<i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
+<i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; 
 
-[//]: # <i>&epsilon;</i> 
+[//]: # (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
 
-x is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;
+<i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;
 : <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
 it is not given by the standard self-consistency procedure.
 The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
