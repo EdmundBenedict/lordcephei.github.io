@@ -203,12 +203,16 @@ Command-line switches:
 **\-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
+^
 **\-\-cv:**
 : Calculate electronic specific heat, eV
+^
 **\-\-cvK:**
 : Calculate electronic specific heat, K
+^
 **\-\-shorten=no**
 :  suppress shortening of site positions
+^
 **\-\-no-fixef0**
 :  Do not adjust estimate of Fermi level after 1st band pass
 **\-\-symsig**
