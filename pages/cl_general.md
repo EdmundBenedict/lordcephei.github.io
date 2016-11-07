@@ -213,8 +213,7 @@ to the LDA potential.
    two files, _sigm.ext_{: style="color: green"} and _sigm1.ext_{: style="color: green"}.
    For &Sigma;<sup>0</sup> it uses **#1&times;**_sigm.ext_{: style="color: green"} + **#2&times;**_sigm1.ext_{: style="color: green"}.
    If **#2** is missing, it does not read _sigm1.ext_{: style="color: green"} but scales &Sigma;<sup>0</sup> by **#1**.
-
-
+^
 **\-\-rsig[~options]**
 :  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file.
 
@@ -232,22 +231,21 @@ to the LDA potential.
    + **~fbz**&ensp;    sigma is stored for k in the full Brillouin zone
    + **~spinav**&ensp; average spin channels in spin-polarized sigma;
    + **~shftq**&ensp;  add qp offset to qp where sigma is made
-
+^
 **\-\-wsig[~options]**
-:  writes the QS<i>GW</i> self-energy &Sigma<sup>0</sup> to disk.
+:  writes the QS<i>GW</i> self-energy &Sigma;<sup>0</sup> to disk.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
-
-   + **~newkp**&ensp;  	 generate sigma on a new k-mesh
-   + **~edit**&ensp;   	 invoke the sigma editor
-   + **~spinav**&ensp; 	 average spin channels in spin-polarized sigma;
-   + **~onesp**&ensp;  	 average spin channels in spin-polarized sigma;
-   + **~rot**&ensp;    	 rotate sigma matrix.  See a2rotm for syntax.
-   + **~trans=#**&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
-   + **~phase**&ensp;  	 Add phase shift to sigma
-   + **~sumk**&ensp;   	 sum sigma over k.  Implies fbz
-   + **~shftq**&ensp;  	 add qp offset to qp where sigma is made
-   + **~wvxcf**&ensp;  	 read vxc file and write as vxcsig (used by lmfgwd)
+      + **~newkp**&ensp;  	 generate sigma on a new k-mesh
+      + **~edit**&ensp;   	 invoke the sigma editor
+      + **~spinav**&ensp; 	 average spin channels in spin-polarized sigma;
+      + **~onesp**&ensp;  	 average spin channels in spin-polarized sigma;
+      + **~rot**&ensp;    	 rotate sigma matrix.  See a2rotm for syntax.
+      + **~trans=#**&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
+      + **~phase**&ensp;  	 Add phase shift to sigma
+      + **~sumk**&ensp;   	 sum sigma over k.  Implies fbz
+      + **~shftq**&ensp;  	 add qp offset to qp where sigma is made
+      + **~wvxcf**&ensp;  	 read vxc file and write as vxcsig (used by lmfgwd)
 
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
