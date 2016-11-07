@@ -28,7 +28,7 @@ _____________________________________________________________
 
 This table gives a synopsis of command line switches, organized by function:
 
-| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **\-\-quit**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; [**\-\-pdos**](/docs/commandline/general/#pdos)&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
@@ -134,7 +134,7 @@ Command-line switches:
                    elements and weights for core-level-spectroscopy.
    See **subs/suclst.f**{: style="color: green"} for a description of options.
 ^
-<a name="optbas"></a>{:/}**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
+{::nomarkdown}<a name="optbas"></a>{:/}**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
 :  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
    passes (not generating the output density or adding to the save file), varying selected parameters belonging to tokens RSMH= and EH= to
    minimize the total energy wrt these parameters.\\
@@ -224,7 +224,7 @@ Command-line switches:
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
-**\-\-quit=_keyword_**
+{::nomarkdown}<a name=quit"></a>{:/}**\-\-quit=_keyword_**
 :  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
 ^
 **\-\-shorten=no**
