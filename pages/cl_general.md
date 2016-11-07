@@ -80,14 +80,14 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
 + **-\-iactive=no** \| **-\-no-iactive**
   + Turns off 'interactive' mode.
 
-+ **-c<i>name</i>=_string_"**
++ **-cname=_string_"**
   + Declares a character variable **_name_(( and gives it a value **_string_**.
 
-+ **-v<i>name</i>=_expr_**
++ **-vname=_expr_**
   + Declares a numeric variable _name_ and assigns its value to the result of expression _expr_.
     Only the first declaration of a variable is used. Later declarations have no effect.
 
-    In addition to the assignment operator (**=**{: style="color: red"}) there are generalized assignment
+    _Note:_{: style="color: red"} there are also generalized assignment
     operators &thinsp;<b>*=</b>{: style="color: red"},&thinsp; <b>/=</b>{: style="color: red"}, <b>+=</b>{: style="color: red"},&thinsp;
     <b>-=</b>{: style="color: red"},&thinsp; and <b>^=</b>{: style="color: red"} that [modify already-declared variables](/docs/input/preprocessor/#vardec),
     following C syntax.
