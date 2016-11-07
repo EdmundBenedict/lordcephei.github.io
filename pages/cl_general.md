@@ -201,7 +201,8 @@ Command-line switches:
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
 **\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
-: Calculate electronic specific heat for a list of temperatures.  You must use Brillouin sampling with Fermi function [(**BZ\_N=&minus;1**)](/docs/input/inputfile/#bz)
+: Calculate electronic specific heat for a list of temperatures.  
+  You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
 **\-\-efrnge**
@@ -215,17 +216,16 @@ Command-line switches:
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
 **\-\-quit=_keyword_**
-:  quit after execution of certain blocks.  Keywords are:
-   **atom**&ensp; **band**&ensp; **ham**&ensp; **dos**&ensp; **rho**&ensp; **pot**&ensp;
+:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**&ensp;.
 ^
 **\-\-shorten=no**
 :  suppress shortening of site positions
 ^
 **\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
-:  Symmetrize sigma (if read) overriding default behavior, or suppress it
+:  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
 ^
 **\-\-SOefield**
-:  Makes SO-weighted average of electric field at each site
+:  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
 ^
 **\-\-vext**
 :  Add external potential.  Not documented yet.
