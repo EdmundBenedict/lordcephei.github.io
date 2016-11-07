@@ -1190,9 +1190,9 @@ Then estimate
 </div>
 Now **beta** can be much larger again, of order unity.
 
-**lmf**{: style="color: blue"}  uses a Lindhard function for the mesh density (similar to Kerker mixing) and attempts to
-compensate for the contribution from local densities in an approximate way. 
-The ASA codes offer two options:
+**lmf**{: style="color: blue"} uses a Lindhard function for the mesh density (similar to Thomas Fermi screening; only the Lindard function
+is the actual dielectric function for the free electron gas) and attempts to compensate for the contribution from local densities in an
+approximate way.  The ASA codes offer two options:
 
 1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix.
 2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see [OPTIONS\_SCR](/docs/input/inputfile/#options)).
@@ -1208,10 +1208,10 @@ Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs tak
 As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span> 
 than <i>&delta;</i>X; but the mixing scheme works for either.
 
-You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of\\
+You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of
 <pre>
-  MIX=A<sub>n</sub>
-  MIX=B<sub>n</sub>
+  MIX=A<i>n</i>
+  MIX=B<i>n</i>
 </pre>
 which tells the mixer which scheme to use.  **slatsm/amix.f**{: style="color: green"} describes the mathematics behind the Anderson scheme.
 
@@ -1221,9 +1221,9 @@ iterations to disk, to read them the next time through.  Data is I/O to _mixm.ex
 The Anderson scheme is particularly simple to monitor.  How much of <span style="text-decoration: overline"><i>&delta;</i>X</span> 
 from prior iterations is included in the final mixed vector is printed to stdout as parameter **tj**, e.g.
 <pre>
-   tj: 0.47741
-   tj:-0.39609  -0.44764
-   tj:-0.05454   0.01980
+   tj: 0.47741                           &larr; iteration 2
+   tj:-0.39609  -0.44764                 &larr; iteration 3
+   tj:-0.05454   0.01980                 &larr; iteration 4
    tj: 0.24975
    tj: 0.48650
    tj:-1.34689
@@ -1250,8 +1250,8 @@ controls how much weight is given to prior iterations in the mix
 
 The general syntax is for **_ITER\_MIX_** is
 <pre>
-   A<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][,elind=#][;...]  or
-   B<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,elind=#][,k=nkill]
+A<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,n=_nit_][,w=w1,w2][,nam=_fn_][,k=_nkill_][,elind=#][;...]  or
+B<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,wc=_wc_][,n=_nit_][,w=w1,w2][,nam=_fn_][,elind=#][,k=_nkill_]
 </pre>
 The options are described below.  They are parsed in routine **parmxp.f**{: style="color: green"}.  Parameters (**b**, **wc**, etc.) may occur in any order.:
 
@@ -1260,34 +1260,39 @@ The options are described below.  They are parsed in routine **parmxp.f**{: styl
 
 + **b=_beta_**:&ensp; the mixing parameter **beta** as described [above](/docs/input/inputfile/#charge-mixing-general-considerations)
 
-+ **nit**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
++ **n=_nit_**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
   it starts over with the first set.
 
-+ **fnam**:&ensp; mixing file name (_file_{: style="color: green"} is the default). Must be eight characters or fewer.
++ **name=_fn_**:&ensp; mixing file name (_mixm_{: style="color: green"} is the default). Must be eight characters or fewer.
 
-+ **nkill**:&ensp; kill mixing file after nkill iterations.  This is helpful when the mixing runs out of steam, or when the mixing parameters change.
++ **k=_nkill_**:&ensp; kill mixing file after **_nkill_** iterations.  This is helpful when the mixing runs out of steam, or when the mixing parameters change.
 
-+ **wc**:&ensp; (Broyden only) that controls how much weight is given to prior iterations in estimating the Jacobian.  wc=1 is fairly conservative.
-  Choosing wc<0 assigns a floating value to wc, equal to -wc-input/rms-err.  This increases wc as the error becomes small.
++ **wc=_wc_**:&ensp; (Broyden only) that controls how much weight is given to prior iterations in estimating the Jacobian.  **wc=1** is fairly conservative.
+  Choosing **wc<0** assigns a floating value to the actual **wc**, proportional to **&minus;_wc_/rms-error**.  This increases **wc** as the error becomes small.
 
-+ **w1,w2**:&ensp; (spin-polarized calculations only) pqmix mixes the sum (up+down) and difference (up-down) of the two spin channels.  They are
-  weighted by w1 and w2 in the mixing, more heavily emphasizing the more heavily weighted.  As special cases, w1=0 freezes the charge and
-  mixes the magnetic moments only w2=0 freezes the moments and mixes the charge only
++ **w1,w2**:&ensp; (spin-polarized calculations only) The up- and down- spin channels are not mixed independently.  
+  Instead the sum (up+down) and difference (up-down) are mixed.  The two cmobinations are 
+  weighted by **w1** and **w2** in the mixing, more heavily emphasizing the more heavily weighted. 
+   As special cases, **w1=0** _freezes_ the charge and mixes the magnetic moments only while **w2=0** _freezes_ the moments and mixes the charge only.
 
-+ **wa**:&ensp;  (ASA) weight for extra quantities included with P,Q in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.  For nonspherical density, includes the qpp.  As special cases, any one or two of w1,w2 and wa may be zero.  A zero weight freezes the values corresponding to those weights.
++ **elind=_elind_**:&ensp; The Lindhard energy.  **elind**=k</i><sub><i>F</i></sub><sup>2</sup>.
+  **elind<0**: Use the free-electron gas value, scaled by **&minus;_elind_**.
 
-You can mix with one set of rules for a certain number of iterations, and switch to a new set of rules.  The rules are strung together and separated by a "&thinsp;;&thinsp;".
++ **wa**:&ensp; (ASA only) weight for extra quantities included with **P,Q** in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.
 
-  &emsp;**Example: MODE=B30,n=8,w=2,1,fn=mxm,wc=11,k=3;A2,b=1**\\
-  does 8 iterations of Broyden mixing, followed by Anderson mixing
-  The Broyden iterations weight the (up+down) double that of
-  (up-down) for the spin pol case, and iterations are saved in a file
-  which is deleted at the end of every third iteration.  WC is 11.
-  beta assumes the default value.
-  The Anderson iterations mix two prior iterations with beta of 1.
++ **loc**:&ensp; (FP only) not documented yet.
+
++ **r=_expr_**:&ensp; continue this block of mixing sequence until **rms error < _expr_.
+
+You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set. 
+Rules are separated by a "&thinsp;;&thinsp;".
+
+  Example: &emsp;**MIX=B10,n=8,w=2,1,fn=mxm,wc=11,k=4;A2,b=1**\\ does 8 iterations of Broyden mixing, followed by Anderson mixing.  The
+  Broyden iterations weight the (up+down) double that of (up-down) for the magnetic case, and iterations are saved in a file which is
+  deleted at the end of every fourth iteration.  **wc** is 11.  **beta** assumes the default value.  The Anderson rules mix two prior iterations
+  with **beta**=1.
 
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
-
 
 [//]: test
 
