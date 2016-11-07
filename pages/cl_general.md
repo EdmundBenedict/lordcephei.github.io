@@ -31,7 +31,7 @@ Summary of command line switches, organized by function:
 | Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
-| Optics specific            | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
+| [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
 | [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
 | [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
 
@@ -238,6 +238,11 @@ Command-line switches:
 ^
 **\-\-vext**
 :  Add external potential.  Not documented yet.
+
+{::nomarkdown} <a name="optics"></a> {:/}
+{::comment}
+(/docs/commandline/general/#optics)
+{:/comment}
 
 <i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
 
