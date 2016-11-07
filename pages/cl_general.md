@@ -984,29 +984,29 @@ original, because the list of lattice vectors may not encompass all the translat
   (sort) Sorts the basis by ordering algebraic expressions associated with them.\\
   Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **-\-sort:'x3 x2'**.\\
   Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
-
+^
 **-\-sites:_site-list_**
 : Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
-
+^
 **-\-rsta &thinsp;\|&thinsp; --rsta,amom**
 : (ASA only) Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
   Optional **amom** applies to noncollinear magnetism: it flips the majority and minority spins for sites where the magnetic moment is negative,
   while rotating the Euler angle by 180&deg;
-
+^
 **-\-shorten**
 : shorten basis vectors.
-
+^
 **-\-pl:_expr_**
 : (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
-
+^
 **-\-wrsj[~fn=name][~scl=#]**
 : Writing the pairwise exchange parameters of the supercell generated, e.g., from **lmgf**{: style="color: blue"}. Input file _rsj.ext_{: style="color: green"} must be present.
-
+^
 **-\-disp~fnam~<i>site-list</i>**
 : Displace a set of atoms in the neighborhood of a given one, e.g. **-\-disp:tab2:style=3:Fex**\\
   Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**-\-shell~tab=2~disp=_file_**).
   See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
-
+^
 **-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
 : Make a  Special QuasiRandom Structure.  It works by minimizing a norm function.\\
   The norm is obtained by assigning a weight to each pair and three body correlator, and summing the individual weights.\\
