@@ -29,11 +29,11 @@ _____________________________________________________________
 Summary of command line switches, organized by function:
 
 | Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
-| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmp**&nbsp; **\-\-wrhoag** |
+| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
 | QSGW  specific             | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
-| Editors                    | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
+| [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
 
 Command-line switches:
 
@@ -247,6 +247,11 @@ Command-line switches:
 **\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
 
+{::nomarkdown} <a name="editors"></a> {:/}
+{::comment}
+(/docs/commandline/general/#editors)
+{:/comment}
+
 <i>The following switches invoke editors.</i>
 See see their usag, invoke the editor
 
@@ -262,6 +267,10 @@ See see their usag, invoke the editor
 **\-\-wsig~edit**
 :  QS<i>GW</> self-energy editor
 
+{::nomarkdown} <a name="qsgw"></a> {:/}
+{::comment}
+(/docs/commandline/general/#qsgw)
+{:/comment}
 
 <i>The following switches affect how</i> **lmf**{: style="color: blue"} <i>reads, writes, or modifies the QSGW self-energy</i>
  &Sigma;<sup>0</sup>.\\
