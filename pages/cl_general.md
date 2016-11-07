@@ -29,7 +29,7 @@ _____________________________________________________________
 Summary of command line switches, organized by function:
 
 | Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
-| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
+| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; [**\-\-pdos**](/docs/commandline/general/#pdos)&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
 | [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
@@ -67,7 +67,7 @@ Command-line switches:
    Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
 {::nomarkdown}<a name="band"></a>{:/}**\-\-band[~options]**
-: x tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
+: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
@@ -125,7 +125,7 @@ Command-line switches:
 **\-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
-**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+{::nomarkdown}<a name="band"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
 :  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
    Options are described [here](/docs/commandline/general/#switches-for-lmdos).
 ^
