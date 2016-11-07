@@ -28,12 +28,12 @@ _____________________________________________________________
 
 Summary of command line switches, organized by topic:
 
-| Affects program flow      | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shortenn=o**&nbsp; **\-\-symsig**&nbsp;
-| Affects what is generated or printed | band wpos pdos cls wden cv efrnge SOefield vext
-| Additional information      | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-efrnge**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-vext**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
-| Optics specific             | **\-\-jdosw**&nbsp; **\-\-opt**
-| QSGW  specific              | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
-| Editors                     | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig**
+| Affects program flow       | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shortenn=o**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Additional files generated | **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
+| Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
+| Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
+| QSGW  specific             | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
+| Editors                    | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig**
 
 Command-line switches:
 
