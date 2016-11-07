@@ -337,7 +337,7 @@ Note : without it a blank line is inserted before sub-bullets
 
     Example: **-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**\\
     writes to _tab2.ext_{: style="color: green"} a table in this format.  The table is restricted to displacements around site **1**, distance less than 3 a.u.
-
+^
 **-\-angles[options]**
 : Prints angles between triples of sites.
 
@@ -348,7 +348,7 @@ Note : without it a blank line is inserted before sub-bullets
 
   Example: **-\-angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
-
+^
 **-\-euler[options]**
 : Prints angles between spins (applicable to ASA noncollinear magnetism)
 
@@ -1045,7 +1045,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 **lmxbs**{: style="color: blue"} generates input for the graphics program **xbs**{: style="color: blue"}, a program
 written by M. Methfessel, which draws cartoons of crystals.  See
 [this page](http://newton.ex.ac.uk/research/qsystems/people/goss/xbshelp.html).
-
+3
 Command-line switches:
 ^
 +  **-bs=_expr_**:&ensp;   factor that scales the default ball (sphere) size. This factor scales **SPEC\_RMAX** by _expr_**. By default, the scaling is 0.5.
