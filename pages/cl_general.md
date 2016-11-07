@@ -67,7 +67,7 @@ Command-line switches:
    Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
 {::nomarkdown}<a name="band"></a>{:/}**\-\-band[~options]**
-: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
+: x tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) (default) is designed for plotting energy bands along symmetry lines.  In
