@@ -1117,18 +1117,16 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 This token is part of the [**ITER**](/docs/input/inputfile/#iter) category.
 Its contents are a string consisting of mixing options, described here.
 
-<div style="text-align:center;"> try this </div>
-
-
 This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
 trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
-<i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; 
+<div style="text-align:center;">
+<i>n</i><sup>\*</sup> =
+</div>
 
-[//]: # (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
+[//]: #  <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;
 : <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
@@ -1159,13 +1157,15 @@ vanishes at <b>X</b><sup>in</sup> = <b>X</b><sup>*</sup>.
 
 The mixing scheme offers a choice between the Broyden and Anderson methods.  Both schemes mix linear combinations of
 (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.\\
-If there are no prior iterations, the scheme is a linear one:\\
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+If there are no prior iterations, the scheme is a linear one:
 
-It is evident from Eq. 1 that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
+<div style="text-align:center;">
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+</div>
+
+It is evident from Eq.(1) that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
 it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
-potential change associated with &delta;<i>n</i> goes as <i>G</i><sup>&minus;2</i></sup>&times;&delta;<i>n</n> and is dominated by the 
+potential change associated with &delta;<i>n</i> goes as <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is dominated by the 
 small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The simplest choice
 is to make **beta** small.
 
