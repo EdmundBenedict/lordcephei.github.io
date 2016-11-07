@@ -763,13 +763,13 @@ Command-line switches:
     Options are described [here](/docs/commandline/general/#pdos)
 
 + **--mix=#**
-  + start the density mixing at rule `#'.  See [here](/docs/input/inputfile/#itermix) for a description of the mixing tag.
+  + start the density mixing at rule &thinsp;**'#'**.  See [here](/docs/input/inputfile/#itermix) for a description of the mixing tag.
 
 + **--onesp**
   + in the spin-polarized collinear case, tells the program that the spin-up and spin-down hamiltonians are equivalent (special antiferromagnetic case)
 
-+ **-sh=cmd**
-  + invoke the shell `cmd' after every iteration
++ **-sh=_cmd_**
+  + invoke the shell **_cmd_** after every iteration
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 

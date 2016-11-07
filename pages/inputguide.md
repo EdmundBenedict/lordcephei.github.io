@@ -1122,15 +1122,18 @@ trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing sc
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that\\
 
-&emsp; <i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).
+&emsp;&emsp;&emsp;&emsp; <i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).   (1)
 
-The difficulties are first, that <i>&epsilon;</i><sup>&minus;1</sup> is not known and second, that 
-<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;).  A reasonable approximation for is the Thomas Fermi approximation,
+<i>&epsilon;</i> is a function: <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
+is not given by the standard self-consistency procedure.
+the Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
 which reads in reciprocal space
 
-$$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (1) $$
+$$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 
-If the density were expanded in plane waves <i>n</i> = <i>n</i><sub>G</sub>, a simple mixing scheme would be
+If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub><i>n</i><sub><b>G</b></sub>,
+a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).  The Questaal codes do not
+have a plane wave represntation so we they do something else.
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
