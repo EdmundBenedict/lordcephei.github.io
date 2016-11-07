@@ -26,9 +26,9 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
-This table gives a synopsis of command line switches with links, organized by function:
+A synopsis of command line switches with links, organized by function, is given in the table below.
 
-| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **\-\-no-fixef0**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
@@ -118,6 +118,10 @@ Command-line switches:
 
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
+{::nomarkdown}<a name="rhopos"></a>{:/}**\-\-rhopos**
+:  Render all three components density everywhere positive.  (This can be in an issue because of the 
+   [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
+^
 **\-\-rpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
    _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
@@ -148,7 +152,7 @@ Command-line switches:
    + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
 ^
-**\-\-rdbasp[:_fn_]**
+{::nomarkdown}<a name="rdbasp"></a>{:/}**\-\-rdbasp[:_fn_]**
 :  tells the program to read basis parameters from file **_fn_**.
    If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
    This supersedes settings in **HAM\_AUTOBAS**.
@@ -220,7 +224,7 @@ Command-line switches:
 **\-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
 ^
-**\-\-no-fixef0**
+{::nomarkdown}<a name="nofixef0"></a>{:/}**\-\-no-fixef0**
 :  Do not adjust estimate of Fermi level after first band pass
 ^
 {::nomarkdown}<a name="oldvc"></a>{:/}**\-\-oldvc**
