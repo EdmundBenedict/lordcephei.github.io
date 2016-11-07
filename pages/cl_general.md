@@ -201,7 +201,7 @@ Command-line switches:
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
 **\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
-: Calculate electronic specific heat for a list of temperatures.  
+: Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
@@ -216,7 +216,7 @@ Command-line switches:
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
 **\-\-quit=_keyword_**
-:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**&ensp;.
+:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
 ^
 **\-\-shorten=no**
 :  suppress shortening of site positions
