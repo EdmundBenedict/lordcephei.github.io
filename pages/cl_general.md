@@ -218,6 +218,7 @@ to the LDA potential.
 **\-\-rsig[~options]**
 : Tells **lmf**{: style="color: blue"} about the form of the input self-energy file. See <B><A href="gw.html#section3.6">here</A></B> in the <i>GW</i> documentation.
 :  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
+
     + ~null    generate a null sigma consistent with the hamiltonian dimensions
                Useful in combination with the sigma editor.
     + ~fbz     sigma is stored for k in the full Brillouin zone
