@@ -204,7 +204,7 @@ Command-line switches:
 ^
 **\-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
-   boundary is chosen to be the zero.  That puts the Fermi level roughly zero.
+   boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
