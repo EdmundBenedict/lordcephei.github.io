@@ -1121,13 +1121,14 @@ trial density <i>n</i><sup>\*</sup> for a new iteration.
 
 
 ###### Charge mixing, general considerations
+(/docs/input/inputfile/#charge-mixing-general-considerations)
 
 In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 <div style="text-align:center;">
 <i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;&emsp;  (1)
-</div><br>
+</div>
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
 <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
@@ -1140,7 +1141,7 @@ $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>.
 It can be estimated given the total number of electrons **qval** from the free electron gas formula.
 <div style="text-align:center;">
-<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;**qval**)<sup>1/3</sup>
+<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;<b>qval</b>)<sup>1/3</sup>
 </div>
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
@@ -1149,7 +1150,7 @@ This is called the "Kerker mixing" algorithm.  The Questaal codes do not have a 
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
-is sufficient to completely specify the charge density.  Thus the density is not explicitly mixed.
+is sufficient to completely specify the charge density.  The density is not explicitly mixed.
 
 **lmf**{: style="color: blue"}, by contrast, uses a density consisting of [three
 parts](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density): a smooth density <i>n</i><sub>0</sub> carried on a
@@ -1166,15 +1167,15 @@ Mixing algorithms mix linear combinations of
 (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 If there are no prior iterations, then
 <div style="text-align:center;">
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 </div>
 
-It is evident from Eq.(1) that **beta** should be connected with the dielectric function.  However, **beta** is just a number.  If **beta** is one,
-<b>X</b><sup>*</sup> = <b>X</b><sup>out</sup>; if **beta**&rarr;0, <b>X</b><sup>*</sup> scarcely changes from <b>X</b><sup>in</sup>.  For
-small systems, it is usually sufficient to take **beta** on the order of, but smaller than unity.  For large systems charge sloshing becomes a
-problem (the potential change goes as <i>&delta;V</i> ~ <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i>
-so small _G_ components of <i>&delta;n</i> determine the rate of mixing) so you have to do something different.
-The simplest choice is to make **beta** small.
+It is evident from Eq.(1) that **beta** should be connected with the dielectric function.  However, **beta** is just a number.  If
+**beta**=1, <b>X</b><sup>*</sup> = <b>X</b><sup>out</sup>; if **beta**&rarr;0, <b>X</b><sup>*</sup> scarcely changes from
+<b>X</b><sup>in</sup>.  For small systems it is usually sufficient to take **beta** on the order of, but smaller than unity.  For large
+systems charge sloshing becomes a problem so you have to do something different.  This is because the potential change goes as
+<i>&delta;V</i> ~ <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> so small _G_ components of <i>&delta;n</i> determine the rate of mixing.
+The simplest (but inefficient) choice is to make **beta** small.
 
 The beauty of the Kerker mixing scheme is that charges in small _G_ components of the density
 get damped out, while the short-ranged, large _G_ components do not.
@@ -1194,21 +1195,24 @@ compensate for the contribution from local densities in an approximate way.
 The ASA codes offer two options:
 
 1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix.
-2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see tags [OPTIONS\_SCR](/docs/input/inputfile/#options).
+2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see [OPTIONS\_SCR](/docs/input/inputfile/#options)).
 
-There is a bit of overhead associated with the second option, but it is not too large and having it greatly facilitates convergence in large systems.
-This is particularly important in magnetic systems, where there are low-energy degrees of freedom associated with the magnetic parts that
+There is some overhead associated with the second option, but it is not too large and having it greatly facilitates convergence in large systems.
+This is particularly important in magnetic metals, where there are low-energy degrees of freedom associated with the magnetic parts that
 require large **beta**.
 
 ###### The _ITER\_MIX_ tag and how to use it
+(/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it)
 
 Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span> 
 than <i>&delta;</i>X; but the mixing scheme works for either.
 
 You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of\\
-  **MIX=A_n_**\\
-  **MIX=B_n_**\\
+<pre>
+  MIX=A<sub>n</sub>
+  MIX=B<sub>n</sub>
+</pre>
 which tells the mixer which scheme to use.  **slatsm/amix.f**{: style="color: green"} describes the mathematics behind the Anderson scheme.
 
 **_n_** is the maximum number of prior iterations to include in the mix.  As programs proceed to self-consistency, they dump prior
@@ -1251,10 +1255,10 @@ The general syntax is for **_ITER\_MIX_** is
 </pre>
 The options are described below.  They are parsed in routine **parmxp.f**{: style="color: green"}.  Parameters (**b**, **wc**, etc.) may occur in any order.:
 
-+ **A<i>n</i>** or **B<i>n</i>**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than nmix prior iterations.)\\
-  NB: **_n_**=0 implies linear mixing.
++ **A<i>n</i>** or **B<i>n</i>**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than _n_ prior iterations).\\
+  **_n_**=0 implies linear mixing.
 
-+ **b=_beta_**:&ensp; the mixing paramter **beta** as described 
++ **b=_beta_**:&ensp; the mixing parameter **beta** as described [above](/docs/input/inputfile/#charge-mixing-general-considerations)
 
 + **nit**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
   it starts over with the first set.
