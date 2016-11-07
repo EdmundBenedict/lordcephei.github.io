@@ -624,7 +624,7 @@ Command-line switches:
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
 {::nomarkdown}<a name="quit"></a>{:/}**\-\-quit=_keyword_**
-:  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
+:  quit after execution of certain blocks.  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
 ^
 {::nomarkdown}<a name="shortenno"></a>{:/}**\-\-shorten=no**
 :  suppress shortening of site positions
