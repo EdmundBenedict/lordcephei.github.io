@@ -233,15 +233,18 @@ to the LDA potential.
    + **~shftq**&ensp;  add qp offset to qp where sigma is made.
 ^
 **\-\-wsig[~options]**
-:  writes the QS<i>GW</i> self-energy &Sigma;<sup>0</sup> to disk.
+:  Writes a possibly modified QS<i>GW</i> self-energy to file <I>sigm2.ext</I> and exits.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
 
    + **~newkp**&ensp;  	 generate sigma on a new k-mesh
    + **~edit**&ensp;   	 invoke the sigma editor
-   + **~spinav**&ensp; 	 average spin channels in spin-polarized sigma;
-   + **~onesp**&ensp;  	 average spin channels in spin-polarized sigma;
-   + **~rot**&ensp;    	 rotate sigma matrix.  See a2rotm for syntax.
+
+   The following are special-purpose modes
+
+   + **~spinav**&ensp; 	 average spin channels in spin-polarized sigma
+   + **~onesp**&ensp;  	 average spin channels in spin-polarized sigma
+   + **~rot**&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
    + **~trans=#**&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
    + **~phase**&ensp;  	 Add phase shift to sigma
    + **~fbz**&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
