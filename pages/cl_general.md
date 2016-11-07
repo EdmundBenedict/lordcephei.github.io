@@ -26,7 +26,7 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
-A synopsis of command line switches with links, organized by function, is given in the table below.
+Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
 | Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **[\-\-cls](/docs/commandline/general/#cls)**&nbsp; **[\-\-cv](/docs/commandline/general/#cv)**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **[\-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[\-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wrhoat](/docs/commandline/general/#wrhoat)** |
