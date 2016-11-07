@@ -223,13 +223,12 @@ to the LDA potential.
     + **~null**&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
     + **~fbz**&ensp;    sigma is stored for k in the full Brillouin zone
 
-   If either **~ascii** or **~rs** is used, the file name changes:
+   If either **~ascii** or **~rs** is used, the file name may change:
 
    | :- | :-: | :-: |
-           |   k-space | real-space
-    binary |    sigm   |   sigmrs
-    ascii  |    sigma  |   sigmars
-
+   &nbsp; |   k-space | real-space
+   binary |    sigm   |   sigmrs
+   ascii  |    sigma  |   sigmars
 
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
