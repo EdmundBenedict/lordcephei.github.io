@@ -776,7 +776,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Switches for_ lmgf
 {::comment}
-(/docs/commandline/general/#switches-for-lm)
+(/docs/commandline/general/#switches-for-lmgf)
 {:/comment}
 
 **lmgf**{: style="color: blue"} is Green's function code based on the [ASA](/docs/code/asaoverview/).

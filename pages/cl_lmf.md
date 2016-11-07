@@ -5,5 +5,9 @@ permalink: "/docs/commandline/lmf/"
 header: no
 ---
 
-This page has been superseded.  See [here](/docs/commandline/general/#switches-for-lmf).
+### _Purpose_
+_____________________________________________________________
+This page serves to document the command line switches specifically applicable to the _lmf_{: style="color: blue"} program.
+{:.no_toc}
 
+This document has been superseded.  See [this page](/docs/commandline/general/#switches-for-lmf).
