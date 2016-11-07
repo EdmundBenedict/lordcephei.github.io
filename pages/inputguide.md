@@ -1123,7 +1123,7 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 <div style="text-align:center;">
-<i>n</i><sup>\*</sup> =
+<i>n</i><sup>*</sup> =
 </div>
 
 [//]: #  <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
@@ -1165,17 +1165,19 @@ If there are no prior iterations, the scheme is a linear one:
 
 It is evident from Eq.(1) that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
 it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
-potential change associated with &delta;<i>n</i> goes as <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is dominated by the 
+potential change associated with &delta;<i>n</i> goes as <i>&delta;V</i> &prop; <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is dominated by the 
 small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The simplest choice
 is to make **beta** small.
 
 An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function. 
-Construct &delta;<span style="text-decoration: overline"><i>n</i></span> = 
-<span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&times;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).
-and build 
+Construct <span style="text-decoration: overline"><i>&delta;n</i></span> = 
+<span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&thinsp;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).
+and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from 
+<span style="text-decoration: overline"><i>&delta;n</i></span>.
 Then estimate 
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
-
+<div style="text-align:center;">
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; <span style="text-decoration: overline"><i>&delta;</i>X</span>
+</div>
 
 
 density (recall that in the ASA, P's and Q's are enough to completely
