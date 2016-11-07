@@ -252,13 +252,7 @@ to the LDA potential.
 **\-\-rsig[~options]**
 :  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file.
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-rsig**):
-   If either **~ascii** or **~rs** is used, the file name may change:
-
-   | :- | :-: | :-: |
-   &nbsp; |   k-space | real-space
-   binary |    sigm   |   sigmrs
-   ascii  |    sigma  |   sigmars
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-rsig**).
 
    + **~ascii**:&ensp;  read sigm in ascii format.
    + **~rs**:&ensp;     read sigm in real space.
@@ -266,9 +260,17 @@ to the LDA potential.
    + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
    + **~spinav**:&ensp; average spin channels in spin-polarized sigma
    + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
+
+   If either **~ascii** or **~rs** is used, the input file name may change:
+
+   | :- | :-: | :-: |
+   &nbsp; |   k-space | real-space
+   binary |    sigm   |   sigmrs
+   ascii  |    sigma  |   sigmars
+
 ^
 **\-\-wsig[~options]**
-:  Writes a possibly modified QS<i>GW</i> self-energy to file <I>sigm2.ext</I> and exits.
+:  Writes a possibly modified QS<i>GW</i> self-energy to _sigm2.ext_{: style="color: green"} and exits.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
 
