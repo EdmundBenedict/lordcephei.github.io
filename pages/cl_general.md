@@ -29,8 +29,8 @@ _____________________________________________________________
 A synopsis of command line switches with links, organized by function, is given in the table below.
 
 | Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
-| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
-| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **\-\-SOefield** |
+| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **[\-\-cls](/docs/commandline/general/#cls)**&nbsp; **[\-\-cv](/docs/commandline/general/#cv)**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **[\-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
+| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **[\-\-SOefield](/docs/commandline/general/#SOefield)** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
 | [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
 | [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
@@ -126,14 +126,14 @@ Command-line switches:
 :  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
    _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
 ^
-**\-\-wpos=_fnam_**
+{::nomarkdown}<a name="wpos"></a>{:/}**\-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
 {::nomarkdown}<a name="lmfpdos"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
 :  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
    Options are described [here](/docs/commandline/general/#switches-for-lmdos).
 ^
-**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
+{::nomarkdown}<a name="cls"></a>{:/}**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
 :  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
                    elements and weights for core-level-spectroscopy.
    See **subs/suclst.f**{: style="color: green"} for a description of options.
@@ -213,7 +213,7 @@ Command-line switches:
     generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
-**\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
+{::nomarkdown}<a name="cv"></a>{:/}**\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
 : Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
@@ -240,7 +240,7 @@ Command-line switches:
 {::nomarkdown}<a name="symsig"></a>{:/}**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
 :  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
 ^
-**\-\-SOefield**
+{::nomarkdown}<a name="SOefield"></a>{:/}**\-\-SOefield**
 :  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
 ^
 {::nomarkdown}<a name="vext"></a>{:/}**\-\-vext**
@@ -259,10 +259,9 @@ Command-line switches:
 **\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
 
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
 {::nomarkdown} <a name="editors"></a> {:/}
-{::comment}
-(/docs/commandline/general/#editors)
-{:/comment}
 
 <i>The following switches invoke editors.
 Invoke the editor to see see their usage.</i>
