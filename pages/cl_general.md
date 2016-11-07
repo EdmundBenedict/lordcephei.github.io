@@ -29,7 +29,7 @@ _____________________________________________________________
 Summary of command line switches, organized by topic:
 
 | Affects program flow       | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
-| Additional files generated | **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
+| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
 | QSGW  specific             | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
