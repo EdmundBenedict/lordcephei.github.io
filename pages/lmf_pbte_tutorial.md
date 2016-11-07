@@ -100,7 +100,7 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
     $ cp actrl.pbte ctrl.pbte
 
 _Note:_{: style="color: red"} If you are preparating for a later QS<i>GW</i> calculation,
-use `blm --gw init.pbte`.  See [this page](/docs/misc/fplot/#switches-for-the-blm-tool) for documentation of 
+use `blm --gw init.pbte`.  See [this page](/docs/misc/fplot/#switches-for-blm) for documentation of 
 **blm**{: style="color: blue"}'s command-line switches.
 
 #### 2. _How the input file is organized_

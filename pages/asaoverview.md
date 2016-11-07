@@ -191,7 +191,7 @@ in a continous way, acquiring an extra integer each time a new node appears.
 ### _Generation of the sphere potential and energy moments Q_
 ________________________________________________________________________________________________
 {::comment}
-/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q/
+(/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q)
 {:/comment}
 
 

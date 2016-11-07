@@ -63,7 +63,10 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
 + **-\-quit=_keyword_**
-  + quit after execution of certain blocks.  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
+  + quit after execution of certain blocks (electronic structure programs only).  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
+
++ **-\-noinv &thinsp;\|&thinsp; -\-nosym**
+  + Suppress the automatic inclusion of inversion symmetry, or of symmetry operations all together (for programs that use symmetry operations)
 
 + **-\-time=#1[,#2]**
   + Prints out a summary of timings in various sections of the code.
@@ -128,9 +131,9 @@ Additionally, for any program utilizing site information, the following switches
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
-#### _Switches for the_ blm _tool_
+#### _Switches for_ blm
 {::comment}
-(/docs/commandline/general/#switches-for-the-blm-tool)
+(/docs/commandline/general/#switches-for-blm)
 {:/comment}
 
 {::comment}
@@ -731,6 +734,43 @@ to the LDA potential.
    + **~sumk**:&ensp;   	 sum sigma over _k_.  Implies fbz
    + **~shftq**:&ensp;  	 add qp offset to qp where sigma is made
    + **~wvxcf**:&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
+
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
+
+#### _Switches for_ lm
+{::comment}
+(/docs/commandline/general/#switches-for-lm)
+{:/comment}
+
+**lm**{: style="color: blue"} is the main [ASA density-functional code](/docs/code/asaoverview/) in the Questaal suite.
+
+See also **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"}.
+
+Command-line switches:
+
++ **--rs=#1,#2**
+  + causes **lm**{: style="color: blue"} to read atomic data from a restart file _rsta.ext_{: style="color: green"}.
+    By default the ASA writes potential information, e.g. [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
+    and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
+    to a separate file.  If **#1** is nonzero, data is read from _rsta.ext_{: style="color: green"}, superseding information in class files.
+    If **#2** is nonzero, data written _rsta.ext_{: style="color: green"}.
+
++ **--band[~option] 
+  + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/commandline/general/#band) for options.
+
+
++ **--pdos[:options]
+  + tells **lm**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
+    Options are described [here](/docs/commandline/general/#pdos)
+
++ **--mix=#
+  + start the density mixing at rule `#'.  See [here](/docs/input/inputfile/#iter) for a the mixing tag, **ITER_\MIX**
+
++ **--onesp 
+  + in the spin-polarized collinear case, tells the program that the spin-up and spin-down hamiltonians are equivalent (special antiferromagnetic case)
+
++ **-sh=cmd   
+  + invoke the shell `cmd' after every iteration
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
