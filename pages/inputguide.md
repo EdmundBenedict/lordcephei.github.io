@@ -1229,10 +1229,11 @@ Consider the case when a single prior iteration was mixed.
 
 + If **tj**=0, the new **X** is entirely composed of the current
 iteration.  This means self-consistency is proceeding in an optimal manner.
-+ If **tj**=1, it means that the new **X** is composed 100\% of the prior iteration.
-  This means that the algorithm doesn't like how the mixing is proceeding.  If you see successive iterations where **tj** is close to (or
++ If **tj**=1, it means that the new **X** is composed 100% of the prior iteration.
+  This means that the algorithm doesn't like how the mixing is proceeding, and is discarding the current iteration.
+  If you see successive iterations where **tj** is close to (or
   worse, larger than) unity, you should change something, e.g. reduce **beta**.
-+ If **tj**<0, it means that the algorithm thinks you can mix more of <b>X</b><sup>out</sup> and less of <b>X</b><sup>in</sup>.
++ If **tj**<0, the algorithm thinks you can mix more of <b>X</b><sup>out</sup> and less of <b>X</b><sup>in</sup>.
   If you see successive iterations where **tj** is significantly negative (less than &minus;1), increase **beta**.
 
 Broyden mixing uses a more sophisticated procedure, in which it
@@ -1246,13 +1247,12 @@ The general syntax is for **_ITER\_MIX_** is
    A<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][,elind=#][;...]  or
    B<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,elind=#][,k=nkill]
 </pre>
-The optional parameters (**b**, **wc**, etc.) may occur in any order.
+The options are described below.  They are parsed in routine **parmxp.f**{: style="color: green"}.  Parameters (**b**, **wc**, etc.) may occur in any order.:
 
-The options are described below.  They are parsed in routine **parmxp.f**{: style="color: green"}.
++ **A<i>n</i>** or **B<i>n</i>**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than nmix prior iterations.)\\
+  NB: **_n_**=0 implies linear mixing.
 
-+ **nmix**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than nmix prior iterations.)  NB: nmix=0 implies linear mixing.
-
-+ **beta**:&ensp; the mixing beta (see above)
++ **b=_beta_**:&ensp; the mixing paramter **beta** as described 
 
 + **nit**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
   it starts over with the first set.
@@ -1270,16 +1270,18 @@ The options are described below.  They are parsed in routine **parmxp.f**{: styl
 
 + **wa**:&ensp;  (ASA) weight for extra quantities included with P,Q in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.  For nonspherical density, includes the qpp.  As special cases, any one or two of w1,w2 and wa may be zero.  A zero weight freezes the values corresponding to those weights.
 
-You can mix with one set of rules for a certain number of iterations, and switch to a new set of rules.  The rules are strung together and separated by a '&thinsp;;&thinsp'.
+You can mix with one set of rules for a certain number of iterations, and switch to a new set of rules.  The rules are strung together and separated by a "&thinsp;;&thinsp;".
 
-  Example: MODE=B30,n=8,w=2,1,fn=mxm,wc=11,k=3;A2,b=1
-
+  &emsp;**Example: MODE=B30,n=8,w=2,1,fn=mxm,wc=11,k=3;A2,b=1**\\
   does 8 iterations of Broyden mixing, followed by Anderson mixing
   The Broyden iterations weight the (up+down) double that of
   (up-down) for the spin pol case, and iterations are saved in a file
   which is deleted at the end of every third iteration.  WC is 11.
   beta assumes the default value.
   The Anderson iterations mix two prior iterations with beta of 1.
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
 
 [//]: test
 
