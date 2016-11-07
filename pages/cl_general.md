@@ -28,7 +28,7 @@ _____________________________________________________________
 
 A synopsis of command line switches with links, organized by function, is given in the table below.
 
-| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
@@ -37,7 +37,7 @@ A synopsis of command line switches with links, organized by function, is given 
 
 Command-line switches:
 
-**\-\-rs=#1[,#2,#3,#4,#5**]
+{::nomarkdown}<a name="rs"></a>{:/}**\-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
 
    +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
@@ -122,7 +122,7 @@ Command-line switches:
 :  Render all three components density everywhere positive.  (This can be in an issue because of the 
    [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
 ^
-**\-\-rpos=_fnam_**
+{::nomarkdown}<a name="rpos"></a>{:/}**\-\-rpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
    _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
 ^
@@ -219,7 +219,7 @@ Command-line switches:
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
 {::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
-:  Override file Fermi level; use with **-\-\band**
+:  Override file Fermi level; use with **-\-band**
 ^
 **\-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
@@ -234,16 +234,16 @@ Command-line switches:
 {::nomarkdown}<a name="quit"></a>{:/}**\-\-quit=_keyword_**
 :  quit after execution of certain blocks.  Keywords are:&ensp; **atom**&nbsp; **band**&nbsp; **ham**&nbsp; **dos**&nbsp; **rho**&nbsp; **pot**
 ^
-**\-\-shorten=no**
+{::nomarkdown}<a name="shortenno"></a>{:/}**\-\-shorten=no**
 :  suppress shortening of site positions
 ^
-**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
+{::nomarkdown}<a name="symsig"></a>{:/}**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
 :  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
 ^
 **\-\-SOefield**
 :  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
 ^
-**\-\-vext**
+{::nomarkdown}<a name="vext"></a>{:/}**\-\-vext**
 :  Add external potential.  Not documented yet.
 
 {::nomarkdown} <a name="optics"></a> {:/}
