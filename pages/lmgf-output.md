@@ -23,7 +23,7 @@ _____________________________________________________________
 {:toc} 
 
 The output documented here is mostly taken from the **lmgf**{: style="color: blue"}
-[tutorial](/tutorial/tutorial/lmgf/lmgf/).
+[tutorial](/tutorial/lmgf/lmgf/).
 Some portions are adapted from other calculations, as will be indicated.
 
 The standard output is organised by blocks.  The sections below
