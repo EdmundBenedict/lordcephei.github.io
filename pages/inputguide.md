@@ -1120,42 +1120,52 @@ Its contents are a string consisting of mixing options, described here.
 This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
 trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
-<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that\\
+<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
-&emsp;&emsp;&emsp;&emsp; <i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).   (1)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
+<i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).   (1)
 
-<i>&epsilon;</i> is a function: <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
-is not given by the standard self-consistency procedure.
-the Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
+<i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;
+: <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
+it is not given by the standard self-consistency procedure.
+The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
 which reads in reciprocal space
 
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 
-If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub><i>n</i><sub><b>G</b></sub>,
+If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
 a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).  The Questaal codes do not
-have a plane wave represntation so we they do something else.
+have a plane wave represntation so they do something else.
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
-is sufficient to completely specify the charge density.
+is sufficient to completely specify the charge density.  Thus the density is not explicitly mixed.
 
-**lmf**{: style="color: blue"}, by contrast, uses a density consisting of three parts: a smooth density <i>n</i><sub>0</sub> carried on
-a uniform mesh, defined everywhere in space (<i>n</i><sub>0</sub> is <i>not</i> augmented; inside the augmentation spheres it is present as
-a "pseudodensity"); the true density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>lm</sub></i> inside each
-augmentation sphere; and finally a one-center expansion <i>n</i><sub>2</sub> of the smooth density in <i>Y<sub>lm</sub></i>, inside each
-augmentation sphere. The total density is expressed as a sum of three independent densities: <i>n</i> = <i>n</i><sub>0</sub> +
-<i>n</i><sub>1</sub> &minus; <i>n</i><sub>2</sub>.
-The mixing algorithm must mix all of them and it is somewhat involved.  See **fp/mixrho.f**{: style="color: green"} for details.
+**lmf**{: style="color: blue"}, by contrast, uses a density consisting of [three
+parts](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density): a smooth density <i>n</i><sub>0</sub> carried on a
+uniform mesh, defined everywhere in space and two local densities: the true density <i>n</i><sub>1</sub> and a one-center expansion
+<i>n</i><sub>2</sub> of the smooth density The mixing algorithm must mix all of them and it is somewhat involved.  
+See **fp/mixrho.f**{: style="color: green"} for details.
 
 In both cases the mixing process reduces to estimating a vector <b>X</b><sup>*</sup>
 related to the density (e.g. &thinsp;**P,Q**&thinsp; in the ASA)
 where &delta;<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>.
+vanishes at <b>X</b><sup>in</sup> = <b>X</b><sup>(</sup>.
 
 The mixing scheme offers a choice between the Broyden and Anderson methods.  Both schemes mix linear combinations of
-(<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration with pairs from prior iterations.
-
+(<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.\\
 If there are no prior iterations, the scheme is a linear one:\\
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
   <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;&times;</b> (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+
+It is evident from Eq. 1 that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
+it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
+small _G_ components dominate <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) you have to do something different.  The simplest choice
+is to make **beta** small.
+
+An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function, construct
+
+
 
 
 density (recall that in the ASA, P's and Q's are enough to completely
