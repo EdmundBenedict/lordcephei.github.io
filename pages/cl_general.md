@@ -779,24 +779,24 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 (/docs/commandline/general/#switches-for-lm)
 {:/comment}
 
-**lmgf**{: style="color: blue"} is Green's function code based on the [ASA](/docs/code/asaoverview/)
+**lmgf**{: style="color: blue"} is Green's function code based on the [ASA](/docs/code/asaoverview/).
 See also **lm**{: style="color: blue"} and **lmpg**{: style="color: blue"}.
 
 To obtain the charge density or other integrated properties, **lmgf**{: style="color: blue"} requires an energy integration in addition to
 the _k_ integration.  The Fermi level must be found by iteration; alternatively
-(which is what this code does), it shifts the system by a potential to reach
+(which is what this code does), it shifts the system by a constant potential to reach
 the prescribed Fermi level.
 
 Command-line switches:
 
-+ **-\-rs=#1,#2**\\
-  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-+ **-\-pdos[~options]**\\
-  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-+ **-\-mix=#**\\
-  Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
-+ **-\-ef=_ef_**\\
-  Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
++  **-\-rs=#1,#2**\\
+   [Same function](/docs/commandline/general/#switches-for-lm) as **lm**
++  **-\-pdos[~options]**\\
+   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
++  **-\-mix=#**\\
+   Same function as [**lm**](/docs/commandline/general/#switches-for-lm)
++  **-\-ef=_ef_**\\
+   Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
 
 The following is specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
 
