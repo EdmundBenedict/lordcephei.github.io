@@ -225,32 +225,32 @@ to the LDA potential.
    binary |    sigm   |   sigmrs
    ascii  |    sigma  |   sigmars
 
-   + **~ascii**&ensp;  read sigm in ascii format.
-   + **~rs**&ensp;     read sigm in real space.
-   + **~null**&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
-   + **~fbz**&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
-   + **~spinav**&ensp; average spin channels in spin-polarized sigma
-   + **~shftq**&ensp;  add qp offset to qp where sigma is made.
+   + **~ascii**:&ensp;  read sigm in ascii format.
+   + **~rs**:&ensp;     read sigm in real space.
+   + **~null**:&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
+   + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
+   + **~spinav**:&ensp; average spin channels in spin-polarized sigma
+   + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
 ^
 **\-\-wsig[~options]**
 :  Writes a possibly modified QS<i>GW</i> self-energy to file <I>sigm2.ext</I> and exits.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
 
-   + **~newkp**&ensp;  	 generate sigma on a new k-mesh
-   + **~edit**&ensp;   	 invoke the sigma editor
+   + **~newkp**:&ensp;  	 generate sigma on a new k-mesh
+   + **~edit**:&ensp;   	 invoke the sigma editor
 
    The following are special-purpose modes
 
-   + **~spinav**&ensp; 	 average spin channels in spin-polarized sigma
-   + **~onesp**&ensp;  	 average spin channels in spin-polarized sigma
-   + **~rot**&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
-   + **~trans=#**&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
-   + **~phase**&ensp;  	 Add phase shift to sigma
-   + **~fbz**&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
-   + **~sumk**&ensp;   	 sum sigma over _k_.  Implies fbz
-   + **~shftq**&ensp;  	 add qp offset to qp where sigma is made
-   + **~wvxcf**&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
+   + **~spinav**:&ensp; 	 average spin channels in spin-polarized sigma
+   + **~onesp**:&ensp;  	 average spin channels in spin-polarized sigma
+   + **~rot**:&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
+   + **~trans=#**:&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
+   + **~phase**:&ensp;  	 Add phase shift to sigma
+   + **~fbz**:&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
+   + **~sumk**:&ensp;   	 sum sigma over _k_.  Implies fbz
+   + **~shftq**:&ensp;  	 add qp offset to qp where sigma is made
+   + **~wvxcf**:&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
