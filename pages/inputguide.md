@@ -647,7 +647,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NIT | i | all | Y | 1 | Maximum number of iterations in the self-consistency cycle.
 NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed inside an augmentation sphere. This occurs when the density is determined from the momentsQ0,Q1,Q2 in the ASA; or in the free atom code, just Q0.<br>i1: max number of iterations<br>i2: number of prior iterations for Anderson mixing of the sphere density<br>Note: You will probably never need to use this token.
-MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]
+MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#itermix) for detailed description.
 AMIX | c | ASA | Y | | Mixing rules when Euler angles are mixed independently. Syntax as in MIX
 CONV | r | all | Y | 1e-4 | Maximum energy change from the prior iteration for self-consistency to be reached.
 CONVC | r | all | Y | 1e-4 | Maximum in the RMS difference in $$ <n^{out} − n^{in}> $$.<br>In the ASA, this is measured by the change in moments Q0..Q2 and log derivative parameter P.<br>In the full-potential case it is measured by an integral over the various parts of n (local, interstitial parts).
@@ -1110,45 +1110,57 @@ Add version control tokens for whatever programs your input file supports.
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _ITER\_MIX_
-(/docs/input/inputfile/#iter)
+{::comment}
+(/docs/input/inputfile/#itermix)
+{:/comment}
 
 This token is part of the [**ITER**](/docs/input/inputfile/#iter) category.
-Its contents are a string consisting of options, described here.
+Its contents are a string consisting of mixing options, described here.
 
-This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup>
-with output density <i>n</i><sup>out</sup> to make a trial density <i>n</i><sup>\*</sup>
-for a new iteration.
+This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
+trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
+density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
+<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
 is sufficient to completely specify the charge density.
 
-The charge density in **lmf**{: style="color: blue"}, by contrast, consists of three parts: a smooth density <i>n</i><sub>0</sub> carried on
+**lmf**{: style="color: blue"}, by contrast, uses a density consisting of three parts: a smooth density <i>n</i><sub>0</sub> carried on
 a uniform mesh, defined everywhere in space (<i>n</i><sub>0</sub> is <i>not</i> augmented; inside the augmentation spheres it is present as
 a "pseudodensity"); the true density <i>n</i><sub>1</sub> expressed in terms of spherical harmonics <i>Y<sub>lm</sub></i> inside each
 augmentation sphere; and finally a one-center expansion <i>n</i><sub>2</sub> of the smooth density in <i>Y<sub>lm</sub></i>, inside each
 augmentation sphere. The total density is expressed as a sum of three independent densities: <i>n</i> = <i>n</i><sub>0</sub> +
 <i>n</i><sub>1</sub> &minus; <i>n</i><sub>2</sub>.
-The mixing algorithm is somewhat involved.  See **fp/mixrho.f**{: style="color: green"} for details.
+The mixing algorithm must mix all of them and it is somewhat involved.  See **fp/mixrho.f**{: style="color: green"} for details.
 
-Mixing in both cases reduces to finding vector <b>X</b><sup>out</sup>.  The mixing scheme aims to find
-<b>X</b><sup>out</sup>
+In both cases the mixing process reduces to estimating a vector <b>X</b><sup>*</sup>
+<b>X</b><sup>*</sup> is a vector related to the density (e.g. **P,Q** in the ASA)
+where &delta<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>.
+
+The mixing scheme offers a choice between the Broyden and Anderson methods.
+Both schemes mix in linear combinations of (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs 
+from the current iteration with pairs from prior iterations.
+
+If there are no prior iterations, the scheme is a linear one:\\
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&times;</b> (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 
 
-
-There is a choice between the Broyden and Anderson mixing schemes.
-Both schemes mix in linear combinations of the input and output
 density (recall that in the ASA, P's and Q's are enough to completely
 specify the density) both from the present iteration and prior
 iterations to accelerate convergence to self-consistency (output =
 input).  For Anderson mixing, the mixing beta controls how much output
 and how much input moment is used in the next estimate for the
-moments: Q* = beta*Qout + (1-beta)*Qin.  Here Qout and Qin are charges
+moments: Q* = beta*Qout + (1-beta)*Qin.  
+
+Here Qout and Qin are charges
 (that is, moments or densities), and the "charges" generated by the
 input "charge" for a sequence of prior iterations.  For small systems,
 you can take beta close to one; for large systems charge sloshing
 becomes a problem and you have to do something different.  Possible
-choices need to take beta much smaller.  See slatsm/amix.f for a
+choices need to take beta much smaller.  
+
+See slatsm/amix.f for a
 description of the Anderson mixing scheme, and how it chooses the
 linear combination of prior iterations in the mix.
 
