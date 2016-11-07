@@ -26,14 +26,14 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
-Summary of command line switches, organized by topic:
+Summary of command line switches, organized by function
 
-| Affects program flow       | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
-| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
+| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmp**&nbsp; **\-\-wrhoag** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
 | QSGW  specific             | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
-| Editors                    | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig**
+| Editors                    | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
 
 Command-line switches:
 
