@@ -63,20 +63,18 @@ _____________________________________________________________
        + **#=2**&ensp; exclude core densities
        + **#=-1**&ensp; no local densities to be included (only interstitial)
        + **#=-2**&ensp; local density, with no smoothed part
-       + **#=-3**&ensp; interstitial and local smoothed densities
+       + **#=-3**&ensp; interstitial and local smoothed densities\\
        Default: **core=2**
 
     + **fn=_filnam_**&ensp;  specifies the file name for file I/O. The default name is _smrho.ext_{: style="color: green"}
-
     + **3d**&ensp;           causes a 3D mesh density to be saved in XCRYSDEN format
-
     + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
       These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands (given by lst=)
 
-     Example: suppose **n1=n2=48** and **n3=120**.  Then\\
-     **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
-     writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
-     The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
+   Example: suppose **n1=n2=48** and **n3=120**.  Then\\
+   **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
+   writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
+   The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
 
      Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
      **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
