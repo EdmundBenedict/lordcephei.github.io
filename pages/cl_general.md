@@ -31,8 +31,8 @@ Summary of command line switches, organized by function:
 | Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-mull**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
-| Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
-| QSGW  specific             | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
+| Optics specific            | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
+| [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
 | [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
 
 Command-line switches:
@@ -252,8 +252,8 @@ Command-line switches:
 (/docs/commandline/general/#editors)
 {:/comment}
 
-<i>The following switches invoke editors.</i>
-See see their usag, invoke the editor
+<i>The following switches invoke editors.
+Invoke the editor to see see their usage.</i>
 
 **\-\-chimedit**
 :  Magnetic susceptibility editor
