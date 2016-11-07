@@ -648,17 +648,18 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 
 1. The LDA is supposed to underestimate bandgaps.  But the PbTe bandgap looks pretty good.  Why is that?
 
-   This turns out to be largely an accident.  If spin orbit coupling is included, the bandgap appears to be pretty good, but in fact the levels
-   L<sup>+</sup><sub>6</sub> and L<sup>-</sup><sub>6</sub> the form the valence and conduction band edges are inverted in the LDA.  In
-   QS<i>GW</i>, however, they are well described.  See in particular Table I of [this paper](http://prb.aps.org/abstract/PRB/v81/i24/e245120).
+   This turns out to be largely an accident.  If spin orbit coupling is included, the bandgap appears to be pretty good, but in fact levels
+   L<sub>6</sub><sup>+</sup> and L<sub>6</sub><sup>&minus;</sup> that form the valence and conduction band edges are inverted in the LDA. 
+   See Table I of [this paper](http://prb.aps.org/abstract/PRB/v81/i24/e245120).
+   As the paper notes, they are well described in QS<i>GW</i>.
 
 1. How do you know where the band edges are?
 
-   In this case the material is quite simple with high symmetry. It's a good be that the
+   PbTe is has a quite simple band structure with high symmetry. It's a good bet that the
    band edges are on high-symmetry lines.  But in general the position of band edges can be
    quite complex.  A slightly more complicated case is Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge).
 
-{:start="5"}
+{:start="11"}
 1. Is there an easy way to calculate effective masses?
 
 Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf_bandedge).
