@@ -65,8 +65,9 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
 + **-\-quit=_keyword_**
   + quit after execution of certain blocks (electronic structure programs only).  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
 
-+ **-\-noinv &thinsp;\|&thinsp; -\-nosym**
-  + Suppress the automatic inclusion of inversion symmetry, or of symmetry operations all together (for programs that use symmetry operations)
++ **-\-noinv &thinsp;\|&thinsp; -\-nosym** apply to programs that use symmetry operations
+  + **-\-noinv&ensp; suppresses the automatic inclusion of inversion symmetry (follows from time reversal)
+  + **-\-nosym**     suppresses symmetry operations all together 
 
 + **-\-time=#1[,#2]**
   + Prints out a summary of timings in various sections of the code.
@@ -747,29 +748,29 @@ See also **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"}.
 
 Command-line switches:
 
-+ **--rs=#1,#2**
++ **-\-rs=#1,#2**
   + causes **lm**{: style="color: blue"} to read atomic data from a restart file _rsta.ext_{: style="color: green"}.
     By default the ASA writes potential information, e.g. [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
     and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
     to a separate file.  If **#1** is nonzero, data is read from _rsta.ext_{: style="color: green"}, superseding information in class files.
     If **#2** is nonzero, data written _rsta.ext_{: style="color: green"}.
 
-+ **--band[~options]**
++ **-\-band[~options]**
   + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/commandline/general/#band) for options.
 
 
-+ **--pdos[~options]**
++ **-\-pdos[~options]**
   + tells **lm**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
     Options are described [here](/docs/commandline/general/#pdos)
 
-+ **--mix=#**
++ **-\-mix=#**
   + start the density mixing at rule &thinsp;**'#'**.  See [here](/docs/input/inputfile/#itermix) for a description of the mixing tag.
 
-+ **--onesp**
++ **-\-onesp**
   + in the spin-polarized collinear case, tells the program that the spin-up and spin-down hamiltonians are equivalent (special antiferromagnetic case)
 
-+ **-sh=_cmd_**
-  + invoke the shell **_cmd_** after every iteration
++ **-\-sh=_cmd_**
+  + invoke the shell **_cmd_** after every iteration.  (Not maintained).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
