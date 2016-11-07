@@ -19,7 +19,7 @@ This tutorial:
 1. explains the input file's structure and illustrates some of its programming language capabilities
 2. generates self consistent atomic densities, to provide information for the crystal calculation
 3. generates a self consistent potential within the LDA
-5. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
+4. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
 5. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods
 6. forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
 
@@ -586,16 +586,16 @@ Change variable **gmax=0** in the ctrl file, or alternatively add a variable to 
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
 ~~~
 
-**lmf**{: style="color: blue"} should converge to self-consistency in 10 iterations.
+**lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
 Just before exiting, **lmf**{: style="color: blue"} prints out
 
-~~~
-                ↓        ↓
+<pre>
+              &darr;         &darr;
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
-~~~
+</pre>
 
 The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) energy relative to the prior iteration and some norm of RMS change in the
 charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
