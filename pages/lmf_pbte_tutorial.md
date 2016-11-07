@@ -659,7 +659,7 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
    band edges are on high-symmetry lines.  But in general the position of band edges can be
    quite complex.  A slightly more complicated case is Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge).
 
-{:start="11"}
+[//]: {:start="11"}
 1. Is there an easy way to calculate effective masses?
 
 Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf_bandedge).
