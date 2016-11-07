@@ -859,7 +859,7 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
  --lsxxb        the LS++ beta parameter (ls++ branch only)
 ~~~
 
-
+See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Switches for_ lmdos
 {::comment}
@@ -1091,35 +1091,32 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 ... to be redesigned
 
 ~~~
-    --1shot :     evals do not correspond with QP levels
++  **--1shot**:     evals do not correspond with QP levels
 
-     Choose either nw or domg.
-     Note: spectral function is only reliable on a fine energy mesh.
-     When --ws is used, --nw=1 is advised.
-       -nw=#  :
-      --nw=#  :   Subdivide input energy mesh nw times
-     -domg=# :
-    --domg=# :    Target energy spacing for A(omega), eV
-                  domg chooses the nw that approximately yields target spacing.
+_Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
+&Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
+**nw** and **domg** are designed to interpolate &Sigma;.\\
+In the following, choose either **nw** or **domg**.
 
-    --range=#1,#2:restrict generated files to #1 < omega < #2
-
-    --eps=# :     smearing width, eV
-
-    --ws :        Write a self-energy file (se) for all q.
-                  Individual files are not writen.
-
-    --cnst:expr : Exclude entries in SEComg.(UP,DN) for which expr is nonzero.
-                  'expr' is an integer expression that can include the following variables:
-                    ib (band index)
-                    iq (k-point index)
-                    qx,qy,qz,q (components of q, and amplitude)
-                    eqp (quasiparticle level)
-                    spin (1 or 2)
-                  Example: Use only the first k-point and exclude bands 1..3
-                  --cnst:iq==1&eqp>-10
-~~~
-
++  **--nw=# **:   Subdivide input energy mesh nw times
++  **--domg=#**:    Target energy spacing for <i>A</i>(&omega;), eV
+                    domg chooses the nw that approximately yields target spacing.
++  **--range=_&omega;_1,_&omega;_2 **: restrict generated results to _&omega;_1 < _&omega;_< _&omega;_2
++  **--eps=#**:   smearing width, in eV
++  **--ws**:\\
+   Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
+   suitable for reading [**lmfgws**{: style="color: blue"}](/docs/commandline/general/#switches-for-lmfgws).
+   Individual files are not written.\\
+   When using this switch, --nw=1 is advised.
++  **--cnst:_expr_**:\\
+   Exclude entries in SEComg.(UP,DN) for which expr is nonzero. _expr_ is an integer expression that can include the following variables:
+   +                 ib (band index)
+   +                 iq (k-point index)
+   +                 qx,qy,qz,q (components of q, and amplitude)
+   +                 eqp (quasiparticle level)
+   +                spin (1 or 2)
+   Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.
+   **--cnst:iq==1&eqp>-10**
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
