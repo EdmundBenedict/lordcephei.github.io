@@ -200,25 +200,22 @@ Command-line switches:
     generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
+**\-\-shorten=no**
+:  suppress shortening of site positions
+^
 **\-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
-**\-\-cv:**
-: Calculate electronic specific heat, eV
-^
-**\-\-cvK:**
-: Calculate electronic specific heat, K
-^
-**\-\-shorten=no**
-:  suppress shortening of site positions
-^
 **\-\-no-fixef0**
 :  Do not adjust estimate of Fermi level after 1st band pass
-**\-\-symsig**
-:  Symmetrize sigma (if read) overriding default behavior
-**\-\-symsig=no**
-:  Supress symmetrize sigma (if read)
+^
+**\-\-cv: &thinsp;\|&thinsp; \-\-cvK:**
+: Calculate electronic specific heat
+^
+**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
+:  Symmetrize sigma (if read) overriding default behavior, or suppress it
+^
 **\-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
 
@@ -226,16 +223,22 @@ The following switches have to do with the optics branch of **lmf**{: style="col
 
 **\-\-jdosw**
 :  Channels for optical properties; See doc/optics.html
+^
 **\-\-jdosw2**
 :  Channels for optical properties; See doc/optics.html
+^
 **\-\-opt:read**
 :  Read optical matrix elements; See doc/optics.html
+^
 **\-\-opt:write**
 :  Write optical matrix elements; See doc/optics.html
+^
 **\-\-quit=**
 :  quit after execution of certain blocks, e.g. --quit=ham
+^
 **\-\-SOefield**
 :  Makes SO-weighted average of electric field at each site
+^
 **\-\-vext**
 :  Add external potential
 
