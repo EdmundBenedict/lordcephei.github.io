@@ -976,7 +976,7 @@ original, because the list of lattice vectors may not encompass all the translat
   + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
   + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
-
+^
 **-\-ring:i1,i2** &thinsp;\|&thinsp; -\-swap:i1,i2 &thinsp;\|&thinsp; -\-sort: _expr1_ &thinsp;\|&thinsp; -\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; -\-sort:'_expr1_ _expr2_ _expr3_'**
 : Rearrange order of sites in the supercell.\\
   (ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
