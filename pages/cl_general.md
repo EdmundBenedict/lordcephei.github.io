@@ -218,17 +218,31 @@ to the LDA potential.
 **\-\-rsig[~options]**
 :  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file. See <B><A href="gw.html#section3.6">here</A></B> in the <i>GW</i> documentation.
 
-    + **~ascii**&ensp;  read sigm in ascii format (file name is
-    + **~rs**&ensp;     read sigm in real space.
-    + **~null**&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
-    + **~fbz**&ensp;    sigma is stored for k in the full Brillouin zone
-
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
    If either **~ascii** or **~rs** is used, the file name may change:
 
    | :- | :-: | :-: |
    &nbsp; |   k-space | real-space
    binary |    sigm   |   sigmrs
    ascii  |    sigma  |   sigmars
+
+    + **~ascii**&ensp;  read sigm in ascii format (file name is
+    + **~rs**&ensp;     read sigm in real space.
+    + **~null**&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
+    + **~fbz**&ensp;    sigma is stored for k in the full Brillouin zone
+    + **~--wsig[~options]**&ensp; :writes the self-energy.\\
+      Options:
+      + **~newkp**&ensp;  (w) generate sigma on a new k-mesh
+      + **~edit**&ensp;   (w) invoke the sigma editor
+      + **~spinav**&ensp; (r) average spin channels in spin-polarized sigma;
+      + **~onesp**&ensp;  (w) average spin channels in spin-polarized sigma;
+      + **~rot**&ensp;    (w) rotate sigma matrix.  See a2rotm for syntax.
+      + **~trans**&ensp;  (w) # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
+      + **~phase**&ensp;  (w) Add phase shift to sigma
+      + **~sumk**&ensp;   (w) sum sigma over k.  Implies fbz
+      + **~shftq**&ensp;  (r/w) add qp offset to qp where sigma is made
+      + **~wvxcf**&ensp;  (w) read vxc file and write as vxcsig (used by lmfgwd)
+
 
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
