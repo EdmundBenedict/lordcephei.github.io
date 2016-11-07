@@ -1198,7 +1198,7 @@ There is a bit of overhead associated with the second option, but it is not too 
 This is particularly important in magnetic systems, where there are low-energy degrees of freedom associated with the magnetic parts that
 require large **beta**.
 
-###### Options in the Mixing scheme
+###### The _ITER\_MIX_ tag and how to use it
 
 Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span> 
