@@ -202,6 +202,10 @@ Command-line switches:
    generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis 
    (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 
+**\-\-oldvc**
+:  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
+   boundary is chosen to be the zero.  That puts the Fermi level roughly zero.
+
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Introduction_
