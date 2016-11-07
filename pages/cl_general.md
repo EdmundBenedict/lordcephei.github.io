@@ -1088,12 +1088,9 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 #### _Switches for_ spectral
 
-... to be redesigned
-
 _Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
 &Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
-**nw** and **domg** are designed to interpolate &Sigma;.\\
-In the following, choose either **nw** or **domg**.
+**nw** and **domg** are designed to interpolate &Sigma;.  In the following, choose either **nw** or **domg**.
 
 +  **--nw=_nw_**:\\
    Subdivide input energy mesh **_nw_** times

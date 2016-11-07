@@ -635,7 +635,10 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 /tutorial/lmf/lmf_pbte_tutorial/#faq
 {:/comment}
 
-[//]: {:start="5"}
+
+[//]: Start counter at 5.  Uncomment the next line
+
+{:start="5"}
 
 1. How does **lmf**{: style="color: blue"} iterate to self-consistency?
 
