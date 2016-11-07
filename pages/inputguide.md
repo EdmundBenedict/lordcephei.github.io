@@ -1123,13 +1123,13 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 <div style="text-align:center;">
-<i>n</i><sup>&#42;</sup> =
+<i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
 </div>
 
 [//]: #  <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
 
-<i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;
-: <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
+<i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
+<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
 it is not given by the standard self-consistency procedure.
 The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
 which reads in reciprocal space
@@ -1137,8 +1137,8 @@ which reads in reciprocal space
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
-a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).  The Questaal codes do not
-have a plane wave represntation so they do something else.
+a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).
+This is called the "Kerker mixing" algorithm.  The Questaal codes do not have a plane wave represntation so they do something else.
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
@@ -1165,13 +1165,15 @@ If there are no prior iterations, the scheme is a linear one:
 
 It is evident from Eq.(1) that **beta** is connected with the dielectric function.  However, **beta** is just a number.  For small systems,
 it is usually sufficient to take **beta** on the order of, but smaller than one.  For large systems charge sloshing becomes a problem (the
-potential change associated with &delta;<i>n</i> goes as <i>&delta;V</i> &prop; <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is dominated by the 
-small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The simplest choice
-is to make **beta** small.
+potential change associated with &delta;<i>n</i> goes as <i>&delta;V</i> &prop; <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> and is
+dominated by the small _G_ components of <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>) so you have to do something different.  The
+simplest choice is to make **beta** small.  
 
+The beauty of the Kerker mixing scheme is that charges in small _G_ components of the density
+get damped out, while the short-ranged, large _G_ components do not.
 An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function. 
 Construct <span style="text-decoration: overline"><i>&delta;n</i></span> = 
-<span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&thinsp;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).
+<span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&thinsp;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>)
 and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from 
 <span style="text-decoration: overline"><i>&delta;n</i></span>.
 Then estimate 
