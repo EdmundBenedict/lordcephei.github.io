@@ -1120,12 +1120,11 @@ This string controls the mixing scheme, mixing input density <i>n</i><sup>in</su
 trial density <i>n</i><sup>\*</sup> for a new iteration.
 
 
-###### Density mixing, general considerations
+###### Charge mixing, general considerations
 
 In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
-
 <div style="text-align:center;">
 <i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;&emsp;  (1)
 </div>
@@ -1138,8 +1137,11 @@ which reads in reciprocal space
 
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 
-Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>, which can be estimated given the total number of
-electrons from the free electron gas formula.
+Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>.
+It can be estimated given the total number of electrons **qval** from the free electron gas formula.  The Fermi level of the free electron gas is
+<div style="text-align:center;">
+<i>E</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;**qval&&)<sup>2/3</sup> = <i>k</i><sub><i>F</i></sub></sup>2</sup>
+</div>
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
 a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).
