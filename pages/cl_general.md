@@ -29,8 +29,8 @@ _____________________________________________________________
 A synopsis of command line switches with links, organized by function, is given in the table below.
 
 | Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
-| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
-| Additional printout        | **\-\-efrnge**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **\-\-SOefield** |
+| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
+| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
 | [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
 | [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
@@ -157,7 +157,7 @@ Command-line switches:
    If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
    This supersedes settings in **HAM\_AUTOBAS**.
 ^
-**\-\-wden[~options]**
+{::nomarkdown}<a name="wden"></a>{:/}**\-\-wden[~options]**
 :  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
    At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
    that has points on the mesh.\\
@@ -221,7 +221,7 @@ Command-line switches:
 {::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
 :  Override file Fermi level; use with **-\-band**
 ^
-**\-\-efrnge**
+{::nomarkdown}<a name="efrnge"></a>{:/}**\-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
 ^
 {::nomarkdown}<a name="nofixef0"></a>{:/}**\-\-no-fixef0**
@@ -374,8 +374,9 @@ style="color: blue"} to read site positions from file _pos.cafeas_{: style="colo
 _Note:_{: style="color: red"} the preceding switches are intended to assist in managing and reading input files.
 They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks).
 
+{::nomarkdown}<a name="pr"></a>{:/}
 
-{::nomarkdown}<a name="pr"></a>{:/}+ **\-\-pr#1[,#2]** \| **-pr#1[,#2]**
++ **\-\-pr#1[,#2]** \| **-pr#1[,#2]**
   + Sets output verbosities, overriding any specification in the ctrl file.
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
