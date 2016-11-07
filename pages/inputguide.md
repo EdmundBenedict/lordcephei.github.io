@@ -32,10 +32,10 @@ Here is a sample input file for the compound Bi<sub>_2</sub>Te<sub>_3</sub> writ
 
 <div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/}
 
         categories                  tokens
-        ↓                            ↓
+
 
         VERS    		LM:7 FP:7
         HAM     		AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
@@ -67,7 +67,7 @@ Any text that begins in the first column is a category.
 
 The full identifier (_tag_{: style="color: brown"}) consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
 The leading component (trunk) is the *category*{: style="color: red"}; the last is the *token*{: style="color: blue"},
-which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}. 
+which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}.
 
 
 ##### _Tags, Categories and Tokens_
@@ -89,10 +89,10 @@ A category holds information for a family of data, for example **BZ**{: style="c
 {:/comment}
 <div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for a more detailed description of how a tag's tree structured syntax is represented.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/}
 
 Consider the Brillouin zone integration category. You plan to carry out the BZ integration using the Methfessel-Paxton sampling method.
-M-P integration has two parameters: polynomial order _n_ and gaussian width _w_. 
+M-P integration has two parameters: polynomial order _n_ and gaussian width _w_.
 Two tags are used to identify them: **BZ\_N** and **BZ_W**; they are usually expressed in the input file as follows:
 
     BZ	N=2	W=.01
@@ -126,13 +126,13 @@ Usually the tag tree has only two levels (category and token) but not always. Fo
             ...
     END
 
-The scope of  **SITE**  starts at "SITE"  and terminates just before "END". There will be multiple instances of the  **SITE_ATOM**  tag, one for each site. The scope of the first instance begins with the first occurrence of  ATOM  and terminates just before the second: 
+The scope of  **SITE**  starts at "SITE"  and terminates just before "END". There will be multiple instances of the  **SITE_ATOM**  tag, one for each site. The scope of the first instance begins with the first occurrence of  ATOM  and terminates just before the second:
 
-    ATOM=Ga  POS=  0   0   0    RELAX=T 
+    ATOM=Ga  POS=  0   0   0    RELAX=T
 
-And the scope of the second **SITE_ATOM** is 
+And the scope of the second **SITE_ATOM** is
 
-    ATOM=As  POS= .25 .25 .25 
+    ATOM=As  POS= .25 .25 .25
 
 Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) and as a tag holding tokens within it, in this case **SITE_ATOM_POS** and (for the first site) **SITE_ATOM_RELAX**.
 
@@ -145,11 +145,11 @@ _Note:_{: style="color: red"} [this manual](/docs/input/inputfilesyntax/) contai
 /docs/input/inputfile/#preprocessor
 {:/comment}
 
-Input lines are passed through a [preprocessor](/docs/input/preprocessor), 
-which provides a wide flexibility in how input files are structured. 
-The preprocessor has many features in common with a programming language, including the ability to 
-[declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions; 
-and it has constructs for 
+Input lines are passed through a [preprocessor](/docs/input/preprocessor),
+which provides a wide flexibility in how input files are structured.
+The preprocessor has many features in common with a programming language, including the ability to
+[declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions;
+and it has constructs for
 [branching](/docs/input/preprocessor/#branching-constructs) and
 [looping](/docs/input/preprocessor/#looping-constructs), to make possible multiple or conditional reading of input lines.
 
@@ -160,7 +160,7 @@ For example, supposing through a prior preprocessor instruction you have declare
 is turned in to:
 
         RMAX=3.25
- 
+
 The preprocessor treats text inside brackets {...} as an expression (usually an algebraic expression), which is evaluated and rendered back as an ASCII string.
 See this [annotated lmf output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 for an example.
@@ -248,10 +248,10 @@ The synopsis also tells you that you can specify the same information using **EX
 **SPEC_ATOM_LMX** is optional input whose default value depends on other input (in this case, atomic number).
 
 **SITE_ATOM_POS** is required input in the sense that you must supply either it
-or **SITE_ATOM_XPOS**.  The <b>\*</b> in <b>reqd\*</b> the information in **SITE_ATOM_POS** 
-can be supplied by an alternate tag -- **SITE_ATOM_XPOS** in this case. 
+or **SITE_ATOM_XPOS**.  The <b>\*</b> in <b>reqd\*</b> the information in **SITE_ATOM_POS**
+can be supplied by an alternate tag -- **SITE_ATOM_XPOS** in this case.
 
-_Note:_{: style="color: red"} if site data is given through a site file, 
+_Note:_{: style="color: red"} if site data is given through a site file,
 all the other tags in the **SITE** category will be ignored.
 
 The cast (real, integer, character) of each tag is indicated, and also how many numbers are to be read.  Sometimes tags will look for more
@@ -328,7 +328,7 @@ Category BZ holds information concerning the numerical integration of quantities
 These tokens are read by programs that make hamiltonians in periodic crystals (lmf,lm,lmgf,lmpg,tbe). Some tokens apply only to codes that make energy bands, (lmf,lm,tbe).
 
 Token | Arguments | Program | Optional | Default | Explanation
-- | - | - | - | - | - 
+- | - | - | - | - | -
 GETQP | l | | Y | F | Read list of k-points from a disk file. This is a special mode, and you normally would let the program choose its own mesh by specifying the number of divisions (see NKABC). <br> If token is not parsed, the program will attempt to parse NKABC.
 NKABC | l to 3 i | | N | | The number of divisions in the three directions of the reciprocal lattice vectors. k-points are generated along a uniform mesh on each of these axes. (This is the optimal general purpose quadrature for periodic functions as it integrates the largest number of sine and cosine functions exactly for a specified number of points.) <br><br> The parser will attempt to read three integers. If only one number is read, the missing second and third entries assume the value of the first. <br><br> Information from NKABC, together with BZJOB below, contains specifications equivalent to the widely used “Monkhorst Pack” scheme. But it is more transparent and easier to understand. The number of k-points in the full BZ is the product of these numbers; the number of irreducible k-points may be reduced by symmetry operations.
 PUTQP | l | | Y | F | If T, Write out the list of irreducible k-points to file qpts, and the weights for tetrahedron integration if available.
@@ -361,7 +361,7 @@ Category CONST enables the user to declare variables for use in algebraic expres
 
         CONST   a=10.69 nspec=4+2
 
-Variables declared this way are similar to, but distinct from variables declared for the preprocessor, such as 
+Variables declared this way are similar to, but distinct from variables declared for the preprocessor, such as
 
         % const nbas=5
 
@@ -461,10 +461,10 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 This category contains parameters defining the one-particle hamiltonian.
 
-Portions of HAM are read by these codes: 
+Portions of HAM are read by these codes:
 
-**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
-**lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp; 
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp;
+**lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp;
 **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmmag**{: style="color: blue"}.
 
 {::comment}
@@ -704,8 +704,8 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 Portions of OPTIONS are read by these codes:
 
-**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
-**lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; 
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp;
+**lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp;
 **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"}.
 
 {::comment}
@@ -931,7 +931,7 @@ ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal q
 RDVES | 1 | ASA | Y | F | Read Ves(RMT) from the START category along with P,Q
 ATOM\_ENU | r | ASA | Y | | Linearization energies
 
-How the parser reads P,Q: 
+How the parser reads P,Q:
 Remember that knowledge of P,Q is sufficient to completely determine the ASA density.
 Thus the ASA codes use several ways to read these important quantities.
 
@@ -1048,11 +1048,11 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
       SYMGRP find
 
   amounts to the same as not incuding a SYMGRP category in the input at all
- 
+
   You can also specify a mix of generators you supply, and tell the program to find any others that might exist. For example:
 
       SYMGRP r4x find
- 
+
   specifies that 4-fold rotation be included, and `find‘ tells the program to look for any additional symops that might exist.
 
 * 'AFM':
@@ -1133,9 +1133,9 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 </div>
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
-<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
+<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case
 it is not given by the standard self-consistency procedure.
-The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which 
+The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which
 which reads in reciprocal space
 
 $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
@@ -1181,12 +1181,12 @@ The simplest (but inefficient) choice is to make **beta** small.
 
 The beauty of the Kerker mixing scheme is that charges in small _G_ components of the density
 get damped out, while the short-ranged, large _G_ components do not.
-An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function. 
-Construct <span style="text-decoration: overline"><i>&delta;n</i></span> = 
+An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function.
+Construct <span style="text-decoration: overline"><i>&delta;n</i></span> =
 <span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&thinsp;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>)
-and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from 
+and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from
 <span style="text-decoration: overline"><i>&delta;n</i></span>.
-Then estimate 
+Then estimate
 <div style="text-align:center;">
   <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; <span style="text-decoration: overline"><i>&delta;</i>X</span>
 </div>
@@ -1207,7 +1207,7 @@ require large **beta**.
 (/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it)
 
 Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
-As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span> 
+As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span>
 than <i>&delta;</i>X; but the mixing scheme works for either.
 
 You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of
@@ -1220,7 +1220,7 @@ which tells the mixer which scheme to use.  **slatsm/amix.f**{: style="color: gr
 **_n_** is the maximum number of prior iterations to include in the mix.  As programs proceed to self-consistency, they dump prior
 iterations to disk, to read them the next time through.  Data is I/O to _mixm.ext_{: style="color: green"}.
 
-The Anderson scheme is particularly simple to monitor.  How much of <span style="text-decoration: overline"><i>&delta;</i>X</span> 
+The Anderson scheme is particularly simple to monitor.  How much of <span style="text-decoration: overline"><i>&delta;</i>X</span>
 from prior iterations is included in the final mixed vector is printed to **stdout** as parameter **tj**, e.g.
 <pre>
    tj: 0.47741                           &larr; iteration 2
@@ -1233,7 +1233,7 @@ from prior iterations is included in the final mixed vector is printed to **stdo
 In the second iteration, one prior iteration was mixed; in the third and fourth, two; and after that, only one.
 (When the normal matrix picks up a small eigenvalue the Anderson mixing algorithm reduces the number of prior iterations).
 
-Consider the case when a single prior iteration was mixed.  
+Consider the case when a single prior iteration was mixed.
 
 + If **tj**=0, the new **X** is entirely composed of the current
 iteration.  This means self-consistency is proceeding in an optimal manner.
@@ -1272,12 +1272,12 @@ The options are described below.  They are parsed in routine **subs/parmxp.f**{:
 + **wc=_wc_**:&ensp; (Broyden only) that controls how much weight is given to prior iterations in estimating the Jacobian.  **wc=1** is fairly conservative.
   Choosing **wc<0** assigns a floating value to the actual **wc**, proportional to **&minus;_wc_/rms-error**.  This increases **wc** as the error becomes small.
 
-+ **w1,w2**:&ensp; (spin-polarized calculations only) The up- and down- spin channels are not mixed independently.  
-  Instead the sum (up+down) and difference (up-down) are mixed.  The two combinations are 
-  weighted by **w1** and **w2** in the mixing, more heavily emphasizing the more heavily weighted. 
++ **w1,w2**:&ensp; (spin-polarized calculations only) The up- and down- spin channels are not mixed independently.
+  Instead the sum (up+down) and difference (up-down) are mixed.  The two combinations are
+  weighted by **w1** and **w2** in the mixing, more heavily emphasizing the more heavily weighted.
    As special cases, **w1=0** _freezes_ the charge and mixes the magnetic moments only while **w2=0** _freezes_ the moments and mixes the charge only.
 
-+ **elind=_elind_**:&ensp; The Lindhard energy.  **elind**=k</i><sub><i>F</i></sub><sup>2</sup>.
++ **elind=_elind_**:&ensp; The Fermi energy entering into the Lindhard dielectric function: **elind**=k</i><sub><i>F</i></sub><sup>2</sup>.\\
   **elind<0**: Use the free-electron gas value, scaled by **&minus;_elind_**.
 
 + **wa**:&ensp; (ASA only) weight for extra quantities included with **P,Q** in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.
@@ -1286,7 +1286,7 @@ The options are described below.  They are parsed in routine **subs/parmxp.f**{:
 
 + **r=_expr_**:&ensp; continue this block of mixing sequence until **rms error < _expr_.
 
-You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set. 
+You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set.\\
 Rules are separated by a "&thinsp;;&thinsp;".
 
   Example: &emsp;**MIX=B10,n=8,w=2,1,fn=mxm,wc=11,k=4;A2,b=1**\\
