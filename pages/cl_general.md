@@ -362,7 +362,7 @@ Note : without it a blank line is inserted before sub-bullets
 
   Example: **-\-euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
-
+^
 **-\-findes &thinsp;\|&thinsp; -\-findes &thinsp; -\-nescut=#**
 :  tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
    It works by adding adding empty spheres (largest possible first)\\
@@ -372,23 +372,23 @@ Note : without it a blank line is inserted before sub-bullets
 
    + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
    + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
-
+^
 **-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
     augmentation sphere radii.\\
     Results are printed to stdout; you must modify the input file by hand.
-
+^
 **-\-mino~z &thinsp;\|&thinsp; -\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap.\\
      (For now, the function has been set arbitrarily to the sixth power of the overlap).\\
     &ensp; **-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0\\
     &ensp; **-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
-
+^
 **-\-terse**
 :  print minimum information about overlaps.
    Writes the site positions to _file.ext_{: style="color: green"}
-
+^
 **-\-wsite[options] &thinsp;\|&thinsp; -\-wsitex &thinsp;\|&thinsp; -\-wsitep &thinsp;\|&thinsp; -\-wpos=_file_**
 : Writes structural data to a [site file](/docs/input/sitefile) or a positions file.
 
@@ -405,10 +405,10 @@ Note : without it a blank line is inserted before sub-bullets
   If used in conjunction with **-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
   with the basis enlarged by the new empty sites.\\
   In this special mode there are two options: **-\-wsite** and **-\-wsitex** .
-
+^
 **-\-basis=_file_**
 : checks whether the given basis matches the basis in site file, up to a fixed translation
-
+^
 **-\-shorten**
 : shorten basis vectors
 
