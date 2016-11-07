@@ -26,6 +26,15 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
+Summary of command line switches, organized by topic:
+
+| Affects program flow      | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shortenn=o**&nbsp; **\-\-symsig**&nbsp;
+| Affects what is generated or printed | band wpos pdos cls wden cv efrnge SOefield vext
+| Additional information      | **\-\-band**&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **\-\-efrnge**&nbsp; **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-vext**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
+| Optics specific             | **\-\-jdosw**&nbsp; **\-\-opt**
+| QSGW  specific              | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
+| Editors                     | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig**
+
 Command-line switches:
 
 **\-\-rs=#1[,#2,#3,#4,#5**]
@@ -237,6 +246,22 @@ Command-line switches:
 ^
 **\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
+
+<i>The following switches invoke editors.</i>
+See see their usag, invoke the editor
+
+**\-\-chimedit**
+:  Magnetic susceptibility editor
+
+**\-\-rsedit**
+:  Restart file editor
+
+**\-\-popted**
+:  Optics
+
+**\-\-wsig~edit**
+:  QS<i>GW</> self-energy editor
+
 
 <i>The following switches affect how</i> **lmf**{: style="color: blue"} <i>reads, writes, or modifies the QSGW self-energy</i>
  &Sigma;<sup>0</sup>.\\
