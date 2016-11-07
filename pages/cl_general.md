@@ -517,7 +517,7 @@ Command-line switches:
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
 {::nomarkdown}<a name="rhopos"></a>{:/}**-\-rhopos**
-:  Render all three components density everywhere positive.  (This can be in an issue because of the 
+:  Render all three components density everywhere positive.  (This can be in an issue because of the
    [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
 ^
 {::nomarkdown}<a name="rpos"></a>{:/}**-\-rpos=_fnam_**
@@ -612,7 +612,7 @@ Command-line switches:
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
 {::nomarkdown}<a name="cv"></a>{:/}**-\-cv:_lst_ &thinsp;\|&thinsp; -\-cvK:_lst_**
-: Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
+: Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
@@ -743,7 +743,6 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 {:/comment}
 
 **lm**{: style="color: blue"} is the main [ASA density-functional code](/docs/code/asaoverview/) in the Questaal suite.
-
 See also **lmgf**{: style="color: blue"} and **lmpg**{: style="color: blue"}.
 
 Command-line switches:
@@ -755,21 +754,21 @@ Command-line switches:
     to a separate file.  If **#1** is nonzero, data is read from _rsta.ext_{: style="color: green"}, superseding information in class files.
     If **#2** is nonzero, data written _rsta.ext_{: style="color: green"}.
 
-+ **--band[~option] 
++ **--band[~options]**
   + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/commandline/general/#band) for options.
 
 
-+ **--pdos[:options]
++ **--pdos[~options]**
   + tells **lm**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
     Options are described [here](/docs/commandline/general/#pdos)
 
-+ **--mix=#
-  + start the density mixing at rule `#'.  See [here](/docs/input/inputfile/#iter) for a the mixing tag, **ITER_\MIX**
++ **--mix=#**
+  + start the density mixing at rule `#'.  See [here](/docs/input/inputfile/#itermix) for a description of the mixing tag.
 
-+ **--onesp 
++ **--onesp**
   + in the spin-polarized collinear case, tells the program that the spin-up and spin-down hamiltonians are equivalent (special antiferromagnetic case)
 
-+ **-sh=cmd   
++ **-sh=cmd**
   + invoke the shell `cmd' after every iteration
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)

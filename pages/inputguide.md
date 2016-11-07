@@ -1120,7 +1120,17 @@ Its contents are a string consisting of mixing options, described here.
 This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
 trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
-<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
+<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that\\
+
+&emsp; <i>n</i><sup>\*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> &times; (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>).
+
+The difficulties are first, that <i>&epsilon;</i><sup>&minus;1</sup> is not known and second, that 
+<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;).  A reasonable approximation for is the Thomas Fermi approximation,
+which reads in reciprocal space
+
+$$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (1) $$
+
+If the density were expanded in plane waves <i>n</i> = <i>n</i><sub>G</sub>, a simple mixing scheme would be
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
@@ -1135,15 +1145,14 @@ augmentation sphere. The total density is expressed as a sum of three independen
 The mixing algorithm must mix all of them and it is somewhat involved.  See **fp/mixrho.f**{: style="color: green"} for details.
 
 In both cases the mixing process reduces to estimating a vector <b>X</b><sup>*</sup>
-<b>X</b><sup>*</sup> is a vector related to the density (e.g. **P,Q** in the ASA)
-where &delta<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>.
+related to the density (e.g. &thinsp;**P,Q**&thinsp; in the ASA)
+where &delta;<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>.
 
-The mixing scheme offers a choice between the Broyden and Anderson methods.
-Both schemes mix in linear combinations of (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs 
-from the current iteration with pairs from prior iterations.
+The mixing scheme offers a choice between the Broyden and Anderson methods.  Both schemes mix linear combinations of
+(<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration with pairs from prior iterations.
 
 If there are no prior iterations, the scheme is a linear one:\\
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&times;</b> (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;&times;</b> (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 
 
 density (recall that in the ASA, P's and Q's are enough to completely
