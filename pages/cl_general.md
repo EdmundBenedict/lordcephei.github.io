@@ -38,41 +38,34 @@ _____________________________________________________________
    any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
    approximation (see option **core**)
 
-   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are p1, p2
-   and p3, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the point (**l1**=**#1**,**#2**,**#3**) corresponds to\\
-      &emsp; **r1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
+   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are 
+   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
+      &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
    Specify the origin (a point through which the plane must pass) by\\
       &emsp; **~o=i1,i2,i3**\\
-   Default value is **o=0,0,0**.
-
-   Alternatively you can specify a point in Cartesian coordinates by:\\
+   Default value is **o=0,0,0**. Alternatively you can specify a the origin in Cartesian coordinates by:\\
       &emsp; **~ro=x1,x2,x3**\\
-   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat.
-   (**x1**,**x2**,**x3**) is converted into the nearest integers **i1**,**i2**,**i3**.
+   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
    Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
    
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
 
-    + ~l1=#1,#2,#3[,#4]  first direction vector as noted above, that is:
+    + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
        **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
-       The last number (**#4&&) specifies how many points to take in this direction and therefore corresponds to a length.
-       Default values : l1=1,0,0,n1+1 where n1 is the number of points on the third axis.
-    + ~l2=#1,#2,#3[,#4] second direction vector as noted above, and number of points (**#4**)
-       Default values : l2=0,1,0,n2+1 where n2 is the number of points on the second axis.
-
-    + core=#   specifies how local densities is to be included.
-       Any local density added is expanded as
-       polynomial * gaussian, and added to the
-       smoothed mesh density.
-       + #=0 includes core densities + nuclear contributions
-       + #=1 includes core densities, no nuclear contributions
-       + #=2 exclude core densities
-       + #=-1 no local densities to be included (only interstitial)
-       + #=-2 local density, with no smoothed part
-       + #=-3 interstitial and local smoothed densities
-
-       Default~ core=2
-
+       The last number (**#4**) specifies how many points to take in this direction and therefore corresponds to a length.
+       Default values : **l1=1,0,0,n1+1** where **n1** is the number of points on the third axis.
+    + **~l2=#1,#2,#3[,#4]**&ensp; second direction vector as noted above, and number of points (**#4**)\\
+       Default values : **l2=0,1,0,n2+1** where **n2** is the number of points on the second axis.
+    + **core=#**   specifies how local densities are to be included in the mesh.\\
+       Any local density added is expanded as polynomial * gaussian, and added to the smoothed mesh density.
+       + **#=0**&ensp; includes core densities + nuclear contributions
+       + **#=1**&ensp; includes core densities, no nuclear contributions
+       + **#=2**&ensp; exclude core densities
+       + **#=-1**&ensp; no local densities to be included (only interstitial)
+       + **#=-2**&ensp; local density, with no smoothed part
+       + **#=-3**&ensp; interstitial and local smoothed densities
+       Default: **core=2**
+^
     + fn=name  specifies the file name for file I/O. The default name is **smrho**.
 
     + 3d       causes a 3D mesh density to be saved in XCRYSDEN format
@@ -88,8 +81,7 @@ _____________________________________________________________
      that length; the second vector points along p3, and has that length.
 
      Example: suppose the lattice is fcc with n1=n2=n3=40.  Then\\
-     \-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41
-
+     **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
      generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis, passing through (0,0,1/4).
 ^
 
