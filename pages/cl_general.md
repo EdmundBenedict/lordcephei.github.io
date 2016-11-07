@@ -191,7 +191,7 @@ Command-line switches:
     + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
       These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands.
       Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
-
+^
     Example: suppose **n1=n2=48** and **n3=120**.  Then\\
     **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
     writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
