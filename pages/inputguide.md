@@ -320,7 +320,7 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _BZ_
 {::comment}
-/docs/input/inputfile/#bz
+(/docs/input/inputfile/#bz)
 {:/comment}
 
 Category BZ holds information concerning the numerical integration of quantities such as energy bands over the Brillouin Zone (BZ). The LMTO programs permit both sampling and tetrahedron integration methods. Both are described in bzintegration.html, and the relative merits of the two different methods are discussed. As implemented both methods use a uniform, regularly spaced mesh of k-points, which divides the BZ into microcells as described here. Normally you specify this mesh by the number of divisions of each of the three primitive reciprocal lattice vectors (which are the inverse, transpose of the lattice vectors PLAT); NKABC below.
