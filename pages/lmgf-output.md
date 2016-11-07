@@ -35,4 +35,11 @@ _Note:_{: style="color: red"} This document is annotated for an [output vebosity
 Raising the verbosity causes **lmgf**{: style="color: blue"} to print additional information.
 Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 
-### 1. Preprocessor's transformation of the input file
+
+### _Preprocessor's transformation of the input file_
+{::comment}
+/docs/outputs/lmgf-output/#preprocessors-transformation-of-the-input-file
+{:/comment}
+
+The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
+Normally it does this silently.  To see the effects of the preprocessor use `lmgf --showp ...`
