@@ -1114,19 +1114,21 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 (/docs/input/inputfile/#itermix)
 {:/comment}
 
-This token is part of the [**ITER**](/docs/input/inputfile/#iter) category.
+**_ITER\_MIX_** a token in the [**ITER**](/docs/input/inputfile/#iter) category.
 Its contents are a string consisting of mixing options, described here.
-
 This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
-trial density <i>n</i><sup>\*</sup> for a new iteration.  In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
+trial density <i>n</i><sup>\*</sup> for a new iteration.
+
+
+###### Density mixing, general considerations
+
+In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
 density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 <div style="text-align:center;">
 <i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;&emsp;  (1)
 </div>
-
-[//]: test
 
 <i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
 <i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case 
@@ -1158,10 +1160,9 @@ related to the density (e.g. &thinsp;**P,Q**&thinsp; in the ASA)
 where &delta;<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>
 vanishes at <b>X</b><sup>in</sup> = <b>X</b><sup>*</sup>.
 
-The mixing scheme offers a choice between the Broyden and Anderson methods.  Both schemes mix linear combinations of
+Mixing algorithms mix linear combinations of
 (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 If there are no prior iterations, then
-
 <div style="text-align:center;">
   <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta&thinsp;</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>)
 </div>
@@ -1188,96 +1189,88 @@ Now **beta** can be much larger again, of order unity.
 
 **lmf**{: style="color: blue"}  uses a Lindhard function for the mesh density (similar to Kerker mixing) and attempts to
 compensate for the contribution from local densities in an approximate way. 
-
 The ASA codes offer two options:
-1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix.
-2. The q=0 discretized response function is explicitly calculated (see tags [OPTIONS\_SCR](/docs/input/inputfile/#options).
 
-There is a bit of overhead associated with this, but it is not too large and greatly facilitates convergence in large systems.
+1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix.
+2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see tags [OPTIONS\_SCR](/docs/input/inputfile/#options).
+
+There is a bit of overhead associated with the second option, but it is not too large and having it greatly facilitates convergence in large systems.
 This is particularly important in magnetic systems, where there are low-energy degrees of freedom associated with the magnetic parts that
 require large **beta**.
 
-See slatsm/amix.f for a
-description of the Anderson mixing scheme, and how it chooses the
-linear combination of prior iterations in the mix.
+###### Options in the Mixing scheme
 
-The syntax for Anderson mixing is
+Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
+As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span> 
+than <i>&delta;</i>X; but the mixing scheme works for either.
 
-  MODE=A[,b=val]
+You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of\\
+  **MIX=A_n_**\\
+  **MIX=B_n_**\\
+which tells the mixer which scheme to use.  **slatsm/amix.f**{: style="color: green"} describes the mathematics behind the Anderson scheme.
 
-where the optional b=val assigns val to beta.
+**_n_** is the maximum number of prior iterations to include in the mix.  As programs proceed to self-consistency, they dump prior
+iterations to disk, to read them the next time through.  Data is I/O to _mixm.ext_{: style="color: green"}.
+
+The Anderson scheme is particularly simple to monitor.  How much of <span style="text-decoration: overline"><i>&delta;</i>X</span> 
+from prior iterations is included in the final mixed vector is printed to stdout as parameter **tj**, e.g.
+<pre>
+   tj: 0.47741
+   tj:-0.39609  -0.44764
+   tj:-0.05454   0.01980
+   tj: 0.24975
+   tj: 0.48650
+   tj:-1.34689
+</pre>
+In the second iteration, one prior iteration was mixed; in the third and fourth, two; and after that, only one.
+(When the normal matrix picks up a small eigenvalue the Anderson mixing algorithm reduces the number of prior iterations).
+
+Consider the case when a single prior iteration was mixed.  
+
++ If **tj**=0, the new **X** is entirely composed of the current
+iteration.  This means self-consistency is proceeding in an optimal manner.
++ If **tj**=1, it means that the new **X** is composed 100\% of the prior iteration.
+  This means that the algorithm doesn't like how the mixing is proceeding.  If you see successive iterations where **tj** is close to (or
+  worse, larger than) unity, you should change something, e.g. reduce **beta**.
++ If **tj**<0, it means that the algorithm thinks you can mix more of <b>X</b><sup>out</sup> and less of <b>X</b><sup>in</sup>.
+  If you see successive iterations where **tj** is significantly negative (less than &minus;1), increase **beta**.
 
 Broyden mixing uses a more sophisticated procedure, in which it
 tries to build up the Hessian matrix.  It usually works better
-but has more pitfalls than Anderson.  As with Anderson, it uses
-linear mixing in the absence of prior iterations, Q* = beta*Qout
-+ (1-beta)*Qin.  Broyden has an additional parameter, wc, that
+but has more pitfalls than Anderson. Broyden has an additional parameter, **wc**, that
 controls how much weight is given to prior iterations in the mix
-(see below).  The syntax for Broyden mixing is
+(see below).
 
-  MODE=B[,b=val][,wc=val]
+The general syntax is for **_ITER\_MIX_** is
+<pre>
+   A<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][,elind=#][;...]  or
+   B<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,elind=#][,k=nkill]
+</pre>
+The optional parameters (**b**, **wc**, etc.) may occur in any order.
 
-There are other switches available to handle more complex cases.
-You can change the name of the mixing file, kill the mixing file
-after a number of iterations, and change to a different set of
-mixing parameters after a specified number of iterations.  The
-most general syntax is
-  MODE=parm-set-1[;parm-set-2;parm-set-3...]
-Each parm-set has a general syntax:
+The options are described below.  They are parsed in routine **parmxp.f**{: style="color: green"}.
 
-  A[nmix][,b=beta][,n=nit][,fn=fnam][,k=nkill][,w=w1,w2][,wa=wa][,bv=betv]  or
-  B[nmix][,b=beta][,wc=wc][,n=nit][,fn=fnam][,k=nkill][,w=w1,w2][,wa=wa][,bv=betv]
-  (NB: additional parm [,r=rmscst] for constrained mixing)
++ **nmix**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than nmix prior iterations.)  NB: nmix=0 implies linear mixing.
 
-The optional parameters (b=, wc=, etc) may occur in any order.
++ **beta**:&ensp; the mixing beta (see above)
 
-These parameters are as follows.  Fortran routine <A href="../subs/parmxp.f">parmxp.f</A> parses
-the MODE line to read the parameters, and <A href="../subs/pqmix.f">pqmix.f</A> does
-the mixing.
++ **nit**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
+  it starts over with the first set.
 
-  nmix: maximum number of prior iterations to include in the mix
-        (the mixing file may contain more than nmix prior
-        iterations.)  NB: nmix=0 implies linear mixing.
++ **fnam**:&ensp; mixing file name (_file_{: style="color: green"} is the default). Must be eight characters or fewer.
 
-  beta: the mixing beta (see above)
++ **nkill**:&ensp; kill mixing file after nkill iterations.  This is helpful when the mixing runs out of steam, or when the mixing parameters change.
 
-  betv: (when XIPMX=t): the Madelung potential as generated from
-        the mixed moments is damped out.  This is done by taking
-        using instead of this potential V = (1-betv) V_prior +
-        betv V_rhomixed; see XIPMX below.
++ **wc**:&ensp; (Broyden only) that controls how much weight is given to prior iterations in estimating the Jacobian.  wc=1 is fairly conservative.
+  Choosing wc<0 assigns a floating value to wc, equal to -wc-input/rms-err.  This increases wc as the error becomes small.
 
-  nit:  the number of iterations to use mix with this set of
-        parameters before passing on to the next set. After the
-        last set is exhausted, it starts over with the first
-        set.
++ **w1,w2**:&ensp; (spin-polarized calculations only) pqmix mixes the sum (up+down) and difference (up-down) of the two spin channels.  They are
+  weighted by w1 and w2 in the mixing, more heavily emphasizing the more heavily weighted.  As special cases, w1=0 freezes the charge and
+  mixes the magnetic moments only w2=0 freezes the moments and mixes the charge only
 
-  fnam: change the mixing file name (mixm is the default).
-        Must be four characters or fewer.
++ **wa**:&ensp;  (ASA) weight for extra quantities included with P,Q in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.  For nonspherical density, includes the qpp.  As special cases, any one or two of w1,w2 and wa may be zero.  A zero weight freezes the values corresponding to those weights.
 
-  nkill:kill mixing file after nkill iterations.  This is
-        occasionally helpful when the mixing runs out of steam,
-        or when the mixing parameters change.
-
-  wc:   (Broyden only) that controls how much weight is given to
-        prior iterations in estimating the Jacobian.  wc=1 is
-        fairly conservative.  Choosing wc<0 assigns a floating
-        value to wc, equal to -wc-input/rms-err.  This increases
-        wc as the error becomes small.
-
-  w1,w2 (spin-polarized calculations only) pqmix mixes the sum
-        (up+down) and difference (up-down) of the two spin
-        channels.  They are weighted by w1 and w2 in the mixing,
-        more heavily emphasizing the more heavily weighted.  As
-        special cases, w1=0 freezes the charge and mixes the
-        magnetic moments only w2=0 freezes the moments and mixes
-        the charge only
-
-  wa:   weight for extra quantities included with P,Q in the
-        mixing procedure.  For noncollinear magnetism, includes
-        the Euler angles.  For nonspherical density, includes
-        the qpp.  As special cases, any one or two of w1,w2 and
-        wa may be zero.  A zero weight freezes the values
-        corresponding to those weights.
+You can mix with one set of rules for a certain number of iterations, and switch to a new set of rules.  The rules are strung together and separated by a '&thinsp;;&thinsp'.
 
   Example: MODE=B30,n=8,w=2,1,fn=mxm,wc=11,k=3;A2,b=1
 
@@ -1287,4 +1280,6 @@ the mixing.
   which is deleted at the end of every third iteration.  WC is 11.
   beta assumes the default value.
   The Anderson iterations mix two prior iterations with beta of 1.
+
+[//]: test
 
