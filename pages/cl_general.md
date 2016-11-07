@@ -28,7 +28,7 @@ _____________________________________________________________
 
 This table gives a synopsis of command line switches with links, organized by function:
 
-| Affects program flow       | **\-\-ef**&nbsp; **\-\-no-fixef0**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **\-\-no-fixef0**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **\-\-rdbasp**<br>**\-\-rhopos**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **\-\-cls**&nbsp; **\-\-cv**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp;<br>**\-\-wden**&nbsp; **\-\-wpos**&nbsp; **\-\-wrhomt**&nbsp; **\-\-wpotmt**&nbsp; **\-\-wrhoat** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
@@ -213,6 +213,9 @@ Command-line switches:
 : Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
+^
+{::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
+:  Override file Fermi level; use with **-\-\band**
 ^
 **\-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
