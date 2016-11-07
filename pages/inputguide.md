@@ -1294,7 +1294,7 @@ The options are described below.  They are parsed in routine **subs/parmxp.f**{:
 You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set.\\
 Rules are separated by a "&thinsp;;&thinsp;".
 
-  Example: &emsp;**MIX=B10,n=8,w=2,1,fn=mxm,wc=11,k=4;A2,b=1**\\
+  _Example_: &emsp;**MIX=B10,n=8,w=2,1,fn=mxm,wc=11,k=4;A2,b=1**\\
   does 8 iterations of Broyden mixing, followed by Anderson mixing.  The
   Broyden iterations weight the (up+down) double that of (up-down) for the magnetic case, and iterations are saved in a file which is
   deleted at the end of every fourth iteration.  **wc** is 11.  **beta** assumes the default value.  The Anderson rules mix two prior iterations
