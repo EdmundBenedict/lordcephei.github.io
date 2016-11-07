@@ -721,20 +721,20 @@ to the LDA potential.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-wsig**):
 
-   + **~newkp**:&ensp;  	 generate sigma on a new k-mesh
-   + **~edit**:&ensp;   	 invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+   + **~newkp**:&ensp;           generate sigma on a new _k_ mesh.  It reads the mesh from [**GW\_NKABC**](/docs/input/inputfile/#gw).
+   + **~edit**:&ensp;            invoke the sigma editor.  This editor has many options, which you can see by running the editor.
 
    The following are special-purpose modes
 
-   + **~spinav**:&ensp; 	 average spin channels in spin-polarized sigma
-   + **~onesp**:&ensp;  	 average spin channels in spin-polarized sigma
-   + **~rot**:&ensp;    	 [rotate](/docs/misc/rotations) sigma matrix.
-   + **~trans=#**:&ensp;	 # specifies how sigma is to be modified, or if some other object is to be made instead of sig.
-   + **~phase**:&ensp;  	 Add phase shift to sigma
-   + **~fbz**:&ensp;      sigma is stored for all _k_ points in the full Brillouin zone
-   + **~sumk**:&ensp;   	 sum sigma over _k_.  Implies fbz
-   + **~shftq**:&ensp;  	 add qp offset to qp where sigma is made
-   + **~wvxcf**:&ensp;  	 read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
+   + **~spinav**:&ensp;     average spin channels in spin-polarized sigma
+   + **~onesp**:&ensp;      average spin channels in spin-polarized sigma
+   + **~rot**:&ensp;        [rotate](/docs/misc/rotations) the sigma matrix.
+   + **~trans=#**:&ensp;    **#** specifies how sigma is to be modified, or if some other object is to be made instead of sig.
+   + **~phase**:&ensp;      Add phase shift to sigma
+   + **~fbz**:&ensp;        sigma is stored for all _k_ points in the full Brillouin zone
+   + **~sumk**:&ensp;       sum sigma over _k_.  Implies fbz
+   + **~shftq**:&ensp;      add qp offset to qp where sigma is made
+   + **~wvxcf**:&ensp;      read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
