@@ -6,13 +6,13 @@ header: no
 ---
 
 #### _Purpose_
-_____________________________________________________________
 {:.no_toc}
+_____________________________________________________________
 This page serves to document the command line switches generally applicable to most of the packages in the suite, and to give an idea of the usage cases of certain switches and switch types.
 
 #### _Table of Contents_
-_____________________________________________________________
 {:.no_toc}
+_____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 {::comment}
@@ -28,9 +28,9 @@ Here is an example:
     $ lmf cafeas -vns=4 -vnm=5 --rpos=pos
 
 Following unix style, switches always begin with dash (**&minus;**). Many codes have command-line switches unique to their purpose,
-but there are a number of other switches are shared in common.
+but a number of switches are shared in common.
 
-Some switches have a single dash ; some have two. Those with two tend to control program flow (e.g. `--show`), while those with a single dash tend to have an “assignment” function, such as a variables declaration (e.g. `-vx=3`). Sometimes there is not a clear distinction between the two, e.g. the printout verbosity `--pr` accepts either one or two dashes (see below).
+Some switches have a single dash ; some have two. Those with two tend to control program flow (e.g. `--show`), while those with a single dash tend to have an "assignment" function, such as a variables declaration (e.g. `-vns=4`). Sometimes there is not a clear distinction between the two, e.g. the printout verbosity `--pr` accepts either one or two dashes (see below).
 
 In the example above, `-vns=4 -vnm=5` assigns variables **ns** and **nm** to 4 and 5, respectively, while `--rpos=pos` tells **lmf**{:
 style="color: blue"} to read site positions from file _pos.cafeas_{: style="color: green"}.
