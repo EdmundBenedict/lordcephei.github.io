@@ -38,39 +38,39 @@ style="color: blue"} to read site positions from file _pos.cafeas_{: style="colo
 
 #### _Switches Common to Most or All Programs_
 
-+ **\-\-help** \| **\-\-h**
++ **-\-help** \| **-\-h**
   + Lists command-line switches for that program and exits.
 
-+ **\-\-input**
++ **-\-input**
   + Lists tags (categories and tokens) a program will read.
     Same as turning on [**IO\_HELP=T**](/docs/input/inputfile/#io)
 
-+ **\-\-showp**
++ **-\-showp**
   + Prints out input file after parsing by preprocessor, and exits.
    It shows the action of the preprocessor, without parsing any tags.
 
-+ **\-\-show** \| **\-\-show=2**
++ **-\-show** \| **-\-show=2**
   + Prints the input file parsed by preprocessor, and the value of the tags parsed or default values taken.\\
-    **\-\-show=2** causes the program to exits after printing.
+    **-\-show=2** causes the program to exits after printing.
 
 _Note:_{: style="color: red"} the preceding switches are intended to assist in managing and reading input files.
 They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks).
 
 {::nomarkdown}<a name="pr"></a>{:/}
 
-+ **\-\-pr#1[,#2]** \| **-pr#1[,#2]**
++ **-\-pr#1[,#2]** \| **-pr#1[,#2]**
   + Sets output verbosities, overriding any specification in the ctrl file.
   + Optional #2 sets verbosity for the potential generation part (applicable to some codes)
 
-+ **\-\-time=#1[,#2]**
++ **-\-time=#1[,#2]**
   + Prints out a summary of timings in various sections of the code.
     Timings are kept to a nesting level of #1.\\
     If #2 is nonzero, timings are printed on the fly.
 
-+ **\-\-iactive**
++ **-\-iactive**
   + Turns on 'interactive' mode, overriding any specification through IO_IACTIV in the ctrl file.
 
-+ **\-\-iactive=no** \| **\-\-no-iactive**
++ **-\-iactive=no** \| **-\-no-iactive**
   + Turns off 'interactive' mode.
 
 + **-c<i>name</i>=_string_"**
@@ -90,21 +90,21 @@ They are discussed in more detail [here](/tutorial/lmf/lmf_pbte_tutorial/#determ
 #### _Switches Common To Programs Using Site Information_
 Additionally, for any program utilizing site information, the following switches apply
 
-+ **\-\-rpos=fnam**
++ **-\-rpos=fnam**
   + Tells the program to read site positions from file _fnam.ext_{: style="color: green"} after the input file has been read.
     _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
 
-+ **\-\-fixpos[:tol=#]** \| **\-\-fixpos[:#]**
++ **-\-fixpos[:tol=#]** \| **-\-fixpos[:#]**
   + Adjust positions slightly, rendering them as consistent as possible with the symmetry group.
     That is, if possible to slightly displace site positions to make the bsis conform to a group
     operation, make the displacement.  Optional tolerance specifies the maximum amount of adjustment allowed.\\
-    Example: **lmchk \-\-fixpos:tol=.001**
+    Example: **lmchk -\-fixpos:tol=.001**
 
-+ **\-\-fixlat**
++ **-\-fixlat**
   + Adjust lattice vectors and point group operations, attempting to render them internally
                     consistent with each other.
 
-+ **\-\-sfill=_class-list_**
++ **-\-sfill=_class-list_**
   + Tells the program to adjust the sphere sizes to space filling.
 
     By default, "class-list" is a list of integers. These enumerate class indices for
@@ -139,11 +139,11 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 **blm**{: style="color: blue"} creates input (ctrl) files from structural information.\\
 Command-line switches:
 
-+ **\-\-express[=_n_]**
++ **-\-express[=_n_]**
   + Express style input file level _n_.  If _n_>0, an [express category](/tutorial/lmf/lmf_pbte_tutorial/#the-express-category) is created.\\
     For _n_>0, an EXPRESS category is created and a site file is created.  Lattice and site information are not included in the ctrl file
     but are read through the site file. As _n_ increases, the ctrl file becomes simpler but contains less information.\\
-    If **\-\-express** is missing, a default value of _n_=3 is used.\\
+    If **-\-express** is missing, a default value of _n_=3 is used.\\
     If _n_ is missing, a default value of _n_=6 is used.\\
     Level&emsp; mode
     + 0:&emsp;  _Standalone_: All input through standard categories, and site file is not automatically made.  No supporting comments are given.
@@ -157,66 +157,66 @@ Command-line switches:
     + 6:&emsp;  _Light_:     Some nonessential tags are removed
     + 7:&emsp;  _Skeleton_:  Minimal input file
 
-+ **\-\-asa**
++ **-\-asa**
   + tailor input file to an ASA calculation
 
-+ **\-\-gw**
++ **-\-gw**
   + tailor input file to a GW calculation\\
     modifies **AUTOBAS**; adds a [**GW** category](/docs/input/inputfile/#gw) and some _GW_ specific tokens
 
-+ **\-\-gf**
++ **-\-gf**
   + add tokens for lmgf input file: adds BZ_EMESH and a [GF category](/docs/input/inputfile/#gf)
 
-+ **\-\-pgf**
++ **-\-pgf**
   + add tokens for lmpg input file: adds BZ_EMESH and a [PGF category](/docs/input/inputfile/#pgf)
 
-+ **\-\-fpandasa**
++ **-\-fpandasa**
   + tags for both ASA and FP
 
-+ **\-\-addes**
++ **-\-addes**
   + add tags to prepare for later addition of empty spheres
 
-+ **\-\-findes**
++ **-\-findes**
   + search for empty sphere sites to improve lattice packing
 
-+ **\-\-mag**
++ **-\-mag**
   + set nsp=2 for spin polarized calculation
 
-+ **\-\-noshorten**
++ **-\-noshorten**
   + suppress shortening of site positions
 
-+ **\-\-nk=#1[,#2,#3]**
++ **-\-nk=#1[,#2,#3]**
   + k-mesh for BZ integration
 
-+ **\-\-nkgw=#[,#,#]**
-  + Same as \-\-nk but applies to _GW_ _k_-mesh
++ **-\-nkgw=#[,#,#]**
+  + Same as -\-nk but applies to _GW_ _k_-mesh
 
-+ **\-\-gmax=#**
++ **-\-gmax=#**
   + specify mesh density cutoff **GMAX**; see [this tutorial]((/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)
 
-+ **\-\-nit=#**
++ **-\-nit=#**
   + specify max number of iterations to self-consistency
 
-+ **\-\-scala=#**
++ **-\-scala=#**
   + multiply ALAT by #, and PLAT and POS by 1/#
 
-+ **\-\-scalp=#**
++ **-\-scalp=#**
   + like scala, but # specifies PLAT volume
 
-+ **\-\-rdsite[=_fn_]**
++ **-\-rdsite[=_fn_]**
   + read structural data from site file _fn_.  Default _fn_ is _sitein_{: style="color: green"}
 
-+ **\-\-xpos**
++ **-\-xpos**
   + write site positions as multiples of PLAT
 
-+ **\-\-wsrmax=#**
++ **-\-wsrmax=#**
   + when finding sphere radii, do not permit any radius to exceed #
 
-+ **\-\-wsite** \| **\-\-wsitex**
++ **-\-wsite** \| **-\-wsitex**
   + write site file for structural data
-  + **\-\-wsitex** writes site positions as fractional multiples of PLAT
+  + **-\-wsitex** writes site positions as fractional multiples of PLAT
 
-+ **\-\-wpos=_fnam_**
++ **-\-wpos=_fnam_**
   + write site positions to file **_fnam_**.
 
 {::comment}
@@ -273,7 +273,7 @@ Note : without it a blank line is inserted before sub-bullets
 {:/comment}
 
 
-**\-\-shell[~options]** &nbsp;\|&nbsp; **\-\-shell~tab[~options]**
+**-\-shell[~options]** &nbsp;\|&nbsp; **-\-shell~tab[~options]**
 :  print out a neighbor table, in one of the following styles.
 
    + _Standard style_: a neighbors is printed, grouped in
@@ -288,7 +288,7 @@ Note : without it a blank line is inserted before sub-bullets
       5  1.000000   4   19  1:K1(4)
       6  1.026646   8   27  2:Fe1(4)      3:Fe2(4)
     </pre>
-    + _Tab style_: (**\-\-shell~tab**) a table of neighbors is printed in a table format, for all sites.
+    + _Tab style_: (**-\-shell~tab**) a table of neighbors is printed in a table format, for all sites.
     <pre>
     # neighbor list for site 1, class 21x
         1   1   0.0000000   0.0000000   0.0000000     0.0000000  21x      21x
@@ -298,7 +298,7 @@ Note : without it a blank line is inserted before sub-bullets
 
     This mode prints out site indices to pairs, connecting vector and length, and class labels.
 
-    + _Compact Tab style_: (**\-\-shell~tab=2**) prints out the connecting vector only.
+    + _Compact Tab style_: (**-\-shell~tab=2**) prints out the connecting vector only.
     <pre>
     # neighbor list for site 1, class K1
         0.0000000   0.0000000   0.0000000
@@ -306,7 +306,7 @@ Note : without it a blank line is inserted before sub-bullets
         0.0000000   0.0000000   0.6814628
     </pre>
 
-    + _Tab displacement style_: (**\-\-shell~tab=2~disp=_file_**) special purpose mode that
+    + _Tab displacement style_: (**-\-shell~tab=2~disp=_file_**) special purpose mode that
       reads in a second set of site positions from _file.ext_{: style="color: green"}.\\
       It lists only connecting vectors that are changed relative the original vectors.\\
       Moreover the table prints out both the original vector and the displacement vector, e.g.
@@ -317,10 +317,10 @@ Note : without it a blank line is inserted before sub-bullets
        -1.0000000   0.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
         0.0000000   1.0000000   0.0000000     0.0000000   0.0000000  -0.0100000
     </pre>
-    **_file_** should take he [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).  It can be generated with **\-\-wpos**.\\
+    **_file_** should take he [standard Questaal style for 2D arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).  It can be generated with **-\-wpos**.\\
     This mode synchronizes with **lmscell**{: style="color: blue"} switch `--disp~tab2`.
 
-    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
     &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 5.\\
     &ensp; **~e**:&ensp;   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)\\
     &ensp; **~fn=_filename_**:&ensp; writes neighbor table to file _filename.ext_{: style="color: green"}\\
@@ -328,81 +328,81 @@ Note : without it a blank line is inserted before sub-bullets
     &ensp; **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.\\
     &ensp; **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
 
-    Example: **\-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**\\
+    Example: **-\-shell:tab=2:disp=pos:sites:1:r=3:fn=tab2:nn**\\
     writes to _tab2.ext_{: style="color: green"} a table in this format.  The table is restricted to displacements around site **1**, distance less than 3 a.u.
 
-**\-\-angles[options]**
+**-\-angles[options]**
 : Prints angles between triples of sites.
 
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
   &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.\\
   &ensp; **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
   &ensp; **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
 
-  Example: **\-\-angles~sites~1,2~bonds~style=2~z==34**\\
+  Example: **-\-angles~sites~1,2~bonds~style=2~z==34**\\
   finds triples of atoms connected to sites 1 and 2.  Both sites connected to the central site must have atomic number 34 (Selenium)
 
-**\-\-euler[options]**
+**-\-euler[options]**
 : Prints angles between spins (applicable to ASA noncollinear magnetism)
 
   Euler angles must be supplied either in the input file, or in the Euler angles file
   _eula.ext_{: style="color: green"} (in the [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)).\\
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
   &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.
          If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
   &ensp; **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
   &ensp; **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative.
 
-  Example: **\-\-euler~r=10,6~sign~sites~style=2~z==26**\\
+  Example: **-\-euler~r=10,6~sign~sites~style=2~z==26**\\
   finds angles between Fe atoms (_Z_=26) between 6 and 10 atomic units apart.
 
-**\-\-findes &thinsp;\|&thinsp; \-\-findes &thinsp; \-\-nescut=#**
+**-\-findes &thinsp;\|&thinsp; -\-findes &thinsp; -\-nescut=#**
 :  tells **lmchk**{: style="color: blue"} to locate empty spheres to fill space.
    It works by adding adding empty spheres (largest possible first)\\
    until space is filled with **sum-of-sphere volumes** = **unit cell volume**.\\
-   Optional **\-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
+   Optional **-\-nescut=#** causes the finder stop adding sites once the number exceeds threshold &thinsp;**#**.\\
    Tags in the ctrl file affecting this switch are:
 
    + [OPTIONS &thinsp; RMINES &thinsp; RMAXES](/docs/input/inputfile/#options)
    + [SPEC &thinsp; SCLWSR &thinsp; OMAX1 &thinsp; OMAX2 &thinsp; WSRMAX](/docs/input/inputfile/#spec)
 
-**\-\-getwsr**
+**-\-getwsr**
 :   tells **lmchk**{: style="color: blue"} to use an [algorithm](/docs/code/asaoverview/#algorithm-to-automatically-determine-sphere-radii) to determine
     augmentation sphere radii.\\
     Results are printed to stdout; you must modify the input file by hand.
 
-**\-\-mino~z &thinsp;\|&thinsp; \-\-mino~_site-list_**
+**-\-mino~z &thinsp;\|&thinsp; -\-mino~_site-list_**
 :  tells **lmchk**{: style="color: blue"} to shuffle atom positions in site-list to minimize some
      simple function of the overlap.\\
      (For now, the function has been set arbitrarily to the sixth power of the overlap).\\
-    &ensp; **\-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0\\
-    &ensp; **\-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+    &ensp; **-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0\\
+    &ensp; **-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
-**\-\-terse**
+**-\-terse**
 :  print minimum information about overlaps.
    Writes the site positions to _file.ext_{: style="color: green"}
 
-**\-\-wsite[options] &thinsp;\|&thinsp; \-\-wsitex &thinsp;\|&thinsp; \-\-wsitep &thinsp;\|&thinsp; \-\-wpos=_file_**
+**-\-wsite[options] &thinsp;\|&thinsp; -\-wsitex &thinsp;\|&thinsp; -\-wsitep &thinsp;\|&thinsp; -\-wpos=_file_**
 : Writes structural data to a [site file](/docs/input/sitefile) or a positions file.
 
-  + **\-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates.
-  + **\-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as
+  + **-\-wsite** &ensp;&thinsp; writes a [site file](/docs/input/sitefile), with basis in Cartesian coordinates.
+  + **-\-wsitex** &nbsp; writes a [site file](/docs/input/sitefile) with basis as
     [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
-  + **\-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
-  + **\-\-wpos** &ensp;&nbsp;  writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+  + **-\-wsitep** &nbsp; writes a VASP style _POSCAR_{: style="color: green"} file.
+  + **-\-wpos** &ensp;&nbsp;  writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 
-  Options to **\-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  Options to **-\-wsite** are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
     &ensp; **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)\\
     &ensp; **~fn=_file_** : &ensp; writes site file to _file.ext_{: style="color: green"}.
 
-  If used in conjunction with **\-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
+  If used in conjunction with **-\-findes**, **lmchk**{: style="color: blue"} writes to file _essite.ext_{: style="color: green"}
   with the basis enlarged by the new empty sites.\\
-  In this special mode there are two options: **\-\-wsite** and **\-\-wsitex** .
+  In this special mode there are two options: **-\-wsite** and **-\-wsitex** .
 
-**\-\-basis=_file_**
+**-\-basis=_file_**
 : checks whether the given basis matches the basis in site file, up to a fixed translation
 
-**\-\-shorten**
+**-\-shorten**
 : shorten basis vectors
 
 {::comment}
@@ -420,16 +420,16 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
-| Affects program flow       | **[\-\-ef](/docs/commandline/general/#ef)**&nbsp; **[\-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[\-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**\-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[\-\-quit](/docs/commandline/general/#quit)**&nbsp; **[\-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[\-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[\-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[\-\-rs](/docs/commandline/general/#rs)**&nbsp; **[\-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[\-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[\-\-vext](/docs/commandline/general/#vext)**
-| Additional files generated | [**\-\-band**](/docs/commandline/general/#band)&nbsp; **[\-\-cls](/docs/commandline/general/#cls)**&nbsp; **[\-\-cv](/docs/commandline/general/#cv)**&nbsp; **[\-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[\-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[\-\-wden](/docs/commandline/general/#wden)**&nbsp; **[\-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[\-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[\-\-wrhoat](/docs/commandline/general/#wrhoat)** |
-| Additional printout        | **[\-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[\-\-pr](/docs/commandline/general/#pr)**&nbsp; **[\-\-SOefield](/docs/commandline/general/#SOefield)** |
-| [Optics specific](/docs/commandline/general/#optics) | **\-\-jdosw**&nbsp; **\-\-jdosw2**&nbsp; **\-\-opt**
-| [QSGW specific](/docs/commandline/general/#qsgw) | **\-\-mixsig**&nbsp; **\-\-rsig**&nbsp; **\-\-wsig**
-| [Editors](/docs/commandline/general/#editors) | **\-\-chimedit**&nbsp; **\-\-rsedit**&nbsp; **\-\-popted**&nbsp; **\-\-wsig~edit**
+| Affects program flow       | **[-\-ef](/docs/commandline/general/#ef)**&nbsp; **[-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[-\-quit](/docs/commandline/general/#quit)**&nbsp; **[-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[-\-rs](/docs/commandline/general/#rs)**&nbsp; **[-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[-\-vext](/docs/commandline/general/#vext)**
+| Additional files generated | [**-\-band**](/docs/commandline/general/#band)&nbsp; **[-\-cls](/docs/commandline/general/#cls)**&nbsp; **[-\-cv](/docs/commandline/general/#cv)**&nbsp; **[-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[-\-wden](/docs/commandline/general/#wden)**&nbsp; **[-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/commandline/general/#wrhoat)** |
+| Additional printout        | **[-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[-\-pr](/docs/commandline/general/#pr)**&nbsp; **[-\-SOefield](/docs/commandline/general/#SOefield)** |
+| [Optics specific](/docs/commandline/general/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
+| [QSGW specific](/docs/commandline/general/#qsgw) | **-\-mixsig**&nbsp; **-\-rsig**&nbsp; **-\-wsig**
+| [Editors](/docs/commandline/general/#editors) | **-\-chimedit**&nbsp; **-\-rsedit**&nbsp; **-\-popted**&nbsp; **-\-wsig~edit**
 
 Command-line switches:
 
-{::nomarkdown}<a name="rs"></a>{:/}**\-\-rs=#1[,#2,#3,#4,#5**]
+{::nomarkdown}<a name="rs"></a>{:/}**-\-rs=#1[,#2,#3,#4,#5**]
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
 
    +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
@@ -438,7 +438,7 @@ Command-line switches:
    +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
    +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
    +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
-      restart file.  See **\-\-rs** switch #3 below for which site positions the program uses.
+      restart file.  See **-\-rs** switch #3 below for which site positions the program uses.
    +  Add 100 to rotate local densities, if the lattice has been rotated.
 
    +  **#2=0:** serves same function as **#1**, but for writing output densities.
@@ -456,9 +456,9 @@ Command-line switches:
    +  **#5=0:** read [logarithmic derivative parameters](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained) **P** from restart file, overwriting data from input file (default).
    +  **#5=1:** ignore **P** in restart file
 
-   Default switches:&ensp; **\-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
+   Default switches:&ensp; **-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
-{::nomarkdown}<a name="band"></a>{:/}**\-\-band[~options]**
+{::nomarkdown}<a name="band"></a>{:/}**-\-band[~options]**
 : tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
    can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
@@ -473,7 +473,7 @@ Command-line switches:
      Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
      [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-band**):
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
 
    + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
@@ -510,31 +510,31 @@ Command-line switches:
 
    _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
-{::nomarkdown}<a name="rhopos"></a>{:/}**\-\-rhopos**
+{::nomarkdown}<a name="rhopos"></a>{:/}**-\-rhopos**
 :  Render all three components density everywhere positive.  (This can be in an issue because of the 
    [three-fold representation of the density](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)).
 ^
-{::nomarkdown}<a name="rpos"></a>{:/}**\-\-rpos=_fnam_**
+{::nomarkdown}<a name="rpos"></a>{:/}**-\-rpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to read site positions from _fnam.ext_{: style="color: green"} after the input file has been read.
    _fnam.ext_{: style="color: green"} is in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
 ^
-{::nomarkdown}<a name="wpos"></a>{:/}**\-\-wpos=_fnam_**
+{::nomarkdown}<a name="wpos"></a>{:/}**-\-wpos=_fnam_**
 :  tells **lmf**{: style="color: blue"} to write site positions to _fnam.ext_{: style="color: green"} after self-consistency or a relaxation step.
 ^
-{::nomarkdown}<a name="lmfpdos"></a>{:/}**\-\-pdos[~options] &thinsp;\|&thinsp; \-\-mull[:options]**
+{::nomarkdown}<a name="lmfpdos"></a>{:/}**-\-pdos[~options] &thinsp;\|&thinsp; -\-mull[:options]**
 :  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
    Options are described [here](/docs/commandline/general/#switches-for-lmdos).
 ^
-{::nomarkdown}<a name="cls"></a>{:/}**\-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
+{::nomarkdown}<a name="cls"></a>{:/}**-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
 :  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
                    elements and weights for core-level-spectroscopy.
    See **subs/suclst.f**{: style="color: green"} for a description of options.
 ^
-{::nomarkdown}<a name="optbas"></a>{:/}**\-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
+{::nomarkdown}<a name="optbas"></a>{:/}**-\-optbas[~sort][~etol=#][~spec=_spid_[,rs][,e][,l=###]...]**
 :  Operates the program in a special mode to optimize the total energy wrt the basis set. **lmf**{: style="color: blue"} makes several band
    passes (not generating the output density or adding to the save file), varying selected parameters belonging to tokens RSMH= and EH= to
    minimize the total energy wrt these parameters.\\
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-optbas**):
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-optbas**):
 
    + **etol=#**:&ensp;  only adjust parameter if energy gain exceeds **#**.
    + No species given:&ensp; **lmf**{: style="color: blue"} optimizes wrt RSMH in each species.
@@ -544,12 +544,12 @@ Command-line switches:
    + **spec=_spid_\hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
 ^
-{::nomarkdown}<a name="rdbasp"></a>{:/}**\-\-rdbasp[:_fn_]**
+{::nomarkdown}<a name="rdbasp"></a>{:/}**-\-rdbasp[:_fn_]**
 :  tells the program to read basis parameters from file **_fn_**.
    If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
    This supersedes settings in **HAM\_AUTOBAS**.
 ^
-{::nomarkdown}<a name="wden"></a>{:/}**\-\-wden[~options]**
+{::nomarkdown}<a name="wden"></a>{:/}**-\-wden[~options]**
 :  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
    At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
    that has points on the mesh.\\
@@ -571,7 +571,7 @@ Command-line switches:
    (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
    Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-wden**):
 
     + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
        **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
@@ -596,52 +596,52 @@ Command-line switches:
       Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
 
     Example: suppose **n1=n2=48** and **n3=120**.  Then\\
-    **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
+    **-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
     writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
     The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
 
     Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
-    **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
+    **-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
     generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis
     (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
 ^
-{::nomarkdown}<a name="cv"></a>{:/}**\-\-cv:_lst_ &thinsp;\|&thinsp; \-\-cvK:_lst_**
+{::nomarkdown}<a name="cv"></a>{:/}**-\-cv:_lst_ &thinsp;\|&thinsp; -\-cvK:_lst_**
 : Calculate electronic specific heat for a [list](/docs/misc/integerlists/) of temperatures.  
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
-{::nomarkdown}<a name="ef"></a>{:/}**\-\-ef**
+{::nomarkdown}<a name="ef"></a>{:/}**-\-ef**
 :  Override file Fermi level; use with **-\-band**
 ^
-{::nomarkdown}<a name="efrnge"></a>{:/}**\-\-efrnge**
+{::nomarkdown}<a name="efrnge"></a>{:/}**-\-efrnge**
 :  Print out indices to bands that bracket the Fermi level
 ^
-{::nomarkdown}<a name="nofixef0"></a>{:/}**\-\-no-fixef0**
+{::nomarkdown}<a name="nofixef0"></a>{:/}**-\-no-fixef0**
 :  Do not adjust estimate of Fermi level after first band pass
 ^
-{::nomarkdown}<a name="oldvc"></a>{:/}**\-\-oldvc**
+{::nomarkdown}<a name="oldvc"></a>{:/}**-\-oldvc**
 :  chooses old-style energy zero, which sets the cell average of the potential to zero.  By default average electrostatic potential at the augmentation
    boundary is chosen to be the zero.  That puts the Fermi level at roughly zero.
 ^
-{::nomarkdown}<a name="quit"></a>{:/}**\-\-quit=_keyword_**
+{::nomarkdown}<a name="quit"></a>{:/}**-\-quit=_keyword_**
 :  quit after execution of certain blocks.  Keywords are:&ensp; **ham**&nbsp; **pot**&nbsp; **dos**&nbsp; **rho**&nbsp; **band**.
 ^
-{::nomarkdown}<a name="shortenno"></a>{:/}**\-\-shorten=no**
+{::nomarkdown}<a name="shortenno"></a>{:/}**-\-shorten=no**
 :  suppress shortening of site positions
 ^
-{::nomarkdown}<a name="symsig"></a>{:/}**\-\-symsig &thinsp;\|&thinsp; \-\-symsig=no**
+{::nomarkdown}<a name="symsig"></a>{:/}**-\-symsig &thinsp;\|&thinsp; -\-symsig=no**
 :  Symmetrize sigma overriding default behavior, or suppress symmetrizing it
 ^
-{::nomarkdown}<a name="SOefield"></a>{:/}**\-\-SOefield**
+{::nomarkdown}<a name="SOefield"></a>{:/}**-\-SOefield**
 :  Makes SO-weighted average of electric field at each site.  Used for estimating size of Rashba effect.
 ^
-{::nomarkdown}<a name="vext"></a>{:/}**\-\-vext**
+{::nomarkdown}<a name="vext"></a>{:/}**-\-vext**
 :  Add external potential.  Not documented yet.
 ^
-{::nomarkdown}<a name="wrhoat"></a>{:/}**\-\-wrhoat**
+{::nomarkdown}<a name="wrhoat"></a>{:/}**-\-wrhoat**
 :  Write partial atomic densities to atom files
 ^
-{::nomarkdown}<a name="wrhomt"></a>{:/}**\-\-wrhomt &thinsp;\|&thinsp; \-\-wpotmt**
+{::nomarkdown}<a name="wrhomt"></a>{:/}**-\-wrhomt &thinsp;\|&thinsp; -\-wpotmt**
 :  Not documented yet.
 
 {::nomarkdown} <a name="optics"></a> {:/}
@@ -651,10 +651,10 @@ Command-line switches:
 
 <i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
 
-**\-\-jdosw &thinsp;\|&thinsp; \-\-jdosw2**
+**-\-jdosw &thinsp;\|&thinsp; -\-jdosw2**
 :  Channels for optical properties.  See optics documentation.
 ^
-**\-\-opt:read &thinsp;\|&thinsp; \-\-opt:write**
+**-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
@@ -664,16 +664,16 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 <i>The following switches invoke editors.
 Invoke the editor to see see their usage.</i>
 
-**\-\-chimedit**
+**-\-chimedit**
 :  Magnetic susceptibility editor
 ^
-**\-\-rsedit**
+**-\-rsedit**
 :  Restart file editor
 ^
-**\-\-popted**
+**-\-popted**
 :  Optics editor
 ^
-**\-\-wsig~edit**
+**-\-wsig~edit**
 :  QS<i>GW</i> self-energy editor
 
 {::nomarkdown} <a name="qsgw"></a> {:/}
@@ -686,16 +686,16 @@ Invoke the editor to see see their usage.</i>
 _Note:_{: style="color: red"}&nbsp; &Sigma;<sup>0</sup> is stored in practice as $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$, so that this potential can be added
 to the LDA potential.
 
-**\-\-mixsig=#1[,#2]**
+**-\-mixsig=#1[,#2]**
 :  **lmf**{: style="color: blue"} reads QS<i>GW</i> self-energy &Sigma;<sup>0</sup> from
    two files, _sigm.ext_{: style="color: green"} and _sigm1.ext_{: style="color: green"}.
    For &Sigma;<sup>0</sup> it takes the linear combination &ensp;**#1&times;**_sigm.ext_{: style="color: green"} + **#2&times;**_sigm1.ext_{: style="color: green"}.\\
    If **#2** is missing, it does not read _sigm1.ext_{: style="color: green"} but scales &Sigma;<sup>0</sup> by **#1**.
 ^
-**\-\-rsig[~options]**
+**-\-rsig[~options]**
 :  Tells **lmf**{: style="color: blue"} about the form of the input self-energy file.
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-rsig**).
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-rsig**).
 
    + **~ascii**:&ensp;  read sigm in ascii format.
    + **~rs**:&ensp;     read sigm in real space.
@@ -712,10 +712,10 @@ to the LDA potential.
    ascii  |    sigma  |   sigmars
 
 ^
-**\-\-wsig[~options]**
+**-\-wsig[~options]**
 :  Writes a possibly modified QS<i>GW</i> self-energy to _sigm2.ext_{: style="color: green"} and exits.
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wsig**):
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-wsig**):
 
    + **~newkp**:&ensp;  	 generate sigma on a new k-mesh
    + **~edit**:&ensp;   	 invoke the sigma editor.  This editor has many options, which you can see by running the editor.
@@ -743,13 +743,13 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
 It reads the weights file _moms.ext_{: style="color: green"} generated by another program
 and makes partial contributions to the total DOS.  The partial does are computed  either with tetrahedron integration or with sampling method.
 _moms.ext_{: style="color: green"} must be made in advance by a generating program; see for example
-**lmf**{: style="color: blue"} command line switch **\-\-pdos**.
+**lmf**{: style="color: blue"} command line switch **-\-pdos**.
 
 How the channels for partial DOS are specified depends on the context.
-Typically you generate _moms.ext_{: style="color: green"} specifying channels with **\-\-pdos**.
+Typically you generate _moms.ext_{: style="color: green"} specifying channels with **-\-pdos**.
 **lmdos**{: style="color: blue"} assumes the DOS are ordered as specified by the switch.  Otherwise it assumes the weights
 are generated and stored by class.  This works with **lm**{: style="color: blue"} and **tbe**{: style="color: blue"},
-but otherwise, generate _moms.ext_{: style="color: green"} with **\-\-pdos** or something similar.
+but otherwise, generate _moms.ext_{: style="color: green"} with **-\-pdos** or something similar.
 
 **lmdos**{: style="color: blue"} doesn't need to know what the origin of the channels is; it simply reads the number of channels from the
 weights file.  However, to assist you in making an identification of the channels with atom-centered functions, it will print out what it
@@ -771,11 +771,11 @@ Command-line options:
 
 {::nomarkdown}<a name="pdos"></a>{:/}
 
-**\-\-pdos\|mull[~mode=#][~sites=site-list][~group=lst1;lst2;...][~nl=#][~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,...]**
+**-\-pdos\|mull[~mode=#][~sites=site-list][~group=lst1;lst2;...][~nl=#][~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,...]**
 :  Specifies the channels for which partial DOS are generated or analyzed.\\
-   **\-\-pdos**  partial DOS\\
-   **\-\-mull**  Mulliken DOS\\
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-pdos**):
+   **-\-pdos**  partial DOS\\
+   **-\-mull**  Mulliken DOS\\
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-pdos**):
 
    +  **~mode=#**:&ensp;
       + **#=0** DOS resolved by site
@@ -789,9 +789,9 @@ Command-line options:
    Example **--pdos~mode=2~group=1:3;4:9~lcut=2,1**\\
    makes DOS for sites 1:3 combined for the first channel, sites 4:9 for the second.  DOS is resolved by _l_ and _m_ (**mode=2**), with _l_=0,1,2 for the first group and _l_=0,1 for the second.
 ^
-**\-\-dos~options**
+**-\-dos~options**
 :  Various options that affect the action of **lmdos**{: style="color: blue"}.\\
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-dos**):
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-dos**):
 
    + **wtfn=<i>filename</i>**: name the file containing bands and DOS weights. By default, **lmdos**{: style="color: blue"} uses _moms.ext_{: style="color: green"}.
    + **cls**: equivalent to **wtfn=cls**
@@ -817,12 +817,12 @@ Command-line options:
    + **bands=<i>list</i>**:   compute contribution to DOS from a prescribed [list of bands](/docs/misc/integerlists/).
    + **classes=<i>list</i>**: generate DOS for a specified [list of classes](/docs/commandline/general/#class-list-syntax)\\
      **Caution:**{: style="color: red"} this option is only compatible with default moments files generated by the ASA, which stores dos
-     weights by class.  It is incompatible with the **\-\-pdos** switch which stores weights by site.
+     weights by class.  It is incompatible with the **-\-pdos** switch which stores weights by site.
 
    _Example_: compute the ballistic conductance in the z direction over an energy range (-0.8,0.5)Ry:\\
    **--dos:mode=1:npts=501:window=-.8,.5:vec=0,0,1**
 ^
-**\-\-cls**
+**-\-cls**
 :  tells **lmdos**{: style="color: blue"} that the _moms.ext_{: style="color: green"} holds data for core-level (EELS) spectrosopy (**lmf**{: style="color: blue"} output).
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
@@ -841,50 +841,50 @@ It also has a limited capability to make [Special QuasiRandom Structures](http:/
 **Caution:**{: style="color: red"} **lmscell**{: style="color: blue"} may fail if you choose a supercell significantly elongated from the
 original, because the list of lattice vectors may not encompass all the translations needed to create the new basis.
 
-**\-\-wsite[x][~map][~sort][~fn=_file_] &thinsp;\|&thinsp; \-\-wpos=_file_**
+**-\-wsite[x][~map][~sort][~fn=_file_] &thinsp;\|&thinsp; -\-wpos=_file_**
 : Writes a [site file](/docs/input/sitefile) to disk, or a positions file to dist.\\
-  **\-\-wsite[x]** writes a site file with positions expressed as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
-  **\-\-wpos** writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+  **-\-wsite[x]** writes a site file with positions expressed as [fractional multiples of lattice vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+  **-\-wpos** writes a file of site positions in standard [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 : ^
   + **~fn=_file_** : &nbsp; writes site file to _file.ext_{: style="color: green"}.
   + **~short** : &ensp; write site file in [short form](/docs/input/sitefile/#site-file-syntax)
   + **~map**: &emsp; appends a table mapping sites in the original cell to the supercell
 
-**\-\-ring:i1,i2** &thinsp;\|&thinsp; \-\-swap:i1,i2 &thinsp;\|&thinsp; \-\-sort: _expr1_ &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; \-\-sort:'_expr1_ _expr2_ _expr3_'**
+**-\-ring:i1,i2** &thinsp;\|&thinsp; -\-swap:i1,i2 &thinsp;\|&thinsp; -\-sort: _expr1_ &thinsp;\|&thinsp; -\-sort:'_expr1_ _expr2_' &thinsp;\|&thinsp; -\-sort:'_expr1_ _expr2_ _expr3_'**
 : Rearrange order of sites in the supercell.\\
   (ring) shifts sites **i1&hellip;i2-1** to one position higher, and site **i2** cycles to position **i1**.\\
   (swap) swaps pairs **i1** and **i2**\\
   (sort) Sorts the basis by ordering algebraic expressions associated with them.\\
-  Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **\-\-sort:'x3 x2'**.\\
+  Expressions can use Cartesian components **x1**, **x2**, **x3**, e.g. **-\-sort:'x3 x2'**.\\
   Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
 
-**\-\-sites:_site-list_**
+**-\-sites:_site-list_**
 : Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
-**\-\-rsta &thinsp;\|&thinsp; --rsta,amom**
+**-\-rsta &thinsp;\|&thinsp; --rsta,amom**
 : (ASA only) Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
   Optional **amom** applies to noncollinear magnetism: it flips the majority and minority spins for sites where the magnetic moment is negative,
   while rotating the Euler angle by 180&deg;
 
-**\-\-shorten**
+**-\-shorten**
 : shorten basis vectors.
 
-**\-\-pl:_expr_**
+**-\-pl:_expr_**
 : (for lmpg code) Assign principal-layer index according to **<i>expr</i>**. Sites with equivalent values of <i>expr</i> are assigned the same PL index.
 
-**\-\-wrsj[~fn=name][~scl=#]**
+**-\-wrsj[~fn=name][~scl=#]**
 : Writing the pairwise exchange parameters of the supercell generated, e.g., from **lmgf**{: style="color: blue"}. Input file _rsj.ext_{: style="color: green"} must be present.
 
-**\-\-disp~fnam~<i>site-list</i>**
-: Displace a set of atoms in the neighborhood of a given one, e.g. **\-\-disp:tab2:style=3:Fex**\\
-  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**\-\-shell~tab=2~disp=_file_**).
+**-\-disp~fnam~<i>site-list</i>**
+: Displace a set of atoms in the neighborhood of a given one, e.g. **-\-disp:tab2:style=3:Fex**\\
+  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**-\-shell~tab=2~disp=_file_**).
   See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
 
-**\-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
+**-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
 : Make a  Special QuasiRandom Structure.  It works by minimizing a norm function.\\
   The norm is obtained by assigning a weight to each pair and three body correlator, and summing the individual weights.\\
 
-  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-shell**):\\
+  Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
     &ensp; **~seed=#**:&emsp;  initial seed for random number generator.  For a fixed seed the algorithm proceeds the same way each time.\\
     &ensp; **~r2max=#**:&nbsp; Maximum distance between pairs for pair participate in the norm\\
     &ensp; **~r3max=#**:&nbsp; Maximum sum of legs between for triples to participate in the norm.
@@ -960,7 +960,7 @@ _____________________________________________________________
 {:/comment}
 
 Site-lists are used in command-line arguments in several contexts, e.g. in **lmscell**{: style="color: blue"}, **lmgf**{: style="color:
-blue"}'s exchange maker, and **lmchk**{: style="color: blue"}'s **\-\-shell** and **\-\-angles** switches.\\
+blue"}'s exchange maker, and **lmchk**{: style="color: blue"}'s **-\-shell** and **-\-angles** switches.\\
 For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment being parsed is **sites~_site-list_**.\\
 **sites~_site-list_** can take one of the following forms:
 
