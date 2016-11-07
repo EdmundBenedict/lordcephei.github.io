@@ -28,7 +28,7 @@ _____________________________________________________________
 
 Summary of command line switches, organized by topic:
 
-| Affects program flow       | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**&nbsp; **\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shortenn=o**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
+| Affects program flow       | **\-\-no-fixef0**&nbsp; **\-\-oldvc**&nbsp; **\-\-optbas**&nbsp; **\-\-quit=**&nbsp; **\-\-rdbasp**<br>**\-\-rpos**&nbsp; **\-\-rs**&nbsp; **\-\-shorten=no**&nbsp; **\-\-symsig**&nbsp; **\-\-vext**
 | Additional files generated | **\-\-pdos**&nbsp; **\-\-pr**&nbsp; **\-\-SOefield**&nbsp; **\-\-wden**&nbsp; **\-\-wpos** |
 | Additional printout        | **\-\-efrnge**&nbsp; **\-\-SOefield** |
 | Optics specific            | **\-\-jdosw**&nbsp; **\-\-opt**
