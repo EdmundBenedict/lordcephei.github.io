@@ -26,63 +26,6 @@ _____________________________________________________________
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
-**\-\-wden[~options]**
-:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
-   At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
-   that has points on the mesh.\\
-   Options syntax:\\
-   **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
-                   
-   Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
-   direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
-   any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
-   approximation (see option **core**)
-
-   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are 
-   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
-      &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
-   Specify the origin (a point through which the plane must pass) by\\
-      &emsp; **~o=i1,i2,i3**\\
-   Default value is **o=0,0,0**. Alternatively you can specify a the origin in Cartesian coordinates by:\\
-      &emsp; **~ro=x1,x2,x3**\\
-   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
-   Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
-   
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
-
-    + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
-       **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
-       The last number (**#4**) specifies how many points to take in this direction and therefore corresponds to a length.
-       Default values : **l1=1,0,0,n1+1** where **n1** is the number of points on the third axis.
-    + **~l2=#1,#2,#3[,#4]**&ensp; second direction vector as noted above, and number of points (**#4**)\\
-       Default values : **l2=0,1,0,n2+1** where **n2** is the number of points on the second axis.
-    + **core=#**   specifies how local densities are to be included in the mesh.\\
-       Any local density added is expanded as polynomial * gaussian, and added to the smoothed mesh density.
-       + **#=0**&ensp; includes core densities + nuclear contributions
-       + **#=1**&ensp; includes core densities, no nuclear contributions
-       + **#=2**&ensp; exclude core densities
-       + **#=-1**&ensp; no local densities to be included (only interstitial)
-       + **#=-2**&ensp; local density, with no smoothed part
-       + **#=-3**&ensp; interstitial and local smoothed densities\\
-       Default: **core=2**
-
-    + **fn=_filnam_**&ensp;  specifies the file name for file I/O. The default name is _smrho.ext_{: style="color: green"}
-    + **3d**&ensp;           causes a 3D mesh density to be saved in XCRYSDEN format
-    + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
-      These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands.
-      Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
-^
-   Example: suppose **n1=n2=48** and **n3=120**.  Then\\
-   **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
-   writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
-   The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
-
-   Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
-   **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
-   generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis 
-   (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
-^
-
 Command-line switches:
 
 **\-\-rs=#1[,#2,#3,#4,#5**]
@@ -202,6 +145,63 @@ Command-line switches:
 :  tells the program to read basis parameters from file **_fn_**.
    If not present, **_fn_** defaults to _basp.ext_{: style="color: green"}.
    This supersedes settings in **HAM\_AUTOBAS**.
+^
+**\-\-wden[~options]**
+:  tells **lmf**{: style="color: blue"} to write the charge density to disk, on a uniform of mesh of points.
+   At present, there is no capability to interpolate the smoothed density to an arbitrary plane, so you are restricted to choosing a plane
+   that has points on the mesh.\\
+   Options syntax:\\
+   **[~fn=filenam][core=#][spin][3d][ro=#1,#2,#3][o=#1,#2,#3][q=#1,#2,#3][lst=band-list][l1=#1,#2,#3,[#4]][l2=#1,#2,#3,[#4]]**
+                   
+   Information for the plane is specified by three groups of numbers: the origin (**o=**), i.e. a point through which the plane must pass; a first
+   direction vector **l1** with its number of points; and a second direction vector **l2** with its number of points.  Default values will be taken for
+   any of the three sets you do not specify.  The density generated is the smooth density, augmented by the local densities in a polynomial
+   approximation (see option **core**)
+
+   To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are 
+   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
+      &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
+   Specify the origin (a point through which the plane must pass) by\\
+      &emsp; **~o=i1,i2,i3**\\
+   Default value is **o=0,0,0**. Alternatively you can specify a the origin in Cartesian coordinates by:\\
+      &emsp; **~ro=x1,x2,x3**\\
+   (**x1**,**x2**,**x3**) a vector in Cartesian coordinates, units of alat, and it is converted into the nearest integers **i1**,**i2**,**i3**.
+   Thus the actual origin may not exactly coincide with (**x1**,**x2**,**x3**).
+   
+   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **\-\-wden**):
+
+    + **~l1=#1,#2,#3[,#4]**&ensp;  first direction vector as noted above, that is:\\
+       **#1**,**#2**,**#3** select the increments in mesh points along each of the three lattice vectors that define the direction vector.\\
+       The last number (**#4**) specifies how many points to take in this direction and therefore corresponds to a length.
+       Default values : **l1=1,0,0,n1+1** where **n1** is the number of points on the third axis.
+    + **~l2=#1,#2,#3[,#4]**&ensp; second direction vector as noted above, and number of points (**#4**)\\
+       Default values : **l2=0,1,0,n2+1** where **n2** is the number of points on the second axis.
+    + **core=#**   specifies how local densities are to be included in the mesh.\\
+       Any local density added is expanded as polynomial * gaussian, and added to the smoothed mesh density.
+       + **#=0**&ensp; includes core densities + nuclear contributions
+       + **#=1**&ensp; includes core densities, no nuclear contributions
+       + **#=2**&ensp; exclude core densities
+       + **#=-1**&ensp; no local densities to be included (only interstitial)
+       + **#=-2**&ensp; local density, with no smoothed part
+       + **#=-3**&ensp; interstitial and local smoothed densities\\
+       Default: **core=2**
+
+    + **fn=_filnam_**&ensp;  specifies the file name for file I/O. The default name is _smrho.ext_{: style="color: green"}
+    + **3d**&ensp;           causes a 3D mesh density to be saved in XCRYSDEN format
+    + **q=q1,q2,q3** and **lst=_list-of-band-indices_**\\
+      These switches should be taken together. They generate the density from a single k-point only (at q) and for a particular set of bands.
+      Use [integer list syntax](/docs/misc/integerlists/) for _list-of-band-indices_.
+^
+   Example: suppose **n1=n2=48** and **n3=120**.  Then\\
+   **\-\-wden~fn=myrho~o=0,0,60~l1=1,1,0,49~l2=0,0,1,121**\\
+   writes to _myrho.ext_{: style="color: green"} a mesh (49,121) points.  The origin (first point) lies at (**p3/2**) since **60=120/2**.
+   The first vector (**l1=1,1,0,49**) points along **(p1+p2)** and has that length (**48+1**); the second vector points along **p3** and has that length.
+
+   Example: suppose the lattice is fcc with **n1=n2=n3=40.**  Then\\
+   **\-\-wden~q=0,0,0.001~core=-1~ro=0,0,.25~lst=7~l1=-1,1,1,41~l2=1,-1,1,41**\\
+   generates the smoothed part of the density from the 7th band at &Gamma;, in a plane normal to the z axis 
+   (**q=0,0,0.001** is slightly displaced off &Gamma; along _z_), passing through **(0,0,0.25)**.
+
 
 See [Table of Contents](/docs/commandline/general/#table-of-contents)
 
