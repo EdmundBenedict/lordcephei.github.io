@@ -1123,7 +1123,7 @@ density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can 
 <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
 
 <div style="text-align:center;">
-<i>n</i><sup>*</sup> =
+<i>n</i><sup>&#42;</sup> =
 </div>
 
 [//]: #  <i>&epsilon;</i><sup>&minus;1</sup> &times;  (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;  (1)
