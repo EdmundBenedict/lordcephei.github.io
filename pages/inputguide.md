@@ -638,6 +638,8 @@ The ITER category contains parameters that control the requirements to reach sel
 It applies to all programs that iterate to self-consistency:
 **lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"}.
 
+A detailed discussion can be found at the [end of this document](/docs/input/inputfile/#itermix).
+
 {::comment}
 <div onclick="elm = document.getElementById('itertable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="itertable">{:/}
@@ -647,7 +649,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NIT | i | all | Y | 1 | Maximum number of iterations in the self-consistency cycle.
 NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed inside an augmentation sphere. This occurs when the density is determined from the momentsQ0,Q1,Q2 in the ASA; or in the free atom code, just Q0.<br>i1: max number of iterations<br>i2: number of prior iterations for Anderson mixing of the sphere density<br>Note: You will probably never need to use this token.
-MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#itermix) for detailed description.
+MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description.
 AMIX | c | ASA | Y | | Mixing rules when Euler angles are mixed independently. Syntax as in MIX
 CONV | r | all | Y | 1e-4 | Maximum energy change from the prior iteration for self-consistency to be reached.
 CONVC | r | all | Y | 1e-4 | Maximum in the RMS difference in $$ <n^{out} − n^{in}> $$.<br>In the ASA, this is measured by the change in moments Q0..Q2 and log derivative parameter P.<br>In the full-potential case it is measured by an integral over the various parts of n (local, interstitial parts).
@@ -1174,7 +1176,8 @@ If there are no prior iterations, then
 
 It is evident from Eq.(1) that **beta** should be connected with the dielectric function.  However, **beta** is just a number.  If
 **beta**=1, <b>X</b><sup>*</sup> = <b>X</b><sup>out</sup>; if **beta**&rarr;0, <b>X</b><sup>*</sup> scarcely changes from
-<b>X</b><sup>in</sup>.  For small systems it is usually sufficient to take **beta** on the order of, but smaller than unity.  For large
+<b>X</b><sup>in</sup>.  Thus in that case you move like an "amoeba" downhill towards the self-consistent solution.
+For small systems it is usually sufficient to take **beta** on the order of, but smaller than unity.  For large
 systems charge sloshing becomes a problem so you have to do something different.  This is because the potential change goes as
 <i>&delta;V</i> ~ <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> so small _G_ components of <i>&delta;n</i> determine the rate of mixing.
 The simplest (but inefficient) choice is to make **beta** small.
@@ -1196,7 +1199,7 @@ Now **beta** can be much larger again, of order unity.
 is the actual dielectric function for the free electron gas) and attempts to compensate for the contribution from local densities in an
 approximate way.  The ASA codes offer two options:
 
-1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix.
+1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix ([OPTIONS\_SCR](/docs/input/inputfile/#options)=4).
 2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see [OPTIONS\_SCR](/docs/input/inputfile/#options)).
 
 There is some overhead associated with the second option, but it is not too large and having it greatly facilitates convergence in large systems.
@@ -1204,7 +1207,9 @@ This is particularly important in magnetic metals, where there are low-energy de
 require large **beta**.
 
 ###### The _ITER\_MIX_ tag and how to use it
+{::comment}
 (/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it)
+{:/comment}
 
 Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
 As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span>
