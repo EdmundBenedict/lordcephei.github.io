@@ -493,11 +493,11 @@ a message similar to this:
 
 The restart file contains:
 
-1. lattice vectors and site positions
-2. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
-3. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
-4. valence and core densities inside augmentation spheres for each species.
-5. mesh density
+1. valence and core densities inside augmentation spheres for each species.
+2. mesh density
+3. lattice vectors and site positions
+4. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
+5. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
 
 This information is stored because these are the conditions that determine the self-consistent density.
 
@@ -510,15 +510,21 @@ Parameters 1-3 will have already been supplied.  Here Brillouin zone integration
 style="color: green"}](/docs/input/sitefile/), **pnu** from [_basp.pbte_{: style="color:
 green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
 
-[Command-line switch **-\-rs**](/docs/commandline/general/#rs) gives you some control what **lmf**{: style="color: blue"} reads.
-Unless you specify otherwise, all of them will be read again _rst.pbte_{: style="color: green"}, superseding the existing values.
+[Command-line](/docs/commandline/general/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.
+**-\-rs** has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five switches.
+Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding the prior values.
 
-**-\-rs** has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1[,#2,#3,#4,#5]**.
-**#1** and **#2** mark whether and how to read and write the restart file at all.
-to suppress reading quantities 1-3 from it, use:\\
-**#3=1**&emsp; to keep original site positions\\
-**#4=1**&emsp; to keep original sampling parameters.  This is necessary to change parameters when doing sampling integration.\\
-**#5=1**&emsp; to keep original **pnu**\\
+**#1** and **#2** mark whether and how to read and write the restart file at all.  Use the following:\\
+&emsp;**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}
+&emsp;**#4=1**&ensp; to keep original sampling parameters.  This is necessary to change parameters when doing sampling integration.\\
+&emsp;**#5=1**&ensp; to keep original **pnu**.  If you do this, a self-consistent density will no longer be fully self-consistent because the basis set has changed.
+
+_Notes:_{: style="color: red"} 
+
+1. If the site positions have changed, the mesh density will be centered in the wrong place.
+**lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density at the new position,
+and _subtracting_ the same atomic density at the file position.  It will do this by using **#1=11**.
+
 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)

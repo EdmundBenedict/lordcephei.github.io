@@ -445,7 +445,7 @@ Command-line switches:
    +  **#1=2:** read restart data from ascii _rsta.ext_{: style="color: green"}
    +  **#1=3:** same as **0**, but also tells **lmf**{: style="color: blue"} to overlap free-atom densities after a molecular statics or molecular dynamics step.
    +  Add 10 to additionally adjust the mesh density to approximately accommodate shifts in site positions relative to those used in the generation of the
-      restart file.  See **-\-rs** switch #3 below for which site positions the program uses.
+      restart file.  See **-\-rs** switch **#3** below for which site positions the program uses.
    +  Add 100 to rotate local densities, if the lattice has been rotated.
 
    +  **#2=0:** serves same function as **#1**, but for writing output densities.
