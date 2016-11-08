@@ -39,7 +39,7 @@ _____________________________________________________________
 _____________________________________________________________
 Energy bands provide a great deal of information, and the Questaal codes provide a fair amount of flexibility in generating
 them.  Drawing bands with color weights is a particularly useful feature,
-as shown in Section 2
+as shown in Section 2.
 
 Three Questaal tools can generate energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{: style="color:
 blue"}, and **tbe**{: style="color: blue"}.  They share a common input and output format.  You must choose the symmetry lines yourself, but
@@ -63,7 +63,7 @@ You can use **fplot**{: style="color: blue"} directly to make the figure, or mak
 
 Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} operates by working through an example (the energy bands of Co).
 
-Section 3 is an [operations manual](/docs/misc/plbnds/#plbnds-manual).
+[Section 3](/docs/misc/plbnds/#plbnds-manual) is an operations manual.
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
@@ -303,7 +303,8 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
      (one file for every panel).
   2. generate a script _plot.plbnds_{: style="color: green"}.
   3. suppress directly creating a postscript file
-  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins. It will generate              bands for both spins. (To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`).
+  4. `-fplot:s` tells **plbnds**{: style="color: blue"} that _bnds.ext_{: style="color: green"} has two spins. It will generate bands for both spins.\\
+     To draw spin1 or spin2 bands only, use `-spin1` or `-spin2`.
   
   You can create and view a postscript figure of the bands with
 
