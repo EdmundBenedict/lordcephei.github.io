@@ -41,21 +41,22 @@ Energy bands provide a great deal of information, and the Questaal codes provide
 them.  Drawing bands with color weights is a particularly useful feature,
 as shown in Section 2.
 
-Three Questaal tools can generate energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{: style="color:
-blue"}, and **tbe**{: style="color: blue"}.  They share a common input and output format.  You must choose the symmetry lines yourself, but
+Questaal **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, and **tbe**{: style="color: blue"} can generate energy bands
+along symmetry lines you specify.  They share a common input and output format.  You must choose the symmetry lines yourself, but
 [prepackaged symmetry line files](https://lordcephei.github.io/docs/input/symfile/) are available that greatly facilitate the selection and
 labelling.  Bands are written to file _bnds.ext_{: style="color: green"}, or _bbnds.ext_{: style="color: green"} if
-[**-\-band~bin**](/docs/input/commandline/#band) is used.  This file is not written in a friendly format; but it is often
-the case that you need only a subset of the bands or to provide extra information such as data for color weights.
+[**-\-band~bin**](/docs/input/commandline/#band) is used.  This file is not written in a friendly format; but it is often the case that you
+need only a subset of the bands or to provide extra information such as data for color weights.
 
 **plbnds**{: style="color: blue"} may be used to make postscript files of bands directly, without other software. 
-It is quick and dirty (there is no easy way to modify the figure).
+It is quick and dirty, andthere is no easy way to modify the figure.
 
-Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
-In this mode (**plbnds -\-fplot**) data in _bnds.ext_{: style="color: green"} is converted to a friendly format useful for a variety of circumstances.
+Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a simpler format.
+In this mode (**plbnds**{: style="color: blue"} **-\-fplot**), data in _bnds.ext_{: style="color: green"} is converted to a friendly format useful for a variety of circumstances.
 A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
-Together with the data files, a script _plot.plbnds_{: style="color: green"} is automatically created designed for 
-**fplot**{: style="color: blue"}.
+<i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is tailored to how many bands are in an energy window of interest, whether
+color weights are present, and so on.
+Together with the data files, a script _plot.plbnds_{: style="color: green"} is automatically created designed for **fplot**{: style="color: blue"}.
 You can use **fplot**{: style="color: blue"} directly to make the figure, or make it with your favorite graphics package.
 
 **plbnds**{: style="color: blue"} will provide a synopsis of its usage by typing
