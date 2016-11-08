@@ -165,7 +165,7 @@ for further description.
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 ###  _Reading basis information from the basp file_
-[//]: /docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
+[//]: (/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file)
 
 After parsing the ctrl file, **lmf**{: style="color: blue"} may attempt to read
 basis set information from the basp file.\\
@@ -499,13 +499,19 @@ The restart file contains:
 4. valence and core densities inside augmentation spheres for each species.
 5. mesh density
 
+This information is stored because these are the conditions that determine the self-consistent density.
+
 [//]: {::nomarkdown}</div>{:/}
 
-Parameters 
+##### Notes on controlling what is read from the restart file.
 
-You have some control what **lmf**{: style="color: blue"}
+Parameters 1-3 will have already been supplied.  Here Brillouin zone integration parameters originate from [category
+**BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"}, lattice vectors and site positions from [_site.pbte_{:
+style="color: green"}](/docs/input/sitefile/), **pnu** from [_basp.pbte_{: style="color:
+green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
 
-
+Command-line switch [-\-rs](/docs/commandline/general/#rs) gives you some control what **lmf**{: style="color: blue"} reads.
+Unless you specify otherwise, all of them will be read again _rst.pbte_{: style="color: green"}, superseding the existing values.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
