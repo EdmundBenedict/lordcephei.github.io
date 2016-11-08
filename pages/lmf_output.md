@@ -390,28 +390,30 @@ which defines their shape.   Also shown is :
   Te       2    2.02  -0.90   4.037    1.63E-06     531
 ~~~
 
-Each envelope function must be expanded in plane waves in order to assemble matrix elements of the interstitial potential the output charge
-density. Both are assembled in reciprocal space.
-The number of plane waves needed for a particular orbital depends on how sharply peaked the function is, so the cutoff is orbital-dependent
-to allow for faster execution.
-**gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will
-find a **gmax** for each orbital that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*'
-to the number indicating not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
+Each envelope function must be expanded in plane waves in order to 
 
-It can happen that some of the orbitals bump up against the global cutoff.  This is flagged by
-a &thinsp;<b>*</b>&thinsp; appended to the cutoff, e.g.
++ assemble matrix elements of the interstitial potential 
++ the output charge density. 
+
+Both are assembled in reciprocal space.  The number of plane waves needed for a particular orbital depends on how sharply peaked the
+function is, so the cutoff is orbital-dependent to allow for faster execution.  **gmax** of any one orbital may safely be less than the
+global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will find a **gmax** for each orbital that meets a preset
+tolerance (10<sup>&minus;6</sup> in this case).  
+
+Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating not enough orbitals are available to meet
+the specified tolerance.  This is flagged by an asterisk appended to the cutoff, e.g.
 
 ~~~
   Te       0    1.63  -0.10   4.572    1.74E-06     701*
 ~~~
 
-In this case check **last term**.  If it is too high you can expect errors in the hamiltonian and you should increase **gmax**.
+If '**last term**' is too high you can expect errors in the hamiltonian and you should increase **gmax**.
 
 The tolerance defaults to 10<sup>&minus;6</sup>, but you can control it with tag **HAM_TOL**.
 10<sup>&minus;5</sup> or smaller is usually safe.
 
 _Note:_{: style="color: red"} With APW's also in the basis, it the overlap matrix becomes nearly singular.
-To stabilize the overlap matrix, you can set **HAM_TOL** to something close to machine precision
+To stabilize the overlap matrix, you can set **HAM_TOL** to something close to machine precision, e.g. 10<sup>&minus;16</sup>.
 
 At this stage the potential independent setup is complete.
 
@@ -474,11 +476,11 @@ It is important that the system is charge neutral (last line).
 
 If, on the other hand, the charge density has been saved in a restart file,
 **lmf**{: style="color: blue"} reads it.  Usually restart files are
-saved in a binary form in a file named *rst.ext*{: style="color: green"}.
+saved in a binary form in a file *rst.ext*{: style="color: green"}.
 
-<div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
+[//]: <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+[//]: <span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
+[//]: </div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
 
 When **lmf**{: style="color: blue"} reads from a restart file it prints out
 a message similar to this:
@@ -491,14 +493,15 @@ a message similar to this:
 
 The restart file contains:
 
-+ Information about the Fermi level and (in the sampling case) parameters
-that were used to assemble the density from a Brillouin zone integration
++ Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
 + lattice vectors and site positions
-+ boundary conditions for partial waves, kept as logarithmic derivative parameters (also called [continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
++ [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
 + valence and core densities inside augmentation spheres
 + mesh density
 
-{::nomarkdown}</div>{:/}
+[//]: {::nomarkdown}</div>{:/}
+
+
 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)

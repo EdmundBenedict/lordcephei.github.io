@@ -563,5 +563,5 @@ single-particle sum is a pretty good estimate of the change in total energy.
 There are reasons why this is approximately true even when not self-consistent.  It is exact for one-body model Hamiltonians (i.e. that that
 have no electron-electron interactions).  Matthew Foulkes [showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that density-functional
 theory can be cast in the form similar to model hamiltonians, with the total energy a sum of the single-particle sum and an extra term that
-is functional of the input density only.  The extra term vanishes at self-consistency in response to low-order perturbation, and often
-doesn't change by a large amount even if the density isn't so different from a self-consistent one.
+is functional of the input density <i>n</i><sup>in</sup> only.  The extra term vanishes at self-consistency in response to low-order
+perturbation, and often doesn't change by a large amount even if the density isn't so different from a self-consistent one.
