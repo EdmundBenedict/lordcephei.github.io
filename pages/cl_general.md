@@ -436,7 +436,7 @@ Command line switches with links are organized by function in the table below.  
 
 Command-line switches:
 
-{::nomarkdown}<a name="rs"></a>{:/}**-\-rs=#1[,#2,#3,#4,#5**]
+{::nomarkdown}<a name="rs"></a>{:/}**-\-rs=#1[,#2,#3,#4,#5]**
 :  tells **lmf**{: style="color: blue"} how to read from or write to the restart file.
 
    +  **#1=0:** do not read the restart file on the initial iteration, but overlap free-atom densities.
@@ -451,7 +451,7 @@ Command-line switches:
    +  **#2=0:** serves same function as **#1**, but for writing output densities.
    +  **#2=1:** write binary restart file _rst.ext_{: style="color: green"}
    +  **#2=2:** write ascii restart file _rsta.ext_{: style="color: green"}
-   +  **#2=3:** write binary file to _rsta_.#{: style="color: green"}, where # = iteration number
+   +  **#2=3:** write binary file to _rst.#_{: style="color: green"}, where _#_ = iteration number
 
    +  **#3=0:** read site positions from restart file, overwriting positions from input file (default)
    +  **#3=1:** ignore positions in restart file

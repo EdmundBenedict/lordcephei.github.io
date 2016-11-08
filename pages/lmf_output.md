@@ -493,8 +493,8 @@ a message similar to this:
 
 The restart file contains:
 
-1. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
-2. lattice vectors and site positions
+1. lattice vectors and site positions
+2. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
 3. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
 4. valence and core densities inside augmentation spheres for each species.
 5. mesh density
@@ -510,8 +510,16 @@ Parameters 1-3 will have already been supplied.  Here Brillouin zone integration
 style="color: green"}](/docs/input/sitefile/), **pnu** from [_basp.pbte_{: style="color:
 green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
 
-Command-line switch [-\-rs](/docs/commandline/general/#rs) gives you some control what **lmf**{: style="color: blue"} reads.
+[Command-line switch **-\-rs**](/docs/commandline/general/#rs) gives you some control what **lmf**{: style="color: blue"} reads.
 Unless you specify otherwise, all of them will be read again _rst.pbte_{: style="color: green"}, superseding the existing values.
+
+**-\-rs** has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1[,#2,#3,#4,#5]**.
+**#1** and **#2** mark whether and how to read and write the restart file at all.
+to suppress reading quantities 1-3 from it, use:\\
+**#3=1**&emsp; to keep original site positions\\
+**#4=1**&emsp; to keep original sampling parameters.  This is necessary to change parameters when doing sampling integration.\\
+**#5=1**&emsp; to keep original **pnu**\\
+
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
