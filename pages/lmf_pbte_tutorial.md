@@ -585,6 +585,32 @@ $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
 ~~~
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
+
+Each iteration of the self-consistency cycle begins with
+
+~~~
+ --- BNDFP:  begin iteration 1 of 10 ---
+...
+ --- BNDFP:  begin iteration 2 of 10 ---
+...
+~~~
+
+One iteration consists of the following steps:
+
++ Constructs the potential (interstitial and augmentation parts) and terms for the total energy
++ Makes an initial pass through the irreducible _k_ points in the Brillouin zone
+  to obtain the Fermi level.  In general, until the Fermi level is known, the 
+  weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
++ Makes a second pass to accumulate the charge density.  For local densities,
+  essential information is retained in a compact form, keeping coefficients of the density matrix.
++ Assembles the local densities (true and smoothed) on their radial meshes from density matrices
++ Symmetrizes the density
++ Finds new logarithmic derivative parameters **pnu** by floating them to the band center-of-gravity
++ Computes the Harris-Foulkes and Kohn-Sham total energies
++ Computes the forces
++ mixes the input and output densities to form a new trial density
++ checks for convergence
+
 The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
 Just before exiting, **lmf**{: style="color: blue"} prints out

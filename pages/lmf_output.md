@@ -500,7 +500,7 @@ This information is stored because these are the conditions that determine the s
 ##### Controlling what is read from the restart file
 [//]: (/docs/outputs/lmf_output/#controlling-what-is-read-from-the-restart-file)
 
-Parameters 3-5 will have already been supplied.  Here 
+Parameters 3-5 will have already been supplied.  In this tutorial
 lattice vectors and site positions originate from [_site.pbte_{: style="color: green"}](/docs/input/sitefile/),
 Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"},
 **pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
@@ -511,7 +511,7 @@ has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; y
 taken for the rest.
 
 <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to control what lmf reads from and writes to the restart file.</span>
+<span style="text-decoration:underline;">Click here to see how control what lmf reads from and writes to the restart file.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
 
 **#1** and **#2** mark whether and how to read and write the restart file at all.  Use the following:\\
@@ -533,7 +533,11 @@ But unless you otherwise specify, the site densities are left unaltered.  To tel
 {::nomarkdown}</div>{:/}
 
 
+
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
+### _Other Resources_
+
+This output was mostly taken from the basic **lmf**{: style="color: blue"} tutorial on [a self-consistent calculation for PbTe](/tutorial/lmf/lmf_pbte_tutorial)
 
 
