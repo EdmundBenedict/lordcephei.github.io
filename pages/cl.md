@@ -504,7 +504,7 @@ Command-line switches:
    + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.\\
       With this option you can create bands with three independent colors.\\
-      _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not possess color weights capability yet.
+      _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet possess color weights capability.
 
 
    The **col** option tells the band generator to save, in addition to
