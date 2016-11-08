@@ -49,10 +49,11 @@ labelling.  Bands are written to file _bnds.ext_{: style="color: green"}, or _bb
 the case that you need only a subset of the bands or to provide extra information such as data for color weights.
 
 **plbnds**{: style="color: blue"} may be used to make postscript files of bands directly, without other software. 
-It is quick and dirty; no easy way to modify the figure.
-Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
-A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
+It is quick and dirty (there is no easy way to modify the figure).
 
+Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
+In this mode (**plbnds -\-fplot**) data in _bnds.ext_{: style="color: green"} is converted to a friendly format useful for a variety of circumstances.
+A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
 Together with the data files, a script _plot.plbnds_{: style="color: green"} is automatically created designed for 
 **fplot**{: style="color: blue"}.
 You can use **fplot**{: style="color: blue"} directly to make the figure, or make it with your favorite graphics package.
