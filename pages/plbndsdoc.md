@@ -88,7 +88,10 @@ contains essential information about the contents.  It says that:
 
 Strings **col=** and following are not used; they are there for record-keeping.
 
+The structure of the entire file is documented [here](/docs/input/data_format/#symmetry-line-output).
+
 ##### Example 1
+[//]: (/docs/misc/plbnds/#example-1)
 Enter the following to make and view the postscript file:
 
     $ echo -0.8,0.6,10,15 | plbnds -lbl=M,G,A,L,G,K bnds.co
@@ -107,7 +110,7 @@ _Notes:_{: style="color: red"}
   The _sp_ bands are highly dispersive and approximately quadratic; see [Example 3](/docs/misc/plbnds/#example-3) for more details.
 
 ##### Example 2
-
+[//]: (/docs/misc/plbnds/#example-2)
 For a better and more modifiable figure, run **plbnds**{: style="color: blue"} again with:
 
     $ echo -10,8 / | plbnds -fplot -ef=0 -scl=13.6 -nocol -lbl=M,G,A,L,G,K bnds.co
@@ -160,6 +163,7 @@ This figure is much closer to publication quality.  You can of course customize 
 To interpret and customize the script, see the [fplot manual](/docs/misc/fplot).
 
 ##### Example 3
+[//]: (/docs/misc/plbnds/#example-3)
 
 This example illustrates a very useful feature of the Questaal band plotting capabilities.
 It uses two color weights to distinguish spin-up and spin-down bands.
