@@ -675,6 +675,8 @@ Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf
 
 3. Turn on spin orbit coupling and observe how the band structure changes.
 
+4. Try rotations
+
 {::comment}
 
 1. Alternatively you can add APW's to the basis.

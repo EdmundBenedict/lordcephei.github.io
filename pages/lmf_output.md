@@ -493,14 +493,17 @@ a message similar to this:
 
 The restart file contains:
 
-+ Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
-+ lattice vectors and site positions
-+ [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
-+ valence and core densities inside augmentation spheres
-+ mesh density
+1. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
+2. lattice vectors and site positions
+3. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
+4. valence and core densities inside augmentation spheres for each species.
+5. mesh density
 
 [//]: {::nomarkdown}</div>{:/}
 
+Parameters 
+
+You have some control what **lmf**{: style="color: blue"}
 
 
 
