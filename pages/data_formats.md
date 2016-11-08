@@ -196,7 +196,7 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays), e.g.
 </pre>
 
 This file must have 3 columns, corresponding to the <i>x,y,z</i>, components of <b>k</b>.  Unless you specify otherwise the number of rows
-in the array are the number of <i>k</i> points.  Unless you otherwise specify, the name is _qp.ext_{: style="color: green"}.
+in the array are the number of <i>k</i> points.
 
 <i>Alternative file format</i> <BR>
 

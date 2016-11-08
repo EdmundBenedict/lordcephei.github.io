@@ -481,7 +481,9 @@ Command-line switches:
      Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
      [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
 
-   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
+   Unless you otherwise specify, the file name specifying the _k_ points is _qp.ext_{: style="color: green"} for all modes.
+
+   Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
 
    + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
              See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the input file format.
