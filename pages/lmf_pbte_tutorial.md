@@ -576,12 +576,13 @@ lmf output below.
 
 Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line, as we do in the next section.
 
-####  6. _Setup_
+####  6. _Initialization steps_
+[//]: 
 
-Before the self-consistent cycle begins, **lmf**{: style="color: blue"} begins with some initialization steps.
+**lmf**{: style="color: blue"} begins with some initialization steps.
 Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
 
-+ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file)\\
++ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
   Note: this information can also be given via the ctrl file.
 + Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
   [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
