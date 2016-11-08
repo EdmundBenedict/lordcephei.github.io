@@ -48,16 +48,13 @@ Three Questaal tools can make energy bands along symmetry lines you specify: **l
 style="color: blue"}, and **tbe**{: style="color: blue"}. They share a common input and output format.  Bands are
 written to file _bnds.ext_{: style="color: green"}.  This file is not written in a friendly
 format; but it is often the case that you need only a subset of the bands or to provide extra information such as data for color weights.
-**plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
-Data for each symmetry line is kept in a separate file.
 
 **plbnds**{: style="color: blue"} may be used to make postscript files of bands directly, without other software. 
 It is quick and dirty; no easy way to modify the figure.
-
-Alternatively it will render _bnds.ext_{: style="color: green"} into files in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays),
-easily read by **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.
+Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
 A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
-At the same time an **fplot**{: style="color: blue"} script _plot.plbnds_{: style="color: green"} is automatically created.
+Together with the data files, a script _plot.plbnds_{: style="color: green"} is automatically created designed for 
+**fplot**{: style="color: blue"}.
 You can use **fplot**{: style="color: blue"} directly to make the figure, or make it with your favorite graphics package.
 
 **plbnds**{: style="color: blue"} will provide a synopsis of its usage by typing
