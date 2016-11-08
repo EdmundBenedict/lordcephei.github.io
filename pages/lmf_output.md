@@ -417,10 +417,10 @@ To stabilize the overlap matrix, you can set **HAM_TOL** to something close to m
 
 At this stage the potential independent setup is complete.
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ### _Obtain an input density_
-{::comment}
-(/docs/outputs/lmf_output/#obtain-an-input-density)
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#obtain-an-input-density)
 
 The next step is to generate the potential : for this a density must be given.  **lmf**{: style="color: blue"} tries to read the density
 from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmf**{: style="color: blue"} was not able
@@ -508,4 +508,6 @@ You have some control what **lmf**{: style="color: blue"}
 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
+
 
