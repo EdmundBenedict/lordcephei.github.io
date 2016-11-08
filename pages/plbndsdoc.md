@@ -12,13 +12,13 @@ _____________________________________________________________
 
 **plbnds**{: style="color: blue"} is designed to generate data to make figures of energy bands along specified symmetry lines.
 Questaal codes generate energy bands when the [**-\-band**](/docs/input/commandline/#band) command-line argument is invoked,
-in the [symmetry line mode](/docs/input/data_format/#symmetry-line-mode).  The output from the Questaal codes is usuall a file,
+in the (default) [symmetry line mode](/docs/input/data_format/#symmetry-line-mode).  Usually the Questaal codes save bands in
 _bnds.ext_{: style="color: green"}.
 
 **plbnds**{: style="color: blue"} can make postscript files directly, but this tool is is mostly used to set up render _bnds.ext_{: style="color: green"}
-into simple, [easy-to-read format](/docs/misc/fplot/#structure-of-data-files). 
-**plbnds**{: style="color: blue"} also makes a script for the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) graphics tool,
-but the simple data format is suitable for use by any graphics package.
+into files with a simple, [easy-to-read format](/docs/misc/fplot/#structure-of-data-files). 
+**plbnds**{: style="color: blue"} also makes a script for the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) graphics tool that will make the postscript file.
+You can tailor the figure by editing the script file; alternatively the simple data format is suitable for use by any graphics package.
 
 ### _Preliminaries_
 {:.no_toc}
