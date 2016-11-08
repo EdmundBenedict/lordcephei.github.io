@@ -613,7 +613,7 @@ One iteration consists of the following steps:
 
 The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
-Just before exiting, **lmf**{: style="color: blue"} prints out
+Just before exiting after the last iteration, **lmf**{: style="color: blue"} prints out
 
 <pre>
               &darr;         &darr;
@@ -627,7 +627,8 @@ charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), 
 The last line prints out a table of variables that were specified on the command line, and total
 energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are different
 functionals but they should approach the same value at self-consistency.
-The **c** at the beginning of the line indicates that this iteration is self-consistent.
+The **c** at the beginning of the line indicates that this iteration 
+achieved self-consistency with the tolerances specified.
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
