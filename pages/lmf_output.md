@@ -490,8 +490,8 @@ Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfi
 **pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
 Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding prior values.
 
-[Command-line](/docs/commandline/general/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
-has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are
+[Command-line](/docs/input/commandline/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
+has [five arguments:](/docs/input/commandline/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are
 taken for the rest.
 
 <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">

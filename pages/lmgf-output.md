@@ -31,7 +31,7 @@ annotate each block approximately in the order they are made.
 Some parts are similar to the [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/); in places where they are similar a cursory
 treatment is given here; the reader is referred to that page.
 
-_Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/commandline/general/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
+_Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/input/commandline/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
 Raising the verbosity causes **lmgf**{: style="color: blue"} to print additional information.
 Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 

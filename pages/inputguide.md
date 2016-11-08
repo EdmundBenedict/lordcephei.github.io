@@ -270,7 +270,7 @@ BZ_NKABC               reqd   i4v      3,  1
 
 Command-line options
 : `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
-  A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).\\
+  A more complete description of general-purpose command line options can be found on [this page](/docs/input/commandline/).\\
   See this [annotated lmfa output](/docs/outputs/lmfa_output/#help-explained) for an example.
 
 Displaying tags read by the parser
@@ -733,9 +733,9 @@ ASA\_NEWREP | 1 | NC | Y | F | Set to 1 to rotate structure constants to a user-
 ASA\_NOHYB | 1 | NC | Y | F | Set to 1 to turn off hybridization
 ASA\_MTCOR | 1 | NC | Y | F | Set to T to turn on Ewald MT correction
 ASA\_QMT | r | NC | Y | 0 | Override standard background charge for Ewald MT correction<br>Input only meaningful if MTCOR=T
-RMINES | r | lmchk | N | 1 | Minimum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
-RMAXES | r | lmchk | N | 2 | Maximum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
-NESABC | i,i,i | lmchk | N | 100 | Number of mesh divisions when searching for empty spheres [(\-\-getwsr)](/docs/commandline/general/#switches-for-lmchk)
+RMINES | r | lmchk | N | 1 | Minimum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
+RMAXES | r | lmchk | N | 2 | Maximum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
+NESABC | i,i,i | lmchk | N | 100 | Number of mesh divisions when searching for empty spheres [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
 
 {::comment}
 {::nomarkdown}</div>{:/}

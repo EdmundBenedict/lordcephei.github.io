@@ -37,7 +37,7 @@ Adding APWs to **lmf**{: style="color: blue"} is exemplified in these test cases
 
 Should you want a more in depth look, or a practical example, these are good places to start. We will use these as a base and go through the steps required to add the APWs.
 
-For APWs the important points are in the tokens used (tokens, of course, can be added either in the _ctrl_{: style="color: green"} file or as part of the command line arguments, see [here](/docs/input/inputfile/) and [here](/docs/commandline/general/), for this tutorial we will use the command line argument method).   
+For APWs the important points are in the tokens used (tokens, of course, can be added either in the _ctrl_{: style="color: green"} file or as part of the command line arguments, see [here](/docs/input/inputfile/) and [here](/docs/input/commandline/), for this tutorial we will use the command line argument method).   
 
 The tokens of importance are (these can be seen in detail [here](/docs/input/inputfile/#ham))
 

@@ -325,7 +325,7 @@ the effect, but in typical photoemission experiments it is not negligible.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="transformk">{:/}
 
 There are two ways to transform the <b>k</b> point.  The first is to use
-the **~rot** options to the [**\-\-band** switch](/docs/commandline/general/#switches-for-lmf).
+the **~rot** options to the [**\-\-band** switch](/docs/input/commandline/#switches-for-lmf).
 The second expressions which you specify in the
 first line of the <i>k</i>-points input file.  This line consists of a sequence of algebraic expressions,
 which generate one or more of <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or 
