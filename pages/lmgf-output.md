@@ -45,7 +45,7 @@ The input file is run through the [preprocessor](/docs/input/preprocessor/), whi
 Normally it does this silently.  To see the effects of the preprocessor use `lmgf --showp ...`
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.pbte.</button>
+<button type="button" class="button tiny radius">Click here to see the action of the preprocessor on ctrl.copt.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;"id="preprocessor">{:/}
 {::comment}
 <span style="text-decoration:underline;">Click here to see the action of the preprocessor on ctrl.pbte.</span>
