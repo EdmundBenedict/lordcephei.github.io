@@ -541,11 +541,7 @@ the largest value found from their shape, as explained in the [annotated lmfa ou
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
-####  6. _Self consistency_
-{::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#self-consistency
-{:/comment}
-
+####  5. _Remaining Inputs_
 
 We are almost ready to carry out a self-consistent calculation.
 It proceeds in a manner [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/#tutorial).
@@ -578,13 +574,43 @@ _Note:_{: style="color: red"} if you change the shape of the envelope functions
 you must take care that **gmax** is large enough. This is described in the
 lmf output below.
 
-Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line:
+Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line, as we do in the next section.
+
+####  6. _Setup_
+
+Before the self-consistent cycle begins, **lmf**{: style="color: blue"} begins with some initialization steps.
+Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
+
++ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file)\\
+  Note: this information can also be given via the ctrl file.
++ Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
+  [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
+  [other parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
++ Determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
++ Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
++ Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
++ Assemble and display information about the size and members of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
++ Read or assemble a [starting density](/docs/outputs/lmf_output/#obtain-an-input-density)
+
+####  7. _Self consistency_
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
+
+Carry out a self-consistent calculation as follows:
 
 ~~~
 $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
 ~~~
 
-**lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
+**lmf**{: style="color: blue"} will iterate up to 10 iterations.  The cycle is capped to 10 iterations because of the following lines in
+_ctrl.pbte_{: style="color: green"}, which [read](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file) before and after
+preprocessing:
+
+~~~
+   before preprocessing               after preprocessing
+% const nit=10               	  |
+...                          	  |
+  nit=    {nit}              	  |   nit=    10
+~~~
 
 Each iteration of the self-consistency cycle begins with
 
@@ -597,7 +623,7 @@ Each iteration of the self-consistency cycle begins with
 
 One iteration consists of the following steps:
 
-+ Constructs the potential (interstitial and augmentation parts) and terms for the total energy
++ Constructs the potential (interstitial and augmentation parts), matrix elements for the Kohn-Sham hamiltonian and terms for the total energy
 + Makes an initial pass through the irreducible _k_ points in the Brillouin zone
   to obtain the Fermi level.  In general, until the Fermi level is known, the 
   weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
@@ -612,6 +638,9 @@ One iteration consists of the following steps:
 + checks for convergence
 
 The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
+
+**lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
+
 
 Just before exiting after the last iteration, **lmf**{: style="color: blue"} prints out
 
@@ -632,7 +661,7 @@ achieved self-consistency with the tolerances specified.
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
-### _Other Resources_
+#### _Other Resources_
 
 + Click [here](/docs/outputs/lmfa_output/) to see annotated standard output from **lmfa**{: style="color: blue"}, and
   [here](/docs/outputs/lmf_output/) to see annotated standard output from **lmf**{: style="color: blue"}.
@@ -690,9 +719,7 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf_bandedge).
 
 ### _Additional exercises_
-{::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises
-{:/comment}
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)
 
 1. Try self-consistent calculations with the Pb 5_d_ in the valence as a local orbital.  Repeat the calculation but remove the **PZ** part from _basp.pbte_{: style="color: green"}.
 
@@ -702,6 +729,7 @@ Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf
 
 4. Try rotations
 
+5. k-convergence.  Try BZ_BZJOB
 {::comment}
 
 1. Alternatively you can add APW's to the basis.

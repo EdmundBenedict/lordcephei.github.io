@@ -30,9 +30,7 @@ The standard output is organised by blocks.  The sections below
 annotate each block approximately in the order they are made.
 
 ### _Preprocessor's transformation of the input file_
-{::comment}
-/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 
 The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it  is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmf --showp ...`
@@ -206,9 +204,7 @@ and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/inp
 {::nomarkdown}</div>{:/}
 
 ### _Header information_
-{::comment}
-/docs/outputs/lmf_output/#header-information
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#header-information)
 
 The header information presents a condensed synopsis of some key
 settings that are used in the calculation.
@@ -223,9 +219,7 @@ settings that are used in the calculation.
 ~~~
 
 ### _Lattice information_
-{::comment}
-/docs/outputs/lmf_output/#lattice-information
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#lattice-information)
 
 This block prints informations about the lattice vectors and settings used in Ewald summations:
 
@@ -244,9 +238,7 @@ _Note:_{: style="color: red"} When long, thin cells are used, or when APW's are 
 input through [**EWALD\_TOL**](/docs/input/inputfile/#ewald).
 
 ### _Symmetry and k mesh_
-{::comment}
-/docs/outputs/lmf_output/#symmetry-and-k-mesh
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 
 The block below shows symmetry operations it finds in the
 crystal, and the irreducible k mesh it obtains from the point group it is given:
@@ -278,7 +270,7 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 
 + You can also specify symmetry operations [manually](/lordcephei.github.io/docs/input/inputfile/#symgrp).  This is particularly useful when magnetic symmetry must be considered.
 + The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or [**BZ_NABC**](/docs/input/inputfile/#bz).\\
-  You can also specify whether the k-mesh should pass through the origin or straddle it
+  You can also specify whether the _k_-mesh should pass through the origin or straddle it
   through tag [**BZ_BZJOB**](/docs/input/inputfile/#bz).
 + The Brillouin zone integration is using Bloechl's generalized tetrahedron method.
   You can also use the Methfessel-Paxton integration scheme or a Fermi function.
@@ -288,9 +280,7 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 
 ### _Augmentation parameters_
-{::comment}
-/docs/outputs/lmf_output/#augmentation-parameters
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#augmentation-parameters)
 
 The table below contains a synopsis of key parameters associated with augmentation spheres.
 
@@ -310,9 +300,7 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **foca**, **rfoca** allow for differing treatments of the core.
 
 ### _Interstitial mesh_
-{::comment}
-/docs/outputs/lmf_output/#interstitial-mesh
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#interstitial-mesh)
 
 The following block is concerned with the mesh used to represent the charge density,
 and to evaluate matrix elements of the (unaugmented) envelope functions.
@@ -331,9 +319,7 @@ Information about whether this mesh is sufficiently accurate is given
 in the table beginning with _sugcut_{: style="color: green"} below.
 
 ### _Counting the size of the basis_
-{::comment}
-/docs/outputs/lmf_output/#counting-the-size-of-the-basis
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
 
 In the table below, the size of the basis is presented.
 **lmf**{: style="color: blue"} doesn't have downfolding capability, so the
@@ -359,9 +345,7 @@ For **lmf**{: style="color: blue"}, **lmxa** is usually reasonably converged if 
 3 for _sp_ systems, 4 for _d_ atoms and 6 for _f_ shell elements.
 
 ### _Envelope function parameters and their G cutoffs_
-{::comment}
-/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs)
 
 In the table envelope function parameters for each species is given,
 which defines their shape.   Also shown is :
