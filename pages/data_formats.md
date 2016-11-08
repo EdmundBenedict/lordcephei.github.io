@@ -140,14 +140,14 @@ For example:
 
 <i>Output, symmetry-line mode</i> <BR>
 
-Bands are written to file _bnds.ext_{: style="color: green"} in the
+Bands are written to file _bnds.ext_{: style="color: green"} in a
 format specially tailored to symmetry lines.
 
 The file begins with
 <pre>
  36  -0.02136     2  col= 5:9,14:18  col2= 23:27,32:36
    41                                            &larr; number of points on this line
-   0.50000   0.50000   0.50000                   &larr; first k point &nbsp; &darr; bands
+   0.50000   0.50000   0.50000                   &larr; first k point &nbsp; &darr; energy levels
  -4.3011 -4.2872 -4.2872 -0.6225 -0.4363 -0.4363 -0.2342 -0.2342 -0.1355  0.1484
   0.9784  1.2027  1.2027  1.7702  1.7702  1.8940  2.3390  2.3390  2.4298  2.9775
   2.9775  3.0605  3.1020  3.1020  3.6589  3.7134  4.1113  4.1494  4.1494  4.6987
@@ -164,10 +164,10 @@ The data structure for a single symmetry line has this form:
    Next follow for each point <i>i</i>:
    1. a line containing <i>k<sub>i</sub></i> (3 numbers).
    2. one or more lines with the energy levels for <i>k<sub>i</sub></i>
-   3. If color weights are present, a color weight for each level
-      + a line containing <i>k<sub>i</sub></i> (3 numbers) (should be the same as above)
-      + one or more lines with the color weights (should have the same structure as the bands)
-   4. If a second set of color weights is present, the the corresponding lines follow
+   3. If color weights are present, information about color weights, consisting of
+      + a line containing <i>k<sub>i</sub></i> (3 numbers) (should be the same as (1))
+      + one or more lines with the color weights (should have the same format as (2)
+   4. If a second set of color weights is present, there are lines similar to (3).
    5. If in a spin-polarized calculation with both spins present, the same information (1-4)
       is written for the second spin.
 ^
@@ -178,13 +178,14 @@ Use [**plbnds**{: style="color: blue"}](/docs/misc/plbnds/) to read this file fo
 [picture](/docs/misc/plbnds/#example-1) rendered in postscript.  Better, **plbnds**{: style="color: blue"} can generate data files and a
 [script](/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file) for the Questaal graphics tool [**fplot**{:
 style="color: blue"}](/docs/misc/fplot/).  **plbnds**{: style="color: blue"} generates energy bands in a simple to read, [standard Questaal
-format](/docs/input/data_format/#standard-data-formats-for-2d-arrays). so that you can use **fplot**{: style="color: blue"} or your favorite
+format](/docs/input/data_format/#standard-data-formats-for-2d-arrays). You can use **fplot**{: style="color: blue"} or your favorite
 graphics package.
 
 ##### List mode
 [//]: (/docs/input/data_format/#list-mode)
 
-This mode is specifed by, e.g. command line argument **--band~qp**.  Use this mode to generate energy levels for a discrete list of
+This mode is specifed by, e.g. command line argument [**-\-band~qp**](/docs/input/commandline/#band).
+Use this mode to generate energy levels for a discrete list of
 <i>k</i>-points.  The <i>k</i>-points file consists of a list of points in [standard Questaal
 format](/docs/input/data_format/#standard-data-formats-for-2d-arrays), e.g.
 
@@ -195,7 +196,7 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays), e.g.
 </pre>
 
 This file must have 3 columns, corresponding to the <i>x,y,z</i>, components of <b>k</b>.  Unless you specify otherwise the number of rows
-in the array are the number of <i>k</i> points.
+in the array are the number of <i>k</i> points.  Unless you otherwise specify, the name is _qp.ext_{: style="color: green"}.
 
 <i>Alternative file format</i> <BR>
 
