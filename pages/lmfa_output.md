@@ -523,9 +523,7 @@ The core density was fit to a single smooth Hankel function.  The energy (**-14.
 {::nomarkdown}</div>{:/}
 
 ### 5. Estimating the plane-wave cutoff GMAX
-{::comment}
-/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
-{:/comment}
+[//]: (/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax)
 
 The charge density is represented on a uniform mesh of points.  The spacing between points
 or equivalently the plane-wave cutoff **GMAX** used to represent the density in reciprocal space
@@ -547,3 +545,27 @@ maximum values for all species are printed in the table below.
 **lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
 are saved in _atm.pbte_{: style="color: green"} for each species, and basis information parameters are saved in _basp0.pbte_{: style="color: green"}.
 
+### _FAQ_
+[//]: (/docs/outputs/lmfa_output/#faq)
+
+1. Why can the total energy change be calculated as a sum of
+eigenvalues, when fitting an epproximate wave function to the exact one?
+
+This follows from the Helman-Feynman theorem.
+
+Around a self-consistent point the change in total energy from a perturbation
+is the change in the single-particle sum to lowest order, because to first
+order the wave function is stationary.  This is an exact statement.
+
+For many properties, e.g. magnetocrystalline anisotropy, for the effect
+of spin orbit coupling on the total energy, the change in single-particle sum
+is a pretty good estimate of the change in total energy.
+
+There are other reasons why this is approximately true even when not self-consistent.
+
+It is true for model Hamiltonians that have no electron-electron
+interactions.  Matthew Foulkes
+[showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that
+density-functional theory can be cast in the form similar to model
+hamiltonians, with the total energy a sum of the single-particle sum
+and an extra term that is functional of the input density only.
