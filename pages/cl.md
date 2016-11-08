@@ -466,12 +466,12 @@ Command-line switches:
    Default switches:&ensp; **-\-rs=1,1,0,0,0**.&ensp; Enter anywhere between one and five integers; defaults are used for those not given.
 ^
 {::nomarkdown}<a name="band"></a>{:/}**-\-band[~options]**
-: tells **lmf**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
-   can be generated at specified k-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
+: tells **lmf**{: style="color: blue"} (or any program accepts **-\-band** to generate energy bands instead of making a self-consistent calculation.  The energy bands (or energy levels)
+   can be generated at specified _k_-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) is designed for plotting energy bands along symmetry lines.  In
      this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
-     [special format]( (/docs/input/data_format/#symmetry-line-output) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).\\
+     [special format](/docs/input/data_format/#symmetry-line-output) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds/examples).\\
      This is the default mode; alternatively you can select the list or mesh modes:
    + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
      of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
@@ -484,9 +484,9 @@ Command-line switches:
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
 
    + **~qp**:&ensp;     list mode. An arbitrary list of <i>k</i> points can be specified.
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the file format.
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for the input file format.
    + **~con**:&ensp;    mesh mode for contour plot. <i>k</i>-points are specified on a uniform 2D grid; data is written for a specified list of bands.
-             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for file format in this mode
+             See [here](/docs/input/data_format/#file-formats-for-k-point-lists) for input file format in this mode.
    + **~bin**:&ensp;         write bands as a binary file, file name _bbnds.ext_{: style="color: green"}.  Works only with **~qp** and **~con** modes.
    + **~fn=<b>fnam</b>**:&ensp;  read <i>k</i> points from file _fnam.ext_{: style="color: green"}. Default name is _qp.ext_{: style="color: green"}.
    + **~ef=#**:&ensp;        Use **#** for Fermi level.
