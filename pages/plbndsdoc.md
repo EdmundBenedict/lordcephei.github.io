@@ -72,9 +72,7 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 2. _Examples_
 _____________________________________________________________
-{::comment}
-(/docs/misc/plbnds/examples)
-{:/comment}
+[//]: (/docs/misc/plbnds/#examples)
 
 Copy an already prepared bands file for Co, [_bnds.co_{: style="color: green"}](/assets/download/inputfiles/bnds.co) to your working directory.
 It contains energy bands connecting the symmetry lines M, &Gamma;, A, L, &Gamma;, K (5 panels).
