@@ -52,7 +52,7 @@
       - title: "Spectral function calculations with lmgf"
         url: "/spectral-functions/"
   - program:
-    - name: "Input Files"
+    - name: "Input System"
       prefix: "/input"
       content:
       - title: "The Input File"
