@@ -539,11 +539,13 @@ maximum values for all species are printed in the table below.
 
 {::nomarkdown} <a name="summary"></a> {:/}
 {::comment}
-/docs/outputs/lmfa_output/#summary
+[//]: (/docs/outputs/lmfa_output/#summary)
 {:/comment}
 
 **lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
 are saved in _atm.pbte_{: style="color: green"} for each species, and basis information parameters are saved in _basp0.pbte_{: style="color: green"}.
+
+See [Table of Contents](/docs/outputs/lmfa_output/#table-of-contents)
 
 ### _FAQ_
 [//]: (/docs/outputs/lmfa_output/#faq)
@@ -562,10 +564,12 @@ of spin orbit coupling on the total energy, the change in single-particle sum
 is a pretty good estimate of the change in total energy.
 
 There are other reasons why this is approximately true even when not self-consistent.
-
-It is true for model Hamiltonians that have no electron-electron
+It is exact for model Hamiltonians that have no electron-electron
 interactions.  Matthew Foulkes
 [showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that
 density-functional theory can be cast in the form similar to model
 hamiltonians, with the total energy a sum of the single-particle sum
 and an extra term that is functional of the input density only.
+The extra term vanishes at self-consistency in response to low-order perturbation,
+and often doesn't change by a large amount.
+
