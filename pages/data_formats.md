@@ -115,16 +115,8 @@ purpose is to generate contour plots of constant energy surfaces,
 e.g. the Fermi surface. Data file output is written in a special mode, with 
 levels for a particular band at all <i>k</i> written as a group.
 
-{::nomarkdown}
-<FONT color="#bb3300">
-{:/nomarkdown}
-
 ##### Symmetry line mode
 [//]: (/docs/input/data_format/#symmetry-line-mode)
-
-{::nomarkdown}
-</FONT>
-{:/nomarkdown}
 
 This is the default mode.  The <i>k</i>-points file consists of a list
 of symmetry lines and the number of <i>k</i>-points in each line.
@@ -144,21 +136,40 @@ For example:
 0    0  0  0    0  0  0
 </pre>
 
+{::nomarkdown} <a name="symmetry-line-output"></a> {:/}
+
 <i>Output, symmetry-line mode</i> <BR>
 
-Bands are written to file <FONT size="+1"><tt>bnds.ext</tt></FONT> in
-a format specially tailored to symmetry lines.
-The first line consists of of a header, which contains the (maximum) number of
-bands, the Fermi level, and the number of color weights, e.g.:
+Bands are written to file _bnds.ext_{: style="color: green"} in the
+format specially tailored to symmetry lines.
+
+The file begins with a header line
 <pre>
  36  -0.02136     2  col= 5:9,14:18  col2= 23:27,32:36
+   41                                            &larr; number of points on this line
+   0.50000   0.50000   0.50000                   &larr; first _k_ point
+ -4.3011 -4.2872 -4.2872 -0.6225 -0.4363 -0.4363 -0.2342 -0.2342 -0.1355  0.1484
+  0.9784  1.2027  1.2027  1.7702  1.7702  1.8940  2.3390  2.3390  2.4298  2.9775
+  2.9775  3.0605  3.1020  3.1020  3.6589  3.7134  4.1113  4.1494  4.1494  4.6987
+  5.3267  5.3267  5.6162  5.6162  5.9457  6.4435  6.4435  8.6484  8.6484 10.1458
 </pre>
-Next follow, for each symmetry line:
+The header line consists of (1) the (maximum) number of bands (**36**);
+(2) the Fermi level (**-0.02136**) and (3) the number of color weights (**2**).
+The remainder of the line is for informational purposes only and is not needed.
+
+Next follow data for each symmetry line, one after the other.
+The data structure for a single symmetry line has this form:
 
 +  A line with specifying the number of points for the current symmetry line.
    Next follow for each point <i>i</i>:
-   + a line containing <i>k<sub>i</sub></i> (3 numbers).
-   + one or more lines with the energy levels for <i>k<sub>i</sub></i>
+   1. a line containing <i>k<sub>i</sub></i> (3 numbers).
+   2. one or more lines with the energy levels for <i>k<sub>i</sub></i>
+   3. If color weights are present, a color weight for each level
+      + a line containing <i>k<sub>i</sub></i> (3 numbers) (should be the same as above)
+      + one or more lines with the color weights (should have the same structure as the bands)
+   4. If a second set of color weights is present, the the corresponding lines follow
+   5. If in a spin-polarized calculation with both spins present, the same information (1-4)
+      is written for the second spin.
 ^
 
 <i>Making figures, symmetry-line mode</i> <BR>

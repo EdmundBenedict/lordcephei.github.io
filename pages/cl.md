@@ -471,7 +471,7 @@ Command-line switches:
 
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) is designed for plotting energy bands along symmetry lines.  In
      this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
-     [special format](/docs/misc/plbnds/examples) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).\\
+     [special format]( (/docs/input/data_format/#symmetry-line-output) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds).\\
      This is the default mode; alternatively you can select the list or mesh modes:
    + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
      of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
