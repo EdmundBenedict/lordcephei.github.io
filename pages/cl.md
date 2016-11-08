@@ -470,18 +470,19 @@ Command-line switches:
    can be generated at specified _k_-points in one of three formats, or [modes](/docs/input/data_format/#file-formats-for-k-point-lists).
 
    + [Symmetry line mode](/docs/input/data_format/#symmetry-line-mode) is designed for plotting energy bands along symmetry lines.  In
-     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is a bands file in a
+     this case <i>k</i>-points are specifed by a sequences of lines with start and end points.  The output is written in
      [special format](/docs/input/data_format/#symmetry-line-output) that **plbnds**{: style="color: blue"} is [designed to read](/docs/misc/plbnds/#examples).\\
      This is the default mode; alternatively you can select the list or mesh modes:
    + The [list mode](/docs/input/data_format/#list-mode) is a general purpose mode to be used when energy levels are sought at some arbitrary set
      of <i>k</i>-points, specified by the user.  Data is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays)
      with k-points followed by eigenvalues.
-   + The [mesh mode](/docs/input/data_format/#mesh-mode) is a mode that generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
+   + The [mesh mode](/docs/input/data_format/#mesh-mode) generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
      purpose is to generate contour plots of constant energy surfaces, e.g. the Fermi surface.
      Data file output is written in a [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) designed for
-     [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr),
+     [contour plots](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr).
 
-   Unless you otherwise specify, the file name specifying the _k_ points is _qp.ext_{: style="color: green"} for all modes.
+   Unless you otherwise specify, input file specifing the _k_ points is _qp.ext_{: style="color: green"}, and the output
+   written to _bnds.ext_{: style="color: green"} for all three modes.
 
    Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
 
@@ -494,15 +495,15 @@ Command-line switches:
    + **~ef=#**:&ensp;        Use **#** for Fermi level.
    + **~spin1**:&ensp;       generate bands for 1st spin only (spin polarized case)
    + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
-   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors Applies to symmetry line and qp-list modes only
+   + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors. Applies to symmetry line and qp-list modes only.
    + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
    + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
    + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
    + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
-   + **~evn=#** keep track of smallest and largest eval for #th band. Print result at close.  (Purely for informational purposes).
+   + **~evn=#** keep track of smallest and largest eval for #th band. Print result on exit (purely for informational purposes).
    + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
-   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.
-      With this option you can make band plots with three independent colors.
+   + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.\\
+      With this option you can create bands with three independent colors.
 
    The **col** option tells the band generator to save, in addition to
    the energy bands, a corresponding weight for each energy.
