@@ -538,9 +538,7 @@ maximum values for all species are printed in the table below.
 ~~~
 
 {::nomarkdown} <a name="summary"></a> {:/}
-{::comment}
 [//]: (/docs/outputs/lmfa_output/#summary)
-{:/comment}
 
 **lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
 are saved in _atm.pbte_{: style="color: green"} for each species, and basis information parameters are saved in _basp0.pbte_{: style="color: green"}.
@@ -555,21 +553,15 @@ eigenvalues, when fitting an epproximate wave function to the exact one?
 
 This follows from the Helman-Feynman theorem.
 
-Around a self-consistent point the change in total energy from a perturbation
-is the change in the single-particle sum to lowest order, because to first
-order the wave function is stationary.  This is an exact statement.
+Around a self-consistent point (the independent variable is the density, in Kohn-Sham theory) the change in total energy from a perturbation
+is the change in the single-particle sum to lowest order, because to first order the wave function is stationary.  This is an exact
+statement.
 
-For many properties, e.g. magnetocrystalline anisotropy, for the effect
-of spin orbit coupling on the total energy, the change in single-particle sum
-is a pretty good estimate of the change in total energy.
+For many properties, e.g. magnetocrystalline anisotropy, for the effect of spin orbit coupling on the total energy, the change in
+single-particle sum is a pretty good estimate of the change in total energy.
 
-There are other reasons why this is approximately true even when not self-consistent.
-It is exact for model Hamiltonians that have no electron-electron
-interactions.  Matthew Foulkes
-[showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that
-density-functional theory can be cast in the form similar to model
-hamiltonians, with the total energy a sum of the single-particle sum
-and an extra term that is functional of the input density only.
-The extra term vanishes at self-consistency in response to low-order perturbation,
-and often doesn't change by a large amount.
-
+There are reasons why this is approximately true even when not self-consistent.  It is exact for one-body model Hamiltonians (i.e. that that
+have no electron-electron interactions).  Matthew Foulkes [showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that density-functional
+theory can be cast in the form similar to model hamiltonians, with the total energy a sum of the single-particle sum and an extra term that
+is functional of the input density only.  The extra term vanishes at self-consistency in response to low-order perturbation, and often
+doesn't change by a large amount even if the density isn't so different from a self-consistent one.

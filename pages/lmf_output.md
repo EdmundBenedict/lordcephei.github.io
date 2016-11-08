@@ -162,10 +162,10 @@ There are two other special modes to help with managing the input.
 See [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
 for further description.
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ###  _Reading basis information from the basp file_
-{::comment}
-/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
-{:/comment}
+[//]: /docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
 
 After parsing the ctrl file, **lmf**{: style="color: blue"} may attempt to read
 basis set information from the basp file.\\
@@ -284,7 +284,7 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
   You can also use the Methfessel-Paxton integration scheme or a Fermi function.
 
 
-
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 
 ### _Augmentation parameters_

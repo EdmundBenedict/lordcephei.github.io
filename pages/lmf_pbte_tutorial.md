@@ -84,13 +84,13 @@ PbTe crystallizes in the rocksalt structure with lattice constant _a_ = 6.428&th
 _ctrl.pbte_{: style="color: green"}. Start in a fresh working directory and cut and paste the box's contents to _init.pbte_{: style="color: green"}.
 
     LATTICE
-	    ALAT=6.427916  UNITS=A
+            ALAT=6.427916  UNITS=A
             PLAT=    0.0000000    0.5000000    0.5000000
                      0.5000000    0.0000000    0.5000000
                      0.5000000    0.5000000    0.0000000
     SITE
-		ATOM=Pb   X=     0.0000000    0.0000000    0.0000000
-		ATOM=Te   X=     0.5000000    0.5000000    0.5000000
+            ATOM=Pb   X=     0.0000000    0.0000000    0.0000000
+            ATOM=Te   X=     0.5000000    0.5000000    0.5000000
 
 The primitive lattice vectors are in row format (the first row contains the _x_, _y_ and _z_ components of the first lattice vector and so forth). In the **SITE** section, the atom type and coordinates are shown. **X=** specifies the site coordinates.  They are specified in "direct" representation, i.e., as fractional multiples of lattice vectors **PLAT**.  You can also use Cartesian coordinates; instead of **X=** you would use **POS=** (see additional exercises below).  Positions in Cartesian coordinates are in units of **ALAT**, like the lattice vectors.
 
