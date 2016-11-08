@@ -503,7 +503,7 @@ This information is stored because these are the conditions that determine the s
 
 [//]: {::nomarkdown}</div>{:/}
 
-##### Notes on controlling what is read from the restart file.
+##### Controlling what is read from the restart file
 
 Parameters 1-3 will have already been supplied.  Here Brillouin zone integration parameters originate from [category
 **BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"}, lattice vectors and site positions from [_site.pbte_{:
@@ -514,12 +514,20 @@ green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file)
 **-\-rs** has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five switches.
 Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding the prior values.
 
+{:start="#5"}
+
+1. abc
+2. def
+
 **#1** and **#2** mark whether and how to read and write the restart file at all.  Use the following:\\
-&emsp;**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}
+&emsp;**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
 &emsp;**#4=1**&ensp; to keep original sampling parameters.  This is necessary to change parameters when doing sampling integration.\\
-&emsp;**#5=1**&ensp; to keep original **pnu**.  If you do this, a self-consistent density will no longer be fully self-consistent because the basis set has changed.
+&emsp;**#5=1**&ensp; to keep original **pnu**.  
 
 _Notes:_{: style="color: red"} 
+
+1. If you use **#5**, a self-consistent density will no longer be fully self-consistent because the basis set has changed.  The code automatically floats
+**pnu** to the band center of gravity, to make the basis set more accurate.
 
 1. If the site positions have changed, the mesh density will be centered in the wrong place.
 **lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density at the new position,
