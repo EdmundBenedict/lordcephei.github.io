@@ -97,19 +97,19 @@ Their structure is documented [here](/docs/input/sitefile/).
 {:/comment}
 
 <i>k</i>-points and which energy bands or quasiparticles are to be generated
-are specified in one of three types, or modes.  
+are specified in one of three types, or modes.
 
-+ (default) [symmetry line mode](#symmetrylinemode)
++ (default) [symmetry line mode](symmetry-line-mode)
 is designed for plotting energy bands along symmetry lines.  In this
 case <i>k</i>-points are specifed by a sequences of lines with start
 and end points.  The output is a bands file in a specially adapted format.
 
-+ [List mode](#listmode) is a general purpose mode
++ [List mode](#list-mode) is a general purpose mode
 to be used when energy levels are sought at some arbitrary set of
 <i>k</i>-points, specified by the user.  Data is written in a standard
 format with k-points followed by eigenvalues.
 
-+ [Mesh mode](#contourmode) is a mode that
++ [Mesh mode](#mesh-mode) is a mode that
 generates states on a uniform mesh of <i>k</i>-points in a plane.  Its
 purpose is to generate contour plots of constant energy surfaces,
 e.g. the Fermi surface. Data file output is written in a special mode, with 
@@ -120,6 +120,7 @@ levels for a particular band at all <i>k</i> written as a group.
 {:/nomarkdown}
 
 ##### Symmetry line mode
+[//]: (/docs/input/data_format/#symmetry-line-mode)
 
 {::nomarkdown}
 </FONT>
@@ -170,10 +171,7 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays). so that y
 graphics package.
 
 ##### List mode
-
-{::comment}
-<H2><A name="listmode"><FONT size="+1" color="#bb3300">List mode</FONT></A></H2>
-{:/comment}
+[//]: (/docs/input/data_format/#list-mode)
 
 This mode is specifed by, e.g. command line argument **--band~qp**.  Use this mode to generate energy levels for a discrete list of
 <i>k</i>-points.  The <i>k</i>-points file consists of a list of points in [standard Questaal
