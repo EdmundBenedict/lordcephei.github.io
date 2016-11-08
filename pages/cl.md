@@ -503,7 +503,9 @@ Command-line switches:
    + **~evn=#** keep track of smallest and largest eval for #th band. Print result on exit (purely for informational purposes).
    + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.\\
-      With this option you can create bands with three independent colors.
+      With this option you can create bands with three independent colors.\\
+      _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
+
 
    The **col** option tells the band generator to save, in addition to
    the energy bands, a corresponding weight for each energy.
@@ -519,7 +521,6 @@ Command-line switches:
    This list can sometimes be rather long and complex.  To accomodate this,
    some simple enchancements are added to the standard [integer list syntax](/docs/misc/integerlists/).
 
-   _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not color weights capability.
 ^
 {::nomarkdown}<a name="rhopos"></a>{:/}**-\-rhopos**
 :  Render all three components density everywhere positive.  (This can be in an issue because of the

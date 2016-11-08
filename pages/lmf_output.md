@@ -22,12 +22,10 @@ _____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-The output documented here is mostly taken from the **lmf**{: style="color: blue"}
-[tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
+The output documented here is mostly taken from the **lmf**{: style="color: blue"} [tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
 Some portions are adapted from other calculations, as will be indicated.
 
-The standard output is organised by blocks.  The sections below
-annotate each block approximately in the order they are made.
+The standard output is organized by blocks.  The sections below annotate each block approximately in the order they are made.
 
 ### _Preprocessor's transformation of the input file_
 [//]: (/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
@@ -490,7 +488,7 @@ Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfi
 **pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
 Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding prior values.
 
-[Command-line](/docs/input/commandline/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
+**lmf**{: style="color: blue"} [command-line](/docs/input/commandline/#switches-for-lmf) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
 has [five arguments:](/docs/input/commandline/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are
 taken for the rest.
 

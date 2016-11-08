@@ -10,7 +10,7 @@ header: no
 {:.no_toc}
 _____________________________________________________________
 
-**plbnds**{: style="color: blue"} is designed to generate data to make figures of energy bands along specified symmetry lines.
+**plbnds**{: style="color: blue"} is designed to generate data to make figures of energy bands along a specified symmetry lines.
 Questaal codes generate energy bands when the [**-\-band**](/docs/input/commandline/#band) command-line argument is invoked,
 in the (default) [symmetry line mode](/docs/input/data_format/#symmetry-line-mode).  Usually the Questaal codes save bands in
 _bnds.ext_{: style="color: green"}.
@@ -51,14 +51,14 @@ format; but it is often the case that you need only a subset of the bands or to 
 **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
 Data for each symmetry line is kept in a separate file.
 
-**plbnds**{: style="color: blue"} may be used in one of several contexts:
-1. To make postscript files of bands directly, without other software.  Quick and dirty:  no easy way to modify the figure.
-2. To generate a script and formated files for use with **fplot**{: style="color: blue"}, a plotting package built into Questaal.
-3. Same as 2, but format files ready for use with **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.
+**plbnds**{: style="color: blue"} may be used to make postscript files of bands directly, without other software. 
+It is quick and dirty; no easy way to modify the figure.
 
-Tutorials show how to draw figures with **fplot**{: style="color: blue"}; however
-**plbnds**{: style="color: blue"} makes suitable files you can easily use with **gnuplot**{: style="color: blue"} or some other package.
-**plbnds**{: style="color: blue"} and **fplot**{: style="color: blue"} write postscript files to _fplot.ps_{: style="color: green"}.
+Alternatively it will render _bnds.ext_{: style="color: green"} into files in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays),
+easily read by **gnuplot**{: style="color: blue"}, **xmgrace**{: style="color: blue"}, or another graphics package.
+A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
+At the same time an **fplot**{: style="color: blue"} script _plot.plbnds_{: style="color: green"} is automatically created.
+You can use **fplot**{: style="color: blue"} directly to make the figure, or make it with your favorite graphics package.
 
 **plbnds**{: style="color: blue"} will provide a synopsis of its usage by typing
 
