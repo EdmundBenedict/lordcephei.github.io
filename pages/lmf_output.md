@@ -478,10 +478,6 @@ If, on the other hand, the charge density has been saved in a restart file,
 **lmf**{: style="color: blue"} reads it.  Usually restart files are
 saved in a binary form in a file *rst.ext*{: style="color: green"}.
 
-[//]: <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-[//]: <span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
-[//]: </div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
-
 When **lmf**{: style="color: blue"} reads from a restart file it prints out
 a message similar to this:
 
@@ -501,38 +497,40 @@ The restart file contains:
 
 This information is stored because these are the conditions that determine the self-consistent density.
 
-[//]: {::nomarkdown}</div>{:/}
-
 ##### Controlling what is read from the restart file
+[//]: (/docs/outputs/lmf_output/#controlling-what-is-read-from-the-restart-file)
 
-Parameters 1-3 will have already been supplied.  Here Brillouin zone integration parameters originate from [category
-**BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"}, lattice vectors and site positions from [_site.pbte_{:
-style="color: green"}](/docs/input/sitefile/), **pnu** from [_basp.pbte_{: style="color:
-green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
+Parameters 3-5 will have already been supplied.  Here 
+lattice vectors and site positions originate from [_site.pbte_{: style="color: green"}](/docs/input/sitefile/),
+Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"},
+**pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
+Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding prior values.
 
-[Command-line](/docs/commandline/general/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.
-**-\-rs** has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five switches.
-Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding the prior values.
+[Command-line](/docs/commandline/general/#rs) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
+has [five arguments:](/docs/commandline/general/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are
+taken for the rest.
 
-{:start="#5"}
-
-1. abc
-2. def
+<div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to control what lmf reads from and writes to the restart file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
 
 **#1** and **#2** mark whether and how to read and write the restart file at all.  Use the following:\\
-&emsp;**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
-&emsp;**#4=1**&ensp; to keep original sampling parameters.  This is necessary to change parameters when doing sampling integration.\\
-&emsp;**#5=1**&ensp; to keep original **pnu**.  
+**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
+**#4=1**&ensp; to keep original sampling parameters.\\
+**#5=1**&ensp; to keep original **pnu**.  
 
 _Notes:_{: style="color: red"} 
 
-1. If you use **#5**, a self-consistent density will no longer be fully self-consistent because the basis set has changed.  The code automatically floats
-**pnu** to the band center of gravity, to make the basis set more accurate.
+1. If you use **#5=1**, a self-consistent density will no longer be fully self-consistent because the basis set has changed.  **lmf**{:
+style="color: blue"} automatically floats **pnu** to the band center of gravity, to make the basis set more accurate.
+2. The mesh density has a lump centered at each atom.  If the site positions change, the lump will be centered in the wrong place, and the
+density very poor.  **lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density centered at the new
+position, and _subtracting_ it at the file position.  It will do this if you use **#1=11**.
+3. If the lattice has rotated or sheared, the reader will detect this and will rotate or shear the mesh density accordingly.
+But unless you otherwise specify, the site densities are left unaltered.  To tell the reader to rotate site densities, use **#1=101**.
+4. If you are doing sample integration and want to change sampling parameters, you must use **#4=1**.
 
-1. If the site positions have changed, the mesh density will be centered in the wrong place.
-**lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density at the new position,
-and _subtracting_ the same atomic density at the file position.  It will do this by using **#1=11**.
-
+{::nomarkdown}</div>{:/}
 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
