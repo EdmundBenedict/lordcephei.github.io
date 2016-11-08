@@ -12,7 +12,7 @@ _____________________________________________________________
 
 **plbnds**{: style="color: blue"} is designed to generate data to make figures of energy bands along a specified symmetry lines.
 Questaal codes generate energy bands when the [**-\-band**](/docs/input/commandline/#band) command-line argument is invoked,
-in the (default) [symmetry line mode](/docs/input/data_format/#symmetry-line-mode).  Usually the Questaal codes save bands in
+in the (default) [symmetry line mode](/docs/input/data_format/#symmetry-line-mode).  Usually Questaal codes write bands to
 _bnds.ext_{: style="color: green"}.
 
 **plbnds**{: style="color: blue"} can make postscript files directly, but this tool is is mostly used to set up render _bnds.ext_{: style="color: green"}
@@ -41,18 +41,18 @@ Energy bands provide a great deal of information, and the Questaal codes provide
 them.  Drawing bands with color weights is a particularly useful feature,
 as shown in Section 2
 
-You must choose the symmetry lines yourself, but [prepackaged symmetry line
-files](https://lordcephei.github.io/docs/input/symfile/) are available that greatly facilitate the selection and labelling.
-
-Three Questaal tools can make energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{:
-style="color: blue"}, and **tbe**{: style="color: blue"}. They share a common input and output format.  Bands are
-written to file _bnds.ext_{: style="color: green"}.  This file is not written in a friendly
-format; but it is often the case that you need only a subset of the bands or to provide extra information such as data for color weights.
+Three Questaal tools can generate energy bands along symmetry lines you specify: **lmf**{: style="color: blue"}, **lm**{: style="color:
+blue"}, and **tbe**{: style="color: blue"}.  They share a common input and output format.  You must choose the symmetry lines yourself, but
+[prepackaged symmetry line files](https://lordcephei.github.io/docs/input/symfile/) are available that greatly facilitate the selection and
+labelling.  Bands are written to file _bnds.ext_{: style="color: green"}, or _bbnds.ext_{: style="color: green"} if
+[**-\-band~bin**](/docs/input/commandline/#band) is used.  This file is not written in a friendly format; but it is often
+the case that you need only a subset of the bands or to provide extra information such as data for color weights.
 
 **plbnds**{: style="color: blue"} may be used to make postscript files of bands directly, without other software. 
 It is quick and dirty; no easy way to modify the figure.
 Alternatively **plbnds**{: style="color: blue"} can efficiently convert data in _bnds.ext_{: style="color: green"} to a friendly format in a variety of circumstances.
 A separate file <i>bnd</i>{: style="color: green"}n.<i>ext</i>{: style="color: green"} is created for each panel, one panel per symmetry line.
+
 Together with the data files, a script _plot.plbnds_{: style="color: green"} is automatically created designed for 
 **fplot**{: style="color: blue"}.
 You can use **fplot**{: style="color: blue"} directly to make the figure, or make it with your favorite graphics package.
@@ -63,7 +63,7 @@ You can use **fplot**{: style="color: blue"} directly to make the figure, or mak
 
 Section 2 gives you an intuitive feel of how **plbnds**{: style="color: blue"} operates by working through an example (the energy bands of Co).
 
-Section 3 is an operations manual.
+Section 3 is an [operations manual](/docs/misc/plbnds/#plbnds-manual).
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
@@ -250,6 +250,7 @@ See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 3. _plbnds manual_
 _____________________________________________________________
+[//]: (/docs/misc/plbnds/#plbnds-manual)
 
 Invoke **plbnds**{: style="color: blue"} in one of the following ways:
 
