@@ -57,6 +57,8 @@
       content:
       - title: "The Input File"
         url: "/inputfile/"
+      - title: "Command Line Options"
+        url: "/commandline/"
       - title: "File Preprocessor"
         url: "/preprocessor/"
       - title: "The Site file"
@@ -74,15 +76,6 @@
         url: "/lmfa_output/"
       - title: "lmgf standard output"
         url: "/lmgf-output/"
-    - name: "Command Line Options"
-      prefix: "/commandline"
-      content:
-      - title: "General"
-        url: "/general/"
-      - title: "lmf"
-        url: "/lmf/"
-      - title: "lm"
-        url: "/lm/"
     - name: "Physical Properties"
       prefix: "/properties"
       content:

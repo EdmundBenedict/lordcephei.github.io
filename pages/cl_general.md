@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Command Line switches"
-permalink: "/docs/commandline/general/"
+permalink: "/docs/input/commandline/"
 header: no
 ---
 
@@ -16,7 +16,7 @@ _____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 {::comment}
-(/docs/commandline/general/#table-of-contents)
+(/docs/input/commandline/#table-of-contents)
 {:/comment}
 
 #### _Introduction_
@@ -130,11 +130,11 @@ Additionally, for any program utilizing site information, the following switches
     and any class which grep finds is included in the list.\\
     Example: "-sfill~style=3~a[1-6]"
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ blm
 {::comment}
-(/docs/commandline/general/#switches-for-blm)
+(/docs/input/commandline/#switches-for-blm)
 {:/comment}
 
 {::comment}
@@ -230,11 +230,11 @@ Command-line switches:
 {::nomarkdown}</div>{:/}
 {:/comment}
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmchk
 {::comment}
-(/docs/commandline/general/#switches-for-lmchk)
+(/docs/input/commandline/#switches-for-lmchk)
 {:/comment}
 
 **lmchk**{: style="color: blue"} has two main functions: to check augmentation sphere overlaps (and optionally to determine augmentation
@@ -331,7 +331,7 @@ Note : without it a blank line is inserted before sub-bullets
     &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 5.\\
     &ensp; **~e**:&ensp;   prints inner product between Euler angles (relevant to noncollinear magnetism in the ASA)\\
     &ensp; **~fn=_filename_**:&ensp; writes neighbor table to file _filename.ext_{: style="color: green"}\\
-    &ensp; **~sites~_site-list_**:&ensp; restricts sites considered to _site-list_.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_\\
+    &ensp; **~sites~_site-list_**:&ensp; restricts sites considered to _site-list_.  See [here](/docs/input/commandline/#site-list-syntax) for the syntax of _site-list_\\
     &ensp; **~pair~_site-list_**:&ensp; restricts neighbors to _site-list_.\\
     &ensp; **~nn**:&ensp;  restrict table to nearest-neighbor shell (tab mode only)
 
@@ -343,7 +343,7 @@ Note : without it a blank line is inserted before sub-bullets
 
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
   &ensp; **~r=#**:&ensp; Specifies range of neighbor-list. Default value is 2.5.\\
-  &ensp; **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
+  &ensp; **~sites~_site-list_**:&ensp; loops over center atoms in **_site-list_**.  See [here](/docs/input/commandline/#site-list-syntax) for the syntax of _site-list_.\\
   &ensp; **~bonds~_site-list_**:&ensp; prints out table only for triples whose neighbors are in _site-list_.
 
   Example: **-\-angles~sites~1,2~bonds~style=2~z==34**\\
@@ -357,7 +357,7 @@ Note : without it a blank line is inserted before sub-bullets
   Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-shell**):\\
   &ensp; **~r=_rmax_[,_rmin_]**:&ensp;  Include in table only pairs closer than **_rmax_**.
          If **_rmin_** is also given, exclude pairs closer than **_rmin_**.\\
-  &ensp; **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/commandline/general/#site-list-syntax) for the syntax of _site-list_.\\
+  &ensp; **~sites~_site-list_**:&ensp; include only sites in **_site-list_**.  See [here](/docs/input/commandline/#site-list-syntax) for the syntax of _site-list_.\\
   &ensp; **~sign**:&ensp; If present, rotate angle by 180&deg; for each member of the pair whose magnetic moment is negative.
 
   Example: **-\-euler~r=10,6~sign~sites~style=2~z==26**\\
@@ -383,7 +383,7 @@ Note : without it a blank line is inserted before sub-bullets
      simple function of the overlap.\\
      (For now, the function has been set arbitrarily to the sixth power of the overlap).\\
     &ensp; **-\-mino~z** : &ensp; construct list from all sites with atomic number _Z_=0\\
-    &ensp; **-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+    &ensp; **-\-mino~_site-list_** : &ensp; list of sites; see [here](/docs/input/commandline/#site-list-syntax) for **_site-list_** syntax.
 ^
 **-\-terse**
 :  print minimum information about overlaps.
@@ -416,23 +416,23 @@ Note : without it a blank line is inserted before sub-bullets
 {::nomarkdown}</div>{:/}
 {:/comment}
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmf
 {::comment}
-(/docs/commandline/general/#switches-for-lmf)
+(/docs/input/commandline/#switches-for-lmf)
 {:/comment}
 
 **lmf**{: style="color: blue"} is the [main density-functional code](/docs/code/fpoverview/) in the Questaal suite.
 
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
-| Affects program flow       | **[-\-ef](/docs/commandline/general/#ef)**&nbsp; **[-\-no-fixef0](/docs/commandline/general/#nofixef0)**&nbsp; **[-\-oldvc](/docs/commandline/general/#oldvc)**&nbsp; [**-\-optbas**](/docs/commandline/general/#optbas)&nbsp; **[-\-quit](/docs/commandline/general/#pr)**&nbsp; **[-\-rdbasp](/docs/commandline/general/#rdbasp)**<br>**[-\-rhopos](/docs/commandline/general/#rhopos)**&nbsp; **[-\-rpos](/docs/commandline/general/#rpos)**&nbsp; **[-\-rs](/docs/commandline/general/#rs)**&nbsp; **[-\-shorten=no](/docs/commandline/general/#shortenno)**&nbsp; **[-\-symsig](/docs/commandline/general/#symsig)**&nbsp; **[-\-vext](/docs/commandline/general/#vext)**
-| Additional files generated | [**-\-band**](/docs/commandline/general/#band)&nbsp; **[-\-cls](/docs/commandline/general/#cls)**&nbsp; **[-\-cv](/docs/commandline/general/#cv)**&nbsp; **[-\-mull](/docs/commandline/general/#pdos)**&nbsp; **[-\-pdos](/docs/commandline/general/#pdos)**&nbsp;<br>**[-\-wden](/docs/commandline/general/#wden)**&nbsp; **[-\-wpos](/docs/commandline/general/#wpos)**&nbsp; **[-\-wrhomt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/commandline/general/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/commandline/general/#wrhoat)** |
-| Additional printout        | **[-\-efrnge](/docs/commandline/general/#efrnge)**&nbsp; **[-\-pr](/docs/commandline/general/#pr)**&nbsp; **[-\-SOefield](/docs/commandline/general/#SOefield)** |
-| [Optics specific](/docs/commandline/general/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
-| [QSGW specific](/docs/commandline/general/#qsgw) | **-\-mixsig**&nbsp; **-\-rsig**&nbsp; **-\-wsig**
-| [Editors](/docs/commandline/general/#editors) | **-\-chimedit**&nbsp; **-\-rsedit**&nbsp; **-\-popted**&nbsp; **-\-wsig~edit**
+| Affects program flow       | **[-\-ef](/docs/input/commandline/#ef)**&nbsp; **[-\-no-fixef0](/docs/input/commandline/#nofixef0)**&nbsp; **[-\-oldvc](/docs/input/commandline/#oldvc)**&nbsp; [**-\-optbas**](/docs/input/commandline/#optbas)&nbsp; **[-\-quit](/docs/input/commandline/#pr)**&nbsp; **[-\-rdbasp](/docs/input/commandline/#rdbasp)**<br>**[-\-rhopos](/docs/input/commandline/#rhopos)**&nbsp; **[-\-rpos](/docs/input/commandline/#rpos)**&nbsp; **[-\-rs](/docs/input/commandline/#rs)**&nbsp; **[-\-shorten=no](/docs/input/commandline/#shortenno)**&nbsp; **[-\-symsig](/docs/input/commandline/#symsig)**&nbsp; **[-\-vext](/docs/input/commandline/#vext)**
+| Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
+| Additional printout        | **[-\-efrnge](/docs/input/commandline/#efrnge)**&nbsp; **[-\-pr](/docs/input/commandline/#pr)**&nbsp; **[-\-SOefield](/docs/input/commandline/#SOefield)** |
+| [Optics specific](/docs/input/commandline/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
+| [QSGW specific](/docs/input/commandline/#qsgw) | **-\-mixsig**&nbsp; **-\-rsig**&nbsp; **-\-wsig**
+| [Editors](/docs/input/commandline/#editors) | **-\-chimedit**&nbsp; **-\-rsedit**&nbsp; **-\-popted**&nbsp; **-\-wsig~edit**
 
 Command-line switches:
 
@@ -530,7 +530,7 @@ Command-line switches:
 ^
 {::nomarkdown}<a name="lmfpdos"></a>{:/}**-\-pdos[~options] &thinsp;\|&thinsp; -\-mull[:options]**
 :  tells **lmf**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
-   Options are described [here](/docs/commandline/general/#switches-for-lmdos).
+   Options are described [here](/docs/input/commandline/#switches-for-lmdos).
 ^
 {::nomarkdown}<a name="cls"></a>{:/}**-\-cls[.ib,l,n[.ib,l,n][.lst=list,l,n[.lst=list,l,n]][.fn=file]]**
 :  tells **lmf**{: style="color: blue"} to generate weights to compute matrix
@@ -650,7 +650,7 @@ Command-line switches:
 
 {::nomarkdown} <a name="optics"></a> {:/}
 {::comment}
-(/docs/commandline/general/#optics)
+(/docs/input/commandline/#optics)
 {:/comment}
 
 <i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
@@ -661,7 +661,7 @@ Command-line switches:
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 {::nomarkdown} <a name="editors"></a> {:/}
 
@@ -682,7 +682,7 @@ Invoke the editor to see see their usage.</i>
 
 {::nomarkdown} <a name="qsgw"></a> {:/}
 {::comment}
-(/docs/commandline/general/#qsgw)
+(/docs/input/commandline/#qsgw)
 {:/comment}
 
 <i>The following switches affect how</i> **lmf**{: style="color: blue"} <i>reads, writes, or modifies the QSGW self-energy</i>
@@ -736,11 +736,11 @@ to the LDA potential.
    + **~shftq**:&ensp;      add qp offset to qp where sigma is made
    + **~wvxcf**:&ensp;      read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lm
 {::comment}
-(/docs/commandline/general/#switches-for-lm)
+(/docs/input/commandline/#switches-for-lm)
 {:/comment}
 
 **lm**{: style="color: blue"} is the main [ASA density-functional code](/docs/code/asaoverview/) in the Questaal suite.
@@ -756,12 +756,12 @@ Command-line switches:
     If **#2** is nonzero, data written _rsta.ext_{: style="color: green"}.
 
 + **-\-band[~options]**
-  + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/commandline/general/#band) for options.
+  + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/input/commandline/#band) for options.
 
 
 + **-\-pdos[~options]**
   + tells **lm**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.
-    Options are described [here](/docs/commandline/general/#pdos)
+    Options are described [here](/docs/input/commandline/#pdos)
 
 + **-\-mix=#**
   + start the density mixing at rule &thinsp;**'#'**.  See [here](/docs/input/inputfile/#itermix) for a description of the mixing tag.
@@ -772,11 +772,11 @@ Command-line switches:
 + **-\-sh=_cmd_**
   + invoke the shell **_cmd_** after every iteration.  (Not maintained).
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmgf
 {::comment}
-(/docs/commandline/general/#switches-for-lmgf)
+(/docs/input/commandline/#switches-for-lmgf)
 {:/comment}
 
 **lmgf**{: style="color: blue"} is Green's function code based on the [ASA](/docs/code/asaoverview/).
@@ -790,20 +790,20 @@ the prescribed Fermi level.
 Command-line switches:
 
 +  **-\-rs=#1,#2**\\
-   [Same function](/docs/commandline/general/#switches-for-lm) as **lm**
+   [Same function](/docs/input/commandline/#switches-for-lm) as **lm**
 +  **-\-pdos[~options]**\\
-   [Same function](/docs/commandline/general/#switches-for-lm) as **lm**
+   [Same function](/docs/input/commandline/#switches-for-lm) as **lm**
 +  **-\-mix=#**\\
-   [Same function](/docs/commandline/general/#switches-for-lm) as [**lm**]
+   [Same function](/docs/input/commandline/#switches-for-lm) as [**lm**]
 +  **-\-ef=_ef_**\\
    Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
 
 The following is specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
 
 + **--sites[~pair]~_site-list_**\\
-  + **GF\_MODE=10** | **GF\_MODE>11**:&ensp; calculate exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax)\\
+  + **GF\_MODE=10** | **GF\_MODE>11**:&ensp; calculate exchange interactions only for atoms in [_site-list_](/docs/input/commandline/#site-list-syntax)\\
     Additional **~pair** also restricts coupling to neighors for sites in the list.
-  + **GF\_MODE=11**:&ensp; Analyze exchange interactions only for atoms in [_site-list_](/docs/commandline/general/#site-list-syntax).
+  + **GF\_MODE=11**:&ensp; Analyze exchange interactions only for atoms in [_site-list_](/docs/input/commandline/#site-list-syntax).
 + **--vshft**\\
   Read and apply constant potential shifts from file _vshft.ext_{: style="color: green"}
 
@@ -828,7 +828,7 @@ The following are specific to the exchange-analysis mode [**GF\_MODE=11**](/docs
 + **--qp=_fn_**:\\
   Read qp for SW energies from file **_fn_**
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ tbe
 
@@ -859,11 +859,11 @@ See [Table of Contents](/docs/commandline/general/#table-of-contents)
  --lsxxb        the LS++ beta parameter (ls++ branch only)
 ~~~
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmdos
 {::comment}
-(/docs/commandline/general/#switches-for-lmdos)
+(/docs/input/commandline/#switches-for-lmdos)
 {:/comment}
 
 **lmdos**{: style="color: blue"} is a postprocessing step that generates partial densities-of-states.
@@ -908,7 +908,7 @@ Command-line options:
       + **#=0** DOS resolved by site
       + **#=1** DOS resolved by _l_ and site
       + **#=2** DOS resolved by _lm_ and site.
-   +  **~sites=_site-list_**:&ensp; make DOS for a [list of sites](/docs/commandline/general/#site-list-syntax).
+   +  **~sites=_site-list_**:&ensp; make DOS for a [list of sites](/docs/input/commandline/#site-list-syntax).
    +  **~group=_lst1_;_lst2_;&hellip;**:&ensp;  DOS for a list of groups.  A group can consist of one or more sites, which are combined to make a single channel.
    +  **~nl=#**:&ensp; **#&minus;1** is a global _l_ cutoff.
    +  **~lcut=<i>l</i><sub>1</sub>,<i>l</i><sub>2</sub>,&hellip;**: _l_-cutoff for each group or site in the group or site list.
@@ -942,7 +942,7 @@ Command-line options:
    + **rdm**:             write DOS in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
    + **ldig**:            read/write DOS with extra digits.
    + **bands=<i>list</i>**:   compute contribution to DOS from a prescribed [list of bands](/docs/misc/integerlists/).
-   + **classes=<i>list</i>**: generate DOS for a specified [list of classes](/docs/commandline/general/#class-list-syntax)\\
+   + **classes=<i>list</i>**: generate DOS for a specified [list of classes](/docs/input/commandline/#class-list-syntax)\\
      **Caution:**{: style="color: red"} this option is only compatible with default moments files generated by the ASA, which stores dos
      weights by class.  It is incompatible with the **-\-pdos** switch which stores weights by site.
 
@@ -952,11 +952,11 @@ Command-line options:
 **-\-cls**
 :  tells **lmdos**{: style="color: blue"} that the _moms.ext_{: style="color: green"} holds data for core-level (EELS) spectrosopy (**lmf**{: style="color: blue"} output).
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmscell
 {::comment}
-(/docs/commandline/general/#switches-for-lmscell)
+(/docs/input/commandline/#switches-for-lmscell)
 {:/comment}
 
 **lmscell**{: style="color: blue"} works by generating a list of lattice vectors from the primitive lattice vectors, and adding them
@@ -986,7 +986,7 @@ original, because the list of lattice vectors may not encompass all the translat
   Optional **_expr2_** sorts subsets of sites with equivalent values of **_expr1_**, similarly for **_expr3_**.
 ^
 **-\-sites:_site-list_**
-: Make supercell of subset of sites in original basis. See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+: Make supercell of subset of sites in original basis. See [here](/docs/input/commandline/#site-list-syntax) for **_site-list_** syntax.
 ^
 **-\-rsta &thinsp;\|&thinsp; --rsta,amom**
 : (ASA only) Makes ASA restart file for the supercell from existing file _rsta.ext_{: style="color: green"}.\\
@@ -1004,8 +1004,8 @@ original, because the list of lattice vectors may not encompass all the translat
 ^
 **-\-disp~fnam~<i>site-list</i>**
 : Displace a set of atoms in the neighborhood of a given one, e.g. **-\-disp:tab2:style=3:Fex**\\
-  Use in conjunction with [**lmchk**](/docs/commandline/general/#switches-for-lmchk) command line argument (**-\-shell~tab=2~disp=_file_**).
-  See [here](/docs/commandline/general/#site-list-syntax) for **_site-list_** syntax.
+  Use in conjunction with [**lmchk**](/docs/input/commandline/#switches-for-lmchk) command line argument (**-\-shell~tab=2~disp=_file_**).
+  See [here](/docs/input/commandline/#site-list-syntax) for **_site-list_** syntax.
 ^
 **-\-sqs[~seed=#][~r2max=#][~r3max=#][~r3mode=#]**
 : Make a  Special QuasiRandom Structure.  It works by minimizing a norm function.\\
@@ -1018,11 +1018,11 @@ original, because the list of lattice vectors may not encompass all the translat
 
   **Caution:**{: style="color: red"} This mode is still experimental.
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmctl
 {::comment}
-(/docs/commandline/general/#switches-for-lmctl)
+(/docs/input/commandline/#switches-for-lmctl)
 {:/comment}
 
 **lmctl**{: style="color: blue"} is an adjunct to the ASA, that read
@@ -1035,11 +1035,11 @@ Command-line switches:
 + **-spinf**:&ensp;   exchange up- and down- moments
 + **-mad**:&emsp;     also write out the ves at RMAX.
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmxbs
 {::comment}
-(/docs/commandline/general/#switches-for-lmxbs)
+(/docs/input/commandline/#switches-for-lmxbs)
 {:/comment}
 
 **lmxbs**{: style="color: blue"} generates input for the graphics program **xbs**{: style="color: blue"}, a program
@@ -1077,14 +1077,14 @@ Command-line switches:
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
 
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmfgws
 
 + **--sfuned**\\
   Run the spectral function editor. Invoke the editor to see see its usage.
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ spectral
 
@@ -1104,7 +1104,7 @@ _Note:_{: style="color: red"} the spectral function is only reliable on a fine e
    smearing width, in eV.
 +  **--ws**:\\
    Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
-   suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/commandline/general/#switches-for-lmfgws).
+   suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws).
    Individual files are not written.\\
    When using this switch, **--nw=1** is advised, since **lmfgws**{: style="color: blue"} can do its own interpolation.
 +  **--cnst:_expr_**:\\
@@ -1119,12 +1119,12 @@ _Note:_{: style="color: red"} the spectral function is only reliable on a fine e
    Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.\\
    **--cnst:iq==1&eqp>-10**
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Site-list syntax_
 _____________________________________________________________
 {::comment}
-(/docs/commandline/general/#site-list-syntax)
+(/docs/input/commandline/#site-list-syntax)
 {:/comment}
 
 Site-lists are used in command-line arguments in several contexts, e.g. in **lmscell**{: style="color: blue"}, **lmgf**{: style="color:
@@ -1155,7 +1155,7 @@ For definiteness assume &thinsp;**~**&thinsp; is the delimiter and the segment b
 
 {::nomarkdown} <a name="class-list-syntax"></a> {:/}
 {::comment}
-(/docs/commandline/general/#class-list-syntax)
+(/docs/input/commandline/#class-list-syntax)
 {:/comment}
 
 
@@ -1163,4 +1163,4 @@ _Note:_{: style="color: red"} some ASA-specific switches refer to _class-list_. 
 except that the class list is not expanded into a site list.
 
 
-See [Table of Contents](/docs/commandline/general/#table-of-contents)
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
