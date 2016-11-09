@@ -644,7 +644,7 @@ At looping over atoms, a table is written for terms involving the total energy
 
 {::nomarkdown}</div>{:/}
 
-Before exiting the potential maker (**fp/mkpot.f{: style="color: green"}**)
+Before exiting the potential maker (**fp/mkpot.f**{: style="color: green"})
 the following lines are written:
 
 ~~~
@@ -658,11 +658,10 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 
 ### Parameters for local orbitals
-[//]: (/docs/outputs/lmf_output/#potential)
+[//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
 
-Extended local orbitals for shallow cores must attach a smooth Hankel tail.
-A single smooth hankel that fits both value and slope is performed and the
-result displayed in a table:
+Extended local orbitals must attach a smooth Hankel tail.  A single smooth hankel function that fits both value and slope is found.
+The result displayed in a table:
 
 ~~~
  Fit local orbitals to sm hankels, species Pb, rmt=3.044814
@@ -670,30 +669,8 @@ result displayed in a table:
   2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887
 ~~~
 
-After both Total energy
-
-~~~
- Energy terms:             smooth           local            total
-   rhoval*vef            -46.400985      -271.033266      -317.434250
-   rhoval*ves            -62.942264      -220.170579      -283.112844
-   psnuc*ves             145.801855   -233346.961977   -233201.160122
-   utot                   41.429795   -116783.566278   -116742.136483
-   rho*exc               -11.301007     -1083.505751     -1094.806758
-   rho*vxc               -14.720287     -1438.308127     -1453.028414
-   valence chg            15.480342         4.519657        20.000000
-   core charge           114.000000         0.000000       114.000000
-
- Charges:  valence    20.00000   cores   114.00000   nucleii  -134.00000
-    hom background     0.00000   deviation from neutrality:      0.00000
-~~~
-
-convergence in local orbital
-
-~~~
- sugcut:  make orbital-dependent cutoffs for local orbitals, tol=1.0e-6
- spec      l    rsm    eh     gmax    last term   cutoff
-  Pb       2    1.05  -1.13   8.040    2.78E-06    3647*
-~~~
+### Brillouin zone integration
+[//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
 ~~~
  Start first of two band passes ...
@@ -712,6 +689,9 @@ convergence in local orbital
  BZINTS: Fermi energy:     -0.138629;  20.000000 electrons;  D(Ef):    0.000
          Sum occ. bands:  -18.1376921  incl. Bloechl correction:    0.000000
 ~~~
+
+### Output density and update of augmentation sphere boundary conditions
+[//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
 
 ~~~
  mkrout:  Qtrue      sm,loc       local
@@ -741,6 +721,8 @@ convergence in local orbital
  3     0    0.018386   -0.559688    4.182000    4.116698    4.102416    4.121119
 ~~~
 
+### Total energy and forces
+[//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
 
 ~~~
  Harris energy:
@@ -767,6 +749,9 @@ convergence in local orbital
  Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
 ~~~
 
+### New density
+[//]: (/docs/outputs/lmf_output/#new-density)
+
 ~~~
  mixing: mode=B  nmix=2  beta=.3  elind=.531  kill=7
  mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
@@ -779,7 +764,8 @@ convergence in local orbital
    screened rms difference:  smooth  0.011907   local  0.022361   tot  0.021660
 ~~~
 
-end of loop
+### End of self-consistency loop
+[//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
 
 ~~~
  iors  : write restart file (binary, mesh density)
@@ -787,8 +773,6 @@ end of loop
    it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
 h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 ~~~
-
-
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
