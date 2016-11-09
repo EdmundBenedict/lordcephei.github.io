@@ -524,7 +524,7 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 
 {::nomarkdown}</div>{:/}
 
-### Potential
+### Potential and Matrix Elements
 [//]: (/docs/outputs/lmf_output/#potential)
 
 The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
@@ -653,6 +653,8 @@ the following lines are written:
 ~~~
 
 Is is important that the system be neutral.
+
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 
 ### Parameters for local orbitals
