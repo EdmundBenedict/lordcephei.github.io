@@ -615,6 +615,7 @@ Each step is explained in more detail in the [annotated lmf output](/docs/output
 + Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
 + Assemble and display information about the size and constituents of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
 + Read or assemble an [input density](/docs/outputs/lmf_output/#obtain-an-input-density)
++ A QS<i>GW</i> potential &Sigma;<sup>0</sup> may be read in.
 
 #####  Self-consistent cycle
 
@@ -629,7 +630,21 @@ Each iteration of the self-consistency cycle begins with
 
 One iteration consists of the following steps:
 
-+ Constructs the potential (interstitial and augmentation parts), matrix elements for the Kohn-Sham hamiltonian and terms for the total energy
++ Constructs the [potential](/docs/outputs/lmf_output/#potential-and-matrix-elements) and matrix elements.
+
+  + Interstitial and local parts of the potential are made  
+
+  + Partial waves $$\phi$$ and $$\dot{phi}$$ are integrated from the potential
+
+  + Matrix elements (of the kinetic energy, potential energy, overlap) of the partial waves are assembled
+    for the Kohn-Sham hamiltonian.  Other matrix elements may be made depending on circumstances, matrix elements
+    for [optics](/docs/input/inputfile/#optics) or for [spin-orbit coupling](/docs/input/inputfile/#ham) (**HAM\_SO=t**).
+
+  + Matrix elements of the interstitial potential $$\chi_i \left|V\right| \chi_j$$. Here the <i>&chi;</i> are envelope functions
+
+  This is sufficient to read
+  (interstitial and augmentation parts), integrates whatever matrix elements of partial waves are needed
+ for the Kohn-Sham hamiltonian and terms for the total energy
 + Makes an initial pass through the irreducible _k_ points in the Brillouin zone
   to obtain the Fermi level.  In general, until the Fermi level is known, the 
   weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.

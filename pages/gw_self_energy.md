@@ -179,9 +179,11 @@ $$
 $$
 
 So
+
+$$
 \frac{m_0}{m^*} =
 Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
-
+$$
 
 In the QS<i>GW</i> case the quantity in parenthesis vanishes.
 

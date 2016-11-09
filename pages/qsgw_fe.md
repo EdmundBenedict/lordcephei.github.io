@@ -405,9 +405,7 @@ $ cp bnds.fe bnds.gw
 ~~~
 
 ### Compare QSGW and LDA energy bands
-{::comment}
-/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands
-{:/comment}
+[//]: (/tutorial/gw/qsgw_fe/#compare-qsgw-and-lda-energy-bands)
 
 At this point the LDA (_bnds.lda_{: style="color: green"}) and QSGW (_bnds.gw_{: style="color: green"}) energy bands should in your working directory,
 containing bands along four symmetry lines (&Gamma;-H,&nbsp; H-N,&nbsp; N-P,&nbsp; and P-&Gamma;).

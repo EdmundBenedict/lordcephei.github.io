@@ -664,9 +664,7 @@ NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTICS_
-{::comment}
-(/docs/input/inputfile/#optics)
-{:/comment}
+[//]: (/docs/input/inputfile/#optics)
 
 Optics functions available with the ASA extension packages OPTICS.
 
@@ -794,9 +792,7 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _SPEC_
-{::comment}
-/docs/input/inputfile/#spec
-{:/comment}
+[//]: (/docs/input/inputfile/#spec)
 
 Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=;&thinsp; input of tokens specific to that species must precede the next occurence of ATOM=.
 
