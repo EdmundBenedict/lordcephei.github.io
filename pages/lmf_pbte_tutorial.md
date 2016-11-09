@@ -613,8 +613,8 @@ Each step is explained in more detail in the [annotated lmf output](/docs/output
 + Automatic determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
-+ Assemble and display information about the size and members of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
-+ Read or assemble a [starting density](/docs/outputs/lmf_output/#obtain-an-input-density)
++ Assemble and display information about the size and constituents of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
++ Read or assemble an [input density](/docs/outputs/lmf_output/#obtain-an-input-density)
 
 #####  Self-consistent cycle
 
