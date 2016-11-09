@@ -672,6 +672,9 @@ The result displayed in a table:
 ### Brillouin zone integration
 [//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
+For Brillouin zone integration, code makes two passes.
+The first is needed to obtain the Fermi level:
+
 ~~~
  Start first of two band passes ...
  bndfp:  kpt 1 of 16, k=  0.00000  0.00000  0.00000
@@ -680,15 +683,19 @@ The result displayed in a table:
  bndfp:  kpt 11 of 16, k=  -0.16667  0.16667  0.83333
  -1.3161 -1.3103 -1.3081 -1.3058 -1.3056 -0.9310 -0.6887 -0.4314 -0.3314
  -0.3190  0.1376  0.1914  0.2171  0.2802  0.5842  0.6122
-~~~
 
-~~~
  BZWTS : --- Tetrahedron Integration ---
  ... only filled or empty bands encountered:  ev=-0.138629  ec=-0.080593
  VBmax = -0.138629  CBmin = -0.080593  gap = 0.058036 Ry = 0.78930 eV
  BZINTS: Fermi energy:     -0.138629;  20.000000 electrons;  D(Ef):    0.000
          Sum occ. bands:  -18.1376921  incl. Bloechl correction:    0.000000
 ~~~
+
+In this case the system is an insulator.  If you know this in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator.
+In the input file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
+[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.
+
+
 
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
