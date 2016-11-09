@@ -37,11 +37,11 @@ Here is a sample input file for the compound Bi<sub>_2</sub>Te<sub>_3</sub> writ
         categories                  tokens
 
 
-        VERS    		LM:7 FP:7
-        HAM     		AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
+        VERS                    LM:7 FP:7
+        HAM                     AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
                                 GMAX=8.1
-        ITER    		MIX=B2,b=.3  NIT=10  CONVC=1e-5
-        BZ      		NKABC=3  METAL=5  N=2 W=.01
+        ITER                    MIX=B2,b=.3  NIT=10  CONVC=1e-5
+        BZ                      NKABC=3  METAL=5  N=2 W=.01
         STRUC
                                 NSPEC=2  NBAS=5  NL=4
                                 ALAT=4.7825489
@@ -95,11 +95,11 @@ Consider the Brillouin zone integration category. You plan to carry out the BZ i
 M-P integration has two parameters: polynomial order _n_ and gaussian width _w_.
 Two tags are used to identify them: **BZ\_N** and **BZ_W**; they are usually expressed in the input file as follows:
 
-    BZ	N=2	W=.01
+    BZ  N=2     W=.01
 
 This format style is the most commonly used because it is clean and easy to read; but it conceals the tree structure a little. The same data can equally be written:
 
-    BZ[	N=2 	W=.01]
+    BZ[ N=2     W=.01]
 
 Now the tree structure is apparent: [..] delimits the scope of tag **BZ**.
 
@@ -109,8 +109,8 @@ Apart from the special use of the first column to identify categories, data is l
 
     BZ  N=2
         W=.01
-    BZ	W=.01	N=2
-    BZ[	W=.01	N=2]
+    BZ  W=.01   N=2
+    BZ[ W=.01   N=2]
 
 all represent the same information.
 
@@ -475,7 +475,7 @@ Portions of HAM are read by these codes:
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NSPIN | i | ALL | Y | 1 | 1 for non-spin-polarized calculations<br>2 for spin-polarized calculations<br>NB: For the magnetic parameters below to be active, use NSPIN=2.
-REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation (ASA only)<br>11: [compute cores](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels) with the Dirac equation (lmfa only)
+REL     | i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation (ASA only)<br>11: [compute cores](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels) with the Dirac equation (lmfa only)
 SO | i | ALL | Y | 0 | 0: no SO coupling<br>1: Add L·S to hamiltonian<br>2: Add Lz·Sz only to hamiltonian<br>3: Like 2, but also add L·S−LzSz in an approximate manner that preserves independence in the spin channels.<br>See [here](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/spin-orbit-coupling.html) for analysis and description of the different approximations
 NONCOL | l | ASA | Y | F | F: collinear magnetism<br>T: non-collinear magnetism
 SS | 4 r | ASA | Y | 0 | Magnetic spin spiral, direction vector and angle.<br><br>Example: nc/test/test.nc 1
@@ -927,7 +927,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 BEGMOM | i | ASA | Y | 1 | When true, causes program lm to begin with moments from which potential parameters are generated. If false, the potential parameters are used and the program proceeds directly to the band calculation.
 FREE | 1 | ASA | Y | F | Is intended to facilitate a self-consistent free-atom calculation. When FREE is true, the program uses rmax=30 for the sphere radius rather than whatever rmax is passed to it; the boundary conditions at rmax are taken to be value=slope=0 (rmax=30 should be large enough that these boundary conditions are sufficiently close to that of a free atom.); subroutine atscpp does not calculate potential parameters or save anything to disk; and lm terminates after all the atoms have been calculated.
-CNTROL | 1 | ASA | Y | F | 	When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
+CNTROL | 1 | ASA | Y | F |      When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
 ATOM | c | ASA | Y | | Class label. P,Q (and possibly other data) is given by class.<br>Tokens following a class label and preceding the next class label belong to that class.
 ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have been read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
 RDVES | 1 | ASA | Y | F | Read Ves(RMT) from the START category along with P,Q
@@ -1040,7 +1040,7 @@ To suppress all symmetry operations, use
 Full-potential programs (e.g. **lmf**{: style="color: blue"}) do not make spherical approximations to the potential and require you to specify the full space group. The translation part is appended to the point group (rotation) in one of the following forms: ':(x1,x2,x3)' or alternatively '::(p1,p2,p3)' with the double '::'. The first defines the translation in Cartesian coordinates; the second as multiples of plat. These two lines (taken from testing/ctrl.cr3si6) are equivalent specifications:
 
     SYMGRP   r6z:(0,0,0.4778973) r2(1/2,sqrt(3)/2,0)
-	SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
+    SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
 
 ###### _Keywords in the SYMGRP category_
 SYMGRP accepts, in addition to symmetry operations the following keywords:

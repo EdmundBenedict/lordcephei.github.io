@@ -605,11 +605,11 @@ EXPRESS                           |  EXPRESS
 **lmf**{: style="color: blue"} begins with some initialization steps.
 Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
 
-+ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
-  Note: this information can also be given via the ctrl file.
++ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file) from _basp.pbte_{: style="color: green"}.
+  This information can also be given via the ctrl file, depending on the settings of [**EXPRESS\_autobas**](/docs/input/inputfile/#ham).
 + Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
   [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
-  [other parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
+  [atomic parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
 + Determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
