@@ -295,7 +295,8 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **lmxa** is the _l_-cutoff of the augmentation.  Because of the unique way augmentation is done in this method, **lmxa** can be much lower standard augmented wave methods require
 + **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.
   **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.  There is little efficiency gain, however.
-+ **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
++ **rg**, is concerned with adding local gaussian pseudocharges to manage the Hartree potential.
++ **rsmv**, **kmxv** are concerned projections of mesh density onto local densities.
 + **foca**, **rfoca** allow for differing treatments of the core.
 
 ### _Interstitial mesh_
@@ -490,14 +491,15 @@ The restart file contains:
 ##### Controlling what is read from the restart file
 [//]: (/docs/outputs/lmf_output/#controlling-what-is-read-from-the-restart-file)
 
-By default parameters 3-5 will be read from _rst.pbte_{: style="color: green"} and supersede pre-existing values.  In this tutorial
-lattice vectors and site positions originate from [_site.pbte_{: style="color: green"}](/docs/input/sitefile/),
-Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"},
-**pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
+By default, parameters 3-5 will be read from _rst.pbte_{: style="color: green"} and supersede pre-existing values.  In this tutorial
+lattice vectors and site positions [are read from](/docs/input/sitefile/) _site.pbte_{: style="color: green"},
+[Brillouin zone integration parameters](/docs/input/inputfile/#bz) from category **BZ** in _ctrl.pbte_{: style="color: green"},
+[**pnu**](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file) from _basp.pbte_{: style="color: green"}.
 
 Through [command-line](/docs/input/commandline/#switches-for-lmf) switch **-\-rs** you can control what **lmf**{: style="color: blue"} reads
-from _rst.pbte_{: style="color: green"} and what it keeps from input files.  **-\-rs** has [five arguments:](/docs/input/commandline/#rs)
-**-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are taken for the rest.
+from _rst.pbte_{: style="color: green"} and what it keeps from input files.  
+**-\-rs** has [five arguments:](/docs/input/commandline/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values
+are taken for the rest.
 
 <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see how control what lmf reads from and writes to the restart file.</span>
@@ -526,7 +528,7 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 [//]: (/docs/outputs/lmf_output/#potential)
 
 The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
-boundaries.  It serves as a boundary condition for the solving the Poisson equation inside each sphere.
+boundaries.  It serves as a boundary condition for the solving Poisson's equation inside each sphere.
 The output reads
 
 ~~~
@@ -554,10 +556,10 @@ and the following appears:
  Smooth charges: Qmesh = 14.160111  Qgauss = 5.839889  core-nuc = -20  tot = 0
 ~~~
 
-**lmf**{: style="color: blue"} has found the necessary multipole moments from the local densities (**Qval** is the charge, the _l_=0
-multipole **qmom** moment is <i>Y</i><sub>00</sub>&times;**Qval**). It adds localized gaussian charges with smoothing radius
-[**rsmv**](/docs/outputs/lmf_output/#augmentation-parameters). From this it is able to construct the electrostatic potential
-at the augmentation radius
+**lmf**{: style="color: blue"} has found the multipole moments from the local densities (**Qval** is the charge, the _l_=0
+multipole moment is **qmom**=<i>Y</i><sub>00</sub>&times;**Qval**). It adds localized gaussian charges with smoothing radius
+[**rg**](/docs/outputs/lmf_output/#augmentation-parameters).  (Notice that **rg** is quite small, so that the gaussian does
+not spill out of the augmentation sphere). Now it is able to construct the electrostatic potential at the augmentation radius
 
 ~~~
  site class  ilm      vval      ves(rmax)
@@ -567,8 +569,8 @@ at the augmentation radius
    2     2     1    1.767044    0.498474
 ~~~
 
-To put the Fermi level close to zero, **lmf**{: style="color: blue"} shifts the total mesh potential by a constant so that the average
-augmentation boundaries is near zero:
+In order to put the Fermi level close to zero, **lmf**{: style="color: blue"} shifts the total mesh potential by a constant so that the
+average potential on augmentation boundaries is close to zero:
 
 ~~~
  Average es pot at rmt = 0.478171  avg sphere pot = 0.518433   vconst = -0.478171
@@ -580,9 +582,8 @@ augmentation boundaries is near zero:
 This shift can be chosen differently; if you use **[-\-oldvc](/docs/input/commandline/#oldvc)** the cell-averaged potential is set to zero
 instead.
 
-From the local densities and electrostatic boundary conditions, the local (site) potentials
-can be constructed, along with matrix elements of partial waves.
-Some limited output is shown in this table:
+From the local densities and electrostatic boundary conditions, the local (site) potentials can be constructed, along with matrix elements
+of partial waves.  Some limited output is shown in this table:
 
 ~~~
  locpot:
@@ -596,13 +597,53 @@ Some limited output is shown in this table:
  potential shift to crystal energy zero:    0.000023
 ~~~
 
-Note the printout **Vfloat=T**.  This indicates that the potential used integrate
-the partial waves is being updated to the current local potential.
-The potential used to make
-_HAM_
+Note the printout **Vfloat=T**.  This indicates that the potential used integrate the partial waves is being updated to the current local
+potential.  The potential used to make [partial waves](/docs/package_overview/#linear-methods-in-band-theory) ;&phi; and &#729;&phi; is kept
+separate from the potential generated by the density.  Initially it takes the value of the density of the free atom; it is normally
+overwritten (**Vfloat=T**) unless you tell **lmf**{: style="color: blue"} to freeze it.  To freeze it, use
+**HAM\_FRZWF=t** (or for one species, **SPEC\_ATOM\_FRZWF=f**).  This is effective what pseudopotentials do.
 
 Once again, many steps are concealed behind this limited output.
-You can get more information using a higher print verbosity.
+You can get more information, e.g. matrix elements, using a higher print verbosity: the higher the verbosity, the more is output.
+
+<div onclick="elm = document.getElementById('potme'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of printout at high verbosity</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="potme">{:/}
+
+~~~
+ l        enu         v           c          srdel        qpar        ppar
+ 0     -0.685722   -1.220936   -0.974210    0.311410      2.5442    2.037524
+ 1     -0.345247   -0.961024    0.034414    0.322661      9.5614    3.768891
+ 2      0.215079   -0.351057    1.877979    0.404577     13.6181    3.646179
+ 2(sc) -1.355835   -1.700376   -1.373127    0.018377     60.8790    0.594481
+ 3     -0.367178   -0.903272    2.382595    0.347763     27.1688    7.102666
+ 4     -0.261796   -0.813619    4.861503    0.414942     32.9588   13.704206
+~~~
+
+At looping over atoms, a table is written for terms involving the total energy
+
+~~~
+ Energy terms:             smooth           local            total
+   rhoval*vef            -36.158050      -282.028989      -318.187039
+   rhoval*ves            -65.658355      -218.205596      -283.863951
+   psnuc*ves             145.385077   -233346.299063   -233200.913986
+   utot                   39.863361   -116782.252329   -116742.388969
+   rho*exc                -9.721740     -1085.083760     -1094.805500
+   rho*vxc               -12.654246     -1440.372431     -1453.026677
+   valence chg            14.160111         5.839889        20.000000
+   core charge           114.000000         0.000000       114.000000
+~~~
+
+{::nomarkdown}</div>{:/}
+
+At the end of the potential maker these lines are written:
+
+~~~
+ Charges:  valence    20.00000   cores   114.00000   nucleii  -134.00000
+    hom background     0.00000   deviation from neutrality:      0.00000
+~~~
+
+Is is important that tye system be neutral.
 
 
 ### Parameters for local orbitals
