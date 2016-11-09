@@ -257,7 +257,7 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 
 + The group operations were determined automatically from the given lattice.  PbTe is cubic, with 48 group operations.\\
   First the crystal system is determined; then the symmetry operations inconsistent with the basis are discarded.\\
-  Finally the 48 operations are distilled into a minimum set of generators **(i*r3(1,1,-1) &thinsp; r4x**) that generate the entire 
+  Finally the 48 operations are distilled into a minimum set of generators **(i*r3(1,1,-1) &thinsp; r4x**) that generate the entire
   [space group](https://en.wikipedia.org/wiki/Space_group).
   In this case there are no translations; all the group operators are pure point group operations.
 
@@ -349,7 +349,7 @@ For **lmf**{: style="color: blue"}, **lmxa** is usually reasonably converged if 
 In the table envelope function parameters for each species is given,
 which defines their shape.   Also shown is :
 
-+  **gmax** : the _G_ cutoff that represents that envelope to the 
++  **gmax** : the _G_ cutoff that represents that envelope to the
    given tolerance
 +  **last term** : an estimate for the precision of the plane-wave repesentation
 +  **cutoff** : the number of plane waves with _G_<**gmax**.
@@ -373,15 +373,15 @@ which defines their shape.   Also shown is :
   Te       2    2.02  -0.90   4.037    1.63E-06     531
 ~~~
 
-Each envelope function must be expanded in plane waves in order to 
+Each envelope function must be expanded in plane waves in order to
 
-+ assemble matrix elements of the interstitial potential 
-+ assemble the output charge density. 
++ assemble matrix elements of the interstitial potential
++ assemble the output charge density.
 
 Both are assembled in reciprocal space.  The number of plane waves needed for a particular orbital depends on how sharply peaked the
 function is, so the cutoff is orbital-dependent to allow for faster execution.  **gmax** of any one orbital may safely be less than the
 global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will find a **gmax** for each orbital that meets a preset
-tolerance (10<sup>&minus;6</sup> in this case).  
+tolerance (10<sup>&minus;6</sup> in this case).
 
 Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating not enough orbitals are available to meet
 the specified tolerance.  This is flagged by an asterisk appended to the cutoff, e.g.
@@ -405,12 +405,21 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 ### _Obtain an input density_
 [//]: (/docs/outputs/lmf_output/#obtain-an-input-density)
 
-The next step is to generate the potential : for this a density must be given.  **lmf**{: style="color: blue"} tries to read the density
-from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmf**{: style="color: blue"} was not able
-to find the file, and instead constructs a trial density by overlapping free atom densities.
+In Kohn-Sham theory, the potential is a functional of the density.
+**lmf**{: style="color: blue"} tries to read the density from the density restart file, *rst.pbte*{: style="color: green"}.
 
-**lmf**{: style="color: blue"} reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
-and overlaps them (Mattheis construction).  This makes a reasonable guessed density.
+Initially the density is not known and *rst.pbte*{: style="color: green"} does not exist.
+
+~~~
+ lmfp  : no rst file ... try to overlap atomic densities
+~~~
+
+When **lmf**{: style="color: blue"} cannot read the density, it constructs a trial density by overlapping free atom densities.
+The true density is obtained itertively through the [self-consistency cycle](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
+
+**lmf**{: style="color: blue"} reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary) and
+overlaps them (Mattheis construction).  This makes a reasonable guess for the density: the atomic potential is very deep, and the crystal
+potential is a relatively modest perturbation to it.  Thus the true density is typically not so far from a superposition of atomic densities.
 
 {::nomarkdown} <a name="mattheis-construction"></a> {:/}
 {::comment}
@@ -457,7 +466,7 @@ It is important that the system is charge neutral (last line).
 
 {::nomarkdown}</div>{:/}
 
-If, on the other hand, the charge density has been saved in a restart file,
+If, on the other hand, the charge density has been saved in a restart file from a prior iteration
 **lmf**{: style="color: blue"} reads it.  Usually restart files are
 saved in a binary form in a file *rst.ext*{: style="color: green"}.
 
@@ -465,53 +474,51 @@ When **lmf**{: style="color: blue"} reads from a restart file it prints out
 a message similar to this:
 
 ~~~
- iors  : read restart file (binary, mesh density) 
-         use from  restart file: ef window, positions, pnu 
+ iors  : read restart file (binary, mesh density)
+         use from  restart file: ef window, positions, pnu
          ignore in restart file: *
 ~~~
 
 The restart file contains:
 
-1. valence and core densities inside augmentation spheres for each species.
+1. valence and core densities inside augmentation spheres for each nucleus.
 2. mesh density
 3. lattice vectors and site positions
 4. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
 5. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
 
-This information is stored because these are the conditions that determine the self-consistent density.
-
 ##### Controlling what is read from the restart file
 [//]: (/docs/outputs/lmf_output/#controlling-what-is-read-from-the-restart-file)
 
-Parameters 3-5 will have already been supplied.  In this tutorial
+By default parameters 3-5 will be read from _rst.pbte_{: style="color: green"} and supersede pre-existing values.  In this tutorial
 lattice vectors and site positions originate from [_site.pbte_{: style="color: green"}](/docs/input/sitefile/),
 Brillouin zone integration parameters from [category **BZ**](/docs/input/inputfile/#bz) in _ctrl.pbte_{: style="color: green"},
 **pnu** from [_basp.pbte_{: style="color: green"}](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
-Unless you specify, all of the parameters will be read from _rst.pbte_{: style="color: green"}, superseding prior values.
 
-**lmf**{: style="color: blue"} [command-line](/docs/input/commandline/#switches-for-lmf) switch **-\-rs** gives you some control what **lmf**{: style="color: blue"} reads.  **-\-rs**
-has [five arguments:](/docs/input/commandline/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are
-taken for the rest.
+Through [command-line](/docs/input/commandline/#switches-for-lmf) switch **-\-rs** you can control what **lmf**{: style="color: blue"} reads
+from _rst.pbte_{: style="color: green"} and what it keeps from input files.  **-\-rs** has [five arguments:](/docs/input/commandline/#rs)
+**-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values are taken for the rest.
 
 <div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here to see how control what lmf reads from and writes to the restart file.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
 
-**#1** and **#2** mark whether and how to read and write the restart file at all.  Use the following:\\
-**#3=1**&ensp; to keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
-**#4=1**&ensp; to keep original sampling parameters.\\
-**#5=1**&ensp; to keep original **pnu**.  
+**#1** and **#2** mark whether and how to read and write the restart file.  Use the remaining switches to suppress reading from the restart file:\\
+**#3=1**&ensp; keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
+**#4=1**&ensp; keep original sampling parameters.\\
+**#5=1**&ensp; keep original **pnu**.
 
-_Notes:_{: style="color: red"} 
+_Notes:_{: style="color: red"}
 
-1. If you use **#5=1**, a self-consistent density will no longer be fully self-consistent because the basis set has changed.  **lmf**{:
+1. If you use **#5=1**, a self-consistent density will no longer be fully self-consistent because the augmentation part of the basis set has changed.  **lmf**{:
 style="color: blue"} automatically floats **pnu** to the band center of gravity, to make the basis set more accurate.
 2. The mesh density has a lump centered at each atom.  If the site positions change, the lump will be centered in the wrong place, and the
 density very poor.  **lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density centered at the new
-position, and _subtracting_ it at the file position.  It will do this if you use **#1=11**.
-3. If the lattice has rotated or sheared, the reader will detect this and will rotate or shear the mesh density accordingly.
-But unless you otherwise specify, the site densities are left unaltered.  To tell the reader to rotate site densities, use **#1=101**.
-4. If you are doing sample integration and want to change sampling parameters, you must use **#4=1**.
+position, and _subtracting_ it at the file position.  It will do this if you use **#1=11**.  But if the shifts are large, it is better to
+discard the restart file and overlap atomic densities again.
+3. If the lattice has been rotated or sheared, the reader will detect this and will rotate or shear the mesh density accordingly.
+But the site densities are left unaltered, unless you tell the reader to rotate them.  To do this use **#1=101**.
+4. If you are doing sampling integration and want to change sampling parameters, you must use **#4=1**.
 
 {::nomarkdown}</div>{:/}
 
@@ -520,13 +527,13 @@ But unless you otherwise specify, the site densities are left unaltered.  To tel
 ~~~
  Average es pot at rmt = 0.473380  avg sphere pot = 0.516004   vconst = -0.473380
  smooth rhoves     41.429795   charge    15.480342
- smooth rhoeps =  -11.301007   rhomu =  -14.720287  avg vxc =   -0.680712 
+ smooth rhoeps =  -11.301007   rhomu =  -14.720287  avg vxc =   -0.680712
 
  elocp:
 
  Fit local orbitals to sm hankels, species Pb, rmt=3.044814
   l  type    Pnu      Eval        K.E.       Rsm       Eh      Q(r>rmt)    Fit K.E.
-  2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887 
+  2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887
 
  locpot:
 
@@ -593,7 +600,7 @@ convergence in local orbital
 ~~~
  Make new boundary conditions for phi,phidot..
 
- site    1   species   1:Pb      
+ site    1   species   1:Pb
  l  idmod     ql         ebar        pold        ptry        pfree        pnew
  0     0    1.700379   -0.652781    6.895000    6.901582    6.500000    6.901582
  1     0    0.846967   -0.353483    6.809000    6.620518    6.250000    6.620518
@@ -602,7 +609,7 @@ convergence in local orbital
  3     0    0.032691   -0.376447    5.183000    5.125635    5.102416    5.125635
  4     0    0.005476   -0.403337    5.089000    5.085123    5.077979    5.088586
 
- site    2   species   2:Te      
+ site    2   species   2:Te
  l  idmod     ql         ebar        pold        ptry        pfree        pnew
  0     0    1.776356   -0.914304    5.908000    5.907235    5.500000    5.907235
  1     0    3.401138   -0.308184    5.863000    5.837701    5.250000    5.837701
@@ -617,7 +624,7 @@ convergence in local orbital
  sumec=        0.000000  cor*vef=       0.000000   ttcor=   62219.476115
  rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
 
- Harris correction to forces: shift in free-atom density              
+ Harris correction to forces: shift in free-atom density
   ib         delta-n dVes             delta-n dVxc               total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
    2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
@@ -650,8 +657,8 @@ convergence in local orbital
 
 end of loop
 
-~~~ 
- iors  : write restart file (binary, mesh density) 
+~~~
+ iors  : write restart file (binary, mesh density)
 
    it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
 h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
@@ -664,5 +671,3 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 ### _Other Resources_
 
 This output was mostly taken from the basic **lmf**{: style="color: blue"} tutorial on [a self-consistent calculation for PbTe](/tutorial/lmf/lmf_pbte_tutorial)
-
-
