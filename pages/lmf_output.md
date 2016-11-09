@@ -623,8 +623,8 @@ You can get more information, e.g. matrix elements, using a higher print verbosi
 
 Run **lmf**{: style="color: blue"} with (**-\-pr70 \-\-quit=pot**)
 and a great deal of information is printed out.  A table of
-classical potential parameters is made.  Particularly useful are the 
-indicating the band center (**c**) and bandwith (**srdel**<sup>2</i>),
+classical LMTO potential parameters is made.  Particularly useful are the 
+indicating the band center (**c**) and bandwith (**srdel**<sup>2</sup>),
 and linearization energy **enu**:
 
 ~~~
@@ -638,7 +638,7 @@ and linearization energy **enu**:
 ~~~
 
 The following table presents (hamiltonian, potential, overlap) matrix elements of special linear combinations **val** and **slo** of
-$$\phi$$ and $$\dot{\phi}$$ that have the property either value or slope vanishes at the MT boundary:
+$$\phi$$ and $$\dot{\phi}$$ that have the property that value or slope vanishes at the MT boundary:
 
 ~~~
   l         val-val     val-slo     slo-val     slo-slo
@@ -667,20 +667,19 @@ For verbosities above 50, electric field gradients are printed:
         0.565 0.336 0.754      0.00      0.00
 ~~~
 
-These are directly measurable quantities.  At least in CuAlO<sub>2</sub>, the electric field gradient (measured to be
-&plusmn;10.6&middot;10<sup>21</sup> V/cm<sup>2</sup>, is not well predicted on the Cu site by LDA, or LDA+U.
-QS<i>GW</i>, however, does quite well See Fig.13 of [this paper](http://prb.aps.org/abstract/PRB/v81/i4/e045203).
+These are directly measurable quantities.  At least in CuAlO<sub>2</sub>, the electric field gradient on the Cu site (measured to be
+&plusmn;10.6&middot;10<sup>21</sup> V/cm<sup>2</sup>), is not well predicted by LDA, or LDA+U.
+QS<i>GW</i>, however, does quite well. See Fig.13 of [this paper](http://prb.aps.org/abstract/PRB/v81/i4/e045203).
 
 
 If spin-orbit coupling is set (**HAM\_SO=t**).  matrix elements of <i> &lambda; L &middot; S</i> are generated.
-
-Working from the Fe tutorial, invoking
+Working from the Fe tutorial, invoke
 
 ~~~
 $ lmf ctrl.fe -vso=1 --iactiv  --quit=pot --pr55
 ~~~
 
-prints out these matrix elements of <i> &lambda; L &middot; S</i>:
+These matrix elements of <i> &lambda; L &middot; S</i> are printed out:
 
 ~~~
  soprm:  matrix elements for perturbation from spin-orbit coupling
@@ -701,11 +700,7 @@ After completing the loop over atoms, a table is written for terms involving the
 ~~~
  Energy terms:             smooth           local            total
    rhoval*vef            -36.158050      -282.028989      -318.187039
-   rhoval*ves            -65.658355      -218.205596      -283.863951
-   psnuc*ves             145.385077   -233346.299063   -233200.913986
-   utot                   39.863361   -116782.252329   -116742.388969
-   rho*exc                -9.721740     -1085.083760     -1094.805500
-   rho*vxc               -12.654246     -1440.372431     -1453.026677
+...
    valence chg            14.160111         5.839889        20.000000
    core charge           114.000000         0.000000       114.000000
 ~~~
