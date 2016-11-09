@@ -185,7 +185,7 @@ $$
 Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
 $$
 
-In the QS<i>GW</i> case the quantity in parenthesis vanishes.
+In the QS<i>GW</i> case the quantity in parenthesis vanishes.  Thus QS<i>GW</i> there is no "mass renormalization" from the (<i>&omega;</i>)-dependent self-energy, &Sigma;(<i>&omega;</i>).
 
 #### Coherent part of the spectral function
 {::comment}
