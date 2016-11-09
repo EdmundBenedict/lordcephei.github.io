@@ -60,6 +60,7 @@ Below are two instances of rotations, especially useful for cubic systems:
 </pre>
 
 #### Space groups
+[//]: (/docs/input/rotations/#space-groups)
 
 Crystallographic space groups consist of a translation part <b>a</b> in
 addition to a rotation part R.  In general a point <b>r</b> gets mapped into

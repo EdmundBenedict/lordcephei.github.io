@@ -1037,7 +1037,15 @@ To suppress all symmetry operations, use
 
     SYMGRP E
 
-Full-potential programs (e.g. **lmf**{: style="color: blue"}) do not make spherical approximations to the potential and require you to specify the full space group. The translation part is appended to the point group (rotation) in one of the following forms: ':(x1,x2,x3)' or alternatively '::(p1,p2,p3)' with the double '::'. The first defines the translation in Cartesian coordinates; the second as multiples of plat. These two lines (taken from testing/ctrl.cr3si6) are equivalent specifications:
+In the ASA, owing to the [spherical approximation](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) to the potential
+only the point group is required for self-consistency.
+
+But in general you must specify the full [space group](/docs/input/rotations/#space-groups).  The translation part gets appended to rotation
+part in one of the following forms: &thinsp;**:(x1,x2,x3)**&thinsp; or alternatively &thinsp;<b>::(p1,p2,p3)</b>&thinsp; with the double
+'<b>::</b>'. The first defines the translation in Cartesian coordinates; the second as [fractional multiples of lattice
+vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+
+These two lines (taken from testing/ctrl.cr3si6) are equivalent specifications:
 
     SYMGRP   r6z:(0,0,0.4778973) r2(1/2,sqrt(3)/2,0)
     SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
@@ -1045,7 +1053,7 @@ Full-potential programs (e.g. **lmf**{: style="color: blue"}) do not make spheri
 ###### _Keywords in the SYMGRP category_
 SYMGRP accepts, in addition to symmetry operations the following keywords:
 
-* `find‘ tells the program to determine its own symmetry operations. Thus:
+* **find** tells the program to determine its own symmetry operations. Thus:
 
       SYMGRP find
 
@@ -1057,14 +1065,14 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 
   specifies that 4-fold rotation be included, and `find‘ tells the program to look for any additional symops that might exist.
 
-* 'AFM':
+* **AFM**:
   For certain antiferromagnets, certain translation operations exist provided the rotation/shift is accompanied by a spin flip. Say a translation of (-1/2,1/2,1/2)a restores the crystal structure, but all atoms after translation have opposite spin. Specify this symmetry with:
 
       SYMGRP   ...       AFM::-1/2,1/2,1/2
 
   This operation is used only by **lmf**{: style="color: blue"}.
 
-* 'SOC' or 'SOC=2':
+* **SOC** or **SOC=2**:
   Tells the symmetry group generator to exclude operations that do not preserve the z axis.
   This is used particularly for spin-orbit coupling where the crystal symmetry is reduced (z is the quantization axis).
   SOC=2 is like SOC but allows operations that preserve z or flip z to −z.
@@ -1072,14 +1080,15 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 
   **Note:**{: style="color: red"} This keyword is only active when the two spin channels are linked, e.g. SO coupling or noncollinear magnetism.
 
-* 'GRP2' turns on a switch that can force the density among inequivalent classes that share a common species to be averaged. In the ASA codes the density is spherical and the averaging is complete; in the FP case only the spherical part of the densities can be averaged. This helps sometimes with stabilizing difficult cases in the path to self-consistency.
+* **GRP2** turns on a switch that can force the density among inequivalent classes that share a common species to be averaged. In the ASA codes the density is spherical and the averaging is complete; in the FP case only the spherical part of the densities can be averaged. This helps sometimes with stabilizing difficult cases in the path to self-consistency.
   You specify which species are to be averaged with the SPEC_ATOM_GRP2 token.
 
-  'GRP2‘ averages the input density;
-  'GRP2=2‘ averages the output density;
-  'GRP2=3‘ averages both the input and the output density.
+  **GRP2** averages the input density;
+  **GRP2=2** averages the output density;
+  **GRP2=3** averages both the input and the output density.
 
-* 'RHOPOS' turns on a switch that forces the density positive at all points
+* **RHOPOS** turns on a switch that forces the density positive at all points.  You can also accomplish this with the command-line switch 
+  **[-\-rhopos](/docs/input/commandline/#rhopos)**.
 
 {::comment}
 {::nomarkdown}</div>{:/}
