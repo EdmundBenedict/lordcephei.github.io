@@ -501,7 +501,7 @@ Command-line switches:
    + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/misc/integerlists/) (contour mode only).
    + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
    + **~evn=#** keep track of smallest and largest eval for #th band. Print result on exit (purely for informational purposes).
-   + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [integer list](/docs/misc/integerlists).
+   + **~col=<b><i>orbital-list</i></b>**:&ensp;    assign weights to orbitals specified as an [(extended) integer list](/docs/misc/integerlists).
    + **~col2=<b><i>orbital-list</i></b>**   generate a second weight to orbitals specified in a list.\\
       With this option you can create bands with three independent colors.\\
       _Note:_{: style="color: red"} **tbe**{: style="color: blue"} does not yet possess color weights capability.
@@ -553,7 +553,7 @@ Command-line switches:
    + **spec=_spid_,rs**: Optimize wrt RSMH for a particular species.
    + **spec=_spid_,e**:  Optimize wrt EH for a particular species.
    + **spec=_spid_,rs,e**:  Optimize wrt both RSMH and EH for a particular species.
-   + **spec=_spid_&hellip;,_l=###'**:  Specify which _l_ to optimize (default is all _l_ in the basis)
+   + **spec=_spid_&hellip;,l=###**:  Specify which _l_ to optimize (default is all _l_ in the basis)
    + **sort**: sort RSMH from smallest to largest.  The total energy is more sensitive to small RSMH;, then the most important parameters are optimized first.
 ^
 {::nomarkdown}<a name="rdbasp"></a>{:/}**-\-rdbasp[:_fn_]**
@@ -762,7 +762,6 @@ Command-line switches:
 
 + **-\-band[~options]**
   + tells **lm**{: style="color: blue"} to generate energy bands instead of making a self-consistent calculation.  See [here](/docs/input/commandline/#band) for options.
-
 
 + **-\-pdos[~options]**
   + tells **lm**{: style="color: blue"} to generate weights for density-of-states or Mulliken analysis resolved into partial waves.

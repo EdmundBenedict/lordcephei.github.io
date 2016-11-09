@@ -76,6 +76,7 @@ It doesn't matter in this case, but you can use Cartesian coordinates : use **PO
 The connection between positions expressed in Cartesian coordinates and as lattice vector multiples is:
 <div style="text-align:center;">
 POS<sub><i>i</i></sub> = X<sub>1</sub>P<sub><i>i</i>,1</sub> &thinsp;+&thinsp; X<sub>2</sub> P<sub><i>i</i>,2</sub> &thinsp;+&thinsp; X<sub>3</sub> P<sub><i>i</i>,3</sub>, where P<sub><i>i</i>,<i>j</i></sub> is Cartesian component <i>i</i> of lattice vector <i>j</i>.
+<br>
 </div>
 
 In order to run the DFT program **lmf**{: style="color: blue"}, you need an input file along with structural information. The **blm**{: style="color: blue"} tool read the init file as input and creates a template input file _actrl.si_{: style="color: green"} and structure file _site.si_{: style="color: green"}. The Questaal package recognises certain names as file types (such as "ctrl" for input file and "site" for structure file). **blm**{: style="color: blue"} writes
