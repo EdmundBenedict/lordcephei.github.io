@@ -12,16 +12,17 @@ header: no
 _____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
-It has a purpose [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/) but shows some additional features
-([Another tutorial](/tutorial/gw/qsgw_fe/) presents an LDA calculation for Fe, a ferromagnetic metal).\\
+It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
+of **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} are explained.
+See also the [Fe tutorial](/tutorial/gw/qsgw_fe/), An LDA calculation for Fe for a ferromagnetic metal is followed by a QS<i>GW</i> calculation.
 This tutorial:
 
 1. explains the input file's structure and illustrates some of its programming language capabilities
 2. generates self consistent atomic densities, to provide information for the crystal calculation
 3. generates a self consistent potential within the LDA
-4. makes neighbour tables using the **lmchk**{: style="color: blue"} tool
-5. synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full potential methods
-6. forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
+
+It synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full
+potential methods, and forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
 
 ### _Table of Contents_
 _____________________________________________________________
@@ -29,7 +30,6 @@ _____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
-
 
 ### _Preliminaries_
 _____________________________________________________________
@@ -610,7 +610,7 @@ Each step is explained in more detail in the [annotated lmf output](/docs/output
 + Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
   [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
   [atomic parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
-+ Determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
++ Automatic determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 + Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
 + Assemble and display information about the size and members of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)

@@ -1045,7 +1045,7 @@ part in one of the following forms: &thinsp;**:(x1,x2,x3)**&thinsp; or alternati
 '<b>::</b>'. The first defines the translation in Cartesian coordinates; the second as [fractional multiples of lattice
 vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
 
-These two lines (taken from testing/ctrl.cr3si6) are equivalent specifications:
+These two lines (taken from testing/ctrl.cr3si6) provide equivalent specifications:
 
     SYMGRP   r6z:(0,0,0.4778973) r2(1/2,sqrt(3)/2,0)
     SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
@@ -1087,8 +1087,8 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
   **GRP2=2** averages the output density;
   **GRP2=3** averages both the input and the output density.
 
-* **RHOPOS** turns on a switch that forces the density positive at all points.  You can also accomplish this with the command-line switch 
-  **[-\-rhopos](/docs/input/commandline/#rhopos)**.
+* **RHOPOS** turns on a switch that forces the density positive at all points.\\
+  You can also accomplish this with the command-line switch **[-\-rhopos](/docs/input/commandline/#rhopos)**.
 
 {::comment}
 {::nomarkdown}</div>{:/}

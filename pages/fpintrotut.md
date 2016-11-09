@@ -10,7 +10,12 @@ _____________________________________________________________
 ### _Purpose_
 {:.no_toc}
 
-This tutorial covers the basics for running a self consistent LDA calculation for silicon. The goal is to introduce you to the different file types and the basics of running the code.
+This tutorial covers the basics for running a self consistent LDA
+calculation for silicon. The goal is to introduce you to the different
+file types and the basics of running the code.
+
+The [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/) does something similar,
+but its much more detailed.
 
 _____________________________________________________________
 
@@ -72,12 +77,12 @@ You supply them in row format (i.e. the first row contains the x, y and z compon
 **UNITS=A** tells **blm**{: style="color: blue"} that **A** is in &#x212B;.  If you do not specify the units, **A** is given in atomic units. (Questaal uses Atomic Rydberg units.)
 
 Lattice vectors, lattice constant and the position of the basis vectors place in **SITE** is all that is needed to fix the structural information.  Atomic numbers for each atom is inferred from the symbol (Si). Token **X=** specifies that the coordinates are in "direct" representation, that is, as fractional multiples of lattice vectors.
-It doesn't matter in this case, but you can use Cartesian coordinates : use **POS=** instead of **X** (see additional exercises below).  In such a case positions are given in Cartesian coordinates in units of **ALAT**.  So are the lattice vectors, if you supply them instead of the space group number.\\
+It doesn't matter in this case, but you can use Cartesian coordinates : use **POS=** instead of **X** (see additional exercises below).  In such a case positions are given in Cartesian coordinates in units of **ALAT**.  So are the lattice vectors, if you supply them instead of the space group number.
 
 The connection between positions expressed in Cartesian coordinates and as (fractional) lattice vector multiples is:
 <div style="text-align:center;">
 POS<sub><i>i</i></sub> = X<sub>1</sub>P<sub><i>i</i>,1</sub> &thinsp;+&thinsp; X<sub>2</sub> P<sub><i>i</i>,2</sub> &thinsp;+&thinsp; X<sub>3</sub> P<sub><i>i</i>,3</sub>, where P<sub><i>i</i>,<i>j</i></sub> is Cartesian component <i>i</i> of lattice vector <i>j</i>.
-<br>
+<br><br>
 </div>
 
 In order to run the DFT program **lmf**{: style="color: blue"}, you need an input file along with structural information. The **blm**{: style="color: blue"} tool read the init file as input and creates a template input file _actrl.si_{: style="color: green"} and structure file _site.si_{: style="color: green"}. The Questaal package recognises certain names as file types (such as "ctrl" for input file and "site" for structure file). **blm**{: style="color: blue"} writes

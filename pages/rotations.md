@@ -76,15 +76,14 @@ defines the translation in Cartesian coordinates; the second as
 [fractional multiples of lattice
 vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
 
-Example: Co is hcp with <i>c</i>/<i>a</i>=1.632993.  With one Co with 
-the basis expressed as 
+_Example_: Co is hcp with <i>c</i>/<i>a</i>=1.632993.  Writing the basis as 
 
 ~~~
 SITE    ATOM=A XPOS=1/3 -1/3 1/2
         ATOM=A XPOS= 0 0 0
 ~~~
 
-generators of the space group read:
+generators of the space group read in either of the two equivalent forms
 
 ~~~
 i*r3z:(-1*sqrt(3)/6,-1/2,-0.8164966) r2z:(-1*sqrt(3)/6,-1/2,0.8164966) r2x
