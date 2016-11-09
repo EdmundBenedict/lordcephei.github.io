@@ -576,6 +576,8 @@ lmf output below.
 
 Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line, as we do in the next section.
 
+See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
+
 ####  6. _Self consistency_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 
@@ -586,18 +588,19 @@ $ lmf ctrl.pbte -vnkabc=6 -vgmax=7.8
 ~~~
 
 **lmf**{: style="color: blue"} will iterate up to 10 iterations.  The cycle is capped to 10 iterations because of the following lines in
-_ctrl.pbte_{: style="color: green"}, which [read](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file) before and after
-preprocessing:
+_ctrl.pbte_{: style="color: green"}, which before and after preprocessing [read](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file):
 
 ~~~
    before preprocessing               after preprocessing
 % const nit=10               	  |
 ...                          	  |
+EXPRESS                           |  EXPRESS
+...                               |
   nit=    {nit}              	  |   nit=    10
 ~~~
 
 #####  Initialization steps
-[//]: 
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#initialization-steps)
 
 **lmf**{: style="color: blue"} begins with some initialization steps.
 Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
