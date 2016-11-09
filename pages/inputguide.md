@@ -997,7 +997,7 @@ PLAT | r,r,&hellip; | all | N&dagger; | | (dimensionless) primitive translation 
 SLAT | r,r,&hellip; | lmscell | N | | Superlattice vectors
 NL   | i | all | Y | 3 | Sets a global default value for _l_-cutoffs _l_<sub>cut</sub> = NL&minus;1. NL is used for both basis set and augmentation cutoffs.
 SHEAR | r,r,r,r | all | Y | | Enables shearing of the lattice in a volume-conserving manner.<br>If SHEAR=#1,#2,#3,#4, &ensp;#1,#2,#3=direction vector; &ensp;#4=distortion amplitude.<br>Example:  SHEAR=0,0,1,0.01<br> distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
-ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br>Example:  ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles &alpha;=&pi;/4, &beta;=&pi;/3, &gamma;=&pi;/2. See [this document](/docs/misc/rotations/) for the general syntax.<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
+ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br>Example:  ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles &alpha;=&pi;/4, &beta;=&pi;/3, &gamma;=&pi;/2. See [this document](/docs/input/rotations/) for the general syntax.<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
 DEFGRD | r,r,&hellip; | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
 STRAIN | r,r,&hellip; | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
 ALPHA  | r            | all | N | | Amount of Voigt strain

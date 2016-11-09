@@ -258,7 +258,7 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 + The group operations were determined automatically from the given lattice.  PbTe is cubic, with 48 group operations.\\
   First the crystal system is determined; then the symmetry operations inconsistent with the basis are discarded.\\
   Finally the 48 operations are distilled into a minimum set of generators **(i*r3(1,1,-1) &thinsp; r4x**) that generate the entire group.
-  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/misc/rotations).
+  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/input/rotations).
   This is not true in general; for example hcp Co has 24 space group operations.  If one atom is at the origin the generators
   defining the group can be written as the following set of (point group + translation):
 

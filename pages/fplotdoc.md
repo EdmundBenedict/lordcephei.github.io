@@ -470,7 +470,7 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
   _Example_ : \\
   **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**\\
-  rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
+  rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/input/rotations/) specifies the syntax of rotations.
 
 See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 

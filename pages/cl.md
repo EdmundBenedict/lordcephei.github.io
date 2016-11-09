@@ -497,7 +497,7 @@ Command-line switches:
    + **~spin2**:&ensp;       generate bands for 2nd spin only (spin polarized case)
    + **~mq**:&ensp;          q-points are given as multiples of reciprocal lattice vectors. Applies to symmetry line and qp-list modes only.
    + **~long**:&ensp;        write bands with extra digits precision (has no effect for default mode)
-   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/misc/rotations) given by <i>strn</i>.
+   + **~rot=<i>strn</i>**:&ensp;    rotates the given <i>k</i> by a [rotation](/docs/input/rotations) given by <i>strn</i>.
    + **~lst=<i>list</i>**:&ensp;    write only a subset of energy levels by an [integer list](/docs/input/integerlists/) (contour mode only).
    + **~nband=#**:&ensp;     Write out no more than # bands (not to be used in conjunction with **~lst** !)
    + **~evn=#** keep track of smallest and largest eval for #th band. Print result on exit (purely for informational purposes).
@@ -733,7 +733,7 @@ to the LDA potential.
 
    + **~spinav**:&ensp;     average spin channels in spin-polarized sigma
    + **~onesp**:&ensp;      average spin channels in spin-polarized sigma
-   + **~rot**:&ensp;        [rotate](/docs/misc/rotations) the sigma matrix.
+   + **~rot**:&ensp;        [rotate](/docs/input/rotations) the sigma matrix.
    + **~trans=#**:&ensp;    **#** specifies how sigma is to be modified, or if some other object is to be made instead of sig.
    + **~phase**:&ensp;      Add phase shift to sigma
    + **~fbz**:&ensp;        sigma is stored for all _k_ points in the full Brillouin zone

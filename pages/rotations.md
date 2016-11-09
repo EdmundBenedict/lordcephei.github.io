@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Specifying Rotations" 
-permalink: "/docs/misc/rotations/"
+permalink: "/docs/input/rotations/"
 header: no
 ---
 
