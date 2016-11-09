@@ -576,24 +576,7 @@ lmf output below.
 
 Change variable **gmax=0** in the ctrl file, or alternatively add a variable to the command line, as we do in the next section.
 
-####  6. _Initialization steps_
-[//]: 
-
-**lmf**{: style="color: blue"} begins with some initialization steps.
-Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
-
-+ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
-  Note: this information can also be given via the ctrl file.
-+ Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
-  [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
-  [other parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
-+ Determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
-+ Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
-+ Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
-+ Assemble and display information about the size and members of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
-+ Read or assemble a [starting density](/docs/outputs/lmf_output/#obtain-an-input-density)
-
-####  7. _Self consistency_
+####  6. _Self consistency_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 
 Carry out a self-consistent calculation as follows:
@@ -612,6 +595,25 @@ preprocessing:
 ...                          	  |
   nit=    {nit}              	  |   nit=    10
 ~~~
+
+#####  Initialization steps
+[//]: 
+
+**lmf**{: style="color: blue"} begins with some initialization steps.
+Each step is explained in more detail in the [annotated lmf output](/docs/outputs/lmf_output).
+
++ Read [basis set parameters](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file).
+  Note: this information can also be given via the ctrl file.
++ Informational printout about [computing conditions](/docs/outputs/lmf_output/#header-information),
+  [lattice structure](/docs/outputs/lmf_output/#lattice-information), and
+  [other parameters](/docs/outputs/lmf_output/#augmentation-parameters) such as augmentation radii and _l_-cutoffs
++ Determination of [crystal symmetry](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
++ Setup for the [Brillouin zone integration](/docs/outputs/lmf_output/#symmetry-and-k-mesh)
++ Construction of the [mesh](/docs/outputs/lmf_output/#interstitial-mesh) for interstitial density and potential
++ Assemble and display information about the size and members of the [basis set](/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
++ Read or assemble a [starting density](/docs/outputs/lmf_output/#obtain-an-input-density)
+
+#####  Self-consistent cycle
 
 Each iteration of the self-consistency cycle begins with
 
@@ -641,7 +643,6 @@ One iteration consists of the following steps:
 The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
-
 
 Just before exiting after the last iteration, **lmf**{: style="color: blue"} prints out
 

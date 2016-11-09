@@ -114,7 +114,7 @@
       content:
       - title: "Basic Tutorial: self-consistent calculation of Si"
         url: "/lmf_tutorial/"
-      - title: "Detailed tutorial: self-consistent calculation of PbTe"
+      - title: "Self-consistent calculation of PbTe"
         url: "/lmf_pbte_tutorial/"
       - title: "Properties of the lmf basis set"
         url: "/lmf_bi2te3_tutorial/"
