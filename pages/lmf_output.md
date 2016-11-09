@@ -515,6 +515,148 @@ But unless you otherwise specify, the site densities are left unaltered.  To tel
 
 {::nomarkdown}</div>{:/}
 
+#### Potential
+
+~~~
+ Average es pot at rmt = 0.473380  avg sphere pot = 0.516004   vconst = -0.473380
+ smooth rhoves     41.429795   charge    15.480342
+ smooth rhoeps =  -11.301007   rhomu =  -14.720287  avg vxc =   -0.680712 
+
+ elocp:
+
+ Fit local orbitals to sm hankels, species Pb, rmt=3.044814
+  l  type    Pnu      Eval        K.E.       Rsm       Eh      Q(r>rmt)    Fit K.E.
+  2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887 
+
+ locpot:
+
+ site  1  z= 82.0  rmt= 3.04481  nr=497   a=0.025  nlml=25  rg=0.761  Vfloat=T
+ sm core charge = 0.029706 (sphere) + 0.000318 (spillout) = 0.030024
+ potential shift to crystal energy zero:    0.000065
+
+ site  2  z= 52.0  rmt= 3.02869  nr=461   a=0.025  nlml=16  rg=0.757  Vfloat=T
+ sm core charge = 0.32823 (sphere) + 0.005658 (spillout) = 0.333888
+ potential shift to crystal energy zero:    0.000023
+~~~
+
+Total energy
+
+~~~
+ Energy terms:             smooth           local            total
+   rhoval*vef            -46.400985      -271.033266      -317.434250
+   rhoval*ves            -62.942264      -220.170579      -283.112844
+   psnuc*ves             145.801855   -233346.961977   -233201.160122
+   utot                   41.429795   -116783.566278   -116742.136483
+   rho*exc               -11.301007     -1083.505751     -1094.806758
+   rho*vxc               -14.720287     -1438.308127     -1453.028414
+   valence chg            15.480342         4.519657        20.000000
+   core charge           114.000000         0.000000       114.000000
+
+ Charges:  valence    20.00000   cores   114.00000   nucleii  -134.00000
+    hom background     0.00000   deviation from neutrality:      0.00000
+~~~
+
+convergence in local orbital
+
+~~~
+ sugcut:  make orbital-dependent cutoffs for local orbitals, tol=1.0e-6
+ spec      l    rsm    eh     gmax    last term   cutoff
+  Pb       2    1.05  -1.13   8.040    2.78E-06    3647*
+~~~
+
+~~~
+ Start first of two band passes ...
+ bndfp:  kpt 1 of 16, k=  0.00000  0.00000  0.00000
+ -1.3108 -1.3108 -1.3076 -1.3076 -1.3076 -1.0419 -0.5426 -0.2498 -0.2498
+ -0.2498  0.1728  0.1728  0.1728  0.2942  0.2942  0.2942
+ bndfp:  kpt 11 of 16, k=  -0.16667  0.16667  0.83333
+ -1.3161 -1.3103 -1.3081 -1.3058 -1.3056 -0.9310 -0.6887 -0.4314 -0.3314
+ -0.3190  0.1376  0.1914  0.2171  0.2802  0.5842  0.6122
+~~~
+
+~~~
+ BZWTS : --- Tetrahedron Integration ---
+ ... only filled or empty bands encountered:  ev=-0.138629  ec=-0.080593
+ VBmax = -0.138629  CBmin = -0.080593  gap = 0.058036 Ry = 0.78930 eV
+ BZINTS: Fermi energy:     -0.138629;  20.000000 electrons;  D(Ef):    0.000
+         Sum occ. bands:  -18.1376921  incl. Bloechl correction:    0.000000
+~~~
+
+~~~
+ mkrout:  Qtrue      sm,loc       local
+   1   12.610810    6.902591    5.708219
+   2    5.275210    6.408075   -1.132866
+~~~
+
+
+
+~~~
+ Make new boundary conditions for phi,phidot..
+
+ site    1   species   1:Pb      
+ l  idmod     ql         ebar        pold        ptry        pfree        pnew
+ 0     0    1.700379   -0.652781    6.895000    6.901582    6.500000    6.901582
+ 1     0    0.846967   -0.353483    6.809000    6.620518    6.250000    6.620518
+ 2     0    0.121211   -0.338472    6.250000    6.143261    6.147584    6.250000
+ 2     0    sc         -1.306275    5.934000    5.938843    5.147584   15.938843
+ 3     0    0.032691   -0.376447    5.183000    5.125635    5.102416    5.125635
+ 4     0    0.005476   -0.403337    5.089000    5.085123    5.077979    5.088586
+
+ site    2   species   2:Te      
+ l  idmod     ql         ebar        pold        ptry        pfree        pnew
+ 0     0    1.776356   -0.914304    5.908000    5.907235    5.500000    5.907235
+ 1     0    3.401138   -0.308184    5.863000    5.837701    5.250000    5.837701
+ 2     0    0.079330   -0.456567    5.441000    5.193659    5.147584    5.250000
+ 3     0    0.018386   -0.559688    4.182000    4.116698    4.102416    4.121119
+~~~
+
+
+~~~
+ Harris energy:
+ sumev=      -18.137692  val*vef=    -317.434250   sumtv=     299.296558
+ sumec=        0.000000  cor*vef=       0.000000   ttcor=   62219.476115
+ rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
+
+ Harris correction to forces: shift in free-atom density              
+  ib         delta-n dVes             delta-n dVxc               total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+ shift forces to make zero average correction:            0.00    0.00    0.00
+
+ srhov:    -41.830236   -275.353312   -317.183548 sumev=  -18.137692   sumtv=  299.045855
+
+ Kohn-Sham energy:
+ sumtv=      299.045855  sumtc=     62219.476115   ekin=    62518.521970
+ rhoep=    -1094.805096   utot=   -116741.865633   ehks=   -55318.148758
+
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+ Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
+~~~
+
+~~~
+ mixing: mode=B  nmix=2  beta=.3  elind=.531  kill=7
+ mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
+ charges:       old           new         screened      rms diff       lin mix
+ smooth      15.480342     15.424647     15.424647      0.011907     15.463634
+ site    1    6.340155      5.708219      5.708219      0.022361      6.150574
+ site    2   -1.820498     -1.132866     -1.132866      0.013213     -1.614208
+ AMIX: nmix=0 mmix=8  nelts=6302  beta=0.3  tm=5  rmsdel=2.17e-2
+ unscreened rms difference:  smooth  0.011613   local  0.022361
+   screened rms difference:  smooth  0.011907   local  0.022361   tot  0.021660
+~~~
+
+end of loop
+
+~~~ 
+ iors  : write restart file (binary, mesh density) 
+
+   it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
+h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
+~~~
+
 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
