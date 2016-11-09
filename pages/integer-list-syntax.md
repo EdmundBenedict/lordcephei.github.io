@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Syntax of integer lists" 
-permalink: "/docs/misc/integerlists/"
+permalink: "/docs/input/integerlists/"
 header: no
 ---
 

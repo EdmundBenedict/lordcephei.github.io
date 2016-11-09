@@ -89,7 +89,7 @@ The following will plot this function in the interval **(0.02,2)**, with the abs
 
 _Notes:_{: style="color: red"}
 
-+ [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/misc/integerlists/).
++ [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/input/integerlists/).
 + [**-ord _expr_**](/docs/misc/fplot/#ord-switch) defines the ordinate, for a given point in the list.  **_expr_** is an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
 + Points are connected by straight lines.
 + Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
@@ -542,7 +542,7 @@ The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the
   + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.
   + **_cc_** controls justification of labels; see **-lbl** above.
 
-  **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/misc/integerlists/).
+  **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/input/integerlists/).
 
 <i> </i>
 {::nomarkdown} <a name="xl-switch"></a> {:/}
@@ -776,7 +776,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 {:/comment}
 
 + **-map [-i _expr_] _list_**\\
-  permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/input/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
   For each point, **_expr_** can make use of the following variables:
   + **i** (row index);  **x** and **y** (abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns),
@@ -817,7 +817,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
   special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values
   &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
-  Specify the list with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
+  Specify the list with the same syntax as for [integer lists](/docs/input/integerlists/).\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
   on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
   Elements in a fixed COLUMN comprise data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
@@ -889,7 +889,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 + **-colsy _list_**\\
   make a family of _xy_ plots for columns in list.
-  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  The syntax of integer lists is described on [this page](/docs/input/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
   Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4 respectively, as the _y_ variable.\\
   _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In the instance above

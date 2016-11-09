@@ -294,7 +294,7 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
 + **-spin1 \| -spin2**\\
   plots bands of first or second spin (_bnds.ext_{: style="color: green"} must contain data for two spins).
 + **-skip=_lst_**\\
-   skip panels in list, e.g. `-skip=1,3` . [This page](/docs/misc/integerlists) documents integer list syntax.
+   skip panels in list, e.g. `-skip=1,3` . [This page](/docs/input/integerlists) documents integer list syntax.
 + **-col3:<i>bnds2</i>,<i>fnout</i>**\\
    merges the color weights in _bnds.ext_{: style="color: green"} and _bnds2_{: style="color: green"} into
    file _fnout_{: style="color: green"} (_fnout_{: style="color: green"} and _bnds2_{: style="color: green"} refer to the full file name).\\
