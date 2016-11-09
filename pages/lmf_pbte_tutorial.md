@@ -636,7 +636,7 @@ One iteration consists of the following steps:
   + [Partial waves](/docs/package_overview/#linear-methods-in-band-theory) $$\phi$$ and $$\dot{\phi}$$ are integrated from the 
     potential subject to the [boundary conditions](/tutorial/lmf/lmf_pbte_tutorial/#bc-explained).
   + Matrix elements of the partial waves (kinetic energy, potential energy, overlap) are assembled for the Kohn-Sham hamiltonian.  
-  + Matrix elements of the interstitial potential $$\< \chi_i \| V \| \chi_j \>$$ for envelope functions <i>&chi;</i><sub><i>i</i></sub>.
+  + Matrix elements of the interstitial potential $$ \< \chi_i \| V \| \chi_j \> $$ for envelope functions <i>&chi;</i><sub><i>i</i></sub>.
 
   This is sufficient to make the Kohn-Sham hamiltonian. Other matrix elements may be made depending on circumstances, matrix elements
   for [optics](/docs/input/inputfile/#optics) or for [spin-orbit coupling](/docs/input/inputfile/#ham) (**HAM\_SO=t**).
