@@ -73,7 +73,8 @@ You supply them in row format (i.e. the first row contains the x, y and z compon
 
 Lattice vectors, lattice constant and the position of the basis vectors place in **SITE** is all that is needed to fix the structural information.  Atomic numbers for each atom is inferred from the symbol (Si). Token **X=** specifies that the coordinates are in "direct" representation, that is, as fractional multiples of lattice vectors.
 It doesn't matter in this case, but you can use Cartesian coordinates : use **POS=** instead of **X** (see additional exercises below).  In such a case positions are given in Cartesian coordinates in units of **ALAT**.  So are the lattice vectors, if you supply them instead of the space group number.\\
-The connection between positions expressed in Cartesian coordinates and as lattice vector multiples is:
+
+The connection between positions expressed in Cartesian coordinates and as (fractional) lattice vector multiples is:
 <div style="text-align:center;">
 POS<sub><i>i</i></sub> = X<sub>1</sub>P<sub><i>i</i>,1</sub> &thinsp;+&thinsp; X<sub>2</sub> P<sub><i>i</i>,2</sub> &thinsp;+&thinsp; X<sub>3</sub> P<sub><i>i</i>,3</sub>, where P<sub><i>i</i>,<i>j</i></sub> is Cartesian component <i>i</i> of lattice vector <i>j</i>.
 <br>

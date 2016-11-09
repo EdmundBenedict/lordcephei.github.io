@@ -64,19 +64,20 @@ Below are two instances of rotations, especially useful for cubic systems:
 Crystallographic space groups consist of a translation part <b>a</b> in
 addition to a rotation part R.  In general a point <b>r</b> gets mapped into
 <div style="text-align:center;">
-<b>r</b>&prime = R <b>r</b> + <b>a</b>
+<b>r</b>&prime; = R <b>r</b> + <b>a</b>
 </div>
 
 The Questaal codes have an additional syntax for space groups.  The
 translation part gets appended to rotation part in one of the
 following forms: &thinsp;**:(x1,x2,x3)**&thinsp; or alternatively
-&thinsp;::(p1,p2,p3)**&thinsp; with the double **'::'**.  he first
+&thinsp;<b>::(p1,p2,p3)</b>&thinsp; with the double '<b>::</b>'. The first
 defines the translation in Cartesian coordinates; the second as
 [fractional multiples of lattice
 vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
 
 Example: Co is hcp with <i>c</i>/<i>a</i>=1.632993.  With one Co with 
 the basis expressed as 
+
 ~~~
 SITE    ATOM=A XPOS=1/3 -1/3 1/2
         ATOM=A XPOS= 0 0 0
