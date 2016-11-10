@@ -480,5 +480,7 @@ potential isn't quite converged.  When well converged, agreement with the availa
 excellent, though a considerable discrepancy with LDA remains.
 
 ### _Additional exercises_
+[//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
 
-1. Tetrahedron vs sampling vs fermi function
+1. Tetrahedron vs sampling vs fermi function, and METAL modes
+

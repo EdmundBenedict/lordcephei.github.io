@@ -769,6 +769,11 @@ used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [th
 Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
 In insulators, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
+
+<div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of printout of local information at high verbosity</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
+
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
 
 ~~~
@@ -790,10 +795,10 @@ file replace **% const met=5** with **% const met=0**.  This will set tag **EXPR
 
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
 Quadratures are of two types:\\
-&#8226;&emsp; the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616))\\
-&#8226;&emsp; the weight at k does depend on values of neighboring k ([tetrahedron integration](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
+&#8226;&ensp; the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616))\\
+&#8226;&ensp; the weight at k does depend on values of neighboring k ([tetrahedron integration](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
 
-Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz)) tag.
+Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz) tag.
 The numbers below correspond to the values of **BZ\_METAL**.
 
 {:start="0"}
@@ -817,7 +822,9 @@ The numbers below correspond to the values of **BZ\_METAL**.
 5. like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
    This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
 
-The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.
+The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [this tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+
+{::nomarkdown}</div>{:/}
 
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
