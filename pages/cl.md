@@ -746,25 +746,26 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 #### _Switches for_ lmfgwd
 [//]: (/docs/input/commandline/#switches-for-lmfgwd)
 
+**lmfgwd**{: style="color: blue"} is the interface to the _GW_ code.
+
 **--jobgw=#**
-:  Tells **lmfgwd**{: style="color: blue"} wahat to make
+:  Tells **lmfgwd**{: style="color: blue"} what to make.
 
    {:start="-2"}
 
-   1. check GWinput
-   1. create GWinput
+   1. check _GWinput_{: style="color: green"}
+   1. create _GWinput_{: style="color: green"}
    1. init mode 
    1. driver mode: makes matrix elements for the GW code
-
-
+^
 **--sigw**
-: Add lines to GWinput needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/), &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
+: Add lines to _GWinput_{: style="color: green"} needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/), &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
   _Note:_{: style="color: red"} With the addition of these lines **hsfp0**{: style="color: blue"} must be run with job 4.  These these lines
   do not affect **hs0fp0\_sc**{: style="color: blue"}.
-
+^
 **--vxcsig**
 :  Write qsgw sigma in place of LDA vxc into  vxc  file
-
+^
 + **--shorbz=no**
 :    Suppress shortening of q
 
