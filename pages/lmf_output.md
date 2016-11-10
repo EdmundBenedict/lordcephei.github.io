@@ -763,7 +763,7 @@ and the "bandgap."
 _Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
 used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
 
-#### Integration weights and the METAL switch
+#### _Integration weights and the METAL switch_
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
 
 Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
@@ -781,42 +781,38 @@ Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}
    16      0.000000    0.333333    1.000000        12        0.111111
 ~~~
 
-The weight of the first point (**0.009259**) is **2/216**.  The extra factor of 2
+The weight of the first point (**0.009259**) is **2/216**.  The factor of 2
 is for spin.  In spin polarized calculation this factor gets reduced by 1/2.
 
-If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator.  In the input
+If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator: in the input
 file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
 [**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In htis mode it can accumulate the density on the first pass as well.
 
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
-In such a case the charge density cannot be assembled without the weights.
-There are these possibilities to solve this chicken-and-egg problem.
+Integration quadratures are of two types:
++ the weight at k does not depend on values of neighboring k (sampling integration).
++ the weight at k does depend on values of neighboring k (tetrahedron integration).
 
-1. the weights for each k are known in advance, as is the case for insulators. This case is easy to handle, as noted above.
-2. <i>E<sub>F</sub></i> must be determined before BZ integrations are performed.  Once known, a second pass can be made to do the integrations.\\
-   In this more difficult case, there are two possibilities:
-   + the weight at k does not depend on values of neighboring k (sampling integration).
-   + the weight at k does depend on values of neighboring k (tetrahedron integration).
-   Several strategies have been developed.
-   {:start="5"}
-   0. System assumed to be an insulator; weights determined <i>a priori</i>.
-   1. Eigenvectors are written to disk, in which case the
-      integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When
-      accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.
-   3. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If
-      _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
-   4. Two band passes are made;
-      the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
-      important in difficult cases.
-   5. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
-      determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually
-      narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling
-      integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
-      use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
-      integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
-   6. like METAL=3
-      in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in the first pass. This is the
-      recommended mode for <b>lmf</b> unless you are working with a large system and need to conserve memory.
+Several strategies have been developed.
+{:start="5"}
+0. System assumed to be an insulator; weights determined <i>a priori</i>.
+1. Eigenvectors are written to disk, in which case the
+   integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When
+   accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.
+3. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If
+   _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
+4. Two band passes are made;
+   the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
+   important in difficult cases.
+5. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
+   determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually
+   narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling
+   integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
+   use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
+   integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
+6. like METAL=3
+   in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in the first pass. This is the
+   recommended mode for <b>lmf</b> unless you are working with a large system and need to conserve memory.
 
 
 ### Output density and update of augmentation sphere boundary conditions
