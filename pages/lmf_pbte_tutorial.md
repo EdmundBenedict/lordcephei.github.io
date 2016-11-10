@@ -638,16 +638,16 @@ One iteration consists of the following steps:
   + Matrix elements of the partial waves (kinetic energy, potential energy, overlap) are assembled for the Kohn-Sham hamiltonian.  
   + Matrix elements of the interstitial potential &#10216;<i>&chi;</i><sub><i>i</i></sub>\|V\|<i>&chi;</i><sub><i>j</i></sub>&#10217;.
     for envelope functions <i>&chi;</i><sub><i>i</i></sub>.
-    $$ \< \chi_i \| V \| \chi_j \> $$ for envelope functions <i>&chi;</i><sub><i>i</i></sub>.
 
   This is sufficient to make the Kohn-Sham hamiltonian. Other matrix elements may be made depending on circumstances, matrix elements
   for [optics](/tutorial/application/optics/) or for [spin-orbit coupling](/docs/input/inputfile/#ham) (**HAM\_SO=t**).
 ^
 + Makes an initial pass through the irreducible _k_ points in the Brillouin zone
-  to obtain the Fermi level.  In general, until the Fermi level is known, the 
-  weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
+  to [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).
+  and obtain integration weights for each band and _k_ point into a binary file _wkp.pbte_{: style="color: green"}.
+  In general until the Fermi level is known, the weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
 + Makes a second pass to accumulate the charge density.  For local densities,
-  essential information is retained in a compact form, keeping coefficients of the density matrix.
+  essential information is retained in a compact form, as coefficients of the density matrix.
 + Assembles the local densities (true and smoothed) on their radial meshes from density matrices
 + Symmetrizes the density
 + Finds new logarithmic derivative parameters **pnu** by floating them to the band center-of-gravity

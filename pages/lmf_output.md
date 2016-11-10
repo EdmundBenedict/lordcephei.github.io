@@ -749,16 +749,75 @@ The first is needed to obtain the Fermi level:
  VBmax = -0.138629  CBmin = -0.080593  gap = 0.058036 Ry = 0.78930 eV
  BZINTS: Fermi energy:     -0.138629;  20.000000 electrons;  D(Ef):    0.000
          Sum occ. bands:  -18.1376921  incl. Bloechl correction:    0.000000
+
+ Saved qp weights ...
 ~~~
 
-In this case the system is an insulator.  If you know this in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator.
-In the input file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
-[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.
+It saves the k-point weights into a binary file _wkp.pbte_{: style="color: green"}.
 
+In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically,
+and prints out the energies of the band edges and the bandgap.
+
+### Integration weights and the METAL switch
+[//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
+
+Numerical quadrature is used to to accumulate the output density or any property integrated over the Brillouin zone.
+In insulators, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
+number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
+Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
+
+~~~
+ BZMESH:  16 irreducible QP from 216 ( 6 6 6 )  shift= F F F
+              Qx          Qy          Qz      Multiplicity    Weight
+    1      0.000000    0.000000    0.000000         1        0.009259
+    2     -0.166667    0.166667    0.166667         8        0.074074
+    3     -0.333333    0.333333    0.333333         8        0.074074
+  ...
+   16      0.000000    0.333333    1.000000        12        0.111111
+~~~
+
+The weight of the first point (**0.009259**) is **2/216**.  The extra factor of 2
+is for spin.  In spin polarized calculation this factor gets reduced by 1/2.
+
+If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator.  In the input
+file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
+[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In htis mode it can accumulate the density on the first pass as well.
+
+In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
+In such a case the charge density cannot be assembled without the weights.
+There are these possibilities to solve this chicken-and-egg problem.
+
+1. the weights for each k are known in advance, as is the case for insulators. This case is easy to handle, as noted above.
+2. <i>E<sub>F</sub></i> must be determined before BZ integrations are performed.  Once known, a second pass can be made to do the integrations.\\
+   In this more difficult case, there are two possibilities:
+   + the weight at k does not depend on values of neighboring k (sampling integration).
+   + the weight at k does depend on values of neighboring k (tetrahedron integration).
+   Several strategies have been developed.
+   {:start="5"}
+   0. System assumed to be an insulator; weights determined <i>a priori</i>.
+   1. Eigenvectors are written to disk, in which case the
+      integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When
+      accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.
+   3. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If
+      _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
+   4. Two band passes are made;
+      the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
+      important in difficult cases.
+   5. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
+      determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually
+      narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling
+      integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
+      use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
+      integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
+   6. like METAL=3
+      in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in the first pass. This is the
+      recommended mode for <b>lmf</b> unless you are working with a large system and need to conserve memory.
 
 
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
+
+In the second pass the output density is made.
 
 ~~~
  mkrout:  Qtrue      sm,loc       local

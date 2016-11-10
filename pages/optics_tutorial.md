@@ -62,9 +62,9 @@ or equevilantly for the FP implementation
 
 #### _Output file_
 
-The output file of the optics mode can vary by mode, for the mode above the file will be named opt.pbte, and will contain 4 columns and 1002 rows. The first row contains brief metadat; the columns from left to right are enery value (in Ry), followed by values for the imaginary part of the dielectric function for three orientations of the electric field polarization.
+The output file of the optics mode can vary by mode, for the mode above the file will be named _opt.pbte_{: style="color: green"}, and will contain 4 columns and 1002 rows in the standard [Questaal format] for 2D arrays. The first row contains brief metadata; the columns from left to right are enery value (in Ry), followed by values for the imaginary part of the dielectric function for three orientations of the electric field polarization.
 
-#### _Further Optic Modes_
+#### _Further Optics Modes_
 
 ##### _Imaginary part of the dielectric function_
 The optics ppmode=1 used above calculates the dielectric function for the cases of unpolarized spin (**HAM_NSPiN=1**) or analytic implementation of SOC(**HAM_SO=1**), in the cases of polarized spin or pertubation based implemetation of SOC **OPTICS_MODE=1** only calculates Im$\eps$ for spin up, to preform the same calculation for spin down electrons **OPTICS_MODE=2** must be used.
@@ -82,10 +82,10 @@ The six modes described above correlate to
        		-5: generate single DOS for spin 1
        		-6: generate single DOS for spin 2
 
-The output files for all six optic ppmodes described above  consiste of 2 columns ( the number of rows is **OPTICS_NPTS** plus and additional meta data line), the first of which is energy (in Ry) followed by the corresponding JDOS or DOS values.
+The output files for all six optics ppmodes described above  consiste of 2 columns ( the number of rows is **OPTICS_NPTS** plus and additional meta data line), the first of which is energy (in Ry) followed by the corresponding JDOS or DOS values.
 
 #### _Resolving output_
-Both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} offer a range of option to resolve Im$\eps$,DOS and JDOS through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND**, the options described here apply to all of the optic modes described above (Im$\eps$,JDOS and DOS).
+Both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} offer a range of option to resolve Im$\eps$,DOS and JDOS through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND**, the options described here apply to all of the optics modes described above (Im$\eps$,JDOS and DOS).
 
 ##### _Occupied and unoccupied bands_
 
@@ -96,7 +96,7 @@ It is possible to perform any of the optics mode calculations described above fo
               
 The optics output file generated with restricted bands will have the same name and format as unrestricted band calculations, which has been described previously in this tutorial.
 
-##### _Resolve by k,$\eps$ and band to band contibution_
+##### _Resolve by k, &epsilon; and band to band contibution_
 The optical and electronic properties described above can also be sperated by band to band contribution through **OPTICS_PART=1**, this method has the advantage that the band to band contributions for a number of bands can be preformed quickly. The output of optical calculations while using **OPTICS_PART=1** is popt.pbte, the format of this file differes from opt.pbte. Details of output format for **OPTICS_PART=1** can be found [here](https://lordcephei.github.io/opt-part/).
 
 The contributions to the optical and electronic properties can also be resolved by contributions from single k-points, this can be acheived by preforming the optical calcualtions above with the added switch **OPTICS_PART=2**. A full tuorial for this option os provided [here](https://lordcephei.github.io/opt-part/).
