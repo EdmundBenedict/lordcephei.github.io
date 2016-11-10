@@ -43,7 +43,7 @@ to obtain charge densities and the sum of single particle energies for
 total energy. The single-particle sum is the energy-weighted integral of
 the density-of-states *D*(*E*), 
 
-$$E\_\{\\rm\{band}}=\\int\_\{ - \\infty }^\{\{E\_F}} \{E\\,D(E)\\,dE} =\\int\_\{ - \\infty }^\\infty \{f(E)E\\,D(E)\\,dE}$$
+$$E_{band} = \int_{-\infinity}^{E_{F}} ED(E)dE = \int_{-\infinity}^{\infinity} f(E)ED(E)dE$$
 
 where  *f*(*E*) is the Fermi function.  *D*(*E*) itself is given by a sum over eigenstates *i* as  *D*(*E*) = $\Sigma_{i}\delta(E-E_{i})$. In a crystal with Bloch states, **k** is a good quantum number we can write it as an integral over the BZ for each band: 
 
