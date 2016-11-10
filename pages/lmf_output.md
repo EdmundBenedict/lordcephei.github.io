@@ -724,7 +724,7 @@ These matrix elements of <i> &lambda; L &middot; S</i> are printed out:
 
 {::nomarkdown}</div>{:/}
 
-After completing the loop over atoms, a table is written for terms involving the total energy
+After completing the loop over sites a table is written for terms involving the total energy
 
 ~~~
  Energy terms:             smooth           local            total
@@ -805,10 +805,10 @@ In a metal the situation is more complicated.  The following table was extracted
          Mag. moment:       
 ~~~
 
-The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Rys).
-The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value
+The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Ry).
+The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
 The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
-are used instead of weights calculated from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
+are used instead of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
 #### _Integration weights and the METAL switch_
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)

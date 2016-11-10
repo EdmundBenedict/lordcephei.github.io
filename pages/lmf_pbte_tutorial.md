@@ -397,8 +397,8 @@ Run `lmfa --input` and look for **HAM_REL**.  You should see:
 
 ~~~
  HAM_REL                opt    i4       1,  1     default = 1
-   0 for nonrelativistic Schr&ouml;dinger equation
-   1 for scalar relativistic Schr&ouml;dinger equation
+   0 for nonrelativistic Schrodinger equation
+   1 for scalar relativistic Schrodinger equation
    2 for Dirac equation (ASA only for now)
    10s digit 1: compute core density with full Dirac equation
    10s digit 2: Like 1, but neglect coupling (1,2) pairs in 4-vector
@@ -473,7 +473,7 @@ relativistic Dirac treatment.
 Given a density and corresponding potential, **lmfa**{: style="color: blue"} will construct some estimates for the basis set, namely the
 generation of envelope function parameters **RSMH**&thinsp; and &thinsp;**EH** (and possibly **RSMH2**&thinsp; and &thinsp;**EH2**, depending
 on the setting of [**HAM\_AUTOBAS\_MTO**](/docs/input/inputfile/#ham)), analyzing which cores should be promoted to local orbitals, and
-reasonable estimates for the boundary condition of the partial wave that dete
+reasonable estimates for the boundary condition of the partial wave.
 
 {::nomarkdown} <a name="envelopes-explained"></a> {:/}
 {::comment}
@@ -653,7 +653,7 @@ Each iteration of the self-consistency cycle begins with
 ~~~
 
 One iteration consists of the following steps.
-The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
+The standard output is annotated in some detail [here](/docs/outputs/lmf_output/#potential-and-matrix-elements).
 
 + Construct the potential and matrix elements.
   + [Interstitial and local parts](/docs/outputs/lmf_output/#potential-and-matrix-elements) of the potential are made.
