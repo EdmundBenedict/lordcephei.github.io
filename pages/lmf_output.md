@@ -790,11 +790,13 @@ file replace **% const met=5** with **% const met=0**.  This will set tag **EXPR
 
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
 Integration quadratures are of two types:
+
 + the weight at k does not depend on values of neighboring k (sampling integration).
 + the weight at k does depend on values of neighboring k (tetrahedron integration).
 
 Several strategies have been developed.
 {:start="5"}
+
 0. System assumed to be an insulator; weights determined <i>a priori</i>.
 1. Eigenvectors are written to disk, in which case the
    integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When
