@@ -276,8 +276,8 @@ $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
 ~~~
 
-The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file)
-The calculation begins with a header:
+The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file).
+The output begins with a header:
 
 ~~~
  LMFA:     nbas = 2  nspec = 2  vn 7.11.i  verb 35
@@ -287,15 +287,13 @@ The calculation begins with a header:
 ~~~
 
 The **pot** line says that **lmfa**{: style="color: blue"} the potential will be made from the Barth-Hedin functional.
-To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
+To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).\\
+The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set information (points 3-5 outlined above).
 
-The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set 3-5 information outlined above.
-
+The next few sections amplify on what **lmfa**{: style="color: blue"} does.
 
 #####  5.1 Local orbitals
-{::comment}
-(/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
-{:/comment}
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 
 Part of **lmfa**{: style="color: blue"}'s function is to identify _local orbitals_ that
 [extend the linear method](/docs/package_overview/#linear-methods-in-band-theory).  Linear methods are reliable only over a limited energy
