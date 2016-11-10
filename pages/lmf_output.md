@@ -890,6 +890,7 @@ how many electrons are inside each augmentation sphere
  mkrout:  Qtrue      sm,loc       local
    1   12.610810    6.902591    5.708219
    2    5.275210    6.408075   -1.132866
+~~~
 
 The
 [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
