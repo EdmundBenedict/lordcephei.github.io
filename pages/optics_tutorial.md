@@ -46,7 +46,7 @@ Using the optics mode for calculating JDOS or the imaginary part of the complex 
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
 
-the category above describes all neccessery information needed to calculate the imaginary part of the complex dielectric function. The tokens above indicate an optics calculation mode 1 which is the imaginary part of the dielectric function, calculated for an energy range of 0-1 Ry (indicated by WINDOW token) with an enegy mesh density of 1001 using the  enhanced tetrahedron integration method (determined through LTET). Further more the token **FREE=F** should be added to the start category in the control file.
+the category above describes all necessary information needed to calculate the imaginary part of the complex dielectric function. The tokens above indicate an optics calculation mode 1 which is the imaginary part of the dielectric function, calculated for an energy range of 0-1 Ry (indicated by WINDOW token) with an enegy mesh density of 1001 using the  enhanced tetrahedron integration method (determined through LTET). Further more the token **FREE=F** should be added to the start category in the control file.
 
 #### _Preforming calculations_
 
