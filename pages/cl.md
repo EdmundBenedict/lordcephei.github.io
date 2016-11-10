@@ -783,13 +783,6 @@ Command-line switches:
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
-#### _Switches for_ lmfgws
-
-+ **--sfuned**\\
-  Run the spectral function editor. Invoke the editor to see see its usage.
-
-See [Table of Contents](/docs/input/commandline/#table-of-contents)
-
 #### _Switches for_ lm
 {::comment}
 (/docs/input/commandline/#switches-for-lm)
@@ -1129,6 +1122,17 @@ Command-line switches:
 
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
+#### _Switches for_ lmfgws
+
+**lmfgws**{: style="color: blue"} is the analyzer of the dynamical _GW_ self-energy.  You need to create the self-energy first and set up
+the input file (_se_{: style="color: green"}) using **spectral**{: style="color: blue"}.  See [this tutorial](/tutorial/gw/qsgw_fe/).
+
++ **--sfuned**\\
+  Run the spectral function editor. Invoke the editor to see see its usage.
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
 
 #### _Switches for_ spectral
 
