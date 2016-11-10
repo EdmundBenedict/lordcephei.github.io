@@ -1064,6 +1064,52 @@ original, because the list of lattice vectors may not encompass all the translat
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ lmfgws
+
+**lmfgws**{: style="color: blue"} is the analyzer of the dynamical _GW_ self-energy.  You need to create the self-energy first and set up
+the input file (_se_{: style="color: green"}) using **spectral**{: style="color: blue"}.  See [this tutorial](/tutorial/gw/qsgw_fe/).
+
++ **--sfuned**\\
+  Run the spectral function editor. Invoke the editor to see see its usage.
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
+
+#### _Switches for_ spectral
+
+_Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
+&Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
+**nw** and **domg** are designed to interpolate &Sigma;.  In the following, choose either **nw** or **domg**.
+
++  **--nw=_nw_**:\\
+   Subdivide input energy mesh **_nw_** times
++  **--domg=#**:\\
+   Target energy spacing for <i>A</i>(&omega;), eV. **nw** is chosen that bests fits target **domg**.
++  **--1shot**:\\
+   evals do not correspond with QP levels
++  **--range=<i>&omega;</i>1,<i>&omega;</i>2**:
+   restrict generated results to <i>&omega;</i>1 < <i>&omega;</i>< <i>&omega;</i>2
++  **--eps=#**:\\
+   smearing width, in eV.
++  **--ws**:\\
+   Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
+   suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws).
+   Individual files are not written.\\
+   When using this switch, **--nw=1** is advised, since **lmfgws**{: style="color: blue"} can do its own interpolation.
++  **--cnst:_expr_**:\\
+   Exclude entries in _SEComg.(UP,DN)_{: style="color: green"} for which **_expr_** is nonzero.
+   **_expr_** is an integer expression that can include the following variables:
+   +    ib (band index)
+   +    iq (k-point index)
+   +    qx,qy,qz,q (components of q, and amplitude)
+   +    eqp (quasiparticle level)
+   +   spin (1 or 2)
+
+   Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.\\
+   **--cnst:iq==1&eqp>-10**
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
 #### _Switches for_ lmctl
 {::comment}
 (/docs/input/commandline/#switches-for-lmctl)
@@ -1120,52 +1166,6 @@ Command-line switches:
    Example: **lmxbs &thinsp; "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
 
-
-See [Table of Contents](/docs/input/commandline/#table-of-contents)
-
-#### _Switches for_ lmfgws
-
-**lmfgws**{: style="color: blue"} is the analyzer of the dynamical _GW_ self-energy.  You need to create the self-energy first and set up
-the input file (_se_{: style="color: green"}) using **spectral**{: style="color: blue"}.  See [this tutorial](/tutorial/gw/qsgw_fe/).
-
-+ **--sfuned**\\
-  Run the spectral function editor. Invoke the editor to see see its usage.
-
-See [Table of Contents](/docs/input/commandline/#table-of-contents)
-
-
-#### _Switches for_ spectral
-
-_Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
-&Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
-**nw** and **domg** are designed to interpolate &Sigma;.  In the following, choose either **nw** or **domg**.
-
-+  **--nw=_nw_**:\\
-   Subdivide input energy mesh **_nw_** times
-+  **--domg=#**:\\
-   Target energy spacing for <i>A</i>(&omega;), eV. **nw** is chosen that bests fits target **domg**.
-+  **--1shot**:\\
-   evals do not correspond with QP levels
-+  **--range=<i>&omega;</i>1,<i>&omega;</i>2**:
-   restrict generated results to <i>&omega;</i>1 < <i>&omega;</i>< <i>&omega;</i>2
-+  **--eps=#**:\\
-   smearing width, in eV.
-+  **--ws**:\\
-   Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
-   suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws).
-   Individual files are not written.\\
-   When using this switch, **--nw=1** is advised, since **lmfgws**{: style="color: blue"} can do its own interpolation.
-+  **--cnst:_expr_**:\\
-   Exclude entries in _SEComg.(UP,DN)_{: style="color: green"} for which **_expr_** is nonzero.
-   **_expr_** is an integer expression that can include the following variables:
-   +    ib (band index)
-   +    iq (k-point index)
-   +    qx,qy,qz,q (components of q, and amplitude)
-   +    eqp (quasiparticle level)
-   +   spin (1 or 2)
-
-   Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.\\
-   **--cnst:iq==1&eqp>-10**
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
