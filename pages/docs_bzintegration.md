@@ -47,7 +47,7 @@ $$E\_\{\\rm\{band}}=\\int\_\{ - \\infty }^\{\{E\_F}} \{E\\,D(E)\\,dE} =\\int\_\{
 
 where  *f*(*E*) is the Fermi function.  *D*(*E*) itself is given by a sum over eigenstates *i* as  *D*(*E*) = $\Sigma_{i}\delta(E-E_{i})$. In a crystal with Bloch states, **k** is a good quantum number we can write it as an integral over the BZ for each band: 
 
-$$D(E) = \frac{V}{{{{(2\pi )}^3}}}\sum\nolimits_n {\int_{BZ} {\delta \left({{E_n}(k) - E} \right){d^3}{\bf{k}}} }$$. 
+$$D(E) = \frac{V}{(2\pi)^{3}}\sum\nolimits_n {\int_{BZ} {\delta \left({{E_n}(k) - E} \right){d^3}{\bf{k}}} }$$. 
 
 When the material is an insulator, sum over occupied states means sum over all the filled bands. Then *E*band can be written simply as 
 
