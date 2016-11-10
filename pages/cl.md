@@ -753,9 +753,10 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
    {:start="-2"}
 
-   1. Performs some sanity checks on _GWinput_{: style="color: green"}
-   1. create _GWinput_{: style="color: green"}, _KPTin1BZ_{: style="color: green"}, _QIBZ_{: style="color: green"}.
-   1. init mode : creates files _SYMOPS_{: style="color: green"} &thinsp;_SYMOPS_{: style="color: green"} &thinsp;_LATTC_{: style="color: green"} &thinsp;_CLASS_{: style="color: green"} &thinsp;_NLAindx_{: style="color: green"}
+   1. Performs some sanity checks on _GWinput_{: style="color: green"}.
+   1. create _GWinput_{: style="color: green"} template, and also  _KPTin1BZ_{: style="color: green"}, _QIBZ_{: style="color: green"}.
+   1. init mode : creates files 
+      _SYMOPS_{: style="color: green"} &thinsp;_SYMOPS_{: style="color: green"} &thinsp;_LATTC_{: style="color: green"} &thinsp;_CLASS_{: style="color: green"} &thinsp;_NLAindx_{: style="color: green"}.
    1. driver mode: makes matrix elements for the GW code: files
       &thinsp;_gwb.ext_{: style="color: green"}
       &thinsp;_gw1.ext_{: style="color: green"}
@@ -764,7 +765,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
       &thinsp;_vxc.ext_{: style="color: green"}
       &thinsp;_evec.ext_{: style="color: green"}
       &thinsp;_normchk.ext_{: style="color: green"}
-      &thinsp;_rhoMT.*_{: style="color: green"}
+      &thinsp;_rhoMT.*_{: style="color: green"}.
 ^
 **-\-sigw**
 : Add lines to _GWinput_{: style="color: green"} needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/), &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
