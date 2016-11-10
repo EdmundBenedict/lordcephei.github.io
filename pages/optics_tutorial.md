@@ -97,8 +97,8 @@ It is possible to perform any of the optics mode calculations described above fo
 The optics output file generated with restricted bands will have the same name and format as unrestricted band calculations, which has been described previously in this tutorial.
 
 ##### _Resolve by k, &epsilon; and band to band contibution_
-The optical and electronic properties described above can also be sperated by band to band contribution through **OPTICS_PART=1**, this method has the advantage that the band to band contributions for a number of bands can be preformed quickly. The output of optical calculations while using **OPTICS_PART=1** is popt.pbte, the format of this file differes from opt.pbte. Details of output format for **OPTICS_PART=1** can be found [here](https://lordcephei.github.io/opt-part/).
+The optical and electronic properties described above can also be sperated by band to band contribution through **OPTICS_PART=1**, this method has the advantage that the band to band contributions for a number of bands can be preformed quickly. The output of optical calculations while using **OPTICS_PART=1** is popt.pbte, the format of this file differes from opt.pbte. Details of output format for **OPTICS_PART=1** can be found [here](https://lordcephei.github.io//application/opt-part/).
 
-The contributions to the optical and electronic properties can also be resolved by contributions from single k-points, this can be acheived by preforming the optical calcualtions above with the added switch **OPTICS_PART=2**. A full tuorial for this option os provided [here](https://lordcephei.github.io/opt-part/).
+The contributions to the optical and electronic properties can also be resolved by contributions from single k-points, this can be acheived by preforming the optical calcualtions above with the added switch **OPTICS_PART=2**. A full tuorial for this option os provided [here](https://lordcephei.github.io//application/opt-part/).
 
-Finally options **OPTICS_PART=1** and **OPTICS_PART=2** can be preformed simultaniously, the output of this option is descibed [here](https://lordcephei.github.io/opt-part/).
+Finally options **OPTICS_PART=1** and **OPTICS_PART=2** can be preformed simultaniously, the output of this option is descibed [here](https://lordcephei.github.io//application/opt-part/).
