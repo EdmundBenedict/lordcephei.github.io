@@ -646,8 +646,10 @@ One iteration consists of the following steps:
   to [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).
   and obtain integration weights for each band and _k_ point into a binary file _wkp.pbte_{: style="color: green"}.
   In general until the Fermi level is known, the weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
+  What is done in the first pass depends on **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
+  for further discussion.
 + Makes a second pass to accumulate the charge density.  For local densities,
-  essential information is retained in a compact form, as coefficients of the density matrix.
+  essential information is retained as coefficients of the local density matrix (a compact form).
 + Assembles the local densities (true and smoothed) on their radial meshes from density matrices
 + Symmetrizes the density
 + Finds new logarithmic derivative parameters **pnu** by floating them to the band center-of-gravity

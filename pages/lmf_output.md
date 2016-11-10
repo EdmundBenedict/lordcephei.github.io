@@ -705,7 +705,7 @@ After completing the loop over atoms, a table is written for terms involving the
    core charge           114.000000         0.000000       114.000000
 ~~~
 
-On exit the potential maker writes the following lines:
+and the following lines are written:
 
 ~~~
  Charges:  valence    20.00000   cores   114.00000   nucleii  -134.00000
@@ -771,7 +771,7 @@ In insulators, each point in the full Brillouin zone gets equal weight; each poi
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for discussion of integration weights and modes to peform the integration.</span>
+<span style="text-decoration:underline;">Click here for discussion of strategies to perform integration.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
 
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
@@ -787,7 +787,7 @@ Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}
 ~~~
 
 The weight of the first point (**0.009259**) is **2/216**.  The factor of 2
-is for spin.  In spin polarized calculation this factor gets reduced by 1/2.
+is for spin.  In spin polarized calculations this factor gets reduced to 1.
 
 If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator: in the input
 file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
@@ -809,7 +809,7 @@ The numbers below correspond to the values of **BZ\_METAL**.
    accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.)
 2. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass, e.g. from
    a prior cycle in the self-consistent iteration.
-   If _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
+   If _wkp.ext_{: style="color: green"} is unavailable, the program will temporarily switch to METAL=3.
 3. Two band passes are made;
    the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
    important in difficult cases.
@@ -819,15 +819,23 @@ The numbers below correspond to the values of **BZ\_METAL**.
    integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
    use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
    integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
-5. like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
+5. Like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
    This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
 
 The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [this tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
 
 {::nomarkdown}</div>{:/}
 
+In metals how the weights are made depends on the quadrature.
+
+[//]:  {::nomarkdown}</div>{:/}
+
+
+
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
+
+A second pass is made with output simiar to the first pass.
 
 In the second pass the output density is made.
 

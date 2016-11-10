@@ -67,11 +67,11 @@ The output file of the optics mode can vary by mode, for the mode above the file
 #### _Further Optics Modes_
 
 ##### _Imaginary part of the dielectric function_
-The optics ppmode=1 used above calculates the dielectric function for the cases of unpolarized spin (**HAM_NSPiN=1**) or analytic implementation of SOC(**HAM_SO=1**), in the cases of polarized spin or pertubation based implemetation of SOC **OPTICS_MODE=1** only calculates Im$\eps$ for spin up, to preform the same calculation for spin down electrons **OPTICS_MODE=2** must be used.
+The optics ppmode=1 used above calculates the dielectric function for the cases of unpolarized spin (**HAM_NSPiN=1**) or analytic implementation of SOC(**HAM_SO=1**), in the cases of polarized spin or pertubation based implemetation of SOC **OPTICS_MODE=1** only calculates Im<i>&epsilon;</i> for spin up, to preform the same calculation for spin down electrons **OPTICS_MODE=2** must be used.
 
 ##### _Single and Joint Density of States(DOS)_
 
-It is possible to calculate  Single DOS and the Joint DOS (JDOS) through the optics category of the control file. These calculations are preformed by simply using **OPTICS_MODE-1** to **-4** for JDOS calculations, and **-5** and **-6** for density calculations and running the **lm**{: style="color: blue"} or **lm**{: style="color: blue"} as describe for Im$\eps$ calculations above.
+It is possible to calculate  Single DOS and the Joint DOS (JDOS) through the optics category of the control file. These calculations are preformed by simply using **OPTICS_MODE-1** to **-4** for JDOS calculations, and **-5** and **-6** for density calculations and running the **lm**{: style="color: blue"} or **lm**{: style="color: blue"} as describe for Im<i>&epsilon;</i> calculations above.
 The six modes described above correlate to
 
     ppmode=:
@@ -85,11 +85,11 @@ The six modes described above correlate to
 The output files for all six optics ppmodes described above  consiste of 2 columns ( the number of rows is **OPTICS_NPTS** plus and additional meta data line), the first of which is energy (in Ry) followed by the corresponding JDOS or DOS values.
 
 #### _Resolving output_
-Both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} offer a range of option to resolve Im$\eps$,DOS and JDOS through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND**, the options described here apply to all of the optics modes described above (Im$\eps$,JDOS and DOS).
+Both **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} offer a range of option to resolve Im<i>&epsilon;</i>,DOS and JDOS through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND**, the options described here apply to all of the optics modes described above (Im<i>&epsilon;</i>,JDOS and DOS).
 
 ##### _Occupied and unoccupied bands_
 
-It is possible to perform any of the optics mode calculations described above for a restricted number of bands, this can greatly speed up the calculation and allow for isolation and identification of individual band contributions. To restric the bands involved in the calculation simply provide a range of values for occupied and unoccupied bands through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND** respectively. Below is an example of an optics category which calculates the contribution to  Im$\eps$ from the highest two valence bands and the lowest two conduction bands for silicon:
+It is possible to perform any of the optics mode calculations described above for a restricted number of bands, this can greatly speed up the calculation and allow for isolation and identification of individual band contributions. To restric the bands involved in the calculation simply provide a range of values for occupied and unoccupied bands through **OPTICS_PART**, **OPTICS_FILBND** and **OPTICS_EMPBND** respectively. Below is an example of an optics category which calculates the contribution to  Im<i>&epsilon;</i> from the highest two valence bands and the lowest two conduction bands for silicon:
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
               FILBND=4,5 EMPBND=6,7

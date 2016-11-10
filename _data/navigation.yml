@@ -100,6 +100,12 @@
         url: "/pfitdoc/"
       - title: "The ccomp processor"
         url: "/ccomp/"
+    - name: "Numerical Methods"
+      prefix: "/numerics"
+      content:
+      - title: "Brillouin zone integration"
+        url: "/bzintegration/"
+
 
 - title: "Tutorials"
   url: ""
