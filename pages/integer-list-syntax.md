@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Syntax of integer lists" 
-permalink: "/docs/misc/integerlists/"
+permalink: "/docs/input/integerlists/"
 header: no
 ---
 
@@ -43,15 +43,22 @@ Each of the &nbsp; <i>strn1</i>, <i>strn2</i>, ... &nbsp; can assume one of the 
 
         low, low+step, low+2*step, ... high
 
+4.  (Extension, applicable only in some contexts).  The dup tag:
+
+       dup=#
+
+    duplicates the entire list to this point, and # is added to the duplicate elements.
+    Thus the list doubles in size.
 
 _Examples_
 <pre>
-  5+1         becomes a single number, 6.
-  5+1:8+2     becomes a sequence of numbers, 6 7 8 9 10
-  5+1:8+2:2   becomes a sequence of numbers, 6 8 10.
-  1:4,7:11    becomes the sequence 1 2 3 4  7 8 9 10 11.
+  5+1         	becomes a single number, 6.
+  5+1:8+2     	becomes a sequence of numbers, 6 7 8 9 10
+  5+1:8+2:2   	becomes a sequence of numbers, 6 8 10
+  1:4,7:11    	becomes the sequence 1 2 3 4  7 8 9 10 11
+
+  5,6,8,dup=16  becomes 5 6 8  21 22 24  (where applicable)
 </pre>
 
-
-_Note:_{: style="color: red"}&nbsp; _slatsm/mkilst_{: style="color: green"}
+_Note:_{: style="color: red"}&nbsp; **slatsm/mkilst.f**{: style="color: green"}
 contains the source code for generating integer lists.

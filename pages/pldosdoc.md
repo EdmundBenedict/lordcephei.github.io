@@ -115,7 +115,7 @@ In the first form (without the **\-\-lst=** switch) you will be prompted with a 
  Weights for dos: 1?
 ~~~
 
-To the first question enter an integer corresponding to which DOS to extract from _dos.ext_{: style="color: green"}, or [a list of integers](/docs/misc/integerlists/).\\
+To the first question enter an integer corresponding to which DOS to extract from _dos.ext_{: style="color: green"}, or [a list of integers](/docs/input/integerlists/).\\
 To the second question enter a corresponding list of weights to assign each DOS.
 
 These questions will be repeated until you enter a blank list in response to the first question.

@@ -179,11 +179,13 @@ $$
 $$
 
 So
+
+$$
 \frac{m_0}{m^*} =
 Z^j  + \frac{Z^j}{v_0^j }\left( {\frac{\partial}{\partial k}\left. \text{Re}\Sigma (k,\omega^j) \right|_{\omega ^j }  - \frac{\partial }{\partial k}V_{xc}^j (k)} \right)
+$$
 
-
-In the QS<i>GW</i> case the quantity in parenthesis vanishes.
+In the QS<i>GW</i> case the quantity in parenthesis vanishes.  Thus QS<i>GW</i> there is no "mass renormalization" from the <i>&omega;</i>-dependent self-energy, &Sigma;(<i>&omega;</i>).
 
 #### Coherent part of the spectral function
 {::comment}
@@ -551,7 +553,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma;(<b>q</b><i><sub>n</sub></i>) to any **q**.
   + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together <i>A<sup>j</sup></i>(<i>&omega;</i>) derived from QP states <i>j</i> in **_list_**.
-                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.\\
+                       See [here](/docs/input/integerlists/) for the syntax of integer lists.\\
   Options are:
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.
@@ -571,7 +573,7 @@ The following summarizes the instruction set of the dynamical self-energy editor
                        **q**-point in units of 2<i>&pi;</i>/alat.  **lmfgws**{: style="color: blue"} will interpolate &Sigma;(<b>q</b><i><sub>n</sub></i>) to any **q**.
   + **ib=_list_**      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Sum together PE spectrum derived from QP states <i>j</i> in **_list_**.
-                       See [here](/docs/misc/integerlists/) for the syntax of integer lists.\\
+                       See [here](/docs/input/integerlists/) for the syntax of integer lists.\\
   Options are:
   + **getev**          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        Do not interpolate energy but calculate it at **q**.

@@ -60,7 +60,7 @@ partial waves are obtained by integrating the Schr&ouml;dinger equation numerica
 
 #### _Linear Methods in Band Theory_
 {::comment}
-/docs/package_overview/#linear-methods-in-band-theory
+(/docs/package_overview/#linear-methods-in-band-theory)
 {:/comment}
 
 Nearly all modern electronic structure methods make use of the [linear
@@ -68,9 +68,14 @@ method](http://dx.doi.org/10.1103/PhysRevB.12.3060) pioneered by O.K. Andersen. 
 expanding them in a Taylor series to first order about some "linearization energy."  This is explained in detail in
 Richard Martin's book, _Electronic Structure_.
 
+{::comment}
 <div onclick="elm = document.getElementById('linear'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click here for a brief description of the linear method and its extension using local orbitals.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="linear">{:/}
+{:/comment}
+
+<div class="dropButtonMid" onclick="dropdown( this );">Click here for a brief description of the linear method and its extension using local orbitals.</div>
+{::nomarkdown}<div class="dropContent">{:/}
 
 The linear approximation rests on the fact that a partial wave
 $$\phi_l(\varepsilon,r)$$ for an atom centered at the origin varies
@@ -215,7 +220,8 @@ input in a largely format-free, tree-structured format.  Input is read through a
 read, you can declare variables and use algebraic expressions.  Thus the
 input file can be quite simple as it is in this [introductory tutorial](https://lordcephei.github.io/tutorial/lmf/lmf_tutorial/),
 or very detailed, even serving as a database for many materials. [This page](https://lordcephei.github.io/docs/input/inputfile/)
-explains how an input file is structured, and how input is organized by 
+and [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#how-the-input-file-is-organized)
+explain how an input file is structured, and how input is organized by 
 [_categories_ and _tokens_](/docs/input/inputfile/#tags-categories-and-tokens).
 
 ### _Other Resources_

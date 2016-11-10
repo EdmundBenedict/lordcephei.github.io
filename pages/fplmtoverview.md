@@ -64,7 +64,7 @@ Fermi level are needed, and to check the accuracy of a given MTO basis. To inclu
 
 ### *Augmentation and Representation of the charge density*
 {::comment}
-/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density
+(/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)
 {:/comment}
 _____________________________________________
 

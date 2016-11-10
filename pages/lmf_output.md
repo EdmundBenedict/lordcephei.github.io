@@ -22,19 +22,15 @@ _____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-The output documented here is mostly taken from the **lmf**{: style="color: blue"}
-[tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
+The output documented here is mostly taken from the **lmf**{: style="color: blue"} [tutorial for PbTe](/tutorial/lmf/lmf_pbte_tutorial/).
 Some portions are adapted from other calculations, as will be indicated.
 
-The standard output is organised by blocks.  The sections below
-annotate each block approximately in the order they are made.
+The standard output is organized by blocks.  The sections below annotate each block approximately in the order they are made.
 
 ### _Preprocessor's transformation of the input file_
-{::comment}
-/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 
-The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
+The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it  is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmf --showp ...`
 
 <div onclick="elm = document.getElementById('preprocessor'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -162,10 +158,10 @@ There are two other special modes to help with managing the input.
 See [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#determining-what-input-an-executable-seeks)
 for further description.
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ###  _Reading basis information from the basp file_
-{::comment}
-/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file)
 
 After parsing the ctrl file, **lmf**{: style="color: blue"} may attempt to read
 basis set information from the basp file.\\
@@ -206,9 +202,7 @@ and search for **autobas**.  Tokens in **AUTOBAS are documented [here](/docs/inp
 {::nomarkdown}</div>{:/}
 
 ### _Header information_
-{::comment}
-/docs/outputs/lmf_output/#header-information
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#header-information)
 
 The header information presents a condensed synopsis of some key
 settings that are used in the calculation.
@@ -223,9 +217,7 @@ settings that are used in the calculation.
 ~~~
 
 ### _Lattice information_
-{::comment}
-/docs/outputs/lmf_output/#lattice-information
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#lattice-information)
 
 This block prints informations about the lattice vectors and settings used in Ewald summations:
 
@@ -244,9 +236,7 @@ _Note:_{: style="color: red"} When long, thin cells are used, or when APW's are 
 input through [**EWALD\_TOL**](/docs/input/inputfile/#ewald).
 
 ### _Symmetry and k mesh_
-{::comment}
-/docs/outputs/lmf_output/#symmetry-and-k-mesh
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#symmetry-and-k-mesh)
 
 The block below shows symmetry operations it finds in the
 crystal, and the irreducible k mesh it obtains from the point group it is given:
@@ -267,30 +257,29 @@ _Notes:_{: style="color: red"} (see also ["Additional Exercises"](/tutorial/lmf/
 
 + The group operations were determined automatically from the given lattice.  PbTe is cubic, with 48 group operations.\\
   First the crystal system is determined; then the symmetry operations inconsistent with the basis are discarded.\\
-  Finally the operations are distilled into a minimum set of generators **(i*r3(1,1,-1) r4x**) that make the entire group.
-  In this case there are no translations; all the group operators are pure rotations, specified with [this syntax](/docs/misc/rotations).
-  This is not true in general; for example hcp Co has 24 space group operations.  If one atom is at the origin the generators
-  defining the group can be written as the following set of (point group + translation):
+  Finally the 48 operations are distilled into a minimum set of generators **(i*r3(1,1,-1) &thinsp; r4x**) that generate the entire
+  [space group](https://en.wikipedia.org/wiki/Space_group).
+  In this case there are no translations; all the group operators are pure point group operations.
+
+  This is not true in general.  hcp Co has 24 space group operations.  The generators
+  defining the [space group](/docs/input/rotations/#space-groups) can be written as:
 
       i*r3z::(1/3,-1/3,-1/2) r2z::(1/3,-1/3,1/2) r2x
 
-  see the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category for syntax.
++ You can also specify symmetry operations manually via the [SYMGRP](/lordcephei.github.io/docs/input/inputfile/#symgrp) category.  This is particularly useful when magnetic symmetry must be considered.
++ The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or
+  [**BZ_NABC**](/docs/input/inputfile/#bz).  In this case the 216 _k_ points generated by a 6&times;6&times;6 mesh
+  gets reduced by symmetry to 16 inequivalent points.\\
+  You can also specify whether the _k_-mesh should pass through the origin or straddle it
+  (see [**BZ_BZJOB**](/docs/input/inputfile/#bz)).
++ Bloechl's [generalized tetrahedron](http://link.aps.org/doi/10.1103/PhysRevB.49.16223) method is used to perform Brillouin zone integrations.
+  You can also use the generalized [Methfessel-Paxton sampling](http://link.aps.org/doi/10.1103/PhysRevB.40.3616) integration scheme or a
+  sampling with a Fermi function, using [**BZ\_N=-1**](/docs/input/inputfile/#bz).
 
-+ You can also specify symmetry operations [manually](/lordcephei.github.io/docs/input/inputfile/#symgrp).  This is particularly useful when magnetic symmetry must be considered.
-+ The _k_ mesh is specifed through the number of divisions along each of the three reciprocal lattice vectors, tag **EXPRESS_nabc** or [**BZ_NABC**](/docs/input/inputfile/#bz).\\
-  You can also specify whether the k-mesh should pass through the origin or straddle it
-  through tag [**BZ_BZJOB**](/docs/input/inputfile/#bz).
-+ The Brillouin zone integration is using Bloechl's generalized tetrahedron method.
-  You can also use the Methfessel-Paxton integration scheme or a Fermi function.
-
-
-
-
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 ### _Augmentation parameters_
-{::comment}
-/docs/outputs/lmf_output/#augmentation-parameters
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#augmentation-parameters)
 
 The table below contains a synopsis of key parameters associated with augmentation spheres.
 
@@ -304,14 +293,14 @@ The table below contains a synopsis of key parameters associated with augmentati
 + **rmt** is the augmentation radius
 + **rsma** and **kmxa** are the smoothing radius and polynomial order used to expand envelope function around other sites.
 + **lmxa** is the _l_-cutoff of the augmentation.  Because of the unique way augmentation is done in this method, **lmxa** can be much lower standard augmented wave methods require
-+ **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.  **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.
-+ **rg**, **rsmv**, **kmxv** are concerned with adding local gaussian pseudocharges to manage the Hartree potential.
++ **lmxl** is analogous to **lmxa**, but it controls the _l_-cutoff of the charge density.
+  **lmxl** defaults to **lmxa**; you can often make it smaller with minimal loss of accuracy.  There is little efficiency gain, however.
++ **rg**, is concerned with adding local gaussian pseudocharges to manage the Hartree potential.
++ **rsmv**, **kmxv** are concerned projections of mesh density onto local densities.
 + **foca**, **rfoca** allow for differing treatments of the core.
 
 ### _Interstitial mesh_
-{::comment}
-/docs/outputs/lmf_output/#interstitial-mesh
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#interstitial-mesh)
 
 The following block is concerned with the mesh used to represent the charge density,
 and to evaluate matrix elements of the (unaugmented) envelope functions.
@@ -330,9 +319,7 @@ Information about whether this mesh is sufficiently accurate is given
 in the table beginning with _sugcut_{: style="color: green"} below.
 
 ### _Counting the size of the basis_
-{::comment}
-/docs/outputs/lmf_output/#counting-the-size-of-the-basis
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#counting-the-size-of-the-basis)
 
 In the table below, the size of the basis is presented.
 **lmf**{: style="color: blue"} doesn't have downfolding capability, so the
@@ -358,14 +345,12 @@ For **lmf**{: style="color: blue"}, **lmxa** is usually reasonably converged if 
 3 for _sp_ systems, 4 for _d_ atoms and 6 for _f_ shell elements.
 
 ### _Envelope function parameters and their G cutoffs_
-{::comment}
-/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs)
 
 In the table envelope function parameters for each species is given,
 which defines their shape.   Also shown is :
 
-+  **gmax** : the _G_ cutoff that represents that envelope to the 
++  **gmax** : the _G_ cutoff that represents that envelope to the
    given tolerance
 +  **last term** : an estimate for the precision of the plane-wave repesentation
 +  **cutoff** : the number of plane waves with _G_<**gmax**.
@@ -389,42 +374,58 @@ which defines their shape.   Also shown is :
   Te       2    2.02  -0.90   4.037    1.63E-06     531
 ~~~
 
-Each envelope function must be expanded in plane waves in order to assemble matrix elements of the interstitial potential the output charge
-density. Both are assembled in reciprocal space.
-The number of plane waves needed for a particular orbital depends on how sharply peaked the function is, so the cutoff is orbital-dependent
-to allow for faster execution.
-**gmax** of any one orbital may safely be less than the global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will
-find a **gmax** for each orbital that meets a preset tolerance.  Otherwise it uses all the _G_ vectors available to it, and appends a '\*'
-to the number indicating not enough orbitals are available to meet the specified tolerance (10<sup>&minus;6</sup> in this case).
+Each envelope function must be expanded in plane waves in order to
 
-It can happen that some of the orbitals bump up against the global cutoff.  This is flagged by
-a &thinsp;<b>*</b>&thinsp; appended to the cutoff, e.g.
++ assemble matrix elements of the interstitial potential
++ assemble the output charge density.
+
+Both are assembled in reciprocal space.  The number of plane waves needed for a particular orbital depends on how sharply peaked the
+function is, so the cutoff is orbital-dependent to allow for faster execution.  **gmax** of any one orbital may safely be less than the
+global _G_ cutoff (**7.8** for PbTe); if it can, **lmf**{: style="color: blue"} will find a **gmax** for each orbital that meets a preset
+tolerance (10<sup>&minus;6</sup> in this case).
+
+Otherwise it uses all the _G_ vectors available to it, and appends a '\*' to the number indicating not enough orbitals are available to meet
+the specified tolerance.  This is flagged by an asterisk appended to the cutoff, e.g.
 
 ~~~
   Te       0    1.63  -0.10   4.572    1.74E-06     701*
 ~~~
 
-In this case check **last term**.  If it is too high you can expect errors in the hamiltonian and you should increase **gmax**.
+If '**last term**' is too high you can expect errors in the hamiltonian and you should increase **gmax**.
 
 The tolerance defaults to 10<sup>&minus;6</sup>, but you can control it with tag **HAM_TOL**.
 10<sup>&minus;5</sup> or smaller is usually safe.
 
 _Note:_{: style="color: red"} With APW's also in the basis, it the overlap matrix becomes nearly singular.
-To stabilize the overlap matrix, you can set **HAM_TOL** to something close to machine precision
+To stabilize the overlap matrix, you can set **HAM_TOL** to something close to machine precision, e.g. 10<sup>&minus;16</sup>.
 
 At this stage the potential independent setup is complete.
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ### _Obtain an input density_
+[//]: (/docs/outputs/lmf_output/#obtain-an-input-density)
+
+In Kohn-Sham theory, the potential is a functional of the density.
+**lmf**{: style="color: blue"} tries to read the density from the density restart file, *rst.pbte*{: style="color: green"}.
+
+Initially the density is not known and *rst.pbte*{: style="color: green"} does not exist.
+
+~~~
+ lmfp  : no rst file ... try to overlap atomic densities
+~~~
+
+When **lmf**{: style="color: blue"} cannot read the density, it constructs a trial density by overlapping free atom densities.
+The true density is obtained itertively through the [self-consistency cycle](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
+
+**lmf**{: style="color: blue"} reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary) and
+overlaps them (Mattheis construction).  This makes a reasonable guess for the density: the atomic potential is very deep, and the crystal
+potential is a relatively modest perturbation to it.  Thus the true density is typically not so far from a superposition of atomic densities.
+
+{::nomarkdown} <a name="mattheis-construction"></a> {:/}
 {::comment}
-/docs/outputs/lmf_output/#obtain-an-input-density
+(/docs/outputs/lmf_output/#mattheis-construction)
 {:/comment}
-
-The next step is to generate the potential : for this a density must be given.  **lmf**{: style="color: blue"} tries to read the density
-from the density restart file, *rst.pbte*{: style="color: green"}.  The box below indicates that **lmf**{: style="color: blue"} was not able
-to find the file, and instead constructs a trial density by overlapping free atom densities.
-
-It reads atomic densities from [*atm.pbte*{: style="color: green"}](/docs/outputs/lmfa_output/#summary)
-and overlaps them (Mattheis construction).  This makes a reasonable guessed density.
 
 <div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of Mattheis construction printout.</span>
@@ -466,34 +467,479 @@ It is important that the system is charge neutral (last line).
 
 {::nomarkdown}</div>{:/}
 
-If, on the other hand, the charge density has been saved in a restart file,
+If, on the other hand, the charge density has been saved in a restart file from a prior iteration
 **lmf**{: style="color: blue"} reads it.  Usually restart files are
-saved in a binary form in a file named *rst.ext*{: style="color: green"}.
-
-<div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to see and control what lmf reads from and writes to the restart file.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
+saved in a binary form in a file *rst.ext*{: style="color: green"}.
 
 When **lmf**{: style="color: blue"} reads from a restart file it prints out
 a message similar to this:
 
 ~~~
- iors  : read restart file (binary, mesh density) 
-         use from  restart file: ef window, positions, pnu 
+ iors  : read restart file (binary, mesh density)
+         use from  restart file: ef window, positions, pnu
          ignore in restart file: *
 ~~~
 
 The restart file contains:
 
-+ Information about the Fermi level and (in the sampling case) parameters
-that were used to assemble the density from a Brillouin zone integration
-+ lattice vectors and site positions
-+ boundary conditions for partial waves, kept as logarithmic derivative parameters (also called [continuous principal quantum numbers](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
-+ valence and core densities inside augmentation spheres
-+ mesh density
+1. valence and core densities inside augmentation spheres for each nucleus.
+2. mesh density
+3. lattice vectors and site positions
+4. Information about the Fermi level and (in the sampling case) parameters controlling the Brillouin zone integration
+5. [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) **pnu** --- boundary conditions for partial waves
+
+##### Controlling what is read from the restart file
+[//]: (/docs/outputs/lmf_output/#controlling-what-is-read-from-the-restart-file)
+
+By default, parameters 3-5 will be read from _rst.pbte_{: style="color: green"} and supersede pre-existing values.  In this tutorial
+lattice vectors and site positions [are read from](/docs/input/sitefile/) _site.pbte_{: style="color: green"},
+[Brillouin zone integration parameters](/docs/input/inputfile/#bz) from category **BZ** in _ctrl.pbte_{: style="color: green"},
+[**pnu**](/docs/outputs/lmf_output/#reading-basis-information-from-the-basp-file) from _basp.pbte_{: style="color: green"}.
+
+Through [command-line](/docs/input/commandline/#switches-for-lmf) switch **-\-rs** you can control what **lmf**{: style="color: blue"} reads
+from _rst.pbte_{: style="color: green"} and what it keeps from input files.  
+**-\-rs** has [five arguments:](/docs/input/commandline/#rs) **-\-rs=#1,#2,#3,#4,#5**; you can supply one to five numbers and default values
+are taken for the rest.
+
+<div onclick="elm = document.getElementById('rdrst'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see how control what lmf reads from and writes to the restart file.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="rdrst">{:/}
+
+**#1** and **#2** mark whether and how to read and write the restart file.  Use the remaining switches to suppress reading from the restart file:\\
+**#3=1**&ensp; keep original site positions.  This is necessary if you shift the atoms but retain this _rst.ext_{: style="color: green"}\\
+**#4=1**&ensp; keep original sampling parameters.\\
+**#5=1**&ensp; keep original **pnu**.
+
+_Notes:_{: style="color: red"}
+
+1. If you use **#5=1**, a self-consistent density will no longer be fully self-consistent because the augmentation part of the basis set has changed.  **lmf**{:
+style="color: blue"} automatically floats **pnu** to the band center of gravity, to make the basis set more accurate.
+2. The mesh density has a lump centered at each atom.  If the site positions change, the lump will be centered in the wrong place, and the
+density very poor.  **lmf**{: style="color: blue"} can partially compensate for this by _adding_ an atomic density centered at the new
+position, and _subtracting_ it at the file position.  It will do this if you use **#1=11**.  But if the shifts are large, it is better to
+discard the restart file and overlap atomic densities again.
+3. If the lattice has been rotated or sheared, the reader will detect this and will rotate or shear the mesh density accordingly.
+But the site densities are left unaltered, unless you tell the reader to rotate them.  To do this use **#1=101**.
+4. If you are doing sampling integration and want to change sampling parameters, you must use **#4=1**.
 
 {::nomarkdown}</div>{:/}
 
+### Potential and Matrix Elements
+[//]: (/docs/outputs/lmf_output/#potential-and-matrix-elements)
 
-xxx
+Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements
 
+The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
+boundaries.  It serves as a boundary condition for the solving Poisson's equation inside each sphere.
+The output reads
+
+~~~
+ Average es pot at rmt = 0.473380  avg sphere pot = 0.516004   vconst = -0.473380
+ smooth rhoves     41.429795   charge    15.480342
+ smooth rhoeps =  -11.301007   rhomu =  -14.720287  avg vxc =   -0.680712
+~~~
+
+These few lines conceal a somewhat involved process.  For the mesh density to yield the correct potential in the interstial, lumps of
+charge must be added to the mesh density.  Provided the additional charge has multipole moments matching those obtained by the difference in the
+[two local densities](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density)
+<i>n</i><sub>1</sub>&minus;<i>n</i><sub>2</sub>, multipoles of the (modified) mesh density will match those of the true density,
+and the electrostatic potential generated by it will be correct at each augmentation radius.
+
+<div onclick="elm = document.getElementById('potinfo'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of smooth potential printout at high verbosity</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="potinfo">{:/}
+
+Run **lmf**{: style="color: blue"} with a [high verbosity](/docs/input/commandline/#pr) (**-\-pr50 \-\-quit=pot**)
+and the following appears:
+
+~~~
+ rhomom:   ib   ilm      qmom        Qval       Qc        Z
+            1     1    1.954651    6.929056    68.00    82.00
+            1    21    0.018533
+            1    25    0.015663
+            2     1   -0.307248   -1.089167    46.00    52.00
+
+ Smooth charges: Qmesh = 14.160111  Qgauss = 5.839889  core-nuc = -20  tot = 0
+~~~
+
+**lmf**{: style="color: blue"} has found the multipole moments from the local densities (**Qval** is the charge, the _l_=0
+multipole moment is **qmom**=<i>Y</i><sub>00</sub>&times;**Qval**). It adds localized gaussian charges with smoothing radius
+**rg**.  (Notice that [**rg**](/docs/outputs/lmf_output/#augmentation-parameters) is quite small, to ensure that the gaussian does
+not spill out of the augmentation sphere.) 
+
+Now the electrostatic potential at the augmentation radius can be constructed
+
+~~~
+ site class  ilm      vval      ves(rmax)
+   1     1     1    1.623863    0.458083
+              21   -0.059347
+              25   -0.050158
+   2     2     1    1.767044    0.498474
+~~~
+
+**lmf**{: style="color: blue"} shifts the total mesh potential by a constant so that the
+average potential on augmentation boundaries is close to zero:
+
+~~~
+ Average es pot at rmt = 0.478171  avg sphere pot = 0.518433   vconst = -0.478171
+ Average es pot at MT boundaries after vconst shift
+ Site    ves        Site    ves
+   1  -0.020088  |    2   0.020302  |
+~~~
+
+It is done order to put the Fermi level close to zero. This shift can be chosen differently; if you use
+**[-\-oldvc](/docs/input/commandline/#oldvc)** the cell-averaged potential is set to zero instead.
+
+{::nomarkdown}</div>{:/}
+
+From the local densities and electrostatic boundary conditions, the local (site) potentials can be constructed along with matrix elements of
+partial waves.  Some limited output is shown in this table:
+
+~~~
+ locpot:
+
+ site  1  z= 82.0  rmt= 3.04481  nr=497   a=0.025  nlml=25  rg=0.761  Vfloat=T
+ sm core charge = 0.029706 (sphere) + 0.000318 (spillout) = 0.030024
+ potential shift to crystal energy zero:    0.000065
+
+ site  2  z= 52.0  rmt= 3.02869  nr=461   a=0.025  nlml=16  rg=0.757  Vfloat=T
+ sm core charge = 0.32823 (sphere) + 0.005658 (spillout) = 0.333888
+ potential shift to crystal energy zero:    0.000023
+~~~
+
+Note the printout **Vfloat=T**.  This indicates that the potential used integrate the partial waves is being updated to the current local
+potential.  The potential used to make [partial waves](/docs/package_overview/#linear-methods-in-band-theory) $$\phi$$ and $$\dot{\phi}$$ is kept
+independently of the potential generated by the density.  Initially this potential is taken from of the free atom; and normally it is
+overwritten (**Vfloat=T**). If you tell **lmf**{: style="color: blue"} to freeze it 
+([**HAM\_FRZWF=t**](/docs/input/inputfile/#ham) globally or [**SPEC\_ATOM\_FRZWF=f**](/docs/input/inputfile/#spec) for one species)
+the basis set will not adapt to the potential.
+
+Once again, many steps are concealed behind this limited output.
+You can get more information, e.g. matrix elements, using a higher print verbosity: the higher the verbosity, the more is output.
+
+<div onclick="elm = document.getElementById('potme'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of printout of local information at high verbosity</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="potme">{:/}
+
+Run **lmf**{: style="color: blue"} with (**-\-pr70 \-\-quit=pot**)
+and a great deal of information is printed out.  A table of
+classical LMTO potential parameters is made.  Particularly useful are the 
+indicating the band center (**c**) and bandwith (**srdel**<sup>2</sup>),
+and linearization energy **enu**:
+
+~~~
+ l        enu         v           c          srdel        qpar        ppar
+ 0     -0.685722   -1.220936   -0.974210    0.311410      2.5442    2.037524
+ 1     -0.345247   -0.961024    0.034414    0.322661      9.5614    3.768891
+ 2      0.215079   -0.351057    1.877979    0.404577     13.6181    3.646179
+ 2(sc) -1.355835   -1.700376   -1.373127    0.018377     60.8790    0.594481
+ 3     -0.367178   -0.903272    2.382595    0.347763     27.1688    7.102666
+ 4     -0.261796   -0.813619    4.861503    0.414942     32.9588   13.704206
+~~~
+
+The following table presents (hamiltonian, potential, overlap) matrix elements of special linear combinations **val** and **slo** of
+$$\phi$$ and $$\dot{\phi}$$ that have the property that value or slope vanishes at the MT boundary:
+
+~~~
+  l         val-val     val-slo     slo-val     slo-slo
+  0   s   10.363095   -7.303401   -7.303401    7.075456
+      h  -11.973814   -0.299694    8.971198   -0.531008
+      v  -67.315135   84.761799   84.761799 -111.419064
+  1   s    8.042350   -4.234108   -4.234108    3.159956
+ ...
+~~~
+
+A number of other quantities are made, depending on print verbosity and computational
+conditions.  
+
+For verbosities above 50, electric field gradients are printed:
+
+~~~
+ Electric Field Gradient:
+ Site      Tensor axes     esu/cm^2    V/m^2      eta    line splitting
+                            x10^13     x10^19                (mm/s)
+   1    0.292-0.936 0.198      0.00      0.00      0.000      0.00000
+        0.771 0.109-0.627      0.00      0.00
+        0.565 0.336 0.754      0.00      0.00
+
+   2    0.292-0.936 0.198      0.00      0.00      0.000      0.00000
+        0.771 0.109-0.627      0.00      0.00
+        0.565 0.336 0.754      0.00      0.00
+~~~
+
+These are directly measurable quantities.  At least in CuAlO<sub>2</sub>, the electric field gradient on the Cu site (measured to be
+&plusmn;10.6&middot;10<sup>21</sup> V/cm<sup>2</sup>), is not well predicted by LDA, or LDA+U.
+QS<i>GW</i>, however, does quite well. See Fig.13 of [this paper](http://prb.aps.org/abstract/PRB/v81/i4/e045203).
+
+
+If spin-orbit coupling is set (**HAM\_SO=t**).  matrix elements of <i> &lambda; L &middot; S</i> are generated.
+Working from the Fe tutorial, invoke
+
+~~~
+$ lmf ctrl.fe -vso=1 --iactiv  --quit=pot --pr55
+~~~
+
+These matrix elements of <i> &lambda; L &middot; S</i> are printed out:
+
+~~~
+ soprm:  matrix elements for perturbation from spin-orbit coupling
+             l    <phi || phi>  <dot || phi>  <dot || dot>
+ up   up     1     0.01903736    0.00053774    0.00001694
+ down down   1     0.01947919    0.00036545    0.00000870
+ up   down   1     0.01925699    0.00036153    0.00001201
+ down up     1     0.01925699    0.00054370    0.00001201
+
+ up   up     2     0.00559381    0.00229625    0.00097759
+...
+~~~
+
+{::nomarkdown}</div>{:/}
+
+After completing the loop over atoms, a table is written for terms involving the total energy
+
+~~~
+ Energy terms:             smooth           local            total
+   rhoval*vef            -36.158050      -282.028989      -318.187039
+...
+   valence chg            14.160111         5.839889        20.000000
+   core charge           114.000000         0.000000       114.000000
+~~~
+
+and the following lines are written:
+
+~~~
+ Charges:  valence    20.00000   cores   114.00000   nucleii  -134.00000
+    hom background     0.00000   deviation from neutrality:      0.00000
+~~~
+
+Is is important that the system be neutral.
+
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
+
+### Parameters for local orbitals
+[//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
+
+Extended local orbitals must attach a smooth Hankel tail.  A single smooth hankel function that fits both value and slope is found.
+The result displayed in a table:
+
+~~~
+ Fit local orbitals to sm hankels, species Pb, rmt=3.044814
+  l  type    Pnu      Eval        K.E.       Rsm       Eh      Q(r>rmt)    Fit K.E.
+  2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887
+~~~
+
+### Brillouin zone integration
+[//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
+
+The charge density and Fermi level must be found by integration over the 
+rillouin zone.  The code makes two passes over the irreducible _k_ points.
+The first is needed to obtain the Fermi level:
+
+~~~
+ Start first of two band passes ...
+ bndfp:  kpt 1 of 16, k=  0.00000  0.00000  0.00000
+ -1.3108 -1.3108 -1.3076 -1.3076 -1.3076 -1.0419 -0.5426 -0.2498 -0.2498
+ -0.2498  0.1728  0.1728  0.1728  0.2942  0.2942  0.2942
+ bndfp:  kpt 11 of 16, k=  -0.16667  0.16667  0.83333
+ -1.3161 -1.3103 -1.3081 -1.3058 -1.3056 -0.9310 -0.6887 -0.4314 -0.3314
+ -0.3190  0.1376  0.1914  0.2171  0.2802  0.5842  0.6122
+
+ BZWTS : --- Tetrahedron Integration ---
+ ... only filled or empty bands encountered:  ev=-0.138629  ec=-0.080593
+ VBmax = -0.138629  CBmin = -0.080593  gap = 0.058036 Ry = 0.78930 eV
+ BZINTS: Fermi energy:     -0.138629;  20.000000 electrons;  D(Ef):    0.000
+         Sum occ. bands:  -18.1376921  incl. Bloechl correction:    0.000000
+
+ Saved qp weights ...
+~~~
+
+It saves the k-point weights into a binary file _wkp.pbte_{: style="color: green"}.
+
+In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically:
+it prints out the highest occupied state and lowest unoccupied state it encountered
+and the "bandgap."
+_Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
+used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
+
+In a metal the situation is more complicated.  The following table was extracted from the [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
+(self-consistent LDA)
+
+~~~
+ BZWTS : --- Tetrahedron Integration ---
+         Est E_f           Window        Tolerance  DOS(E_f)
+        -0.003084  -0.004660  -0.002423   0.002236  14.413343
+        -0.003084  -0.003094  -0.003072   0.000022  14.391220
+        -0.003084  -0.003084  -0.003084   0.000000  14.391209
+ BZINTS: Fermi energy:     -0.003084;   8.000000 electrons;  D(Ef):   14.391
+         Sum occ. bands:   -1.3182580  incl. Bloechl correction:   -0.001198
+         Mag. moment:       
+~~~
+
+The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Rys).
+The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value
+The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
+are used instead of weights calculated from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
+
+#### _Integration weights and the METAL switch_
+[//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
+
+Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
+In insulators, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
+number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
+
+<div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for discussion of role of the METAL switch in performing integration.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
+
+Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
+
+~~~
+ BZMESH:  16 irreducible QP from 216 ( 6 6 6 )  shift= F F F
+              Qx          Qy          Qz      Multiplicity    Weight
+    1      0.000000    0.000000    0.000000         1        0.009259
+    2     -0.166667    0.166667    0.166667         8        0.074074
+    3     -0.333333    0.333333    0.333333         8        0.074074
+  ...
+   16      0.000000    0.333333    1.000000        12        0.111111
+~~~
+
+The weight of the first point (**0.009259**) is **2/216**.  The factor of 2
+is for spin.  In spin polarized calculations this factor gets reduced to 1.
+
+If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator: in the input
+file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
+[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In this mode it can accumulate the density on the first pass as well.
+
+In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
+Quadratures are of two types:\\
+&#8226;&ensp; the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616))\\
+&#8226;&ensp; the weight at k does depend on values of neighboring k ([tetrahedron integration](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
+
+Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz) tag.
+The numbers below correspond to the values of **BZ\_METAL**.
+
+{:start="0"}
+
+0. System assumed to be an insulator; weights determined <i>a priori</i>.  Only one pass is required.
+1. Eigenvectors are written to disk, in which case the
+   integration for the charge density can be deferred until all the bands are obtained.  (_Note:_{: style="color: red"} This option is available only for the ASA. When
+   accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.)
+2. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass, e.g. from
+   a prior cycle in the self-consistent iteration.
+   If _wkp.ext_{: style="color: green"} is unavailable, the program will temporarily switch to METAL=3.
+3. Two band passes are made;
+   the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
+   important in difficult cases.
+4. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
+   determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually
+   narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling
+   integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
+   use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
+   integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
+5. Like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
+   This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
+
+The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+
+{::nomarkdown}</div>{:/}
+
+In metals how the weights are made depends on the quadrature.
+See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the tetrahedron and sampling methods.
+
+[//]:  {::nomarkdown}</div>{:/}
+
+### Output density and update of augmentation sphere boundary conditions
+[//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
+
+A second pass over the irreducible k-points is made with output similar to the first pass.
+
+In the second pass the output density is made and symmetrized.  This table tells you
+how many electrons are inside each augmentation sphere
+
+~~~
+ mkrout:  Qtrue      sm,loc       local
+   1   12.610810    6.902591    5.708219
+   2    5.275210    6.408075   -1.132866
+
+The
+[logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+**pnu** are updated.  Whether they are frozen or allowed to float depends on **SPEC\_ATOM\_IDMOD**.  In this tutorial they are all allowed to float.
+
+~~~
+ Make new boundary conditions for phi,phidot..
+
+ site    1   species   1:Pb      
+ l  idmod     ql         ebar        pold        ptry        pfree        pnew
+ 0     0    1.700379   -0.652781    6.895000    6.901582    6.500000    6.901582
+ 1     0    0.846967   -0.353483    6.809000    6.620518    6.250000    6.620518
+ 2     0    0.121211   -0.338472    6.250000    6.143261    6.147584    6.250000
+ 2     0    sc         -1.306275    5.934000    5.938843    5.147584   15.938843
+ 3     0    0.032691   -0.376447    5.183000    5.125635    5.102416    5.125635
+...
+~~~
+
+The fractional parts of **P** is of order 0.9 for the 6_s_ and 5_d_ states, because they are deep.  the 5_d_ state is far above
+<i>E<sub>F</sub></i>, and it is close to the free electron value.  (For numerical stability, **P** is frozen for any _l_ for which there is
+a corresponding deep local orbital.)  The 6_p_ state is near the Fermi level, and forms the predominant contribution to the bonding and band
+structure.  See [this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an
+interpreration.
+
+### Total energy and forces
+[//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
+
+~~~
+ Harris energy:
+ sumev=      -18.137692  val*vef=    -317.434250   sumtv=     299.296558
+ sumec=        0.000000  cor*vef=       0.000000   ttcor=   62219.476115
+ rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
+
+ Harris correction to forces: shift in free-atom density
+  ib         delta-n dVes             delta-n dVxc               total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+ shift forces to make zero average correction:            0.00    0.00    0.00
+
+ srhov:    -41.830236   -275.353312   -317.183548 sumev=  -18.137692   sumtv=  299.045855
+
+ Kohn-Sham energy:
+ sumtv=      299.045855  sumtc=     62219.476115   ekin=    62518.521970
+ rhoep=    -1094.805096   utot=   -116741.865633   ehks=   -55318.148758
+
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+ Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
+~~~
+
+### New density
+[//]: (/docs/outputs/lmf_output/#new-density)
+
+~~~
+ mixing: mode=B  nmix=2  beta=.3  elind=.531  kill=7
+ mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
+ charges:       old           new         screened      rms diff       lin mix
+ smooth      15.480342     15.424647     15.424647      0.011907     15.463634
+ site    1    6.340155      5.708219      5.708219      0.022361      6.150574
+ site    2   -1.820498     -1.132866     -1.132866      0.013213     -1.614208
+ AMIX: nmix=0 mmix=8  nelts=6302  beta=0.3  tm=5  rmsdel=2.17e-2
+ unscreened rms difference:  smooth  0.011613   local  0.022361
+   screened rms difference:  smooth  0.011907   local  0.022361   tot  0.021660
+~~~
+
+### End of self-consistency loop
+[//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
+
+~~~
+ iors  : write restart file (binary, mesh density)
+
+   it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
+h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
+~~~
+
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
+### _Other Resources_
+
+This output was mostly taken from the basic **lmf**{: style="color: blue"} tutorial on [a self-consistent calculation for PbTe](/tutorial/lmf/lmf_pbte_tutorial)

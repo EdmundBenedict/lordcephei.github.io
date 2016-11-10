@@ -207,7 +207,7 @@ Now that we have a converged self-energy (sigm) we can go back to using lmf to c
 
     $ lmf si --rs=1,0                              #lmf with QSGW potential to get QSGW band gap
 
-Inspect the lmf output and you can find that the gap is now around 1.41 eV.
+Inspect the lmf output and you can find that the gap is now around 1.41 eV..  The **\-\-rs** option is explained [here](/docs/input/commandline/#rs).
 [//]: # (QSGW overestimation...)
 
 [//]: # (To make the QSGW energy bands, do: $ lmf si --band:fn=syml                                #calculate QSGW band structure)

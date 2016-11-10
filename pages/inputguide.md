@@ -6,11 +6,12 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
+{:.no_toc}
 This guide aims to detail the structure and use of the input file and related topics. Additionally, the guide details the different categories that the input file uses and the tokens that can be set within each category.  A more careful description of the input file's syntax can be found in [this manual](/docs/input/inputfilesyntax/).
 
-_____________________________________________________________
-
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
@@ -31,16 +32,16 @@ Here is a sample input file for the compound Bi<sub>_2</sub>Te<sub>_3</sub> writ
 
 <div onclick="elm = document.getElementById('sampleinput'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <button type="button" class="button tiny radius">Click to show.</button>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="sampleinput">{:/}
 
         categories                  tokens
-        ↓                            ↓
 
-        VERS    		LM:7 FP:7
-        HAM     		AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
+
+        VERS                    LM:7 FP:7
+        HAM                     AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
                                 GMAX=8.1
-        ITER    		MIX=B2,b=.3  NIT=10  CONVC=1e-5
-        BZ      		NKABC=3  METAL=5  N=2 W=.01
+        ITER                    MIX=B2,b=.3  NIT=10  CONVC=1e-5
+        BZ                      NKABC=3  METAL=5  N=2 W=.01
         STRUC
                                 NSPEC=2  NBAS=5  NL=4
                                 ALAT=4.7825489
@@ -66,7 +67,7 @@ Any text that begins in the first column is a category.
 
 The full identifier (_tag_{: style="color: brown"}) consists of a sequence of branches, usually trunk and branch e.g. **BZ**{: style="color: red"}\_**METAL**{: style="color: blue"}.
 The leading component (trunk) is the *category*{: style="color: red"}; the last is the *token*{: style="color: blue"},
-which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}. 
+which points to actual data.  Sometimes a tag has three branches, e.g. **HAM**{: style="color: red"}\_**AUTOBAS**{: style="color: green"}\_**LOC**{: style="color: blue"}.
 
 
 ##### _Tags, Categories and Tokens_
@@ -88,17 +89,17 @@ A category holds information for a family of data, for example **BZ**{: style="c
 {:/comment}
 <div onclick="elm = document.getElementById('tagexample'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for a more detailed description of how a tag's tree structured syntax is represented.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="tagexample">{:/}
 
 Consider the Brillouin zone integration category. You plan to carry out the BZ integration using the Methfessel-Paxton sampling method.
-M-P integration has two parameters: polynomial order _n_ and gaussian width _w_. 
+M-P integration has two parameters: polynomial order _n_ and gaussian width _w_.
 Two tags are used to identify them: **BZ\_N** and **BZ_W**; they are usually expressed in the input file as follows:
 
-    BZ	N=2	W=.01
+    BZ  N=2     W=.01
 
 This format style is the most commonly used because it is clean and easy to read; but it conceals the tree structure a little. The same data can equally be written:
 
-    BZ[	N=2 	W=.01]
+    BZ[ N=2     W=.01]
 
 Now the tree structure is apparent: [..] delimits the scope of tag **BZ**.
 
@@ -108,8 +109,8 @@ Apart from the special use of the first column to identify categories, data is l
 
     BZ  N=2
         W=.01
-    BZ	W=.01	N=2
-    BZ[	W=.01	N=2]
+    BZ  W=.01   N=2
+    BZ[ W=.01   N=2]
 
 all represent the same information.
 
@@ -125,13 +126,13 @@ Usually the tag tree has only two levels (category and token) but not always. Fo
             ...
     END
 
-The scope of  **SITE**  starts at "SITE"  and terminates just before "END". There will be multiple instances of the  **SITE_ATOM**  tag, one for each site. The scope of the first instance begins with the first occurrence of  ATOM  and terminates just before the second: 
+The scope of  **SITE**  starts at "SITE"  and terminates just before "END". There will be multiple instances of the  **SITE_ATOM**  tag, one for each site. The scope of the first instance begins with the first occurrence of  ATOM  and terminates just before the second:
 
-    ATOM=Ga  POS=  0   0   0    RELAX=T 
+    ATOM=Ga  POS=  0   0   0    RELAX=T
 
-And the scope of the second **SITE_ATOM** is 
+And the scope of the second **SITE_ATOM** is
 
-    ATOM=As  POS= .25 .25 .25 
+    ATOM=As  POS= .25 .25 .25
 
 Note that **ATOM** simultaneously acts like a token pointing to data (e.g. Ga) and as a tag holding tokens within it, in this case **SITE_ATOM_POS** and (for the first site) **SITE_ATOM_RELAX**.
 
@@ -144,11 +145,11 @@ _Note:_{: style="color: red"} [this manual](/docs/input/inputfilesyntax/) contai
 /docs/input/inputfile/#preprocessor
 {:/comment}
 
-Input lines are passed through a [preprocessor](/docs/input/preprocessor), 
-which provides a wide flexibility in how input files are structured. 
-The preprocessor has many features in common with a programming language, including the ability to 
-[declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions; 
-and it has constructs for 
+Input lines are passed through a [preprocessor](/docs/input/preprocessor),
+which provides a wide flexibility in how input files are structured.
+The preprocessor has many features in common with a programming language, including the ability to
+[declare and assign variables](/docs/input/preprocessor/#variables), evaluate algebraic expressions;
+and it has constructs for
 [branching](/docs/input/preprocessor/#branching-constructs) and
 [looping](/docs/input/preprocessor/#looping-constructs), to make possible multiple or conditional reading of input lines.
 
@@ -159,7 +160,7 @@ For example, supposing through a prior preprocessor instruction you have declare
 is turned in to:
 
         RMAX=3.25
- 
+
 The preprocessor treats text inside brackets {...} as an expression (usually an algebraic expression), which is evaluated and rendered back as an ASCII string.
 See this [annotated lmf output](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file)
 for an example.
@@ -247,10 +248,10 @@ The synopsis also tells you that you can specify the same information using **EX
 **SPEC_ATOM_LMX** is optional input whose default value depends on other input (in this case, atomic number).
 
 **SITE_ATOM_POS** is required input in the sense that you must supply either it
-or **SITE_ATOM_XPOS**.  The <b>\*</b> in <b>reqd\*</b> the information in **SITE_ATOM_POS** 
-can be supplied by an alternate tag -- **SITE_ATOM_XPOS** in this case. 
+or **SITE_ATOM_XPOS**.  The <b>\*</b> in <b>reqd\*</b> the information in **SITE_ATOM_POS**
+can be supplied by an alternate tag -- **SITE_ATOM_XPOS** in this case.
 
-_Note:_{: style="color: red"} if site data is given through a site file, 
+_Note:_{: style="color: red"} if site data is given through a site file,
 all the other tags in the **SITE** category will be ignored.
 
 The cast (real, integer, character) of each tag is indicated, and also how many numbers are to be read.  Sometimes tags will look for more
@@ -269,7 +270,7 @@ BZ_NKABC               reqd   i4v      3,  1
 
 Command-line options
 : `--help` performs a similar function for the command line arguments: it prints out a brief summary of arguments effective in the executable you are using.
-  A more complete description of general-purpose command line options can be found on [this page](/docs/commandline/general/).\\
+  A more complete description of general-purpose command line options can be found on [this page](/docs/input/commandline/).\\
   See this [annotated lmfa output](/docs/outputs/lmfa_output/#help-explained) for an example.
 
 Displaying tags read by the parser
@@ -319,7 +320,7 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _BZ_
 {::comment}
-/docs/input/inputfile/#bz
+(/docs/input/inputfile/#bz)
 {:/comment}
 
 Category BZ holds information concerning the numerical integration of quantities such as energy bands over the Brillouin Zone (BZ). The LMTO programs permit both sampling and tetrahedron integration methods. Both are described in bzintegration.html, and the relative merits of the two different methods are discussed. As implemented both methods use a uniform, regularly spaced mesh of k-points, which divides the BZ into microcells as described here. Normally you specify this mesh by the number of divisions of each of the three primitive reciprocal lattice vectors (which are the inverse, transpose of the lattice vectors PLAT); NKABC below.
@@ -327,12 +328,12 @@ Category BZ holds information concerning the numerical integration of quantities
 These tokens are read by programs that make hamiltonians in periodic crystals (lmf,lm,lmgf,lmpg,tbe). Some tokens apply only to codes that make energy bands, (lmf,lm,tbe).
 
 Token | Arguments | Program | Optional | Default | Explanation
-- | - | - | - | - | - 
+- | - | - | - | - | -
 GETQP | l | | Y | F | Read list of k-points from a disk file. This is a special mode, and you normally would let the program choose its own mesh by specifying the number of divisions (see NKABC). <br> If token is not parsed, the program will attempt to parse NKABC.
 NKABC | l to 3 i | | N | | The number of divisions in the three directions of the reciprocal lattice vectors. k-points are generated along a uniform mesh on each of these axes. (This is the optimal general purpose quadrature for periodic functions as it integrates the largest number of sine and cosine functions exactly for a specified number of points.) <br><br> The parser will attempt to read three integers. If only one number is read, the missing second and third entries assume the value of the first. <br><br> Information from NKABC, together with BZJOB below, contains specifications equivalent to the widely used “Monkhorst Pack” scheme. But it is more transparent and easier to understand. The number of k-points in the full BZ is the product of these numbers; the number of irreducible k-points may be reduced by symmetry operations.
 PUTQP | l | | Y | F | If T, Write out the list of irreducible k-points to file qpts, and the weights for tetrahedron integration if available.
 BZJOB | l to 3 i | | Y | 0 | Controls the centering of the k-points in the BZ: <br>0: the mesh is centered so that one point lies at the origin <br>1: points symmetrically straddle the origin <br><br>Three numbers are supplied, corresponding to each of the three primitive reciprocal lattice vectors. As with NKABC if only one number is read the missing second and third entries assume the value of the first.
-METAL | i | lmf, lm, tbe | Y | 1 | Specifies how the weights are generated for BZ integration. <br><br>Numerical quadrature is used to to accumulate the output density or any BZ-integrated property. In insulators, each point in the full BZ gets equal weight; in metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues. <br>There are these possibilities:<br> &#8226; the weights for each k are known in advance, as is the case for insulators.<br> &#8226; <i>E<sub>F</sub></i> must be determined before BZ integrations are performed.<br>&emsp;In this more difficult case, there are two possibilities:<br> &emsp; the weight at k does not depend on values of neighboring k (sampling integration).<br> &emsp; the weight at k does depend on values of neighboring k (tetrahedron integration).<br> The first case is easy to handle. For the latter several strategies have been developed.<br> The METAL token accepts the following:<br> 0. System assumed to be an insulator; weights determined <i>a priori</i>.<br> 1. Eigenvectors are written to disk, in which case the integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.<br> 2. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.<br> 3. Two band passes are made; the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be important in difficult cases.<br> 4. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is integrated by sampling. It works better than straight sampling because the total energy is variational in the density.<br> 5. like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in the first pass. This is the recommended mode for <b>lmf</b> unless you are working with a large system and need to conserve memory.<br><br>The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.
+METAL | i | lmf, lm, tbe | Y | 1 | Specifies how the weights are generated for BZ integration.<br>For a detailed description, see [this page](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch).<br> The METAL token accepts the following:<br> 0. System assumed to be an insulator; weights determined <i>a priori</i>.<br> 1. Eigenvectors are written to disk, in which case the integration for the charge density can be deferred until all the bands are obtained.<br> 2. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If _wkp.ext_{: style="color: green"} is unavailable, the program will temporarily switch to METAL=3.<br> 3. Two band passes are made; the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be important in difficult cases.<br> 4. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is determined, the actual weights are calculated by quadratic interpolation through the three points.<br><br>The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.
 TETRA | 1 | lmf,lm,tbe | Y | T | Selects BZ integration method<br>0: Methfessel-Paxton sampling integration. Tokens NPTS, N, W, EF0, DELEF (see below) are relevant to this integration scheme.<br>1: tetrahedron integration, with Bloechl weights
 N | i | lmf,lm,tbe | Y | 0 | Polynomial order for sampling integration; see [Methfessel and Paxton, Phys. Rev. B, 40, 3616 (1989)](http://link.aps.org/doi/10.1103/PhysRevB.40.3616). (Not used with tetrahedron integration or for insulators.)<br>&ensp;0: integration uses standard gaussian method<br>&gt;0:   integration uses generalized gaussian functions, i.e. polynomial of order N &times; gaussian to generate integration weights<br>−1:      use the Fermi function rather than gaussians to broaden the &delta;-function. This generates the actual electron (fermi) distribution for a finite temperature.<br>Add 100: by default, if a gap is found separating occupied and occupied states, the program will treat the system as and insulator, even when MET>0. To suppress this, add 100 to N (use −101 for Fermi distribution).
 W | r | lmf,lm,tbe | Y | 5e-3 | Case BZ_N&gt;0 (sampling weights from &delta;-function broadened into a Gaussian):<br>&emsp;W=Broadening (Gaussian width) for Gaussian sampling integration (Ry).<br>Case BZ_N&lt;0 (sampling weights computed from the Fermi function):<br>&emsp;W=temperature, in Ry. <br>W is not used for insulators or with tetrahedron integration.
@@ -360,7 +361,7 @@ Category CONST enables the user to declare variables for use in algebraic expres
 
         CONST   a=10.69 nspec=4+2
 
-Variables declared this way are similar to, but distinct from variables declared for the preprocessor, such as 
+Variables declared this way are similar to, but distinct from variables declared for the preprocessor, such as
 
         % const nbas=5
 
@@ -455,15 +456,15 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _HAM_
 {::comment}
-/docs/input/inputfile/#ham
+(/docs/input/inputfile/#ham)
 {:/comment}
 
 This category contains parameters defining the one-particle hamiltonian.
 
-Portions of HAM are read by these codes: 
+Portions of HAM are read by these codes:
 
-**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
-**lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp; 
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp;
+**lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmchk**{: style="color: blue"},&nbsp; **lmscell**{: style="color: blue"},&nbsp;
 **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmmag**{: style="color: blue"}.
 
 {::comment}
@@ -474,7 +475,7 @@ Portions of HAM are read by these codes:
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NSPIN | i | ALL | Y | 1 | 1 for non-spin-polarized calculations<br>2 for spin-polarized calculations<br>NB: For the magnetic parameters below to be active, use NSPIN=2.
-REL	| i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation (ASA only)<br>11: [compute cores](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels) with the Dirac equation (lmfa only)
+REL     | i | ALL | Y | 1 | 0: for nonrelativistic Schr&ouml;dinger equation<br>1: for scalar relativistic approximation to the Dirac equation<br>2: for Dirac equation (ASA only)<br>11: [compute cores](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels) with the Dirac equation (lmfa only)
 SO | i | ALL | Y | 0 | 0: no SO coupling<br>1: Add L·S to hamiltonian<br>2: Add Lz·Sz only to hamiltonian<br>3: Like 2, but also add L·S−LzSz in an approximate manner that preserves independence in the spin channels.<br>See [here](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/spin-orbit-coupling.html) for analysis and description of the different approximations
 NONCOL | l | ASA | Y | F | F: collinear magnetism<br>T: non-collinear magnetism
 SS | 4 r | ASA | Y | 0 | Magnetic spin spiral, direction vector and angle.<br><br>Example: nc/test/test.nc 1
@@ -494,7 +495,7 @@ KMTO | r | ASA | Y | | Corresponding NMTO kinetic energies.<br>Read NMTO values,
 EWALD | l | lm | Y | F | Make strux by Ewald summation (NMTO only)
 VMTZ | r | ASA | Y | 0 | Muffin-tin zero defining wave functions
 QASA | i | ASA | Y | 3 | A parameter specifying the definition of ASA moments [<i>Q</i><sub>0</sub>,<i>Q</i><sub>1</sub>,<i>Q</i><sub>2</sub>](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q); see lmto documentation<br>0. Methfessel conventions for 2nd gen ASA moments <i>Q</i><sub>0</sub>,<i>Q</i><sub>1</sub>,<i>Q</i><sub>2</sub><br>1. <i>Q</i><sub>2</sub> = coefficient to $${\dot{\phi}}^2{−}p\phi^2$$ in sphere.<br>2. <i>Q</i><sub>1</sub>,<i>Q</i><sub>2</sub> accumulated as coefficients to $$\langle \phi \dot{\phi} \rangle$$ and $$\langle{\dot{\phi}}^2\rangle$$, respectively.<br>3. 1+2 (Stuttgart conventions)
-PMIN | r | ALL | Y | 0 0 0 ... | Global minimum in fractional part of logarithmic derivative parameters Pl.<br>Enter values for l=0,..lmx<br>0: no minimum constraint<br>\# : with \#<1, floor of fractional P is \#<br>1: use free-electron value as minimum<br><br>Note: lmf always uses a minimum constraint, the free-electron value (or slightly higher if AUTOBAS_GW is set).<br>You can set the floor still higher with PMIN=#.
+PMIN | r | ALL | Y | 0 0 0 ... | Global minimum in fractional part of [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) Pl.<br>Enter values for l=0,..lmx<br>0: no minimum constraint<br>\# : with \#<1, floor of fractional P is \#<br>1: use free-electron value as minimum<br><br>Note: lmf always uses a minimum constraint, the free-electron value (or slightly higher if AUTOBAS_GW is set).<br>You can set the floor still higher with PMIN=#.
 PMAX | r | ALL | Y | 0 0 0 ... | Global maximum in fractional part of potential functions Pl. Enter values for l=0,..lmx<br>0 : no maximum constraint<br>\#: with \#<1, uppper bound of of fractional P is \#
 OVEPS | r | ALL | Y | 0 | The overlap is diagonalized and the hilbert space is contracted, discarding the part with eigenvalues of overlap < OVEPS<br>Especially useful with the PMT basis, where the combination of smooth Hankel functions and APWs has a tendency to make the basis overcomplete.
 OVNCUT | i | ALL | Y | 0 | This tag has a similar objective to OVEPS.<br>The overlap is diagonalized and the hilbert space is contracted, discarding the part belonging to lowest OVNCUT evals of overlap.<br>Supersedes OVEPS, if present.
@@ -508,17 +509,17 @@ SIGP[...] | r | lmf, lmfgwd | Y | | Parameters used to interpolate the self-ener
 SIGP\_MODE | r | lmf, lmfgwd | Y | 4 | Specifies the linear function used for matrix elements of &Sigma;<sup>0</sup> at highly-lying energies. With recent implementations of the GW package 4 is recommended; it requires no input from you.
 SIGP\_EMAX SIGP\_NMAX SIGP\_EMIN SIGP\_NMIN SIGP\_A SIGP\_B | r | lmf, lmfgwd | Y | | See gw.html
 AUTOBAS[...] | r | lmfa, lmf, lmfgwd | Y | | Parameters associated with the automatic determination of the basis set.<br>These switches greatly simplify the creation of an input file for lmf.<br>Note: Programs lmfa and lmf both use tokens in the AUTOBAS tag but they mean different things, as described below. This is because lmfa generates the parameters while lmf uses them.<br><br>Default: not used
-AUTOBAS\_GW | i | lmfa | Y | 0 | Set to 1 to tailor the autogenerated basis set file basp0.ext to a somewhat larger basis, better suited for GW.
+AUTOBAS\_GW | i | lmfa | Y | 0 | Set to 1 to tailor the autogenerated basis set file _basp0.ext_{: style="color: green"} to a somewhat larger basis, better suited for GW.
 AUTOBAS\_GW | i | lmf | Y | 0 | Set to 1 to float log derivatives P a bit more conservatively — better suited to GW calculations.
-AUTOBAS\_LMTO | i | lmfa | Y | 0 | lmfa autogenerates a trial basis set, saving the result into basp0.ext.<br>LMTO is used in an algorithm to determine how large a basis it should construct: the number of orbitals increases as you increase LMTO. This algorithm also depends on which states in the free atom which carry charge.<br>Let lq be the highest l which carries charge in the free atom.<br><br>There are the following choices for LMTO:<br>0. standard minimal basis; same as LMTO=3.<br>1. The hyperminimal basis, which consists of envelope functions corresponding those l which carry charge in the free atom, e.g. Ga sp and Mo sd (this basis is only sensible when used in conjunction with APWs).<br>2. All l up to lq+1 if lq<2; otherwise all l up to lq<br>3. All l up to min(lq+1, 3).<br>For elements lighter than Kr, restrict l≤2.<br>For elements heavier than Kr, include l to 3.<br>4. (Standard basis) Same as LMTO=3, but restrict l≤2 for elements lighter than Ar.<br>5. (Large basis) All l up to max(lq+1,3) except for H, He, Li, B (use l=spd).<br>Use the MTO token (see below) in combination with this one. MTO controls whether the LMTO basis is 1-κ or 2-κ, meaning whether 1 or 2 envelope functions are allowed per l channel.
-AUTOBAS\_MTO | i | lmfa | Y | 0 | Autogenerate parameters that control which LMTO basis functions are to be included, and their shape.<br><br>Tokens RSMH,EH (and possibly RSMH2,EH2) determine the shape of the MTO basis. lmfa will determine a reasonable set of RSMH,EH automatically (and RSMH2,EH2 for a 2-κ basis), fitting to radial wave functions of the free atom.<br><br>Note: lmfa can generate parameters and write them to file basp0.ext.<br>lmf can read parameters from basp.ext.<br>You must manually create basp.ext, e.g. by copying basp0.ext into basp.ext. You can tailor basp.ext with a text editor. There are the following choices for MTO:<br> 0: do not autogenerate basis parameters<br>1: or 3 1-κ parameters with Z-dependent LMX<br>2: or 4 2-κ parameters with Z-dependent LMX
-AUTOBAS\_MTO | i | lmf, lmfgwd | Y | 0 | Read parameters RSMH,EH,RSMH2,EH2 that control which LMTO basis functions enter the basis.<br><br>Once initial values have been generated you can tune these parameters automatically for the solid, using lmf with the --optbas switch; see Building_FP_input_file.html and FPoptbas.html.<br><br>The --optbas step is not essential, especially for large basis sets, but it is a way to improve on the basis without increasing the size.<br><br>There are the following choices for MTO:<br><br>0 Parameters not read from basp.ext; they are specified in the input file ctrl.ext.<br>1 or 3: 1-κ parameters may be read from the basis file basp.ext, if they exist<br>2 or 4: 2-κ parameters may be read from the basis file basp.ext, if they exist<br>1 or 2: Parameters read from ctrl.ext take precedence over basp.ext<br>3 or 4: Parameters read from basp.ext take precedence over those read from ctrl.ext.
-AUTOBAS\_PNU | i | lmfa | Y | 0 | Autoset boundary condition for augmentation part of basis, through specification of logarithmic derivative parameters P.<br><br>0 do not make P <br>1 Find P for l < lmxb from free atom wave function; save in file basp0.ext
-AUTOBAS\_PNU | i | lmf, lmfgwd | Y | 0 | Autoset boundary condition for augmentation part of basis, through specification of logarithmic derivative parameters P.<br><br>0 do not attempt to read P from basp.ext.<br>1 Read P from basp.ext, for those species which P is given.
+AUTOBAS\_LMTO | i | lmfa | Y | 0 | lmfa autogenerates a trial basis set, saving the result into _basp0.ext_{: style="color: green"}.<br>LMTO is used in an algorithm to determine how large a basis it should construct: the number of orbitals increases as you increase LMTO. This algorithm also depends on which states in the free atom which carry charge.<br>Let lq be the highest l which carries charge in the free atom.<br><br>There are the following choices for LMTO:<br>0. standard minimal basis; same as LMTO=3.<br>1. The hyperminimal basis, which consists of envelope functions corresponding those l which carry charge in the free atom, e.g. Ga sp and Mo sd (this basis is only sensible when used in conjunction with APWs).<br>2. All l up to lq+1 if lq<2; otherwise all l up to lq<br>3. All l up to min(lq+1, 3).<br>For elements lighter than Kr, restrict l≤2.<br>For elements heavier than Kr, include l to 3.<br>4. (Standard basis) Same as LMTO=3, but restrict l≤2 for elements lighter than Ar.<br>5. (Large basis) All l up to max(lq+1,3) except for H, He, Li, B (use l=spd).<br>Use the MTO token (see below) in combination with this one. MTO controls whether the LMTO basis is 1-κ or 2-κ, meaning whether 1 or 2 envelope functions are allowed per l channel.
+AUTOBAS\_MTO | i | lmfa | Y | 0 | Autogenerate parameters that control which LMTO basis functions are to be included, and their shape.<br><br>Tokens RSMH,EH (and possibly RSMH2,EH2) determine the shape of the MTO basis. lmfa will determine a reasonable set of RSMH,EH automatically (and RSMH2,EH2 for a 2-κ basis), fitting to radial wave functions of the free atom.<br><br>Note: lmfa can generate parameters and write them to file _basp0.ext_{: style="color: green"}.<br>lmf can read parameters from _basp.ext_{: style="color: green"}.<br>You must manually create _basp.ext_{: style="color: green"}, e.g. by copying _basp0.ext_{: style="color: green"} into _basp.ext_{: style="color: green"}. You can tailor _basp.ext_{: style="color: green"} with a text editor. There are the following choices for MTO:<br> 0: do not autogenerate basis parameters<br>1: or 3 1-κ parameters with Z-dependent LMX<br>2: or 4 2-κ parameters with Z-dependent LMX
+AUTOBAS\_MTO | i | lmf, lmfgwd | Y | 0 | Read parameters RSMH,EH,RSMH2,EH2 that control which LMTO basis functions enter the basis.<br><br>Once initial values have been generated you can tune these parameters automatically for the solid, using lmf with the --optbas switch; see Building_FP_input_file.html and FPoptbas.html.<br><br>The --optbas step is not essential, especially for large basis sets, but it is a way to improve on the basis without increasing the size.<br><br>There are the following choices for MTO:<br><br>0 Parameters not read from _basp.ext_{: style="color: green"}; they are specified in the input file _ctrl.ext_{: style="color: green"}.<br>1 or 3: 1-κ parameters may be read from the basis file _basp.ext_{: style="color: green"}, if they exist<br>2 or 4: 2-κ parameters may be read from the basis file _basp.ext_{: style="color: green"}, if they exist<br>1 or 2: Parameters read from _ctrl.ext_{: style="color: green"} take precedence over _basp.ext_{: style="color: green"}<br>3 or 4: Parameters read from _basp.ext_{: style="color: green"} take precedence over those read from _ctrl.ext_{: style="color: green"}.
+AUTOBAS\_PNU | i | lmfa | Y | 0 | Autoset boundary condition for augmentation part of basis, through specification of [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) P.<br><br>0 do not make P <br>1 Find P for l < lmxb from free atom wave function; save in _basp0.ext_{: style="color: green"}
+AUTOBAS\_PNU | i | lmf, lmfgwd | Y | 0 | Autoset boundary condition for augmentation part of basis, through specification of plogarithmic derivative parameters](/docs/code/asaoverview/#logderpar) P.<br><br>0 do not attempt to read P from _basp.ext_{: style="color: green"}.<br>1 Read P from _basp.ext_{: style="color: green"}, for species which P is supplied.
 AUTOBAS\_LOC | i | lmfa, lmf, lmfgwd | Y | 0 | Autoset local orbital parameters PZ, which determine which deep or high-lying states are to be included as local orbitals.<br><br>Used by lmfa to control whether parameters PZ are to be sought:<br>0: do not autogenerate PZ<br>1 or 2: autogenerate PZ<br><br>Used by lmf and lmfgwd to control how PZ is read:<br><br>1 or 2: read parameters PZ<br>1: Nonzero values from ctrl file take precedence over basis file input
 AUTOBAS\_ELOC | r | lmfa | Y | -2 Ry | The first of two criteria to decide which orbitals should be included in the valence as local orbitals. If the energy of the free atom wave function exceeds (is more shallow than) ELOC, the orbital is included as a local orbital.
 AUTOBAS\_QLOC | r | lmfa | Y | 0.005 | The second of two criteria to decide which  orbitals should be included in the valence as local orbitals.<br>If the fraction of the free atom wave function’s charge outside the augmentation radius exceeds QLOC, the orbital is included as a local orbital.
-AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the logarithmic derivative parameters Pl are set and floated in the course of a self-consistency cycle.<br>The 1st argument controls default starting values of P and lower bounds to P when it is floated<br>0: Use version 6 defaults and float lower bound<br>1: Use defaults and float lower bound designed for LDA<br>2: Use defaults and float lower bound designed for GW<br>The 2nd argument controls how the band center of gravity (CG) is determined — used when floating P.<br>0: band CG is found by a traditional method<br>1: band CG is found from the true energy moment of the density
+AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the Pnu are set and floated in the course of a self-consistency cycle.<br>The 1st argument controls default starting values of P and lower bounds to P when it is floated<br>0: Use version 6 defaults and float lower bound<br>1: Use defaults and float lower bound designed for LDA<br>2: Use defaults and float lower bound designed for GW<br>The 2nd argument controls how the band center of gravity (CG) is determined — used when floating P.<br>0: band CG is found by a traditional method<br>1: band CG is found from the true energy moment of the density
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -527,6 +528,10 @@ AUTOBAS\_PFLOAT | i1 i2 | lmf, lmfgwd | y | 1 1 | Governs how the logarithmic de
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _GF_
+{::comment}
+(/docs/input/inputfile/#gf)
+{:/comment}
+
 Category GF is intended for parameters specific to the Green’s function code **lmgf**{: style="color: blue"}.
 It is read by **lmgf**{: style="color: blue"}.
 
@@ -550,6 +555,10 @@ TEMP | r | ALL | Y | 0 | (DLM) spin temperature.
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _GW_
+{::comment}
+(/docs/input/inputfile/#gw)
+{:/comment}
+
 Category GW holds parameters specific to GW calculations, particularly for the GW driver **lmfgwd**{: style="color: blue"}. Most of these tokens supply values for tags in the _GWinput_{: style="color: green"} template when **lmfgwd**{: style="color: blue"} generates it (**\-\-jobgw -1**).
 
 {::comment}
@@ -597,6 +606,7 @@ HEADER [ In this form only two lines reside within the
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _IO_
+(/docs/input/inputfile/#io)
 This optional category controls what kind of information, and how much, is written to the standard output file.
 
 {::comment}
@@ -606,11 +616,11 @@ This optional category controls what kind of information, and how much, is writt
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-SHOW | 1 | all | Y | F | Echo lines as it is read from input file and parsed by the proprocessor.<br>Command-line argument --show provides the same functionality.
-HELP | 1 | all | Y | F | Show what input would be sought, without attempting to read data.<br>Command-line argument --input provides the same functionality.
-VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly terse, 40 slightly verbose, 50 verbose, and so on. If more than one number is given, later numbers control verbosity in subsections of the code, notably the parts dealing with augmentation spheres.<br>May also be set from the command-line: --pr#1[,#2]
-IACTIV | 1 | all | Y | F | Turn on interactive mode. At some point programs will prompt you with queries.<br>May also be controlled from the command-line: --iactiv or --iactiv=no.
-TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: --time=#1[,#2]
+SHOW | 1 | all | Y | F | Echo lines as they is read from input file and parsed by the proprocessor.<br>Command-line argument \-\-show provides the same functionality.
+HELP | 1 | all | Y | F | Show what input would be sought, without attempting to read data.<br>Command-line argument \-\-input provides the same functionality.
+VERBOS | 1 to 3 | all | Y | 30 | Sets the verbosity. 20 is terse, 30 slightly terse, 40 slightly verbose, 50 verbose, and so on. If more than one number is given, later numbers control verbosity in subsections of the code, notably the parts dealing with augmentation spheres.<br>May also be set from the command-line: \-\-pr#1[,#2]
+IACTIV | 1 | all | Y | F | Turn on interactive mode. Programs will prompt you with queries, in various contexts.<br>May also be controlled from the command-line: \-\-iactiv or \-\-iactiv=no.
+TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree format.<br>First value sets tree depth. Second value, if present, prints timings on the fly.<br>May also be controlled from the command-line: \-\-time=#1[,#2]
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -619,10 +629,16 @@ TIM | 1 or 2 | all | Y | 0, 0 | Prints out CPU usage of blocks of code in a tree
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _ITER_
+{::comment}
+(/docs/input/inputfile/#iter)
+{:/comment}
+
 The ITER category contains parameters that control the requirements to reach self-consistency.
 
 It applies to all programs that iterate to self-consistency:
 **lm**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; **lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"}.
+
+A detailed discussion can be found at the [end of this document](/docs/input/inputfile/#itermix).
 
 {::comment}
 <div onclick="elm = document.getElementById('itertable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
@@ -633,7 +649,7 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NIT | i | all | Y | 1 | Maximum number of iterations in the self-consistency cycle.
 NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed inside an augmentation sphere. This occurs when the density is determined from the momentsQ0,Q1,Q2 in the ASA; or in the free atom code, just Q0.<br>i1: max number of iterations<br>i2: number of prior iterations for Anderson mixing of the sphere density<br>Note: You will probably never need to use this token.
-MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]
+MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description.
 AMIX | c | ASA | Y | | Mixing rules when Euler angles are mixed independently. Syntax as in MIX
 CONV | r | all | Y | 1e-4 | Maximum energy change from the prior iteration for self-consistency to be reached.
 CONVC | r | all | Y | 1e-4 | Maximum in the RMS difference in $$ <n^{out} − n^{in}> $$.<br>In the ASA, this is measured by the change in moments Q0..Q2 and log derivative parameter P.<br>In the full-potential case it is measured by an integral over the various parts of n (local, interstitial parts).
@@ -648,6 +664,8 @@ NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTICS_
+[//]: (/docs/input/inputfile/#optics)
+
 Optics functions available with the ASA extension packages OPTICS.
 
 It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
@@ -659,14 +677,14 @@ It is read by **lm**{: style="color: blue"} and **lmf**{: style="color: blue"}.
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-MODE | i | OPTICS | Y | 0 | 0: make no optics calculations<br>1: generate linear $$ ε_2 $$<br>20: generate second harmonic ε<br>&emsp;Example: optics/test/test.optics sic<br>The following cases (MODE&lt;0) generate joint or single density-of-states.<br>_Note:_{: style="color: red"} MODE&lt;0 works only with LTET=3 described below.<br> −1: generate joint density-of-states <br>&emsp;Examples: <br>&emsp;(ASA) optics/test/test.optics --all 4 <br>&emsp;(FP) fp/test/test.fp zbgan <br>−2: generate joint density-of-states, spin 2 <br>&emsp;Example:optics/test/test.optics fe 6 <br>−3: generate up-down joint density-of-states <br>−4: generate down-up joint density-of-states <br>−5: generate spin-up single density-of-states<br>&emsp;Example: optics/test/test.optics --all 7 <br>−6: generate spin-dn single density-of-states
+MODE | i | OPTICS | Y | 0 | 0: make no optics calculations<br>1: generate linear $$ ε_2 $$<br>20: generate second harmonic ε<br>&emsp;Example: optics/test/test.optics sic<br>The following cases (MODE&lt;0) generate joint or single density-of-states.<br>_Note:_{: style="color: red"} MODE&lt;0 works only with LTET=3 described below.<br> −1: generate joint density-of-states <br>&emsp;Examples: <br>&emsp;(ASA) optics/test/test.optics \-\-all 4 <br>&emsp;(FP) fp/test/test.fp zbgan <br>−2: generate joint density-of-states, spin 2 <br>&emsp;Example:optics/test/test.optics fe 6 <br>−3: generate up-down joint density-of-states <br>−4: generate down-up joint density-of-states <br>−5: generate spin-up single density-of-states<br>&emsp;Example: optics/test/test.optics \-\-all 7 <br>−6: generate spin-dn single density-of-states
 LTET | i | OPTICS | Y | 0 | 0: Integration by Methfessel-Paxton sampling<br>1: standard tetrahedron integration<br>2: same as 1<br>3: enhanced tetrahedron integration <br>_Note:_{: style="color: red"} In the metallic case, states near the Fermi level must be treated with partial occupancy. LTET=3 is the only scheme that handles this properly.<br>It was adapted from the GW package and has extensions, e.g. the ability to handle non-vertical transitions $$ k^{occ} \ne k^{unocc} $$.
 WINDOW | r1 r2 | OPTICS | N | 0 1 | Energy (frequency) window over which to calculate Im[ε(ω)].<br>Im ε is calculated on a mesh of points $$ ω_i $$.<br>The mesh spacing is specified by NPTS or DW, below.
 NPTS | i | OPTICS | N | 501 | Number of mesh points in the energy (frequency) window. Together with WINDOW, NPTS specifies the frequency mesh as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1)<br>where DW = (WINDOW(2)−WINDOW(1))/(NPTS−1)<br>Note: you may alternatively specify DW below.
 DW | r1 [r2] | OPTICS | Y | | Frequency mesh spacing DW[,OMG]. You can supply either one argument, or two.<br>If one argument (DW) is supplied, the mesh will consist of evenly spaced points separated by DW.<br>If a second argument (OMG) is supplied, points are spaced quadratically as:<br>$$ ω_i $$ = WINDOW(1) + DW×(i−1) + [DW×(i−1)]2/OMG/2<br>Spacing is approximately uniform up to frequency OMG; beyond which it increases linearly.<br>Note: The quadratic spacing can be used only with LTET=3.
 FILBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest occupied band<br>i2 = highest occupied band (defaults to no. electrons)
 EMPBND | i1 [i2] | OPTICS | Y | 0 0 | i1[,i2] occupied energy bands from which to calculate ε using first order perturbation theory, without local fields.<br>i1 = lowest unoccupied band<br>i2 = highest unoccupied band (defaults to no. bands)
-PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext. <br>0. No decomposition <br>1. Resolve ε or DOS into individual (occ,unocc) contributions <br>&emsp;Example: optics/test/test.optics ogan 5 <br>2. Resolve ε or DOS by k <br>&emsp;Example: optics/test/test.optics --all 6 <br>3. Both 1 and 2 <br>Add 10 to write popt as a binary file.
+PART | l | OPTICS | Y | F | Resolve ε or joint DOS into band-to-band contributions, or by k.<br>Result is output into file popt.ext. <br>0. No decomposition <br>1. Resolve ε or DOS into individual (occ,unocc) contributions <br>&emsp;Example: optics/test/test.optics ogan 5 <br>2. Resolve ε or DOS by k <br>&emsp;Example: optics/test/test.optics \-\-all 6 <br>3. Both 1 and 2 <br>Add 10 to write popt as a binary file.
 CHI2[..] | | OPTICS | Y | | Tag containing parameters for second harmonic generation.<br>Not calculated unless tag is parsed.<br>&emsp;Example: optics/test/test.optics sic
 CHI2\_NCHI2 | i | OPTICS | N | 0 | Number of direction vectors for which to calculate <i>&chi;</i><sub>2</sub>.
 CHI2\_AXES | i1, i2, i3 | OPTICS | N | | Direction vectors for each of the NCHI2 sets
@@ -680,10 +698,14 @@ ECUT | r | OPTICS | Y | 0.2 | Energy safety margin for determining (occ,unocc) w
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _OPTIONS_
+{::comment}
+(/docs/input/inputfile/#options)
+{:/comment}
+
 Portions of OPTIONS are read by these codes:
 
-**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp; 
-**lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp; 
+**lm**{: style="color: blue"},&nbsp; **lmfa**{: style="color: blue"},&nbsp; **lmfgwd**{: style="color: blue"},&nbsp; **lmfgws**{: style="color: blue"},&nbsp; **lmf**{: style="color: blue"},&nbsp;
+**lmmc**{: style="color: blue"},&nbsp; **lmgf**{: style="color: blue"},&nbsp; **lmdos**{: style="color: blue"},&nbsp; **lmstr**{: style="color: blue"},&nbsp; **lmctl**{: style="color: blue"},&nbsp;
 **lmpg**{: style="color: blue"},&nbsp; **tbe**{: style="color: blue"}.
 
 {::comment}
@@ -709,6 +731,9 @@ ASA\_NEWREP | 1 | NC | Y | F | Set to 1 to rotate structure constants to a user-
 ASA\_NOHYB | 1 | NC | Y | F | Set to 1 to turn off hybridization
 ASA\_MTCOR | 1 | NC | Y | F | Set to T to turn on Ewald MT correction
 ASA\_QMT | r | NC | Y | 0 | Override standard background charge for Ewald MT correction<br>Input only meaningful if MTCOR=T
+RMINES | r | lmchk | N | 1 | Minimum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
+RMAXES | r | lmchk | N | 2 | Maximum augmentation radius when finding new empty sites [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
+NESABC | i,i,i | lmchk | N | 100 | Number of mesh divisions when searching for empty spheres [(\-\-getwsr)](/docs/input/commandline/#switches-for-lmchk)
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -767,9 +792,7 @@ ATOM\_PL | i | lmpg | Y | 0 | (lmpg) Assign principal layer number to this site
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _SPEC_
-{::comment}
-/docs/input/inputfile/#spec
-{:/comment}
+[//]: (/docs/input/inputfile/#spec)
 
 Category SPEC contains species-specific information. Because data must be read for each species, tokens are repeated (once for each species). For this reason, there is some restriction as to the order of tokens. Data for a specific species (Z=, R=, R/W=, LMX=, IDXDN= and the like described below) begins with a token ATOM=;&thinsp; input of tokens specific to that species must precede the next occurence of ATOM=.
 
@@ -810,7 +833,7 @@ R/A | r | all | N | | R/A = ratio of the aumentation sphere radius to the lattic
 A | r | all | Y | | Radial mesh point spacing parameter. All programs dealing with augmentation spheres represent the density on a shifted logarithmic radial mesh. The ith point on the mesh is $$ r_i $$ = b[exp(a(i−1)−1]. b is determined from the number of radial mesh points specified by NR.
 NR | i | all | Y | Depends on other input | Number of radial mesh points
 LMX | i | all | Y | | Basis l-cutoff inside the sphere. If not specified, it defaults to NL−1
-RSMH | r | lmf, lmfgwd | Y | 0 | Smoothing radii defining basis, one radius for each l.<br>RSMH and EH together define the shape of basis function in lmf.<br>To optimize, try running lmf with --optbas
+RSMH | r | lmf, lmfgwd | Y | 0 | Smoothing radii defining basis, one radius for each l.<br>RSMH and EH together define the shape of basis function in lmf.<br>To optimize, try running lmf with \-\-optbas
 EH | r | lmf, lmfgwd | Y | | Hankel energies for basis, one energy for each l. RSMH and EH together define the shape of basis function in lmf.
 RSMH2 | r | lmf, lmfgwd | Y | 0 | Basis smoothing radii, second group
 EH2 | r | lmf, lmfgwd | Y | | Basis Hankel function energies, second group
@@ -829,7 +852,7 @@ HCR/R | r | lm | Y | 0.7 | Hard sphere radii for structure constants, in units o
 ALPHA | r | ASA | Y | | Screening parameters for structure constants
 DV | r | ASA | Y | 0 | Artificial constant potential shift added to spheres belonging to this species
 MIX | 1 | ASA | Y | F | Set to suppress self-consistency of classes in this species
-IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter _P<sub>l</sub>_ aka [continuous principal quantum number](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers) to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
+IDMOD | i | all | Y | 0 | 0 : floats log derivative parameter _P<sub>l</sub>_ aka [continuous principal quantum number](/docs/code/asaoverview/#logderpar) to band center of gravity<br>1 : freezes Pl<br>2 : freezes linearization energy $$ E_ν $$.
 CSTRMX | 1 | all | Y | F | Set to T to exclude this species when automatically resizing sphere radii
 GRP2 | i | ASA | Y | 0 | Species with a common nonzero value of GRP2 are symmetrized, independent of symmetry operations.<br>The sign of GRP2 is used as a switch, so species with negative GRP2 are symmetrized but with spins flipped (NSPIN=2)
 FRZWF | 1 | FP | Y | F | Set to freeze augmentation wave functions for this species
@@ -840,7 +863,7 @@ EREF= | r | all | Y | 0 | Reference energy subtracted from total energy
 AMASS= | r | FP | Y | | Nuclear mass in a.u. (for dynamics)
 C-HOLE | c | lmf, lm | Y | | Channel for core hole. You can force partial core occupation.<br>Syntax consists of two characters, the principal quantum number and the second one of 's’,&thinsp;'p’,&thinsp;'d’,&thinsp;'f’ for the _l_ quantum number, e.g. '2s’<br>See Partially occupied core holes for description and examples.<br><br>Default: nothing
 C-HQ | r[,r] | all | Y | -1 0 | First number specifies the number of electrons to remove from the _l_ channel specified by C-HOLE=.<br>Second (optional) number specifies the hole magnetic moment.<br>See Partially occupied core holes for description and examples.
-P | r,r,... | all | Y | | Starting values for log derivative parameter _P<sub>l</sub>_, aka ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers), one for each _l_=0..LMXA<br><br>Default: taken from an internal table.
+P | r,r,... | all | Y | | Starting values for log derivative parameter _P<sub>l</sub>_, aka ["continuous principal quantum number"](/docs/code/asaoverview/#logderpar), one for each _l_=0..LMXA<br><br>Default: taken from an internal table.
 PZ | r,r,... | FP | Y | 0 | starting values for local orbital’s potential functions, one for each of l=0..LMX. Setting PZ=0 for any l means that no local orbital is specified for this l. Each integer part of PZ must be either one less than P (semicore state) or one greater (high-lying state).
 Q | r,r,... | all | Y | | Charges for each _l_-channel making up free-atom density<br><br>Default: taken from an internal table.
 MMOM | r,r,... | all | Y | 0 | Magnetic moments for each _l_-channel making up free-atom density<br>Relevant only for the spin-polarized case.
@@ -900,19 +923,19 @@ Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 BEGMOM | i | ASA | Y | 1 | When true, causes program lm to begin with moments from which potential parameters are generated. If false, the potential parameters are used and the program proceeds directly to the band calculation.
 FREE | 1 | ASA | Y | F | Is intended to facilitate a self-consistent free-atom calculation. When FREE is true, the program uses rmax=30 for the sphere radius rather than whatever rmax is passed to it; the boundary conditions at rmax are taken to be value=slope=0 (rmax=30 should be large enough that these boundary conditions are sufficiently close to that of a free atom.); subroutine atscpp does not calculate potential parameters or save anything to disk; and lm terminates after all the atoms have been calculated.
-CNTROL | 1 | ASA | Y | F | 	When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
+CNTROL | 1 | ASA | Y | F |      When CONTRL=T, the parser attempts to read the “continuously variable principal quantum numbers” P and moments Q0,Q1,Q2 for each l channel; see P,Q below.
 ATOM | c | ASA | Y | | Class label. P,Q (and possibly other data) is given by class.<br>Tokens following a class label and preceding the next class label belong to that class.
 ATOM\_P= and ATOM\_Q | c | ASA | Y | | Read “continuously variable principal quantum numbers” for this class (P=...), or energy moments Q0,Q1,Q2 (Q=...). P consists of one number per l channel, Q of three numbers (Q0,Q1,Q2) for each l.<br><br>Note In spin<br> polarized calculations, a second set of parameters must follow the first, and the moments should all be half of what they are in non-spin polarized calculations.<br><br>In this sample input file for Si, P,Q is given as:<br>ATOM=SI  P=3.5 3.5 3.5    Q=1 0 0    2 0 0   0 0 0<br>ATOM=ES  P=1.5 2.5 3.5    Q=.5 0 0  .5 0 0   0 0 0<br><br>One electron is put in the Si s orbital, 2 in the p and none in the d, while 0.5 electrons are put in the s and p channels for the empty sphere. All first and second moments are zero. This rough guess produces a correspondingly rough potential.<br><br>You do not have to supply information here for every class; but for classes you do, you must supply all of (P,Q0,Q1,Q2). Data read in START supersedes whatever may have been read from disk.<br><br>Remarks below provide further information about how P,Q is read and printed.
 RDVES | 1 | ASA | Y | F | Read Ves(RMT) from the START category along with P,Q
 ATOM\_ENU | r | ASA | Y | | Linearization energies
 
-How the parser reads P,Q: 
+How the parser reads P,Q:
 Remember that knowledge of P,Q is sufficient to completely determine the ASA density.
 Thus the ASA codes use several ways to read these important quantities.
 
 The parser returns P,Q according the following priorities:
 
-* P,Q are read from the disk, if supplied, (along possibly with other quantities such as potential parameters El, C, Δ, γ.) One file is created for each class that contains this data and other class-specific information. Some or all of the data may be missing from the disk files. Alternatively, you may read these data from a restart file rsta.ext, which if it exists contains data for all classes in one file. The program will not read this data by default; use --rs=1 to have it read from the rsta file. To write class data to rsta, use --rs=*,1 (* must be be 0 or 1)
+* P,Q are read from the disk, if supplied, (along possibly with other quantities such as potential parameters El, C, Δ, γ.) One file is created for each class that contains this data and other class-specific information. Some or all of the data may be missing from the disk files. Alternatively, you may read these data from a restart file rsta.ext, which if it exists contains data for all classes in one file. The program will not read this data by default; use \-\-rs=1 to have it read from the rsta file. To write class data to rsta, use \-\-rs=*,1 (* must be be 0 or 1)
 
 * If START_CONTRL=T, P,Q (and possibly other quantities) are read from START for classes you supply (usually all classes). Data read from this category supersedes any that might have been read from disk. If class data read from either of these sources, the input system returns it. For classes where none is available the parser will pick a default:
 
@@ -950,6 +973,9 @@ In such cases, you want to pick the fractional part of P to be small, but not so
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _STRUC_
+{::comment}
+(/docs/input/inputfile/#struc)
+{:/comment}
 
 {::comment}
 <div onclick="elm = document.getElementById('structable'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show table.</button></div>
@@ -958,18 +984,21 @@ See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
-FILE | c | all | Y | | Provides a mechanism to read structural data from an independent file using alternate input styles.<br>If SITE is not present in the STRUC category, NBAS, PLAT and ALAT are read from the ctrl file.<br><br>File subs/iosite.f documents the syntax of the file structure.<br><br>The first line should contain a "% sign and a "version" token vn=#. On the same line, supply tokens nbas= and plat=, similar to the input file.<br>You can also include alat on this line.<br>If you omit it, alat is read from ALAT in the ctrl file.<br>Example: % vn=3.0 nbas=7 plat= -0.5 0.5 1 0.5 -0.5 1 0.5 0.5 1<br><br>Following the header line comes a table of site positions possibly followed by other site-related data. That table is not read in the STRUC category. To read site data from this file, specify FILE in the SITE category.<br><br>Kotani format (documented here but no longer maintained) The first line should contain a "%" sign and a "version" token vn=kotani. Then follow four lines containing real numbers:<br><br> #        <-- alat<br> # # #     <-- plat(1,1) plat(2,1) plat(3,1)<br> # # #     <-- plat(1,2) plat(2,2) plat(3,2)<br> # # #     <-- plat(1,3) plat(2,3) plat(3,3)
-ALAT | r | all | N | | A scaling, in atomic units, of the primitive translation and basis vectors
-NBAS | i | all | N | | Size of the basis
-PLAT | r | all | N | | (dimensionless) primitive translation vectors
+FILE | c | all | Y | | Read structural data (ALAT, NBAS, PLAT) from an independent site file. The file structure is documented [here](/docs/input/sitefile); see also [this tutorial](/tutorial/lmf/lmf_tutorial)
+NBAS | i | all | N&dagger; | | Size of the basis
 NSPEC | i | all | Y | | Number of atom species
-DALAT | r | all | Y | 0 | is added to ALAT. It can be useful because the average Wigner-Seitz radius W is computed from ALAT, so quantities scaled by W are fixed while ALAT varies.<br>Note: this token is Not Particularly Useful for the ASA, since spheres must be space-filling.
-NL= | i | all | Y | 3 | Sets a global default value for l-cutoffs $$ l^(cut) $$ : NL = [1 + $$ l^(cut) $$]. This default is used for both the basis and augmentation cutoffs.
-SHEAR | r | all | Y | | Enables shearing of the lattice in a volume-conserving manner. For SHEAR=#1,#2,#3,#4, #4 is the distortion amplitude, and #1,#2,#3 are a direction vector.<br><br>Example:<br>SHEAR=0,0,1,0.01 <br>This distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
-ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br><br>Example:<br>ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles α=π/4, β=π/3 γ=π/2. See [This document](/docs/misc/rotations/) for the general syntax.<br><br>Note:<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
-DEFGRD | r | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
-STRAIN | r | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
-ALPHA | r | all | N | | Amount of Voigt strain
+ALAT | r | all | N&dagger; | | A scaling, in atomic units, of the primitive lattice and basis vectors
+DALAT | r | all | Y | 0 | is added to ALAT. It can be useful in contexts certain quantities that depend on ALAT are to be kept fixed (e.g. **SPEC\_ATOM\_R/A**) while ALAT varies.
+PLAT | r,r,&hellip; | all | N&dagger; | | (dimensionless) primitive translation vectors
+SLAT | r,r,&hellip; | lmscell | N | | Superlattice vectors
+NL   | i | all | Y | 3 | Sets a global default value for _l_-cutoffs _l_<sub>cut</sub> = NL&minus;1. NL is used for both basis set and augmentation cutoffs.
+SHEAR | r,r,r,r | all | Y | | Enables shearing of the lattice in a volume-conserving manner.<br>If SHEAR=#1,#2,#3,#4, &ensp;#1,#2,#3=direction vector; &ensp;#4=distortion amplitude.<br>Example:  SHEAR=0,0,1,0.01<br> distorts a lattice in initially cubic symmetry to tetragonal symmetry, with 0.01 shear.
+ROT | c | all | Y | | Rotates the lattice and basis vectors, and the symmetry group operations by a unitary matrix.<br>Example:  ROT=z:pi/4,y:pi/3,z:pi/2 generates a rotation matrix corresponding to the Euler angles &alpha;=&pi;/4, &beta;=&pi;/3, &gamma;=&pi;/2. See [this document](/docs/input/rotations/) for the general syntax.<br>Lattice and basis vectors, and point group operations (SYMGRP) are all rotated.
+DEFGRD | r,r,&hellip; | all | Y | | A 3×3 matrix defining a general linear transformation of the lattice vectors.
+STRAIN | r,r,&hellip; | all | Y | | A sequence of six numbers defining a general distortion of the lattice vectors
+ALPHA  | r            | all | N | | Amount of Voigt strain
+
+&dagger;Information may be obtained from a [site file](/docs/input/sitefile)
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -1004,34 +1033,42 @@ To suppress all symmetry operations, use
 
     SYMGRP E
 
-Full-potential programs (e.g. **lmf**{: style="color: blue"}) do not make spherical approximations to the potential and require you to specify the full space group. The translation part is appended to the point group (rotation) in one of the following forms: ':(x1,x2,x3)' or alternatively '::(p1,p2,p3)' with the double '::'. The first defines the translation in Cartesian coordinates; the second as multiples of plat. These two lines (taken from testing/ctrl.cr3si6) are equivalent specifications:
+In the ASA, owing to the [spherical approximation](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) to the potential
+only the point group is required for self-consistency.
+
+But in general you must specify the full [space group](/docs/input/rotations/#space-groups).  The translation part gets appended to rotation
+part in one of the following forms: &thinsp;**:(x1,x2,x3)**&thinsp; or alternatively &thinsp;<b>::(p1,p2,p3)</b>&thinsp; with the double
+'<b>::</b>'. The first defines the translation in Cartesian coordinates; the second as [fractional multiples of lattice
+vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+
+These two lines (taken from testing/ctrl.cr3si6) provide equivalent specifications:
 
     SYMGRP   r6z:(0,0,0.4778973) r2(1/2,sqrt(3)/2,0)
-	SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
+    SYMGRP   r6z::(0,0,1/3)      r2(1/2,sqrt(3)/2,0)
 
 ###### _Keywords in the SYMGRP category_
 SYMGRP accepts, in addition to symmetry operations the following keywords:
 
-* `find‘ tells the program to determine its own symmetry operations. Thus:
+* **find** tells the program to determine its own symmetry operations. Thus:
 
       SYMGRP find
 
   amounts to the same as not incuding a SYMGRP category in the input at all
- 
+
   You can also specify a mix of generators you supply, and tell the program to find any others that might exist. For example:
 
       SYMGRP r4x find
- 
+
   specifies that 4-fold rotation be included, and `find‘ tells the program to look for any additional symops that might exist.
 
-* 'AFM':
+* **AFM**:
   For certain antiferromagnets, certain translation operations exist provided the rotation/shift is accompanied by a spin flip. Say a translation of (-1/2,1/2,1/2)a restores the crystal structure, but all atoms after translation have opposite spin. Specify this symmetry with:
 
       SYMGRP   ...       AFM::-1/2,1/2,1/2
 
   This operation is used only by **lmf**{: style="color: blue"}.
 
-* 'SOC' or 'SOC=2':
+* **SOC** or **SOC=2**:
   Tells the symmetry group generator to exclude operations that do not preserve the z axis.
   This is used particularly for spin-orbit coupling where the crystal symmetry is reduced (z is the quantization axis).
   SOC=2 is like SOC but allows operations that preserve z or flip z to −z.
@@ -1039,14 +1076,15 @@ SYMGRP accepts, in addition to symmetry operations the following keywords:
 
   **Note:**{: style="color: red"} This keyword is only active when the two spin channels are linked, e.g. SO coupling or noncollinear magnetism.
 
-* 'GRP2' turns on a switch that can force the density among inequivalent classes that share a common species to be averaged. In the ASA codes the density is spherical and the averaging is complete; in the FP case only the spherical part of the densities can be averaged. This helps sometimes with stabilizing difficult cases in the path to self-consistency.
+* **GRP2** turns on a switch that can force the density among inequivalent classes that share a common species to be averaged. In the ASA codes the density is spherical and the averaging is complete; in the FP case only the spherical part of the densities can be averaged. This helps sometimes with stabilizing difficult cases in the path to self-consistency.
   You specify which species are to be averaged with the SPEC_ATOM_GRP2 token.
 
-  'GRP2‘ averages the input density;
-  'GRP2=2‘ averages the output density;
-  'GRP2=3‘ averages both the input and the output density.
+  **GRP2** averages the input density;
+  **GRP2=2** averages the output density;
+  **GRP2=3** averages both the input and the output density.
 
-* 'RHOPOS' turns on a switch that forces the density positive at all points
+* **RHOPOS** turns on a switch that forces the density positive at all points.\\
+  You can also accomplish this with the command-line switch **[-\-rhopos](/docs/input/commandline/#rhopos)**.
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -1077,3 +1115,200 @@ VERS LM:7 TB:9               for the empirical tight-binding tbe
 Add version control tokens for whatever programs your input file supports.
 
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
+##### _ITER\_MIX_
+{::comment}
+(/docs/input/inputfile/#itermix)
+{:/comment}
+
+**_ITER\_MIX_** a token in the [**ITER**](/docs/input/inputfile/#iter) category.
+Its contents are a string consisting of mixing options, described here.
+This string controls the mixing scheme, mixing input density <i>n</i><sup>in</sup> with output density <i>n</i><sup>out</sup> to make a
+trial density <i>n</i><sup>\*</sup> for a new iteration.
+
+
+###### Charge mixing, general considerations
+{::comment}
+(/docs/input/inputfile/#charge-mixing-general-considerations)
+{:/comment}
+
+In a perfect mixing scheme, <i>n</i><sup>\*</sup> would be the self-consistent
+density.  If the static dielectric response is known, <i>n</i><sup>\*</sup> can be estimated to linear order in
+<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  It is not difficult to show that
+<div style="text-align:center;">
+<i>n</i><sup>*</sup> = <i>&epsilon;</i><sup>&minus;1</sup> (<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>). &emsp;&emsp;&emsp;  (1)
+</div>
+
+<i>&epsilon;</i> is a function of source and field point coordinates <b>r</b> and <b>r</b>&prime;:
+<i>&epsilon;</i> = <i>&epsilon;</i>(<b>r</b>,<b>r</b>&prime;) and in any case
+it is not given by the standard self-consistency procedure.
+The Thomas Fermi approximation provides a reasonable, if rough estimate for <i>&epsilon;</i>, which
+which reads in reciprocal space
+
+$$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
+
+Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>.
+It can be estimated given the total number of electrons **qval** from the free electron gas formula.
+<div style="text-align:center;">
+<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;<b>qval</b>)<sup>1/3</sup>
+</div>
+
+If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
+a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).
+This is called the "Kerker mixing" algorithm.  The Questaal codes do not have a plane wave representation so they do something else.
+
+The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
+and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
+is sufficient to completely specify the charge density.  The density is not explicitly mixed.
+
+**lmf**{: style="color: blue"}, by contrast, uses a density consisting of [three
+parts](/docs/code/fpoverview/#augmentation-and-representation-of-the-charge-density): a smooth density <i>n</i><sub>0</sub> carried on a
+uniform mesh, defined everywhere in space and two local densities: the true density <i>n</i><sub>1</sub> and a one-center expansion
+<i>n</i><sub>2</sub> of the smooth density The mixing algorithm must mix all of them and it is somewhat involved.
+See **fp/mixrho.f**{: style="color: green"} for details.
+
+The mixing process reduces to estimating a vector <b>X</b><sup>*</sup>
+related to the density (e.g. &thinsp;**P,Q**&thinsp; in the ASA)
+where &delta;<b>X</b> = <b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>
+vanishes at <b>X</b><sup>in</sup> = <b>X</b><sup>*</sup>.
+
+Mixing algorithms mix linear combinations of
+(<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
+If there are no prior iterations, then
+<div style="text-align:center;">
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; (<b>X</b><sup>out</sup> &minus; <b>X</b><sup>in</sup>) &emsp;&emsp;&emsp;  (3)
+</div>
+
+It is evident from Eq.(1) that **beta** should be connected with the dielectric function.  However, **beta** is just a number.  If
+**beta**=1, <b>X</b><sup>*</sup> = <b>X</b><sup>out</sup>; if **beta**&rarr;0, <b>X</b><sup>*</sup> scarcely changes from
+<b>X</b><sup>in</sup>.  Thus in that case you move like an "amoeba" downhill towards the self-consistent solution.
+For small systems it is usually sufficient to take **beta** on the order of, but smaller than unity.  For large
+systems charge sloshing becomes a problem so you have to do something different.  This is because the potential change goes as
+<i>&delta;V</i> ~ <i>G</i><sup>&minus;2</sup>&times;<i>&delta;n</i> so small _G_ components of <i>&delta;n</i> determine the rate of mixing.
+The simplest (but inefficient) choice is to make **beta** small.
+
+The beauty of the Kerker mixing scheme is that charges in small _G_ components of the density
+get damped out, while the short-ranged, large _G_ components do not.
+An alternative is to use an estimate <span style="text-decoration: overline">&epsilon;</span> for the dielectric function.
+Construct <span style="text-decoration: overline"><i>&delta;n</i></span> =
+<span style="text-decoration: overline">&epsilon;</span><sup>&minus;1</sup>&thinsp;(<i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>)
+and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from
+<span style="text-decoration: overline"><i>&delta;n</i></span>.
+Then estimate
+<div style="text-align:center;">
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; <span style="text-decoration: overline"><i>&delta;</i>X</span>
+</div>
+Now **beta** can be much larger again, of order unity.
+
+**lmf**{: style="color: blue"} uses a Lindhard function for the mesh density (similar to Thomas Fermi screening; only the Lindhard function
+is the actual dielectric function for the free electron gas) and attempts to compensate for the contribution from local densities in an
+approximate way.  The ASA codes offer two options:
+
+1. A rough <span style="text-decoration: overline">&epsilon;</span> is obtained from eigenvalues of the Madelung matrix ([OPTIONS\_SCR](/docs/input/inputfile/#options)=4).
+2. The q=0 discretized polarization at _q_=0 is explicitly calculated (see [OPTIONS\_SCR](/docs/input/inputfile/#options)).
+
+There is some overhead associated with the second option, but it is not too large and having it greatly facilitates convergence in large systems.
+This is particularly important in magnetic metals, where there are low-energy degrees of freedom associated with the magnetic parts that
+require large **beta**.
+
+###### The _ITER\_MIX_ tag and how to use it
+{::comment}
+(/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it)
+{:/comment}
+
+Mixing proceeds through (<b>X</b><sup>in</sup>,<b>X</b><sup>out</sup>) pairs taken from the current iteration together with pairs from prior iterations.
+As noted in the previous section it is generally better to mix <span style="text-decoration: overline"><i>&delta;</i>X</span>
+than <i>&delta;</i>X; but the mixing scheme works for either.
+
+You can choose between Broyden and Anderson methods.  The string belonging to **_ITER\_MIX_** should begin with one of
+<pre>
+  MIX=A<i>n</i>
+  MIX=B<i>n</i>
+</pre>
+which tells the mixer which scheme to use.  **slatsm/amix.f**{: style="color: green"} describes the mathematics behind the Anderson scheme.
+
+**_n_** is the maximum number of prior iterations to include in the mix.  As programs proceed to self-consistency, they dump prior
+iterations to disk, to read them the next time through.  Data is I/O to _mixm.ext_{: style="color: green"}.
+
+The Anderson scheme is particularly simple to monitor.  How much of <span style="text-decoration: overline"><i>&delta;</i>X</span>
+from prior iterations is included in the final mixed vector is printed to **stdout** as parameter **tj**, e.g.
+<pre>
+   tj: 0.47741                           &larr; iteration 2
+   tj:-0.39609  -0.44764                 &larr; iteration 3
+   tj:-0.05454   0.01980                 &larr; iteration 4
+   tj: 0.24975
+   tj: 0.48650
+   tj:-1.34689
+</pre>
+In the second iteration, one prior iteration was mixed; in the third and fourth, two; and after that, only one.
+(When the normal matrix picks up a small eigenvalue the Anderson mixing algorithm reduces the number of prior iterations).
+
+Consider the case when a single prior iteration was mixed.
+
++ If **tj**=0, the new **X** is entirely composed of the current
+iteration.  This means self-consistency is proceeding in an optimal manner.
++ If **tj**=1, it means that the new **X** is composed 100% of the prior iteration.
+  This means that the algorithm doesn't like how the mixing is proceeding, and is discarding the current iteration.
+  If you see successive iterations where **tj** is close to (or
+  worse, larger than) unity, you should change something, e.g. reduce **beta**.
++ If **tj**<0, the algorithm thinks you can mix more of <b>X</b><sup>out</sup> and less of <b>X</b><sup>in</sup>.
+  If you see successive iterations where **tj** is significantly negative (less than &minus;1), increase **beta**.
+
+Broyden mixing uses a more sophisticated procedure, in which it
+tries to build up the Hessian matrix.  It usually works better
+but has more pitfalls than Anderson. Broyden has an additional parameter, **wc**, that
+controls how much weight is given to prior iterations in the mix
+(see below).
+
+The general syntax is for **_ITER\_MIX_** is
+<pre>
+A<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,n=<i>nit</i>][,w=w1,w2][,nam=<i>fn</i>][,k=<i>nkill</i>][,elind=#][;...]  or
+B<i>n</i>[,b=<i>beta</i>][,b2=b2][,bv=betv][,wc=<i>wc</i>][,n=<i>nit</i>][,w=w1,w2][,nam=<i>fn</i>][,elind=#][,k=<i>nkill</i>]
+</pre>
+The options are described below.  They are parsed in routine **subs/parmxp.f**{: style="color: green"}.  Parameters (**b**, **wc**, etc.) may occur in any order.:
+
++ **A<i>n</i>** or **B<i>n</i>**:&ensp; maximum number of prior iterations to include in the mix (the mixing file may contain more than _n_ prior iterations).\\
+  **_n_**=0 implies linear mixing.
+
++ **b=_beta_**:&ensp; the mixing parameter **beta** in Eq. 3 above.
+
++ **n=_nit_**:&ensp; the number of iterations to use mix with this set of parameters before passing on to the next set. After the last set is exhausted,
+  it starts over with the first set.
+
++ **name=_fn_**:&ensp; mixing file name (_mixm_{: style="color: green"} is the default). Must be eight characters or fewer.
+
++ **k=_nkill_**:&ensp; kill mixing file after **_nkill_** iterations.  This is helpful when the mixing runs out of steam, or when the mixing parameters change.
+
++ **wc=_wc_**:&ensp; (Broyden only) that controls how much weight is given to prior iterations in estimating the Jacobian.  **wc=1** is fairly conservative.
+  Choosing **wc<0** assigns a floating value to the actual **wc**, proportional to **&minus;_wc_/rms-error**.  This increases **wc** as the error becomes small.
+
++ **w1,w2**:&ensp; (spin-polarized calculations only) The up- and down- spin channels are not mixed independently.
+  Instead the sum (up+down) and difference (up-down) are mixed.  The two combinations are
+  weighted by **w1** and **w2** in the mixing, more heavily emphasizing the more heavily weighted.
+   As special cases, **w1=0** _freezes_ the charge and mixes the magnetic moments only while **w2=0** _freezes_ the moments and mixes the charge only.
+
++ **elind=_elind_**:&ensp; The Fermi energy entering into the Lindhard dielectric function: **elind**=k</i><sub><i>F</i></sub><sup>2</sup>.\\
+  **elind<0**: Use the free-electron gas value, scaled by **&minus;_elind_**.
+
++ **wa**:&ensp; (ASA only) weight for extra quantities included with **P,Q** in the mixing procedure.  For noncollinear magnetism, includes the Euler angles.
+
++ **locm**:&ensp; (FP only) not documented yet.
+
++ **r=_expr_**:&ensp; continue this block of mixing sequence until **rms error < _expr_**.
+
+  _Example_: &emsp;**MIX=A4,b=.2,k=4
+  uses the Anderson method, killing the mixing file each fourth iteration.  The mixing **beta** is 0.2.
+
+You can string together several rules.  One set of rules applies for a certain number of iterations; followed by another set.\\
+Rules are separated by a "&thinsp;;&thinsp;".
+
+  _Example_: &emsp;**MIX=B10,n=8,w=2,1,fn=mxm,wc=11,k=4;A2,b=1**\\
+  does 8 iterations of Broyden mixing, followed by Anderson mixing.  The
+  Broyden iterations weight the (up+down) double that of (up-down) for the magnetic case, and iterations are saved in a file which is
+  deleted at the end of every fourth iteration.  **wc** is 11.  **beta** assumes the default value.  The Anderson rules mix two prior iterations
+  with **beta**=1.
+
+See [Table of Contents](/docs/input/inputfile/#table-of-contents)
+
+[//]: test
+

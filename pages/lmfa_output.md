@@ -31,7 +31,7 @@ annotate each block approximately in the order they are made.
 Some parts are similar to the [**lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/); in places where they are similar a cursory
 treatment is given here; the reader is referred to that page.
 
-_Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/commandline/general/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
+_Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/input/commandline/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
 Raising the verbosity causes **lmfa**{: style="color: blue"} to print additional information.
 Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 
@@ -40,7 +40,7 @@ Verbosity 31 is a little terse; verbosity 41 is a little verbose.
 /docs/outputs/lmfa_output/#preprocessors-transformation-of-the-input-file
 {:/comment}
 
-The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it it is parsed for tags.
+The input file is run through the [preprocessor](/docs/input/preprocessor/), which modifies the ctrl file before it is parsed for tags.
 Normally it does this silently.  To see the effects of the preprocessor use `lmfa --showp ...`
 The result is very similar to `lmf --showp ...`, which is documented 
 [here](/docs/outputs/lmf_output/#preprocessors-transformation-of-the-input-file).
@@ -137,10 +137,15 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 <button type="button" class="button tiny radius">Click here to see --help explained.</button>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="clo">{:/}
 
+{::comment}
+<div class="dropButtonMid" onclick="dropdown( this );">Click here to see --help explained.</div>
+{::nomarkdown}<div class="dropContent">{:/}
+{:/comment}
+
 Consider the output of `lmfa --help`.
 
 First appears a list of command line options available in most Questaal codes.
-They are described in more detail [here](/docs/commandline/general/).
+They are described in more detail [here](/docs/input/commandline/).
 
 ~~~
  --h
@@ -206,7 +211,7 @@ similarly for the following block on [symmetry and _k_ mesh](/docs/outputs/lmf_o
 
 #### _Self-consistent density_
 {::comment}
- /docs/outputs/lmfa_output/#self-consistent-density
+(/docs/outputs/lmfa_output/#self-consistent-density)
 {:/comment}
 
 If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s printout for the first atom (Pb) begins with:
@@ -221,28 +226,41 @@ If _no_ local orbitals have been specified, **lmfa**{: style="color: blue"}'s pr
 The first line shows the atomic number, number of core charges (core levels are assumed to be filled), augmentation radius
 and net sphere charge.
 The next line shows the augmentation radius and cutoff radius of the free atom and radial mesh parameters. 
-All the Questaal codes use a shifted logarithmic mesh: point _i_ has a radius
+
+###### Radial mesh
+{::comment}
+ /docs/outputs/lmfa_output/#radial-mesh
+{:/comment}
+
+Wave functions are integrated on a uniform radial mesh of points.
+All the Questaal codes use a shifted logarithmic radial mesh: point _i_ has a radius
 
 $$ r_i = b[e^{a(i-1)}-1] $$
 
-The first point is the origin and the last the augmentation radius.  Thus, in addition to the augmentation radius there is a free parameter.
-It is sometimes fixed by spacing _a_ (input through [**SPEC_ATOM_A**](/docs/input/inputfile/#spec)); 
-alternatively it can be fixed by the total number of mesh points (input through [**SPEC_ATOM_NR**](/docs/input/inputfile/#spec)).
+Mesh points are linearly spaced by _ab_ near the nucleus.  For <i>r<sub>i</sub></i> large compared to
+_a_, the mesh points are spaced exponentially (equally spaced on a log scale, spacing _a_).
 
-The free atom calculation doesn't need to know about the augmentation radius, but it is needed for _atm.pbte_{: style="color: green"},
-where the the augmentation and interstitial parts are kept separate.
+Three numbers are used to specify the mesh: augmentation radius, the number of points inside it, and the spacing parameter _a_ (_b_ can be
+determined from them). These can be specified in the input file as [**SPEC\_ATOM\_R**,&thinsp;**SPEC\_ATOM\_NR**,&thinsp;
+**SPEC\_ATOM\_A**](/docs/input/inputfile/#spec-cat) though usually you can rely on default values.
 
-Next follows printouts for **Pl** and **Ql**.  The **Pl** are the logarithmic derivative parameters, (also called
+The first point falls the origin and the last at the augmentation radius **R**.  The free atom calculation doesn't need to know about the
+augmentation radius, but it is needed for _atm.pbte_{: style="color: green"} where the  augmentation and interstitial parts are kept
+separate.
+
+###### Parameters that specify the charge density
+
+The **Pl** in the table are the logarithmic derivative parameters, (also called
 [continuous principal quantum numbers](/docs/code/asaoverview/#boundary-conditions-and-continuous-principal-quantum-numbers))
-for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip;.  For free atoms the fractional
+for _s_,&thinsp;_p_,&thinsp;_d_,&thinsp;&hellip; valence orbitals.  For free atoms the fractional
 part is not relevant since there is a boundary condition that the wave function decay exponentially as
-<i>r</i>&rarr;&infin;).  The integer parts of **Pl** because they define what states are valence.  All states with smaller P.Q.N., e.g.
+<i>r</i>&rarr;&infin;).  The integer parts of **Pl** are important because they define what states are valence.  All states with smaller principal quantum number, e.g.
 the 5_s_, are treated as core.  The **Ql** are corresponding charges.
 
-**Pl** and **Ql** are specified by &nbsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat) and &nbsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
+**Pl** and **Ql** are specified by &thinsp;[**SPEC\_ATOM\_P**](/docs/input/inputfile/#spec-cat)&thinsp; and &thinsp;[**SPEC\_ATOM\_Q**](/docs/input/inputfile/#spec-cat).
 Neither **Pl** nor **Ql** are required inputs: **lmfa**{: style="color: blue"} will use default values from a lookup table for whatever is missing.
 
-As described in [the tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
+As described in the [tutorial](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals ), **lmfa**{: style="color: blue"} finds the Pb 5_d_ to be a local orbital.
 When the 5_d_ local orbital specified (by **PZ= 0 0 15.934**) in _basp.pbte_{: style="color: green"},
 **lmfa**{: style="color: blue"} will include the 5_d_ in the valence.  The printout then reads:
 
@@ -308,7 +326,7 @@ _Note:_{: style="color: red"} for _GW_ calculations the Pb 5_d_ state is too sha
 
 #### _Generating basis information_
 {::comment}
-/docs/outputs/lmfa_output/#generating-basis-information
+(/docs/outputs/lmfa_output/#generating-basis-information)
 {:/comment}
 
 From the self-consistent density and potential, **lmfa**{: style="color: blue"} will build some
@@ -337,7 +355,7 @@ depending on settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
 Fitting **RSMH** and **EH** to the numerically derived wave functions can be readily accomplished. (It is a nonlinear procedure.) **lmfa**{:
 style="color: blue"} actually does it twice.  First it fits the occupied levels only, for which boundary conditions are known, and at the
 same time it computes a variational estimate for the energy.  In perturbation theory this differs from the exact value computed from
-numerical wave functions as the difference in in single-particle sum.
+numerical wave functions as the difference in the single-particle sum.
 
 The following table displays this information for each _l_ that
 carries electrons.  **rmt** is the augmentation radius.
@@ -440,7 +458,7 @@ _Notes:_{: style="color: red"}
 
 #### _Fitting the charge density outside the augmentation radius_
 {::comment}
- /docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius
+(/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
 {:/comment}
 
 **lmfa**{: style="color: blue"} retains two densities on the numerical mesh for points
@@ -505,9 +523,7 @@ The core density was fit to a single smooth Hankel function.  The energy (**-14.
 {::nomarkdown}</div>{:/}
 
 ### 5. Estimating the plane-wave cutoff GMAX
-{::comment}
-/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax
-{:/comment}
+[//]: (/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax)
 
 The charge density is represented on a uniform mesh of points.  The spacing between points
 or equivalently the plane-wave cutoff **GMAX** used to represent the density in reciprocal space
@@ -522,10 +538,30 @@ maximum values for all species are printed in the table below.
 ~~~
 
 {::nomarkdown} <a name="summary"></a> {:/}
-{::comment}
-/docs/outputs/lmfa_output/#summary
-{:/comment}
+[//]: (/docs/outputs/lmfa_output/#summary)
 
 **lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
 are saved in _atm.pbte_{: style="color: green"} for each species, and basis information parameters are saved in _basp0.pbte_{: style="color: green"}.
 
+See [Table of Contents](/docs/outputs/lmfa_output/#table-of-contents)
+
+### _FAQ_
+[//]: (/docs/outputs/lmfa_output/#faq)
+
+1. Why can the total energy change be calculated as a sum of
+eigenvalues, when fitting an epproximate wave function to the exact one?
+
+This follows from the Helman-Feynman theorem.
+
+Around a self-consistent point (the independent variable is the density, in Kohn-Sham theory) the change in total energy from a perturbation
+is the change in the single-particle sum to lowest order, because to first order the wave function is stationary.  This is an exact
+statement.
+
+For many properties, e.g. magnetocrystalline anisotropy, for the effect of spin orbit coupling on the total energy, the change in
+single-particle sum is a pretty good estimate of the change in total energy.
+
+There are reasons why this is approximately true even when not self-consistent.  It is exact for one-body model Hamiltonians (i.e. that that
+have no electron-electron interactions).  Matthew Foulkes [showed](http://dx.doi.org/10.1103/PhysRevB.39.12520) that density-functional
+theory can be cast in the form similar to model hamiltonians, with the total energy a sum of the single-particle sum and an extra term that
+is functional of the input density <i>n</i><sup>in</sup> only.  The extra term vanishes at self-consistency in response to low-order
+perturbation, and often doesn't change by a large amount even if the density isn't so different from a self-consistent one.

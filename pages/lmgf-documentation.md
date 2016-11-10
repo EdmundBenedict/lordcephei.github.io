@@ -301,7 +301,7 @@ _Example_: running **lmgf**{: style="color: blue"} using **MODE=10** with this c
     --sites:pair:1,3,5,7
 
 generates _J_ connecting sites 1, 3, 5 and 7 to all neighbors.
-See [Syntax of Integer Lists](/docs/misc/integerlists/) for the syntax of **site-list**.
+See [Syntax of Integer Lists](/docs/input/integerlists/) for the syntax of **site-list**.
 
 Running **lmgf**{: style="color: blue"} using **MODE=11** with the same **\-\-sites** argument will print out the exchanges just between pairs of these sites.
 

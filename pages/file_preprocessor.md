@@ -6,24 +6,28 @@ header: no
 ---
 
 ### _Purpose_
+_____________________________________________________________
+{:.no_toc}
 
 This manual documents the functioning of Questaal's preprocessor.
 Many files in the Questaal suite (e.g. the main input file
 _ctrl.ext_{: style="color: green"}) are read through the prepocessor
 before they are used.
 
-_____________________________________________________________
-
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}  
+{::comment}
+(/docs/input/preprocessor/#table-of-contents)
+{:/comment}
 
-_____________________________________________________________
 
 ### _Main Features_
+_____________________________________________________________
 {::comment}
-/docs/input/preprocessor/#main-features
+(/docs/input/preprocessor/#main-features)
 {:/comment}
 
 The preprocessor allows you to declare variables and evaluate expressions. It also possesses some
@@ -31,8 +35,8 @@ programming language capability, with branching control to skip or loop over a s
 lines.
 
 The preprocesor is built into 
-the source code, _rdfiln.f_{: style="color: green"}.
-Comments at the beginning of _rdfiln.f_{: style="color: green"}
+the source code, <b>rdfiln.f</b>{: style="color: green"}.
+Comments at the beginning of <b>rdfiln.f</b>{: style="color: green"}
 document directives it can process.  Here we use _rdfiln_{: style="color: green"}
 as a name for the preprocessor.
 
@@ -368,12 +372,11 @@ Recognized keywords are
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp; **const cconst cvar udef var vec char char0 cchar getenv vfind**
 
+{::nomarkdown} <a name="vardec"></a> {:/}
 {::comment}
-Note: kramdown needs 3-space indentation for outside list
-      code blocks 3+4 spaces.
-      nested lists 3+2 spaces
-      <pre> ... </pre> must also be indented
+(/docs/input/preprocessor/#vardec)
 {:/comment}
+
 
 1. **const**&nbsp; and &nbsp;**var**&nbsp; load or alter the variables table.  <i>Example</i>:
    <pre>% const  myvar=<i>expr</i> </pre>
@@ -626,11 +629,11 @@ Branching constructs have a function similar to the C constructs.
    As with the &nbsp;**while**&nbsp;&nbsp;
    construct, multiple passes are made through the input lines.
    &nbsp;<i>list</i>&nbsp;&nbsp; generates a sequence of integers
-   (see the [integer list syntax](/docs/misc/integerlists/) manual).
+   (see the [integer list syntax](/docs/input/integerlists/) manual).
    For each member of the sequence &nbsp;**varnam**&nbsp;&nbsp; takes its value
    and the body of the loop passed through.
    &nbsp;<i>list</i>&nbsp;&nbsp; can be just an integer (e.g. &nbsp;**7**&nbsp;) or define a
-   [more complex sequence](/docs/misc/integerlists/), e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
+   [more complex sequence](/docs/input/integerlists/), e.g. &nbsp;**1:3,6,2**&nbsp;&nbsp;
    generates the sequence &nbsp;**1 2 3 6 2**.
 
    <i>Example:</i>  nested &nbsp;**while**&nbsp; and &nbsp;**repeat**&nbsp; loops
@@ -795,3 +798,10 @@ _Note:_{: style="color: red"}&nbsp; the ASCII representation of a floating-point
 is represented to 8 or 9 decimal places; thus it has
 less precision than the binary form.  For example, **'{1.2345678987654e-8}'**&nbsp;
 is turned into **1.2345679e-8**.
+
+{::comment}
+Note: kramdown needs 3-space indentation for outside list
+      code blocks 3+4 spaces.
+      nested lists 3+2 spaces
+      <pre> ... </pre> must also be indented
+{:/comment}

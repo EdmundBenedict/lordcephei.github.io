@@ -4,10 +4,9 @@ title: "The fplot tool"
 permalink: "/docs/misc/fplot/"
 header: no
 ---
-_____________________________________________________________
-
 
 ### _Purpose_
+_____________________________________________________________
 {:.no_toc}
 
 **fplot**{: style="color: blue"} is a general purpose plotting package, with functionality roughly similar to **gnuplot**{: style="color: blue"}.
@@ -26,19 +25,18 @@ Questaal codes into easy-to-read files [with a simple data format](/docs/misc/fp
 
 For quick reference, there is a handy [concept index](/docs/misc/fplot/#concept-index).
 
-_____________________________________________________________
 
 ### _Table of Contents_
+_____________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 {::comment}
-/docs/misc/fplot/#table-of-contents
+(/docs/misc/fplot/#table-of-contents)
 {:/comment}
 
-_____________________________________________________________
-
 ### _Preliminaries_
+_____________________________________________________________
 
 **fplot**{: style="color: blue"} is required and is assumed to be in your path.
 You will also need a postscript viewer.  This document assumes you are using the apple-style **open**{: style="color: blue"} command to view postscript files.
@@ -49,9 +47,8 @@ This manual is written for fplot version 3.50.  To see what version you are usin
 
 The exercise [adapting postscript files to other formats](/docs/misc/fplot/#adapting-postscript-coordinates) also makes use of inkscape.
 
-_____________________________________________________________
-
 ### 1. _Introduction_
+_____________________________________________________________
 
 **fplot**{: style="color: blue"} is mainly designed to draw _xy_ data; it has some capability for contour plots and a very limited ability
 for 3D graphics.
@@ -92,7 +89,7 @@ The following will plot this function in the interval **(0.02,2)**, with the abs
 
 _Notes:_{: style="color: red"}
 
-+ [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/misc/integerlists/).
++ [**-tp .02:2:.02**](/docs/misc/fplot/#tp-switch) generates a data set of one column (the abscissa).  **.02:2:.02** comprises a list of points using [this syntax](/docs/input/integerlists/).
 + [**-ord _expr_**](/docs/misc/fplot/#ord-switch) defines the ordinate, for a given point in the list.  **_expr_** is an [algebraic expression](/docs/input/preprocessor/#expr-syntax).
 + Points are connected by straight lines.
 + Use `-s` to add a symbol at each point, e.g. replace `fplot` with\\
@@ -125,7 +122,7 @@ _Notes:_{: style="color: red"}
 
 #### Example 2.2. &nbsp; Reading fplot commands from a script file
 {::comment}
-/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file
+(/docs/misc/fplot/#example-22-nbsp-reading-fplot-commands-from-a-script-file)
 {:/comment}
 
 try [here](/docs/misc/fplot/#example-21-nbsp-plot-nbsp-y20x2exp-4x)
@@ -153,8 +150,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('figb'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figb">{:/}
 ![Particle in a Box Example](/assets/img/box.svg)
 {::nomarkdown}</div>{:/}
 
@@ -178,10 +175,10 @@ _Notes:_{: style="color: red"}
 
 #### Example 2.3. &nbsp; _Charge density contours in Cr_
 {::comment}
-/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr
+(/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr)
 {:/comment}
 
-Th figure in this example shows a contour plot of the charge density of the Cr charge density in (100), (011) plane.
+The figure in this example shows a contour plot of the Cr charge density in the (100), (011) plane.
 
 Commands are read from script _plot.cr_{: style="color: green"}.
 To make this plot you will need to copy the already-prepared charge density contour file [chgd.cr](../../../assets/download/inputfiles/chgd.cr) to your working directory,
@@ -201,8 +198,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('fig2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="fig2">{:/}
 ![Example 2.3](/assets/img/contours-cr.svg)
 {::nomarkdown}</div>{:/}
 
@@ -253,8 +250,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('fig4'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="fig4">{:/}
 ![Example 2.4](/assets/img/mobility-tlinp.svg)
 {::nomarkdown}</div>{:/}
 
@@ -294,9 +291,11 @@ _Notes on [data switches](/docs/misc/fplot/#data-switches-draw-one-or-more-famil
   + the final argument (**4)** specifies that a fourth order polynomial be used.
 + Three data sets are drawn, each with its own line type and key label.  The third set is interpolated with an ordinary polynomial.
 
-_____________________________________________________________
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 3. _fplot manual_
+_____________________________________________________________
 {::comment}
 /docs/misc/fplot/#fplot-manual
 {:/comment}
@@ -471,7 +470,9 @@ fplot [-INIT-switches] [-FORMAT-switches] [-DATA-switches] <i>data-file</i> ...
   rotates points around an axis, or a succession of axes (used in conjunction with **-3d**).\\
   _Example_ : \\
   **-rotp (0,0,1)pi/4,(0,1,0)pi/3,(0,0,1)pi/2**\\
-  rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/misc/rotations/) specifies the syntax of rotations.
+  rotates points by the Euler angles _&pi;_/4, _&pi;_/3, _&pi;_/2.  [This document](/docs/input/rotations/) specifies the syntax of rotations.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### **LABELLING and NUMBERING** switches govern labels and axis numbering
 {::comment}
@@ -541,7 +542,7 @@ The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the
   + Optional **:0** tells **fplot**{: style="color: blue"} to write without initially creating a blank rectangle in the text box.
   + **_cc_** controls justification of labels; see **-lbl** above.
 
-  **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/misc/integerlists/).
+  **_xlist_** (**_ylist_**) is a list of real numbers; it has same syntax as those of [integer lists](/docs/input/integerlists/).
 
 <i> </i>
 {::nomarkdown} <a name="xl-switch"></a> {:/}
@@ -586,6 +587,8 @@ The [Labels Exercise](/docs/misc/fplot/#fun-with-labels) illustrates most of the
 
 + **-k _x_,_y_[:_len_][,_spacing_][;_style_]**\\
   specifies key placement on the figure, and optional length, spacing or style. [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp) uses a key.
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### **DATA** switches draw one or more families of xy data
 {::comment}
@@ -773,7 +776,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 {:/comment}
 
 + **-map [-i _expr_] _list_**\\
-  permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  permutes rows original data array defined by **_list_**. The syntax of integer lists is described on [this page](/docs/input/integerlists/).\\
   Optional **-i _expr_** causes points for which **_expr_=0** to be removed from **_list_**.\\
   For each point, **_expr_** can make use of the following variables:
   + **i** (row index);  **x** and **y** (abscissa and ordinate; see **-col** below), **nr** and **nc** (number of rows and columns),
@@ -814,7 +817,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-con[~options] _flist_ [other DATA-switches] _data-file_**\\
   special mode for contour plots. **_flist_** is a list of real numbers: contours will be drawn for constant values
   &nbsp; _f_=**#**, interpolating discrete data read from **_data-file_** for each **#** in **_flist_**.\\
-  Specify the list with the same syntax as for [integer lists](/docs/misc/integerlists/).\\
+  Specify the list with the same syntax as for [integer lists](/docs/input/integerlists/).\\
   **_data-file_** must consist of function values _f_(<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>)
   on a uniform rectangular grid of points (<i>x<sub>i</sub></i>,<i>y<sub>i</sub></i>).\\
   Elements in a fixed COLUMN comprise data on a uniform mesh parallel to abscissa, _f_(<i>x<sub>i</sub></i>,<i>y</i>=const).\\
@@ -826,8 +829,8 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
   + **noclose** &emsp;&emsp; suppresses closing contours on boundaries.
 
 
-  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
-  print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.\\
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (**-pr80**), it will
+  print out the areas of contours it makes.  This is very useful in determining areas of a Fermi surface, for example.\\
   See [Example 2.2](/docs/misc/fplot/#example-23-nbsp-charge-density-contours-in-cr) above.
 
 {::nomarkdown} <a name="read-switch"></a> {:/}
@@ -886,7 +889,7 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 
 + **-colsy _list_**\\
   make a family of _xy_ plots for columns in list.
-  The syntax of integer lists is described on [this page](/docs/misc/integerlists/).\\
+  The syntax of integer lists is described on [this page](/docs/input/integerlists/).\\
   If the data consists of a single column, it is copied to column 2 and the row index is copied to column 1.\\
   Thus `fplot -colsy 2,4 ...` draws two curves, with columns 2 and 4 respectively, as the _y_ variable.\\
   _Note:_{: style="color: red"} the ordinate actually plotted may be modified by **-ord _expr_**.  In the instance above
@@ -909,9 +912,10 @@ See also the [Error bars exercise](/docs/misc/fplot/#error-bars).
 + **-bs _radius_[;file-list]**\\
   (3D only) connects points within radius and file-list.
 
-_____________________________________________________________
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 ### 4. _Additional notes_
+_____________________________________________________________
 {::comment}
 /docs/misc/fplot/#additional-notes
 {:/comment}
@@ -1005,10 +1009,10 @@ _fplot.ps_{: style="color: green"} into _.svg_{: style="color: green"} format.
 
 #### Structure of data files
 {::comment}
-/docs/misc/fplot/#structure-of-data-files
+(/docs/misc/fplot/#structure-of-data-files)
 {:/comment}
 
-Data files follow a standard Questaal format for two-dimensional arrays.
+Data files follow a standard [Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 **fplot**{: style="color: blue"} will pass the data file through the [file preprocessor](/docs/input/preprocessor/) before parsing it for values.
 
 **fplot**{: style="color: blue"} must be given information about the number of rows and columns in the file.  The safest way to specify this,
@@ -1032,22 +1036,13 @@ style="color: green"}, but the information can be supplied in other ways.
 + If **nr** has not been stipulated in some manner, **fplot**{: style="color: blue"} works it out a sensible guess from the file contents.\\
   If it knows **nc**, the reader can count the total number of values (or expressions more generally) in the file and deduce **nr** from it.
 
+These rules follow the standard [Questaal protocol](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
+
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 ### 5. _Other resources_
 
 See the [plbnds](/docs/misc/plbnds/) and [pldos](/docs/misc/pldos/) manuals.
-
-
-{::comment}
-Need to explain
-
-+ bs
-
-+ more on map.  Eg. variable nr.
-
-+ expand on -tp
-
-expand on -map
-{:/comment}
 
 ### 6. _Additional exercises_
 {::comment}
@@ -1069,7 +1064,7 @@ Example showing an error bar and a circle:
 $ fplot -frmt th=3,1,1 -lt 0 -ey 3,.75 -s circ~fill=2~col=0,0,0~.5 -tp 3~1,1,.1,2,4,.2,3,9,.3
 ~~~
 
-  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (*-pr80**), it will
+  _Note:_{: style="color: red"} If **fplot**{: style="color: blue"} is run with high verbosity (**-pr80**), it will
   print out the areas of contours it makes.  This is very handle in determining areas of a Fermi surface, for example.
 
 
@@ -1096,7 +1091,7 @@ the dot-dashed sequence. **1,.5,** specifies a dash length 1 followed by a dash 
 In this case a second sequence (**.3,.5**) is present.  This specifies that (line,space) pair of **1,.5,**
 and (line,space) pair of **.3,.5,** are drawn in alternation.
 
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### About symbols
 {::comment}
@@ -1125,8 +1120,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('figw'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figw">{:/}
 ![Symbols Example](/assets/img/wiggle.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1179,7 +1174,7 @@ _Notes:_{: style="color: red"}
   Append the optional 6<sup>th</sup> argument (placement).
   If you append &nbsp;**,0**&nbsp; nothing changes; but appending &nbsp;**,1**&nbsp; places the back of the arrow to where the tip was.
 
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### Fun with labels
 {::comment}
@@ -1215,8 +1210,8 @@ fplot -p0 -font h18
 
 
 <div onclick="elm = document.getElementById('figl'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figl">{:/}
 ![Labels Example](/assets/img/labels.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1277,8 +1272,7 @@ The first character can be one of &nbsp; **l**, **c**, **r**; the second one of 
 
   Compare the fonts in the two equations &mu;<sub>0</sub>=&hellip; at the bottom.
 
-
-<br>
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
 #### Things about frames
 {::comment}
@@ -1298,8 +1292,8 @@ fplot -frme:font=h30:col=0,0,1 0,1,0,.1 -frmt col=.6,.8,.8,th=4 -tmx 0.2:5,1.001
 ~~~
 
 <div onclick="elm = document.getElementById('figf'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figf">{:/}
 ![Frames Example](/assets/img/frames.svg)
 {::nomarkdown}</div>{:/}
 
@@ -1505,8 +1499,8 @@ fplot
 
 
 <div onclick="elm = document.getElementById('figflow'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figflow">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figflow">{:/}
 ![Flowchart example](/assets/img/qsgwcycle.png)
 {::nomarkdown}</div>{:/}
 
@@ -1527,12 +1521,9 @@ _Notes:_{: style="color: red"}
   **-lt 0,col=0,0,0 -s circ:fill=0:bold=103:col=.5,1,0:3,290,90 -tp 2~.5+.2,.7-.99-1.083**\\
   Explicit postscript was inserted (**-ins 'gsave 1 4 scale .5 .5 .5 setrgbcolor'**) to stretch the arc.
 
-### _Index_
-{::comment}
-/docs/misc/fplot/#index
-{:/comment}
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
 
-#### Concept Index
+### _Concept Index_
 {::comment}
 /docs/misc/fplot/#concept-index
 {:/comment}
@@ -1741,7 +1732,9 @@ _numbering, format_ | **-fmtnx\|-fmtny**{: style="color: red"}                  
 _numbering, placement_ | **-xn:t \|-yn:r**{: style="color: red"}                  | [LABELLING switches](/docs/misc/fplot/#xn-switch), &nbsp; [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 _mapping_        | **-abf _expr_**{: style="color: red"}                          | [DATA switches](/docs/misc/fplot/#ord-switch)
 
-#### Command Index
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
+### _Command Index_
 {::comment}
 /docs/misc/fplot/#command-index
 {:/comment}
@@ -1806,7 +1799,18 @@ Instruction   | Definition                                           | Places to
 **-yl**       | [DATA switches](/docs/misc/fplot/#xl-switch)       | [Labels exercise](/docs/misc/fplot/#fun-with-labels)
 **-yn**       | [LABELLING switches](/docs/misc/fplot/#xn-switch)  | [Example 2.4](/docs/misc/fplot/#example-24-nbsp-mobility-in-tlinp)
 
+See [Table of Contents](/docs/misc/fplot/#table-of-contents)
+
 {::comment}
 Roughly: 4 nbsp per emsp, 2 nbsp per ensp
-{:/comment}
 
+Need to explain
+
++ bs
+
++ more on map.  Eg. variable nr.
+
++ expand on -tp
+
+expand on -map
+{:/comment}

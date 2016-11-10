@@ -1,7 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Specifying Rotations" 
-permalink: "/docs/misc/rotations/"
+permalink: "/docs/input/rotations/"
 header: no
 ---
 
@@ -58,3 +58,34 @@ Below are two instances of rotations, especially useful for cubic systems:
   z:pi/4,y:acos(1/sqrt(3))  &larr; Rotates <i>z</i> to the (1,1,1) direction
   z:-pi/4,y:pi/2            &larr; Rotates <i>z</i> to the (1,-1,0) direction
 </pre>
+
+#### Space groups
+[//]: (/docs/input/rotations/#space-groups)
+
+Crystallographic space groups consist of a translation part <b>a</b> in
+addition to a rotation part R.  In general a point <b>r</b> gets mapped into
+<div style="text-align:center;">
+<b>r</b>&prime; = R <b>r</b> + <b>a</b>
+</div>
+
+The Questaal codes have an additional syntax for space groups.  The
+translation part gets appended to rotation part in one of the
+following forms: &thinsp;**:(x1,x2,x3)**&thinsp; or alternatively
+&thinsp;<b>::(p1,p2,p3)</b>&thinsp; with the double '<b>::</b>'. The first
+defines the translation in Cartesian coordinates; the second as
+[fractional multiples of lattice
+vectors](/tutorial/lmf/lmf_tutorial/#lattice-and-basis-vectors).
+
+_Example_: Co is hcp with <i>c</i>/<i>a</i>=1.632993.  Writing the basis as 
+
+~~~
+SITE    ATOM=A XPOS=1/3 -1/3 1/2
+        ATOM=A XPOS= 0 0 0
+~~~
+
+generators of the space group read in either of the two equivalent forms
+
+~~~
+i*r3z:(-1*sqrt(3)/6,-1/2,-0.8164966) r2z:(-1*sqrt(3)/6,-1/2,0.8164966) r2x
+i*r3z::(1/3,-1/3,-1/2) r2z::(1/3,-1/3,1/2) r2x
+~~~
