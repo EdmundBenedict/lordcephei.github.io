@@ -36,6 +36,11 @@ _____________________________________________________________
 
 Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
 
+The outputs from this tutorial are given in the
+[annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#help-explained) and
+[annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmfa_output/#help-explained).  Many details omitted here are given
+there.
+
 Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
 
 _____________________________________________________________
@@ -166,7 +171,7 @@ A category begins when a character (other than **%** or **#**) occurs in the
 [This link](/docs/input/inputfile/#input-file-structure) explains the structure of the input file in more detail.
 
 ####  3. _The **EXPRESS** category_
-(/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category)
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#the-EXPRESS-category)
 
 **blm**{: style="color: blue"} normally includes an **EXPRESS** category in _ctrl.pbte_{: style="color: green"}.
 
