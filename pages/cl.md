@@ -1090,10 +1090,10 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
      0 original code;  1 spex code;  2 current code (dating from from Sep 2012)
 + **--jobgw=# **
   {:start="-1"}
-    -2. check GWinput
-    -1. create GWinput
-     0. init mode 
-     1. driver mode: makes matrix elements for the GW code
+  1. check GWinput
+  1. create GWinput
+  0. init mode 
+  1. driver mode: makes matrix elements for the GW code
 + **--sigw**\\
      Add lines to GWinput need to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
      &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
