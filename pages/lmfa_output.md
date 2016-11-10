@@ -33,7 +33,7 @@ treatment is given here; the reader is referred to that page.
 
 _Note:_{: style="color: red"} This document is annotated for an [output vebosity](/docs/input/commandline/#switches-common-to-most-or-all-programs) of 35 (medium verbosity)
 Raising the verbosity causes **lmfa**{: style="color: blue"} to print additional information.
-Verbosity 31 is a little terse; verbosity 41 is a little verbose.
+Verbosity 31 is a little terse; 41 is a little verbose while 55 is quite verbose.  80 can give you a headache.
 
 ### 1. Preprocessor's transformation of the input file
 {::comment}
@@ -144,30 +144,21 @@ also **HAM_AUTOBAS_PFLOAT** have different meanings.
 
 Consider the output of `lmfa --help`.
 
-First appears a list of command line options available in most Questaal codes.
-They are described in more detail [here](/docs/input/commandline/).
+First appears a list of command line options available in most Questaal codes, a portion of which is shown below.  They are described in
+more detail [here](/docs/input/commandline/).
+
 
 ~~~
- --h
  --help         Print this message, and quit
  --input        List categories, tokens, and data program expects, and quit
  --show         Print control file after parsing by preprocessor,
                 and echo input data as read from the control file
  --showp        Same as --show, but quit after input parsed
- --iactiv       (--no-iactiv) Turn on (off) interactive mode
-                This switch overrides input file setting
  --pr#1[,#2...] Set the verbosity (stack) to values #1,#2, ...
- --time=#1[,#2] Print timing info to # levels (#1=summary; #2=on-the-fly)
-
+...
  -vnam=expr     Define numerical variable "nam"; set to result of 'expr'
  -cnam=strn     Define character variable "nam"; set to 'strn'
-
- --rpos=filnam  After reading input file, read site positions from "filnam"
- --fixlat       Adjust lattice vectors and point group ops, attempt to
-                render them internally consistent
- --fixpos[:tol=#] Adjust positions slightly, rendering them
-                as consistent as possible with the symmetry group
- --nosym        Suppress symmetry operations
+...
 ~~~
 
 Then follow a synopsis of **lmfa**{: style="color: blue"}-specific options:
