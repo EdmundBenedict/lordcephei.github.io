@@ -671,21 +671,44 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
   point into a binary file _wkp.pbte_{: style="color: green"}.  In general until the Fermi level is known, the weights assigned to each
   eigenfunction are not known, so the charge density cannot be assembled.  How labor is divided between the first and second pass depends on
   **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
-+ Makes a second pass to accumulate the charge density.  For local densities,
++ Makes a [second pass](/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
+  to accumulate the output mesh and local densities.  For the latter
   essential information is retained as coefficients of the local density matrix (a compact form).
-+ Assembles the local densities (true and smoothed) on their radial meshes from density matrices
++ Assembles the local densities from the density matrix.
 + Symmetrizes the density
-+ Finds new logarithmic derivative parameters **pnu** by floating them to the band center-of-gravity
-+ Computes the Harris-Foulkes and Kohn-Sham total energies
-+ Computes the forces
-+ mixes the input and output densities to form a new trial density
-+ checks for convergence
 
++ Finds [new logarithmic derivative parameters]((/docs/outputs/lmf_output/#update-pnu)) **pnu** by floating them to the band center-of-gravity
+
++ Computes the Harris-Foulkes and Kohn-Sham [total energies](/docs/outputs/lmf_output/#total-energy-and-forces)
+  A segment of the output reads:
+
+  ~~~
+  mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
+  ~~~
+
+  
+
++ Computes the forces
+
++ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density
++ Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop)
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 
-Just before exiting after the last iteration, **lmf**{: style="color: blue"} prints out
+At the end of the self-consistency cycle the density is written to _rst.pbte_{: style="color: green"} and a check is made for convergence.
+The first iteration reads
 
+~~~
+ iors  : write restart file (binary, mesh density)
+
+   it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
+h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
+~~~
+
+No check is made because there is no prior iteration to compare the change
+in total energy.
+
+In the 10<sup>th</sup> iteration, the convergence check reads
 <pre>
               &darr;         &darr;
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F

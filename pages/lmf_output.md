@@ -884,7 +884,7 @@ See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the 
 A second pass over the irreducible k-points is made with output similar to the first pass.
 
 In the second pass the output density is made and symmetrized.  This table tells you
-how many electrons are inside each augmentation sphere
+how many electrons are inside each augmentation sphere:
 
 ~~~
  mkrout:  Qtrue      sm,loc       local
@@ -892,14 +892,18 @@ how many electrons are inside each augmentation sphere
    2    5.275210    6.408075   -1.132866
 ~~~
 
+{::nomarkdown} <a name="update-pnu"></a> {:/}
+[//]: (/docs/outputs/lmf_output/#update-pnu)
+
 The
 [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
-**pnu** are updated.  Whether they are frozen or allowed to float depends on **SPEC\_ATOM\_IDMOD**.  In this tutorial they are all allowed to float.
+**pnu** are updated.  Whether they are frozen or allowed to float depends on [**SPEC\_ATOM\_IDMOD**](/docs/input/inputfile/#spec-cat).
+In this tutorial they are all allowed to float.
 
 ~~~
  Make new boundary conditions for phi,phidot..
 
- site    1   species   1:Pb      
+ site    1   species   1:Pb
  l  idmod     ql         ebar        pold        ptry        pfree        pnew
  0     0    1.700379   -0.652781    6.895000    6.901582    6.500000    6.901582
  1     0    0.846967   -0.353483    6.809000    6.620518    6.250000    6.620518
@@ -909,11 +913,11 @@ The
 ...
 ~~~
 
-The fractional parts of **P** is of order 0.9 for the 6_s_ and 5_d_ states, because they are deep.  the 5_d_ state is far above
-<i>E<sub>F</sub></i>, and it is close to the free electron value.  (For numerical stability, **P** is frozen for any _l_ for which there is
-a corresponding deep local orbital.)  The 6_p_ state is near the Fermi level, and forms the predominant contribution to the bonding and band
-structure.  See [this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an
-interpreration.
+The fractional parts of **P** is of order 0.9 for the 6_s_ and 5_d_ states, because they are deep.  The 6_d_ state is far above
+<i>E<sub>F</sub></i>, so its **P** is close to the free electron value.  (For numerical stability, **P** is frozen for any _l_ for which
+there is a corresponding deep local orbital.  Thus for that state **pnew** is not updated to **ptry**.)  The 6_p_ state is near the Fermi
+level, and forms the predominant contribution to the bonding and band structure.  See
+[this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an interpreration.
 
 ### Total energy and forces
 [//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
@@ -961,12 +965,30 @@ interpreration.
 ### End of self-consistency loop
 [//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
 
+At the end of the self-consistency cycle the density is written to
+_rst.pbte_{: style="color: green"} and a check is made for convergence.
+The first iteration reads
+
 ~~~
  iors  : write restart file (binary, mesh density)
 
    it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
 h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 ~~~
+
+No check is made because there is no prior iteration to compare the change
+in total energy.
+
+In the 10<sup>th</sup> iteration, the convergence check reads
+
+~~~
+   it 10  of 10    ehf=  -55318.162097   ehk=  -55318.162096
+ From last iter    ehf=  -55318.162097   ehk=  -55318.162095
+ diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
+c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
+~~~
+
+
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
