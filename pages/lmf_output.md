@@ -786,15 +786,16 @@ is for spin.  In spin polarized calculation this factor gets reduced by 1/2.
 
 If you know that the system is an insulator in advance, you can tell **lmf**{: style="color: blue"} to assume an insulator: in the input
 file replace **% const met=5** with **% const met=0**.  This will set tag **EXPRESS\_metal** (an alias for
-[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In htis mode it can accumulate the density on the first pass as well.
+[**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In this mode it can accumulate the density on the first pass as well.
 
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
-Integration quadratures are of two types:
+Quadratures are of two types:
 
 + the weight at k does not depend on values of neighboring k (sampling integration).
 + the weight at k does depend on values of neighboring k (tetrahedron integration).
 
-Several strategies have been developed.
+Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz)) tag.
+
 {:start="5"}
 
 0. System assumed to be an insulator; weights determined <i>a priori</i>.
