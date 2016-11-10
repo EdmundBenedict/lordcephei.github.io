@@ -771,7 +771,7 @@ In insulators, each point in the full Brillouin zone gets equal weight; each poi
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of printout of local information at high verbosity</span>
+<span style="text-decoration:underline;">Click here for discussion of integration weights and modes to peform the integration.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
 
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
