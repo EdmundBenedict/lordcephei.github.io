@@ -529,8 +529,7 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 
 Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements.
 
-{::nomarkdown} <a name="lda-functionals"></a> {:/}
-
+#### _LDA functionals_
 [//]: (/docs/outputs/lmf_output/#lda-functionals)
 
 It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Hedin functional.
