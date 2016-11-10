@@ -17,30 +17,30 @@ This tutorial follows from the [self-consistent](/tutorial/asa/lm_pbte_tutorial/
 
 ### _Individual band to band contribution _
 
-The imaginary part of the dielectric function and denseties can be both resolved  by band to band contribution, to preform  such calculation it is only necessery to set **OPTICS_PART=1** with in the control file, such that
+The imaginary part of the dielectric function and density of states can both be resolved  by band to band contribution, to preform  such calculation it is only necessery to set **OPTICS_PART=1** with in the control file, such that
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
-              FILBND=4,5 EMPBND=6,6
+              FILBND=9,10 EMPBND=11,12
               PART=1
               
 and preform the calculation as befor. 
         
-      lm -vnit=1 ctrl.pbte
+      lm -vnit=1 ctrl.pbte --rs=1,0
         
-It is worth noting that caution should be taken with such settings as the output (popt.exe) can become very large. For the exampel above werethe bands are restricted to 2 for conduction and valnce bands there will be 12 values for each energy point. Thes values correspond to contirbution to the imaginary part of the dielectric from band 9 to band 10 for x orientation of electric field followed by y and z counter parts, the next three digits correspond to contributions form transitions from band 9 to 12 (three values for x,y and z) followed by transitions from valence band 10 to conduction band 11 and finaly band 10 to band  12; with a total of 1001 energy point 13013 values the file popt.pbte.
+It is worth noting that caution should be taken with such settings as the output file (popt.exe) can become very large very quickly. For the exampel above where the bands are restricted to 2 for conduction and valnce bands there will be 12 values for each energy point. Thes values correspond to contirbution to the imaginary part of the dielectric from band 9 to band 11 for x orientation of electric field followed by y and z counter parts, the next three digits correspond to contributions form transitions from band 9 to 12 (three values for x,y and z) followed by transitions from valence band 10 to conduction band 11 and finaly band 10 to band  12.
 
 
 ### _Resolving by k-points_
-In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the contribution to the optical properites by individual k-points, this calculation can be done by simply adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
+In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the contribution to the optical properites by individual k-points, this calculation can be prefomed simply by adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
 
    OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 ESCISS=0 LTET=3
            PART=2
 
 we can preform this calculation just as any other optics calculation, simply invoke:
 
-   lm pbte -voptmod=1 -vnit=1
+   lm pbte -voptmod=1 -vnit=1 --rs=1,0
 
-through this the program will write a new file name popt.pbte. The format of this file is different to opt.pbte or jdos.pbte which you have previously encountered; here the first number in each row represtnts the energy while the next 3X numbers are the contributions from X ireducible k-points for the three orientation of the electric field. Below you can see a section of the popt.pbte for 4X4X4 k-mesh:
+through this the program will write a new file name popt.pbte. The format of this file is different to opt.pbte and jdos.pbte which you have previously encountered; here the first number in each row represtnts the energy while the next 3X numbers are the contributions from X ireducible k-points for the three orientation of the electric field. Below you can see a section of the popt.pbte for 4X4X4 k-mesh:
 
 
     0.262000     0.000000     1.456862     2.730097     0.665279     0.869784     3.001192
@@ -58,7 +58,7 @@ through this the program will write a new file name popt.pbte. The format of thi
 In the excerpt  above the first value 0.400000 is the energy in Rydbergs, the next 8 numbers correspond to the 8 irreducible k-points and the electric field orientated along x, while the next 8 correspond to electric field orientated along y followed by the z counterpart.
 To identify the order of the k points it is necessery to invoke the lm program with an additional command line switch:
 
-   lm pbte -voptmod=0 -vnit=1 --pr81
+   lm pbte -voptmod=0 -vnit=1 --pr81 --rs=1,0
    
 here the switch "- -pr81"  increases the verbosity setting of the program to print out the required information. With such high verbosity setting a large amount of data is printed, however we are looking for the brillouin zone q-point mapping shown, a complete list of reducible k-points is also provided in this output.
 
@@ -138,7 +138,7 @@ here the switch "- -pr81"  increases the verbosity setting of the program to pri
 
 
 ### _Resolving by k-points and band to band contributions_
-To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and the by k-points. that is for the case below
+To resolve the optics and density data by both k-points and band to band contributions option **OPTICS_PART=3** is used. In this case the popt.ext file has a similar format to the two previous showed, however here the bands are resolved by band to band contribution first and followed by contributions of each k-point within that band-to-band transitions. that is for the case below
 
       OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 LTET=3
               FILBND=4,5 EMPBND=6,7
