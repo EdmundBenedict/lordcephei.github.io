@@ -1086,16 +1086,15 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 #### _Switches for_ lmfgwd
 [//]: (/docs/input/commandline/#switches-for-lmfgwd)
 
-+ **--gwcode=#**\\
-     0 original code;  1 spex code;  2 current code (dating from from Sep 2012)
 + **--jobgw=#**
-^
+
 {:start="-1"}
-^
+
   1. check GWinput
   1. create GWinput
   1. init mode 
   1. driver mode: makes matrix elements for the GW code
+^
 + **--sigw**\\
      Add lines to GWinput needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
      &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
