@@ -789,10 +789,9 @@ file replace **% const met=5** with **% const met=0**.  This will set tag **EXPR
 [**BZ\_METAL**](/docs/input/inputfile/#bz)) to zero.  In this mode it can accumulate the density on the first pass as well.
 
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
-Quadratures are of two types:
-
-+ the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616)).
-+ the weight at k does depend on values of neighboring k ([tetrahedron integration]z|(http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
+Quadratures are of two types:\\
+&#8226;&emsp; the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616))\\
+&#8226;&emsp; the weight at k does depend on values of neighboring k ([tetrahedron integration](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
 
 Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz)) tag.
 The numbers below correspond to the values of **BZ\_METAL**.
