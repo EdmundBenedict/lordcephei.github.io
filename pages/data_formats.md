@@ -90,6 +90,7 @@ The entire real part of the array must occur first, followed by the imginary par
 Site files can assume a variety of formats.
 Their structure is documented [here](/docs/input/sitefile/).
 
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
 #### File formats for k-point lists
 {::comment}
@@ -180,6 +181,8 @@ Use [**plbnds**{: style="color: blue"}](/docs/misc/plbnds/) to read this file fo
 style="color: blue"}](/docs/misc/fplot/).  **plbnds**{: style="color: blue"} generates energy bands in a simple to read, [standard Questaal
 format](/docs/input/data_format/#standard-data-formats-for-2d-arrays). You can use **fplot**{: style="color: blue"} or your favorite
 graphics package.
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
 ##### List mode
 [//]: (/docs/input/data_format/#list-mode)
@@ -274,7 +277,7 @@ format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) and append
 + [,save=_fnam_] causes the list reader to
   write the final <i>k</i>-points list to _fnam.ext_{: style="color: green"}. After writing this file the program automatically stops.
 
-^
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
 ##### Mesh mode
 
@@ -439,3 +442,5 @@ and repeat the **lmf**{: style="color: blue"} band pass.  You should see that <i
 Similarly the bands are slightly modified.
 
 {::nomarkdown}</div>{:/}
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
