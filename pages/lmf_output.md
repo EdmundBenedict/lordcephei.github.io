@@ -530,12 +530,13 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements.
 
 {::nomarkdown} <a name="lda-functionals"></a> {:/}
+
 [//]: (/docs/outputs/lmf_output/#lda-functionals)
 
 It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Heding functional.
 This is controlled by **EXPRESS\_xcfun**, which is an alias for [**HAM\_XCFUN**](/docs/input/inputfile/#ham)..
 To perform a GGA calculation with Kieron Burke's PBE functional,
-remove the line in **EXPRESS** in _ctrl.pbte_{: style="color: green"}
+remove this line in **EXPRESS** in _ctrl.pbte_{: style="color: green"}
 
 ~~~
   xcfun=  {lxcf},{lxcf1},{lxcf2}   # set lxcf=0 for libxc functionals

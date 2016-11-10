@@ -288,9 +288,9 @@ The output begins with a header:
 
 The **pot** line says that **lmfa**{: style="color: blue"} the potential will be made from the Barth-Hedin functional.
 To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).\\
-The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set information (points 3-5 outlined above).
 
-The next few sections amplify on what **lmfa**{: style="color: blue"} does.
+The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set information (points 3-5 outlined above).\\
+The next few sections amplify on these three points.
 
 #####  5.1 Local orbitals
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
