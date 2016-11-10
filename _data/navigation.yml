@@ -142,6 +142,8 @@
       content:
       - title: "LM Tutorial"
         url: "/lm_pbte_tutorial/"
+      - title: "Approximate Linear Response"
+        url: "/linear_response/"
     - name: "GW"
       prefix: "/gw"
       content:
