@@ -791,32 +791,34 @@ file replace **% const met=5** with **% const met=0**.  This will set tag **EXPR
 In metals, the weights depend on the Fermi level <i>E<sub>F</sub></i>, which must be determined from the eigenvalues.
 Quadratures are of two types:
 
-+ the weight at k does not depend on values of neighboring k (sampling integration).
-+ the weight at k does depend on values of neighboring k (tetrahedron integration).
++ the weight at k does not depend on values of neighboring k ([sampling integration](http://link.aps.org/doi/10.1103/PhysRevB.40.3616)).
++ the weight at k does depend on values of neighboring k ([tetrahedron integration]z|(http://link.aps.org/doi/10.1103/PhysRevB.49.16223)).
 
 Questaal has several strategies to solve this chicken-and-egg problem, which you control through the [**BZ\_METAL**](/docs/input/inputfile/#bz)) tag.
+The numbers below correspond to the values of **BZ\_METAL**.
 
-{:start="5"}
+{:start="0"}
 
-0. System assumed to be an insulator; weights determined <i>a priori</i>.
+0. System assumed to be an insulator; weights determined <i>a priori</i>.  Only one pass is required.
 1. Eigenvectors are written to disk, in which case the
-   integration for the charge density can be deferred until all the bands are obtained.  This option is available only for the ASA: When
-   accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.
-3. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass.  If
-   _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
-4. Two band passes are made;
+   integration for the charge density can be deferred until all the bands are obtained.  (_Note:_{: style="color: red"} This option is available only for the ASA. When
+   accumulating just the spherical part of the charge, eigenvector data can be contracted over <i>m</i>, reducing memory demands.)
+2. Integration weights are read from file _wkp.ext_{: style="color: green"}, which will have been generated in a prior band pass, e.g. from
+   a prior cycle in the self-consistent iteration.
+   If _wkp.ext_{: style="color: green"} is missing or unsuitable, the program will temporarily switch to METAL=3.
+3. Two band passes are made;
    the first generates only eigenvalues to determine <i>E<sub>F</sub></i>. It is slower than METAL=2, but it is more stable which can be
    important in difficult cases.
-5. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
+4. Three distinct Fermi levels are assumed and weights generated for each.  After <i>E<sub>F</sub></i> is
    determined, the actual weights are calculated by quadratic interpolation through the three points.  The three Fermi levels are gradually
    narrowed to a small window around the true <i>E<sub>F</sub></i> in the course of the self-consistency cycle. This scheme works for sampling
    integration where the <i>k</i>-point weights depend on <i>E<sub>F</sub></i> only and not eigenvalues at neighboring <i>k</i>. You can also
    use this scheme in a mixed tetrahedron/sampling method: Weights for the band sum are determined by tetrahedron, but the charge density is
    integrated by sampling. It works better than straight sampling because the total energy is variational in the density.
-6. like METAL=3
-   in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in the first pass. This is the
-   recommended mode for <b>lmf</b> unless you are working with a large system and need to conserve memory.
+5. like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
+   This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
 
+The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.
 
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
