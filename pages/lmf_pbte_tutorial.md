@@ -629,7 +629,8 @@ Each iteration of the self-consistency cycle begins with
 ...
 ~~~
 
-One iteration consists of the following steps:
+One iteration consists of the following steps.
+The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
 + Construct the potential and matrix elements.
   + [Interstitial and local parts](/docs/outputs/lmf_output/#potential-and-matrix-elements) of the potential are made.
@@ -642,12 +643,11 @@ One iteration consists of the following steps:
   This is sufficient to make the Kohn-Sham hamiltonian. Other matrix elements may be made depending on circumstances, matrix elements
   for [optics](/tutorial/application/optics/) or for [spin-orbit coupling](/docs/input/inputfile/#ham) (**HAM\_SO=t**).
 ^
-+ Makes an initial pass through the irreducible _k_ points in the Brillouin zone
-  to [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).
-  and obtain integration weights for each band and _k_ point into a binary file _wkp.pbte_{: style="color: green"}.
-  In general until the Fermi level is known, the weights assigned to each eigenfunction are not known, so the charge density cannot be assembled.
-  What is done in the first pass depends on **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
-  for further discussion.
++ Makes an initial pass through the irreducible _k_ points in the Brillouin zone to
+  [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).  and obtain integration weights for each band and _k_
+  point into a binary file _wkp.pbte_{: style="color: green"}.  In general until the Fermi level is known, the weights assigned to each
+  eigenfunction are not known, so the charge density cannot be assembled.  How labor is divided between the first and second pass depends on
+  **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
 + Makes a second pass to accumulate the charge density.  For local densities,
   essential information is retained as coefficients of the local density matrix (a compact form).
 + Assembles the local densities (true and smoothed) on their radial meshes from density matrices
@@ -658,7 +658,6 @@ One iteration consists of the following steps:
 + mixes the input and output densities to form a new trial density
 + checks for convergence
 
-The standard output is annotated in some detail [here](/docs/outputs/lmf_output).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 
