@@ -757,9 +757,9 @@ Command-line switches:
 
    1. Performs some sanity checks on _GWinput_{: style="color: green"}.
    1. create _GWinput_{: style="color: green"} template, and also  _KPTin1BZ_{: style="color: green"}, _QIBZ_{: style="color: green"}.
-   1. init mode : creates files 
+   1. init mode : create files 
       _SYMOPS_{: style="color: green"} &thinsp;_SYMOPS_{: style="color: green"} &thinsp;_LATTC_{: style="color: green"} &thinsp;_CLASS_{: style="color: green"} &thinsp;_NLAindx_{: style="color: green"}.
-   1. driver mode: makes matrix elements for the GW code: files
+   1. driver mode: make interface to the GW code: files
       &thinsp;_gwb.ext_{: style="color: green"}
       &thinsp;_gw1.ext_{: style="color: green"}
       &thinsp;_gw2.ext_{: style="color: green"}

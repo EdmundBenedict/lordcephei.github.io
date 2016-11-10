@@ -533,7 +533,7 @@ Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevan
 
 [//]: (/docs/outputs/lmf_output/#lda-functionals)
 
-It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Heding functional.
+It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Hedin functional.
 This is controlled by **EXPRESS\_xcfun**, which is an alias for [**HAM\_XCFUN**](/docs/input/inputfile/#ham)..
 To perform a GGA calculation with Kieron Burke's PBE functional,
 remove this line in _ctrl.pbte_{: style="color: green"}
@@ -549,15 +549,15 @@ and add this to the **HAM** category:
 ~~~
 
 When you run **lmfa**{: style="color: blue"} or **lmf**{: style="color: blue"}
-the header should now readL
+the header should now read
 
 ~~~
  pot:      XC:PW91+PBE(gga)
 ~~~
 
-Note that you should start the calculation from the beginning with this change, since
+_Note:_{: style="color: red"} you should start the calculation from the beginning with this change, since
 the atomic densities are made from a Barth-Hedin functional.  The core densities 
-made by **lmfa**{: style="color: blue"} are frozen and will carry over into this calculation.
+made by **lmfa**{: style="color: blue"} are frozen and will carry over into the **lmf**{: style="color: blue"} calculation.
 
 The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
 boundaries.  It serves as a boundary condition for the solving Poisson's equation inside each sphere.

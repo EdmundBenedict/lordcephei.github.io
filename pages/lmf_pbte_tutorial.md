@@ -277,7 +277,7 @@ $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp p
 ~~~
 
 The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file).
-The output begins with a header:
+It begins with a header:
 
 ~~~
  LMFA:     nbas = 2  nspec = 2  vn 7.11.i  verb 35
@@ -290,7 +290,7 @@ The **pot** line says that **lmfa**{: style="color: blue"} the potential will be
 To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
 
 The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set information (points 3-5 outlined above).\\
-The next few sections amplify on these three points.
+The next few sections amplify on these three points.  Point 6 is discussed [here](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
 
 #####  5.1 Local orbitals
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
@@ -544,9 +544,7 @@ This information will be used to overlap free-atomic densities to obtain a trial
 This is explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius).
 
 ##### 5.5 Estimate for GMAX
-{::comment}
-(/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)
-{:/comment}
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)
 
 After looping over all species **lmfa**{: style="color: blue"} writes basis information to
 _basp0.pbte_{: style="color: green"}, atomic charge density data to file

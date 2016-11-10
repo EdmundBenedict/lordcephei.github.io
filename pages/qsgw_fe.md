@@ -72,7 +72,7 @@ cp bnds.fe bnds.lda
 QSGW self-consistency
 
 ~~~
-lmfgwd --jobgw=-1 ctrl.fe
+lmfgwd --jobgw=-1 --sigw ctrl.fe
 nano GWinput
 lmgwsc --mpi=6,6 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
 grep more out.lmgwsc 
