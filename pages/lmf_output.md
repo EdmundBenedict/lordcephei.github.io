@@ -536,7 +536,7 @@ Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevan
 It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Heding functional.
 This is controlled by **EXPRESS\_xcfun**, which is an alias for [**HAM\_XCFUN**](/docs/input/inputfile/#ham)..
 To perform a GGA calculation with Kieron Burke's PBE functional,
-remove this line in **EXPRESS** in _ctrl.pbte_{: style="color: green"}
+remove this line in _ctrl.pbte_{: style="color: green"}
 
 ~~~
   xcfun=  {lxcf},{lxcf1},{lxcf2}   # set lxcf=0 for libxc functionals
@@ -548,14 +548,15 @@ and add this to the **HAM** category:
     XCFUN=3  GGA=3
 ~~~
 
-The header should then have this line:
+When you run **lmfa**{: style="color: blue"} or **lmf**{: style="color: blue"}
+the header should now readL
 
 ~~~
  pot:      XC:PW91+PBE(gga)
 ~~~
 
-Note that you should start the tutorial from the beginning with this change, since
-**lmfa**{: style="color: blue"} used Barth-Hedin functional.  The core densities 
+Note that you should start the calculation from the beginning with this change, since
+the atomic densities are made from a Barth-Hedin functional.  The core densities 
 made by **lmfa**{: style="color: blue"} are frozen and will carry over into this calculation.
 
 The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
