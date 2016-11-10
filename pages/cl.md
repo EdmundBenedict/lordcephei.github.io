@@ -748,6 +748,8 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 **lmfgwd**{: style="color: blue"} is the interface to the _GW_ code.
 
+Command-line switches:
+
 **-\-jobgw=#**
 :  Tells **lmfgwd**{: style="color: blue"} what to make.
 
