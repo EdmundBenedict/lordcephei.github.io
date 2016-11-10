@@ -1083,6 +1083,28 @@ Command-line switches:
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ lmfgwd
+
++ **--gwcode=#**\\
+     0 original code;  1 spex code;  2 current code (dating from from Sep 2012)
++ **--jobgw=# **\\
+  {:start="-1"}
+    -2. check GWinput
+    -1. create GWinput
+     0. init mode 
+     1. driver mode: makes matrix elements for the GW code
++ **--sigw    **\\
+     Add lines to GWinput need to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
+     &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
+     _Note:_{: style="color: red"} With the addition of these lines **hsfp0**{: style="color: blue"}
+     must be run with job 4.  These these lines do not affect **hs0fp0\_sc**{: style="color: blue"}.
++ **--vxcsig  **\\
+     Write qsgw sigma in place of LDA vxc into  vxc  file
++ **--shorbz=no**\\
+    Suppress shortening of q
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
 #### _Switches for_ lmfgws
 
 + **--sfuned**\\
