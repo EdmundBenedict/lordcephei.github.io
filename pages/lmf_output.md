@@ -827,6 +827,7 @@ The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Ex
 {::nomarkdown}</div>{:/}
 
 In metals how the weights are made depends on the quadrature.
+See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the tetrahedron and sampling
 
 [//]:  {::nomarkdown}</div>{:/}
 
