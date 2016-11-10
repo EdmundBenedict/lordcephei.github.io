@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "The fplot tool"
+title: "Brillouin zone integration"
 permalink: "/docs/numerics/bzintegration/"
 header: no
 ---

@@ -763,6 +763,24 @@ and the "bandgap."
 _Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
 used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
 
+In the case of a metal the situation is more complicated.  The following table was extracted from the last iteration in the LDA self-consistency cycle in the [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+
+~~~
+ BZWTS : --- Tetrahedron Integration ---
+         Est E_f           Window        Tolerance  DOS(E_f)
+        -0.003084  -0.004660  -0.002423   0.002236  14.413343
+        -0.003084  -0.003094  -0.003072   0.000022  14.391220
+        -0.003084  -0.003084  -0.003084   0.000000  14.391209
+ BZINTS: Fermi energy:     -0.003084;   8.000000 electrons;  D(Ef):   
+         Sum occ. bands:   -1.3182580  incl. Bloechl correction:   -0.001198
+         Mag. moment:       
+~~~
+
+The data printed **BZINTS** is all significant, including the Fermi level (**-0.003084**Ry) and density-of-states there (**14.391** Ry<sup>&minus;1</sup>).
+The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>)) is close to the experimental value
+The Bloechl correction (-0.001001 Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
+are used instead of weights calculated from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
+
 #### _Integration weights and the METAL switch_
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
 
@@ -822,7 +840,7 @@ The numbers below correspond to the values of **BZ\_METAL**.
 5. Like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
    This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
 
-The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [this tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
 
 {::nomarkdown}</div>{:/}
 
@@ -834,7 +852,7 @@ See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the 
 ### Output density and update of augmentation sphere boundary conditions
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
 
-A second pass is made with output simiar to the first pass.
+A second pass over the irreducible k-points is made with output similar to the first pass.
 
 In the second pass the output density is made.
 
