@@ -238,7 +238,8 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 ####  5. _Initial setup: free atomic density and parameters for basis_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 
-To carry out a self-consistent calculation, we need to prepare the following.
+To carry out a self-consistent calculation in the crystal, we will run calculations for free atoms first.
+This is necessary to prepare the following.
 
 1. Make a [self-consistent atomic density](/docs/outputs/lmfa_output/#self-consistent-density) for each species.
 2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
@@ -257,7 +258,7 @@ To carry out a self-consistent calculation, we need to prepare the following.
    Local orbitals are written _basp0.pbte_{: style="color: green"} as nonzero values of &thinsp;**PZ**.
 6. Supply an [estimate](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax) for the interstitial density plane wave cutoff **GMAX**.
 
-**lmfa**{: style="color: blue"} is a tool that will provide all of this information automatically.  It will write atomic density information
+**lmfa**{: style="color: blue"} will provide all of this information automatically.  It will write atomic density information
 to _atm.pbte_{: style="color: green"} and basis set information to template _basp0.pbte_{: style="color: green"}.  The Questaal suite reads
 from _basp.pbte_{: style="color: green"}, but **lmfa**{: style="color: blue"} writes to basp0 to avoid overwriting a file you may want to
 preserve.  You can edit _basp.pbte_{: style="color: green"} and customize the basis set.
@@ -268,6 +269,20 @@ As a first step, do:
 $ lmfa ctrl.pbte                                #use lmfa to make basp file, atm file and to get gmax
 $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp prefix
 ~~~
+
+The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file)
+
+The [early part of the standard output](docs/outputs/lmfa_output/#header-lattice-and-symmetry-blocks) is of limited interest,
+but the header has this line:
+
+~~~
+ LMFA:     nbas = 2  nspec = 2  vn 7.11.i  verb 35
+ special
+ pot:      XC:BH
+ autogen:  mto basis(4), pz(1), pnu(1)   Autoread: pz(1)
+~~~
+
+It says that you are using the Barth-Hedin functional.  To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
 
 #####  5.1 Local orbitals
 {::comment}

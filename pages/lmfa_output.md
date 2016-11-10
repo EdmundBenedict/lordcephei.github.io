@@ -191,7 +191,8 @@ you expect.  Using `--show` is useful if you want to record the input conditions
 The action of `--show` is similar to what occurs with **lmf**{: style="color: blue"}; see
 [see annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#display-tags-parsed-in-the-input-file) for further discussion.
 
-### 3. Header, lattice, and symmetry blockss
+### 3. Header, lattice, and symmetry blocks
+[//]: (docs/outputs/lmfa_output/#header-lattice-and-symmetry-blocks)
 
 The header information presents a condensed synopsis of some key
 settings that are used in the calculation.  It is similar to the

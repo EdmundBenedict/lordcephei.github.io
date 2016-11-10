@@ -118,9 +118,9 @@
     - name: "lmf"
       prefix: "/lmf"
       content:
-      - title: "Basic Tutorial: self-consistent calculation of Si"
+      - title: "Basic Tutorial: LDA calculation of Si"
         url: "/lmf_tutorial/"
-      - title: "Self-consistent calculation of PbTe"
+      - title: "Detailed Tutorial: LDA calculation of PbTe"
         url: "/lmf_pbte_tutorial/"
       - title: "Properties of the lmf basis set"
         url: "/lmf_bi2te3_tutorial/"

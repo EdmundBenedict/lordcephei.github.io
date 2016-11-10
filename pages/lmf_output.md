@@ -216,6 +216,8 @@ settings that are used in the calculation.
  bz:       metal(5), tetra, invit
 ~~~
 
+It tells you, for example that you are using the Barth-Hedin functional
+
 ### _Lattice information_
 [//]: (/docs/outputs/lmf_output/#lattice-information)
 
@@ -423,9 +425,7 @@ overlaps them (Mattheis construction).  This makes a reasonable guess for the de
 potential is a relatively modest perturbation to it.  Thus the true density is typically not so far from a superposition of atomic densities.
 
 {::nomarkdown} <a name="mattheis-construction"></a> {:/}
-{::comment}
-(/docs/outputs/lmf_output/#mattheis-construction)
-{:/comment}
+[//]: (/docs/outputs/lmf_output/#mattheis-construction)
 
 <div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for annotation of Mattheis construction printout.</span>
@@ -527,7 +527,35 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 ### Potential and Matrix Elements
 [//]: (/docs/outputs/lmf_output/#potential-and-matrix-elements)
 
-Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements
+Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements.
+
+{::nomarkdown} <a name="lda-functionals"></a> {:/}
+[//]: (/docs/outputs/lmf_output/#lda-functionals)
+
+It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Heding functional.
+This is controlled by **EXPRESS\_xcfun**, which is an alias for [**HAM\_XCFUN**](/docs/input/inputfile/#ham)..
+To perform a GGA calculation with Kieron Burke's PBE functional,  add this line to the input file
+remove the line in **EXPRESS**
+
+~~~
+  xcfun=  {lxcf},{lxcf1},{lxcf2}   # set lxcf=0 for libxc functionals
+~~~
+
+and add this to the **HAM** category
+
+~~~
+    XCFUN=3  GGA=3
+~~~
+
+The header should then have this line:
+
+~~~
+ pot:      XC:PW91+PBE(gga)
+~~~
+
+Note that you should start the tutorial from the beginning with this change, since
+**lmfa**{: style="color: blue"} used Barth-Hedin functional.  The core densities 
+made by **lmfa**{: style="color: blue"} are frozen and will carry over into this calculation.
 
 The smooth part of the potential is made first.  This is necessary to determine the electrostatic potential on the augmentation sphere
 boundaries.  It serves as a boundary condition for the solving Poisson's equation inside each sphere.
