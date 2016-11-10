@@ -1101,7 +1101,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
      &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
      _Note:_{: style="color: red"} With the addition of these lines **hsfp0**{: style="color: blue"}
      must be run with job 4.  These these lines do not affect **hs0fp0\_sc**{: style="color: blue"}.
-+ **--vxcsig  **\\
++ **--vxcsig**\\
      Write qsgw sigma in place of LDA vxc into  vxc  file
 + **--shorbz=no**\\
     Suppress shortening of q
