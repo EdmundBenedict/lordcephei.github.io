@@ -14,11 +14,11 @@ _____________________________________________________________
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
 of **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} are explained.
-See also the [Fe tutorial](/tutorial/gw/qsgw_fe/), An LDA calculation for Fe for a ferromagnetic metal is followed by a QS<i>GW</i> calculation.
+See also the [Fe tutorial](/tutorial/gw/qsgw_fe/), an LDA+QSGW calculation for a ferromagnetic metal.
 This tutorial:
 
-1. explains the input file's structure and illustrates some of its programming language capabilities
-2. generates self consistent atomic densities, to provide information for the crystal calculation
+1. explains the input file's structure and illustrates a few of its programming language capabilities
+2. generates self consistent atomic densities, to set up the crystal calculation
 3. generates a self consistent potential within the LDA
 
 It synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the same system, enabling a comparison of the ASA and full
