@@ -244,7 +244,7 @@ These calculations prepare the following.
 
 1. Make a [self-consistent atomic density](/docs/outputs/lmfa_output/#self-consistent-density) for each species.
 2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius). 
-   **lmf**{: style="color: blue"} needs this information to overlap atomic densities for an initial [trial density](/docs/outputs/lmf_output/#mattheis-construction).\\
+   **lmf**{: style="color: blue"} needs this information to overlap atomic densities for an initial [trial density](/docs/outputs/lmf_output/#mattheis-construction).
 
    Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
 
@@ -277,8 +277,7 @@ $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp p
 ~~~
 
 The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file)
-The [early part](/docs/outputs/lmfa_output/#header-lattice-and-symmetry-blocks) is mostly of limited interest,
-but the header has this line:
+The calculation begins with a header:
 
 ~~~
  LMFA:     nbas = 2  nspec = 2  vn 7.11.i  verb 35
@@ -287,7 +286,11 @@ but the header has this line:
  autogen:  mto basis(4), pz(1), pnu(1)   Autoread: pz(1)
 ~~~
 
-It says that you are using the Barth-Hedin functional.  To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
+The **pot** line says that **lmfa**{: style="color: blue"} the potential will be made from the Barth-Hedin functional.
+To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
+
+The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set 3-5 information outlined above.
+
 
 #####  5.1 Local orbitals
 {::comment}
