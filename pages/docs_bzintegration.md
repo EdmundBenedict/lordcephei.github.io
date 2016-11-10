@@ -51,10 +51,9 @@ $$D(E) = \frac{V}{(2\pi)^{3}}\sum_{n} \int_{BZ} \delta \left(E_{n}(k) - E \right
 
 When the material is an insulator, sum over occupied states means sum over all the filled bands. Then *E*band can be written simply as 
 
-$$ {E_{{\rm{band}}}} = \frac{V}{{{{(2\pi )}^3}}} \sum\nolimits_{n}^{\rm{occ}} {\int_{{\rm{BZ}}} {{E_n}({\bf{k}}){d^3}{\bf{k}}} } $$
+$$E_{band} = \frac{V}{(2\pi)^{3}}\sum_{BZ} E_{n}(k)d^{3}k$$
 
 Each band is an analytic, periodic function of **k**, so numerical integration on the uniform mesh enables the band sum to converge with the **k** mesh in proprtion to how quickly the $C_{T}$ of the fourier series above decay.   
-
 
 For a metal the situation is more complicated. There is an abrupt truncation of the occupied part of the band at the Fermi level $E_{F}$. At 0K the behavior is non-analytic; at normal finite temperatures the non-analyticity is only a little softened.
  
