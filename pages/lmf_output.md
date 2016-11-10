@@ -534,14 +534,14 @@ Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevan
 
 It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Heding functional.
 This is controlled by **EXPRESS\_xcfun**, which is an alias for [**HAM\_XCFUN**](/docs/input/inputfile/#ham)..
-To perform a GGA calculation with Kieron Burke's PBE functional,  add this line to the input file
-remove the line in **EXPRESS**
+To perform a GGA calculation with Kieron Burke's PBE functional,
+remove the line in **EXPRESS** in _ctrl.pbte_{: style="color: green"}
 
 ~~~
   xcfun=  {lxcf},{lxcf1},{lxcf2}   # set lxcf=0 for libxc functionals
 ~~~
 
-and add this to the **HAM** category
+and add this to the **HAM** category:
 
 ~~~
     XCFUN=3  GGA=3
