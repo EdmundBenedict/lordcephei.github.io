@@ -759,11 +759,11 @@ It saves the k-point weights into a binary file _wkp.pbte_{: style="color: green
 In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically:
 it prints out the highest occupied state and lowest unoccupied state it encountered
 and the "bandgap."
-
 _Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
 used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
 
-In the case of a metal the situation is more complicated.  The following table was extracted from the last iteration in the LDA self-consistency cycle in the [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+In a metal the situation is more complicated.  The following table was extracted from the [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
+(self-consistent LDA)
 
 ~~~
  BZWTS : --- Tetrahedron Integration ---
@@ -771,14 +771,14 @@ In the case of a metal the situation is more complicated.  The following table w
         -0.003084  -0.004660  -0.002423   0.002236  14.413343
         -0.003084  -0.003094  -0.003072   0.000022  14.391220
         -0.003084  -0.003084  -0.003084   0.000000  14.391209
- BZINTS: Fermi energy:     -0.003084;   8.000000 electrons;  D(Ef):   
+ BZINTS: Fermi energy:     -0.003084;   8.000000 electrons;  D(Ef):   14.391
          Sum occ. bands:   -1.3182580  incl. Bloechl correction:   -0.001198
          Mag. moment:       
 ~~~
 
-The data printed **BZINTS** is all significant, including the Fermi level (**-0.003084**Ry) and density-of-states there (**14.391** Ry<sup>&minus;1</sup>).
-The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>)) is close to the experimental value
-The Bloechl correction (-0.001001 Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
+The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Rys).
+The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value
+The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
 are used instead of weights calculated from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
 #### _Integration weights and the METAL switch_
@@ -789,7 +789,7 @@ In insulators, each point in the full Brillouin zone gets equal weight; each poi
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for discussion of strategies to perform integration.</span>
+<span style="text-decoration:underline;">Click here for discussion of role of the METAL switch in performing integration.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
 
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
@@ -854,35 +854,36 @@ See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the 
 
 A second pass over the irreducible k-points is made with output similar to the first pass.
 
-In the second pass the output density is made.
+In the second pass the output density is made and symmetrized.  This table tells you
+how many electrons are inside each augmentation sphere
 
 ~~~
  mkrout:  Qtrue      sm,loc       local
    1   12.610810    6.902591    5.708219
    2    5.275210    6.408075   -1.132866
-~~~
 
-
+The
+[logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
+**pnu** are updated.  Whether they are frozen or allowed to float depends on **SPEC\_ATOM\_IDMOD**.  In this tutorial they are all allowed to float.
 
 ~~~
  Make new boundary conditions for phi,phidot..
 
- site    1   species   1:Pb
+ site    1   species   1:Pb      
  l  idmod     ql         ebar        pold        ptry        pfree        pnew
  0     0    1.700379   -0.652781    6.895000    6.901582    6.500000    6.901582
  1     0    0.846967   -0.353483    6.809000    6.620518    6.250000    6.620518
  2     0    0.121211   -0.338472    6.250000    6.143261    6.147584    6.250000
  2     0    sc         -1.306275    5.934000    5.938843    5.147584   15.938843
  3     0    0.032691   -0.376447    5.183000    5.125635    5.102416    5.125635
- 4     0    0.005476   -0.403337    5.089000    5.085123    5.077979    5.088586
-
- site    2   species   2:Te
- l  idmod     ql         ebar        pold        ptry        pfree        pnew
- 0     0    1.776356   -0.914304    5.908000    5.907235    5.500000    5.907235
- 1     0    3.401138   -0.308184    5.863000    5.837701    5.250000    5.837701
- 2     0    0.079330   -0.456567    5.441000    5.193659    5.147584    5.250000
- 3     0    0.018386   -0.559688    4.182000    4.116698    4.102416    4.121119
+...
 ~~~
+
+The fractional parts of **P** is of order 0.9 for the 6_s_ and 5_d_ states, because they are deep.  the 5_d_ state is far above
+<i>E<sub>F</sub></i>, and it is close to the free electron value.  (For numerical stability, **P** is frozen for any _l_ for which there is
+a corresponding deep local orbital.)  The 6_p_ state is near the Fermi level, and forms the predominant contribution to the bonding and band
+structure.  See [this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an
+interpreration.
 
 ### Total energy and forces
 [//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
