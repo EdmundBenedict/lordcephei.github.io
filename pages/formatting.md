@@ -85,7 +85,9 @@ But rather, you will find it under
 
     https://lordcephei.github.io/tutorial/lmf/
 
-Which is what we defined in the front matter. Of course, these variables should be tailored for the page in question.
+Which is what we defined in the front matter. Of course, these variables should be tailored for the page in question.    
+
+A skeleton file, containing the basic structure and a non-configured front matter is included in the repository and acts as a good file to start a new tutorial in. It can be found in _pages/skeleton.md_{: style="color: green"}.
 
 ##### _Front Matter: Using The Permalink_
 The site does not naturally use folders due to how **Jekyll**{: style="color: blue"} works. However to simulate files and pages being in different folders, enabling easier navigation or just simply looking better, we can use the "permalink" to pretend that our file is within a folder.
@@ -192,7 +194,11 @@ Then you must manually set the target. To do this, you must change _dropdown( th
 Note _"foobar"_ used in the two locations. If you use this method, then _foobar_ **must** be unique for each dropdown box you make. You should also use this method if you encounter errors or broken dropdown boxes - this method is more involved, and requires management of unique IDs, but it is more robust and should not fail.
 
 ##### _Equations_
-Mathematical equations can be added in-line within the markdown files by enclosing the equation in double dollar signs:
+Mathematical equations can be added in-line within the markdown files by enclosing the equation in dollar signs:
+
+    $equation$
+
+Or in their own block with double dollar signs:
 
     $$equation$$
 
@@ -244,6 +250,15 @@ Giving a final table that looks something like:
     Data 1 | Data 2
     Data 3 | Data 4
     ...
+
+##### _Using HTML_
+Generally we want to avoid the use of HTML within markdown files - the idea behind using markdown is to make it readable in raw text as well as nicely formatted when parsed, HTML obviously goes against this goal. However, if what you want to do is impossible to do in markdown, and you deem it neccessary to the document (stylistic things can still be 'neccessary'), HTML can still be used.    
+
+To use HTML, enclose your HTML in the nomarkdown brackets:
+
+    {::nomarkdown} html here {:/}
+
+Note: Jekyll will **not** parse any markdown within these tags. If you want to use markdown style formatting, you must close the nomarkdown tag before writing any markdown, and reopen it where your closing HTML tag is found (see the dropdown boxes as an example). The other option is to use HTML-style formatting, which will work fine within these tags, although that raises the obvious problem of making the raw text harder to read.
 
 ### _Making Changes_
 
