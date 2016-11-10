@@ -238,8 +238,9 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 ####  5. _Initial setup: free atomic density and parameters for basis_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 
-To carry out a self-consistent calculation in the crystal, we will run calculations for free atoms first.
-This is necessary to prepare the following.
+**lmf**{: style="color: blue"} will carry out a self-consistent calculation in the crystal
+First, it is necessary to perform calculations for free atoms using **lmfa**{: style="color: blue"}.
+These calculations prepare the following.
 
 1. Make a [self-consistent atomic density](/docs/outputs/lmfa_output/#self-consistent-density) for each species.
 2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
@@ -271,8 +272,7 @@ $ cp basp0.pbte basp.pbte                       #copy basp0 to recognised basp p
 ~~~
 
 The output is annotated in some detail [here](/docs/outputs/lmfa_output/#display-tags-parsed-in-the-input-file)
-
-The [early part of the standard output](docs/outputs/lmfa_output/#header-lattice-and-symmetry-blocks) is of limited interest,
+The [early part](/docs/outputs/lmfa_output/#header-lattice-and-symmetry-blocks) is mostly of limited interest,
 but the header has this line:
 
 ~~~
