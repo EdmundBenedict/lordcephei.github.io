@@ -243,9 +243,11 @@ First, however, it is necessary to perform calculations for free atoms using **l
 These calculations prepare the following.
 
 1. Make a [self-consistent atomic density](/docs/outputs/lmfa_output/#self-consistent-density) for each species.\\
-2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius)
-   to analytic functions. **lmf**{: style="color: blue"} needs this information to overlap atomic densities for an initial [trial density](/docs/outputs/lmf_output/#mattheis-construction).<br><br>
+2. Fit the [density outside the augmentation radius](/docs/outputs/lmfa_output/#fitting-the-charge-density-outside-the-augmentation-radius). 
+   **lmf**{: style="color: blue"} needs this information to overlap atomic densities for an initial [trial density](/docs/outputs/lmf_output/#mattheis-construction).\\
+
    Information about the augmented and interstitial parts of the density are written to file _atm.pbte_{: style="color: green"}.
+
 3. Provide a reasonable estimate for the
    [gaussian smoothing radius <i>r<sub>s</sub></i> and hankel energy <i>&epsilon;</i>](/docs/code/smhankels/#differential-equation-for-smooth-hankel-functions))
    that fix the shape of the [smooth Hankel envelope functions](/tutorial/lmf/lmf_pbte_tutorial/#envelopes-explained)
