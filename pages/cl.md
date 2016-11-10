@@ -743,6 +743,39 @@ to the LDA potential.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ lmfgwd
+[//]: (/docs/input/commandline/#switches-for-lmfgwd)
+
+**--jobgw=#**
+:  Set more for **lmfgwd**{: style="color: blue"}
+
+   {:start="-2"}
+
+   1. check GWinput
+   1. create GWinput
+   1. init mode 
+   1. driver mode: makes matrix elements for the GW code
+
+
++ **--sigw**\\
+     Add lines to GWinput needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
+     &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
+     _Note:_{: style="color: red"} With the addition of these lines **hsfp0**{: style="color: blue"}
+     must be run with job 4.  These these lines do not affect **hs0fp0\_sc**{: style="color: blue"}.
++ **--vxcsig**\\
+     Write qsgw sigma in place of LDA vxc into  vxc  file
++ **--shorbz=no**\\
+    Suppress shortening of q
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
+#### _Switches for_ lmfgws
+
++ **--sfuned**\\
+  Run the spectral function editor. Invoke the editor to see see its usage.
+
+See [Table of Contents](/docs/input/commandline/#table-of-contents)
+
 #### _Switches for_ lm
 {::comment}
 (/docs/input/commandline/#switches-for-lm)
@@ -1080,39 +1113,6 @@ Command-line switches:
    Example: **lmxbs &thinsp; "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
 
-
-See [Table of Contents](/docs/input/commandline/#table-of-contents)
-
-#### _Switches for_ lmfgwd
-[//]: (/docs/input/commandline/#switches-for-lmfgwd)
-
-**--jobgw=#**
-:  Set more for **lmfgwd**{: style="color: blue"}
-
-   {:start="-2"}
-
-   1. check GWinput
-   1. create GWinput
-   1. init mode 
-   1. driver mode: makes matrix elements for the GW code
-
-
-+ **--sigw**\\
-     Add lines to GWinput needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
-     &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
-     _Note:_{: style="color: red"} With the addition of these lines **hsfp0**{: style="color: blue"}
-     must be run with job 4.  These these lines do not affect **hs0fp0\_sc**{: style="color: blue"}.
-+ **--vxcsig**\\
-     Write qsgw sigma in place of LDA vxc into  vxc  file
-+ **--shorbz=no**\\
-    Suppress shortening of q
-
-See [Table of Contents](/docs/input/commandline/#table-of-contents)
-
-#### _Switches for_ lmfgws
-
-+ **--sfuned**\\
-  Run the spectral function editor. Invoke the editor to see see its usage.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
