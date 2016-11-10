@@ -732,7 +732,8 @@ The result displayed in a table:
 ### Brillouin zone integration
 [//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
-For Brillouin zone integration, code makes two passes.
+The charge density and Fermi level must be found by integration over the 
+rillouin zone.  The code makes two passes over the irreducible _k_ points.
 The first is needed to obtain the Fermi level:
 
 ~~~
@@ -755,13 +756,17 @@ The first is needed to obtain the Fermi level:
 
 It saves the k-point weights into a binary file _wkp.pbte_{: style="color: green"}.
 
-In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically,
-and prints out the energies of the band edges and the bandgap.
+In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically:
+it prints out the highest occupied state and lowest unoccupied state it encountered
+and the "bandgap."
 
-### Integration weights and the METAL switch
+_Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
+used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
+
+#### Integration weights and the METAL switch
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
 
-Numerical quadrature is used to to accumulate the output density or any property integrated over the Brillouin zone.
+Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
 In insulators, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
