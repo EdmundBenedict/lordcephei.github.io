@@ -745,6 +745,34 @@ Is is important that the system be neutral.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
+### Reading QSGW self-energies
+
+~~~
+ RDSIGM: read file sigm and create COMPLEX sigma(R) by FT ...
+         Sigm will be approximated by:  diagonal Sigma for high and low states 
+         Approximate sigma for energies E(lda)>2
+         For high states read constant sigii from sigm file 
+         sigm file has 29 irreducible QP: nk = ( 8 8 8 )  shift= F F F
+         average SE read from sigm file:   0.122871 0.138308
+ hft2rs: make neighbor table for r.s. hamiltonian using range = 5 * alat
+ pairc:  1037 pairs total  1037 is max cluster size
+ hft2rs: found 512 connecting vectors out of 512 possible for FFT
+ symiax: enlarged neighbor table from 512 to 597 pairs (48 symops)
+
+ q-points in full BZ where sigma calculable ...
+ BZMESH:  512 irreducible QP from 512 ( 8 8 8 )  shift= F F F
+ Irr. qp for which sigma is calculated ...
+ BZMESH:  29 irreducible QP from 512 ( 8 8 8 )  shift= F F F
+ 
+ hft2rs created hrs:  ndhrs=30  max Re(hrs) = 0.556  max Im(hrs) = 3.93e-10
+ hft2rs created hrs:  ndhrs=30  max Re(hrs) = 0.571  max Im(hrs) = 3.96e-10
+ check FT s(R) against s(q) ... maximum error = 2.3e-15 < tol (5e-6)
+ check FT s(R) against s(q) ... maximum error = 2.1e-15 < tol (5e-6) spin 2
+ rsmsym: symmetrizing complex s(1..597) using 48 group operations
+ symstr: max asymmetry = 2.78e-17
+ check FT s(R) against s(q) ... maximum error = 7.8e-15
+ check FT s(R) against s(q) ... maximum error = 6.6e-15 spin 2
+~~~
 
 ### Parameters for local orbitals
 [//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
@@ -978,6 +1006,8 @@ h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 
 No check is made because there is no prior iteration to compare the change
 in total energy.
+
+The self-consistency cycle
 
 In the 10<sup>th</sup> iteration, the convergence check reads
 

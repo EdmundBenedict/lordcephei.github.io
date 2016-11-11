@@ -685,9 +685,7 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
   ~~~
   mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
   ~~~
-
   
-
 + Computes the forces
 
 + [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density
