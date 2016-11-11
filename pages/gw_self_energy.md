@@ -677,18 +677,18 @@ $ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 
 This invocation runs **lmfgws**{: style="color: blue"} in batch mode, and writes the spectral and noninteracting DOS to file _sdos.fe_{: style="color: green"}.
 The editor's instructions do the following (documented [here](/tutorial/gw/gw_self_energy/#editor-instructions)):
 
-+ units eV\\
++ **units eV**\\
   Set units to eV; spectrum DOS will be written in eV.
-+ readsek\\
++ **readsek**\\
   Read _se.fe_{: style="color: green"}
-+ eps .030\\
++ **eps .030**\\
   Add 30 meV smearing to Im &Sigma;
-+ dos isp=1 range=-10,10 nq=32 nw=30\\
++ **dos isp=1 range=-10,10 nq=32 nw=30**\\
   Make the DOS for spin 1, in the energy range (-10,10) eV, interpolating &Sigma; to a **k** mesh 32&times;32&times;32 divisions, and refining the energy mesh by a factor of 30.
   The as-given **k** mesh is 8&times;8&times;8 divisions.
-+ savesea\\
++ **savesea**\\
   Write the DOS.
-+ q\\
++ **q**\\
   Exit the editor.
 
 _Notes:_{: style="color: red"}
