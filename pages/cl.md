@@ -1086,7 +1086,7 @@ It has some limited ability to make spectral functions but mainly it translates 
 See [this tutorial](/tutorial/gw/gw_self_energy/#the-self-energy-postprocessor).
 
 _Note on the switches:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
-&Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
+&Sigma; varyies smoothly with <i>&omega;</i> and can be interpolated to a fine mesh.
 **nw** and **domg** are designed to interpolate &Sigma;.  In the following, choose either **nw** or **domg**.
 If you are using **spectral**{: style="color: blue"} only to make _se_{: style="color: green"} for **lmfgws**{: style="color: blue"},
 it is better not to interpolate and use **-\-nw=1**.
