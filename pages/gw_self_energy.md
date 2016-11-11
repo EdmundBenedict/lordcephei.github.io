@@ -324,19 +324,14 @@ $$
 
 The 1-shot GW self-energy maker, **hsfp0**{: style="color: blue"}, has a mode (**-\-job=4**) make the dynamical &Sigma;(<b>k</b>,<i>&omega;</i>).
 Some changes to _GWinput_{: style="color: green"} are needed.  **lmfgwd**{: style="color: blue"} will automatically make these 
-changes
-These changes
+changes if you used switch **-\-sigw** in the [QS<i>GW</i> tutorial](/tutorial/gw/qsgw_fe/).
+
+<div onclick="elm = document.getElementById('edit'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to view changes to GWinput.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="edit">{:/}
 
 
-+ If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
-
-~~~
-$ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp --stop=sig fe
-~~~
-
-This step is not necessary if you have completed the [QSGW Fe tutorial](/tutorial/gw/qsgw_fe/) without removing any files.
-
-+ With your text editor, modify _GWinput_{: style="color: green"}.  Change these two lines:
+With your text editor, modify _GWinput_{: style="color: green"}.  Change these two lines:
 
 ~~~
  --- Specify qp and band indices at which to evaluate Sigma
@@ -351,6 +346,30 @@ into these four lines:
                    : this omegamaxin is range of plotting -omegamaxin to omegamaxin.
                    : If omegamaxin is too large or not exist, the omegarange of W by hx0fp0 is used.
 ~~~
+
+Also change these lines
+
+~~~
+*** Sigma at all q -->1; to specify q -->0.  Second arg : up only -->1, otherwise 0
+  0  0
+~~~
+
+to
+
+~~~
+*** Sigma at all q -->1; to specify q -->0.  Second arg : up only -->1, otherwise 0
+  1  0
+~~~
+
+{::nomarkdown}</div>{:/}
+
+If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
+
+~~~
+$ lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp --stop=sig fe
+~~~
+
+This step is not necessary if you have completed the [QSGW Fe tutorial](/tutorial/gw/qsgw_fe/) without removing any files.
 
 The next step will make &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) on a uniform energy mesh &minus;2 Ry < <i>&omega;</i> < 2 Ry, spaced by 0.01 Ry
 at irreducible points <b>k</b><i><sub>n</sub></i>, for QP levels specified in _GWinput_{: style="color: green"}.  This is a
