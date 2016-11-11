@@ -1079,11 +1079,11 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ spectral
 
-**spectral**{: style="color: blue"} is a tool to postprocess the raw _GW_ dynamical self-energy files.
+**spectral**{: style="color: blue"} is a postprocessor of the raw _GW_ dynamical self-energy files
 _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.
-Mainly it translates these files into a file _se_{: style="color: green"} which
+It has some limited ability to make spectral functions but mainly it translates these files into file _se_{: style="color: green"} which
 [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws) can read.
-See [this tutorial](/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0).
+See [this tutorial](/tutorial/gw/gw_self_energy/#the-self-energy-postprocessor).
 
 _Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
 &Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
