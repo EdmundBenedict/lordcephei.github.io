@@ -460,8 +460,9 @@ A _sec_{: style="color: green"} files takes the following format:
 **spectral**{: style="color: blue"} also makes the _k_-integrated DOS.  However, the _k_ mesh is rather coarse and a
 [better DOS](/tutorial/gw/gw_self_energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
 
-<div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to see spectral's standard output</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 0px 0px 0px;"id="spectral">{:/}
+<div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to view changes to GWinput.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="spectral">{:/}
 
 ~~~
  spectral: read 29 qp from QIBZ
