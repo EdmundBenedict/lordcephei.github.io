@@ -458,10 +458,11 @@ A _sec_{: style="color: green"} files takes the following format:
 ~~~
 
 **spectral**{: style="color: blue"} also makes the _k_-integrated DOS.  However, the _k_ mesh is rather coarse and a
-[better DOS](/tutorial/gw/gw_self_energy/#interacting-density-of-states) can be made using **lmfgws**{: style="color: blue"}.
+better DOS can be made with **lmfgws**{: style="color: blue"}.
+See [below](/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe).
 
 <div onclick="elm = document.getElementById('spectral'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here to view changes to GWinput.</span>
+<span style="text-decoration:underline;">Click to see spectral's standard output.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="spectral">{:/}
 
 ~~~
@@ -704,11 +705,11 @@ _Note:_{: style="color: red"} for now, copy the **lmf**{: style="color: blue"}-g
 cp ~/lm/gwd/test/fe/dosp.fe dosp.fe
 ~~~
 
-The following draws a figure comparing the DOS generated three different ways.  It uses the [**fplot**{: style="color: blue"} tool](/docs/misc/fplot/).
+The following uses the [**fplot**{: style="color: blue"} tool](/docs/misc/fplot/) to draw a figure comparing the DOS generated the three different ways.
 Cut and paste the contents of the box below into script file _plot.dos_{: style="color: green"}.
 
 ~~~
-%char0 ltdos="1,bold=3,col=0,0,0"
+% char0 ltdos="1,bold=3,col=0,0,0"
 % var ymax=1.4 dy=0.4 dw=.00 ymax+=dy emin=-10 emax=5 ef=0
 fplot
 
@@ -721,8 +722,8 @@ fplot
 ~~~
 
 <div onclick="elm = document.getElementById('figd'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="figd">{:/}
+<span style="text-decoration:underline;">Run the commands in the box below to create and view the postscript file, or click here to see the figure.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="figd">{:/}
 ![k-integrated spectral function in Fe](https://lordcephei.github.io/assets/img/fedos.svg)
 {::nomarkdown}</div>{:/}
 
