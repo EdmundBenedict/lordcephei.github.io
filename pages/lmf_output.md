@@ -749,6 +749,11 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
 ### Reading QSGW self-energies
 
+If you have performed a QS<i>GW</i> calculation and read a
+self-energy &Sigma;<sup>0</sup>, you will see an indication of it in
+the standard output.  The following was taken from the
+[Fe tutorial](/tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe).
+
 ~~~
  RDSIGM: read file sigm and create COMPLEX sigma(R) by FT ...
          Sigm will be approximated by:  diagonal Sigma for high and low states 
@@ -757,10 +762,13 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
          sigm file has 29 irreducible QP: nk = ( 8 8 8 )  shift= F F F
          average SE read from sigm file:   0.122871 0.138308
  hft2rs: make neighbor table for r.s. hamiltonian using range = 5 * alat
- pairc:  1037 pairs total  1037 is max cluster size
- hft2rs: found 512 connecting vectors out of 512 possible for FFT
- symiax: enlarged neighbor table from 512 to 597 pairs (48 symops)
+~~~
 
++ The cutoff **E(lda)>2** and average self-energies (**0.122871** spin-up and **0.138308** spin-down)
+  above 2Ry
++ Range <b>5 \* alat</b> for inverse Bloch-summed &Sigma;<sup>0</sup>
+  
+~~~
  q-points in full BZ where sigma calculable ...
  BZMESH:  512 irreducible QP from 512 ( 8 8 8 )  shift= F F F
  Irr. qp for which sigma is calculated ...
@@ -775,6 +783,9 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
  check FT s(R) against s(q) ... maximum error = 7.8e-15
  check FT s(R) against s(q) ... maximum error = 6.6e-15 spin 2
 ~~~
+
++ Check forward FT of real space &Sigma;<sup>0</sup>: **maximum error = 2.3e-15 < tol (5e-6)**
++ Check deviation from original &Sigma;<sup>0</sup> after symmetrization
 
 ### Parameters for local orbitals
 [//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
