@@ -1065,17 +1065,25 @@ original, because the list of lattice vectors may not encompass all the translat
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ lmfgws
+[//]: (/docs/input/commandline/#switches-for-lmfgws)
 
 **lmfgws**{: style="color: blue"} is the analyzer of the dynamical _GW_ self-energy.  You need to create the self-energy first and set up
 the input file (_se_{: style="color: green"}) using **spectral**{: style="color: blue"}.  See [this tutorial](/tutorial/gw/qsgw_fe/).
 
 + **--sfuned**\\
-  Run the spectral function editor. Invoke the editor to see see its usage.
+  Run the spectral function editor. 
+  Its usage is documented in [this tutorial](/tutorial/gw/gw_self_energy/#editor-instructions)
+  There is also a help mode when you run the editor interactively.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
-
 #### _Switches for_ spectral
+
+**spectral**{: style="color: blue"} is a tool to postprocess the raw _GW_ dynamical self-energy files.
+_SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"}.
+Mainly it translates these files into a file _se_{: style="color: green"} which
+[**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws) can read.
+See [this tutorial](/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0).
 
 _Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
 &Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.

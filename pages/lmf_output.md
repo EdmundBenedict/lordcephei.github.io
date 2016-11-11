@@ -524,6 +524,8 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 
 {::nomarkdown}</div>{:/}
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ### Potential and Matrix Elements
 [//]: (/docs/outputs/lmf_output/#potential-and-matrix-elements)
 

@@ -41,9 +41,7 @@ and to make the figure, the [**fplot**{: style="color: blue"}](/docs/misc/fplot/
 To view the postscript file, this document assumes you are using the apple-style **open**{: style="color: blue"} command.
 
 ### _Command summary_
-{::comment}
-/tutorial/gw/qsgw_fe/#command-summary
-{:/comment}
+[//]: /tutorial/gw/qsgw_fe/#command-summary
 ________________________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
@@ -294,8 +292,13 @@ The GW codes require a separate _GWinput_{: style="color: green"} file.
 Create a template with:
 
 ~~~
-$ lmfgwd --jobgw=-1 ctrl.fe
+$ lmfgwd --jobgw=-1 --sigw ctrl.fe
 ~~~
+
+Switch **-\-sigw** isn't makes small changes to _file.ext_{: style="color: green"}, needed to make the
+
+
+when you want 
 
 We are particularly interested in Fermi liquid properties, involving states near the Fermi surface.  The raw _GWinput_{: style="color: green"}
 template will generate a reasonable self-energy, but the 3_s_ and 3_p_ core levels affect the Fermi surface enough that we need to treat

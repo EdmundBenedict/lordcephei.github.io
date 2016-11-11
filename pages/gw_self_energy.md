@@ -13,7 +13,8 @@ header: no
 _____________________________________________________________
 
 
-This tutorial explains how to make and analyze the dynamical self-energy &Sigma;(<b>k</b>,&omega;) using the GW package.
+This tutorial explains how to make and analyze the dynamical self-energy 
+&Sigma;(<b>k</b>,<i>&omega;</i>), using the _GW_ package.
 
 ### _Table of Contents_
 _____________________________________________________________
@@ -39,24 +40,39 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-LDA self-consistency (starting from  _init.fe_{: style="color: green"})
+Repeat the steps for LDA self-consistency and QS<i>GW</i> self-consistency
+in the [Fe tutorial[/tutorial/gw/qsgw_fe/]; see [Command summary](/tutorial/gw/qsgw_fe/#command-summary).
 
+If you have already done so without removing any files, you can skip those steps.
+
+If on the other hand you have retained the QS<i>GW</i> self-energy &Sigma;<sup>0</sup> (file _sigm_{: style="color: green"}),
+make sure your charge density is self-consistent.
 ~~~
-blm --nit=20 --nk=16 --gmax=7.9 --mag --nkgw=8 --gw fe
-cp actrl.fe ctrl.fe
-lmfa fe
-cp basp0.fe basp.fe
 lmf fe > out.lmf
 ~~~
-
-QSGW self-consistency (starting from the LDA)
+If you also retained the density restart file _rst.fe_{: style="color: green"} this step is not necessary.
+Make all the inputs (e.g. screened coulomb interaction) up to the self-energy step:
 
 ~~~
-lmfgwd --jobgw=-1 ctrl.fe
-lmgwsc --mpi=6,6 --wt --code2 --sym --metal --tol=1e-5 --getsigp fe > out.lmgwsc
+lmgwsc --wt --code2 --sym --metal --tol=1e-5 --getsigp --stop=sig fe
 ~~~
 
-Making the spectral function (starting from QS<i>GW</i>)
+This will give you everything you need to make $$\Sigma(mathbf{k},\omega)$$.
+
+
+Make the spectral function *files _SEComg.UP_{: style="color: green"} (and _SEComg.DN_{: style="color: green"})
+
+~~~
+export OMP_NUM_THREADS=8
+export MPI_NUM_THREADS=8
+~/bin/code2/hsfp0_om --job=4 > out.hsfp0
+
+Postprocessing step translating _SEComg.\{UP,DN\}_{: style="color: green"} into **lmfgws**{: style="color: blue"}-readable form
+
+~~~
+spectral --ws --nw=1
+ln -s se se.fe
+~~~
 
 
     ... to be finished
@@ -247,10 +263,10 @@ electron binding energy and "inner potential."
 
 Then
 
-\begin{eqnarray}
-\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + {V_0}, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b   \quad\quad\quad\quad (1)
+$$
+\frac{\hbar^2}{2m}(k_\parallel^2 + k_\bot^2) = E_{kin} + V_0, \text{  where  } E_{kin} = \hbar \omega  - \varphi _s + E_b   \quad\quad\quad\quad (1)
 \label{eq:keconst}
-\end{eqnarray}
+$$
 
 The total momentum inside the crystal, $$\mathbf{k}_\parallel{+}\mathbf{k}_\bot$$,
 is linked to the kinetic energy measured outside the crystal through
@@ -304,9 +320,13 @@ $$
 
 
 ### _Make the GW self-energy_
-{::comment}
-/tutorial/gw/gw_self_energy/#make-the-gw_self_energy
-{:/comment}
+[//]: (/tutorial/gw/gw_self_energy/#make-the-gw_self_energy)
+
+The 1-shot GW self-energy maker, **hsfp0**{: style="color: blue"}, has a mode (**-\-job=4**) make the dynamical &Sigma;(<b>k</b>,<i>&omega;</i>).
+Some changes to _GWinput_{: style="color: green"} are needed.  **lmfgwd**{: style="color: blue"} will automatically make these 
+changes
+These changes
+
 
 + If you have removed intermediate files, you must remake them up to the point where the self-energy is made.  Do:
 
@@ -336,7 +356,7 @@ The next step will make &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) on a
 at irreducible points <b>k</b><i><sub>n</sub></i>, for QP levels specified in _GWinput_{: style="color: green"}.  This is a
 fairly fine spacing so the calculation is somewhat expensive.
 
-+ Run **hsfp0**{: style="color: blue"} (or better **hsfp0\_om**{: style="color: blue"}) in a special mode **\-\-job=4** to make the dynamical self-energy.
++ Run **hsfp0**{: style="color: blue"} (or better **hsfp0\_om**{: style="color: blue"}) in a special mode **-\-job=4** to make the dynamical self-energy.
 
 ~~~
 export OMP_NUM_THREADS=8
@@ -348,9 +368,7 @@ This step should create _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: st
 &Sigma;(<b>k</b>,<i>&omega;</i>), albeit in a not particularly readable format.
 
 ### _Generate spectral functions for q=0_
-{::comment}
-/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0
-{:/comment}
+[//]: (/tutorial/gw/gw_self_energy/#generate-spectral-functions-for-q0)
 
 _SEComg.UP_{: style="color: green"} and _SEComg.DN_{: style="color: green"} contain the diagonal matrix element
  &Sigma;<sub><i>jj</i></sub>(<b>k</b>,<i>&omega;</i>) for each QP level <i>j</i>, for each irreducible point <b>k</b><i><sub>n</sub></i> in the Brillouin zone, on a
@@ -457,12 +475,9 @@ ________________________________________________________________________________
 {::nomarkdown}</div>{:/}
 
 ### _Dynamical self-energy editor_
-{::comment}
-/tutorial/gw/gw_self_energy/#dynamical-self-energy-editor
-{:/comment}
+[//]: /tutorial/gw/gw_self_energy/#dynamical-self-energy-editor
 
-
-**lmfgws**{: style="color: blue"} contains the dynamical self-energy editor,
+**lmfgws**{: style="color: blue"} is the dynamical self-energy editor,
 which peforms a variety of manipulations of the _GW_ self-energy
 &Sigma;(<b>k</b><i><sub>n</sub></i>,<i>&omega;</i>) for different purposes.
 It requires the same files **lmf**{: style="color: blue"} needs
@@ -507,7 +522,7 @@ The editor operates interactively. It reads a command from standard input, execu
 
 #### Editor instructions
 {::comment}
-/tutorial/gw/gw_self_energy/#editor-instructions
+(/tutorial/gw/gw_self_energy/#editor-instructions)
 {:/comment}
 
 The following summarizes the instruction set of the dynamical self-energy editor.
