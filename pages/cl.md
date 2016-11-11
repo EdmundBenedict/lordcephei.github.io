@@ -779,13 +779,13 @@ Command-line switches:
 The following switches apply to _GWinput_{: style="color: green"} creation mode (**-\-jobgw=&minus;1**):
 
 **-\-sigw**
-: Add lines to _GWinput_{: style="color: green"} needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/), &Sigma;(<i>&omega;</i>) (-\-jobgw=-1).\\
-  _Note:_{: style="color: red"} With the addition of these lines the 1-shot self-energy maker, **hsfp0**{: style="color: blue"}, must be run with job 4. 
-  These lines do not affect QS<i>GW</i> self-energy maker, **hs0fp0\_sc**{: style="color: blue"}.
-
+: Add lines to _GWinput_{: style="color: green"} needed to make the [dynamical self-energy](/tutorial/gw/gw_self_energy/), &Sigma;(<i>&omega;</i>).\\
+  _Note:_{: style="color: red"} With these modifications the 1-shot self-energy maker, **hsfp0**{: style="color: blue"}, must be run with **-\-job=4**. 
+  They do not affect QS<i>GW</i> self-energy maker, **hs0fp0\_sc**{: style="color: blue"}.
+^
 **-\-ib=_list_**
 : Specify [list](/docs/input/integerlists) of QP levels for which to make sigma (for 1-shot case only)
-
+^
 **-\-make-Q0P**
 : Make file _Q0P_{: style="color: green"}.  Usually this file is made by the GW package.
   

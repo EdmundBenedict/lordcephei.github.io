@@ -675,7 +675,7 @@ $ lmfgws fe `cat switches-for-lm` '--sfuned~units eV~readsek~eps .030~dos isp=1 
 ~~~
 
 This invocation runs **lmfgws**{: style="color: blue"} in batch mode, and writes the spectral and noninteracting DOS to file _sdos.fe_{: style="color: green"}.
-The editor's instructions do the following (as explained [here](/tutorial/gw/gw_self_energy/#editor-instructions)):
+The editor's instructions do the following (documented [here](/tutorial/gw/gw_self_energy/#editor-instructions)):
 
 + units eV\\
   Set units to eV; spectrum DOS will be written in eV.
