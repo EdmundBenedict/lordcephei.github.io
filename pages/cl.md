@@ -1098,7 +1098,7 @@ it is better not to interpolate and use **-\-nw=1**.
 +  **-\-1shot**:\\
    evals do not correspond with QP levels
 +  **-\-range=<i>&omega;</i>1,<i>&omega;</i>2**:
-   restrict generated results to <i>&omega;</i>1 < <i>&omega;</i>< <i>&omega;</i>2
+   restrict generated results to <i>&omega;</i>1 < <i>&omega;</i> < <i>&omega;</i>2
 +  **-\-eps=#**:\\
    smearing width, in eV.
 +  **-\-ws**:\\
