@@ -1085,27 +1085,29 @@ It has some limited ability to make spectral functions but mainly it translates 
 [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws) can read.
 See [this tutorial](/tutorial/gw/gw_self_energy/#the-self-energy-postprocessor).
 
-_Note:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
+_Note on the switches:_{: style="color: red"} the spectral function is only reliable on a fine energy mesh.
 &Sigma; is smoothly varying with &omega; and can be interpolated to a fine mesh.
 **nw** and **domg** are designed to interpolate &Sigma;.  In the following, choose either **nw** or **domg**.
+If you are using **spectral**{: style="color: blue"} only to make _se_{: style="color: green"} for **lmfgws**{: style="color: blue"},
+it is better not to interpolate and use **-\-nw=1**.
 
-+  **--nw=_nw_**:\\
++  **-\-nw=_nw_**:\\
    Subdivide input energy mesh **_nw_** times
-+  **--domg=#**:\\
++  **-\-domg=#**:\\
    Target energy spacing for <i>A</i>(&omega;), eV. **nw** is chosen that bests fits target **domg**.
-+  **--1shot**:\\
++  **-\-1shot**:\\
    evals do not correspond with QP levels
-+  **--range=<i>&omega;</i>1,<i>&omega;</i>2**:
++  **-\-range=<i>&omega;</i>1,<i>&omega;</i>2**:
    restrict generated results to <i>&omega;</i>1 < <i>&omega;</i>< <i>&omega;</i>2
-+  **--eps=#**:\\
++  **-\-eps=#**:\\
    smearing width, in eV.
-+  **--ws**:\\
++  **-\-ws**:\\
    Does no analysis but write a self-energy file (_se_{: style="color: green"}) for all q,
    suitable for reading by [**lmfgws**{: style="color: blue"}](/docs/input/commandline/#switches-for-lmfgws).
    Individual files are not written.\\
-   When using this switch, **--nw=1** is advised, since **lmfgws**{: style="color: blue"} can do its own interpolation.
-+  **--cnst:_expr_**:\\
-   Exclude entries in _SEComg.(UP,DN)_{: style="color: green"} for which **_expr_** is nonzero.
+   When using this switch, **-\-nw=1** is advised, since **lmfgws**{: style="color: blue"} can do its own interpolation.
++  **-\-cnst:_expr_**:\\
+   Exclude entries in _SEComg.\{UP,DN\}_{: style="color: green"} for which **_expr_** is nonzero.
    **_expr_** is an integer expression that can include the following variables:
    +    ib (band index)
    +    iq (k-point index)
@@ -1114,7 +1116,7 @@ _Note:_{: style="color: red"} the spectral function is only reliable on a fine e
    +   spin (1 or 2)
 
    Example: Use only the first k-point and exclude &Sigma; from QP levels whose bands fall below -10 eV.\\
-   **--cnst:iq==1&eqp>-10**
+   **-\-cnst:iq==1&eqp>-10**
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
