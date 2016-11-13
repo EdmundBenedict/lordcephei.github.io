@@ -459,7 +459,7 @@ The file contains a header and a body.  In ASCII keywords are given in the file.
 2.  vector of k-points **qp(3,nqp)**, in one record
 3.  quasiparticle levels, <i>E</i><sub>qp</sub> **eig(nband,nqp,nsp)**, in one record
 4.  &Sigma;(<b>k</b>,<i>E</i><sub>qp</sub>), i.e. QP sigma **sgq(nband,nqp,nsp)**, in one record
-5.  <i>&omega;</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record (format A)
+5.  <i>&omega;</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record (format A) or in a succession (formats B,C)
 
 See <b>subs/ioseh.f</b>{: style="color: green"}.
 
