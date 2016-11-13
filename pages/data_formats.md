@@ -21,8 +21,6 @@ _____________________________________________________________
 
 #### Introduction
 
-this is a test ...
-
 Questaal codes require a wide variety of data formats to meet the diverse range of purposes they serve.  When files are not too large they
 are usually written in ASCII format.  In many cases, such files are passed through the [file preprocessor](/docs/input/preprocessor) before
 being scanned for data.  The preprocessor's facilities (e.g. to evaluate expressions and to make looping constructs) can be useful in many
@@ -331,9 +329,11 @@ surface, whereas <b>k</b><sub>&#8741;</sub> is conserved.  This means that
 from the band structure.  The larger the kinetic energy the smaller
 the effect, but in typical photoemission experiments it is not negligible.
 
+{::comment}
 <div onclick="elm = document.getElementById('transformk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="transformk">{:/}
+{:/comment}
 
 There are two ways to transform the <b>k</b> point.  The first is to use
 the **~rot** options to the [**\-\-band** switch](/docs/input/commandline/#switches-for-lmf).
@@ -450,8 +450,6 @@ The _se_{: style="color: green"} file contains the frequency-dependent self-ener
 **spectral**{: style="color: blue"} from raw _GW_ output files _SEComg.UP_{: style="color: green"} (and _SEComg.DN_{: style="color: green"}
 in the magnetic case), for use by **lmfgws**{: style="color: blue"}.  _se_{: style="color: green"} must be renamed to _se.ext_{: style="color: green"}.
 
-{::comment}
-
 The file contains a header and a body:
 
 1.  header, 2 records
@@ -464,7 +462,5 @@ The file contains a header and a body:
 5.  <i>&omega</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record
 
 See <b>subs/ioseh.f</b>{: style="color: green"}.
-
-{:/comment}
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
