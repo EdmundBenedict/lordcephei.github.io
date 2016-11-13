@@ -472,16 +472,16 @@ corresponding to the second spin.
 
 File _sdos.ext_{: style="color: green"} (_sdos2.ext_{: style="color: green"})
 : Density-of-states, i.e. _k_ integrated spectral functions.  Columns are <i>&omega;</i>&thinsp; <i>A</i>(<i>&omega;</i>)&thinsp; <i>A</i><sup>0</sup>(<i>&omega;</i>).
-
+^
 File _seia.ext_{: style="color: green"} (_seia2.ext_{: style="color: green"})
 : Spectral function at a specific q-point.  The header describes each column.
 Note that &Sigma;(<b>k</b>,<i>&omega;</i>) is not the true self-energy.  It is
 <span style="text-decoration: overline">&Sigma;(<b>k</b>,<i>&omega;</i>)</span> = &Sigma;(<b>k</b>,<i>&omega;</i>) &minus; &Sigma;<sup>0</sup>(<b>k</b>).
 the last is subtracted so that <span style="text-decoration: overline">&Sigma;(<b>k</b>,<i>&omega;</i>)</span> = 0 at the QP level.
-
+^
 File _pes.ext_{: style="color: green"} (_pes2.ext_{: style="color: green"})
 : Simulation of photoemission spectra.
-
+^
 File _pesqp.ext_{: style="color: green"} (_pesqp2.ext_{: style="color: green"})
 : Simulation of photoemission spectra from noninteracting <i>A</i><sup>0</sup>(<i>&omega;</i>).  Works with SO coupling.
 
