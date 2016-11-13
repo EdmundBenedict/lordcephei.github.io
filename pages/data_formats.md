@@ -364,14 +364,14 @@ Example: let **qx**, **qy**, **qz**, **q** be the Cartesian components and absol
 Any of the **kx=**<i>expr</i> &ensp; **ky=**<i>expr</i> &ensp; **kz=**<i>expr</i>
 may be present; any missing component will be left unchanged from its original value.
 
-This example (in symmetry line mode) modifies <i>k<sub>x</sub></i> such that the kinetic energy is increased by 0.1^2 a.u.
+This example (in symmetry line mode) modifies <i>k<sub>x</sub></i> such that the kinetic energy is increased by 0.1<sup>2</sup> a.u.
 <pre>
 % map kx=(q^2+.1^2-qy^2-qz^2)^.5
 41  .5 .5 .5     0  0 0                L to Gamma
 ...
 </pre>
 
-<P> You should verify that code reading the k-points modified the q points by inspecting the output.
+You should verify that code reading the k-points modified the q points by inspecting the output.
 It should contain the following lines:
 
 <pre>
@@ -379,10 +379,10 @@ It should contain the following lines:
  kx=(q^2+.1^2-qy^2-qz^2)^.5
 </pre>
 
-The **~rot** option may be used in conjuction with the modification through alegbraic expresssions.  For example suppose you want to modify
+The <b>~rot</b> option may be used in conjuction with the modification through alegbraic expresssions.  For example suppose you want to modify
 <i>k</i><sub>&perp;</sub> normal to the (1,-1,0) direction, while preserving <b>k</b><sub>&#8741;</sub> in the (1,1,0),(0,0,1) plane.
 
-<P> Take Cu as a concrete example.  If &thinsp;**lm**&thinsp; is your top-level directory, set up the calculation for Cu with
+Take Cu as a concrete example.  If &thinsp;**lm**&thinsp; is your top-level directory, set up the calculation for Cu with
 <pre>
 ~/lm/fp/test/test.fp cu 1
 </pre>
