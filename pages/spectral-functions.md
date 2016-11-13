@@ -59,7 +59,7 @@ where _«sys»_ is the extension of the **ctrl**{: style="color: green"} file. O
 ### _Plotting of the spectral function_
 _____________________________________________________________
 
-Upon successful completion of calculation **spf.«sys»**{: style="color: green"} file will be generated. The file has the following format:
+Upon successful completion of calculation **spf.«sys»**{: style="color: green"} file will be generated. The file has the [following format](/docs/input/data_format/#the-spf-file):
 
     ZP        KP         SF_UP         SF_DN
     .
