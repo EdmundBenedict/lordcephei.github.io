@@ -329,11 +329,9 @@ surface, whereas <b>k</b><sub>&#8741;</sub> is conserved.  This means that
 from the band structure.  The larger the kinetic energy the smaller
 the effect, but in typical photoemission experiments it is not negligible.
 
-{::comment}
 <div onclick="elm = document.getElementById('transformk'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="transformk">{:/}
-{:/comment}
 
 There are two ways to transform the <b>k</b> point.  The first is to use
 the **~rot** options to the [**\-\-band** switch](/docs/input/commandline/#switches-for-lmf).
@@ -344,7 +342,7 @@ which generate one or more of <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i>
 
 To modify <i>k</i><sub><i>x</i></sub>, <i>k</i><sub><i>y</i></sub>, or <i>k</i><sub><i>z</i></sub>
 insert a line at the beginning of the file.
-The first character must be a '%', followed by one or more strings with algebraic expressions defining the <i>x</i>-, 
+The first character must be a **'%'**, followed by one or more strings with algebraic expressions defining the <i>x</i>-, 
 <i>y</i>, and <i>z</i> components of the modified <b>q</b>:
 <pre>
 % [var=<i>expr</i> var=<i>expr</i> ...]   kx=<i>expr</i>  ky=<i>expr</i>  kz=<i>expr</i>
@@ -387,14 +385,14 @@ Take Cu as a concrete example.  If &thinsp;**lm**&thinsp; is your top-level dire
 ~/lm/fp/test/test.fp cu 1
 </pre>
 This should set up a self-consistent potential for Cu and save generate energy bands in file
-_bnds.cu-pwmode11_{: style="color: green"}
+_bnds.cu-pwmode11_{: style="color: green"}.
 
 The input file as constructed uses the normal Cartesian coordinates for a cube.  But if
 you invoke **lmf**{: style="color: blue"} with **-vrot=t**, viz
 <pre>
 lmf -vrot=t cu --showp 
 </pre>
-you will see that tag **STRUC\_ROT=z:pi/4**appears in the preprocessed input file.
+you will see that tag &thinsp;**STRUC\_ROT=z:pi/4**&thinsp; appears in the preprocessed input file.
 This tells **lmf**{: style="color: blue"} to rotate the crystal axes, the basis vectors, and the symmetry group operations.
 This rotates (1/2,1/2,0) to the -z axis.  Do the following:
 <pre>
@@ -418,7 +416,7 @@ with:
 $  lmf  --no-iactiv cu -vnk=8 -vbigbas=t -vpwmode=11 -voveps=0d-7 -vrot=t --rs=101 '--band~rot=(1,-1,0)pi/2~fn=syml'
 </pre>
 + **--rs=101** tells the charge density reader to rotate the local densites (the density was generated in the unrotated coordinate system).
-+ &&--band~rot=** is necessary because lmf will not automatically rotate
++ **--band~rot=** is necessary because **lmf**{: style="color: blue"} will not automatically rotate
 the k-points read from the _syml.ext_{: style="color: green"}.
 
 Run a modifed band pass calculation and compare
@@ -458,8 +456,8 @@ The file contains a header and a body:
       Number of spins, bands, _k_-points, frequencies; first and last frequency
 2.  vector of k-points, **qp(3,nqp)**, in one record
 3.  quasiparticle levels, <i>E</i><sub>qp</sub>, **eig(nband,nqp,nsp)**, in one record
-4.  &Sigma;<sup>(<b>k</b>,<i>E</i><sub>qp</sub>), i.e. QP sigma **sgq(nband,nqp,nsp)**, in one record
-5.  <i>&omega</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record
+4.  &Sigma;(<b>k</b>,<i>E</i><sub>qp</sub>), i.e. QP sigma **sgq(nband,nqp,nsp)**, in one record
+5.  <i>&omega;</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record
 
 See <b>subs/ioseh.f</b>{: style="color: green"}.
 
