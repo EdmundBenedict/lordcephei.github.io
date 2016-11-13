@@ -1131,6 +1131,20 @@ it is better not to interpolate and use **-\-nw=1**.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ SpectralFunction.sh
+[//]: (/docs/input/commandline/#switches-for-spectralfunction-sh)
+
+**SpectralFunction.sh**{: style="color: blue"} reads spectral function
+files in the a [_spf_{: style="color:
+green"}](/docs/input/data_format/#the-spf-file) format, and makes
+figures from them.
+
+The script is self-documenting.  Do
+
+~~~
+SpectralFunction.sh  -h
+~~~
+
 #### _Switches for_ lmctl
 {::comment}
 (/docs/input/commandline/#switches-for-lmctl)
