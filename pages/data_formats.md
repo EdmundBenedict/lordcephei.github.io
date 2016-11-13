@@ -448,6 +448,8 @@ The _se_{: style="color: green"} file contains the frequency-dependent self-ener
 **spectral**{: style="color: blue"} from raw _GW_ output files _SEComg.UP_{: style="color: green"} (and _SEComg.DN_{: style="color: green"}
 in the magnetic case), for use by **lmfgws**{: style="color: blue"}.  _se_{: style="color: green"} must be renamed to _se.ext_{: style="color: green"}.
 
+{::comment}
+
 The file contains a header and a body:
 
 1.  header, 2 records
@@ -460,3 +462,7 @@ The file contains a header and a body:
 5.  <i>&omega</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record
 
 See <b>subs/ioseh.f</b>{: style="color: green"}.
+
+{:/comment}
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
