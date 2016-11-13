@@ -451,11 +451,11 @@ in the magnetic case), for use by **lmfgws**{: style="color: blue"}.  _se_{: sty
 The file contains a header and a body.  In ASCII keywords are given in the file.  The format consists of:
 
 1.  header, 3 records
-    + record 1: **0&thinsp; version-number&thinsp; mode&thinsp; units**\\
-      mode = 0 for format A or 1 for format B (see below)
-    + record 2: **nsp&thinsp; nband&thinsp; nqp&thinsp; nw&thinsp; ommin&thinsp; ommax**\\
-      Number of spins, bands, _k_-points, frequencies; first and last frequency
-    + list of bands entering into spectral function, or 0 if bands are 1..nband
+    1. **0&thinsp; version-number&thinsp; mode&thinsp; units**\\
+       mode = 0 for format A or 1 for format B (see below)
+    2. **nsp&thinsp; nband&thinsp; nqp&thinsp; nw&thinsp; ommin&thinsp; ommax**\\
+       Number of spins, bands, _k_-points, frequencies; first and last frequency
+    3. list of bands entering into spectral function, or 0 if bands are 1..nband
 2.  vector of k-points **qp(3,nqp)**, in one record
 3.  quasiparticle levels, <i>E</i><sub>qp</sub> **eig(nband,nqp,nsp)**, in one record
 4.  &Sigma;(<b>k</b>,<i>E</i><sub>qp</sub>), i.e. QP sigma **sgq(nband,nqp,nsp)**, in one record
