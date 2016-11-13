@@ -1135,11 +1135,11 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 [//]: (/docs/input/commandline/#switches-for-spectralfunction-sh)
 
 **SpectralFunction.sh**{: style="color: blue"} reads spectral function
-files in the a [_spf_{: style="color:
-green"}](/docs/input/data_format/#the-spf-file) format, and makes
-figures from them.
+files in the [_spf_{: style="color: green"}
+format](/docs/input/data_format/#the-spf-file), and makes figures from
+them.
 
-The script is self-documenting.  Do
+The script is self-documenting.  For help, do:
 
 ~~~
 SpectralFunction.sh  -h
