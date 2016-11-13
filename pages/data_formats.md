@@ -476,14 +476,13 @@ The file contains a 1-line header of **qcut** to be explained below, e.g.
 #  1.19592  1.19592  2.19592  2.90302  3.61013
 ~~~
 
-followed by a sequence of lines
+followed by a sequence of lines:
 
 <pre>
-[   E          q-q0         Re A          Im A                &larr line not in the file]
+[   E          q-q0         Re A          Im A                &larr; this line is not present in the file]
   -1.00000   0.00000      0.004900      0.004423
   -1.00000   0.01040      0.004896      0.004420
   -1.00000   0.02080      0.004886      0.004411
-  -1.00000   0.03120      0.004869      0.004395
   ...
   -1.00000   3.61013      0.001589      0.001327
   -0.99800   0.00000      0.005079      0.004586
@@ -494,9 +493,19 @@ followed by a sequence of lines
 _Notes:_{: style="color: red"} 
 
 1. The frequency is <i>&omega;</i> = <i>E&minus;E</i><sub><i>F</i></sub>.
-2. The second column is the distance q from the first q-point: i.e. the position in a band figure relative to the left edge.
+2. The second column is the distance from the first q-point of the first [symmetry line](/docs/input/data_format/#symmetry-line-mode)
+   i.e. the position in a band figure relative to the left edge.
    A panel begins/ends where points coincide with **qcut**.
 
 See routine iospf in <b>gf/specfun.f</b>{: style="color: green"}.
+
+_Example_  **qcut** above was generated from the following symmetry lines file:
+
+~~~
+116  0  0  0    0  0  1.195917          Gamma to H
+97   1  0  0    0  0  0                 M to Gamma
+68   0  0  0    .5 .5 0                 Gamma to X
+68   .5 .5 0    1  0  0                 X to M
+~~~
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
