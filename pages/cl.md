@@ -849,6 +849,9 @@ Command-line switches:
    [Same function](/docs/input/commandline/#switches-for-lm) as [**lm**]
 +  **-\-ef=_ef_**\\
    Assign **ef**, overriding value from [**BZ\_EMESH**](/docs/input/inputfile/#bz)
++  **-\-band[args]**\\
+   Generates spectral functions along [symmetry lines you specify](/docs/input/data_format/#symmetry-line-mode).
+   See the [**-\-band**](/docs/input/commandline/#band) switch.
 
 The following is specific to the exchange modes [**GF\_MODE&ge;10**](/docs/input/inputfile/#gf)
 
