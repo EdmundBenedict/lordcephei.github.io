@@ -766,8 +766,21 @@ the standard output.  The following was taken from the
 
 + The cutoff **E(lda)>2** and average self-energies (**0.122871** spin-up and **0.138308** spin-down)
   above 2Ry
-+ Range <b>5 \* alat</b> for inverse Bloch-summed &Sigma;<sup>0</sup>
-  
++ Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
+  If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an error message like:
+
+~~~
+   i   j      diff              bloch sum                file value
+   1   1    0.000133      0.059085   -0.000000      0.059218    0.000000
+
+ Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance (tol=5e-6)
+~~~
+
+You can fix the problem by increasing [**HAM\_RSRNGE**](/docs/input/inputfile/#ham)
+(at a slight increase in cost)
+or  [**HAM\_RSSTOL**](/docs/input/inputfile/#ham)
+(at an loss in accuracy).
+
 This table:
 
 ~~~
