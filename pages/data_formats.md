@@ -499,7 +499,7 @@ _Notes:_{: style="color: red"}
 3. The second column is the distance from the first q-point of the first [symmetry line](/docs/input/data_format/#symmetry-line-mode)
    i.e. the position in a band figure relative to the left edge.
    A panel begins/ends where points coincide with **qcut**.
-4. Bash script [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunction-sh) will generate figures directly from _spf.ext_{: style="color: green"}.\\
+4. Bash script [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunction-sh) will generate figures directly from _spf.ext_{: style="color: green"}.
 
 
 Routine iospf in <b>gf/specfun.f</b>{: style="color: green"} reads and writes _spf.ext_{: style="color: green"}.
