@@ -777,7 +777,7 @@ This table:
  BZMESH:  29 irreducible QP from 512 ( 8 8 8 )  shift= F F F
 ~~~
 
-indicates the Brillouin zone mesh for QSGW.
+indicates the Brillouin zone mesh for &Sigma;<sup>0</sup>.
 
 This table:
  

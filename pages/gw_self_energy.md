@@ -531,9 +531,10 @@ $ spectral --ws --nw=1
 $ ln -s se se.fe
 ~~~
 
-+ **-\-ws** tells **spectral**{: style="color: blue"} to write the self-energy
-to file _se_{: style="color: green"} for all _k_ points, in a special format
-designed for **lmfgws**{: style="color: blue"}.  Individual files are not written.
++ **-\-ws** tells **spectral**{: style="color: blue"} to write the self-energy to [file _se_{: style="color:
+green"}](/docs/input/data_format/#the-se-file) for all _k_ points, in a special format designed for **lmfgws**{: style="color: blue"}.
+Individual files are not written.
+\\It must be renamed to _se.ext_{: style="color: green"} for use by **lmfgws**{: style="color: blue"}.
 + **-\-nw=1** tells **spectral**{: style="color: blue"} to write the self-energy
 on the frequency mesh it was generated; no interpolation takes place.
 
