@@ -448,16 +448,18 @@ The _se_{: style="color: green"} file contains the frequency-dependent self-ener
 **spectral**{: style="color: blue"} from raw _GW_ output files _SEComg.UP_{: style="color: green"} (and _SEComg.DN_{: style="color: green"}
 in the magnetic case), for use by **lmfgws**{: style="color: blue"}.  _se_{: style="color: green"} must be renamed to _se.ext_{: style="color: green"}.
 
-The file contains a header and a body:
+The file contains a header and a body.  In ASCII keywords are given in the file.  The format consists of:
 
-1.  header, 2 records
-    + record 1: **0&thinsp; version-number&thinsp; mode&thinsp; units**
+1.  header, 3 records
+    + record 1: **0&thinsp; version-number&thinsp; mode&thinsp; units**\\
+      mode = 0 for format A or 1 for format B (see below)
     + record 2: **nsp&thinsp; nband&thinsp; nqp&thinsp; nw&thinsp; ommin&thinsp; ommax**\\
       Number of spins, bands, _k_-points, frequencies; first and last frequency
+    + list of bands entering into spectral function, or 0 if bands are 1..nband
 2.  vector of k-points **qp(3,nqp)**, in one record
 3.  quasiparticle levels, <i>E</i><sub>qp</sub> **eig(nband,nqp,nsp)**, in one record
 4.  &Sigma;(<b>k</b>,<i>E</i><sub>qp</sub>), i.e. QP sigma **sgq(nband,nqp,nsp)**, in one record
-5.  <i>&omega;</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record
+5.  <i>&omega;</i>-dependent self-energy &Sigma;(<b>k</b>,<i>&omega;</i>) **sigm(1:nw,1:nband,1:nq)** in one record (format A)
 
 See <b>subs/ioseh.f</b>{: style="color: green"}.
 
