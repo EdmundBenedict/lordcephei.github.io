@@ -706,12 +706,15 @@ to the LDA potential.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-rsig**).
 
-   + **~ascii**:&ensp;  read sigm in ascii format.
-   + **~rs**:&ensp;     read sigm in real space.
+   + **~ascii**:&ensp;  read sigm in ascii format (see table below)
+   + **~rs**:&ensp;     read sigm in real space (see table below)
    + **~null**:&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
-   + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
+   + **~fbz**:&ensp;    flags that sigma is stored for all _k_ points in the full Brillouin zone.
+                        Equivalent to setting 10000s digit=1 in token RDSIG= .
+                        (Not meaningful if the ~rs switch is used)
    + **~spinav**:&ensp; average spin channels in spin-polarized sigma
-   + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
+   + **~shftq=#,#,#**       indicates that sigma was generated on a kmesh offset by #,#,#
+                            #,#,# are optional; then a default of three small numbers is used.
 
    If either **~ascii** or **~rs** is used, the input file name may change:
 
@@ -726,8 +729,12 @@ to the LDA potential.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-wsig**):
 
-   + **~newkp**:&ensp;           generate sigma on a new _k_ mesh.  It reads the mesh from [**GW\_NKABC**](/docs/input/inputfile/#gw).
-   + **~edit**:&ensp;            invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+   + **~ascii**:&ensp;  read sigm in ascii format (see table below)
+   + **~newkp**:&ensp;  generate sigma on a new _k_ mesh.  It reads the mesh from [**GW\_NKABC**](/docs/input/inputfile/#gw).
+   + **~edit**:&ensp;   invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+   + **~fbz**:&ensp;    causes <B>lmf</B> to ignore symmetry operations and generate a sigma file for k-points in the entire BZ.  It is useful
+                        when generating a sigma file that allows fewer symmetry operations, e.g. when making the <i>m</i>-resolved density-of-states,
+                        or a trial sigm for a case (such as a shear) where symmetry operations are lowered.
 
    The following are special-purpose modes
 
@@ -736,10 +743,9 @@ to the LDA potential.
    + **~rot**:&ensp;        [rotate](/docs/input/rotations) the sigma matrix.
    + **~trans=#**:&ensp;    **#** specifies how sigma is to be modified, or if some other object is to be made instead of sig.
    + **~phase**:&ensp;      Add phase shift to sigma
-   + **~fbz**:&ensp;        sigma is stored for all _k_ points in the full Brillouin zone
    + **~sumk**:&ensp;       sum sigma over _k_.  Implies fbz
-   + **~shftq**:&ensp;      add qp offset to qp where sigma is made
    + **~wvxcf**:&ensp;      read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
+   + **~shftq**:&ensp;      add qp offset to qp where sigma is made.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 

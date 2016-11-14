@@ -769,15 +769,17 @@ You will see an indication it is read from the standard output.  The following w
  hft2rs: make neighbor table for r.s. hamiltonian using range = 5 * alat
 ~~~
 
-+ The manner in which **lmf**{: style="color: blue"} reads &Sigma;<sup>0</sup> and carries
+_Notes:_{: style="color: red"}
+
++ How **lmf**{: style="color: blue"} reads &Sigma;<sup>0</sup> and carries
   out an inverse Bloch sum is described in some detail in Section IIG of [this Physical Review B paper](http://link.aps.org/abstract/PRB/v76/e165106).
 + The cutoff **E(lda)>2** is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
   It affects the partitioning between calculated matrix elements of &Sigma;<sup>0</sup> and
   and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106).
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
-+ The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2Ry.
-  These numbers are used for &Sigma;<sub><i>ii</i></sub><sup>0</sup> when **SIGP\_MODE=4** (recommended).
-  In that case the code snippet contains the string **read constant sigii from sigm file***.
++ The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2&thinsp;Ry.
+  When **SIGP\_MODE=4** (recommended), these numbers are used for &Sigma;<sub><i>ii</i></sub><sup>0</sup> for energies **E &gt; <i>E<sub>F</sub></i>+EMAX** 
+  In this mode the code prints out the line containing **read constant sigii from sigm file**.
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
   If range is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
   [error message](/docs/error_messages/#rdsigrange).
@@ -785,8 +787,6 @@ You will see an indication it is read from the standard output.  The following w
 This table:
 
 ~~~
- q-points in full BZ where sigma calculable ...
- BZMESH:  512 irreducible QP from 512 ( 8 8 8 )  shift= F F F
  Irr. qp for which sigma is calculated ...
  BZMESH:  29 irreducible QP from 512 ( 8 8 8 )  shift= F F F
 ~~~
@@ -804,11 +804,11 @@ This table:
  ...
 ~~~
 
-indicates the precision of the inverse Bloch sum
+indicates the precision of the inverse Bloch sum. It:
 
-+ Check forward FT of real space &Sigma;<sup>0</sup> (**2.3e-15**).  It should be correct to machine precision unless 
-  the inverse Bloch transform is inexact, as described above.
-+ Check deviation (**7.8e-15**) from original &Sigma;<sup>0</sup> after symmetrization by the
++ checks forward FT of real space &Sigma;<sup>0</sup> (**2.3e-15**) to ensure that the error is less than [**HAM\_RSSTOL**](/docs/input/inputfile/#ham).
+  The forward/inverse sum should agree to machine precision unless the inverse Bloch transform is inexact, as described above.
++ Shows deviation (**7.8e-15**) from original &Sigma;<sup>0</sup> after symmetrization by the
   [group operations](/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
 ### Parameters for local orbitals
