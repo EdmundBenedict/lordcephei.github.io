@@ -853,26 +853,28 @@ The first is needed to obtain the Fermi level:
  Saved qp weights ...
 ~~~
 
-It saves the k-point weights into a binary file _wkp.pbte_{: style="color: green"}.
+_k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
+
+_Note:_{: style="color: red"} more information is printed out as you increase the verbosity.
 
 In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically:
 it prints out the highest occupied state and lowest unoccupied state it encountered
-and the "bandgap."
+and the "bandgap."\\
 _Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
 used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
 
-In a metal the situation is more complicated.  The following table was extracted from the [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
+In a metal the situation is more complicated.  The following table was extracted from the [Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
 (self-consistent LDA)
 
 ~~~
  BZWTS : --- Tetrahedron Integration ---
          Est E_f           Window        Tolerance  DOS(E_f)
-        -0.003084  -0.004660  -0.002423   0.002236  14.413343
-        -0.003084  -0.003094  -0.003072   0.000022  14.391220
-        -0.003084  -0.003084  -0.003084   0.000000  14.391209
- BZINTS: Fermi energy:     -0.003084;   8.000000 electrons;  D(Ef):   14.391
-         Sum occ. bands:   -1.3182580  incl. Bloechl correction:   -0.001198
-         Mag. moment:       
+        -0.001663  -0.003419  -0.001198   0.002221  15.053881
+        -0.001656  -0.001664  -0.001642   0.000022  14.971352
+        -0.001656  -0.001656  -0.001656   0.000000  14.971116
+ BZINTS: Fermi energy:     -0.001656;   8.000000 electrons;  D(Ef):   14.971
+         Sum occ. bands:   -1.3130888  incl. Bloechl correction:   -0.001180
+         Mag. moment:       2.172061
 ~~~
 
 The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Ry).
@@ -888,7 +890,7 @@ In insulators, each point in the full Brillouin zone gets equal weight; each poi
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for discussion of role of the METAL switch in performing integration.</span>
+<span style="text-decoration:underline;">Click here for discussion of role of the BZ_METAL switch in performing integration.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
 
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
