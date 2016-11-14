@@ -750,8 +750,11 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 ### Reading QSGW self-energies
 [//]: (/docs/outputs/lmf_output/#reading-qsgw-self-energies)
 
-If you have performed a QS<i>GW</i> calculation and read a
-self-energy &Sigma;<sup>0</sup>, it will be added to the LDA potential.
+If you have performed a QS<i>GW</i> calculation and read a self-energy &Sigma;<sup>0</sup> from file _sigm.ext_{: style="color: green"}
+(or _sigmrs.ext_{: style="color: green"}), &Sigma;<sup>0</sup> will be added to the LDA potential.
+
+_Note:_{: style="color: red"} file _sigm.ext_{: style="color: green"} contains the difference, $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$,
+so it is added directly to the Kohn-sham potential.
 
 You will see an indication it is read from the standard output.  The following was taken from the
 [Fe tutorial](/tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe).
@@ -773,7 +776,8 @@ You will see an indication it is read from the standard output.  The following w
   and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106).
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
 + The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2Ry.
-  These numbers are used for &Sigma;<sub><i>ii</i></sup><sup>0</sup> when **SIGP\_MODE=4** (recommended)
+  These numbers are used for &Sigma;<sub><i>ii</i></sup><sup>0</sup> when **SIGP\_MODE=4** (recommended).
+  In that case the code snippet contains the string **read constant sigii from sigm file***.
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
   If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
   [error message](/docs/error_messages/#rdsigrange).
