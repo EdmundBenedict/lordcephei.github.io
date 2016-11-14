@@ -831,11 +831,9 @@ The result displayed in a table:
 ### Brillouin zone integration
 [//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
-The charge density and Fermi level must be found by integration over the 
-Brillouin zone.  The code makes two passes over the irreducible _k_ points.
-The first is needed to obtain the Fermi level:
-
-<i>E<sub>F</sub></i> and _k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
+The charge density and Fermi level must be found by integration over the Brillouin zone.  The code makes two passes over the irreducible _k_
+points.  The first is needed to obtain the Fermi level.  <i>E<sub>F</sub></i> and _k_-point weights are saved into a binary file
+_wkp.pbte_{: style="color: green"}.
 
 ~~~
  Start first of two band passes ...
@@ -862,8 +860,8 @@ what appears to be an insulating state; in that case it prints out the highest o
 and the "bandgap."\\
 _Note 1:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges coincide with one of the mesh of discrete _k_ points
 used for integration.  It is true in PbTe (both band edges fall at L) but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).\\
-_Note 2:_{: style="color: red"} If the _k_ mesh is too coarse, the band code may incorrectly determine that the system is 
-an insulator.  This can happen when band gaps are very small.
+_Note 2:_{: style="color: red"} the band code may incorrectly determine that the system is 
+an insulator.  This can happen when band gaps are small and the _k_ mesh is too coarse.
 
 In a _metal_ the situation is more complicated.  The following table was extracted from the [Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
 (self-consistent LDA level)
