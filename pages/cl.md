@@ -428,7 +428,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
 | Affects program flow       | **[-\-ef](/docs/input/commandline/#ef)**&nbsp; **[-\-no-fixef0](/docs/input/commandline/#nofixef0)**&nbsp; **[-\-oldvc](/docs/input/commandline/#oldvc)**&nbsp; [**-\-optbas**](/docs/input/commandline/#optbas)&nbsp; **[-\-quit](/docs/input/commandline/#pr)**&nbsp; **[-\-rdbasp](/docs/input/commandline/#rdbasp)**<br>**[-\-rhopos](/docs/input/commandline/#rhopos)**&nbsp; **[-\-rpos](/docs/input/commandline/#rpos)**&nbsp; **[-\-rs](/docs/input/commandline/#rs)**&nbsp; **[-\-shorten=no](/docs/input/commandline/#shortenno)**&nbsp; **[-\-symsig](/docs/input/commandline/#symsig)**&nbsp; **[-\-vext](/docs/input/commandline/#vext)**
-| Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
+| Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp;**[-\-wforce](/docs/input/commandline/#wforce)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
 | Additional printout        | **[-\-efrnge](/docs/input/commandline/#efrnge)**&nbsp; **[-\-pr](/docs/input/commandline/#pr)**&nbsp; **[-\-SOefield](/docs/input/commandline/#SOefield)** |
 | [Optics specific](/docs/input/commandline/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
 | [QSGW specific](/docs/input/commandline/#qsgw) | **-\-mixsig**&nbsp; **-\-rsig**&nbsp; **-\-wsig**
@@ -621,6 +621,9 @@ Command-line switches:
 : Calculate electronic specific heat for a [list](/docs/input/integerlists/) of temperatures.
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
+^
+{::nomarkdown}<a name="wforce"></a>{:/}**-\-wforce=_fn_]**
+:  causes **lmf**{: style="color: blue"} to write forces to file **_fn_**.
 ^
 {::nomarkdown}<a name="ef"></a>{:/}**-\-ef**
 :  Override file Fermi level; use with **-\-band**

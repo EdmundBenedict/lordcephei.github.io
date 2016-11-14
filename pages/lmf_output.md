@@ -857,11 +857,13 @@ _Note:_{: style="color: red"} more information is printed out as you increase th
 
 _k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
 
-In the PbTe case the system is an _insulator_.  **lmf**{: style="color: blue"} determines this automatically:
-it prints out the highest occupied state and lowest unoccupied state it encountered
+PbTe is an _insulator_, both in real life and in the LDA.  **lmf**{: style="color: blue"} automatically detects
+what appears to be an insulating state; in that case it prints out the highest occupied state and lowest unoccupied state it encountered
 and the "bandgap."\\
-_Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
-used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
+_Note 1:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
+used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).\\
+_Note 2:_{: style="color: red"} If the _k_ mesh is too coarse, the band code may incorrectly determine that the system is 
+an insulator.  This can happen when band gaps are very small.
 
 In a _metal_ the situation is more complicated.  The following table was extracted from the [Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
 (self-consistent LDA level)
@@ -998,10 +1000,11 @@ level, and forms the predominant contribution to the bonding and band structure.
 ### Total energy and forces
 [//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
 
+The Harris-Foulkes energy is a functional of the input density and single-particle sum.  Information is printed out in the table below.
+
 ~~~
  Harris energy:
- sumev=      -18.137692  val*vef=    -317.434250   sumtv=     299.296558
- sumec=        0.000000  cor*vef=       0.000000   ttcor=   62219.476115
+ ...
  rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
 
  Harris correction to forces: shift in free-atom density
@@ -1009,19 +1012,37 @@ level, and forms the predominant contribution to the bonding and band structure.
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
    2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
  shift forces to make zero average correction:            0.00    0.00    0.00
+~~~
 
- srhov:    -41.830236   -275.353312   -317.183548 sumev=  -18.137692   sumtv=  299.045855
+Also printed are corrections to forces.  At self-consistency this correction vanishes.  But, in contrast to the total energy, which is
+variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>, the forces are
+not.  If it were known how the density shifts with the nucleus (which requires knowledge of the
+[dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational.
+However we can do almost as well by making an _ansatz_ for how the density shifts.   The simplest is to assume that 
+there is a cloud of charge given by the free atomic density that shifts rigidly with nucleus.  A correction term can be 
+devised, which dramatically improves on the converge of the forces with respect to  <i>n</i><sup>in</sup>&minus;<i>n</i> ...
+in most cases the error becomes close variational, i.e. the contribution linear in <i>n</i><sup>in</sup>&minus;<i>n</i> 
+becomes much smaller.
 
+The Kohn-Sham total energy is also calculated:
+
+~~~
  Kohn-Sham energy:
  sumtv=      299.045855  sumtc=     62219.476115   ekin=    62518.521970
  rhoep=    -1094.805096   utot=   -116741.865633   ehks=   -55318.148758
+~~~
 
+along with the forces
+
+~~~
  Forces, with eigenvalue correction
   ib           estatic                  eigval                    total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
    2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
  Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
 ~~~
+
+Forces are used in molecular statics, and also to compute phonons.
 
 ### New density
 [//]: (/docs/outputs/lmf_output/#new-density)
