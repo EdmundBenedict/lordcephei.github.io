@@ -52,5 +52,5 @@ ________________________________________________________________________________
   the inverse Bloch transform is inexact.
 
   _Solution_: increase [**HAM\_RSRNGE**](/docs/input/inputfile/#ham) (at a slight increase in cost) or
-  [](/docs/input/inputfile/#ham) (at an loss in accuracy).  
+  [**HAM\_RSSTOL**](/docs/input/inputfile/#ham) (at an loss in accuracy).\\
   **HAM\_RSRNGE** defaults to 5 (in units of the lattice constant); **HAM\_RSSTOL** defaults to 5&times;10&middot;<sup>&minus;6</sup>.

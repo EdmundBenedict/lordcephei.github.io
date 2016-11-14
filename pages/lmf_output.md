@@ -776,10 +776,10 @@ You will see an indication it is read from the standard output.  The following w
   and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106).
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
 + The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2Ry.
-  These numbers are used for &Sigma;<sub><i>ii</i></sup><sup>0</sup> when **SIGP\_MODE=4** (recommended).
+  These numbers are used for &Sigma;<sub><i>ii</i></sub><sup>0</sup> when **SIGP\_MODE=4** (recommended).
   In that case the code snippet contains the string **read constant sigii from sigm file***.
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
-  If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
+  If range is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
   [error message](/docs/error_messages/#rdsigrange).
 
 This table:
