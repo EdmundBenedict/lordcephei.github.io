@@ -43,7 +43,7 @@ to obtain charge densities and the sum of single particle energies for
 total energy. The single-particle sum is the energy-weighted integral of
 the density-of-states *D*(*E*), 
 
-$$E_{band} = \int_{-\infinity}^{E_{F}} ED(E)dE = \int_{-\infinity}^{\infinity} f(E)ED(E)dE$$
+$$E_{band} = \int_{-\infty}^{E_{F}} ED(E)dE = \int_{-\infty}^{\infty} f(E)ED(E)dE$$
 
 where  *f*(*E*) is the Fermi function.  *D*(*E*) itself is given by a sum over eigenstates *i* as  *D*(*E*) = $\Sigma_{i}\delta(E-E_{i})$. In a crystal with Bloch states, **k** is a good quantum number we can write it as an integral over the BZ for each band: 
 
@@ -85,7 +85,7 @@ As the mesh spacing becomes infinitely fine (*n*→∞), the quadrature estimate
 ##### _Methfessel-Paxton sampling_
 If the δ-function is broadened with a gaussian in the standard manner, good results are obtained only when _w_ is very small, and the situation would seem to be hopeless. What saves the day is [Methfessel and Paxton's \[1\]](#references) generalization of the broadening function. It starts from the representation of the exact δ-function as bilinear combinations of Hermite polynomials and a gaussian
 
-$$ \delta(x) = \lim_{N \to \infinity} D_{N}(x), D_{N}(x) = \sum_{m=0}^{N} A_{m}H_{2m}(x)e^{-x^{2}}$$
+$$ \delta(x) = \lim_{N \to \infty} D_{N}(x), D_{N}(x) = \sum_{m=0}^{N} A_{m}H_{2m}(x)e^{-x^{2}}$$
 
 Standard gaussian broadening represents δ(*x*) by the *m*=0 term alone. But by truncating the series at some low order N larger than 0, better representations of the δ-function are possible (figure above, right) and the integration quality can be dramatically improved. $E_{band}$ can be well converged without requiring an excessively small _w_.      
 
