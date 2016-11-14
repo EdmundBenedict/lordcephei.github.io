@@ -22,12 +22,14 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 {::nomarkdown} <a name="rdsigrange"></a> {:/}
-[//]: (/docs/error_messages/#rdsigrange)
+{::comment}
+(/docs/error_messages/#rdsigrange)
+{:/comment}
 
-Error
-: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
-  
-  Example:
+Bloch sum deviates more than allowed tolerance
+: _Problem_: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
+
+  _Example_
 
   ~~~
      i   j      diff              bloch sum                file value
@@ -36,19 +38,17 @@ Error
    Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance (tol=5e-6)
   ~~~
 
-
-  Problem:
   If the [range](/docs/outputs/lmf_output/#reading-qsgw-self-energies) for inverse Bloch-summed &Sigma;<sup>0</sup>(<b>q</b>)
   is not sufficiently large, not enough pairs needed to recover all the Fourier components of the 
   will found.  It is evident from some output preceding this message:
 
   ~~~
   hft2rs: found 479 connecting vectors out of 512 possible for FFT
-  symiax: enlarged neighbor table from 479 to 507 pairs (48 symops)
   ~~~
 
-  When the inverse Bloch transform is inexact, the code stops with this error.
+  When the first number (**479**) is less than the number of _k_ points,
+  the inverse Bloch transform is inexact.
 
-  Solution: increase [**HAM\_RSRNGE**](/docs/input/inputfile/#ham) (at a slight increase in cost) or
+  _Solution_: increase [**HAM\_RSRNGE**](/docs/input/inputfile/#ham) (at a slight increase in cost) or
   [](/docs/input/inputfile/#ham) (at an loss in accuracy).  
   **HAM\_RSRNGE** defaults to 5 (in units of the lattice constant); **HAM\_RSSTOL** defaults to 5&times10&middot<sup>&minus;6</sup>.
