@@ -835,6 +835,8 @@ The charge density and Fermi level must be found by integration over the
 Brillouin zone.  The code makes two passes over the irreducible _k_ points.
 The first is needed to obtain the Fermi level:
 
+<i>E<sub>F</sub></i> and _k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
+
 ~~~
  Start first of two band passes ...
  bndfp:  kpt 1 of 16, k=  0.00000  0.00000  0.00000
@@ -855,13 +857,11 @@ The first is needed to obtain the Fermi level:
 
 _Note:_{: style="color: red"} more information is printed out as you increase the verbosity.
 
-_k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
-
 PbTe is an _insulator_, both in real life and in the LDA.  **lmf**{: style="color: blue"} automatically detects
 what appears to be an insulating state; in that case it prints out the highest occupied state and lowest unoccupied state it encountered
 and the "bandgap."\\
-_Note 1:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
-used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).\\
+_Note 1:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges coincide with one of the mesh of discrete _k_ points
+used for integration.  It is true in PbTe (both band edges fall at L) but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).\\
 _Note 2:_{: style="color: red"} If the _k_ mesh is too coarse, the band code may incorrectly determine that the system is 
 an insulator.  This can happen when band gaps are very small.
 
@@ -877,7 +877,7 @@ In a _metal_ the situation is more complicated.  The following table was extract
 ~~~
 
 The **BZINTS** table contains significant information, including the Fermi level (**-0.000601**&thinsp;Ry) and density-of-states there (**14.389**/Ry),
-and the single-particle sum **-1.3036417** entering into the LDA total energy. 
+and the single-particle sum **-1.3036417**&thinsp;Ry entering into the LDA total energy. 
 The LDA magnetic moment/cell (**2.200354**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
 The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
 are used instead of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
@@ -890,7 +890,7 @@ Numerical quadrature is used to accumulate the output density or any property in
 In _insulators_, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
-In _metals_ how the weights are made depends on the quadrature.
+In _metals_, how the weights are made depends on the quadrature.
 See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the tetrahedron and sampling methods.
 
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
