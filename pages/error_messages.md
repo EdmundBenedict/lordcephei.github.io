@@ -22,8 +22,31 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance (tol=5e-6)
-: Indicates a failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy
+Error
+: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
   
+  Example:
+
+  ~~~
+     i   j      diff              bloch sum                file value
+     1   1    0.000133      0.059085   -0.000000      0.059218    0.000000
+
+   Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance (tol=5e-6)
+  ~~~
+
+
+  Problem:
+  If the [range](reading-qsgw-self-energies) for inverse Bloch-summed &Sigma;<sup>0</sup>(<b>q</b>)
+  is not sufficiently large, not enough pairs needed to recover all the Fourier components of the 
+  will found.  It is evident from some output preceding this message:
+
+  ~~~
+  hft2rs: found 479 connecting vectors out of 512 possible for FFT
+  symiax: enlarged neighbor table from 479 to 507 pairs (48 symops)
+  ~~~
+
+  When the inverse Bloch transform is inexact, the code stops with this error.
+
   Solution: increase [**HAM\_RSRNGE**](/docs/input/inputfile/#ham) (at a slight increase in cost) or
-  [**HAM\_RSSTOL**](/docs/input/inputfile/#ham) (at an loss in accuracy).
+  [](/docs/input/inputfile/#ham) (at an loss in accuracy).  
+  **HAM\_RSRNGE** defaults to 5 (in units of the lattice constant); **HAM\_RSSTOL** defaults to 5&times10&middot<sup>&minus;6</sup>.
