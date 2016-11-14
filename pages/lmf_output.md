@@ -945,6 +945,8 @@ The numbers below correspond to the values of **BZ\_METAL**.
 
 The ASA implements **METAL=0,1,2**; the FP codes **METAL=0,2,3,4,5**.  See Additional Exercises in [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
 
+Tetrahedron and sampling methods are explained and compared in some detail [here](/docs/numerics/bzintegration/).
+
 {::nomarkdown}</div>{:/}
 
 [//]:  {::nomarkdown}</div>{:/}

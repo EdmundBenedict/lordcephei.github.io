@@ -14,6 +14,8 @@ This page documents some of the error messages that can appear in the Questaal s
 
 Fatal errors typically begin with a message  **Exit -1 _routine-name_ ...* indicating where the program failed.
 
+Sometimes non-fatal, warning messages are given.  Usually they contain a string like "***(warning)**."
+
 ### _Table of Contents_
 ________________________________________________________________________________________________
 {:.no_toc}
@@ -23,12 +25,29 @@ ________________________________________________________________________________
 ### _lmf code_
 ________________________________________________________________________________________________
 
+
+{::nomarkdown} <a name="nonintegraln"></a> {:/}
+{::comment}
+(/docs/error_messages/#nonintegraln)
+{:/comment}
+
+
+ (warning): non-integral number of electrons --- possible band crossing at E_f
+: _Problem_: the integrator found a Fermi level, but the sum of weights don't add up to an integral number of electrons.  This can happen when
+  using the tetrahedron method and two bands cross near the Fermi level.  The tetrahdron integrator doesn't know how to 
+  smoothly interpolate the bands and mixes them up.  The larger the system with a denser mesh of bands, the likely this problem appears.
+  
+  It can also appear if you use a non-integral nuclear charge, or add background charge to the system.  This is not an error, and you can disregard the warning.
+
+  _Solution_:  As you proceed to self-consistency it may go away. If not, you need to modify your **k** mesh, or switch to sampling.
+  It is important the the number of electrons be correctly counted.
+
 {::nomarkdown} <a name="rdsigrange"></a> {:/}
 {::comment}
 (/docs/error_messages/#rdsigrange)
 {:/comment}
 
- Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance
+Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance
 : _Problem_: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
 
   _Example_:
