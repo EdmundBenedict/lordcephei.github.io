@@ -751,12 +751,15 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 [//]: (/docs/outputs/lmf_output/#reading-qsgw-self-energies)
 
 If you have performed a QS<i>GW</i> calculation and read a self-energy &Sigma;<sup>0</sup> from file _sigm.ext_{: style="color: green"}
-(or _sigmrs.ext_{: style="color: green"}), &Sigma;<sup>0</sup> will be added to the LDA potential.
+(or _sigmrs.ext_{: style="color: green"}), &Sigma;<sup>0</sup> will be added to the LDA potential.\\
+_Note:_{: style="color: red"} _sigm.ext_{: style="color: green"} contains the difference, $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$,
+so it is added directly to the Kohn-Sham potential $$V_{xc}^\mathrm{LDA}$$.
 
-_Note:_{: style="color: red"} file _sigm.ext_{: style="color: green"} contains the difference, $$\Sigma^0{-}V_{xc}^\mathrm{LDA}$$,
-so it is added directly to the Kohn-sham potential.
+<div onclick="elm = document.getElementById('qsgwsigma'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for annotation of printout reading the QSGW sigma.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="qsgwsigma">{:/}
 
-You will see an indication it is read from the standard output.  The following was taken from the
+You will see an indication &Sigma;<sup>0</sup> is read from the following standard output.  It was taken from the
 [Fe tutorial](/tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe).
 
 ~~~
@@ -775,13 +778,13 @@ _Notes:_{: style="color: red"}
   out an inverse Bloch sum is described in some detail in Section IIG of [this Physical Review B paper](http://link.aps.org/abstract/PRB/v76/e165106).
 + The cutoff **E(lda)>2** is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
   It affects the partitioning between calculated matrix elements of &Sigma;<sup>0</sup> and
-  and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106).
+  and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106)
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
 + The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2&thinsp;Ry.
-  When **SIGP\_MODE=4** (recommended), these numbers are used for &Sigma;<sub><i>ii</i></sub><sup>0</sup> for energies **E &gt; <i>E<sub>F</sub></i>+EMAX** 
+  When **SIGP\_MODE=4** (recommended), these numbers are used for &Sigma;<sub><i>ii</i></sub><sup>0</sup> for energies **E &gt; <i>E<sub>F</sub></i>+EMAX**.
   In this mode the code prints out the line containing **read constant sigii from sigm file**.
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
-  If range is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
+  If this number is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
   [error message](/docs/error_messages/#rdsigrange).
 
 This table:
@@ -804,12 +807,14 @@ This table:
  ...
 ~~~
 
-indicates the precision of the inverse Bloch sum. It:
+indicates the precision in the construction of the inverse Bloch sum. It:
 
-+ checks forward FT of real space &Sigma;<sup>0</sup> (**2.3e-15**) to ensure that the error is less than [**HAM\_RSSTOL**](/docs/input/inputfile/#ham).
-  The forward/inverse sum should agree to machine precision unless the inverse Bloch transform is inexact, as described above.
++ checks the forward Bloch sum of the inverse Bloch summed &Sigma;<sup>0</sup> (**2.3e-15**) to ensure that the error is less than [**HAM\_RSSTOL**](/docs/input/inputfile/#ham).
+  The combined inverse/forward sum should recover the original &Sigma;<sup>0</sup> to machine precision unless the inverse Bloch transform is inexact, as described above.
 + Shows deviation (**7.8e-15**) from original &Sigma;<sup>0</sup> after symmetrization by the
   [group operations](/docs/outputs/lmf_output/#symmetry-and-k-mesh).
+
+{::nomarkdown}</div>{:/}
 
 ### Parameters for local orbitals
 [//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
@@ -827,7 +832,7 @@ The result displayed in a table:
 [//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
 The charge density and Fermi level must be found by integration over the 
-rillouin zone.  The code makes two passes over the irreducible _k_ points.
+Brillouin zone.  The code makes two passes over the irreducible _k_ points.
 The first is needed to obtain the Fermi level:
 
 ~~~
