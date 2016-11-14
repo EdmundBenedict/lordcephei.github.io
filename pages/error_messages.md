@@ -10,7 +10,7 @@ header: no
 ________________________________________________________________________________________________
 {:.no_toc}
 
-This page documents some of the error messages that can appear in the code
+This page documents some of the error messages that can appear in the Questaal suite.
 
 ### _Table of Contents_
 ________________________________________________________________________________________________
@@ -18,9 +18,11 @@ ________________________________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-### _Density Functional codes_
+### _lmf_
 ________________________________________________________________________________________________
 
+{::nomarkdown} <a name="rdsigrange"></a> {:/}
+[//]: (/docs/error_messages/#rdsigrange)
 
 Error
 : A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
@@ -36,7 +38,7 @@ Error
 
 
   Problem:
-  If the [range](reading-qsgw-self-energies) for inverse Bloch-summed &Sigma;<sup>0</sup>(<b>q</b>)
+  If the [range](/docs/outputs/lmf_output/#reading-qsgw-self-energies) for inverse Bloch-summed &Sigma;<sup>0</sup>(<b>q</b>)
   is not sufficiently large, not enough pairs needed to recover all the Fourier components of the 
   will found.  It is evident from some output preceding this message:
 
