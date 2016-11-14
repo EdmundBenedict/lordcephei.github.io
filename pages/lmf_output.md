@@ -751,8 +751,9 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 [//]: (/docs/outputs/lmf_output/#reading-qsgw-self-energies)
 
 If you have performed a QS<i>GW</i> calculation and read a
-self-energy &Sigma;<sup>0</sup>, you will see an indication of it in
-the standard output.  The following was taken from the
+self-energy &Sigma;<sup>0</sup>, it will be added to the LDA potential.
+
+You will see an indication it is read from the standard output.  The following was taken from the
 [Fe tutorial](/tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe).
 
 ~~~
@@ -766,12 +767,13 @@ the standard output.  The following was taken from the
 ~~~
 
 + The manner in which **lmf**{: style="color: blue"} reads &Sigma;<sup>0</sup> and carries
-  out an inverse Bloch sum is described in some detail in Section IIG of [this reference](http://link.aps.org/abstract/PRB/v76/e165106).
-+ The cutoff **E(lda)>2** and average self-energies (**0.122871** spin-up and **0.138308** spin-down)
-  above 2Ry.  This parameter is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
+  out an inverse Bloch sum is described in some detail in Section IIG of [this Physical Review B paper](http://link.aps.org/abstract/PRB/v76/e165106).
++ The cutoff **E(lda)>2** is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
   It affects the partitioning between calculated matrix elements of &Sigma;<sup>0</sup> and
-  and the fixed ones above **emax**, as explained at the top of p165107 in [this paper](http://link.aps.org/abstract/PRB/v76/e165106).
+  and the fixed ones above **emax**, as explained at the top of p165107 in the [PRB paper](http://link.aps.org/abstract/PRB/v76/e165106).
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
++ The average self-energies (**0.122871** spin-up and **0.138308** spin-down) above 2Ry.
+  These numbers are used for &Sigma;<sub><i>ii</i></sup><sup>0</sup> when **SIGP\_MODE=4** (recommended)
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
   If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
   [error message](/docs/error_messages/#rdsigrange).
@@ -800,8 +802,10 @@ This table:
 
 indicates the precision of the inverse Bloch sum
 
-+ Check forward FT of real space &Sigma;<sup>0</sup>: **maximum error = 2.3e-15 < tol (5e-6)**
-+ Check deviation from original &Sigma;<sup>0</sup> after symmetrization
++ Check forward FT of real space &Sigma;<sup>0</sup> (**2.3e-15**).  It should be correct to machine precision unless 
+  the inverse Bloch transform is inexact, as described above.
++ Check deviation (**7.8e-15**) from original &Sigma;<sup>0</sup> after symmetrization by the
+  [group operations](/docs/outputs/lmf_output/#symmetry-and-k-mesh).
 
 ### Parameters for local orbitals
 [//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
