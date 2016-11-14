@@ -756,7 +756,7 @@ _Note:_{: style="color: red"} _sigm.ext_{: style="color: green"} contains the di
 so it is added directly to the Kohn-Sham potential $$V_{xc}^\mathrm{LDA}$$.
 
 <div onclick="elm = document.getElementById('qsgwsigma'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for annotation of printout reading the QSGW sigma.</span>
+<span style="text-decoration:underline;">Click here for annotation of printout when the QSGW sigma is read.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="qsgwsigma">{:/}
 
 You will see an indication &Sigma;<sup>0</sup> is read from the following standard output.  It was taken from the
@@ -853,32 +853,30 @@ The first is needed to obtain the Fermi level:
  Saved qp weights ...
 ~~~
 
-_k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
-
 _Note:_{: style="color: red"} more information is printed out as you increase the verbosity.
 
-In the PbTe case the system is an insulator.  **lmf**{: style="color: blue"} determines this automatically:
+_k_-point weights are saved into a binary file _wkp.pbte_{: style="color: green"}.
+
+In the PbTe case the system is an _insulator_.  **lmf**{: style="color: blue"} determines this automatically:
 it prints out the highest occupied state and lowest unoccupied state it encountered
 and the "bandgap."\\
 _Note:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges are included in mesh of discrete _k_ points
 used for integration.  It is true in PbTe but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).
 
-In a metal the situation is more complicated.  The following table was extracted from the [Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
-(self-consistent LDA)
+In a _metal_ the situation is more complicated.  The following table was extracted from the [Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises)
+(self-consistent LDA level)
 
 ~~~
  BZWTS : --- Tetrahedron Integration ---
-         Est E_f           Window        Tolerance  DOS(E_f)
-        -0.001663  -0.003419  -0.001198   0.002221  15.053881
-        -0.001656  -0.001664  -0.001642   0.000022  14.971352
-        -0.001656  -0.001656  -0.001656   0.000000  14.971116
- BZINTS: Fermi energy:     -0.001656;   8.000000 electrons;  D(Ef):   14.971
-         Sum occ. bands:   -1.3130888  incl. Bloechl correction:   -0.001180
-         Mag. moment:       2.172061
+ ...
+ BZINTS: Fermi energy:     -0.000601;   8.000000 electrons;  D(Ef):   14.389
+         Sum occ. bands:   -1.3036417  incl. Bloechl correction:   -0.001188
+         Mag. moment:       2.200354
 ~~~
 
-The **BZINTS** table contains significant information, including the Fermi level (**-0.003084**&thinsp;Ry) and density-of-states there (**14.391**/Ry).
-The LDA magnetic moment/cell (**2.202898**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
+The **BZINTS** table contains significant information, including the Fermi level (**-0.000601**&thinsp;Ry) and density-of-states there (**14.389**/Ry),
+and the single-particle sum **-1.3036417** entering into the LDA total energy. 
+The LDA magnetic moment/cell (**2.200354**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
 The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
 are used instead of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
@@ -886,11 +884,15 @@ are used instead of weights from the standard tetrahedron method.  This is a mea
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
 
 Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
-In insulators, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
+
+In _insulators_, each point in the full Brillouin zone gets equal weight; each point in the irreducible zone is weighted by the
 number of points in the full zone mapped to it.  You can see these weights by running **lmf**{: style="color: blue"} at a high verbosity.
 
+In _metals_ how the weights are made depends on the quadrature.
+See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the tetrahedron and sampling methods.
+
 <div onclick="elm = document.getElementById('bzmetal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-<span style="text-decoration:underline;">Click here for discussion of role of the BZ_METAL switch in performing integration.</span>
+<span style="text-decoration:underline;">Click here for discussion of role of the BZ_METAL switch in performing Brillouin zone integration.</span>
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="bzmetal">{:/}
 
 Add **-\-pr50 -\-quit=ham** to your invocation of **lmf**{: style="color: blue"}.  You should see this table:
@@ -941,16 +943,14 @@ The numbers below correspond to the values of **BZ\_METAL**.
 5. Like METAL=3 in that two passes are made but eigenvectors are kept in memory so there is no additional overhead in making the first pass. 
    This is the recommended mode for **lmf**{: style="color: blue"} unless you are working with a large system and need to conserve memory.
 
-The ASA implements METAL=0,1,2; the FP codes METAL=0,2,3,4,5.  See Additional Exercises in [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
+The ASA implements **METAL=0,1,2**; the FP codes **METAL=0,2,3,4,5**.  See Additional Exercises in [the Fe tutorial](/tutorial/gw/qsgw_fe/#additional-exercises).
 
 {::nomarkdown}</div>{:/}
-
-In metals how the weights are made depends on the quadrature.
-See [this page](/docs/numerics/bzintegration/) for a detailed discussion of the tetrahedron and sampling methods.
 
 [//]:  {::nomarkdown}</div>{:/}
 
 ### Output density and update of augmentation sphere boundary conditions
+
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
 
 A second pass over the irreducible k-points is made with output similar to the first pass.
