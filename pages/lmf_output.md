@@ -967,7 +967,9 @@ how many electrons are inside each augmentation sphere:
 ~~~
 
 {::nomarkdown} <a name="update-pnu"></a> {:/}
-[//]: (/docs/outputs/lmf_output/#update-pnu)
+{::comment}
+(/docs/outputs/lmf_output/#update-pnu)
+{:/comment}
 
 The
 [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
