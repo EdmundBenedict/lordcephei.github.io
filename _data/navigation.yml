@@ -105,8 +105,8 @@
       content:
       - title: "Brillouin zone integration"
         url: "/bzintegration/"
-  - title: "Package Overview"
-    url: "/package_overview/"
+  - title: "Error Messages"
+    url: "/error_messages/"
 
 - title: "Tutorials"
   url: ""
