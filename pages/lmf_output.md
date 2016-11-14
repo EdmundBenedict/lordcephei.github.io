@@ -770,7 +770,7 @@ the standard output.  The following was taken from the
 + The cutoff **E(lda)>2** and average self-energies (**0.122871** spin-up and **0.138308** spin-down)
   above 2Ry.  This parameter is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
   It affects the partitioning between calculated matrix elements of &Sigma;<sup>0</sup> and
-  and the fixed ones above **emax**.  It is explained at the top of [p165107 in this paper](http://link.aps.org/abstract/PRB/v76/e165106).
+  and the fixed ones above **emax**, as explained at the top of p165107 in [this paper](http://link.aps.org/abstract/PRB/v76/e165106).
   (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
   If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 

@@ -12,13 +12,15 @@ ________________________________________________________________________________
 
 This page documents some of the error messages that can appear in the Questaal suite.
 
+Fatal errors typically begin with a message  **Exit -1 _routine-name_ ...* indicating where the program failed.
+
 ### _Table of Contents_
 ________________________________________________________________________________________________
 {:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
-### _lmf_
+### _lmf code_
 ________________________________________________________________________________________________
 
 {::nomarkdown} <a name="rdsigrange"></a> {:/}
@@ -26,7 +28,7 @@ ________________________________________________________________________________
 (/docs/error_messages/#rdsigrange)
 {:/comment}
 
-Fatal: Bloch sum deviates more than allowed tolerance
+ Exit -1 rdsigm: Bloch sum deviates more than allowed tolerance
 : _Problem_: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
 
   _Example_:
