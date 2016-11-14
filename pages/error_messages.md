@@ -26,10 +26,10 @@ ________________________________________________________________________________
 (/docs/error_messages/#rdsigrange)
 {:/comment}
 
-Bloch sum deviates more than allowed tolerance
+Fatal: Bloch sum deviates more than allowed tolerance
 : _Problem_: A failure to carry out an inverse Bloch sum of the QS<i>GW</i> self-energy.
 
-  _Example_
+  _Example_:
 
   ~~~
      i   j      diff              bloch sum                file value
@@ -40,7 +40,7 @@ Bloch sum deviates more than allowed tolerance
 
   If the [range](/docs/outputs/lmf_output/#reading-qsgw-self-energies) for inverse Bloch-summed &Sigma;<sup>0</sup>(<b>q</b>)
   is not sufficiently large, not enough pairs needed to recover all the Fourier components of the 
-  will found.  It is evident from some output preceding this message:
+  will found.  It will be indicated from some preceding output:
 
   ~~~
   hft2rs: found 479 connecting vectors out of 512 possible for FFT
@@ -51,4 +51,4 @@ Bloch sum deviates more than allowed tolerance
 
   _Solution_: increase [**HAM\_RSRNGE**](/docs/input/inputfile/#ham) (at a slight increase in cost) or
   [](/docs/input/inputfile/#ham) (at an loss in accuracy).  
-  **HAM\_RSRNGE** defaults to 5 (in units of the lattice constant); **HAM\_RSSTOL** defaults to 5&times10&middot<sup>&minus;6</sup>.
+  **HAM\_RSRNGE** defaults to 5 (in units of the lattice constant); **HAM\_RSSTOL** defaults to 5&times;10&middot;<sup>&minus;6</sup>.

@@ -765,13 +765,16 @@ the standard output.  The following was taken from the
  hft2rs: make neighbor table for r.s. hamiltonian using range = 5 * alat
 ~~~
 
++ The manner in which **lmf**{: style="color: blue"} reads &Sigma;<sup>0</sup> and carries
+  out an inverse Bloch sum is described in some detail in Section IIG of [this reference](http://link.aps.org/abstract/PRB/v76/e165106).
 + The cutoff **E(lda)>2** and average self-energies (**0.122871** spin-up and **0.138308** spin-down)
   above 2Ry.  This parameter is controlled by [HAM\_SIGP\_EMAX](/docs/input/inputfile/#ham).
   It affects the partitioning between calculated matrix elements of &Sigma;<sup>0</sup> and
-  and the fixed ones above **emax**.  See in [this reference]http://link.aps.org/abstract/PRB/v76/e165106.
+  and the fixed ones above **emax**.  It is explained at the top of [p165107 in this paper](http://link.aps.org/abstract/PRB/v76/e165106).
+  (**EMAX** corresponds to <i>E</i><sub>xccut2</sub>).
 + Range <b>5</b> for inverse Bloch-summed &Sigma;<sup>0</sup>, in units of **alat**.
   If it is not sufficiently large, the inverse Bloch transform is incomplete, and the program may stop with an 
-  [error message](/docs/error_messages/#rdsigrange)
+  [error message](/docs/error_messages/#rdsigrange).
 
 This table:
 
