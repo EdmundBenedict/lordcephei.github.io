@@ -14,7 +14,7 @@ This page documents some of the error messages that can appear in the Questaal s
 
 Fatal errors typically begin with a message  **Exit -1 _routine-name_ ...** indicating where the program failed.
 
-Sometimes non-fatal, warning messages are given.  Usually they contain a string like "**(warning)**."
+Sometimes non-fatal, warning messages are given.  Usually the message has &thinsp;"**(warning)**"&thinsp; or something similar.
 
 ### _Table of Contents_
 ________________________________________________________________________________________________

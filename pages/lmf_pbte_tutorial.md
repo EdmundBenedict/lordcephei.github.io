@@ -676,36 +676,40 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
   essential information is retained as coefficients of the local density matrix (a compact form).
 + Assembles the local densities from the density matrix.
 + Symmetrizes the density.
-
 + Finds [new logarithmic derivative parameters]((/docs/outputs/lmf_output/#update-pnu)) **pnu** by floating them to the band center-of-gravity
-
-+ Computes the Harris-Foulkes and Kohn-Sham [total energies](/docs/outputs/lmf_output/#total-energy-and-forces).
++ Computes the Harris-Foulkes and Kohn-Sham [total energies and forces](/docs/outputs/lmf_output/#total-energy-and-forces).
++ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density.
   A segment of the output reads:
 
   ~~~
   mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
   ~~~
   
-+ Computes the forces.
-+ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density.
+  **DQ=2.17e-2** is a measure of the root mean square deviation <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
+  At self-consistency this number should be small.
+^
 + Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 
-At the end of the self-consistency cycle the density is written to _rst.pbte_{: style="color: green"} and a check is made for convergence.
-The first iteration reads
+At the end of the self-consistency cycle the density is written to _rst.pbte_{: style="color: green"} 
 
 ~~~
  iors  : write restart file (binary, mesh density)
-
-   it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
-h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 ~~~
 
-No check is made because there is no prior iteration to compare the change
-in total energy.
+and a check is made for convergence.
+No check is made in the first iteration because there is no prior iteration to compare the change in total energy.
+The second iteration reads:
+<pre>
+              &darr;         &darr;
+ diffe(q)=  0.004793 (0.018916)    tol= 0.000010 (0.000030)   more=T
+i nkabc=6 gmax=7.8 ehf=-55318.1657745 ehk=-55318.1568616
+</pre>
 
-In the 10<sup>th</sup> iteration, the convergence check reads
+Two checks are made: against the change (**0.004793**) in total energy and the RMS DQ (**0.018916**).
+When both checks fall below tolerances self-consistency is reached.  In this case it occurs in iteration 10,
+where the convergence check reads:
 <pre>
               &darr;         &darr;
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
@@ -716,10 +720,11 @@ The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutor
 charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
 
 The last line prints out a table of variables that were specified on the command line, and total
-energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are different
+energies from the [Harris-Foulkes]*/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration 
 achieved self-consistency with the tolerances specified.
+See the [annotated output](/docs/outputs/lmf_output/#end-of-self-consistency-loop) for more details.
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 

@@ -1160,17 +1160,33 @@ _Notes:_{: style="color: red"}
 
 At the end of the self-consistency cycle the density is written to
 _rst.pbte_{: style="color: green"} and a check is made for convergence.
-The first iteration reads
 
-~~~
+and a check is made for convergence.  The first and second iterations read
+<pre>
  iors  : write restart file (binary, mesh density)
 
    it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
 h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
-~~~
 
-No check is made because there is no prior iteration to compare the change
-in total energy.
+  ...
+
+   it  2  of 10    ehf=  -55318.165774   ehk=  -55318.156862
+ From last iter    ehf=  -55318.170567   ehk=  -55318.148758
+              &darr;         &darr;
+ diffe(q)=  0.004793 (0.018916)    tol= 0.000010 (0.000030)   more=T
+i nkabc=6 gmax=7.8 ehf=-55318.1657745 ehk=-55318.1568616
+</pre>
+
+No check is made in the first iteration because there is no prior
+iteration to compare the change in total energy.
+
+Two checks are made: against the change (**0.004793**) in total energy and the RMS DQ (**0.018916**).
+Self-consistency is reached when both checks fall below tolerances..  You can set them with
+with **EXPRESS_conv** and **EXPRESS_convc**, aliases for **ITER\_CONV** and **ITER\_CONVC**.
+
+.  In this case it occurs in iteration 10,
+where the convergence check reads:
+
 
 After the 10<sup>th</sup> iteration, the convergence check reads
 
@@ -1181,7 +1197,21 @@ After the 10<sup>th</sup> iteration, the convergence check reads
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
-**ehf**  and **ehk** are the Harris-Foulkes total
+The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) energy relative to the prior iteration and some norm of RMS change in the
+charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
+
+The last line prints out a table of variables that were specified on the command line, and total
+energies from the [Harris-Foulkes]*/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
+functionals but they should approach the same value at self-consistency.
+
+
++ The **c** at the beginning of the line indicates that this iteration 
+achieved self-consistency with the tolerances specified. 
++ Intermediate iterations begin with **i**, the first with **h**.
++ If the maximum number of iterations is reached without achieving convergence,
+  the line begins with **x**.
++ When doing molecular statics, and both charge density is converged
+  and forces fall below tolerance, the line begins with **C**.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
