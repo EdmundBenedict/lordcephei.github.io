@@ -1146,7 +1146,7 @@ _Notes:_{: style="color: red"}
 
 + **mode=B** indicates that the Broyden method will be used when mixing 
   prior iterations (in the first pass there are no prior iterations to mix)
-+ **elind** is Fermi level entering into the model Lindhard function used to screen <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see 
++ **elind** is the Fermi level entering into the model Lindhard function used to screen <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see 
    [Eq. (1)](/docs/input/inputfile/#charge-mixing-general-considerations).
 + **beta=.3** is the mixing parameter, governing how much <i>n</i><sup>out</sup> is added to <i>n</i><sup>in</sup>, as
   explained in Eq. 4 at [this link](/docs/input/inputfile/#charge-mixing-general-considerations).

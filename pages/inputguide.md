@@ -1154,8 +1154,9 @@ It can be estimated given the total number of electrons **qval** from the free e
 </div>
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
-a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).
-This is called the "Kerker mixing" algorithm.  The Questaal codes do not have a plane wave representation so they do something else.
+a simple mixing scheme would be to mix each <i>C</i><sub><b>G</b></sub> separately according to Eq.(2).  This is called the "Kerker mixing"
+algorithm.  One can use the Lindhard function instead.  The idea is similar, but the Lindhard function is exact for free electrons.  In any
+case the Questaal codes do not have a plane wave representation so they do something else.
 
 The ASA uses a simplified mixing scheme since the [logarithmic derivative parameters](/docs/code/asaoverview/#logderpar) <i>P</i>
 and [energy moments of charge](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) <i>Q</i> for each class
