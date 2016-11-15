@@ -1040,7 +1040,7 @@ along with the forces
  Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
 ~~~
 
-Forces are used in molecular statics, and also to compute phonons.
+Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
 ### New density
 [//]: (/docs/outputs/lmf_output/#new-density)
