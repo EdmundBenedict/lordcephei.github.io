@@ -1141,7 +1141,7 @@ it is better not to interpolate and use **-\-nw=1**.
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ SpectralFunction.sh
-[//]: (/docs/input/commandline/#switches-for-spectralfunction-sh)
+[//]: (/docs/input/commandline/#switches-for-spectralfunctionsh)
 
 **SpectralFunction.sh**{: style="color: blue"} reads spectral function
 files in the [_spf_{: style="color: green"}
