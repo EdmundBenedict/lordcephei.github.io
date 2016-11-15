@@ -877,8 +877,7 @@ In a _metal_ the situation is more complicated.  The following table was extract
 The **BZINTS** table contains significant information, including the Fermi level (**-0.000601**&thinsp;Ry) and density-of-states there (**14.389**/Ry),
 and the single-particle sum **-1.3036417**&thinsp;Ry entering into the LDA total energy. 
 The LDA magnetic moment/cell (**2.200354**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
-The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
-are used in lieu of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
+The [Bloechl correction](/docs/numerics/bzintegration/#tetrahedron-integration) (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223) are used in lieu of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
 #### _Integration weights and the METAL switch_
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
@@ -1013,13 +1012,15 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
 ~~~
 
 Also printed are corrections to forces.  At self-consistency this correction vanishes.  But, in contrast to the total energy, which is
-variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>, the forces are
-not.  If it were known how the density shifts with the nucleus (which requires knowledge of the
-[dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational.
-However we can do almost as well by making an _ansatz_ for how the density shifts.   The simplest is to assume that 
-there is a cloud of charge given by the free atomic density that shifts rigidly with nucleus.  A correction term can be 
-devised, which dramatically improves on the converge of the forces with respect to  <i>n</i><sup>in</sup>&minus;<i>n</i> ...
-in most cases the error becomes close variational, i.e. the contribution linear in <i>n</i><sup>in</sup>&minus;<i>n</i> 
+variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
+i.e. <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
+If it were known how the density shifts with the nucleus (which requires knowledge of the
+[dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational as well.
+
+We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
+there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
+devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
+In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
 becomes much smaller.
 
 The Kohn-Sham total energy is also calculated:
@@ -1030,7 +1031,12 @@ The Kohn-Sham total energy is also calculated:
  rhoep=    -1094.805096   utot=   -116741.865633   ehks=   -55318.148758
 ~~~
 
-along with the forces
+This energy is a functional of <i>n</i><sup>out</sup> and
+<i>V</i><sup>in</sup>.  It is a different functional than the HF
+functional, but the two should come together at the self-consistent
+density.
+
+The forces are printed, including the correction mentioned above:
 
 ~~~
  Forces, with eigenvalue correction
@@ -1045,6 +1051,16 @@ Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 ### New density
 [//]: (/docs/outputs/lmf_output/#new-density)
 
+Questaal's general strategy for guessing the self-consistent density based on 
+(<i>n</i><sup>in</sup>,<i>n</i><sup>out</sup>) pairs, is described
+[here](/docs/input/inputfile/#itermix).
+
+It takes some linear combination of <i>n</i><sup>in</sup> and <i>n</i><sup>out</sup>
+from the current, and possibly prior iterations, based on settings
+in [**_ITER\_MIX_**](/docs/input/inputfile/#iter).
+
+**lmf**{: style="color: blue"}'s printout of this mixing looks like the following
+
 ~~~
  mixing: mode=B  nmix=2  beta=.3  elind=.531  kill=7
  mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
@@ -1056,6 +1072,16 @@ Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
  unscreened rms difference:  smooth  0.011613   local  0.022361
    screened rms difference:  smooth  0.011907   local  0.022361   tot  0.021660
 ~~~
+
+_Notes:_{: style="color: red"}
+
++ **mode=B** indicates that the Broyden method will be used when mixing 
+  prior iterations (in the first pass there are no prior iterations to mix)
++ **beta=.3** is
++ **RMS DQ=2.17e-2** is a measure of the aggregate RMS change in
+  <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
+
+
 
 ### End of self-consistency loop
 [//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
