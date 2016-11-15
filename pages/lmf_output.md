@@ -957,8 +957,7 @@ See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
 
 A second pass over the irreducible k-points is made with output similar to the first pass.
-
-In the second pass the output density is made and symmetrized.  This table tells you
+After completion the output density is made and symmetrized.  This table tells you
 how many electrons are inside each augmentation sphere:
 
 ~~~
@@ -972,7 +971,7 @@ how many electrons are inside each augmentation sphere:
 (/docs/outputs/lmf_output/#update-pnu)
 {:/comment}
 
-The
+Then the
 [logarithmic derivative parameters](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers)
 **pnu** are updated.  Whether they are frozen or allowed to float depends on [**SPEC\_ATOM\_IDMOD**](/docs/input/inputfile/#spec-cat).
 In this tutorial they are all allowed to float.
@@ -994,7 +993,7 @@ The fractional parts of **P** is of order 0.9 for the 6_s_ and 5_d_ states, beca
 <i>E<sub>F</sub></i>, so its **P** is close to the free electron value.  (For numerical stability, **P** is frozen for any _l_ for which
 there is a corresponding deep local orbital.  Thus for that state **pnew** is not updated to **ptry**.)  The 6_p_ state is near the Fermi
 level, and forms the predominant contribution to the bonding and band structure.  See
-[this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an interpreration.
+[this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an interpretation.
 
 ### Total energy and forces
 [//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
@@ -1005,7 +1004,23 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
  Harris energy:
  ...
  rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
+~~~
 
+Also printed are corrections to forces.  At self-consistency this correction vanishes.  But, in contrast to the total energy, which is
+variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
+thus <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
+If it were known how the density shifts with the nucleus (which requires [knowledge about the
+dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational as well.
+
+We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
+there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
+devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
+In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
+becomes much smaller.
+
+In the PbTe case the correction reads:
+
+~~~
  Harris correction to forces: shift in free-atom density
   ib         delta-n dVes             delta-n dVxc               total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
@@ -1013,17 +1028,7 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
  shift forces to make zero average correction:            0.00    0.00    0.00
 ~~~
 
-Also printed are corrections to forces.  At self-consistency this correction vanishes.  But, in contrast to the total energy, which is
-variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
-i.e. <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
-If it were known how the density shifts with the nucleus (which requires knowledge of the
-[dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational as well.
-
-We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
-there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
-devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
-In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
-becomes much smaller.
+PbTe is cubic: forces vanish by symmetry; there is neither force nor correction.
 
 The Kohn-Sham total energy is also calculated:
 
@@ -1047,6 +1052,63 @@ The forces are printed, including the correction mentioned above:
    2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
  Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
 ~~~
+
+Regarding forces, a more interesting case is the compound Bi<sub>2</sub>Te<sub>3</sub>.
+Starting from the [Mattheis construction](/docs/outputs/lmf_output/#mattheis-construction),
+overlapping atomic densities to make <i>n</i><sup>in</sup>, the corrections read
+
+~~~
+ Harris correction to forces: shift in free-atom density
+  ib         delta-n dVes             delta-n dVxc               total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00 -522.58     0.00    0.00  -17.13     0.00    0.00  539.71
+   3    0.00    0.00  522.58     0.00    0.00   17.13     0.00    0.00 -539.71
+   4    0.00    0.00  339.35     0.00    0.00   21.41     0.00    0.00 -360.76
+   5    0.00    0.00 -339.35     0.00    0.00  -21.41     0.00    0.00  360.76
+ shift forces to make zero average correction:            0.00    0.00    0.00
+~~~
+
+and the forces are
+
+~~~
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00   79.63     0.00    0.00  -80.35     0.00    0.00   -0.72
+   3    0.00    0.00  -79.63     0.00    0.00   80.35     0.00    0.00    0.72
+   4    0.00    0.00  -23.99     0.00    0.00   17.18     0.00    0.00   -6.82
+   5    0.00    0.00   23.99     0.00    0.00  -17.18     0.00    0.00    6.82
+ Maximum Harris force = 6.82 mRy/au (site 5)  Max eval correction = 539.7
+~~~
+
+
+Near self-consistency these tables become
+
+~~~
+ Harris correction to forces: shift in free-atom density
+  ib         delta-n dVes             delta-n dVxc               total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00    0.05     0.00    0.00   -0.04     0.00    0.00   -0.01
+   3    0.00    0.00   -0.05     0.00    0.00    0.04     0.00    0.00    0.01
+   4    0.00    0.00   -0.41     0.00    0.00    0.08     0.00    0.00    0.32
+   5    0.00    0.00    0.41     0.00    0.00   -0.08     0.00    0.00   -0.32
+ shift forces to make zero average correction:            0.00    0.00    0.00
+...
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  581.12     0.00    0.00 -570.21     0.00    0.00   10.91
+   3    0.00    0.00 -581.12     0.00    0.00  570.21     0.00    0.00  -10.91
+   4    0.00    0.00 -334.06     0.00    0.00  319.94     0.00    0.00  -14.11
+   5    0.00    0.00  334.06     0.00    0.00 -319.94     0.00    0.00   14.11
+ Maximum Harris force = 14.1 mRy/au (site 4)  Max eval correction = 0.3
+~~~
+
+The correction of several hundred mRy/a.u. causes the forces even from
+the Mattheis construction to be not so different from the self-consistent ones.
+
+The forces give a measure of the error in the LDA predicting structure since
+site positions were taken from experiment.
 
 Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
