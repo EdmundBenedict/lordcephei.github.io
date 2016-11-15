@@ -1150,18 +1150,17 @@ _Notes:_{: style="color: red"}
    [Eq. (1)](/docs/input/inputfile/#charge-mixing-general-considerations)).
 + **beta=.3** is the mixing parameter, governing how much <i>n</i><sup>out</sup> is added to <i>n</i><sup>in</sup>, as
   explained in [Eq. (4)](/docs/input/inputfile/#charge-mixing-general-considerations).
-+ **RMS DQ=2.17e-2** is a measure of the aggregate RMS change in
++ **RMS DQ=2.17e-2** is a measure of the collective RMS change in
   <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
   This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
-  It is broken down into individual contributions in following table.
+  It is broken down into individual contributions in the table.
 
 ### End of self-consistency loop
 [//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
 
 At the end of the self-consistency cycle the density is written to
 _rst.pbte_{: style="color: green"} and a check is made for convergence.
-
-and a check is made for convergence.  The first and second iterations read
+Checks in the first and second iterations read
 
 ~~~
  iors  : write restart file (binary, mesh density)
@@ -1184,9 +1183,9 @@ iteration to compare the change in total energy.
 
 In subsequent iterations two checks are made: the change (**0.004793**) in total energy from the prior iteration and the
 [RMS DQ](/docs/outputs/lmf_output/#new-density) (**0.018916**). Self-consistency is reached when both checks fall below tolerances..  You
-can set them with with **EXPRESS_conv** and **EXPRESS_convc**, aliases for **ITER\_CONV** and **ITER\_CONVC**.
+can set them with **EXPRESS_conv** and **EXPRESS_convc**, aliases for [**ITER\_CONV** and **ITER\_CONVC**](/docs/input/inputfile/#iter).
 
-In this case convergence is reached in iteration 10, where the convergence check reads:
+In this case convergence is reached in iteration 10, where the convergence checks read:
 
 ~~~
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
@@ -1194,12 +1193,12 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
 The last line prints out a table of variables that were specified on the command line, and total
-energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
-functionals but they should approach the same value at self-consistency.
+energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These
+functionals are different but they should approach the same value at self-consistency.
 
 The character at the beginning of the line has the following significance:
 
-+ **c**&ensp; self-consistency achieved within the specified tolerances.
++ **c**&ensp; self-consistency achieved within the specified tolerances
 + **i**&ensp; intermediate iteration, not self-consistent
 + **h**&ensp; the first iteration
 + **x**&ensp; the maximum number of iterations was reached without achieving convergence
