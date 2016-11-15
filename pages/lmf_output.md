@@ -853,12 +853,12 @@ _wkp.pbte_{: style="color: green"}.
  Saved qp weights ...
 ~~~
 
-_Note:_{: style="color: red"} more information is printed out as you increase the verbosity.
+You can get more information by increasing the [print verbosity](/docs/input/commandline/#pr).
 
 PbTe is an _insulator_, both in real life and in the LDA.  **lmf**{: style="color: blue"} automatically detects
-what appears to be an insulating state; in that case it prints out the highest occupied state and lowest unoccupied state it encountered
+what appears to be an insulating state, in which case it prints out the highest occupied state and lowest unoccupied state it encountered
 and the "bandgap."\\
-_Note 1:_{: style="color: red"} the bandgap is only the actual bandgap if the actual band edges coincide with one of the mesh of discrete _k_ points
+_Note 1:_{: style="color: red"} the "bandgap" is only the actual bandgap if the actual band edges coincide with one of the mesh of discrete _k_ points
 used for integration.  It is true in PbTe (both band edges fall at L) but not other cases, e.g. Si.  See [this tutorial](/tutorial/lmf/lmf_bandedge/).\\
 _Note 2:_{: style="color: red"} the band code may incorrectly determine that the system is 
 an insulator.  This can happen when band gaps are small and the _k_ mesh is too coarse.
@@ -878,7 +878,7 @@ The **BZINTS** table contains significant information, including the Fermi level
 and the single-particle sum **-1.3036417**&thinsp;Ry entering into the LDA total energy. 
 The LDA magnetic moment/cell (**2.200354**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
 The Bloechl correction (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223)
-are used instead of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
+are used in lieu of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
 #### _Integration weights and the METAL switch_
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
