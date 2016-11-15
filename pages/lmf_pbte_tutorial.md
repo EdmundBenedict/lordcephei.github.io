@@ -687,7 +687,6 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
   
   **DQ=2.17e-2** is a measure of the root mean square deviation <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
   At self-consistency this number should be small.
-^
 + Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.

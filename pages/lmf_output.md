@@ -1195,13 +1195,15 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 
 The last line prints out a table of variables that were specified on the command line, and total
 energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
-functionals but they should approach the same value at self-consistency.  The character at the beginning of the line has the following significance:
+functionals but they should approach the same value at self-consistency.
 
-+ *c** this iteration achieved self-consistency with the tolerances specified. 
-+ **i** intermediate iteration, not self-consistent
-+ **h** the first iteration
-+ **x** the maximum number of iterations was reached without achieving convergence
-+ **C** (molecular statics) when both charge density is converged and forces fall below tolerance
+The character at the beginning of the line has the following significance:
+
++ **c**&ensp; self-consistency achieved within the specified tolerances.
++ **i**&ensp; intermediate iteration, not self-consistent
++ **h**&ensp; the first iteration
++ **x**&ensp; the maximum number of iterations was reached without achieving convergence
++ **C**&ensp; (molecular statics) when both charge density is converged and forces fall below tolerance
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
