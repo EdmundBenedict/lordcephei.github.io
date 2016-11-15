@@ -425,6 +425,7 @@ overlaps them (Mattheis construction).  This makes a reasonable guess for the de
 potential is a relatively modest perturbation to it.  Thus the true density is typically not so far from a superposition of atomic densities.
 
 {::nomarkdown} <a name="mattheis-construction"></a> {:/}
+
 [//]: (/docs/outputs/lmf_output/#mattheis-construction)
 
 <div onclick="elm = document.getElementById('mattheis'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
@@ -1006,7 +1007,7 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
  rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
 ~~~
 
-Also printed are corrections to forces.  At self-consistency this correction vanishes.  But, in contrast to the total energy, which is
+Also printed are a correction term to the forces. In contrast to the total energy, which is
 variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
 thus <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
 If it were known how the density shifts with the nucleus (which requires [knowledge about the
@@ -1016,7 +1017,7 @@ We can do almost as well by making an _ansatz_ for how the density shifts.   The
 there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
 devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
 In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
-becomes much smaller.
+becomes much smaller.  At self-consistency the correction term vanishes.
 
 In the PbTe case the correction reads:
 
@@ -1104,11 +1105,13 @@ Near self-consistency these tables become
  Maximum Harris force = 14.1 mRy/au (site 4)  Max eval correction = 0.3
 ~~~
 
-The correction of several hundred mRy/a.u. causes the forces even from
-the Mattheis construction to be not so different from the self-consistent ones.
-
 The forces give a measure of the error in the LDA predicting structure since
-site positions were taken from experiment.
+site positions were taken from experiment.  10&thinsp;mRy/a.u. is a fairly small force,
+implying that LDA lattice positions will be close to experimental ones.
+
+At self-consistency, the force on Te is **10.91**&thinsp;mRy/a.u..
+With the correction term, the force from the Mattheis construction is **-0.72**&thinsp;mRy/a.u..
+The error is thus of order 10&thinsp;mRy/a.u., vastly smaller than the correction term (**539.71**&thinsp;mRy/a.u).
 
 Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
