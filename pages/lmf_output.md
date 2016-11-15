@@ -1010,7 +1010,7 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
 Also printed are a correction term to the forces. In contrast to the total energy, which is
 variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
 thus <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
-If it were known how the density shifts with the nucleus (which requires [knowledge about the
+If it were known how the density shifts with the nucleus (which requires [knowledge of the
 dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational as well.
 
 We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
@@ -1126,7 +1126,7 @@ Questaal's general strategy for guessing the self-consistent density based on
 
 It takes some linear combination of <i>n</i><sup>in</sup> and <i>n</i><sup>out</sup>
 from the current, and possibly prior iterations, based on settings
-in [**_ITER\_MIX_**](/docs/input/inputfile/#iter).
+in [**ITER\_MIX**](/docs/input/inputfile/#iter).
 
 **lmf**{: style="color: blue"}'s printout of this mixing looks like the following
 
@@ -1147,9 +1147,9 @@ _Notes:_{: style="color: red"}
 + **mode=B** indicates that the Broyden method will be used when mixing 
   prior iterations (in the first pass there are no prior iterations to mix)
 + **elind** is the Fermi level entering into the model Lindhard function used to screen <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see 
-   [Eq. (1)](/docs/input/inputfile/#charge-mixing-general-considerations).
+   [Eq. (1)](/docs/input/inputfile/#charge-mixing-general-considerations)).
 + **beta=.3** is the mixing parameter, governing how much <i>n</i><sup>out</sup> is added to <i>n</i><sup>in</sup>, as
-  explained in Eq. 4 at [this link](/docs/input/inputfile/#charge-mixing-general-considerations).
+  explained in [Eq. (4)](/docs/input/inputfile/#charge-mixing-general-considerations).
 + **RMS DQ=2.17e-2** is a measure of the aggregate RMS change in
   <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
   This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
@@ -1172,9 +1172,7 @@ h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 No check is made because there is no prior iteration to compare the change
 in total energy.
 
-The self-consistency cycle
-
-In the 10<sup>th</sup> iteration, the convergence check reads
+After the 10<sup>th</sup> iteration, the convergence check reads
 
 ~~~
    it 10  of 10    ehf=  -55318.162097   ehk=  -55318.162096
@@ -1183,7 +1181,7 @@ In the 10<sup>th</sup> iteration, the convergence check reads
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
-
+**ehf**  and **ehk** are the Harris-Foulkes total
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 

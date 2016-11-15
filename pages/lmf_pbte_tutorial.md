@@ -675,21 +675,20 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
   to accumulate the output mesh and local densities.  For the latter
   essential information is retained as coefficients of the local density matrix (a compact form).
 + Assembles the local densities from the density matrix.
-+ Symmetrizes the density
++ Symmetrizes the density.
 
 + Finds [new logarithmic derivative parameters]((/docs/outputs/lmf_output/#update-pnu)) **pnu** by floating them to the band center-of-gravity
 
-+ Computes the Harris-Foulkes and Kohn-Sham [total energies](/docs/outputs/lmf_output/#total-energy-and-forces)
++ Computes the Harris-Foulkes and Kohn-Sham [total energies](/docs/outputs/lmf_output/#total-energy-and-forces).
   A segment of the output reads:
 
   ~~~
   mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
   ~~~
   
-+ Computes the forces
-
-+ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density
-+ Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop)
++ Computes the forces.
++ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density.
++ Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 
