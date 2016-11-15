@@ -1150,7 +1150,7 @@ $$ \epsilon^{-1}(q) = \frac{q^2}{q^2 + k_{TF}^2} \quad\quad (2) $$
 Eq.(2) has one free parameter, the Thomas Fermi wave number <i>k</i><sub><i>TF</i></sub>.
 It can be estimated given the total number of electrons **qval** from the free electron gas formula.
 <div style="text-align:center;">
-<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;<b>qval</b>)<sup>1/3</sup>
+<i>k</i><sub><i>F</i></sub> = (3<i>&pi;</i><sup>3</sup>/vol&times;<b>qval</b>)<sup>1/3</sup> = <i>E</i><sub><i>F</i></sub><sup>1/2</sup>
 </div>
 
 If the density were expanded in plane waves <i>n</i> = &Sigma;<sub><b>G</b></sub>&thinsp;<i>C</i><sub><b>G</b></sub>&thinsp;<i>n</i><sub><b>G</b></sub>,
@@ -1196,7 +1196,7 @@ and build <span style="text-decoration: overline"><i>&delta;</i>X</span> from
 <span style="text-decoration: overline"><i>&delta;n</i></span>.
 Then estimate
 <div style="text-align:center;">
-  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; <span style="text-decoration: overline"><i>&delta;</i>X</span>
+  <b>X</b><sup>*</sup> = <b>X</b><sup>in</sup> + <b>beta</b> &times; <span style="text-decoration: overline"><i>&delta;</i>X</span>  &emsp;&emsp;&emsp;  (4)
 </div>
 Now **beta** can be much larger again, of order unity.
 

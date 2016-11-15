@@ -833,7 +833,7 @@ The result displayed in a table:
 
 The charge density and Fermi level must be found by integration over the Brillouin zone.  The code makes two passes over the irreducible _k_
 points.  The first is needed to obtain the Fermi level.  <i>E<sub>F</sub></i> and _k_-point weights are saved into a binary file
-_wkp.pbte_{: style="color: green"}.
+[_wkp.pbte_{: style="color: green"}](/docs/input/data_format/#the-wkp-file).
 
 ~~~
  Start first of two band passes ...
@@ -950,6 +950,8 @@ Tetrahedron and sampling methods are explained and compared in some detail [here
 
 [//]:  {::nomarkdown}</div>{:/}
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ### Output density and update of augmentation sphere boundary conditions
 
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
@@ -1048,6 +1050,8 @@ The forces are printed, including the correction mentioned above:
 
 Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
+See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
+
 ### New density
 [//]: (/docs/outputs/lmf_output/#new-density)
 
@@ -1077,11 +1081,14 @@ _Notes:_{: style="color: red"}
 
 + **mode=B** indicates that the Broyden method will be used when mixing 
   prior iterations (in the first pass there are no prior iterations to mix)
-+ **beta=.3** is
++ **elind** is Fermi level entering into the model Lindhard function used to screen <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see 
+   [Eq. (1)](/docs/input/inputfile/#charge-mixing-general-considerations).
++ **beta=.3** is the mixing parameter, governing how much <i>n</i><sup>out</sup> is added to <i>n</i><sup>in</sup>, as
+  explained in Eq. 4 at [this link](/docs/input/inputfile/#charge-mixing-general-considerations).
 + **RMS DQ=2.17e-2** is a measure of the aggregate RMS change in
-  <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.  This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
-
-
+  <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
+  This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
+  It is broken down into individual contributions in following table.
 
 ### End of self-consistency loop
 [//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
