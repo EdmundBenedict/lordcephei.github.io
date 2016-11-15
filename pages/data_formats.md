@@ -441,6 +441,22 @@ Similarly the bands are slightly modified.
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
+#### The wkp file
+[//]: (/docs/input/data_format/#the-wkp-file)
+
+Keeps Fermi level **efermi** and band weights **wtkb(nevx,nsp,nq)** for Brillouin zone integration.
+
+The file consists of a header followed by **wtkb(nevx,nsp,nq)**.  The header
+contains a dimensioning parameter, number of spins and irreducible _k_ points
+in the Brillouin zone:
+<div style="text-align:center;">
+nevx&thinsp; nq&thinsp; nsp&thinsp; efermi
+</div>
+
+I/O is performaed by routine iobzwt in **subs/suzbi.f**{: style="color: green"}.
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
+
 #### The se file
 [//]: (/docs/input/data_format/#the-se-file)
 

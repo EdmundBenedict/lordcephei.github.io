@@ -1148,10 +1148,10 @@ files in the [_spf_{: style="color: green"}
 format](/docs/input/data_format/#the-spf-file), and makes figures from
 them.
 
-The script is self-documenting.  For help, do:
+The script is self-documenting.  For help, try:
 
 ~~~
-SpectralFunction.sh  -h
+$ SpectralFunction.sh  -h
 ~~~
 
 #### _Switches for_ lmctl
