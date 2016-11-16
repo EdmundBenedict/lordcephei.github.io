@@ -9,9 +9,8 @@ header: no
 ---
 
 ### _Purpose_
-_____________________________________________________________
-
 {:.no_toc}
+_____________________________________________________________
 
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
@@ -27,9 +26,9 @@ It synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the s
 potential methods, and forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
 
 ### _Table of Contents_
+{:.no_toc}
 _____________________________________________________________
 
-{:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
