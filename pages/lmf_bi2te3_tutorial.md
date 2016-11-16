@@ -192,6 +192,9 @@ The packing fraction is printed
  Cell volume= 1141.20380   Sum of sphere volumes= 492.34441 (0.43143)
 ~~~
 
+Generally larger packing fractions are better because the augmentation [partial waves](/docs/package_overview/#linear-methods-in-band-theory) are quite accurate.
+
+**0.43** is a fairly good packing fraction.  
 
 #### 3. _Making the atomic density_
 
