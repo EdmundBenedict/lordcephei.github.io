@@ -63,10 +63,10 @@ _____________________________________________________________
 #### 1. _Building the input file_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#building-the-input-file)
 
-This step is essentially identical to the [first step](/tutorial/lmf/lmf_pbte_tutorial/#building-the-input-file) in the tutorial for PbTe
+This step is essentially identical to the [first step](/tutorial/lmf/lmf_pbte_tutorial/#building-the-input-file) in the PbTe tutorial.
 An abbreviated version is presented here.
 
-Create a file named _init.bi2te3_{: style="color: green"} containing the following lines:
+Cut and paste the following into _init.bi2te3_{: style="color: green"}.
 
 ~~~
 # from http://cst-www.nrl.navy.mil/lattice/struk/c33.html
@@ -82,15 +82,13 @@ SITE
     ATOM=Bi X=0     0   {uBi}
 ~~~
 
-[This tutorial](/Users/markvanschilfgaarde/lordcephei.github.io/pages/input-file-style.html) explains how the input files _init.ext_{: style="color: green"} and _ctrl.ext_{: style="color: green"} are structured.
+[This tutorial](/docs/input/inputfile/) explains how the input files _init.ext_{: style="color: green"} and _ctrl.ext_{: style="color: green"} are structured.
 
 To create the skeleton input file invoke **blm**{: style="color: blue"}:
 
 ~~~
 $ blm bi2te3
 ~~~
-
-*Note:*{: style="color: red"} The following applies to the FP code **lmf**{: style="color: blue"}. For ASA calculations, ignore the remainder of this section.
 
 This template will not work as is; three essential pieces of information which **blm**{: style="color: blue"} does not supply are missing, to rectify this :
 
@@ -100,20 +98,19 @@ This template will not work as is; three essential pieces of information which *
 
 **blm**{: style="color: blue"} creates a family of tags belonging to AUTOBAS to enbable other programs to automatically find a basis set for you. We will use this tag, which sets up a standard minimal basis:
 
-    AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=3 GW=0]
+    autobas[pnu=1 loc=1 lmto=3 mto=3 gw=0]
 
-(Note that you must modify _actrl.bi2te3_{: style="color: green"} a little; the default gives [.. LMTO=4 MTO=4], which makes a [double kappa basis](#multikappa).
+(Note that you must modify _actrl.bi2te3_{: style="color: green"} a little; the default gives [.. LMTO=5 MTO=4], which makes a [double kappa basis](#multikappa).
 
 **lmfa**{: style="color: blue"} calculates wave functions and atomic densities for free atoms. It also has a mode that automatically generates information for basis sets, using tokens in AUTOBAS to guide it. This information is written to a file _basp0.ext_{: style="color: green"}. AUTOBAS specifies set of conditions that enable **lmfa**{: style="color: blue"} to automatically build the basis set for you, including specification of envelope function parameters [RSMH and EH](fp.html#spec). Alternatively you can define parameters such as EH and RSMH basis by hand, as described [in this tutorial](FPtutorial.html#basis).
 
 Tokens in AUTOBAS tell **lmfa**{: style="color: blue"} to do the following:
 
-PNU=1    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar),
-:  Save parameters in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about P is written if **PNU=0**.
-
+PNU=1    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
+:  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
 LOC=1    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
 :  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**
-             No search is made if         LOC=0        .
+   No search is made if **LOC=0**
 
 LMTO=3   Pick a default choice about the size of basis.  LMTO=3 is a standard minimal basis.
 :  Run **lmfa**{: style="color: blue"} --input and look for HAM_AUTOBAS_LMTO to see what other choices there are.
