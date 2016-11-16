@@ -92,13 +92,17 @@ $ blm bi2te3
 
 This template will not work as is; three essential pieces of information which **blm**{: style="color: blue"} does not supply are missing, to rectify this :
 
-*   You must specify plane-wave cutoff **GMAX**; see the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs)
-*   You must specify a valid **k** mesh for Brillouin zone integration; see the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs)
+*   You must specify plane-wave cutoff **GMAX**; see the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs).
+*   You must specify a valid **k** mesh for Brillouin zone integration; see the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs).
 *   You must define a basis set which can be done manually or automatically, as described next.
 
 **blm**{: style="color: blue"} creates a family of tags belonging to AUTOBAS to enbable other programs to automatically find a basis set for you. We will use this tag, which sets up a standard minimal basis:
 
     autobas[pnu=1 loc=1 lmto=3 mto=3 gw=0]
+
+This is an alias for the same tag in the **HAM** category
+
+    AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=3 GW=0]
 
 (Note that you must modify _actrl.bi2te3_{: style="color: green"} a little; the default gives [.. LMTO=5 MTO=4], which makes a [double kappa basis](#multikappa).
 
@@ -108,14 +112,15 @@ Tokens in AUTOBAS tell **lmfa**{: style="color: blue"} to do the following:
 
 PNU=1    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
 :  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
+
 LOC=1    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
 :  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**
    No search is made if **LOC=0**
 
 LMTO=3   Pick a default choice about the size of basis.  LMTO=3 is a standard minimal basis.
-:  Run **lmfa**{: style="color: blue"} --input and look for HAM_AUTOBAS_LMTO to see what other choices there are.
+:  Run `lmfa --input` and look for **HAM\_AUTOBAS\_LMTO** to see what other choices there are.
 
-   **lmfa**{: style="color: blue"} will pick some defaults for the _l_-cutoff, e.g. _spd_ or _spdf_ depending on the value of LMTO.
+   **lmfa**{: style="color: blue"} will pick some defaults for the _l_-cutoff, e.g. _spd_ or _spdf_ depending on the value of **LMTO**.
 
 MTO=1    Choose 1-kappa basis set (single orbital per _l_ channel).
 :  Fast calculations. For better quality calculations, it is recommended you use MTO=2.
