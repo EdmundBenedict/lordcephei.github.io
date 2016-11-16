@@ -103,7 +103,10 @@ Use the **blm**{: style="color: blue"} tool as in the box below to create the in
     $ blm init.pbte
     $ cp actrl.pbte ctrl.pbte
 
-_Note:_{: style="color: red"} If you are preparating for a later QS<i>GW</i> calculation,
+_Note 1:_{: style="color: red"} You can also import structural data from other sources.
+See [this [page](/tutorial/importing_input/)
+
+_Note 2:_{: style="color: red"} If you are preparating for a later QS<i>GW</i> calculation,
 use `blm --gw init.pbte`.  See [this page](/docs/misc/fplot/#switches-for-blm) for documentation of 
 **blm**{: style="color: blue"}'s command-line switches.
 
@@ -564,7 +567,8 @@ the largest value found from their shape, as explained in the [annotated lmfa ou
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
-####  5. _Remaining Inputs_
+####  6. _Remaining Inputs_
+[//]: (/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs)
 
 We are almost ready to carry out a self-consistent calculation.
 It proceeds in a manner [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/#tutorial).
@@ -601,7 +605,7 @@ Change variable **gmax=0** in the ctrl file, or alternatively add a variable to 
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
-####  6. _Self consistency_
+####  7. _Self consistency_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)
 
 Carry out a self-consistent calculation as follows:
