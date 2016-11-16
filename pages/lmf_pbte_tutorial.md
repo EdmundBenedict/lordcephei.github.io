@@ -718,7 +718,7 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) energy relative to the prior iteration and some norm of RMS change in the
 charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
 
-The last line prints out a table of variables that were specified on the command line, and total
+The last line prints out variables specified on the command line, and total
 energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration 

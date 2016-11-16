@@ -458,6 +458,7 @@ See [Table of Contents](/docs/input/data_format/#table-of-contents)
 [//]: (/docs/input/data_format/#the-save-file)
 
 _save.ext_{: style="color: green"} keeps a log of summary information for each iteration in iterations to self-consistency.
+
 Each line records data for one iteration, including algebraic variables declared on the command line, magnetic moment and total energy.
 
 It is further explained in the [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).

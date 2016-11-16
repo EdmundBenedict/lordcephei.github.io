@@ -1185,15 +1185,15 @@ In subsequent iterations two checks are made: the change (**0.004793**) in total
 [RMS DQ](/docs/outputs/lmf_output/#new-density) (**0.018916**). Self-consistency is reached when both checks fall below tolerances..  You
 can set tolerances with **EXPRESS_conv** and **EXPRESS_convc**, aliases for [**ITER\_CONV** and **ITER\_CONVC**](/docs/input/inputfile/#iter).
 
-In this case convergence is reached in iteration 10, where the convergence checks read:
+In the PbTe case convergence is reached in iteration 10, where the convergence checks read:
 
 ~~~
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
-The last line prints out a table of variables that were specified on the command line (as those in the ctrl file kept by the
-[**% save**](/docs/input/preprocessor/#other-directives) directive), and total energies from the
+The last line prints out variables assigned on the command line (and variables in the ctrl file kept by the
+[**% save**](/docs/input/preprocessor/#other-directives) directive), magnetic moment, and total energies from the
 [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These functionals are different but they should approach the
 same value at self-consistency.
 
