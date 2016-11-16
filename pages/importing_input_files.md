@@ -22,22 +22,22 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 <div onclick="elm = document.getElementById('1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="1">{:/}
 
-Build a simple input file from an init file
+Build a simple input file from an _init_{: style="color: green"} file
 
     cp ~/lm/testing/init.bi2te3
     blm --express bi2te3 
 
-Input file from init file, complex case
+Input file from _init_{: style="color: green"} file, complex case
 
     cp ~/lm/testing/init.sbsei .
     blm --gw --addes --fixpos:tol=1e-2 --scalp=1 --xshftx=0,0,-0.0398106/2 --wsitex init.sbsei
 
-Input file from init file, magnetic ASA
+Input file from _init_{: style="color: green"} file, magnetic ASA
 
     cp ~/lm/testing/init.fept .
     blm --mag --asa --gf --nk=10 fept
 
-Input and/or site files from cif file_
+Input and/or site files from _cif_{: style="color: green"} file
 
     cp ~/lm/testing/cif2cell.batio3 .
     cif2init cif2cell.batio3
@@ -45,6 +45,8 @@ Input and/or site files from cif file_
     blm --noshorten --wsitex batio3
     cp ~/lm/testing/cif2cell.batio3 .
     cif2site cif2cell.batio3
+
+Input and/or site files from _POSCAR_{: style="color: green"} file
 
     cp ~/lm/testing/POSCAR.zn3as2 POSCAR
 	poscar2init > init.zn3as2

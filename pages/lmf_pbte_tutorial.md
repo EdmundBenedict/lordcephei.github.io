@@ -29,6 +29,7 @@ _____________________________________________________________
 {:toc}
 
 ### _Preliminaries_
+{:.no_toc}
 _____________________________________________________________
 
 Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/).  It is easier to read but less detailed.
