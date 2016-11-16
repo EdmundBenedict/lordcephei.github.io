@@ -18,6 +18,17 @@ function dropdown( self, tar = null ) {
     if( !elm ) {
         return;
     }
+	
+	if( $(elm).is( ":visible" ) ) {
+		$(self).animate( { paddingLeft: "45%", borderBottomWidth: "10px" }, "slow", "swing" );
+		$(elm).animate( { borderBottomWidth: "0" }, { duration: "slow", easing: "swing", queue: false } );
+	} else {
+		$(self).animate( { paddingLeft: "0", borderBottomWidth: "2px"  }, "slow", "swing" );
+		$(elm).animate( { borderBottomWidth: "2px" }, { duration: "slow", easing: "swing", queue: false } );
+	}
+	$(elm).slideToggle( 'slow', 'swing' );
+	
+	/*
 
     if(elm.style.display != 'block') {
         elm.style.display = 'block';
@@ -30,4 +41,6 @@ function dropdown( self, tar = null ) {
         self.style.borderBottom = '5px solid #575757';
         //self.innerHTML="Click to show.";
     }
+	
+	*/
 }
