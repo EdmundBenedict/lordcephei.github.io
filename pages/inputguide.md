@@ -434,6 +434,9 @@ MD\_TAUB | r | lmmc | Y | 2067.1 | Barostat relaxation time (a.u.)
 See [Table of Contents](/docs/input/inputfile/#table-of-contents)
 
 ##### _EWALD_
+{::comment}
+(/docs/input/inputfile/#ewald)
+{:/comment}
 Category EWALD holds information controlling the Ewald sums for structure consstants entering into, e.g. the Madelung summations and Bloch summed structure constants (**lmf**{: style="color: blue"}). Most programs use quantities in this category to carry out Ewald sums (exceptions are **lmstr**{: style="color: blue"} and the molecules code **lmmc**{: style="color: blue"}).
 
 {::comment}

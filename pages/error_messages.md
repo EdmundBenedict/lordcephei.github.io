@@ -22,15 +22,13 @@ ________________________________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-### _lmf code_
+### _Band codes_
 ________________________________________________________________________________________________
-
 
 {::nomarkdown} <a name="nonintegraln"></a> {:/}
 {::comment}
 (/docs/error_messages/#nonintegraln)
 {:/comment}
-
 
  (warning): non-integral number of electrons --- possible band crossing at E_f
 : _Problem_: In finding a Fermi level the integrator assigns weights to each state.  This message is prineted when the sum of weights don't
@@ -42,6 +40,41 @@ ________________________________________________________________________________
 
   _Solution_:  As you proceed to self-consistency it may go away. If not, you need to modify your **k** mesh, or switch to sampling.
   It is important the the number of electrons be correctly counted.
+
+{::nomarkdown} <a name="diagonalizererror"></a> {:/}
+{::comment}
+(/docs/error_messages/#diagonalizererror)
+{:/comment}
+
+Exit -1 zhev: zhegv cannot find all evals
+: The diagonalizer was unable to calculate all of the eigenvalues.
+
+  This can happen for several reasons. 
+
+  + The diagonalizer sometimes uses inverse iteration to diagonalize the 
+    tridiagonal form of the matrix after the Householder transformation.
+    Set [**BZ\_INVIT**] to false to use another algorithm.
+
+  The most common is that the overlap matrix is not positive definite.  
+
+  + Especially the ASA, this can happen if spheres overlap too much or the
+    potential is very poor.  Change the input conditions.
+
+  + With **lmf**{: style="color: blue"}, tighten the Ewald tolerance
+    ([**EWALD\_TOL**](/docs/input/inputfile/#ewald)) and the tolerance in the plane-wave expansion of 
+    envelope functions ([**HAM\_TOL**](/docs/input/inputfile/#ham)).
+
+    The PMT method can produce very singular overlap matrices when
+    both the LMTO and APW basis are sizeable.  This is because they
+    are spanning nearly the same Hilbert space.
+
+    Solutions:
+
+    + Reduce **HAM_PWEMAX**
+
+    + remove orbitals from the LMTO basis or set **EH** more negative
+
+    + Set **HAM\_OVEPS** to a small number, e.g. **1e-6**.
 
 {::nomarkdown} <a name="rdsigrange"></a> {:/}
 {::comment}
