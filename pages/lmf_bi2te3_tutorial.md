@@ -88,7 +88,10 @@ To create the skeleton input file invoke **blm**{: style="color: blue"}:
 
 ~~~
 $ blm bi2te3
+$ cp actrl.bi2te3 ctrl.bi2te3
 ~~~
+
+There are five atoms in the unit cell: 2 Bi atoms and 3 Te atoms.  Two of the Te atoms are symmetry equivalent.
 
 This template will not work as is; three essential pieces of information which **blm**{: style="color: blue"} does not supply are missing, to rectify this :
 
@@ -100,7 +103,7 @@ This template will not work as is; three essential pieces of information which *
 
     autobas[pnu=1 loc=1 lmto=3 mto=3 gw=0]
 
-This is an alias for the same tag in the **HAM** category
+This is an alias for the same tag in the **HAM** category.
 
     AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=3 GW=0]
 
@@ -123,34 +126,33 @@ LMTO=3   Pick a default choice about the size of basis.  LMTO=3 is a standard mi
    **lmfa**{: style="color: blue"} will pick some defaults for the _l_-cutoff, e.g. _spd_ or _spdf_ depending on the value of **LMTO**.
 
 MTO=1    Choose 1-kappa basis set (single orbital per _l_ channel).
-:  Fast calculations. For better quality calculations, it is recommended you use MTO=2.
+:  Small basis for fast calculations. For better quality calculations, it is recommended you use **MTO=2**.
 
-GW=0     You will be creating a setup for an LDA calculation
-:  If GW=1, tailor basis for a GW calculation, e.g. changing the criteria for including shallow cores as valence, and the size of basis.
+GW=0     Create a setup for an LDA calculation.
+:  If **GW=1**, tailor basis for a GW calculation, selecting stricter criteria for including shallow cores as valence, and the size of basis.
 
 These tokens thus define some reasonable default basis for you. **lmfa**{: style="color: blue"} _writes_ _basp0.ext_{: style="color: green"}. This file is never read, but **lmf**{: style="color: blue"} will _read_ _basp.ext_{: style="color: green"} and use this information when assembling the basis set. The two files have the same structure and you can copy _basp0.ext_{: style="color: green"} to _basp.ext_{: style="color: green"}. What **lmfa**{: style="color: blue"} generates is not cast in concrete. You are free to adjust the parameters to your liking, e.g. add a local orbital or remove one from the basis.
 
 The **AUTOBAS** tokens tell **lmf**{: style="color: blue"} what to read from _basp.ext_{: style="color: green"}. It uses tokens in a manner similar, but not identical, to the way **lmfa**{: style="color: blue"} uses them:
 
-PNU=1    Read parameters P for all species present in _basp.ext_{: style="color: green"}
+PNU=1  Read parameters P for all species present in _basp.ext_{: style="color: green"}.
 :  If PNU=0, these parameters will not be read.
 
-LOC=1    tells **lmf**{: style="color: blue"} to read local orbital parameters **PZ**.
+LOC=1  tells **lmf**{: style="color: blue"} to read local orbital parameters **PZ**.
 :  Since these parameters may also be specified by the input file,
              LOC=1 tells lmf to give precedence to parameters specified by ctrl file
              LOC=2 tells lmf to give precedence to parameters specified by basp.
 
-LMTO=   is not used by **lmf**{: style="color: blue"}.
-:
+**LMTO=**   is not used by **lmf**{: style="color: blue"}.
 
-MTO=1   RSMH and EH may also be specified by the input file
+MTO=1   controls what part of **RSMH** and **EH** is read from _basp.bi2te3_{: style="color: green"}.
 :       LMTO=1 or 3 tells lmf to read 1-kappa parameters specified by basp\\
         LMTO=2 or 4 tells lmf to read 2-kappa parameters specified by basp\\
         LMTO=1 or 2 tells lmf that parameters in the ctrl file take precedence\\
-        LMTO=2 or 4 tells lmf that parameters in the basp file take precedence\\
+        LMTO=2 or 4 tells lmf that parameters in the basp file take precedence
 
-GW=0   Tune bsis for an LDA calculation
-:   If GW=1, tune basis for a GW calculation: log derivative parameters P
+GW=0   Tune basis for an LDA calculation
+:   If **GW=1**, tune basis for a **GW** calculation.   For example log derivative parameters P
     are floated a little differently in the self-consistency cycle.
     They are weighted to better represent unoccupied states, at a slight cost
     to their representation of occupied states.
@@ -159,7 +161,6 @@ GW=0   Tune bsis for an LDA calculation
 
 Sphere overlaps can be checked using **lmchk**{: style="color: blue"}. To do this copy the template _actrl.bi2te3_{: style="color: green"} to the input file and run **lmchk**{: style="color: blue"}:
 
-    $ cp actrl.bi2te3 ctrl.bi2te3
     $ lmchk bi2te3
 
 By default, **blm**{: style="color: blue"} makes the spheres as large as possible without overlapping, as the [output](FPsamples/out.bi2te3.lmchk) shows. In this case the Bi and Te radii are nearly the same.
