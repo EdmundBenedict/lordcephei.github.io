@@ -648,14 +648,14 @@ A detailed discussion can be found at the [end of this document](/docs/input/inp
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NIT | i | all | Y | 1 | Maximum number of iterations in the self-consistency cycle.
-NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed inside an augmentation sphere. This occurs when the density is determined from the momentsQ0,Q1,Q2 in the ASA; or in the free atom code, just Q0.<br>i1: max number of iterations<br>i2: number of prior iterations for Anderson mixing of the sphere density<br>Note: You will probably never need to use this token.
-MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description.
-AMIX | c | ASA | Y | | Mixing rules when Euler angles are mixed independently. Syntax as in MIX
-CONV | r | all | Y | 1e-5 | Maximum energy change from the prior iteration for self-consistency to be reached.<br>See [annotated output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
+MIX | c | all | Y | | A string of mixing rules for mixing input, output density in the self-consistency cycle. The syntax is given [below]((/docs/input/inputfile/#mixsyntax).<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description of the mixing.
+CONV | r | all | Y | 1e-5 | Maximum energy change from the prior iteration for self-consistency to be reached.<br>See [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 CONVC | r | all | Y | 3e-5 | Maximum in the RMS difference in the density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>. See [below](/docs/input/inputfile/#charge-mixing-general-considerations).
 UMIX | r | all | Y | 1 | Mixing parameter for density matrix; used with LDA+U
 TOLU | r | all | Y | 0 | Tolerance for density matrix; used with LDA+U
 NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
+AMIX | c | ASA | Y | | Mixing rules when extra degrees of freedom, e.g. Euler angles, are mixed independently. Uses the same syntax as MIX.
+NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed inside an augmentation sphere. This occurs when the density is determined from the momentsQ0,Q1,Q2 in the ASA; or in the free atom code, just Q0.<br>i1: max number of iterations<br>i2: number of prior iterations for Anderson mixing of the sphere density<br>Note: You will probably never need to use this token.
 
 {::comment}
 {::nomarkdown}</div>{:/}
@@ -1260,6 +1260,8 @@ tries to build up the Hessian matrix.  It usually works better
 but has more pitfalls than Anderson. Broyden has an additional parameter, **wc**, that
 controls how much weight is given to prior iterations in the mix
 (see below).
+
+{::nomarkdown} <a name="mixsyntax"></a> {:/}
 
 The general syntax is for **_ITER\_MIX_** is
 <pre>
