@@ -660,7 +660,7 @@ Branching constructs have a function similar to the C constructs.
 
 #### Other directives
 {::comment}
-/docs/input/preprocessor/#other-directives
+(/docs/input/preprocessor/#other-directives)
 {:/comment}
 
 &nbsp;&nbsp;Keywords&nbsp;:&nbsp;&nbsp;

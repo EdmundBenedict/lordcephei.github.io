@@ -1192,9 +1192,10 @@ In this case convergence is reached in iteration 10, where the convergence check
 c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
-The last line prints out a table of variables that were specified on the command line, and total
-energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These
-functionals are different but they should approach the same value at self-consistency.
+The last line prints out a table of variables that were specified on the command line (as those in the ctrl file kept by the
+[**% save**](/docs/input/preprocessor/#other-directives) directive), and total energies from the
+[Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These functionals are different but they should approach the
+same value at self-consistency.
 
 The character at the beginning of the line has the following significance:
 
@@ -1204,7 +1205,7 @@ The character at the beginning of the line has the following significance:
 + **x**&ensp; the maximum number of iterations was reached without achieving convergence
 + **C**&ensp; (molecular statics) when both charge density is converged and forces fall below tolerance
 
-This line is also written to file _save.pbte_{: style="color: green"}.
+This line is also written to file [_save.pbte_{: style="color: green"}](/docs/input/data_format/#the-save-file).
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 

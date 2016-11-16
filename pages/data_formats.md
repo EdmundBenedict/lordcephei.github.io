@@ -460,11 +460,7 @@ See [Table of Contents](/docs/input/data_format/#table-of-contents)
 _save.ext_{: style="color: green"} keeps a log of summary information for each iteration in iterations to self-consistency.
 Each line records data for one iteration, including algebraic variables declared on the command line, magnetic moment and total energy.
 
-It is documented in the [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
-
-The file consists of a header in a single record,  followed by second record containing **wtkb(nevx,nsp,nq)**.\\
-The header contains a dimensioning parameter, number of spins and irreducible _k_ points in the Brillouin zone:\\
-**&emsp; nevx&thinsp; nq&thinsp; nsp&thinsp; efermi**
+It is further explained in the [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 Operations are performed in **subs/iosave.f**{: style="color: green"}.
 
