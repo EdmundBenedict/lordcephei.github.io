@@ -20,27 +20,11 @@ function dropdown( self, tar = null ) {
     }
 	
 	if( $(elm).is( ":visible" ) ) {
-		$(self).animate( { paddingLeft: "45%", borderBottomWidth: "10px" }, "slow", "swing" );
+		$(self).animate( { borderBottomWidth: "6px" }, "slow", "swing" );
 		$(elm).animate( { borderBottomWidth: "0" }, { duration: "slow", easing: "swing", queue: false } );
 	} else {
-		$(self).animate( { paddingLeft: "0", borderBottomWidth: "2px"  }, "slow", "swing" );
-		$(elm).animate( { borderBottomWidth: "2px" }, { duration: "slow", easing: "swing", queue: false } );
+		$(self).animate( { borderBottomWidth: "3px"  }, "slow", "swing" );
+		$(elm).animate( { borderBottomWidth: "3px" }, { duration: "slow", easing: "swing", queue: false } );
 	}
 	$(elm).slideToggle( 'slow', 'swing' );
-	
-	/*
-
-    if(elm.style.display != 'block') {
-        elm.style.display = 'block';
-        self.style.textAlign = 'left';
-        self.style.borderBottom = '5px solid #575757';
-        //self.innerHTML="Click to hide."
-    } else {
-        elm.style.display = 'none';
-        self.style.textAlign = 'center';
-        self.style.borderBottom = '5px solid #575757';
-        //self.innerHTML="Click to show.";
-    }
-	
-	*/
 }
