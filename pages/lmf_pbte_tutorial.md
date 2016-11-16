@@ -36,13 +36,15 @@ _____________________________________________________________
 ### _Preliminaries_
 _____________________________________________________________
 
-Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
+Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/).  It is easier to read but less detailed.
 
-The outputs from this tutorial are given in the
+The standard outputs from running this tutorial are explained in the
 [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/) and
-[annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/).  Many details omitted here are given in the annotated outputs.
+[annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/).
+Many details omitted here are given in the annotated outputs.
 
-Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
+Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color:
+blue"} are required and are assumed to be in your path.
 
 _____________________________________________________________
 
