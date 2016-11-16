@@ -445,7 +445,7 @@ See [Table of Contents](/docs/input/data_format/#table-of-contents)
 [//]: (/docs/input/data_format/#the-basp-file)
 
 File _basp.ext_{: style="color: green"} contains information about the **lmf**{: style="color: blue"} basis set.
-In the [Bi<sub>2</sub>Te<sub>3</sub>](/tutorial/lmf/lmf_bi2te3_tutorial/) it reads:
+In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](tutorial/lmf/lmf_bi2te3_tutorial/#making-the-atomic-density) it reads:
 
 ~~~
 BASIS:
