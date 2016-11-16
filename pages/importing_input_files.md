@@ -9,6 +9,7 @@ header: no
 ---
 
 ### _Purpose_
+{:.no_toc}
 
 This tutorial explains how to import input files from various sources,
 for use in one or more of the Questaal codes
@@ -56,8 +57,6 @@ Input and/or site files from _POSCAR_{: style="color: green"} file
 
     cp ~/lm/testing/sitein.fe2p .
 	blm fe2p --rdsite --express=1 --mag --findes --asa --omax=.00
-
-    ... to be finished
 
 {::nomarkdown}</div>{:/}
 

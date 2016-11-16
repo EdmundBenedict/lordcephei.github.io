@@ -15,7 +15,7 @@ calculation for silicon. The goal is to introduce you to the different
 file types and the basics of running the code.
 
 The [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/) does something similar,
-but its much more detailed.
+but is much more detailed.
 
 _____________________________________________________________
 
