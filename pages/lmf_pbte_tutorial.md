@@ -11,6 +11,8 @@ header: no
 ### _Purpose_
 _____________________________________________________________
 
+{:.no_toc}
+
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
 of **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} are explained.
