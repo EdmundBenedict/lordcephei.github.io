@@ -51,7 +51,8 @@ Exit -1 zhev: zhegv cannot find all evals
 
   + The diagonalizer sometimes uses inverse iteration to diagonalize the 
     tridiagonal form of the matrix after the Householder transformation.
-    Set [**BZ\_INVIT**] to false; another algorithm will be used.
+
+    _Solution_: Set [**BZ\_INVIT**] to false; another algorithm will be used.
     If this is the problem it will usually disappear with some tiny change, e.g. the density is updated.
 
   The most common reason for this error is that the overlap matrix is not positive definite.  
@@ -62,18 +63,15 @@ Exit -1 zhev: zhegv cannot find all evals
   + If this occurs when using the **lmf**{: style="color: blue"} code, it may be that convergence parameters
     are too loose.
 
-    Especially the PMT method can produce very singular overlap matrices when both the LMTO and APW basis are sizeable.  This is because they are spanning
+    Especially the PMT method can produce nearly singular overlap matrices when both the LMTO and APW basis are sizeable.  This is because they are spanning
     nearly the same Hilbert space (this is the primary drawback to the method)
 
     _Solutions_:
 
     + tighten the Ewald tolerance ([**EWALD\_TOL**](/docs/input/inputfile/#ewald)) and the tolerance in the plane-wave expansion of
       envelope functions ([**HAM\_TOL**](/docs/input/inputfile/#ham)).
-
     + Reduce **HAM_PWEMAX**
-
     + remove orbitals from the LMTO basis or set **EH** more negative.
-
     + Set [**HAM\_OVEPS**](/docs/input/inputfile/#ham) to a small number, e.g. **1e-6**.
 
 {::nomarkdown} <a name="rdsigrange"></a> {:/}
