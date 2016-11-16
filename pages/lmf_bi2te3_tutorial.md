@@ -111,47 +111,49 @@ This is an alias for the same tag in the **HAM** category.
 
 **lmfa**{: style="color: blue"} calculates wave functions and atomic densities for free atoms. It also has a mode that automatically generates information for basis sets, using tokens in AUTOBAS to guide it. This information is written to a file _basp0.ext_{: style="color: green"}. AUTOBAS specifies set of conditions that enable **lmfa**{: style="color: blue"} to automatically build the basis set for you, including specification of envelope function parameters [RSMH and EH](fp.html#spec). Alternatively you can define parameters such as EH and RSMH basis by hand, as described [in this tutorial](FPtutorial.html#basis).
 
+{::nomarkdown} <a name="autobas"></a> {:/}
+
 Tokens in AUTOBAS tell **lmfa**{: style="color: blue"} to do the following:
 
-PNU=1    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
+PNU=1&nbsp;    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
 :  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
 
-LOC=1    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
+LOC=1&nbsp;    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
 :  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**
    No search is made if **LOC=0**
 
-LMTO=3   Pick a default choice about the size of basis.  LMTO=3 is a standard minimal basis.
+LMTO=3&nbsp;   Pick a default choice about the size of basis.  LMTO=3 is a standard minimal basis.
 :  Run `lmfa --input` and look for **HAM\_AUTOBAS\_LMTO** to see what other choices there are.
 
    **lmfa**{: style="color: blue"} will pick some defaults for the _l_-cutoff, e.g. _spd_ or _spdf_ depending on the value of **LMTO**.
 
-MTO=1    Choose 1-kappa basis set (single orbital per _l_ channel).
+MTO=1&nbsp;    Choose 1-kappa basis set (single orbital per _l_ channel).
 :  Small basis for fast calculations. For better quality calculations, it is recommended you use **MTO=2**.
 
-GW=0     Create a setup for an LDA calculation.
+GW=0&nbsp;     Create a setup for an LDA calculation.
 :  If **GW=1**, tailor basis for a GW calculation, selecting stricter criteria for including shallow cores as valence, and the size of basis.
 
 These tokens thus define some reasonable default basis for you. **lmfa**{: style="color: blue"} _writes_ _basp0.ext_{: style="color: green"}. This file is never read, but **lmf**{: style="color: blue"} will _read_ _basp.ext_{: style="color: green"} and use this information when assembling the basis set. The two files have the same structure and you can copy _basp0.ext_{: style="color: green"} to _basp.ext_{: style="color: green"}. What **lmfa**{: style="color: blue"} generates is not cast in concrete. You are free to adjust the parameters to your liking, e.g. add a local orbital or remove one from the basis.
 
 The **AUTOBAS** tokens tell **lmf**{: style="color: blue"} what to read from _basp.ext_{: style="color: green"}. It uses tokens in a manner similar, but not identical, to the way **lmfa**{: style="color: blue"} uses them:
 
-PNU=1  Read parameters P for all species present in _basp.ext_{: style="color: green"}.
+PNU=1&nbsp;  Read parameters P for all species present in _basp.ext_{: style="color: green"}.
 :  If PNU=0, these parameters will not be read.
 
-LOC=1  tells **lmf**{: style="color: blue"} to read local orbital parameters **PZ**.
+LOC=1&nbsp;  tells **lmf**{: style="color: blue"} to read local orbital parameters **PZ**.
 :  Since these parameters may also be specified by the input file,
              LOC=1 tells lmf to give precedence to parameters specified by ctrl file
              LOC=2 tells lmf to give precedence to parameters specified by basp.
 
 **LMTO=**   is not used by **lmf**{: style="color: blue"}.
 
-MTO=1   controls what part of **RSMH** and **EH** is read from _basp.bi2te3_{: style="color: green"}.
+MTO=1&nbsp;   controls what part of **RSMH** and **EH** is read from _basp.bi2te3_{: style="color: green"}.
 :       LMTO=1 or 3 tells lmf to read 1-kappa parameters specified by basp\\
         LMTO=2 or 4 tells lmf to read 2-kappa parameters specified by basp\\
         LMTO=1 or 2 tells lmf that parameters in the ctrl file take precedence\\
         LMTO=2 or 4 tells lmf that parameters in the basp file take precedence
 
-GW=0   Tune basis for an LDA calculation
+GW=0&nbsp; tunes the basis for an LDA calculation
 :   If **GW=1**, tune basis for a **GW** calculation.   For example log derivative parameters P
     are floated a little differently in the self-consistency cycle.
     They are weighted to better represent unoccupied states, at a slight cost
@@ -193,8 +195,7 @@ The packing fraction is printed
 ~~~
 
 Generally larger packing fractions are better because the augmentation [partial waves](/docs/package_overview/#linear-methods-in-band-theory) are quite accurate.
-
-**0.43** is a fairly good packing fraction.  
+**0.43** is a fairly good packing fraction.
 
 #### 3. _Making the atomic density_
 
@@ -212,11 +213,23 @@ Every species gets one line. This file specifies a basis set consisting of _spdf
 
 *Note:*{: style="color: red"} Remember that **lmf**{: style="color: blue"} reads from _basp.ext_{: style="color: green"}, not _basp0.ext_{: style="color: green"}.
 
-##### 3.1 _Automatically finding deep states to include as valence electrons_ 
+**lmfa**{: style="color: blue"} has algorithms to determine estimates for all of these parameters.
 
-The partitioning between valence and core states is something that requires a judgement call. **lmfa**{: style="color: blue"} has made a default choice for you: the [output](FPsamples/out.bi2te3.lmfa1#bihead) shows that for Bi, **lmfa**{: style="color: blue"} selected the 6_s_, 6_p_, 6_d_, 5_f_ states, populating them with charges   2, 3, 0, 0. Note that the total sphere charge is Q=0. You can override the default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ channel charges with SPEC_ATOM_Q.
+The partitioning between valence and core states is something that requires a judgement call. **lmfa**{: style="color: blue"} has made a
+default choice for you: from _basp0.bi2te3_{: style="color: green"} you can see that **lmfa**{: style="color: blue"} selected the
+6_s_, 6_p_, 6_d_, 5_f_ states, populating them with charges   2, 3, 0, 0. Note that the total sphere charge is Q=0. You can override the
+default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ channel charges with SPEC_ATOM_Q.
 
-As was explained [earlier](#autobas), when HAM_AUTOBAS_QLOC is set **lmfa**{: style="color: blue"} will look for shallow core levels below 6_s_, 6_p_, 6_d_, 5_f_ states, and as [this table](FPsamples/out.bi2te3.lmfa1#localorbital) shows **lmfa**{: style="color: blue"} selected the 5_d_ orbital which is normally a core state, to be included as a [local orbital](fp.html#localorbitals) so that the usual 6_d_ state and the 5_d_ state are simultaneously included in the basis. Even though the 5_d_ state is fairly deep (the [output](FPsamples/out.bi2te3.lmfa1#bicore) shows it lies at −2 Ry), the criterion of having a charge density outside the smoothing radius greater than 3×10−3 was met. (Use HAM_AUTOBAS_ELOC and HAM_AUTOBAS_QLOC to change these criteria.) **lmfa**{: style="color: blue"} supplies information about this to _basp0.bi2te3_{: style="color: green"}, in the form  PZ=0 0 15.936 (no local orbitals for _s_ or _p_ states). The 0.936 is significant: it tells **lmf**{: style="color: blue"} what boundary condition to use for the 5_d_ radial function.
++ Automatically finding deep states to include as valence electrons.
++ Selecting sphere boundary condition for partial waves
++ Envelope function parameters
+
+
+The process is essentially the same as described in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set)
+A few comments are
+
+
+As was explained [earlier](#autobas), when HAM_AUTOBAS_LOC is set **lmfa**{: style="color: blue"} will look for shallow core levels below 6_s_, 6_p_, 6_d_, 5_f_ states, and as [this table](FPsamples/out.bi2te3.lmfa1#localorbital) shows **lmfa**{: style="color: blue"} selected the 5_d_ orbital which is normally a core state, to be included as a [local orbital](fp.html#localorbitals) so that the usual 6_d_ state and the 5_d_ state are simultaneously included in the basis. Even though the 5_d_ state is fairly deep (the [output](FPsamples/out.bi2te3.lmfa1#bicore) shows it lies at −2 Ry), the criterion of having a charge density outside the smoothing radius greater than 3&times;10<sup>&minus;3</sup> was met. (Use HAM_AUTOBAS_ELOC and HAM_AUTOBAS_QLOC to change these criteria.) **lmfa**{: style="color: blue"} supplies information about this to _basp0.bi2te3_{: style="color: green"}, in the form  PZ=0 0 15.936 (no local orbitals for _s_ or _p_ states). The 0.936 is significant: it tells **lmf**{: style="color: blue"} what boundary condition to use for the 5_d_ radial function.
 
 ##### 3.2 _Automatically finding linearization energies_
 
@@ -278,7 +291,7 @@ Compare _actrl.bi2te3_{: style="color: green"} generated with the --gw switch to
 
     AUTOBAS[PNU=1 LOC=1 LMTO=5 MTO=4 GW=1]
 
-The basis is similar to LMTO=4 but EH has been set a little deeper. This helps the QS_GW_ implementation interpolate between _k_-points. The larger basis makes a minor difference to the valence bands; but the conduction bands change, especially the higher in energy you go.
+The basis is similar to LMTO=4 but EH has been set a little deeper. This helps the QS<i>GW</i> implementation interpolate between _k_-points. The larger basis makes a minor difference to the valence bands; but the conduction bands change, especially the higher in energy you go.
 
 Look also at this [QS_GW_ demo for Silicon](Demo_QSGW_Si.html).
 
