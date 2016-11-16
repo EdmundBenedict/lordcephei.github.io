@@ -648,7 +648,7 @@ A detailed discussion can be found at the [end of this document](/docs/input/inp
 Token | Arguments | Program | Optional | Default | Explanation
 - | - | - | - | - | -
 NIT | i | all | Y | 1 | Maximum number of iterations in the self-consistency cycle.
-MIX | c | all | Y | | A string of mixing rules for mixing input, output density in the self-consistency cycle. The syntax is given [below]((/docs/input/inputfile/#mixsyntax).<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description of the mixing.
+MIX | c | all | Y | | A string of mixing rules for mixing input, output density in the self-consistency cycle.<br>The syntax is given [below](/docs/input/inputfile/#mixsyntax).<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description of the mixing.
 CONV | r | all | Y | 1e-5 | Maximum energy change from the prior iteration for self-consistency to be reached.<br>See [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 CONVC | r | all | Y | 3e-5 | Maximum in the RMS difference in the density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>. See [below](/docs/input/inputfile/#charge-mixing-general-considerations).
 UMIX | r | all | Y | 1 | Mixing parameter for density matrix; used with LDA+U
