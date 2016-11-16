@@ -101,19 +101,22 @@ This template will not work as is; three essential pieces of information which *
 
 **blm**{: style="color: blue"} creates a family of tags belonging to AUTOBAS to enbable other programs to automatically find a basis set for you. We will use this tag, which sets up a standard minimal basis:
 
-    autobas[pnu=1 loc=1 lmto=3 mto=3 gw=0]
+    autobas[pnu=1 loc=1 lmto=3 mto=1 gw=0]
 
-This is an alias for the same tag in the **HAM** category.
+This is an alias for the tag in the **HAM** category
 
-    AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=3 GW=0]
+    AUTOBAS[PNU=1 LOC=1 LMTO=3 MTO=1 GW=0]
 
-(Note that you must modify _actrl.bi2te3_{: style="color: green"} a little; the default gives [.. LMTO=5 MTO=4], which makes a [double kappa basis](#multikappa).
+(Note that you must modify _actrl.bi2te3_{: style="color: green"} a little; the default gives [&hellip; LMTO=5 MTO=4], which makes a [double kappa basis](#multikappa).
 
-**lmfa**{: style="color: blue"} calculates wave functions and atomic densities for free atoms. It also has a mode that automatically generates information for basis sets, using tokens in AUTOBAS to guide it. This information is written to a file _basp0.ext_{: style="color: green"}. AUTOBAS specifies set of conditions that enable **lmfa**{: style="color: blue"} to automatically build the basis set for you, including specification of envelope function parameters [RSMH and EH](fp.html#spec). Alternatively you can define parameters such as EH and RSMH basis by hand, as described [in this tutorial](FPtutorial.html#basis).
+**lmfa**{: style="color: blue"} calculates wave functions and atomic densities for free atoms. It also has a mode that automatically
+generates information for basis sets, using tokens in **AUTOBAS** to guide it. This information is written to a file _basp0.ext_{: style="color:
+green"}. **AUTOBAS** specifies set of conditions that enable **lmfa**{: style="color: blue"} to automatically build the basis set for you,
+as described below.  Parameters are generated, but you can modify them as you like.
 
 {::nomarkdown} <a name="autobas"></a> {:/}
 
-Tokens in AUTOBAS tell **lmfa**{: style="color: blue"} to do the following:
+Tokens in **AUTOBAS** tell **lmfa**{: style="color: blue"} to do the following:
 
 PNU=1&nbsp;    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
 :  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
@@ -128,7 +131,7 @@ LMTO=3&nbsp;   Pick a default choice about the size of basis.  LMTO=3 is a stand
    **lmfa**{: style="color: blue"} will pick some defaults for the _l_-cutoff, e.g. _spd_ or _spdf_ depending on the value of **LMTO**.
 
 MTO=1&nbsp;    Choose 1-kappa basis set (single orbital per _l_ channel).
-:  Small basis for fast calculations. For better quality calculations, it is recommended you use **MTO=2**.
+:  Small basis for fast calculations. For better quality calculations, it is recommended you use **MTO=2** or **MTO=4**.
 
 GW=0&nbsp;     Create a setup for an LDA calculation.
 :  If **GW=1**, tailor basis for a GW calculation, selecting stricter criteria for including shallow cores as valence, and the size of basis.
@@ -145,9 +148,9 @@ LOC=1&nbsp;  tells **lmf**{: style="color: blue"} to read local orbital paramete
              LOC=1 tells lmf to give precedence to parameters specified by ctrl file
              LOC=2 tells lmf to give precedence to parameters specified by basp.
 
-**LMTO=**   is not used by **lmf**{: style="color: blue"}.
+**LMTO=**&nbsp;  is not used by **lmf**{: style="color: blue"}.
 
-MTO=1&nbsp;   controls what part of **RSMH** and **EH** is read from _basp.bi2te3_{: style="color: green"}.
+**MTO=1**&nbsp;   controls what part of **RSMH** and **EH** is read from _basp.bi2te3_{: style="color: green"}.
 :       LMTO=1 or 3 tells lmf to read 1-kappa parameters specified by basp\\
         LMTO=2 or 4 tells lmf to read 2-kappa parameters specified by basp\\
         LMTO=1 or 2 tells lmf that parameters in the ctrl file take precedence\\
@@ -224,10 +227,10 @@ default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ c
 
 + Automatically finds deep states to include as valence electrons.
 + Selects sphere boundary condition for partial waves
-+ Finds Envelope function parameters
++ Finds envelope function parameters
 
 The process is essentially the same as described in the [PbTe tutorial](/docs/outputs/lmfa_output/#generating-basis-information).
-The description there takes over almost exactly here, except that here we specified a smaller basis (**LMTO=3**).
+The documentation applies almost identically, except that here we specified a smaller basis (**LMTO=3**).
 
 You can make **lmf**{: style="color: blue"} read these parameters from _basp.bi2te3_{: style="color: green"}.  Copy _basp0.bi2te3_{:
 style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as you like. File basp._ext_ is read after the main input file
@@ -242,9 +245,9 @@ You can also copy data in these lines to the appropriate place in the SPEC categ
 
 ~~~
   ATOM=Te         Z= 52  R= 2.870279  LMX=3  LMXA=3
-    RSMH= 1.615 1.681 1.914 1.914 EH= -0.1 -0.1 -0.1 -0.1 RSMH2= 1.615 1.681 1.914 EH2= -0.9 -0.9 -0.9 P= 5.901 5.853 5.419 4.187
+    RSMH= 1.615 1.681 1.914 1.914 EH= -0.888 -0.288 -0.1 -0.1 P= 5.901 5.853 5.419 4.187
   ATOM=Bi         Z= 83  R= 2.856141  LMX=3  LMXA=4
-    RSMH= 1.674 1.867 1.904 1.904 EH= -0.1 -0.1 -0.1 -0.1 RSMH2= 1.674 1.867 1.904 EH2= -0.9 -0.9 -0.9 P= 6.896 6.817 6.267 5.199 5.089 PZ= 0 0 15.936
+    RSMH= 1.674 1.867 1.904 1.904 EH= -0.842 -0.21 -0.1 -0.1 P= 6.896 6.817 6.267 5.199 5.089 PZ= 0 0 15.936
 ~~~
 
     *   Copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as you like. File basp._ext_ is read after the main input file is read. If basp._ext_ exists, and one or more of the following tokens is present, their corresponding parameters _may_ be read from basp._ext_:
