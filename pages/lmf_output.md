@@ -1193,7 +1193,7 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 ~~~
 
 The last line prints out variables assigned on the command line (and variables in the ctrl file kept by the
-[**% save**](/docs/input/preprocessor/#other-directives) directive), magnetic moment, and total energies from the
+[**% save**](/docs/input/preprocessor/#other-directives) directive), total magnetic moment in magnetic calculations, and total energies from the
 [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These functionals are different but they should approach the
 same value at self-consistency.
 
