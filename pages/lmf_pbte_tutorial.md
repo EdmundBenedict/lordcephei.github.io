@@ -668,9 +668,9 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
 ^
 + Makes an initial pass through the irreducible _k_ points in the Brillouin zone to
   [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).  and obtain integration weights for each band and _k_
-  point into a binary file _wkp.pbte_{: style="color: green"}.  In general until the Fermi level is known, the weights assigned to each
+  point into a binary file [_wkp.pbte_{: style="color: green"}](/docs/input/data_format/#the-wkp-file).  In general until the Fermi level is known, the weights assigned to each
   eigenfunction are not known, so the charge density cannot be assembled.  How labor is divided between the first and second pass depends on
-  **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
+  [**BZ\_METAL**](/docs/input/inputfile/#bz).  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
 + Makes a [second pass](/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
   to accumulate the output mesh and local densities.  For the latter
   essential information is retained as coefficients of the local density matrix (a compact form).
@@ -740,7 +740,7 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
 + [This tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) more fully explains the **lmf**{: style="color: blue"} basis set.
   There is a corresponding tutorial on the basics of a [self-consistent ASA calculation for PbTe](/tutorial/asa/lm_pbte_tutorial).
-  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have finished this one.
+  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have finished the present one.
 
 + [This document](/docs/code/fpoverview/) gives an overview of some of **lmf**{: style="color: blue"}'s unique features and capabilities.
 

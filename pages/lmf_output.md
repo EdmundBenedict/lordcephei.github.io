@@ -1183,7 +1183,7 @@ iteration to compare the change in total energy.
 
 In subsequent iterations two checks are made: the change (**0.004793**) in total energy from the prior iteration and the
 [RMS DQ](/docs/outputs/lmf_output/#new-density) (**0.018916**). Self-consistency is reached when both checks fall below tolerances..  You
-can set them with **EXPRESS_conv** and **EXPRESS_convc**, aliases for [**ITER\_CONV** and **ITER\_CONVC**](/docs/input/inputfile/#iter).
+can set tolerances with **EXPRESS_conv** and **EXPRESS_convc**, aliases for [**ITER\_CONV** and **ITER\_CONVC**](/docs/input/inputfile/#iter).
 
 In this case convergence is reached in iteration 10, where the convergence checks read:
 
@@ -1203,6 +1203,8 @@ The character at the beginning of the line has the following significance:
 + **h**&ensp; the first iteration
 + **x**&ensp; the maximum number of iterations was reached without achieving convergence
 + **C**&ensp; (molecular statics) when both charge density is converged and forces fall below tolerance
+
+This line is also written to file _save.pbte_{: style="color: green"}.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 

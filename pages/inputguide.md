@@ -652,7 +652,7 @@ NRMIX | i1 i2 | ASA, lmfa | Y | 80, 2 | Uses when self-consistency is needed ins
 MIX | c | all | Y | | Mixing rules for mixing input, output density in the self-consistency cycle. Syntax:<br>A[nmix][,b=beta][,bv=betv][,n=nit][,w=w1,w2][,nam=fn][,k=nkill][;...] or<br>B[nmix][,b=beta][,bv=betv][,wc=wc][,n=#][,w=w1,w2][,nam=fn][,k=nkill]<br>See [here](/docs/input/inputfile/#the-itermix-tag-and-how-to-use-it) for detailed description.
 AMIX | c | ASA | Y | | Mixing rules when Euler angles are mixed independently. Syntax as in MIX
 CONV | r | all | Y | 1e-4 | Maximum energy change from the prior iteration for self-consistency to be reached.
-CONVC | r | all | Y | 1e-4 | Maximum in the RMS difference in $$ <n^{out} − n^{in}> $$.<br>In the ASA, this is measured by the change in moments Q0..Q2 and log derivative parameter P.<br>In the full-potential case it is measured by an integral over the various parts of n (local, interstitial parts).
+CONVC | r | all | Y | 1e-4 | Maximum in the RMS difference in the density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.<br>See [below](/docs/input/inputfile/#charge-mixing-general-considerations).
 UMIX | r | all | Y | 1 | Mixing parameter for density matrix; used with LDA+U
 TOLU | r | all | Y | 0 | Tolerance for density matrix; used with LDA+U
 NITU | i | all | Y | 0 | Maximum number of LDA+U iterations of density matrix
