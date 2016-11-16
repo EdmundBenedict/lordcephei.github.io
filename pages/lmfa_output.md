@@ -329,7 +329,7 @@ basis set information which is written to template _basp0.pbte_{: style="color: 
   **P** is also called the ["continuous principal quantum number"](/docs/code/asaoverview/#augmentation-sphere-boundary-conditions-and-continuous-principal-quantum-numbers).
 + Information about local orbitals, indicated as **PZ** in the input.
 
-These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp;, **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).\\
+These quantities are supplied in the input file as [**SPEC\_ATOM\_EH**&thinsp; **SPEC\_ATOM\_RSMH**,&thinsp; **SPEC\_ATOM\_P**,&thinsp; and **SPEC\_ATOM\_PZ**](/docs/input/inputfile/#spec).\\
 **RSMH**, **EH**, **P**, and **PZ** are also saved in _basp0.pbte_{: style="color: green"}.
 **lmf**{: style="color: blue"} may read these parameters from _basp.pbte_{: style="color: green"},
 depending on settings in [**HAM_AUTOBAS**](/docs/input/inputfile/#ham).
@@ -530,6 +530,7 @@ maximum values for all species are printed in the table below.
 ~~~
 
 {::nomarkdown} <a name="summary"></a> {:/}
+
 [//]: (/docs/outputs/lmfa_output/#summary)
 
 **lmfa**{: style="color: blue"} is now complete.  Parmeters needed for both the augmentation and interstitial parts of the atomic density
