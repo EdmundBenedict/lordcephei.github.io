@@ -205,7 +205,7 @@ The primary purpose of **lmfa**{: style="color: blue"} is to generate a free ato
     Te RSMH= 1.615 1.681 1.914 1.914 EH= -0.888 -0.288 -0.1 -0.1 P= 5.901 5.853 5.419 4.187
     Bi RSMH= 1.674 1.867 1.904 1.904 EH= -0.842 -0.21 -0.1 -0.1 P= 6.896 6.817 6.267 5.199 5.089 PZ= 0 0 15.936
 
-Every species gets one line. This file specifies a basis set consisting of _spdf_ orbitals on Te sites, and _spdf_ orbitals on Bi sites, and a local _5d_ orbital on Bi. The contents of this file are explained [above](#autobas); see also [RSMH and EH](fp.html#spec), [P](lmto.html#pbasp), and [PZ](fp.html#localorbitals).
+Every species gets one line. This file specifies a basis set consisting of _spdf_ orbitals on Te sites, and _spdf_ orbitals on Bi sites, and a local _5d_ orbital on Bi. The contents of this file are explained [here](/docs/input/data_format/#the-basp-file); see also the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set).
 
 *Note:*{: style="color: red"} Remember that **lmf**{: style="color: blue"} reads from _basp.ext_{: style="color: green"}, not _basp0.ext_{: style="color: green"}.
 

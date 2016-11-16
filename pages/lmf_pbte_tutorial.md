@@ -468,7 +468,7 @@ relativistic Dirac treatment.
 
 ##### 5.3 Automatic determination of basis set
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set
+(/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set)
 {:/comment}
 
 **lmfa**{: style="color: blue"} loops over each species, generating a [self-consistent density](/docs/outputs/lmfa_output/#self-consistent-density).
