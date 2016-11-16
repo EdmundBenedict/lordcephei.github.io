@@ -1,9 +1,6 @@
 ---
 layout: page-fullwidth
 title: "Self-Consistent LDA calculation for PbTe"
-subheadline: ""
-show_meta: false
-teaser: ""
 permalink: "/tutorial/lmf/lmf_pbte_tutorial/"
 header: no
 ---
@@ -11,7 +8,6 @@ header: no
 ### _Purpose_
 {:.no_toc}
 _____________________________________________________________
-
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
 of **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} are explained.
