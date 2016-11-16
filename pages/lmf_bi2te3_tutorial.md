@@ -36,24 +36,24 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 <div onclick="elm = document.getElementById('1'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="1">{:/}
 
-    $ blm init.pbte
-    $ cp actrl.pbte ctrl.pbte
-    $ cp testing/cif2cell.batio3 .
-    $ cif2init cif2cell.batio3        # creates an init file from 
-    $ poscar2init                     # creates an init file from a VASP POSCAR file
-    $ poscar2site                     # creates a  site file from a VASP POSCAR file
-    $ testing/test.blm 2
-    $ poscar2init > init.zn3as2
-    $ blm zn3as2 --fixpos:tol=1e-6 > out.zn3as2
-    $ testing/test.blm 3
-        $ blm bi2te3
-    $ cp actrl.bi2te3 ctrl.bi2te3
-    $ lmchk bi2te3
-    $ cp actrl.bi2te3 ctrl.bi2te3
-    $ lmfa bi2te3
-            $ cp basp0.bi2te3 basp.bi2te3
-            $ lmfa bi2te3
-    $ blm --gw bi2te3
+    blm init.pbte
+    cp actrl.pbte ctrl.pbte
+    cp testing/cif2cell.batio3 .
+    cif2init cif2cell.batio3        # creates an init file from 
+    poscar2init                     # creates an init file from a VASP POSCAR file
+    poscar2site                     # creates a  site file from a VASP POSCAR file
+    testing/test.blm 2
+    poscar2init > init.zn3as2
+    blm zn3as2 --fixpos:tol=1e-6 > out.zn3as2
+    testing/test.blm 3
+      $ blm bi2te3
+    cp actrl.bi2te3 ctrl.bi2te3
+    lmchk bi2te3
+    cp actrl.bi2te3 ctrl.bi2te3
+    lmfa bi2te3
+            cp basp0.bi2te3 basp.bi2te3
+            lmfa bi2te3
+    blm --gw bi2te3
 
     ... to be finished
 

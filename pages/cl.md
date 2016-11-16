@@ -428,7 +428,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
 | Affects program flow       | **[-\-ef](/docs/input/commandline/#ef)**&nbsp; **[-\-no-fixef0](/docs/input/commandline/#nofixef0)**&nbsp; **[-\-oldvc](/docs/input/commandline/#oldvc)**&nbsp; [**-\-optbas**](/docs/input/commandline/#optbas)&nbsp; **[-\-quit](/docs/input/commandline/#pr)**&nbsp; **[-\-rdbasp](/docs/input/commandline/#rdbasp)**<br>**[-\-rhopos](/docs/input/commandline/#rhopos)**&nbsp; **[-\-rpos](/docs/input/commandline/#rpos)**&nbsp; **[-\-rs](/docs/input/commandline/#rs)**&nbsp; **[-\-shorten=no](/docs/input/commandline/#shortenno)**&nbsp; **[-\-symsig](/docs/input/commandline/#symsig)**&nbsp; **[-\-vext](/docs/input/commandline/#vext)**
-| Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
+| Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp;**[-\-wforce](/docs/input/commandline/#wforce)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
 | Additional printout        | **[-\-efrnge](/docs/input/commandline/#efrnge)**&nbsp; **[-\-pr](/docs/input/commandline/#pr)**&nbsp; **[-\-SOefield](/docs/input/commandline/#SOefield)** |
 | [Optics specific](/docs/input/commandline/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
 | [QSGW specific](/docs/input/commandline/#qsgw) | **-\-mixsig**&nbsp; **-\-rsig**&nbsp; **-\-wsig**
@@ -622,6 +622,9 @@ Command-line switches:
   You must use Brillouin sampling with Fermi function:  [**BZ\_N=&minus;1**](/docs/input/inputfile/#bz).\\
   Data is written to file _cv.ext_{: style="color: green"}.
 ^
+{::nomarkdown}<a name="wforce"></a>{:/}**-\-wforce=_fn_]**
+:  causes **lmf**{: style="color: blue"} to write forces to file **_fn_**.
+^
 {::nomarkdown}<a name="ef"></a>{:/}**-\-ef**
 :  Override file Fermi level; use with **-\-band**
 ^
@@ -706,12 +709,15 @@ to the LDA potential.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-rsig**).
 
-   + **~ascii**:&ensp;  read sigm in ascii format.
-   + **~rs**:&ensp;     read sigm in real space.
+   + **~ascii**:&ensp;  read sigm in ascii format (see table below)
+   + **~rs**:&ensp;     read sigm in real space (see table below)
    + **~null**:&ensp;   generate a null sigma consistent with the hamiltonian dimensions. Useful in combination with the sigma editor.
-   + **~fbz**:&ensp;    sigma is stored for all _k_ points in the full Brillouin zone
+   + **~fbz**:&ensp;    flags that sigma is stored for all _k_ points in the full Brillouin zone.
+                        Equivalent to setting 10000s digit=1 in token RDSIG= .
+                        (Not meaningful if the ~rs switch is used)
    + **~spinav**:&ensp; average spin channels in spin-polarized sigma
-   + **~shftq**:&ensp;  add qp offset to qp where sigma is made.
+   + **~shftq=#,#,#**       indicates that sigma was generated on a kmesh offset by #,#,#
+                            #,#,# are optional; then a default of three small numbers is used.
 
    If either **~ascii** or **~rs** is used, the input file name may change:
 
@@ -726,8 +732,12 @@ to the LDA potential.
 
    Options are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-wsig**):
 
-   + **~newkp**:&ensp;           generate sigma on a new _k_ mesh.  It reads the mesh from [**GW\_NKABC**](/docs/input/inputfile/#gw).
-   + **~edit**:&ensp;            invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+   + **~ascii**:&ensp;  read sigm in ascii format (see table below)
+   + **~newkp**:&ensp;  generate sigma on a new _k_ mesh.  It reads the mesh from [**GW\_NKABC**](/docs/input/inputfile/#gw).
+   + **~edit**:&ensp;   invoke the sigma editor.  This editor has many options, which you can see by running the editor.
+   + **~fbz**:&ensp;    causes <B>lmf</B> to ignore symmetry operations and generate a sigma file for k-points in the entire BZ.  It is useful
+                        when generating a sigma file that allows fewer symmetry operations, e.g. when making the <i>m</i>-resolved density-of-states,
+                        or a trial sigm for a case (such as a shear) where symmetry operations are lowered.
 
    The following are special-purpose modes
 
@@ -736,10 +746,9 @@ to the LDA potential.
    + **~rot**:&ensp;        [rotate](/docs/input/rotations) the sigma matrix.
    + **~trans=#**:&ensp;    **#** specifies how sigma is to be modified, or if some other object is to be made instead of sig.
    + **~phase**:&ensp;      Add phase shift to sigma
-   + **~fbz**:&ensp;        sigma is stored for all _k_ points in the full Brillouin zone
    + **~sumk**:&ensp;       sum sigma over _k_.  Implies fbz
-   + **~shftq**:&ensp;      add qp offset to qp where sigma is made
    + **~wvxcf**:&ensp;      read vxc file and write as vxcsig (used by **lmfgwd**{: style="color: blue"}).
+   + **~shftq**:&ensp;      add qp offset to qp where sigma is made.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
@@ -1132,17 +1141,17 @@ it is better not to interpolate and use **-\-nw=1**.
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
 #### _Switches for_ SpectralFunction.sh
-[//]: (/docs/input/commandline/#switches-for-spectralfunction-sh)
+[//]: (/docs/input/commandline/#switches-for-spectralfunctionsh)
 
 **SpectralFunction.sh**{: style="color: blue"} reads spectral function
 files in the [_spf_{: style="color: green"}
 format](/docs/input/data_format/#the-spf-file), and makes figures from
 them.
 
-The script is self-documenting.  For help, do:
+The script is self-documenting.  For help, try:
 
 ~~~
-SpectralFunction.sh  -h
+$ SpectralFunction.sh  -h
 ~~~
 
 #### _Switches for_ lmctl

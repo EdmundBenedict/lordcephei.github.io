@@ -1,16 +1,13 @@
 ---
 layout: page-fullwidth
 title: "Self-Consistent LDA calculation for PbTe"
-subheadline: ""
-show_meta: false
-teaser: ""
 permalink: "/tutorial/lmf/lmf_pbte_tutorial/"
 header: no
 ---
 
 ### _Purpose_
+{:.no_toc}
 _____________________________________________________________
-
 This tutorial carries out a self-consistent density-functional calculation for PbTe using the **lmf**{: style="color: blue"} code.
 It has a purpose similar to the [basic tutorial on Si](/tutorial/lmf/lmf_tutorial/) but provides much more detail.  The standard outputs
 of **lmfa**{: style="color: blue"} and **lmf**{: style="color: blue"} are explained.
@@ -25,22 +22,25 @@ It synchronizes with an [ASA tutorial](/tutorial/asa/lm_pbte_tutorial/) on the s
 potential methods, and forms a starting point for other tutorials, e.g. on [optics](/tutorial/application/optics).
 
 ### _Table of Contents_
+{:.no_toc}
 _____________________________________________________________
 
-{:.no_toc}
 *  Auto generated table of contents
 {:toc}
 
 ### _Preliminaries_
+{:.no_toc}
 _____________________________________________________________
 
-Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/), which you may wish to go through first.
+Some of the basics are covered in the basic [lmf tutorial for Si](/tutorial/lmf/lmf_tutorial/).  It is easier to read but less detailed.
 
-The outputs from this tutorial are given in the
+The standard outputs from running this tutorial are explained in the
 [annotation of **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/) and
-[annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/).  Many details omitted here are given in the annotated outputs.
+[annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/).
+Many details omitted here are given in the annotated outputs.
 
-Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
+Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color:
+blue"} are required and are assumed to be in your path.
 
 _____________________________________________________________
 
@@ -668,45 +668,47 @@ The standard output is annotated in some detail [here](/docs/outputs/lmf_output/
 ^
 + Makes an initial pass through the irreducible _k_ points in the Brillouin zone to
   [obtain the Fermi level](/docs/outputs/lmf_output/#brillouin-zone-integration).  and obtain integration weights for each band and _k_
-  point into a binary file _wkp.pbte_{: style="color: green"}.  In general until the Fermi level is known, the weights assigned to each
+  point into a binary file [_wkp.pbte_{: style="color: green"}](/docs/input/data_format/#the-wkp-file).  In general until the Fermi level is known, the weights assigned to each
   eigenfunction are not known, so the charge density cannot be assembled.  How labor is divided between the first and second pass depends on
-  **BZ\_METAL**.  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
+  [**BZ\_METAL**](/docs/input/inputfile/#bz).  See [here](/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch) for further discussion.
 + Makes a [second pass](/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
   to accumulate the output mesh and local densities.  For the latter
   essential information is retained as coefficients of the local density matrix (a compact form).
 + Assembles the local densities from the density matrix.
-+ Symmetrizes the density
-
++ Symmetrizes the density.
 + Finds [new logarithmic derivative parameters]((/docs/outputs/lmf_output/#update-pnu)) **pnu** by floating them to the band center-of-gravity
-
-+ Computes the Harris-Foulkes and Kohn-Sham [total energies](/docs/outputs/lmf_output/#total-energy-and-forces)
++ Computes the Harris-Foulkes and Kohn-Sham [total energies and forces](/docs/outputs/lmf_output/#total-energy-and-forces).
++ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density.
   A segment of the output reads:
 
   ~~~
   mixrho:  sought 2 iter from file mixm; read 0.  RMS DQ=2.17e-2
   ~~~
   
-+ Computes the forces
-
-+ [Mixes the input and output](/docs/outputs/lmf_output/#new-density) densities to form a new trial density
-+ Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop)
+  **DQ=2.17e-2** is a measure of the root mean square deviation <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup>.
+  At self-consistency this number should be small.
++ Checks for [convergence](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 **lmf**{: style="color: blue"} should converge to [self-consistency](/tutorial/lmf/lmf_pbte_tutorial/#faq) in 10 iterations.
 
-At the end of the self-consistency cycle the density is written to _rst.pbte_{: style="color: green"} and a check is made for convergence.
-The first iteration reads
+At the end of the self-consistency cycle the density is written to _rst.pbte_{: style="color: green"} 
 
 ~~~
  iors  : write restart file (binary, mesh density)
-
-   it  1  of 10    ehf=  -55318.170567   ehk=  -55318.148758
-h nkabc=6 gmax=7.8 ehf=-55318.1705672 ehk=-55318.1487582
 ~~~
 
-No check is made because there is no prior iteration to compare the change
-in total energy.
+and a check is made for convergence.
+No check is made in the first iteration because there is no prior iteration to compare the change in total energy.
+The second iteration reads:
+<pre>
+              &darr;         &darr;
+ diffe(q)=  0.004793 (0.018916)    tol= 0.000010 (0.000030)   more=T
+i nkabc=6 gmax=7.8 ehf=-55318.1657745 ehk=-55318.1568616
+</pre>
 
-In the 10<sup>th</sup> iteration, the convergence check reads
+Two checks are made: against the change (**0.004793**) in total energy and the RMS DQ (**0.018916**).
+When both checks fall below tolerances self-consistency is reached.  In this case it occurs in iteration 10,
+where the convergence check reads:
 <pre>
               &darr;         &darr;
  diffe(q)=  0.000000 (0.000005)    tol= 0.000010 (0.000030)   more=F
@@ -716,11 +718,12 @@ c nkabc=6 gmax=7.8 ehf=-55318.1620974 ehk=-55318.1620958
 The first line prints out the change in [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) energy relative to the prior iteration and some norm of RMS change in the
 charge density <i>n</i><sup>out</sup>&minus;<i>n</i><sup>in</sup> (see arrows), followed by the tolerances required for self-consistency.
 
-The last line prints out a table of variables that were specified on the command line, and total
-energies from the Harris-Foulkes and Kohn-Sham functionals.  Theses are different
+The last line prints out variables specified on the command line, and total
+energies from the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  Theses are different
 functionals but they should approach the same value at self-consistency.
 The **c** at the beginning of the line indicates that this iteration 
 achieved self-consistency with the tolerances specified.
+See the [annotated output](/docs/outputs/lmf_output/#end-of-self-consistency-loop) for more details.
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
@@ -737,7 +740,7 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
 + [This tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) more fully explains the **lmf**{: style="color: blue"} basis set.
   There is a corresponding tutorial on the basics of a [self-consistent ASA calculation for PbTe](/tutorial/asa/lm_pbte_tutorial).
-  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have finished this one.
+  [A tutorial on optics](/docs/properties/optics/) can be gone through after you have finished the present one.
 
 + [This document](/docs/code/fpoverview/) gives an overview of some of **lmf**{: style="color: blue"}'s unique features and capabilities.
 

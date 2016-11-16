@@ -441,6 +441,32 @@ Similarly the bands are slightly modified.
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
+#### The wkp file
+[//]: (/docs/input/data_format/#the-wkp-file)
+
+_wkp.ext_{: style="color: green"} keeps Fermi level **efermi** and band weights **wtkb(nevx,nsp,nq)** for Brillouin zone integration.
+
+This binary file consists of a header in a single record,  followed by second record containing **wtkb(nevx,nsp,nq)**.\\
+The header contains a dimensioning parameter, number of spins and irreducible _k_ points in the Brillouin zone:\\
+**&emsp; nevx&thinsp; nq&thinsp; nsp&thinsp; efermi**
+
+I/O is performed by routine iobzwt in **subs/suzbi.f**{: style="color: green"}.
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
+
+#### The save file
+[//]: (/docs/input/data_format/#the-save-file)
+
+_save.ext_{: style="color: green"} keeps a log of summary information for each iteration in iterations to self-consistency.
+
+Each line records data for one iteration, including algebraic variables declared on the command line,
+followed by variables kept in the ctrl file by the [**% save**](/docs/input/preprocessor/#other-directives) directive,
+system magnetic moment (in magnetic systems) and total energy.
+
+It is further explained in the [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
+
+Operations are performed in **subs/iosave.f**{: style="color: green"}.
+
 #### The se file
 [//]: (/docs/input/data_format/#the-se-file)
 
@@ -525,7 +551,7 @@ _Notes:_{: style="color: red"}
 3. The second column is the distance from the first q-point of the first [symmetry line](/docs/input/data_format/#symmetry-line-mode)
    i.e. the position in a band figure relative to the left edge.
    A panel begins/ends where points coincide with **qcut**.
-4. Bash script [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunction-sh) will generate figures directly from _spf.ext_{: style="color: green"}.
+4. Bash script [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) will generate figures directly from _spf.ext_{: style="color: green"}.
 
 
 Routine iospf in <b>gf/specfun.f</b>{: style="color: green"} reads and writes _spf.ext_{: style="color: green"}.

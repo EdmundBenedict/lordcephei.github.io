@@ -792,3 +792,15 @@ $ lmfgws fe -vso=1 `cat switches-for-lm` '--sfuned~units=eV~eps .01~qpse~evsync~
 The first command writes a file _pes2.fe_{: style="color: green"}, the second _pesqp.fe_{: style="color: green"}.
 
 ... need to complete
+
+
+{::comment}
+
+se ib=2
+
+# ib=2 qp = 0.050000 0.910000 0.010000  eps=0.01000  eqp=-2.508988
+#     omega         Re sigm-vxc    Im sigm-vxc      int A(w)      int A0(w)       A(w)           A0(w)
+
+se ib=2,3
+# ib=2,3 qp = 0.050000 0.910000 0.010000  eps=0.01000
+#     omega         A(w)           A0(w)
