@@ -441,6 +441,29 @@ Similarly the bands are slightly modified.
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
+#### The basp file
+[//]: (/docs/input/data_format/#the-basp-file)
+
+File _basp.ext_{: style="color: green"} contains information about the **lmf**{: style="color: blue"} basis set.
+In the [Bi<sub>2</sub>Te<sub>3</sub>](/tutorial/lmf/lmf_bi2te3_tutorial/) it reads:
+
+~~~
+BASIS:
+Te RSMH= 1.615 1.681 1.914 1.914 EH= -0.888 -0.288 -0.1 -0.1 P= 5.901 5.853 5.419 4.187
+Bi RSMH= 1.674 1.867 1.904 1.904 EH= -0.842 -0.21 -0.1 -0.1 P= 6.896 6.817 6.267 5.199 5.089 PZ= 0 0 15.936
+~~~
+
+The file consists of one line for each species (it is not an error if a species is missing).
+The line begins with the species name, optionally followed by 
+
++ envelope shape parameters **RSMH=&hellip;** and **EH=&hellip;** and possibly **RSMH2=&hellip;** and **EH2=&hellip;**
++ augmentation sphere boundary conditions **P=&hellip;**
++ Local orbital information **PZ=&hellip;**.
+
+I/O is performed by routine iobzwt in **subs/ioorbp.f**{: style="color: green"}.
+
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
+
 #### The wkp file
 [//]: (/docs/input/data_format/#the-wkp-file)
 
