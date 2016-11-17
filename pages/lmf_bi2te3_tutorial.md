@@ -211,7 +211,10 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 #### 3. _Making the atomic density_
 
-Make the free atom density. If you did not do so already copy _actrl.bi2te3_{: style="color: green"} to the input file (changing **[&hellip; LMTO=4 MTO=4]** to **[&hellip; LMTO=3 MTO=3]**) and invoke **lmfa**{: style="color: blue"}:
+If you did not do so already copy _actrl.bi2te3_{: style="color: green"} to _ctrl.bi2te3_{: style="color: green"} and change
+**[&hellip; LMTO=4 MTO=4]** &rarr; **[&hellip; LMTO=3 MTO=3]**)
+
+Invoke **lmfa**{: style="color: blue"}:
 
     $ lmfa bi2te3
 
@@ -228,22 +231,22 @@ See the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination
 
 The partitioning between valence and core states is something that requires a judgement call. **lmfa**{: style="color: blue"} has made a
 default choice: from _basp0.bi2te3_{: style="color: green"} you can see that **lmfa**{: style="color: blue"} selected the
-6_s_, 6_p_, 6_d_, 5_f_ states, populating them with charges   2, 3, 0, 0. Note that the total sphere charge is Q=0. You can override the
+6_s_, 6_p_, 6_d_, 5_f_ states, populating them with charges &thinsp; 2, 3, 0, 0, for a total sphere charge is Q=0. You can override the
 default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ channel charges with SPEC_ATOM_Q.
 
-**lmfa**{: style="color: blue"} does the following:
+**lmfa**{: style="color: blue"} does the following to find basis set parameters:
 
 + Automatically finds deep states to include as valence electrons.
 + Selects sphere boundary condition for partial waves
 + Finds envelope function parameters
 
 The process is essentially the same as described in the [PbTe
-tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set).  See also the [annotated **lmfa**{: style="color: blue"}
-output](/docs/outputs/lmfa_output/#generating-basis-information) for more detailed description.  The main difference is that here we a
-smaller basis was specified (**LMTO=3**), so instead of a double kappa basis] (**RMSH,EH**; **RMSH2,EH2**) this tutorial has only a (**RMSH,EH**).
-Later we will improve on the basis by adding APW's
+tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) and is described in some detail there and in the [annotated
+**lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#generating-basis-information).  The main difference is that here we a
+smaller basis was specified (**LMTO=3**), so instead of a double kappa basis] (**RMSH,EH**; **RMSH2,EH2**) this tutorial has only a
+(**RMSH,EH**).  Later we will improve on the basis by adding APW's
 
-Insert lines from _basp0.bi2te3__{: style="color: green"} in the **SPEC** category of the ctrl file, viz
+With your text editor insert lines from _basp0.bi2te3_{: style="color: green"} in the **SPEC** category of the ctrl file, viz
 
 ~~~
   ATOM=Te         Z= 52  R= 2.870279  LMX=3  LMXA=3
@@ -257,25 +260,35 @@ style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as
 is read after the main input file is read, if it exists.  According to which of following tokens is present, their corresponding parameters
 will be be read from the basp file, superseding prior values for these contents:
 
-AUTOBAS tag  | Function
-MTO          | read RSMH,EH (also possibly RSMH2,EH2)
-P            | read P                                
-LOC          | read PZ                               
+AUTOBAS tag  | Read
+MTO          | RSMH,EH (and RSMH2,EH2 if double-kappa basis)
+P            | P                                
+LOC          | PZ                               
 
 
 If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf).
-tell **lmf**{: style="color: blue"} which to use.
+tell **lmf**{: style="color: blue"} which to use.  In this tutorial we will work just with the basp file.
 
-The atm file was created by **lmfa**{: style="color: blue"} without prior knowledge that the 5_d_ local orbital is to be included as a valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
+    $ cp basp0.bi2te3 basp.bi2te3
 
-    *   Remove **PZ=0 0 15.936** from _basp.bi2te3_{: style="color: green"}. It will no longer be treated as a valence state. Removing it means the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described [below](#gmax). Whether you need it or not depends on the context.
+The atm file was created by **lmfa**{: style="color: blue"} without prior knowledge that the 5_d_ local orbital is to be included as a
+valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
 
-    *   Copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"} and run **lmfa**{: style="color: blue"} over again:
+1. Remove **PZ=0 0 15.936** from _basp.bi2te3_{: style="color: green"}. It will no longer be treated as a valence state. Removing it means
+   the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described
+   [below](#gmax). Whether you need it or not depends on the context.
 
-            $ cp basp0.bi2te3 basp.bi2te3
-            $ lmfa bi2te3
+2. Copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"} and run **lmfa**{: style="color: blue"} over again:
 
-    With the latter choice **lmfa**{: style="color: blue"} operates a little differently from before as can be seen by comparing [new output](FPsamples/out.bi2te3.lmfa2) with the old. Initially the Bi 5_d_ was part of the [core](FPsamples/out.bi2te3.lmfa1#bicore); now is included as part of the [valence](FPsamples/out.bi2te3.lmfa2#xxx2).
+~~~
+$ cp basp0.bi2te3 basp.bi2te3
+$ lmfa bi2te3
+~~~
+
+With the latter choice **lmfa**{: style="color: blue"} operates a little differently from the first pass. Initially the Bi 5_d_ was part of
+the core (similar to the Pb 5_d_ in the [Pbte
+tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now is included as part of the
+[valence](FPsamples/out.bi2te3.lmfa2#xxx2).
 
 #### 3. _Making the atomic density_
 

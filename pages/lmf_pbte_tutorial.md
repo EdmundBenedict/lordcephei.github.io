@@ -365,7 +365,7 @@ the LDA, unoccupied states also contribute to the potential.
 
 ##### 5.2 Valence-core partitioning of the free atomic density
 {::comment}
-/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density
+(/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density)
 {:/comment}
 
 After _basp.pbte_{: style="color: green"} has been modified, you must run **lmfa**{: style="color: blue"} a second time:
