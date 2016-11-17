@@ -1140,6 +1140,25 @@ it is better not to interpolate and use **-\-nw=1**.
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ vextract
+[//]: (/docs/input/commandline/#switches-for-vextract)
+
+**vextract**{: style="color: blue"} is a script that extracts values associated with variables from a list of lines,
+e.g. 
+
+~~~
+i gmax=4.4 nkabc=3 ehf=-0.2950731 ehk=-0.2950686
+i gmax=6 nkabc=3 ehf=-0.294891 ehk=-0.294886
+~~~
+
+such as is found in a [save file](/docs/input/data_format/#the-save-file).
+
+The script is self-documenting.  For help, try:
+
+~~~
+$ vextract --h
+~~~
+
 #### _Switches for_ SpectralFunction.sh
 [//]: (/docs/input/commandline/#switches-for-spectralfunctionsh)
 
