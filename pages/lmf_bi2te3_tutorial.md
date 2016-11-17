@@ -9,7 +9,7 @@ header: no
 ---
 
 ### _Purpose_
-
+{:.no_toc}
 This tutorial is similar to the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/) but it focuses on features of the **lmf**{: style="color:
 blue"} basis set.
 
@@ -23,7 +23,7 @@ _____________________________________________________________
 _____________________________________________________________
 
 ### _Preliminaries_
-
+{:.no_toc}
 The input file structure is briefly described in [this lmf tutorial for Pbte](https://lordcephei.github.io/lmf_tutorial/), which you may wish to go through first.
 
 Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path. 
@@ -304,6 +304,8 @@ $ lmfa bi2te3
 With the latter choice **lmfa**{: style="color: blue"} operates a little differently from the first pass. Initially the Bi 5_d_ was part of
 the core (similar to the Pb 5_d_ in the [Pbte
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now it is included in the valence.
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 #### 4. _GMAX and NKABC_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#gmax-and-nkabc)
