@@ -92,7 +92,7 @@ $ blm bi2te3
 $ cp actrl.bi2te3 ctrl.bi2te3
 ~~~
 
-There are five atoms in the unit cell: 2 Bi atoms and 3 Te atoms.  Two of the Te atoms are symmetry equivalent.
+There 2 Bi atoms and 3 Te atoms in the unit cell.  Two of the Te atoms are symmetry equivalent.
 
 This template will not work as is; three essential pieces of information which **blm**{: style="color: blue"} does not supply are missing, to rectify this :
 
@@ -312,6 +312,7 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 
 ##### 4.1 _Setting GMAX_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#setting-gmax)
 
 **blm**{: style="color: blue"} makes no attempt to automatically assign a value to the plane wave cutoff for the interstitial density.  This
 value determines the mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
@@ -411,8 +412,8 @@ rm -f mixm.bi2te3 save.bi2te3
 lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
 ~~~
 
-##### 5.1 _Convergence in density_
-[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-density)
+##### 5.1 _Convergence in the charge density_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-the-charge-density)
 
 You should **lmf**{: style="color: blue"} reach self-consistency in 9 iterations.
 
@@ -428,7 +429,8 @@ is generally closer to the final result than the HK functional, is typical behav
 ##### 5.2 _Convergence in G cutoff_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-g-cutoff)
 
-How reliable the _G_ cutoff can be seen from this table:
+The _G_ cutoff, [**4.4u**&thinsp;Ry<sup>&minus;1/2</sup>](/tutorial/lmf/lmf_bi2te3_tutorial/#setting-gmax)
+yields precisions in plane-wave expansions of envelope functions as shown this table:
 
 ~~~
  sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
@@ -443,8 +445,8 @@ How reliable the _G_ cutoff can be seen from this table:
   Bi       3    1.90  -0.10   4.497    2.06E-06    1635*
 ~~~
 
-**gmax=4.4** isn't quite large enough to push the error in the plane-wave expansion of the envelopes below tolerance (**1.0e-6**), but it is pretty close.
-You can check how well the total energy is converged by doing
+**gmax=4.4** isn't quite large enough to push the error below tolerance (**1.0e-6**), but it is pretty close.
+You can check how well the total energy is converged by increasing **gmax**
 
 ~~~
 lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
@@ -455,6 +457,112 @@ and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: gre
 
 ##### 5.3 _Convergence in lmxa_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
+
+In an augmented wave method, envelope functions centered a different site is must be expanded around a local site, as one-center expansions
+in spherical harmonics </i>Y<sub>lm</sub><</i>.  **LMXA** is a cutoff that truncates the one-center expansion to a finite _l_ = **LMXA**.
+The input file reads:
+
+~~~
+SPEC 
+  ATOM=Te         Z= 52  R= 2.870279  LMX=3  LMXA=3
+  ATOM=Bi         Z= 83  R= 2.856141  LMX=3  LMXA=4
+~~~
+
+**LMXA=3** and **LMXA=4** respectively, are very low _l_ cutoffs for an augmented wave method.  They are about half of what is needed for a
+reasonably converged calculation with traditional augmentation.  However, the Questaal suite has a unique augmentation procedure that
+converges very rapidly with _l_.  Indeed, it can be seen as a justification for pseudopotential methods that limit the pseudopotential to
+very low _l_, e.g. _l_=2.
+
+It is a useful exercise to see how well converged the total energy is using the default values **LMXA=3** and **LMXA=4**.
+First, run **lmf**{: style="color: blue"} with the ctrl file as it is
+
+~~~
+lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+~~~
+
+Set both LMXA to 6:
+
+~~~
+cp ctrl.bi2te3 ctrl.bak
+cat ctrl.bak | sed s/LMXA=./LMXA=6/ > ctrl.bi2te3
+~~~
+
+and run **lmf**{: style="color: blue"} again.
+When the restart file is read you should see
+
+~~~
+ iors  : read restart file (binary, mesh density) 
+         use from  restart file: ef window, positions, pnu 
+         ignore in restart file: *
+         site   1, species Te      : augmentation lmax changed from 3 to 6
+         site   1, species Te      : inflate local density from nlm= 16 to 49
+         ...
+~~~
+
+Compare the last two lines of _save.bi2te3_{: style="color: green"}.
+You should be able to confirm that the energy change is 2.5&thinsp;mRy,
+By playing around with the two **LMXA** you can confirm that increasing
+the Te **LMXA** to 4, nearly all the error can be eliminated.
+
+Before continuing, be sure to restore the original ctrl file
+
+~~~
+cp ctrl.bak ctrl.bi2te3
+~~~
+
+##### 5.3 _Convergence in kmxa_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-kmxa)
+
+Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
+the same second order differential equation, one being regular at the origin and the other being regular at &infin;.  Smooth Hankel
+functions are more complicated: the one-center expansion has no such elementary function, but it can be written as a linear combination of
+Laguerre polynomials <i>P</sub>kl<sub></i> of half integer order; see Eq. (12.17) in this
+[J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
+
+The polynomials are cut off at a fixed order given by **KMXA**.  **blm**{: style="color: blue"} doesn't write **KMXA** to the template file;
+A default value is used, as can be seen from this table
+
+~~~
+ species data:  augmentation                           density
+ spec       rmt   rsma lmxa kmxa      lmxl     rg   rsmv  kmxv foca   rfoca
+ Te       2.870  1.148    3    3         3  0.718  1.435    15    1   1.148
+ Bi       2.856  1.142    4    3         4  0.714  1.428    15    1   1.142
+~~~
+
+You can check the convergence by supplying a value for **KMXA**.  First 
+run **lmf**{: style="color: blue"} using the original file
+
+~~~
+lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+~~~
+
+Set **KMXA** to 5 and run **lmf**{: style="color: blue"} again:
+
+~~~
+cp ctrl.bi2te3 ctrl.bak
+cat ctrl.bak | sed 's/LMXA=/KMXA=5 LMXA=/' > ctrl.bi2te3
+lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+~~~
+
+When the restart file is read you should see an indication that **KMXA** has been increased
+
+~~~
+         site   1, species Te      : augmentation kmax changed from 3 to 5
+         site   2, species Te      : augmentation kmax changed from 3 to 5
+~~~
+
+Compare the last two lines of _save.bi2te3_{: style="color: green"}.
+You should be able to confirm that the energy change is 2.5&thinsp;mRy,
+By playing around with the two **LMXA** you can confirm that increasing
+the Te **LMXA** to 4, nearly all the error can be eliminated.
+
+Before continuing, be sure to restore the original ctrl file
+
+~~~
+cp ctrl.bak ctrl.bi2te3
+~~~
+
+
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
