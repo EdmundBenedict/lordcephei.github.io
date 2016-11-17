@@ -131,7 +131,7 @@ These are the 8 irreducible k points of the 4x4x4 mesh, including X (0,0,1) and 
 ~~~
 
 <hr style="height:5pt; visibility:hidden;" />
-### _Running QSGW_
+### _Running 1-shot GW_
 ________________________________________________________________________________________________
 
 We are now ready for the one-shot GW calculation, this is done with the lmgw1-shot script:
