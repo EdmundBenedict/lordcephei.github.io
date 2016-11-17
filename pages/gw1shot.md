@@ -15,9 +15,7 @@ header: no
 _____________________________________________________________
 
 
-This tutorial carries out a basic QSGW calculation for Si, starting from
-structural information.
-
+This tutorial carries out a 1-shot GW calculation on silicon. 
 
 ### _Table of Contents_
 {:.no_toc}
@@ -30,7 +28,7 @@ _____________________________________________________________
 
 
 Executables **blm**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path;
-similarly for the QSGW script **lmgwsc**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
+similarly for the GW script **lmgw1-shot**{: style="color: blue"}; and the binaries it requires should be in subdirectory **code2**.
 
 ### _Introduction to a QSGW calculation_
 ________________________________________________________________________________________________
