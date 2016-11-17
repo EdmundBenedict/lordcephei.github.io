@@ -412,6 +412,7 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
 ~~~
 
 ##### 5.1 _Convergence in density_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-density)
 
 You should **lmf**{: style="color: blue"} reach self-consistency in 9 iterations.
 
@@ -425,6 +426,7 @@ is generally closer to the final result than the HK functional, is typical behav
 (The HF functional is generally more stable.)
 
 ##### 5.2 _Convergence in G cutoff_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-g-cutoff)
 
 How reliable the _G_ cutoff can be seen from this table:
 
@@ -451,7 +453,8 @@ lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
 
 and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: green"}.  You should find that the energy is converged to about 0.1&thinsp;mRy.
 
-##### 5.3 _Convergence in G lmxa_
+##### 5.3 _Convergence in lmxa_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
