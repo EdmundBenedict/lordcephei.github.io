@@ -422,22 +422,28 @@ You should see it converges in 9 iterations.  Some points of note:
 
 + How reliable the _G_ cutoff can be seen from this table:
 
-~~~
- sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
- spec      l    rsm    eh     gmax    last term   cutoff
-  Te       0    1.61  -0.89   4.603    3.31E-06    1635*
-  Te       1    1.68  -0.29   4.662    5.08E-06    1635*
-  Te       2*   1.91  -0.10   4.273    1.15E-06    1539 
-  Te       3    1.91  -0.10   4.471    1.71E-06    1635*
-  Bi       0    1.67  -0.84   4.441    1.29E-06    1635*
-  Bi       1    1.87  -0.21   4.183    1.08E-06    1411 
-  Bi       2*   1.90  -0.10   4.297    1.37E-06    1539 
-  Bi       3    1.90  -0.10   4.497    2.06E-06    1635*
-~~~
+  ~~~
+   sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
+   spec      l    rsm    eh     gmax    last term   cutoff
+    Te       0    1.61  -0.89   4.603    3.31E-06    1635*
+    Te       1    1.68  -0.29   4.662    5.08E-06    1635*
+    Te       2*   1.91  -0.10   4.273    1.15E-06    1539 
+    Te       3    1.91  -0.10   4.471    1.71E-06    1635*
+    Bi       0    1.67  -0.84   4.441    1.29E-06    1635*
+    Bi       1    1.87  -0.21   4.183    1.08E-06    1411 
+    Bi       2*   1.90  -0.10   4.297    1.37E-06    1539 
+    Bi       3    1.90  -0.10   4.497    2.06E-06    1635*
+  ~~~
 
-**gmax=4.4** isn't quite large enough to push the error in the plane-wave expansion of the envelopes below tolerance (**1.0e-6**), but it is pretty close.
-You can check how well the total energy is converged by 
+  **gmax=4.4** isn't quite large enough to push the error in the plane-wave expansion of the envelopes below tolerance (**1.0e-6**), but it is pretty close.
+  You can check how well the total energy is converged by doing
 
+  ~~~
+  lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+  lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
+  ~~~
+
+  and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: green"}.  You should find that the energy is converged to about 0.1&thinsp;mRy.
 
 #### _Modifying the input file for GW_
 
