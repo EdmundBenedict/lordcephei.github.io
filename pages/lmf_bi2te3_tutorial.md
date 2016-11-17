@@ -327,9 +327,9 @@ The valence states still require only **GMAX=4.4** but the 5_d_ state is strongl
 state is strongly peaked at around the atom, and requires more plane waves to represent reasonably, even a smoothed version of it, than the
 other states. The difference between 8.1 and 4.4 is substantial, and it reflects the additional computational cost of including deep
 core-like states in the valence. This is the all-electron analog of the "hardness" of the pseudopotential in pseudopotential schemes. If you
-want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. This particular choice
-of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and
-significantly speed up the execution time.  It is what this tutorial does.
+want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. Including the Bi 5_d_ is
+a bit of overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and significantly speed up the
+execution time.  It is what this tutorial does.
 
 **blm**{: style="color: blue"} assigns the initial _k_-point mesh to zero. Note the following lines in _ctrl.bi2te3_{: style="color: green"}:
 
@@ -337,18 +337,22 @@ significantly speed up the execution time.  It is what this tutorial does.
 % const nkabc=0 gmax=0
 ...
 # Brillouin zone
-  nkabc=  {nkabc}                  # 1 to 3 values.  Use n1<0 => |n1| ~ total number
+  nkabc=  {nkabc}                  # 1 to 3 values
 ~~~
 
-*Note:*{: style="color: red"} **nkabc** is both a variable and a tag in this file.  This can be somewhat confusing.  The expression
-**{nkabc}** gets parsed by the preprocessor and is turned into the value of variable **nkabc** in the same way that **nit** gets turned into
-***10** in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency).
+*Note:*{: style="color: red"} **nkabc** is simultaneously a variable here.  This can be somewhat confusing.  The expression
+&thinsp;**{nkabc}**&thinsp; gets parsed by the preprocessor and is turned into the value of _variable_ **nkabc** (see how **nit** gets turned into
+**10** in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)), so that _tag_ **nkabc** is followed by a number.
 
 **EXPRESS\_nkabc** (alias [**BZ\_NKABC**](/docs/input/inputfile/#bz)) governs the mesh of _k_-points. An appropriate choice will depend
 strongly on the context of the calculation and the sytem of interest; the density-of-states at the Fermi level; whether Fermi surface
 properties are important; whether you want optical properties as well as total energies well described; the precision you need; the
 integration method, and so on. Any automatic formula can be dangerous, so **blm**{: style="color: blue"} will not choose an operational
-default for you. In this case, a 4&times;4&times;4 mesh works well.
+default for you.
+
+{::comment}
+ In this case, a 4&times;4&times;4 mesh works well.
+{:/comment}
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
@@ -362,8 +366,9 @@ Compare _actrl.bi2te3_{: style="color: green"} generated with the **-\-gw** swit
 
     AUTOBAS[PNU=1 LOC=1 LMTO=5 MTO=4 GW=1]
 
-The basis is similar to LMTO=4 but EH has been set a little deeper. This helps the QS<i>GW</i> implementation interpolate between _k_-points. The larger basis makes a minor difference to the valence bands; but the conduction bands change, especially the higher in energy you go.
+The basis is similar to **LMTO=4** but **EH** has been set a little deeper. This helps the QS<i>GW</i> implementation interpolate between _k_-points. The larger basis makes a minor difference to the valence bands; but the conduction bands change, especially the higher in energy you go.
 
 {::comment}
 
 _*Note_  The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
+
