@@ -117,12 +117,17 @@ as described below.  Parameters are generated, but you can modify them as you li
 
 {::nomarkdown} <a name="autobaslmfa"></a> {:/}
 
+<div onclick="elm = document.getElementById(autobastags); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here for a description of the AUTOBAS tags.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="autobastags">{:/}
+
+
 Tokens in **AUTOBAS** tell **lmfa**{: style="color: blue"} to do the following:
 
 PNU=1&nbsp;    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](/docs/code/asaoverview/#logderpar) for the free atom.
 :  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
 
-LOC=1&nbsp;    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
+LOC=1&nbsp;    Look for shallow cores to be explicitly treated as valence electrons, as [local orbitals](fp.html#localorbitals).
 :  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**.
    No search is made if **LOC=0**
 
@@ -150,9 +155,9 @@ PNU=1&nbsp;  Read parameters P for all species present in _basp.ext_{: style="co
 :  If PNU=0, these parameters will not be read.
 
 LOC=1&nbsp;  tells **lmf**{: style="color: blue"} to read local orbital parameters **PZ**.
-:  Since these parameters may also be specified by the input file,
-             LOC=1 tells lmf to give precedence to parameters specified by ctrl file
-             LOC=2 tells lmf to give precedence to parameters specified by basp.
+:  Since these parameters may also be specified by the input file,\\
+   LOC=1 tells **lmf**{: style="color: blue"} to give precedence to parameters specified by ctrl file\\
+   LOC=2 tells **lmf**{: style="color: blue"} to give precedence to parameters specified by basp.
 
 **LMTO=**&nbsp;  is not used by **lmf**{: style="color: blue"}.
 
@@ -167,6 +172,8 @@ GW=0&nbsp; tunes the basis for an LDA calculation
     are floated a little differently in the self-consistency cycle.
     They are weighted to better represent unoccupied states, at a slight cost
     to their representation of occupied states.
+
+{::nomarkdown}</div>{:/}
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
