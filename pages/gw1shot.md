@@ -41,8 +41,7 @@ This tutorial begins with an LDA calculation for Si, starting from an init file.
 
 One-shot GW (_G_<sup>0</sup>W<sup>0</sup>) calculations are perturbations to a DFT calculation (such as LDA). They are simpler than QSGW calculations, because only the diagonal part of &Sigma;<sup>0</sup> is normally calculated (this is an approximation) and only one self-energy is calculated (single iteration). On the other hand, one-shot calculations are sensitive to the starting point and you also no longer have the luxury of interpolating between k points to get full bandstructures. As a result, it is only possible to calculate 1-shot corrections for k points that lie on the k-mesh used in the self-energy calculation.
 
-* http://hyperphysics.phy-astr.gsu.edu/hbase/Tables/Semgap.html
-The self-energy enters the Hamiltonian as a perturbation and 
+The self-energy enters the Hamiltonian as a perturbation and gives us access to quasi-particle (QP) energies. The QP energies are the main output of a 1-shot GW calculation.  
 
 The DFT executable is **lmf**{: style="color: blue"}.  **lmfgwd**{: style="color: blue"} is similar
 to **lmf**{: style="color: blue"}, but it is a driver whose purpose is to set up inputs for the _GW_ code.
@@ -132,7 +131,39 @@ We are now ready to run a one-shot GW calculation, which is carried out by the l
 
     $ lmgw1-shot --insul=4 -job= si-test si   #1-shot GW calculation
 
-The 
+The resulting quasi-particle (QP) energies are reported in the QPU file. The '\-\-insul=4' tells the codes where to find the valence band maximum and QP energies are given relative to it (here it is the 4th state).
+
+~~~
+           q               state  SEx   SExcore SEc    vxc    dSE  dSEnoZ  eLDA    eQP  eQPnoZ   eHF  Z    FWHM=2Z*Simg  ReS(elda)
+  0.00000  0.00000  0.00000  1  -17.40  -1.81   6.70 -12.47  -0.02  -0.04 -11.98 -12.02 -12.04 -19.01 0.65   1.25745    -12.50888
+  0.00000  0.00000  0.00000  2  -12.92  -1.96   1.30 -13.62   0.02   0.03  -0.00  -0.00   0.00  -1.56 0.78   0.00000    -13.59113
+  0.00000  0.00000  0.00000  3  -12.92  -1.96   1.30 -13.62   0.02   0.03  -0.00   0.00   0.00  -1.56 0.78   0.00000    -13.59115
+  0.00000  0.00000  0.00000  4  -12.92  -1.96   1.30 -13.62   0.02   0.03   0.00   0.00   0.00  -1.56 0.78   0.00000    -13.59115
+  0.00000  0.00000  0.00000  5   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77  -0.00096    -10.99907
+  0.00000  0.00000  0.00000  6   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77  -0.00096    -10.99908
+  0.00000  0.00000  0.00000  7   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77  -0.00096    -10.99908
+  0.00000  0.00000  0.00000  8   -5.85  -3.72  -4.57 -15.20   0.80   1.06   3.23   4.02   4.27   8.58 0.76  -0.00274    -14.13472
+
+ -0.50000  0.50000  0.50000  1  -16.79  -2.08   5.68 -13.15  -0.04  -0.05  -9.64  -9.70  -9.72 -15.66 0.72   0.98211    -13.20036
+ -0.50000  0.50000  0.50000  2  -14.81  -1.66   4.27 -12.12  -0.06  -0.08  -7.02  -7.09  -7.12 -11.66 0.71   0.39708    -12.19791
+ -0.50000  0.50000  0.50000  3  -13.14  -1.92   1.70 -13.30  -0.05  -0.06  -1.21  -1.27  -1.29  -3.25 0.76   0.00000    -13.36710
+ -0.50000  0.50000  0.50000  4  -13.14  -1.92   1.70 -13.30  -0.05  -0.06  -1.21  -1.27  -1.29  -3.25 0.76   0.00000    -13.36711
+ -0.50000  0.50000  0.50000  5   -5.81  -2.15  -3.86 -12.66   0.65   0.83   1.42   2.05   2.23   5.83 0.78  -0.00000    -11.82740
+ -0.50000  0.50000  0.50000  6   -4.90  -0.99  -4.26 -10.98   0.63   0.83   3.28   3.90   4.09   8.08 0.77  -0.00729    -10.15130
+ -0.50000  0.50000  0.50000  7   -4.90  -0.99  -4.26 -10.98   0.63   0.83   3.28   3.90   4.09   8.08 0.77  -0.00729    -10.15131
+ -0.50000  0.50000  0.50000  8   -2.38  -0.59  -5.33  -8.87   0.44   0.57   7.58   8.00   8.12  13.19 0.77  -0.32644     -8.29489
+
+  0.00000  0.00000  1.00000  1  -15.93  -2.11   4.80 -13.20  -0.03  -0.04  -7.84  -7.89  -7.90 -12.97 0.69   0.54541    -13.24249
+  0.00000  0.00000  1.00000  2  -15.93  -2.11   4.80 -13.20  -0.03  -0.04  -7.84  -7.89  -7.90 -12.97 0.69   0.54540    -13.24245
+  0.00000  0.00000  1.00000  3  -13.35  -1.69   2.30 -12.59  -0.12  -0.16  -2.87  -3.01  -3.05  -5.61 0.74   0.00361    -12.74140
+  0.00000  0.00000  1.00000  4  -13.35  -1.69   2.30 -12.59  -0.12  -0.16  -2.87  -3.01  -3.05  -5.61 0.74   0.00361    -12.74140
+  0.00000  0.00000  1.00000  5   -5.04  -0.92  -3.63 -10.25   0.52   0.66   0.58   1.08   1.22   4.58 0.79   0.00000     -9.58925
+  0.00000  0.00000  1.00000  6   -5.04  -0.92  -3.63 -10.25   0.52   0.66   0.58   1.08   1.22   4.58 0.79   0.00000     -9.58932
+  0.00000  0.00000  1.00000  7   -3.67  -2.35  -6.62 -13.50   0.63   0.86  10.02  10.62  10.85  17.20 0.73  -0.64702    -12.64286
+  0.00000  0.00000  1.00000  8   -3.67  -2.35  -6.62 -13.50   0.63   0.86  10.02  10.62  10.85  17.20 0.73  -0.64702    -12.64286
+~~~
+
+The exchange and correlation terms are in the SEx, SExcore and SEc columns. 
 
 
 
