@@ -134,14 +134,14 @@ We are now ready for the one-shot GW calculation, this is done with the lmgw1-sh
 
     $ lmgw1-shot --insul=4 -job= si-test si   #1-shot GW calculation
 
-The resulting quasi-particle (QP) energies are reported in the QPU file. The '\-\-insul=4' tells the codes where to find the valence band maximum and QP energies are given relative to it (here it is the 4th state). Your QPU file should look like this:
+The resulting quasi-particle (QP) energies are reported in the QPU file. The '\-\-insul=4' tells the codes where to find the valence band maximum and QP energies are given relative to it (here it is the 4th state). Your QPU file should look like this (the last two columnds have been removed):
 
 ~~~
            q               state  SEx   SExcore SEc    vxc    dSE  dSEnoZ  eLDA    eQP  eQPnoZ   eHF  Z     
   0.00000  0.00000  0.00000  1  -17.40  -1.81   6.70 -12.47  -0.02  -0.04 -11.98 -12.02 -12.04 -19.01 0.65
   0.00000  0.00000  0.00000  2  -12.92  -1.96   1.30 -13.62   0.02   0.03  -0.00  -0.00   0.00  -1.56 0.78
   0.00000  0.00000  0.00000  3  -12.92  -1.96   1.30 -13.62   0.02   0.03  -0.00   0.00   0.00  -1.56 0.78
-  0.00000  0.00000  0.00000  4  -12.92  -1.96   1.30 -13.62   0.02   0.03   0.00   0.00   0.00  -1.56 0.78
+  0.00000  0.00000  0.00000  4  -12.92  -1.96   1.30 -13.62   0.02   0.03   **0.00**{: style="color: red"}   0.00   0.00  -1.56 0.78
   0.00000  0.00000  0.00000  5   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77
   0.00000  0.00000  0.00000  6   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77
   0.00000  0.00000  0.00000  7   -5.56  -1.42  -4.01 -11.82   0.63   0.82   2.51   3.12   3.30   7.05 0.77
@@ -157,7 +157,11 @@ The resulting quasi-particle (QP) energies are reported in the QPU file. The '\-
   0.00000  0.00000  1.00000  8   -3.67  -2.35  -6.62 -13.50   0.63   0.86  10.02  10.62  10.85  17.20 0.73
 ~~~
 
-In the GWinput file we specified that QP energies are to be calculated at two k points (Gamma and X) and for 8 states each. The first column lists the k points: 8 Gamma points then there's a space and the 8 X points. Take a look at the column labelled 'eLDA', these are the LDA eigenvalues.   
+In the GWinput file we specified that QP energies are to be calculated at two k points (Gamma and X) and for 8 states each. The first column lists the k points: 8 Gamma points then there's a space and the 8 X points. The column labelled 'eLDA' contains the LDA eigenvalues. As specified with '\-\-insul=4', the valence band is state 4 and all energies are given relative to it - you can see that the Gamma point state 4 energy (highlighted in red) is 0. 
+
+The conduction band is state 5 and  And so, the LDA G-X gap is
+
+the same as the energy of the X point's state 5: 0.58 eV.     
 
 The next column numbers the states. The following three columns labelled SEx, SExcore and SEc are the exchange and correlation terms. 
 
