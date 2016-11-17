@@ -365,20 +365,24 @@ from [free atoms](/docs/outputs/lmf_output/#mattheis-construction).
 Do the following (assuming no 5_d_ local orbital)
 
 ~~~
-lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=2
-lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=3
-lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=4
-lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=5
+lmf ctrl.bi2te3 -vgmax=4.4 --quit=band -vnkabc=2
+lmf ctrl.bi2te3 -vgmax=4.4 --quit=band -vnkabc=3
+lmf ctrl.bi2te3 -vgmax=4.4 --quit=band -vnkabc=4
+lmf ctrl.bi2te3 -vgmax=4.4 --quit=band -vnkabc=5
+lmf ctrl.bi2te3 -vgmax=4.4 --quit=band -vnkabc=6
 ~~~
 
-The [save file](/docs/input/data_format/#the-save-file) _save.bi2te3_{: style="color: green"}
-should read:
+The meaning of `--quit=band` is described [here](/docs/input/inputfile/#pr)
+
+Total energies are written to the [save file](/docs/input/data_format/#the-save-file) _save.bi2te3_{: style="color: green"}
+It should read:
 
 ~~~
-h gmax=4.4 nit=1 nkabc=2 ehf=-126808.2361717 ehk=-126808.1583957
-h gmax=4.4 nit=1 nkabc=3 ehf=-126808.3137885 ehk=-126808.2492178
-h gmax=4.4 nit=1 nkabc=4 ehf=-126808.3168406 ehk=-126808.2505156
-h gmax=4.4 nit=1 nkabc=5 ehf=-126808.3165536 ehk=-126808.2497121
+h gmax=4.4 nkabc=2 ehf=-126808.2361717 ehk=-126808.1583957
+h gmax=4.4 nkabc=3 ehf=-126808.3137885 ehk=-126808.2492178
+h gmax=4.4 nkabc=4 ehf=-126808.3168406 ehk=-126808.2505156
+h gmax=4.4 nkabc=5 ehf=-126808.3165536 ehk=-126808.2497121
+h gmax=4.4 nkabc=6 ehf=-126808.3164058 ehk=-126808.2494041
 ~~~
 
 You can use the **vextract**{: style="color: blue"} tool to conveniently extract a table
@@ -388,13 +392,54 @@ of the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) total energy
 cat save.bi2te3 | vextract h nkabc ehf | tee dat
 ~~~
 
-You can plot the data, or just see by inspection that the energy is converged to
-less than a mRy with 4&times;4&times;4 _k_ mesh.  A detailed analysis of
-_k_ point convergence is given [here](/docs/numerics/bzintegration/).
+You can plot the data, or just see by inspection that the energy is converged to less than a mRy with 4&times;4&times;4 _k_ mesh and about
+0.1&thinsp;mRy with a 5&times;5&times;5 _k_ mesh.  A detailed analysis of _k_ point convergence is given
+[here](/docs/numerics/bzintegration/).
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-#### _Input files for GW_
+#### 5. _Self-consistent LDA calculation_
+
+In the following we will use **nkabc=3**, though after convergence is reached we might consider increasing it a little.  Before doing the
+calculation you can use your text editor to set **nkabc=3** and **gmax=4.4**, or continue to set assign values from the command line.
+
+The density can be made self-consistent with
+
+~~~
+rm -f mixm.bi2te3 save.bi2te3
+lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
+~~~
+
+You should see it converges in 9 iterations.  Some points of note:
+
++ The Harris-Foulkes and Kohn-Sham total energies are **ehf=-126808.3137885** and **ehk=-126808.2492178**
+  from the Mattheis construction.  At self-consistency they come together: **ehf=-126808.2950696** and **ehk=-126808.2950608**,\\
+
+  This value which is 18&thinsp;mRy _less binding_ than the Harris-Foulkes energy of the Mattheis construction,
+  and 46&thinsp;mRy <i>more</i> binding than the corresponding Kohn-Sham energy.
+  That the two initial functionals bracket the self-consistent result, and that the HF
+  is generally closer to the final result than the HK functional, is typical behavior.
+
++ How reliable the _G_ cutoff can be seen from this table:
+
+~~~
+ sugcut:  make orbital-dependent reciprocal vector cutoffs for tol=1.0e-6
+ spec      l    rsm    eh     gmax    last term   cutoff
+  Te       0    1.61  -0.89   4.603    3.31E-06    1635*
+  Te       1    1.68  -0.29   4.662    5.08E-06    1635*
+  Te       2*   1.91  -0.10   4.273    1.15E-06    1539 
+  Te       3    1.91  -0.10   4.471    1.71E-06    1635*
+  Bi       0    1.67  -0.84   4.441    1.29E-06    1635*
+  Bi       1    1.87  -0.21   4.183    1.08E-06    1411 
+  Bi       2*   1.90  -0.10   4.297    1.37E-06    1539 
+  Bi       3    1.90  -0.10   4.497    2.06E-06    1635*
+~~~
+
+**gmax=4.4** isn't quite large enough to push the error in the plane-wave expansion of the envelopes below tolerance (**1.0e-6**), but it is pretty close.
+You can check how well the total energy is converged by 
+
+
+#### _Modifying the input file for GW_
 
 _GW_ calculations demand more of the basis set because unuoccupied states are important. To set up a job in preparation for a _GW_ calculation, invoke **blm** as :
 
