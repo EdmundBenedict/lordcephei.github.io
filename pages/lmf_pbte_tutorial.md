@@ -299,6 +299,8 @@ To use a GGA, see [here](/docs/outputs/lmf_output/#lda-functionals).
 The **autogen** line says that **lmfa**{: style="color: blue"} will make the basis set information (points 3-5 outlined above).\\
 The next few sections amplify on these three points.  Point 6 is discussed [here](/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax).
 
+See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
+
 #####  5.1 Local orbitals
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 

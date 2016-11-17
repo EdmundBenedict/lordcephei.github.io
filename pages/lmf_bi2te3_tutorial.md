@@ -114,7 +114,7 @@ generates information for basis sets, using tokens in **AUTOBAS** to guide it. T
 green"}. **AUTOBAS** specifies set of conditions that enable **lmfa**{: style="color: blue"} to automatically build the basis set for you,
 as described below.  Parameters are generated, but you can modify them as you like.
 
-{::nomarkdown} <a name="autobas"></a> {:/}
+{::nomarkdown} <a name="autobaslmfa"></a> {:/}
 
 Tokens in **AUTOBAS** tell **lmfa**{: style="color: blue"} to do the following:
 
@@ -137,6 +137,11 @@ GW=0&nbsp;     Create a setup for an LDA calculation.
 :  If **GW=1**, tailor basis for a GW calculation, selecting stricter criteria for including shallow cores as valence, and the size of basis.
 
 These tokens thus define some reasonable default basis for you. **lmfa**{: style="color: blue"} _writes_ _basp0.ext_{: style="color: green"}. This file is never read, but **lmf**{: style="color: blue"} will _read_ _basp.ext_{: style="color: green"} and use this information when assembling the basis set. The two files have the same structure and you can copy _basp0.ext_{: style="color: green"} to _basp.ext_{: style="color: green"}. What **lmfa**{: style="color: blue"} generates is not cast in concrete. You are free to adjust the parameters to your liking, e.g. add a local orbital or remove one from the basis.
+
+{::nomarkdown} <a name="autobaslmf"></a> {:/}
+{::comment}
+(/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
+{:/comment}
 
 The **AUTOBAS** tokens tell **lmf**{: style="color: blue"} what to read from _basp.ext_{: style="color: green"}. It uses tokens in a manner similar, but not identical, to the way **lmfa**{: style="color: blue"} uses them:
 
@@ -161,6 +166,8 @@ GW=0&nbsp; tunes the basis for an LDA calculation
     are floated a little differently in the self-consistency cycle.
     They are weighted to better represent unoccupied states, at a slight cost
     to their representation of occupied states.
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 #### 2. _Checking sphere overlaps_
 
@@ -200,6 +207,8 @@ The packing fraction is printed
 Generally larger packing fractions are better because the augmentation [partial waves](/docs/package_overview/#linear-methods-in-band-theory) are quite accurate.
 **0.43** is a fairly good packing fraction.
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 #### 3. _Making the atomic density_
 
 Make the free atom density. If you did not do so already copy _actrl.bi2te3_{: style="color: green"} to the input file (changing **[&hellip; LMTO=4 MTO=4]** to **[&hellip; LMTO=3 MTO=3]**) and invoke **lmfa**{: style="color: blue"}:
@@ -228,19 +237,13 @@ default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ c
 + Selects sphere boundary condition for partial waves
 + Finds envelope function parameters
 
-The process is essentially the same as described in the [PbTe tutorial](/docs/outputs/lmfa_output/#generating-basis-information).
-The main difference is that here we specified a smaller basis (**LMTO=3**).
+The process is essentially the same as described in the [PbTe
+tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set).  See also the [annotated **lmfa**{: style="color: blue"}
+output](/docs/outputs/lmfa_output/#generating-basis-information) for more detailed description.  The main difference is that here we a
+smaller basis was specified (**LMTO=3**), so instead of a double kappa basis] (**RMSH,EH**; **RMSH2,EH2**) this tutorial has only a (**RMSH,EH**).
+Later we will improve on the basis by adding APW's
 
-You can make **lmf**{: style="color: blue"} read these parameters from _basp.bi2te3_{: style="color: green"}.  Copy _basp0.bi2te3_{:
-style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as you like. File basp._ext_ is read after the main input file
-is read. If _basp.ext_{: style="color: green"} exists, and according to which of following tokens is present, their corresponding parameters will be be read from
-basp._ext_:
-
-*   AUTOBAS[MTO]: read RSMH,EH (also possibly RSMH2,EH2)
-*   AUTOBAS[P]: read P
-*   AUTOBAS[PZ]: read PZ
-
-You can also copy data in these lines to the appropriate place in the **SPEC** category: viz
+Insert lines from _basp0.bi2te3__{: style="color: green"} in the **SPEC** category of the ctrl file, viz
 
 ~~~
   ATOM=Te         Z= 52  R= 2.870279  LMX=3  LMXA=3
@@ -249,11 +252,21 @@ You can also copy data in these lines to the appropriate place in the **SPEC** c
     RSMH= 1.674 1.867 1.904 1.904 EH= -0.842 -0.21 -0.1 -0.1 P= 6.896 6.817 6.267 5.199 5.089 PZ= 0 0 15.936
 ~~~
 
-    *   Copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as you like. File basp._ext_ is read after the main input file is read. If basp._ext_ exists, and one or more of the following tokens is present, their corresponding parameters _may_ be read from basp._ext_:
+Alternatively make **lmf**{: style="color: blue"} read these parameters from _basp.bi2te3_{: style="color: green"}.  Copy _basp0.bi2te3_{:
+style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as you like. _basp.ext_{: style="color: green"}
+is read after the main input file is read, if it exists.  According to which of following tokens is present, their corresponding parameters
+will be be read from the basp file, superseding prior values for these contents:
 
-    If some this information is given in both the ctrl file and the basp file, the AUTOBAS settings tell **lmf**{: style="color: blue"} which to use, as described [here](#basprules).
+AUTOBAS tag  | Function
+MTO          | read RSMH,EH (also possibly RSMH2,EH2)
+P            | read P                                
+LOC          | read PZ                               
 
-2.  The atm file was created by **lmfa**{: style="color: blue"} without prior knowledge that the 5_d_ local orbital is to be included as a valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
+
+If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf).
+tell **lmf**{: style="color: blue"} which to use.
+
+The atm file was created by **lmfa**{: style="color: blue"} without prior knowledge that the 5_d_ local orbital is to be included as a valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
 
     *   Remove **PZ=0 0 15.936** from _basp.bi2te3_{: style="color: green"}. It will no longer be treated as a valence state. Removing it means the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described [below](#gmax). Whether you need it or not depends on the context.
 
@@ -264,9 +277,32 @@ You can also copy data in these lines to the appropriate place in the **SPEC** c
 
     With the latter choice **lmfa**{: style="color: blue"} operates a little differently from before as can be seen by comparing [new output](FPsamples/out.bi2te3.lmfa2) with the old. Initially the Bi 5_d_ was part of the [core](FPsamples/out.bi2te3.lmfa1#bicore); now is included as part of the [valence](FPsamples/out.bi2te3.lmfa2#xxx2).
 
-3.  **blm** does not by default assign any value to the plane wave cutoff for the interstitial density. **lmf**{: style="color: blue"} reads this information through [HAM_GMAX](FPtutorial.html#GMAX). It is a required input; but **blm** does not pick a value because its [proper choice](FPtutorial.html#meshdensity) depends on the smoothness of the basis. **lmfa**{: style="color: blue"} will determine a suggested value for HAM_GMAX for you. In the present instance, when the usual 6_s_, 6_p_, 6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends GMAX=4.4 as can be seen by inspecting the [first **lmfa**{: style="color: blue"} run](FPsamples/out.bi2te3.lmfa1#gmax). In the second run it recommends GMAX=4.1 from the valence states alone (as before), but because of the 5_d_ state **lmfa**{: style="color: blue"} recommends that [GMAX=8.1](FPsamples/out.bi2te3.lmfa2#gmax). The 5_d_ state is strongly peaked at around the atom, and requires more plane waves to represent reasonably, even a smoothed version of it, than the other states. The difference between 8.1 and 4.4 is substantial, and it reflects the additional computational cost of including deep core-like states in the valence. This is the all-electron analog of the "hardness" of the pseudopotential in pseudopotential schemes. If you want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. This particular choice of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and significantly speed up the execution time.
+#### 3. _Making the atomic density_
 
-4.  **blm** assigns the initial _k_-point mesh to zero. Note the following lines in _actrl.bi2te3_{: style="color: green"}:
+**blm**{: style="color: blue"} does not assign any value to the plane wave cutoff for the interstitial density.  This value determines the
+mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
+[**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**.  It is a required input; but **blm**{: style="color: blue"} does not
+automatically pick a value because its [proper choice](/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs) depends
+on the smoothness of the basis. In general the mesh density must be fine as the most strongly peaked orbital in the basis.
+
+**lmfa**{: style="color: blue"} will determine a suggested value for HAM_GMAX for you. In the present instance, when the usual 6_s_, 6_p_,
+6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends **GMAX=4.4** as can be seen by inspecting the [first **lmfa**{:
+style="color: blue"} run](FPsamples/out.bi2te3.lmfa1#gmax). In the second run it recommends GMAX=4.1 from the valence states alone (as
+before), but because of the 5_d_ state **lmfa**{: style="color: blue"} recommends that [GMAX=8.1](FPsamples/out.bi2te3.lmfa2#gmax). The 5_d_
+state is strongly peaked at around the atom, and requires more plane waves to represent reasonably, even a smoothed version of it, than the
+other states. The difference between 8.1 and 4.4 is substantial, and it reflects the additional computational cost of including deep
+core-like states in the valence. This is the all-electron analog of the "hardness" of the pseudopotential in pseudopotential schemes. If you
+want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. This particular choice
+of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and
+significantly speed up the execution time.
+
+~~~
+ FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.4 (valence)  8.1 (local orbitals)
+~~~
+
+
+
+**blm** assigns the initial _k_-point mesh to zero. Note the following lines in _actrl.bi2te3_{: style="color: green"}:
 
         % const met=5 nk=0
         BZ      NKABC={nk}  METAL={met}  # NKABC requires 1 to 3 positive numbers
@@ -274,6 +310,8 @@ You can also copy data in these lines to the appropriate place in the **SPEC** c
     BZ_NKABC governs the mesh of _k_-points. An appropriate choice will depend strongly on the context of the calculation and the sytem of interest; the density-of-states at the Fermi level; whether Fermi surface properties are important; whether you want optical properties as well as total energies well described; the precision you need; the integration method, and so on. Any automatic formula can be dangerous, so **blm** will not choose a default for you. In this case, a 4×4×4 mesh works well. Use your text editor to change nk=0 to nk=4. Alternatively, supply --nk=.. to **blm** on the command line, as was done in [this tutorial](Demo_QSGW_Si.html#nk).
 
     Note that as generated, _ctrl.bi2te3_{: style="color: green"} will reflect METAL=5. Using METAL=5 with the tetrahedron integration is the recommended way to handle Fermi surface integration in metals. See [this tutorial](FPtutorial.html#metal) for some discussion.
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 #### _Input files for GW_
 
