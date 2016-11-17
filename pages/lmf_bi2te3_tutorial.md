@@ -455,11 +455,11 @@ lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
 
 and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: green"}.  You should find that the energy is converged to about 0.1&thinsp;mRy.
 
-##### 5.3 _Convergence in lmxa_
+##### 5.3 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
 In an augmented wave method, envelope functions centered a different site is must be expanded around a local site, as one-center expansions
-in spherical harmonics </i>Y<sub>lm</sub><</i>.  **LMXA** is a cutoff that truncates the one-center expansion to a finite _l_ = **LMXA**.
+in spherical harmonics <i>Y<sub>lm</sub><</i>.  **LMXA** is a cutoff that truncates the one-center expansion to a finite _l_ = **LMXA**.
 The input file reads:
 
 ~~~
@@ -506,7 +506,7 @@ Before continuing, be sure to restore the original ctrl file
 cp ctrl.bak ctrl.bi2te3
 ~~~
 
-##### 5.3 _Convergence in kmxa_
+##### 5.3 _Convergence in KMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-kmxa)
 
 Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
