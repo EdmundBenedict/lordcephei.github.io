@@ -10,7 +10,8 @@ header: no
 
 ### _Purpose_
 
-This tutorial explains the main features of the **lmf**{: style="color: blue"} basis set.
+This tutorial is similar to the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/) but it focuses on features of the **lmf**{: style="color:
+blue"} basis set.
 
 _____________________________________________________________
 
@@ -267,10 +268,10 @@ style="color: green"} to _basp.bi2te3_{: style="color: green"}, and modify it as
 is read after the main input file is read, if it exists.  According to which of following tokens is present, their corresponding parameters
 will be be read from the basp file, superseding prior values for these contents:
 
-AUTOBAS tag  | Read
-MTO          | RSMH,EH (and RSMH2,EH2 if double-kappa basis)
-P            | P                                
-LOC          | PZ                               
+AUTOBAS   | **lmfa**{: style="color: blue"} [writes](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmfa), **lmf**{: style="color: blue"} [reads](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
+MTO       | RSMH,EH (and RSMH2,EH2 if [double kappa basis](/tutorial/lmf/lmf_bi2te3_tutorial/#singlekappa))
+P         | P
+LOC       | PZ
 
 
 If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
