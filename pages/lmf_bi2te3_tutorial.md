@@ -281,7 +281,7 @@ P         | P
 LOC       | PZ
 
 
-If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
+If this information is supplied in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
 tell **lmf**{: style="color: blue"} which to use.  In this tutorial we will work just with the basp file.
 
     $ cp basp0.bi2te3 basp.bi2te3
@@ -290,7 +290,7 @@ The atm file was created by **lmfa**{: style="color: blue"} without prior knowle
 valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
 
 1. Remove **PZ=0 0 15.936** from _basp.bi2te3_{: style="color: green"}. It will no longer be treated as a valence state. Removing it means
-   the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described next.
+   the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density.
    Whether you need it or not depends on the context: with _GW_, for example, this state is a bit too shallow to be treated with Fock exchange
    only (which is how cores are handled in _GW_).
 
@@ -342,15 +342,16 @@ execution time.  It is what this tutorial does.
   nkabc=  {nkabc}                  # 1 to 3 values
 ~~~
 
-*Note:*{: style="color: red"} **nkabc** is simultaneously a variable here.  This can be somewhat confusing.  The expression
+*Note:*{: style="color: red"} **nkabc** is simultaneously a _variable_ and a _tag_.  This can be somewhat confusing.  The expression
 &thinsp;**{nkabc}**&thinsp; gets parsed by the preprocessor and is turned into the value of _variable_ **nkabc** (see how **nit** gets turned into
-**10** in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)), so that _tag_ **nkabc** is followed by a number.
+**10** in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)), so after preprocessing, the argument following _tag_ is 
+a number.
 
 **EXPRESS\_nkabc** (alias [**BZ\_NKABC**](/docs/input/inputfile/#bz)) governs the mesh of _k_-points. An appropriate choice will depend
 strongly on the context of the calculation and the sytem of interest; the density-of-states at the Fermi level; whether Fermi surface
 properties are important; whether you want optical properties as well as total energies well described; the precision you need; the
 integration method, and so on. Any automatic formula can be dangerous, so **blm**{: style="color: blue"} will not choose an operational
-default for you.
+default.
 
 {::comment}
  In this case, a 4&times;4&times;4 mesh works well.
@@ -374,3 +375,4 @@ The basis is similar to **LMTO=4** but **EH** has been set a little deeper. This
 
 _*Note_  The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
 
+{:/comment}
