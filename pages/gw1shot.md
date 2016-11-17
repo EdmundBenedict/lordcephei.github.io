@@ -83,26 +83,55 @@ ________________________________________________________________________________
 
 {::nomarkdown}</div>{:/}
 
-The only difference to the LDA tutorial is the extra \-\-gw switch which  tailors the ctrl file for a _GW_ calculation. This switch is discussed in more detail in the QSGW tutorial. Now check the output file out.lmfsc. The self-consistent gap is reported to be around 0.58 eV as can be seen by searching for the last occurence of the word 'gap'. Note that this result differs slightly to that from the LDA tutorial because the gw switch increases the size of the basis set.
-
-Now that we have the input eigenfunctions and eigenvalues, the next step is to carry out a _GW_ calculation. For this, we need an input file for the _GW_ code.
+After running these commands, we now have a self-consistent LDA density. Check the 'out.lmfsc' file and you should find a converged gap of around 0.58 eV. Now that we have the input eigenfunctions and eigenvalues, the next step is to carry out a _GW_ calculation. For this, we need an input file for the _GW_ code.
 
 <hr style="height:5pt; visibility:hidden;" />
 ### _Making GWinput_
 ________________________________________________________________________________________________
-The _GW_ package (both one-shot and QSGW) uses one main user-supplied input file, GWinput. The script lmfgwd can create a template GWinput file for you by running the following command:
+Create a template GWinput file by running the following command:
 
     $ echo -1 | lmfgwd si                              #make GWinput file
 
-The lmfgwd script has multiple options and is designed to run interactively. Using 'echo -1' automatically passes it the '-1' option that specifies making a template input file. You can try running it interactively by just using the command 'lmfgwd si' and then entering '-1'. Take a look at GWinput, it is a rather complicated input file but we will only consider the _GW_ _k_ mesh for now (further information can be found on the GWinput page). The k mesh is specified by n1n2n3 in the GWinput file, look for the following line:
+Take a look at GWinput, the k mesh is specified by n1n2n3 in the following line:
 
     $ n1n2n3  4  4  4 ! for GW BZ mesh
 
-When creating the GWinput file, lmfgwd checks the GW section of the ctrl file for default values. The 'NKABC= 4' part of the DFT input file (ctrl.si) is read by lmfgwd and used for n1n2n3 in the GW input file. Remember if only one number is supplied in NKABC then that number is used as the division in each direction of the reciprocal lattice vectors, so 4 alone means a 4x4x4 k mesh. To make things run a bit quicker, change the k mesh to 3x3x3 by editing the GWinput file line:
+In the QSGW tutorial we changed the mesh to 3x3x3 to speed things up. This time we will use the 4x4x4 mesh as teh 3x3x3 mesh does not include the X point L points that we are interested in. Look for the following section:
 
-    $ n1n2n3  3  3  3 ! for GW BZ mesh
+~~~
+*** q-points (must belong to mesh of points in BZ).
+  3
+  1     0.0000000000000000     0.0000000000000000     0.0000000000000000
+  2    -0.2500000000000000     0.2500000000000000     0.2500000000000000
+  3    -0.5000000000000000     0.5000000000000000     0.5000000000000000
+  4     0.0000000000000000     0.0000000000000000     0.5000000000000000
+  5    -0.2500000000000000     0.2500000000000000     0.7500000000000000
+  6    -0.5000000000000000     0.5000000000000000     1.0000000000000000
+  7     0.0000000000000000     0.0000000000000000     1.0000000000000000
+  8     0.0000000000000000     0.5000000000000000     1.0000000000000000
+~~~
 
-The k mesh of 3&\times;3&\times;3 divisions is rough, but it makes the calculation fast and for Si the results are reasonable.
+These are the 8 irreducible k points of the 4x4x4 mesh, including X (0,0,1) and L (-1/2,1/2,1/2). You can calculate QP corrections for all of these points. But we will only calculate QP corrections at Γ, X, and L in this tutorial. The 3 just below the q-points line tells the GW codes how many points to calculate QP corrections for. We stick with 3, but rearrange the order so that these three points are the first three. Make the change with your text editor:
+~~~
+*** q-points (must belong to mesh of points in BZ).
+  3
+  1     0.0000000000000000     0.0000000000000000     0.0000000000000000
+  3    -0.5000000000000000     0.5000000000000000     0.5000000000000000
+  7     0.0000000000000000     0.0000000000000000     1.0000000000000000
+  2    -0.2500000000000000     0.2500000000000000     0.2500000000000000
+  4     0.0000000000000000     0.0000000000000000     0.5000000000000000
+  5    -0.2500000000000000     0.2500000000000000     0.7500000000000000
+  6    -0.5000000000000000     0.5000000000000000     1.0000000000000000
+  8     0.0000000000000000     0.5000000000000000     1.0000000000000000
+~~~
+
+We are now ready to run a one-shot GW calculation, which is carried out by the lmgw1-shot script:
+
+    $ lmgw1-shot --insul=4 -job= si-test si   #1-shot GW calculation
+
+The  
+
+
 
 <hr style="height:5pt; visibility:hidden;" />
 ### _Running QSGW_
