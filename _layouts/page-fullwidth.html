@@ -16,7 +16,7 @@ format: page-fullwidth
 {% endif %}
 
 <div class="row t30">
-	<div class="medium-12 columns">
+	<div class="medium-11 columns">
 
 		<article>
 			<header>
@@ -29,12 +29,18 @@ format: page-fullwidth
 				{{ page.teaser }}
 			</p>
 			{% endif %}
-			
+            
 			{{ content }}
+            
+            <br>
+            <a id="editButton" href="https://github.com/{{ site.github.repository_nwo }}/edit/master/{{ page.path }}">Edit This Page</a>
 
 		</article>
 
 	</div><!-- /.medium-12.columns -->
+    <div class="medium-1 columns"></div>
+    <div class="hide-for-large-down" id="toc"></div>
 </div><!-- /.row -->
+<script>$('#toc').toc();</script>
 
 

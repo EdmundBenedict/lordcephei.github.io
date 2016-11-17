@@ -80,8 +80,6 @@ For Mulliken analysis and CLS respectively, these should be used with the _lmf_ 
 ###### _lm_
 A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
 
-{::nomarkdown}</div>{:/}
-
 Density of states relates heavily to other topics. You may want to take a look at
 
 *   Core Level Spectroscopy:

@@ -1,5 +1,5 @@
 ---
-layout: page-fullwidth
+layout: page
 title: "About the Questaal Suite"
 permalink: "/about/"
 header:

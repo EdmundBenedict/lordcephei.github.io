@@ -1,9 +1,7 @@
 ---
 layout: page-fullwidth
 title: "Importing Input files"
-subheadline: ""
-show_meta: false
-teaser: ""
+breadcrumb: true
 permalink: "/tutorial/importing_input/"
 header: no
 ---
@@ -100,32 +98,80 @@ SITE
 
 Create a simple skeleton input file
 
-    $ blm --express bi2te3
+    blm --express bi2te3
 
 #### 2. _Input file from init file, complex case_
+First obtain your input file, which for this example will be _init.sbsei_{: style="color: green"}, which can be found in the _/testing/_{: style="color: green"} directory within your _lm_{: style="color: blue"} repository. Copy this file in to your working directory and run:
 
-Document ~/lm/testing/test.blm 2
+    blm --gw --express --addes --fixpos:tol=1e-2 --scalp=1 --xshftx=0,0,-0.0398106/2 --wsitex init.sbsei
 
+Where, for _sbsei_ in particular, we use _--gw_ to add GW related tags, _--addes_ to add tags used for empty spheres later on and the rest to modify values in the input file as needed. We then do the general steps to complete our _ctrl_{: style="color: green"} file:
+
+    cp actrl.sbsei ctrl.sbsei
+    lmfa sbsei
+    cp basp0.sbsei basp.sbsei
+    lmfa sbsei
+
+Then copy the resulting _GMAX_ (the higher, if there are two) output in to the relevant field in your _ctrl.sbsei_{: style="color: green"}.
 
 #### 3. _Input file for magnetic ASA from init file_
+First obtain your input file, which for this example will be _init.fept_{: style="color: green"}, which can be found in the _/testing/_{: style="color: green"} directory within your _lm_{: style="color: blue"} repository. Copy this file in to your working directory and run:
 
-Document ~/lm/testing/test.blm 3
+    blm --mag --asa --gf --nk=10 --express fept
+
+Specifically, the _--mag_ and _--asa_ switches to _blm_{: style="color: blue"} tell it to prepare for a spin polarized calculation and generate the input file for ASA. We then run the commands needed to finalize the  _ctrl_{: style="color: green"} file: 
+
+    cp actrl.fept ctrl.fept
+    lmfa fept
+    cp basp0.fept basp.fept
+    lmfa fept
+
+Then copy the resulting _GMAX_ (the higher, if there are two) output in to the relevant field in your _ctrl.fept_{: style="color: green"}.
 
 #### 4. _Input file and/or site from cif file_
+First you must obtain or generate your cif2cell file. In this tutorial we will use an example cif2cell file, _ciff2cell.batio3_{: style="color: green"}, generated with the **ciff2cell**{: style="color: blue"} tool for converting CIF files to cif2cell files. You can find this file in the _lm_{: style="color: blue"} in the _/testing/_{: style="color: green"} folder.    
 
-Document ~/lm/testing/test.blm 4 and ~/lm/testing/test.blm 5
+We then generate the init file from the cif2cell:
+
+    cif2init cif2cell.batio3
+
+Which generates our _init.batio3_{: style="color: green"} file. We can use this to generate the actrl file with **blm**{: style="color: blue"}:
+
+    blm --noshorten --wsitex batio3
+
+Generating a _actrl.batio3_{: style="color: green"} file. From this we can follow the steps outlined in (1) or (2) of this tutorial to get a _ctrl.batio3_{: style="color: green"} file.    
+
+To generate a site file from the same cif2cell file, we use a similar command:
+
+    cif2site cif2cell.batio3
+
+Which generates our _site.batio3_{: style="color: green"} file. From this you may have a use for the site file directly, or you can use a site file to generate a _ctrl.batio3_{: style="color: green"} file, (7) explains this.
 
 #### 5. _Input file from POSCAR file_
+For this input file we need a POSCAR file. We will use the example POSCAR file for _Zn3As2_ found in _/testing/POSCAR.zn3as2_{: style="color: green"} in the _lm_{: style="color: blue"} repository. We copy this to our working directory and name it _POSCAR_{: style="color: green"}.
 
-Document ~/lm/testing/test.blm 6
+We then convert the POSCAR file to an init file with the command:
+
+    poscar2init
+
+Notice the lack of command line switches - this tool only takes files named _POSCAR_{: style="color: green"} and does not differentiate whether they are _POSCAR.[material]_{: style="color: green"}. We can then use the **blm**{: style="color: blue"} tool to translate this _init.zn3as2_{: style="color: green"} file to an _actrl.zn3as2_{: style="color: blue"} file:
+
+    blm --express=0 zn3as2 --fixpos:tol=1e-6
+
+And then follow steps shown in (1) or (2).
 
 #### 6. _Site file from POSCAR file_
+For this input file we need a POSCAR file. We will use the example POSCAR file for _Zn3As2_ found in _/testing/POSCAR.zn3as2_{: style="color: green"} in the _lm_{: style="color: blue"} repository. We copy this to our working directory and name it _POSCAR_{: style="color: green"}.
 
-Document ~/lm/testing/test.blm 7
+We then convert the POSCAR file to an site file with the command:
+
+    poscar2site
+
+Notice the lack of command line switches - this tool only takes files named _POSCAR_{: style="color: green"} and does not differentiate whether they are _POSCAR.[material]_{: style="color: green"}. This generates our _site.zn3as2_{: style="color: green"} file. From this you may have a use for the site file directly, or you can use a site file to generate a _ctrl.zn3as2_{: style="color: green"} file, (7) explains this.
 
 #### 7. _input file file from site file_
+This tutorial will look at the material _fe2p_. We will need a site file, which we shall find in _/testing/sitein.fe2p_{: style="color: green"} in the _lm_{: style="color: blue"} repository. We copy this to our working directory and run:
 
-Document ~/lm/testing/test.blm 8
+    blm $ext --rdsite --express=1 --mag --findes --asa --omax=.00
 
-
-
+Which generates an _actrl.fe2p_{: style="color: green"} file, follow the steps in (2) to fully complete the _ctrl.fe2p_{: style="color: green"} file.

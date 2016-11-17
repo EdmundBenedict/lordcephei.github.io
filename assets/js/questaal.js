@@ -18,16 +18,13 @@ function dropdown( self, tar = null ) {
     if( !elm ) {
         return;
     }
-
-    if(elm.style.display != 'block') {
-        elm.style.display = 'block';
-        self.style.textAlign = 'left';
-        self.style.borderBottom = '5px solid #575757';
-        //self.innerHTML="Click to hide."
-    } else {
-        elm.style.display = 'none';
-        self.style.textAlign = 'center';
-        self.style.borderBottom = '5px solid #575757';
-        //self.innerHTML="Click to show.";
-    }
+	
+	if( $(elm).is( ":visible" ) ) {
+		$(self).animate( { borderBottomWidth: "6px" }, "slow", "swing" );
+		$(elm).animate( { borderBottomWidth: "0" }, { duration: "slow", easing: "swing", queue: false } );
+	} else {
+		$(self).animate( { borderBottomWidth: "3px"  }, "slow", "swing" );
+		$(elm).animate( { borderBottomWidth: "3px" }, { duration: "slow", easing: "swing", queue: false } );
+	}
+	$(elm).slideToggle( 'slow', 'swing' );
 }
