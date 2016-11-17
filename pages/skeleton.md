@@ -3,6 +3,7 @@ layout: page-fullwidth
 title: "TITLE"
 permalink: "/URL/"
 header: no
+breadcrumb: true
 ---
 
 ### _Table of Contents_
