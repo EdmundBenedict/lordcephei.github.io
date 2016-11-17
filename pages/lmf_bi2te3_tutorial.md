@@ -385,8 +385,8 @@ h gmax=4.4 nkabc=5 ehf=-126808.3165536 ehk=-126808.2497121
 h gmax=4.4 nkabc=6 ehf=-126808.3164058 ehk=-126808.2494041
 ~~~
 
-You can use the **vextract**{: style="color: blue"} tool to conveniently extract a table
-of the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) total energy
+You can use the [**vextract**{: style="color: blue"}](/docs/input/commandline/#switches-for-vextract) tool to conveniently extract a table
+of the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) total energy as a function of nkabc
 
 ~~~
 cat save.bi2te3 | vextract h nkabc ehf | tee dat
