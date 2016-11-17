@@ -122,6 +122,7 @@ Just below the no. of states is a section that specifies the k points to conside
 ~~~
 
 These are the 8 irreducible k points of the 4x4x4 mesh, including X (0,0,1) and L (-1/2,1/2,1/2). You can calculate QP corrections for all of these points but we will only calculate QP corrections at Gamma and X in this tutorial. The 3 just below the q-points line tells the GW codes how many points to calculate QP corrections for. Change this number to 2 and move line 7 (which contains the X point) to appear second as follows:
+
 ~~~
 *** q-points (must belong to mesh of points in BZ).
   2
