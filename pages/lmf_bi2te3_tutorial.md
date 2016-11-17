@@ -122,7 +122,7 @@ PNU=1&nbsp;    Calculate the [logarithmic derivative parameter _P<sub>l</sub>_](
 :  Calculated parameters are saved in file _basp0.ext_{: style="color: green"} as **P=&hellip;**. Nothing about **P** is written if **PNU=0**.
 
 LOC=1&nbsp;    Look for shallow cores to be explicitly treated as valence electrons, using [local orbitals](fp.html#localorbitals).
-:  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**
+:  Shallow cores that meet specific criteria are identified and written to  _basp0.ext_{: style="color: green"} as **PZ=&hellip;**.
    No search is made if **LOC=0**
 
 LMTO=3&nbsp;   Pick a default choice about the size of basis.  LMTO=3 is a standard minimal basis.
@@ -316,14 +316,14 @@ want high-accuracy calculations (especially in the _GW_ context), you will need 
 of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and
 significantly speed up the execution time.  It is what this tutorial does.
 
-**blm** assigns the initial _k_-point mesh to zero. Note the following lines in _actrl.bi2te3_{: style="color: green"}:
+**blm**{: style="color: blue"} assigns the initial _k_-point mesh to zero. Note the following lines in _actrl.bi2te3_{: style="color: green"}:
 
         % const met=5 nk=0
         BZ      NKABC={nk}  METAL={met}  # NKABC requires 1 to 3 positive numbers
 
-    BZ_NKABC governs the mesh of _k_-points. An appropriate choice will depend strongly on the context of the calculation and the sytem of interest; the density-of-states at the Fermi level; whether Fermi surface properties are important; whether you want optical properties as well as total energies well described; the precision you need; the integration method, and so on. Any automatic formula can be dangerous, so **blm** will not choose a default for you. In this case, a 4×4×4 mesh works well. Use your text editor to change nk=0 to nk=4. Alternatively, supply --nk=.. to **blm** on the command line, as was done in [this tutorial](Demo_QSGW_Si.html#nk).
+BZ_NKABC governs the mesh of _k_-points. An appropriate choice will depend strongly on the context of the calculation and the sytem of interest; the density-of-states at the Fermi level; whether Fermi surface properties are important; whether you want optical properties as well as total energies well described; the precision you need; the integration method, and so on. Any automatic formula can be dangerous, so **blm** will not choose a default for you. In this case, a 4×4×4 mesh works well. Use your text editor to change nk=0 to nk=4. Alternatively, supply --nk=.. to **blm** on the command line, as was done in [this tutorial](Demo_QSGW_Si.html#nk).
 
-    Note that as generated, _ctrl.bi2te3_{: style="color: green"} will reflect METAL=5. Using METAL=5 with the tetrahedron integration is the recommended way to handle Fermi surface integration in metals. See [this tutorial](FPtutorial.html#metal) for some discussion.
+Note that as generated, _ctrl.bi2te3_{: style="color: green"} will reflect METAL=5. Using METAL=5 with the tetrahedron integration is the recommended way to handle Fermi surface integration in metals. See [this tutorial](FPtutorial.html#metal) for some discussion.
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
