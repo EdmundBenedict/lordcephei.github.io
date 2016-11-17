@@ -1201,7 +1201,7 @@ The last line prints out variables assigned on the command line (and variables i
 [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) and Kohn-Sham functionals.  These functionals are different but they should approach the
 same value at self-consistency.
 
-This line is also written to file [_save.pbte_{: style="color: green"}](/docs/input/data_format/#the-save-file), which see for further documentation.
+This line is also written to file _save.pbte_{: style="color: green"}; see [here](/docs/input/data_format/#the-save-file) for further documentation.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 

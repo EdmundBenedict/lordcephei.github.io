@@ -508,6 +508,8 @@ The character at the beginning of the line has the following significance:
 
 Operations are performed in **subs/iosave.f**{: style="color: green"}.
 
+See [Table of Contents](/docs/input/data_format/#table-of-contents)
+
 #### The se file
 [//]: (/docs/input/data_format/#the-se-file)
 
