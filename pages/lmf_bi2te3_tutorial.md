@@ -310,6 +310,9 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 #### 4. _GMAX and NKABC_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#gmax-and-nkabc)
 
+
+##### 4.1 _Setting GMAX_
+
 **blm**{: style="color: blue"} makes no attempt to automatically assign a value to the plane wave cutoff for the interstitial density.  This
 value determines the mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
 [**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**, or **HAM\_FTMESH**.  It is a required input; but **blm**{: style="color: blue"} does not
@@ -333,6 +336,8 @@ want high-accuracy calculations (especially in the _GW_ context), you will need 
 a bit of overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and significantly speed up the
 execution time.  It is what this tutorial does.
 
+##### 4.2 _Setting NKABC_
+
 **blm**{: style="color: blue"} assigns the initial _k_-point mesh to zero. Note the following lines in _ctrl.bi2te3_{: style="color: green"}:
 
 ~~~
@@ -342,7 +347,7 @@ execution time.  It is what this tutorial does.
   nkabc=  {nkabc}                  # 1 to 3 values
 ~~~
 
-*Note:*{: style="color: red"} **nkabc** is simultaneously a _variable_ and a _tag_.  This can be somewhat confusing.  The expression
+*Note:*{: style="color: red"} **nkabc** is simultaneously a _variable_ and a _tag_ here.  This can be somewhat confusing.  The expression
 &thinsp;**{nkabc}**&thinsp; gets parsed by the preprocessor and is turned into the value of _variable_ **nkabc** (see how **nit** gets turned into
 **10** in the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#self-consistency)), so after preprocessing, the argument following _tag_ is 
 a number.
@@ -353,9 +358,39 @@ properties are important; whether you want optical properties as well as total e
 integration method, and so on. Any automatic formula can be dangerous, so **blm**{: style="color: blue"} will not choose an operational
 default.
 
-{::comment}
- In this case, a 4&times;4&times;4 mesh works well.
-{:/comment}
+The most reliable way determine the appropriate mesh is to vary **nkabc** and monitor the convergence.  We don't need a self-consistent
+calculation for that: the k-convergence will not depend strongly whether the potential is converged or assembled
+from [free atoms](/docs/outputs/lmf_output/#mattheis-construction).
+
+Do the following (assuming no 5_d_ local orbital)
+
+~~~
+lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=2
+lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=3
+lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=4
+lmf ctrl.bi2te3 -vgmax=4.4 --rs=0,0 -vnit=1 -vnkabc=5
+~~~
+
+The [save file](/docs/input/data_format/#the-save-file) _save.bi2te3_{: style="color: green"}
+should read:
+
+~~~
+h gmax=4.4 nit=1 nkabc=2 ehf=-126808.2361717 ehk=-126808.1583957
+h gmax=4.4 nit=1 nkabc=3 ehf=-126808.3137885 ehk=-126808.2492178
+h gmax=4.4 nit=1 nkabc=4 ehf=-126808.3168406 ehk=-126808.2505156
+h gmax=4.4 nit=1 nkabc=5 ehf=-126808.3165536 ehk=-126808.2497121
+~~~
+
+You can use the **vextract**{: style="color: blue"} tool to conveniently extract a table
+of the [Harris-Foulkes](/tutorial/lmf/lmf_tutorial/#faq) total energy
+
+~~~
+cat save.bi2te3 | vextract h nkabc ehf | tee dat
+~~~
+
+You can plot the data, or just see by inspection that the energy is converged to
+less than a mRy with 4&times;4&times;4 _k_ mesh.  A detailed analysis of
+_k_ point convergence is given [here](/docs/numerics/bzintegration/).
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
