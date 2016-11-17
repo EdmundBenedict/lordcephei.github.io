@@ -468,39 +468,35 @@ SPEC
   ATOM=Bi         Z= 83  R= 2.856141  LMX=3  LMXA=4
 ~~~
 
-**LMXA=3** and **LMXA=4** respectively, are very low _l_ cutoffs for an augmented wave method.  They are about half of what is needed for a
+**LMXA=3** and **LMXA=4**  are very low _l_ cutoffs for an augmented wave method.  They are about half of what is needed for a
 reasonably converged calculation with traditional augmentation.  However, the Questaal suite has a unique augmentation procedure that
 converges very rapidly with _l_.  Indeed, it can be seen as a justification for pseudopotential methods that limit the pseudopotential to
 very low _l_, e.g. _l_=2.
 
 It is a useful exercise to see how well converged the total energy is using the default values **LMXA=3** and **LMXA=4**.
-First, run **lmf**{: style="color: blue"} with the ctrl file as it is
+First, run **lmf**{: style="color: blue"} with the unaltered ctrl file:
 
 ~~~
 lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
-Set both LMXA to 6:
+Set both LMXA to 6: and run **lmf**{: style="color: blue"} again
 
 ~~~
 cp ctrl.bi2te3 ctrl.bak
 cat ctrl.bak | sed s/LMXA=./LMXA=6/ > ctrl.bi2te3
+lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
-and run **lmf**{: style="color: blue"} again.
 When the restart file is read you should see
 
 ~~~
- iors  : read restart file (binary, mesh density) 
-         use from  restart file: ef window, positions, pnu 
-         ignore in restart file: *
-         site   1, species Te      : augmentation lmax changed from 3 to 6
-         site   1, species Te      : inflate local density from nlm= 16 to 49
-         ...
+  site   1, species Te      : augmentation lmax changed from 3 to 6
+  site   1, species Te      : inflate local density from nlm= 16 to 49
 ~~~
 
 Compare the last two lines of _save.bi2te3_{: style="color: green"}.
-You should be able to confirm that the energy change is 2.5&thinsp;mRy,
+You should be able to confirm that the energy change is 0.25&thinsp;mRy,
 By playing around with the two **LMXA** you can confirm that increasing
 the Te **LMXA** to 4, nearly all the error can be eliminated.
 
@@ -516,11 +512,11 @@ cp ctrl.bak ctrl.bi2te3
 Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
 the same second order differential equation, one being regular at the origin and the other being regular at &infin;.  Smooth Hankel
 functions are more complicated: the one-center expansion has no such elementary function, but it can be written as a linear combination of
-Laguerre polynomials <i>P</sub>kl<sub></i> of half integer order; see Eq. (12.17) in this
+Laguerre polynomials <i>P<sub>kl<sub></i> of half integer order; see Eq. (12.17) in this
 [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
 
 The polynomials are cut off at a fixed order given by **KMXA**.  **blm**{: style="color: blue"} doesn't write **KMXA** to the template file;
-A default value is used, as can be seen from this table
+a default value is used, as can be seen from this table
 
 ~~~
  species data:  augmentation                           density
@@ -547,22 +543,18 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 When the restart file is read you should see an indication that **KMXA** has been increased
 
 ~~~
-         site   1, species Te      : augmentation kmax changed from 3 to 5
-         site   2, species Te      : augmentation kmax changed from 3 to 5
+  site   1, species Te      : augmentation kmax changed from 3 to 5
+  site   2, species Te      : augmentation kmax changed from 3 to 5
 ~~~
 
 Compare the last two lines of _save.bi2te3_{: style="color: green"}.
-You should be able to confirm that the energy change is 2.5&thinsp;mRy,
-By playing around with the two **LMXA** you can confirm that increasing
-the Te **LMXA** to 4, nearly all the error can be eliminated.
+You should be able to confirm that the energy change is 0.15&thinsp;mRy,
 
-Before continuing, be sure to restore the original ctrl file
+Before continuing, be sure to restore the original ctrl file.
 
 ~~~
 cp ctrl.bak ctrl.bi2te3
 ~~~
-
-
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
