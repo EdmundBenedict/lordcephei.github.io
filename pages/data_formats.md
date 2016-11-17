@@ -504,9 +504,9 @@ The character at the beginning of the line has the following significance:
 + **i**&ensp; intermediate iteration, not self-consistent
 + **h**&ensp; the first iteration
 + **x**&ensp; the maximum number of iterations was reached without achieving convergence
-+ **C**&ensp; (molecular statics) when both charge density is converged and forces fall below tolerance
++ **C**&ensp; (molecular statics) when both charge density is converged and forces fall below specified tolerance
 
-Operations are performed in **subs/iosave.f**{: style="color: green"}.
+File I/O is performed by **subs/iosave.f**{: style="color: green"}.
 
 See [Table of Contents](/docs/input/data_format/#table-of-contents)
 
