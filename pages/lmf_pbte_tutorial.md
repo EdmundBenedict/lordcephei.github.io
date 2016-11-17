@@ -574,7 +574,6 @@ See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#remaining-inputs)
 
 We are almost ready to carry out a self-consistent calculation.
-It proceeds in a manner [similar to the basic tutorial](/tutorial/lmf/lmf_tutorial/#tutorial).
 Try the following:
 
 ~~~
