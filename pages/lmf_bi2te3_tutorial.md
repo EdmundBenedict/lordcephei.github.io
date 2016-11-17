@@ -276,7 +276,7 @@ is read after the main input file is read, if it exists.  According to which of 
 will be be read from the basp file, superseding prior values for these contents:
 
 AUTOBAS   | **lmfa**{: style="color: blue"} [writes](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmfa), **lmf**{: style="color: blue"} [reads](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
-MTO       | RSMH,EH (and RSMH2,EH2 if [double kappa basis](/tutorial/lmf/lmf_bi2te3_tutorial/#singlekappa))
+MTO       | RSMH,EH (and RSMH2,EH2 if double kappa basis)
 P         | P
 LOC       | PZ
 
