@@ -209,7 +209,7 @@ Generally larger packing fractions are better because the augmentation [partial 
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-#### 3. _Making the atomic density_
+#### 3. _The atomic density and basis set parameters_
 
 If you did not do so already copy _actrl.bi2te3_{: style="color: green"} to _ctrl.bi2te3_{: style="color: green"} and change
 **[&hellip; LMTO=4 MTO=4]** &rarr; **[&hellip; LMTO=3 MTO=3]**)
