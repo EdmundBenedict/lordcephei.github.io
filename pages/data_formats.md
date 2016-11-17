@@ -486,6 +486,18 @@ Each line records data for one iteration, including algebraic variables declared
 followed by variables kept in the ctrl file by the [**% save**](/docs/input/preprocessor/#other-directives) directive,
 system magnetic moment (in magnetic systems) and total energy.
 
+Example from the [basis set tutorial](/tutorial/lmf/lmf_bi2te3_tutorial):
+
+~~~
+h gmax=4.4 nkabc=3 ehf=-126808.3137885 ehk=-126808.2492178
+i gmax=4.4 nkabc=3 ehf=-126808.3039837 ehk=-126808.2781451
+i gmax=4.4 nkabc=3 ehf=-126808.2952016 ehk=-126808.2925665
+...
+c gmax=4.4 nkabc=3 ehf=-126808.2950696 ehk=-126808.2950608
+i gmax=4.4 nkabc=3 ehf=-126808.2950731 ehk=-126808.2950686
+i gmax=6 nkabc=3 ehf=-126808.294891 ehk=-126808.294886
+~~~
+
 It is further explained in the [annotated lmf output](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
 
 Operations are performed in **subs/iosave.f**{: style="color: green"}.
