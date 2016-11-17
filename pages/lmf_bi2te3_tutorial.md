@@ -243,8 +243,8 @@ default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ c
 The process is essentially the same as described in the [PbTe
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set) and is described in some detail there and in the [annotated
 **lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#generating-basis-information).  The main difference is that here we a
-smaller basis was specified (**LMTO=3**), so instead of a double kappa basis] (**RMSH,EH**; **RMSH2,EH2**) this tutorial has only a
-(**RMSH,EH**).  Later we will improve on the basis by adding APW's
+smaller, single-kappa basis was specified (**LMTO=3**); here **lmfa**{: style="color: blue"} makes (**RMSH,EH**)
+instead of the double kappa (**RMSH,EH**; **RMSH2,EH2**).  Later we will improve on the basis by adding APW's.
 
 With your text editor insert lines from _basp0.bi2te3_{: style="color: green"} in the **SPEC** category of the ctrl file, viz
 
@@ -266,7 +266,7 @@ P            | P
 LOC          | PZ                               
 
 
-If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf).
+If this information is given in both the ctrl file and the basp file, [values of **MTO** and **LOC**](/tutorial/lmf/lmf_bi2te3_tutorial/#autobaslmf)
 tell **lmf**{: style="color: blue"} which to use.  In this tutorial we will work just with the basp file.
 
     $ cp basp0.bi2te3 basp.bi2te3
@@ -275,8 +275,9 @@ The atm file was created by **lmfa**{: style="color: blue"} without prior knowle
 valence state (via a local orbital). Thus it incorrectly partitioned the core and valence charge. You must do one of the following:
 
 1. Remove **PZ=0 0 15.936** from _basp.bi2te3_{: style="color: green"}. It will no longer be treated as a valence state. Removing it means
-   the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described
-   [below](#gmax). Whether you need it or not depends on the context.
+   the remaining envelope functions are much smoother, which allows you to get away with a coarser mesh density, as described next.
+   Whether you need it or not depends on the context: with _GW_, for example, this state is a bit too shallow to be treated with Fock exchange
+   only (which is how cores are handled in _GW_).
 
 2. Copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"} and run **lmfa**{: style="color: blue"} over again:
 
@@ -287,33 +288,31 @@ $ lmfa bi2te3
 
 With the latter choice **lmfa**{: style="color: blue"} operates a little differently from the first pass. Initially the Bi 5_d_ was part of
 the core (similar to the Pb 5_d_ in the [Pbte
-tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now is included as part of the
-[valence](FPsamples/out.bi2te3.lmfa2#xxx2).
+tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now it is included in the valence.
 
 #### 3. _Making the atomic density_
 
-**blm**{: style="color: blue"} does not assign any value to the plane wave cutoff for the interstitial density.  This value determines the
-mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
-[**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**.  It is a required input; but **blm**{: style="color: blue"} does not
+**blm**{: style="color: blue"} makes no attempt to automatically assign a value to the plane wave cutoff for the interstitial density.  This
+value determines the mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
+[**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**, or **HAM\_FTMESHX**.  It is a required input; but **blm**{: style="color: blue"} does not
 automatically pick a value because its [proper choice](/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs) depends
 on the smoothness of the basis. In general the mesh density must be fine as the most strongly peaked orbital in the basis.
 
-**lmfa**{: style="color: blue"} will determine a suggested value for HAM_GMAX for you. In the present instance, when the usual 6_s_, 6_p_,
-6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends **GMAX=4.4** as can be seen by inspecting the [first **lmfa**{:
-style="color: blue"} run](FPsamples/out.bi2te3.lmfa1#gmax). In the second run it recommends GMAX=4.1 from the valence states alone (as
-before), but because of the 5_d_ state **lmfa**{: style="color: blue"} recommends that [GMAX=8.1](FPsamples/out.bi2te3.lmfa2#gmax). The 5_d_
-state is strongly peaked at around the atom, and requires more plane waves to represent reasonably, even a smoothed version of it, than the
-other states. The difference between 8.1 and 4.4 is substantial, and it reflects the additional computational cost of including deep
-core-like states in the valence. This is the all-electron analog of the "hardness" of the pseudopotential in pseudopotential schemes. If you
-want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. This particular choice
-of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and
-significantly speed up the execution time.
+**lmfa**{: style="color: blue"} makes **RSMH** and **EH** and can determine an appropriate value for **HAM\_GMAX**. In the present instance, when the usual 6_s_, 6_p_,
+6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends **GMAX=4.4** as can be seen by inspecting the first **lmfa**{:
+style="color: blue"} run.  If you keep the 5_d_ in the valence and run **lmfa**{: style="color: blue"} second time you will see this output
 
 ~~~
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.4 (valence)  8.1 (local orbitals)
 ~~~
 
-
+The valence states still require only **GMAX=4.4** but the 5_d_ state is strongly peaked but **GMAX=8.1** for the local orbitals. The 5_d_
+state is strongly peaked at around the atom, and requires more plane waves to represent reasonably, even a smoothed version of it, than the
+other states. The difference between 8.1 and 4.4 is substantial, and it reflects the additional computational cost of including deep
+core-like states in the valence. This is the all-electron analog of the "hardness" of the pseudopotential in pseudopotential schemes. If you
+want high-accuracy calculations (especially in the _GW_ context), you will need to include these states as valence. This particular choice
+of local orbital is rather overkill for LDA calculations however. If you eliminate the Bi 5_d_ local orbital you can set GMAX=4.4 and
+significantly speed up the execution time.  It is what this tutorial does.
 
 **blm** assigns the initial _k_-point mesh to zero. Note the following lines in _actrl.bi2te3_{: style="color: green"}:
 
