@@ -48,3 +48,19 @@ to **lmf**{: style="color: blue"}, but it is a driver whose purpose is to set up
 
 {::nomarkdown}</div>{:/} 
 
+<hr style="height:5pt; visibility:hidden;" />
+### _Command summary_
+________________________________________________________________________________________________
+<div onclick="elm = document.getElementById('command'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
+{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="command">{:/}
+
+    $ cp lm/doc/demos/qsgw-si/init.si .                    #copy init file to working directory
+    $ blm init.si --express --gmax=5 --nk=4 --nit=20 --gw  #use blm tool to create actrl and site files
+    $ cp actrl.si ctrl.si                                  #copy actrl to recognised ctrl prefix
+    $ lmfa ctrl.si; cp basp0.si basp.si                    #run lmfa and copy basp file
+    $ lmf ctrl.si > out.lmfsc                              #make self-consistent
+    $ echo -1 | lmfgwd si                                  #make GWinput file
+    $ lmgw1-shot --autoht --insul=4 -job= si-test si       #1-shot GW calculation
+
+{::nomarkdown}</div>{:/}
+
