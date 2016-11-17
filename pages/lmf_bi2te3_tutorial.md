@@ -306,7 +306,7 @@ the core (similar to the Pb 5_d_ in the [Pbte
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now it is included in the valence.
 
 #### 4. _GMAX and NKABC_
-[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#making-the-atomic-density)
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#gmax-and-nkabc)
 
 **blm**{: style="color: blue"} makes no attempt to automatically assign a value to the plane wave cutoff for the interstitial density.  This
 value determines the mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through

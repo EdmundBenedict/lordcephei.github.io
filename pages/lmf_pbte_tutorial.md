@@ -564,9 +564,9 @@ _atm.pbte_{: style="color: green"}, and exits with the following printout:
 ~~~
 
 This is the _G_ cutoff **EXPRESS\_gmax** or [**HAM\_GMAX**](/docs/input/inputfile/#spec) needed to
-[determine the interstitial mesh spacing](/tutorial/lmf/lmf_bi2te3_tutorial/#making-the-atomic-density).  Two values are printed, one
-determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present the largest value found from their
-shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
+[determine the interstitial mesh spacing](/tutorial/lmf/lmf_bi2te3_tutorial/#gmax-and-nkabc).
+Two values are printed, one determined from the shape of valence envelope functions (**4.3**) and, if local orbitals are present the largest
+value found from their shape, as explained in the [annotated lmfa output](/docs/outputs/lmfa_output/#estimating-the-plane-wave-cutoff-gmax).
 
 See [Table of Contents](/tutorial/lmf/lmf_pbte_tutorial#table-of-contents)
 
