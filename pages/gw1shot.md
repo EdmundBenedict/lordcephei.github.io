@@ -163,5 +163,5 @@ The resulting quasi-particle (QP) energies are reported in the QPU file. The '\-
 
 In the GWinput file we specified that QP energies are to be calculated at two k points (Gamma and X) and for 8 states each. The first column lists the k points: block of 8 Gamma points, a space then block of 8 X points. The column labelled 'eLDA' contains the LDA eigenvalues. As specified with '\-\-insul=4', the valence band maximum is state 4 and all energies are given relative to it - you can see that the Gamma point state 4 energy is 0. The conduction band energy (state 5) at the X point is 0.58 eV, which is the LDA G-X bandgap. 
 
-The quasi-particle energies 'eQP' are listed in the next column. The GW G-X bandgap (1.08 eV) is given by state 5 in the X block of points. This is an improvement over the LDA, but it is nevertheless smaller than experiment (1.32  at 0K). See additional exercies for more on GW trends. A full description of the QPU file columns can be found...      
+The quasi-particle energies 'eQP' are listed in the next column. The GW G-X bandgap (1.08 eV) is given by state 5 in the X block of points. This is an improvement over the LDA, but it is nevertheless smaller than experiment (1.32  at 0K). See additional exercies for more on GW trends. A full description of the QPU file can be found...      
 
