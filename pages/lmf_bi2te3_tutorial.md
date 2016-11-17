@@ -117,9 +117,9 @@ as described below.  Parameters are generated, but you can modify them as you li
 
 {::nomarkdown} <a name="autobaslmfa"></a> {:/}
 
-<div onclick="elm = document.getElementById(autobastags); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('autobastags'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <span style="text-decoration:underline;">Click here for a description of the AUTOBAS tags.</span>
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="autobastags">{:/}
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id='autobastags'>{:/}
 
 
 Tokens in **AUTOBAS** tell **lmfa**{: style="color: blue"} to do the following:
@@ -222,7 +222,7 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#the-atomic-density-and-basis-set-parameters)
 
 If you did not do so already copy _actrl.bi2te3_{: style="color: green"} to _ctrl.bi2te3_{: style="color: green"} and change
-**[&hellip; LMTO=4 MTO=4]** &rarr; **[&hellip; LMTO=3 MTO=3]**)
+**[&hellip; LMTO=4&thinsp; MTO=4]** &rarr; **[&hellip; LMTO=3&thinsp; MTO=1]**).
 
 Invoke **lmfa**{: style="color: blue"}:
 
@@ -257,7 +257,7 @@ default, e.g. choose the 5_d_ over the 6_d_ with SPEC_ATOM_P; override the _l_ c
 
 The process is essentially the same as described in the [PbTe
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/#automatic-determination-of-basis-set); it is described in some detail there and in the [annotated
-**lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#generating-basis-information).  The main difference is that here a
+**lmfa**{: style="color: blue"} output](/docs/outputs/lmfa_output/#generating-basis-information).  The main difference is that in this case a
 smaller, single-kappa basis was specified (**LMTO=3**); **lmfa**{: style="color: blue"} makes (**RMSH,EH**)
 instead of the double kappa (**RMSH,EH**; **RMSH2,EH2**).  Later we will improve on the basis by adding APW's.
 
