@@ -291,16 +291,18 @@ the core (similar to the Pb 5_d_ in the [Pbte
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/#valence-core-partitioning-of-the-free-atomic-density); now it is included in the valence.
 
 #### 3. _Making the atomic density_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#making-the-atomic-density)
 
 **blm**{: style="color: blue"} makes no attempt to automatically assign a value to the plane wave cutoff for the interstitial density.  This
 value determines the mesh spacing for the charge density.  **lmf**{: style="color: blue"} reads this information through
-[**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**, or **HAM\_FTMESHX**.  It is a required input; but **blm**{: style="color: blue"} does not
+[**HAM\_GMAX**](/docs/input/inputfile/#spec) or **EXPRESS\_gmax**, or **HAM\_FTMESH**.  It is a required input; but **blm**{: style="color: blue"} does not
 automatically pick a value because its [proper choice](/docs/outputs/lmf_output/#envelope-function-parameters-and-their-g-cutoffs) depends
 on the smoothness of the basis. In general the mesh density must be fine as the most strongly peaked orbital in the basis.
 
-**lmfa**{: style="color: blue"} makes **RSMH** and **EH** and can determine an appropriate value for **HAM\_GMAX**. In the present instance, when the usual 6_s_, 6_p_,
-6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends **GMAX=4.4** as can be seen by inspecting the first **lmfa**{:
-style="color: blue"} run.  If you keep the 5_d_ in the valence and run **lmfa**{: style="color: blue"} second time you will see this output
+**lmfa**{: style="color: blue"} makes **RSMH** and **EH** and can determine an appropriate value for **HAM\_GMAX** based on them. In the
+present instance, when the usual 6_s_, 6_p_, 6_d_, 5_f_ states are included **lmfa**{: style="color: blue"} recommends **GMAX=4.4** as can
+be seen by inspecting the first **lmfa**{: style="color: blue"} run.  If you keep the 5_d_ in the valence and run **lmfa**{: style="color:
+blue"} second time you will see this output
 
 ~~~
  FREEAT:  estimate HAM_GMAX from RSMH:  GMAX=4.4 (valence)  8.1 (local orbitals)
