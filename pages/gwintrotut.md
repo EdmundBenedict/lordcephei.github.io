@@ -84,7 +84,7 @@ correlation potential from the LDA hamiltonian.)  This process is repeated until
 tolerance value.  The final self-energy (QSGW potential) is an effectively an exchange-correlation functional, tailored to the system, that can
 be conveniently used analogously to the standard DFT setup to calculate properties such as the band structure.
 
-{::nomarkdown}</div>{:/}
+{::nomarkdown}</div>{:/} 
 
 <hr style="height:5pt; visibility:hidden;" />
 ### _Command summary_
