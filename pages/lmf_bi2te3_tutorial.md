@@ -512,7 +512,7 @@ cp ctrl.bak ctrl.bi2te3
 Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
 the same second order differential equation, one being regular at the origin and the other being regular at &infin;.  Smooth Hankel
 functions are more complicated: the one-center expansion has no such elementary function, but it can be written as a linear combination of
-Laguerre polynomials <i>P<sub>kl<sub></i> of half integer order; see Eq. (12.17) in this
+Laguerre polynomials <i>P<sub>kl</sub></i> of half integer order; see Eq. (12.17) in this
 [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
 
 The polynomials are cut off at a fixed order given by **KMXA**.  **blm**{: style="color: blue"} doesn't write **KMXA** to the template file;
@@ -535,9 +535,9 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 Set **KMXA** to 5 and run **lmf**{: style="color: blue"} again:
 
 ~~~
-cp ctrl.bi2te3 ctrl.bak
-cat ctrl.bak | sed 's/LMXA=/KMXA=5 LMXA=/' > ctrl.bi2te3
-lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+$ cp ctrl.bi2te3 ctrl.bak
+$ cat ctrl.bak | sed 's/LMXA=/KMXA=5 LMXA=/' > ctrl.bi2te3
+$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
 When the restart file is read you should see an indication that **KMXA** has been increased
@@ -548,12 +548,12 @@ When the restart file is read you should see an indication that **KMXA** has bee
 ~~~
 
 Compare the last two lines of _save.bi2te3_{: style="color: green"}.
-You should be able to confirm that the energy change is 0.15&thinsp;mRy,
+You should be able to confirm that the energy change is 0.15&thinsp;mRy.
 
 Before continuing, be sure to restore the original ctrl file.
 
 ~~~
-cp ctrl.bak ctrl.bi2te3
+$ cp ctrl.bak ctrl.bi2te3
 ~~~
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
