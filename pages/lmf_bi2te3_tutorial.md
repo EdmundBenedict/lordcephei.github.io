@@ -459,7 +459,7 @@ and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: gre
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-##### 5.3 _Convergence in the Forces
+##### 5.3 _Convergence in the forces_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-the-forces)
 
 The exact forces are the change in total energy with respect to displacement of the nucleus.  Calculation of them in the Questaal package

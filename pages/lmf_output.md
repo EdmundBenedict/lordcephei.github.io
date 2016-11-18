@@ -1033,7 +1033,7 @@ density.
 In the same time total energies are calculated, forces are made.  Since PbTe is cubic forces vanish by symmetry; this section
 refers to the output generated in the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/).
 
-The calculation proceeds in two stages. First a correction term to the forces is made. In contrast to the total energy, which is
+The force evaluation has two parts. First a correction term to the forces is made. In contrast to the total energy, which is
 variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>, thus
 <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.  If it were known how the density shifts with the
 nucleus (which requires [knowledge of the dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces
@@ -1045,7 +1045,7 @@ devised which dramatically improves on the convergence of the forces with respec
 In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
 becomes much smaller.  At self-consistency the correction term vanishes.
 
-In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) the correction given by the starting density ([Mattheis
+In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) the correction calculated from starting density ([Mattheis
 construction](/docs/outputs/lmf_output/#mattheis-construction)) reads:
 
 ~~~
@@ -1072,7 +1072,7 @@ The forces are printed, including the correction mentioned above:
  Maximum Harris force = 13 mRy/au (site 3)  Max eval correction = 629.5
 ~~~
 
-In the last iteration (self-consistency has been approximately achieved) these tables become
+In the last iteration when self-consistency has been approximately achieved these tables become
 
 ~~~
  Harris correction to forces: shift in free-atom density              
@@ -1096,8 +1096,8 @@ In the last iteration (self-consistency has been approximately achieved) these t
 
 At self-consistency, the force on Te is **10.71**&thinsp;mRy/a.u..
 With the correction term, the force from the initial guessed density is **12.98**&thinsp;mRy/a.u..
-The error is thus of order 5&thinsp;mRy/a.u., vastly smaller than the correction term (**629.48**&thinsp;mRy/a.u).
-As it should, the correction term vanishes at self-consistency.
+The error is thus of order 5&thinsp;mRy/a.u., vastly smaller than it would be without the correction term (**629.48**&thinsp;mRy/a.u).
+This term vanishes at self-consistency, as it should.
 
 The final forces give a measure of the error in the LDA predicting structure since
 site positions were taken from experiment.  10&thinsp;mRy/a.u. is a fairly small force,
