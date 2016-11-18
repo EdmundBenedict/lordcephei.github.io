@@ -468,9 +468,9 @@ guessed density from the self-consistent one.  See the [annotation of **lmf**{: 
 output](/docs/outputs/lmf_output/#forces).
 
 *Note:*{: style="color: red"} The forces are not exact derivatives of the total energy.  This is because the change in shape of the partial waves
-[$$phi$$ and $$\dot{phi}$$](/docs/package_overview/#linear-methods-in-band-theory) is not taken into account as a nucleus displaces.
-The effect is generally very small.  The forces should be exactly consistent with the energy if the shape of the partial waves is frozen.
-Freeze them with **HAM\_FRZWF**](/docs/input/inputfile/#ham).
+[$$\phi$$ and $$\dot{\phi}$$](/docs/package_overview/#linear-methods-in-band-theory) is not taken into account as a nucleus displaces.
+The effect is usually very small.  The forces should be exactly consistent with the energy if the shape of the partial waves is frozen.
+Freeze them with [**HAM\_FRZWF**](/docs/input/inputfile/#ham).
 
 ##### 5.4 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
