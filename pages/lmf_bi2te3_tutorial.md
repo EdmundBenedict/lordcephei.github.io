@@ -10,8 +10,10 @@ header: no
 
 ### _Purpose_
 {:.no_toc}
-This tutorial is similar to the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/) but it focuses on features of the **lmf**{: style="color:
-blue"} basis set.
+
+This tutorial demonstrates a self-consistent calculation for Bi<sub>2</sub>Te<sub>3</sub>.  It is similar to the [PbTe
+tutorial](/tutorial/lmf/lmf_pbte_tutorial/) but it focuses on features of the **lmf**{: style="color: blue"} basis set, and controlling
+convergence.
 
 _____________________________________________________________
 

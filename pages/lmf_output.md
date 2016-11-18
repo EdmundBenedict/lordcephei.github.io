@@ -1003,8 +1003,8 @@ there is a corresponding deep local orbital.  Thus for that state **pnew** is no
 level, and forms the predominant contribution to the bonding and band structure.  See
 [this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an interpretation.
 
-### _Total energy and forces_
-[//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
+### _Total energy_
+[//]: (/docs/outputs/lmf_output/#total-energy)
 
 The Harris-Foulkes energy is a functional of the input density and single-particle sum.  Information is printed out in the table below.
 
@@ -1013,30 +1013,6 @@ The Harris-Foulkes energy is a functional of the input density and single-partic
  ...
  rhoeps=   -1094.806758     utot= -116742.136483    ehar=  -55318.170567
 ~~~
-
-Also printed are a correction term to the forces. In contrast to the total energy, which is
-variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>,
-thus <i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.
-If it were known how the density shifts with the nucleus (which requires [knowledge of the
-dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces could be made variational as well.
-
-We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
-there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
-devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
-In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
-becomes much smaller.  At self-consistency the correction term vanishes.
-
-In the PbTe case the correction reads:
-
-~~~
- Harris correction to forces: shift in free-atom density
-  ib         delta-n dVes             delta-n dVxc               total
-   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
- shift forces to make zero average correction:            0.00    0.00    0.00
-~~~
-
-PbTe is cubic: forces vanish by symmetry; there is neither force nor correction.
 
 The Kohn-Sham total energy is also calculated:
 
@@ -1051,74 +1027,82 @@ This energy is a functional of <i>n</i><sup>out</sup> and
 functional, but the two should come together at the self-consistent
 density.
 
+### _Forces_
+[//]: (/docs/outputs/lmf_output/#forces)
+
+In the same place the total energies are calculated, forces are made.  Because PbTe is cubic forces vanish by symmetry; so this section
+refers to the output generated in the [Bi2Te3 tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/).
+
+The calculation proceeds in two stages. First a correction term to the forces is made. In contrast to the total energy, which is
+variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>, thus
+<i>&delta;E</i> ~ (<i>n</i><sup>in</sup>&minus;<i>n</i>)<sup>2</sup>, the forces are not.  If it were known how the density shifts with the
+nucleus (which requires [knowledge of the dielectric function](/docs/input/inputfile/#charge-mixing-general-considerations)), the forces
+could be made variational as well.
+
+We can do almost as well by making an _ansatz_ for how the density shifts.   The simplest ansatz is to assume that 
+there is a cloud of charge that shifts rigidly with nucleus.  Assuming that this charge is the free-atomic density, a correction term can be 
+devised which dramatically improves on the convergence of the forces with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i>.
+In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
+becomes much smaller.  At self-consistency the correction term vanishes.
+
+In the Bi<sub>2</sub>Te<sub>3</sub> tutorial the correction from starting density
+([Mattheis construction](/docs/outputs/lmf_output/#mattheis-construction))
+reads:
+
+~~~
+ Harris correction to forces: shift in free-atom density              
+  ib         delta-n dVes             delta-n dVxc               total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00 -605.58     0.00    0.00  -23.90     0.00    0.00  629.48
+   3    0.00    0.00  605.58     0.00    0.00   23.90     0.00    0.00 -629.48
+   4    0.00    0.00  292.27     0.00    0.00    9.54     0.00    0.00 -301.81
+   5    0.00    0.00 -292.27     0.00    0.00   -9.54     0.00    0.00  301.81
+ shift forces to make zero average correction:            0.00    0.00    0.00
+~~~
+
 The forces are printed, including the correction mentioned above:
 
 ~~~
  Forces, with eigenvalue correction
   ib           estatic                  eigval                    total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
- Maximum Harris force = 1.79e-6 mRy/au (site 1)  Max eval correction = 0
+   2    0.00    0.00   79.59     0.00    0.00  -66.61     0.00    0.00   12.98
+   3    0.00    0.00  -79.59     0.00    0.00   66.61     0.00    0.00  -12.98
+   4    0.00    0.00   -6.78     0.00    0.00   19.25     0.00    0.00   12.46
+   5    0.00    0.00    6.78     0.00    0.00  -19.25     0.00    0.00  -12.46
+ Maximum Harris force = 13 mRy/au (site 3)  Max eval correction = 629.5
 ~~~
 
-Regarding forces, a more interesting case is the compound Bi<sub>2</sub>Te<sub>3</sub>.
-Starting from the [Mattheis construction](/docs/outputs/lmf_output/#mattheis-construction),
-overlapping atomic densities to make <i>n</i><sup>in</sup>, the corrections read
+In the last iteration (self-consistency has been approximately achieved) these tables become
 
 ~~~
- Harris correction to forces: shift in free-atom density
+ Harris correction to forces: shift in free-atom density              
   ib         delta-n dVes             delta-n dVxc               total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00 -522.58     0.00    0.00  -17.13     0.00    0.00  539.71
-   3    0.00    0.00  522.58     0.00    0.00   17.13     0.00    0.00 -539.71
-   4    0.00    0.00  339.35     0.00    0.00   21.41     0.00    0.00 -360.76
-   5    0.00    0.00 -339.35     0.00    0.00  -21.41     0.00    0.00  360.76
- shift forces to make zero average correction:            0.00    0.00    0.00
-~~~
-
-and the forces are
-
-~~~
- Forces, with eigenvalue correction
-  ib           estatic                  eigval                    total
-   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00   79.63     0.00    0.00  -80.35     0.00    0.00   -0.72
-   3    0.00    0.00  -79.63     0.00    0.00   80.35     0.00    0.00    0.72
-   4    0.00    0.00  -23.99     0.00    0.00   17.18     0.00    0.00   -6.82
-   5    0.00    0.00   23.99     0.00    0.00  -17.18     0.00    0.00    6.82
- Maximum Harris force = 6.82 mRy/au (site 5)  Max eval correction = 539.7
-~~~
-
-
-Near self-consistency these tables become
-
-~~~
- Harris correction to forces: shift in free-atom density
-  ib         delta-n dVes             delta-n dVxc               total
-   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00    0.05     0.00    0.00   -0.04     0.00    0.00   -0.01
-   3    0.00    0.00   -0.05     0.00    0.00    0.04     0.00    0.00    0.01
-   4    0.00    0.00   -0.41     0.00    0.00    0.08     0.00    0.00    0.32
-   5    0.00    0.00    0.41     0.00    0.00   -0.08     0.00    0.00   -0.32
+   2    0.00    0.00    0.39     0.00    0.00    0.00     0.00    0.00   -0.39
+   3    0.00    0.00   -0.39     0.00    0.00    0.00     0.00    0.00    0.39
+   4    0.00    0.00   -0.77     0.00    0.00    0.19     0.00    0.00    0.58
+   5    0.00    0.00    0.77     0.00    0.00   -0.19     0.00    0.00   -0.58
  shift forces to make zero average correction:            0.00    0.00    0.00
 ...
  Forces, with eigenvalue correction
   ib           estatic                  eigval                    total
    1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
-   2    0.00    0.00  581.12     0.00    0.00 -570.21     0.00    0.00   10.91
-   3    0.00    0.00 -581.12     0.00    0.00  570.21     0.00    0.00  -10.91
-   4    0.00    0.00 -334.06     0.00    0.00  319.94     0.00    0.00  -14.11
-   5    0.00    0.00  334.06     0.00    0.00 -319.94     0.00    0.00   14.11
- Maximum Harris force = 14.1 mRy/au (site 4)  Max eval correction = 0.3
+   2    0.00    0.00  638.27     0.00    0.00 -627.55     0.00    0.00   10.71
+   3    0.00    0.00 -638.27     0.00    0.00  627.55     0.00    0.00  -10.71
+   4    0.00    0.00 -278.13     0.00    0.00  262.20     0.00    0.00  -15.93
+   5    0.00    0.00  278.13     0.00    0.00 -262.20     0.00    0.00   15.93
+ Maximum Harris force = 15.9 mRy/au (site 5)  Max eval correction = 0.6
 ~~~
 
-The forces give a measure of the error in the LDA predicting structure since
+At self-consistency, the force on Te is **10.71**&thinsp;mRy/a.u..
+With the correction term, the force from the initial guessed density is **12.98**&thinsp;mRy/a.u..
+The error is thus of order 5&thinsp;mRy/a.u., vastly smaller than the correction term (**629.48**&thinsp;mRy/a.u).
+As it should, the correction term vanishes at self-consistency.
+
+The final forces give a measure of the error in the LDA predicting structure since
 site positions were taken from experiment.  10&thinsp;mRy/a.u. is a fairly small force,
 implying that LDA lattice positions will be close to experimental ones.
-
-At self-consistency, the force on Te is **10.91**&thinsp;mRy/a.u..
-With the correction term, the force from the Mattheis construction is **-0.72**&thinsp;mRy/a.u..
-The error is thus of order 10&thinsp;mRy/a.u., vastly smaller than the correction term (**539.71**&thinsp;mRy/a.u).
 
 Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
