@@ -695,14 +695,14 @@ With your editor, modify this line to read
 
 This will increase the basis, most notably include two envelope functions/_l_ channel (double-kappa)
 
-Run **lmfa**{: style="color: blue"} again and compare the basp file it generates to the one you have now:
+Run **lmfa**{: style="color: blue"} again and note how the basp file changed:
 
 ~~~
 $ lmfa bi2te3
 $ diff basp0.bi2te3 basp.bi2te3
 ~~~
 
-Remove the **PZ=&hellip;** as before (unless you want to incude this state) and copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"}.
+Remove the **PZ=&hellip;** as before and copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"}.
 Save the original file in a backup.
 
 ~~~
@@ -713,8 +713,10 @@ $ cp basp0.bi2te3 basp.bi2te3
 
 Run **lmf**{: style="color: blue"} to self-consistency
 
+~~~
 $ rm -f mixm.bi2te3
 $ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
+~~~
 
 Note that size of the basis has increased:  With **lmto=3** there are 80 orbitals
 
@@ -723,7 +725,7 @@ Note that size of the basis has increased:  With **lmto=3** there are 80 orbital
  suham :  98 augmentation channels, 98 local potential channels  Maximum lmxa=4
 ~~~
 
-It becomes 125:
+which increases to 125 orbitals with **lmto=5**:
 
 ~~~
  Makidx:  hamiltonian dimensions Low, Int, High, Negl: 125 0 71 54
@@ -734,7 +736,7 @@ It becomes 125:
  suham :  98 augmentation channels, 98 local potential channels  Maximum lmxa=4
 ~~~
 
-At self-consistency you should find that the total energy converges to **ehf=-126808.3134029 ehk=-126808.3134035**
+At self-consistency you should find that the total energy converges to **ehf=-126808.3134029**.
 
 #### _Modifying the input file for GW_
 
