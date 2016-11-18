@@ -1030,8 +1030,8 @@ density.
 ### _Forces_
 [//]: (/docs/outputs/lmf_output/#forces)
 
-In the same place the total energies are calculated, forces are made.  Because PbTe is cubic forces vanish by symmetry; so this section
-refers to the output generated in the [Bi2Te3 tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/).
+In the same time total energies are calculated, forces are made.  Since PbTe is cubic forces vanish by symmetry; this section
+refers to the output generated in the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/).
 
 The calculation proceeds in two stages. First a correction term to the forces is made. In contrast to the total energy, which is
 variational deviations of the input density relative to the self-consistent density, <i>n</i><sup>in</sup>&minus;<i>n</i>, thus
@@ -1045,9 +1045,8 @@ devised which dramatically improves on the convergence of the forces with respec
 In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
 becomes much smaller.  At self-consistency the correction term vanishes.
 
-In the Bi<sub>2</sub>Te<sub>3</sub> tutorial the correction from starting density
-([Mattheis construction](/docs/outputs/lmf_output/#mattheis-construction))
-reads:
+In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) the correction given by the starting density ([Mattheis
+construction](/docs/outputs/lmf_output/#mattheis-construction)) reads:
 
 ~~~
  Harris correction to forces: shift in free-atom density              

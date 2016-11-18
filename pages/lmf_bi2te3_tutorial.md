@@ -13,7 +13,7 @@ header: no
 
 This tutorial demonstrates a self-consistent calculation for Bi<sub>2</sub>Te<sub>3</sub>.  It is similar to the [PbTe
 tutorial](/tutorial/lmf/lmf_pbte_tutorial/) but it focuses on features of the **lmf**{: style="color: blue"} basis set, and controlling
-convergence.
+convergence in other parameters.
 
 _____________________________________________________________
 
@@ -459,7 +459,14 @@ and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: gre
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-##### 5.3 _Convergence in LMXA_
+##### 5.3 _Convergence in the Forces
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-the-forces)
+
+The exact forces are the change in total energy with respect to displacement of the nucleus.  Calculation of them in the Questaal package
+includes some correction terms to accelerate convergence with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i> in the guessed
+density from the self-consistent one.  See the [annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#forces).
+
+##### 5.4 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
 In an augmented wave method, envelope functions centered a different site is must be expanded around a local site, as one-center expansions
@@ -512,7 +519,7 @@ cp ctrl.bak ctrl.bi2te3
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-##### 5.4 _Convergence in KMXA_
+##### 5.5 _Convergence in KMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-kmxa)
 
 Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
