@@ -534,12 +534,12 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### Potential and Matrix Elements
+### +Potential and Matrix Elements_
 [//]: (/docs/outputs/lmf_output/#potential-and-matrix-elements)
 
 Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements.
 
-#### _LDA functionals_
+#### LDA functionals
 [//]: (/docs/outputs/lmf_output/#lda-functionals)
 
 It was indicated in the [header](/docs/outputs/lmf_output/#header-information) that you are using the LDA with the Barth-Hedin functional.
@@ -755,7 +755,7 @@ Is is important that the system be neutral.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### Reading QSGW self-energies
+### +Reading QSGW self-energies+
 [//]: (/docs/outputs/lmf_output/#reading-qsgw-self-energies)
 
 If you have performed a QS<i>GW</i> calculation and read a self-energy &Sigma;<sup>0</sup> from file _sigm.ext_{: style="color: green"}
@@ -824,7 +824,7 @@ indicates the precision in the construction of the inverse Bloch sum. It:
 
 {::nomarkdown}</div>{:/}
 
-### Parameters for local orbitals
+### _Parameters for local orbitals_
 [//]: (/docs/outputs/lmf_output/#parameters-for-local-orbitals)
 
 Extended local orbitals must attach a smooth Hankel tail.  A single smooth hankel function that fits both value and slope is found.
@@ -836,7 +836,7 @@ The result displayed in a table:
   2  low    5.934   -1.568604   -0.810887   1.05495  -1.12869   0.02566   -0.810887
 ~~~
 
-### Brillouin zone integration
+### _Brillouin zone integration_
 [//]: (/docs/outputs/lmf_output/#brillouin-zone-integration)
 
 The charge density and Fermi level must be found by integration over the Brillouin zone.  The code makes two passes over the irreducible _k_
@@ -887,7 +887,7 @@ and the single-particle sum **-1.3036417**&thinsp;Ry entering into the LDA total
 The LDA magnetic moment/cell (**2.200354**&thinsp;<i>&mu;<sub>B</sub></i>) is close to the experimental value.
 The [Bloechl correction](/docs/numerics/bzintegration/#tetrahedron-integration) (**-0.001001**&thinsp;Ry) indicates how much the band sum changes when [Bloechl weights](http://link.aps.org/doi/10.1103/PhysRevB.49.16223) are used in lieu of weights from the standard tetrahedron method.  This is a measure of the convergence of the _k_ mesh.
 
-#### _Integration weights and the METAL switch_
+#### Integration weights and the METAL switch
 [//]: (/docs/outputs/lmf_output/#integration-weights-and-the-metal-switch)
 
 Numerical quadrature is used to accumulate the output density or any property integrated over the Brillouin zone.
@@ -960,7 +960,7 @@ Tetrahedron and sampling methods are explained and compared in some detail [here
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### Output density and update of augmentation sphere boundary conditions
+### _Output density and update of augmentation sphere boundary conditions_
 
 [//]: (/docs/outputs/lmf_output/#output-density-and-update-of-augmentation-sphere-boundary-conditions)
 
@@ -1003,7 +1003,7 @@ there is a corresponding deep local orbital.  Thus for that state **pnew** is no
 level, and forms the predominant contribution to the bonding and band structure.  See
 [this page](/docs/code/asaoverview/#continuous-principal-quantum-number-for-core-levels-and-free-electrons) for an interpretation.
 
-### Total energy and forces
+### _Total energy and forces_
 [//]: (/docs/outputs/lmf_output/#total-energy-and-forces)
 
 The Harris-Foulkes energy is a functional of the input density and single-particle sum.  Information is printed out in the table below.
@@ -1124,7 +1124,7 @@ Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### New density
+### _New density_
 [//]: (/docs/outputs/lmf_output/#new-density)
 
 Questaal's general strategy for guessing the self-consistent density based on 
@@ -1162,7 +1162,7 @@ _Notes:_{: style="color: red"}
   This number is used to check convergence to [self-consistency](/docs/outputs/lmf_output/#end-of-self-consistency-loop).
   It is broken down into individual contributions in the table.
 
-### End of self-consistency loop
+### _End of self-consistency loop_
 [//]: (/docs/outputs/lmf_output/#end-of-self-consistency-loop)
 
 At the end of the self-consistency cycle the density is written to
