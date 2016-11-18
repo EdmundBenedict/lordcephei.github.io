@@ -449,8 +449,8 @@ yields precisions in plane-wave expansions of envelope functions as shown this t
 You can check how well the total energy is converged by increasing **gmax**
 
 ~~~
-lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
-lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
+$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+$ lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
 ~~~
 
 and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: green"}.  You should find that the energy is converged to about 0.1&thinsp;mRy.
@@ -461,7 +461,7 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
 In an augmented wave method, envelope functions centered a different site is must be expanded around a local site, as one-center expansions
-in spherical harmonics <i>Y<sub>lm</sub><</i>.  **LMXA** is a cutoff that truncates the one-center expansion to a finite _l_ = **LMXA**.
+in spherical harmonics <i>Y<sub>lm</sub></i>.  **LMXA** is a cutoff that truncates the one-center expansion to a finite _l_ = **LMXA**.
 The input file reads:
 
 ~~~
@@ -485,9 +485,9 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 Set both LMXA to 6: and run **lmf**{: style="color: blue"} again
 
 ~~~
-cp ctrl.bi2te3 ctrl.bak
-cat ctrl.bak | sed s/LMXA=./LMXA=6/ > ctrl.bi2te3
-lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
+$ cp ctrl.bi2te3 ctrl.bak
+$ cat ctrl.bak | sed s/LMXA=./LMXA=6/ > ctrl.bi2te3
+$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
 When the restart file is read you should see
