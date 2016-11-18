@@ -455,6 +455,8 @@ lmf ctrl.bi2te3 -vgmax=6 -vnkabc=3 --quit=band
 
 and comparing **ehf** in the last two lines of _save.bi2te3_{: style="color: green"}.  You should find that the energy is converged to about 0.1&thinsp;mRy.
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 ##### 5.3 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
@@ -506,7 +508,9 @@ Before continuing, be sure to restore the original ctrl file
 cp ctrl.bak ctrl.bi2te3
 ~~~
 
-##### 5.3 _Convergence in KMXA_
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
+##### 5.4 _Convergence in KMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-kmxa)
 
 Ordinary Hankel functions can be expanded in Bessel functions around a remote site.  This follows from the fact that both are solutions of
@@ -516,7 +520,7 @@ Laguerre polynomials <i>P<sub>kl</sub></i> of half integer order; see Eq. (12.17
 [J. Math. Phys.](http://dx.doi.org/10.1063/1.532437) paper.
 
 The polynomials are cut off at a fixed order given by **KMXA**.  **blm**{: style="color: blue"} doesn't write **KMXA** to the template file;
-a default value is used, as can be seen from this table
+instead a default value is used, which is written to this table
 
 ~~~
  species data:  augmentation                           density
@@ -525,8 +529,8 @@ a default value is used, as can be seen from this table
  Bi       2.856  1.142    4    3         4  0.714  1.428    15    1   1.142
 ~~~
 
-You can check the convergence by supplying a value for **KMXA**.  First 
-run **lmf**{: style="color: blue"} using the original file
+You can check the convergence by in **KMXA** by supplying an input for it.  First 
+run **lmf**{: style="color: blue"} with the unmodified file:
 
 ~~~
 lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
@@ -540,7 +544,7 @@ $ cat ctrl.bak | sed 's/LMXA=/KMXA=5 LMXA=/' > ctrl.bi2te3
 $ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
-When the restart file is read you should see an indication that **KMXA** has been increased
+When the restart file is read you should see an indication that **KMXA** has been increased:
 
 ~~~
   site   1, species Te      : augmentation kmax changed from 3 to 5
