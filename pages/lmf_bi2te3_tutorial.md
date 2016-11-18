@@ -593,7 +593,9 @@ The best we can with the existing **lmf**{: style="color: blue"} basis is to opt
 This cannot be done analytically, but switch **-\-optbas** causes **lmf**{: style="color: blue"} to
 perform this optimization by brute-force minimization of the Harris-Foulkes energy.
 
-The 
+<div onclick="elm = document.getElementById('optbas'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<span style="text-decoration:underline;">Click here to see how to use the --optbas switch.</span>
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id='optbas'>{:/}
 
 Starting from the self-consistent density [generated previously](/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-the-charge-density) do the following:
 
@@ -644,14 +646,12 @@ You should see
  LMFOPB: var #8 optimized to 1.679 (6 iter):  ehf=-126808.309198, delta ehf=-3.42e-4
 ~~~
 
-The orbitals that mad the most difference were the Te 5_p_ 
-(**RSMH**  changed from **1.681** to **1.617**) and Bi 5_p_
-(**RSMH**  changed from **1.687** to **1.658**).
+The orbitals that mad the most difference were the Te 5_p_ (**1.681** &rarr; **1.617**) and Bi 5_p_ (**1.867** &rarr; **1.658**).
 
 Optimized parameters where the total energy decreased by more than **etol** (**5e-4**)
 were modified; the optimized parameters are written to _basp2.bi2te3_{: style="color: green"}
 
-You can just copy _basp2.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"},
+You can copy _basp2.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"},
 but there is little point in optimizing any but the Te 5_p_ and Bi 6_p_.  Instead we use a text editor and modify
 _basp.bi2te3_{: style="color: green"} in those channels:
 
@@ -670,6 +670,8 @@ $ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --band
 and confirm that **ehf** comes out close (-126808.3086945) to the optimized value (-126808.309198).
 
 You can at this point make the density self-consistent again.
+
+{::nomarkdown}</div>{:/}
 
 
 
