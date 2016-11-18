@@ -790,6 +790,13 @@ Solids: The Uses of the LMTO Method_, Lecture Notes in Physics,
 
 Yes, once you know where the band edge is. See [this tutorial](/tutorial/lmf/lmf_bandedge).
 
+1. The augmentation _L_ cutoff in the ctrl file is 4 for Pb and 3 for Te. LAPW methods typically require much higher _L_ cutoffs to be well converged.
+   Why is this?  Is it a worry?
+
+It is not a difference in the basis set (smoothed Hankels vs LAPWs), but because of the different way augmentation is carried out..
+Both kinds converge to the same answer if the cutoff is set to infinity, but Questaal's augmentation is much more rapidly convergent.
+See [this tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa).
+
 ### _Additional exercises_
 [//]: (/tutorial/lmf/lmf_pbte_tutorial/#additional-exercises)
 

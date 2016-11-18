@@ -500,7 +500,7 @@ When the restart file is read you should see
 Compare the last two lines of _save.bi2te3_{: style="color: green"}.
 You should be able to confirm that the energy change is 0.25&thinsp;mRy,
 By playing around with the two **LMXA** you can confirm that increasing
-the Te **LMXA** to 4, nearly all the error can be eliminated.
+the Te **LMXA** to 4, nearly all the error is eliminated.
 
 Before continuing, be sure to restore the original ctrl file
 
