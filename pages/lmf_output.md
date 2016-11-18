@@ -534,7 +534,7 @@ But the site densities are left unaltered, unless you tell the reader to rotate 
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### +Potential and Matrix Elements_
+### _Potential and Matrix Elements_
 [//]: (/docs/outputs/lmf_output/#potential-and-matrix-elements)
 
 Routine (**fp/mkpot.f**{: style="color: green"}) makes the potential and relevant matrix elements.
@@ -755,7 +755,7 @@ Is is important that the system be neutral.
 
 See [Table of Contents](/docs/outputs/lmf_output/#table-of-contents)
 
-### +Reading QSGW self-energies+
+### _Reading QSGW self-energies+
 [//]: (/docs/outputs/lmf_output/#reading-qsgw-self-energies)
 
 If you have performed a QS<i>GW</i> calculation and read a self-energy &Sigma;<sup>0</sup> from file _sigm.ext_{: style="color: green"}
