@@ -664,7 +664,7 @@ BASIS:
 Run **lmf**{: style="color: blue"} again
 
 ~~~
-$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --band
+$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
 ~~~
 
 and confirm that **ehf** comes out close (-126808.3086945) to the optimized value (-126808.309198).
@@ -675,20 +675,25 @@ You can at this point make the density self-consistent again.
 
 {::nomarkdown}</div>{:/}
 
+With the **-\-optbas** switch you should obtain a self-consistent total energy of **ehf=-126808.306962**.
+
 ##### 6.2 _Increasing the number of envelope functions_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
 
-The ctrl file was contructed with a minimal basis:
+**lmfa**{: style="color: blue"} uses the **lmto** tags to make default choices for the size of basis.
+The tutorial used a relative minimal basis, **lmto=3**.
 
 ~~~
     autobas[pnu=1 loc=1 lmto=3 mto=1 gw=0]
 ~~~
 
-**lmfa**{: style="color: blue"} uses the **lmto** tags to make default choices for the size of basis. With your editor, modify this line to read
+With your editor, modify this line to read
 
 ~~~
     autobas[pnu=1 loc=1 lmto=4 mto=4 gw=0]
 ~~~
+
+This will increase the basis, most notably include two envelope functions/_l_ channel (double-kappa)
 
 Run **lmfa**{: style="color: blue"} again and compare the basp file it generates to the one you have now:
 
@@ -696,6 +701,40 @@ Run **lmfa**{: style="color: blue"} again and compare the basp file it generates
 $ lmfa bi2te3
 $ diff basp0.bi2te3 basp.bi2te3
 ~~~
+
+Remove the **PZ=&hellip;** as before (unless you want to incude this state) and copy _basp0.bi2te3_{: style="color: green"} to _basp.bi2te3_{: style="color: green"}.
+Save the original file in a backup.
+
+~~~
+$ nano basp0.bi2te3
+$ cp basp.bi2te3 basp.bak
+$ cp basp0.bi2te3 basp.bi2te3
+~~~
+
+Run **lmf**{: style="color: blue"} to self-consistency
+
+$ rm -f mixm.bi2te3
+$ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
+
+Note that size of the basis has increased:  With **lmto=3** there are 80 orbitals
+
+~~~
+ Makidx:  hamiltonian dimensions Low, Int, High, Negl: 80 0 18 27
+ suham :  98 augmentation channels, 98 local potential channels  Maximum lmxa=4
+~~~
+
+It becomes 125:
+
+~~~
+ Makidx:  hamiltonian dimensions Low, Int, High, Negl: 125 0 71 54
+ kappa   Low   Int   High  L+I  L+I+H  Neglected
+   1      80     0    18    80    98      27
+   2      45     0    53    45    98      27
+  all    125     0    71   125   196      54
+ suham :  98 augmentation channels, 98 local potential channels  Maximum lmxa=4
+~~~
+
+At self-consistency you should find that the total energy converges to **ehf=-126808.3134029 ehk=-126808.3134035**
 
 #### _Modifying the input file for GW_
 
