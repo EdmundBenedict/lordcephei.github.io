@@ -1045,7 +1045,7 @@ devised which dramatically improves on the convergence of the forces with respec
 In many cases the error becomes almost variational, i.e. the error in the force to linear order in <i>n</i><sup>in</sup>&minus;<i>n</i> 
 becomes much smaller.  At self-consistency the correction term vanishes.
 
-In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) the correction calculated from starting density ([Mattheis
+In the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/) the correction calculated from the starting density ([Mattheis
 construction](/docs/outputs/lmf_output/#mattheis-construction)) reads:
 
 ~~~

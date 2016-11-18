@@ -462,9 +462,15 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 ##### 5.3 _Convergence in the forces_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-the-forces)
 
-The exact forces are the change in total energy with respect to displacement of the nucleus.  Calculation of them in the Questaal package
-includes some correction terms to accelerate convergence with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i> in the guessed
-density from the self-consistent one.  See the [annotation of **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#forces).
+The exact forces are the change in total energy with respect to displacement of the nucleus.  As they are calculated in the Questaal
+package, some correction terms are added to accelerate convergence with respect to deviations <i>n</i><sup>in</sup>&minus;<i>n</i> in the
+guessed density from the self-consistent one.  See the [annotation of **lmf**{: style="color: blue"}
+output](/docs/outputs/lmf_output/#forces).
+
+*Note:*{: style="color: red"} The forces are not exact derivatives of the total energy.  This is because the change in shape of the partial waves
+[$$phi$$ and $$\dot{phi}$$](/docs/package_overview/#linear-methods-in-band-theory) is not taken into account as a nucleus displaces.
+The effect is generally very small.  The forces should be exactly consistent with the energy if the shape of the partial waves is frozen.
+Freeze them with **HAM\_FRZWF**](/docs/input/inputfile/#ham).
 
 ##### 5.4 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
