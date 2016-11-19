@@ -738,6 +738,25 @@ which increases to 125 orbitals with **lmto=5**:
 
 At self-consistency you should find that the total energy converges to **ehf=-126808.3134029**.
 
+##### 6.3 _Adding APWs : the PMT method_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
+
+You can also use APW's to improve on the basis set.  Adding APW's provides a systematic way of approaching convergence in the envelope functions.
+
+~~~
+      FORCES={so==0} ELIND=-0.7 
+      TOL=1d-16
+EWALD TOL=1d-16
+~~~
+
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=2 -vgmax=8 -vnkabc=3 --quit=band 
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=3 -vgmax=8 -vnkabc=3 --quit=band 
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=4 -vgmax=8 -vnkabc=3 --quit=band 
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=5 -vgmax=8 -vnkabc=3 --quit=band 
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band 
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band 
+
+
 #### _Modifying the input file for GW_
 
 _GW_ calculations demand more of the basis set because unuoccupied states are important. To set up a job in preparation for a _GW_ calculation, invoke **blm** as :
