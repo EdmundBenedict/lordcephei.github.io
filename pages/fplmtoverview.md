@@ -52,6 +52,9 @@ _____________________________________________
 This package extends the [linear method](/docs/package_overview/#linear-methods-in-band-theory) through the use of local orbitals. [Augmented wave methods](/docs/package_overview/#augmented-wave-methods) substitute radial solutions of the Schrödinger equation with combinations of partial wave of angular quantum number *l* inside the augmentation region. Linear methods used a fixed radial function (more precisely, a pair of functions), which has validity over only a certain energy window. With local orbitals, a third radial function is added to the basis, which greatly extends the energy window over which energy eigenvalues can be calculated. It is necessary, for example, to obtain the proper **LDA** band gap in GaAs, both the Ga *3d* and *4d* partial waves are important. To see how to include local orbitals in the basis, see [this tutorial.](/tutorial/lmf/lmf_pbte_tutorial/#local-orbitals)
 
 ### *Augmented Plane Waves*
+{::comment}
+(/docs/code/fpoverview/#augmented-plane-waves)
+{:/comment}
 _____________________________________________
 
 In 2008 Takao Kotani added augmented plane waves (<b>APWs</b>) as additional envelope functions, which can increase the flexibility of the basis. 

@@ -204,6 +204,9 @@ Command-line switches:
 + **-\-nit=#**
   + specify max number of iterations to self-consistency
 
++ **-\-pmt**
+  + Tighten some tolerances for use with the [PMT basis](/docs/code/fpoverview/#augmented-plane-waves).
+
 + **-\-scala=#**
   + multiply ALAT by #, and PLAT and POS by 1/#
 

@@ -741,7 +741,14 @@ At self-consistency you should find that the total energy converges to **ehf=-12
 ##### 6.3 _Adding APWs : the PMT method_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
 
-You can also use APW's to improve on the basis set.  Adding APW's provides a systematic way of approaching convergence in the envelope functions.
+You can also use augmented plane waves to improve on the basis set.
+The combination of smooth Hankel functions with APW's is called the
+[PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
+
+Adding APW's provides a systematic way of approaching convergence in the envelope functions.  Some tolerances in the ctrl file should be
+tightened.  If **blm**{: style="color: blue"} with **-\-pmt** they are included automatically.
+That is in fact the easiest way to make the changes but here we just add some tolerances to the **HAM** and **EWALD** categories by hand.
+Modify the bottom of the **HAM category to read**
 
 ~~~
       FORCES={so==0} ELIND=-0.7 
@@ -749,12 +756,33 @@ You can also use APW's to improve on the basis set.  Adding APW's provides a sys
 EWALD TOL=1d-16
 ~~~
 
+One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  You cannot add too
+many plane waves, or the overlap matrix does not remain positive definite.  Adding the tolerances above help and so does increasing the
+fineness of the density mesh (these points are also used for the PW expansion of the basis).
+
+Note the these tags in the **HAM** category:
+
+~~~
+  PWMODE={pwmode} PWEMIN=0 PWEMAX={pwemax}  # For APW addition to basis
+~~~
+
+Run **lmf**{: style="color: blue"}
+
+~~~
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=2 -vgmax=8 -vnkabc=3 --quit=band 
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=3 -vgmax=8 -vnkabc=3 --quit=band 
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=4 -vgmax=8 -vnkabc=3 --quit=band 
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=5 -vgmax=8 -vnkabc=3 --quit=band 
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band 
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band 
+~~~
+
+~~~
+cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
+~~~
+
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 
 #### _Modifying the input file for GW_
@@ -772,5 +800,13 @@ The basis is similar to **LMTO=4** but **EH** has been set a little deeper. This
 {::comment}
 
 _*Note_ The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
+
+  2 -126808.3132747 -126808.3132761
+  3 -126808.3153455 -126808.3153454
+  4 -126808.3167588 -126808.3167459
+  5 -126808.3174566 -126808.3174336
+  6 -126808.3178337 -126808.3178014
+  7 -126808.3180709 -126808.3180282
+  8 -126808.3182809 -126808.3182207
 
 {:/comment}
