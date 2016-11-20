@@ -627,7 +627,7 @@ After completing **lmf**{: style="color: blue"} prints out
 
 ~~~
  LMFOPB:  before optimization ehf=-126808.2951.  After optimization ehf=-126808.3092
- Exit 0 Optimization complete.  See file basp2 
+ Exit 0 Optimization complete.  See file basp2
 ~~~
 
 By tuning the parameters the energy decreased by 0.0141&thinsp;Ry.  To see which orbitals contributed the most, do:
@@ -677,7 +677,7 @@ You can at this point make the density self-consistent again.
 
 {::nomarkdown}</div>{:/}
 
-In sum, 
+In sum,
 
 + without optimizing the basis, you should achieve total energy **ehf=-126808.2950696** at self-consistency.
 + With the **-\-optbas** switch it should become **ehf=-126808.306962**.
@@ -756,7 +756,7 @@ That is in fact the easiest way to make the changes but here we just add some to
 Modify the bottom of the **HAM** category to read
 
 ~~~
-      FORCES={so==0} ELIND=-0.7 
+      FORCES={so==0} ELIND=-0.7
       TOL=1d-16
 EWALD TOL=1d-16
 ~~~
@@ -806,9 +806,10 @@ cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
 ~~~
 
 ~~~
-$ fplot -frme 0,1,0,.7 -frmt th=3,1,1 -xl Gmax -vehf=-126808.313403 -s circ -ord x2-ehf dat
+$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'G_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' dat
 ~~~
 
+![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
 
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
