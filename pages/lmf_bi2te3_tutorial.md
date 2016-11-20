@@ -420,9 +420,9 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
 
 You should **lmf**{: style="color: blue"} reach self-consistency in 9 iterations.
 
-The Harris-Foulkes and Kohn-Sham total energies are **ehf=-&hellip;.3137885** and **ehk=-&hellip;.2492178**
-from the Mattheis construction.  At self-consistency they come together: **ehf=-&hellip;.2950696** and **ehk=-&hellip;.2950608**.
-(&hellip; is **-126808** -- this large energy comes from the core states.)
+The Harris-Foulkes and Kohn-Sham total energies are **ehf=-126808.3137885** and **ehk=-126808.2492178**
+from the Mattheis construction.  At self-consistency they come together: **ehf=-126808.2950696** and **ehk=-126808.2950608**
+(the large integer part comes almost entirely from the core states.)
 
 The self-consistent value is 18&thinsp;mRy _less binding_ than the Harris-Foulkes energy of the Mattheis construction,
 and 46&thinsp;mRy <i>more binding</i> than the corresponding Kohn-Sham energy.
@@ -698,7 +698,7 @@ With your editor, modify this line to read
     autobas[pnu=1 loc=1 lmto=4 mto=4 gw=0]
 ~~~
 
-This will increase the basis, most notably include two envelope functions/_l_ channel (double-kappa)
+This will increase the basis, most notably include two envelope functions per _l_ channel (double-kappa)
 
 Run **lmfa**{: style="color: blue"} again and note how the basp file changed:
 
@@ -774,17 +774,41 @@ Note the these tags in the **HAM** category:
 Run **lmf**{: style="color: blue"}
 
 ~~~
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=2 -vgmax=8 -vnkabc=3 --quit=band 
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=3 -vgmax=8 -vnkabc=3 --quit=band 
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=4 -vgmax=8 -vnkabc=3 --quit=band 
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=5 -vgmax=8 -vnkabc=3 --quit=band 
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band 
-lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band 
+rm -f out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=0 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=1 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=2 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=3 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=4 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=5 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
+~~~
+
+Monitor how the basis increases
+
+~~~
+$ grep ndham out.lmf
+~~~
+
+~~~
+  Est. min,max PW dimension = 15,26.  Use npwpad = 3 => ndham = 109
+  Est. min,max PW dimension = 48,62.  Use npwpad = 3 => ndham = 145
+  Est. min,max PW dimension = 93,106.  Use npwpad = 3 => ndham = 189
+  Est. min,max PW dimension = 145,164.  Use npwpad = 4 => ndham = 248
+  Est. min,max PW dimension = 196,226.  Use npwpad = 6 => ndham = 312
+  Est. min,max PW dimension = 273,296.  Use npwpad = 5 => ndham = 381
+  Est. min,max PW dimension = 343,370.  Use npwpad = 5 => ndham = 455
 ~~~
 
 ~~~
 cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
 ~~~
+
+~~~
+$ fplot -frme 0,1,0,.7 -frmt th=3,1,1 -xl Gmax -vehf=-126808.313403 -s circ -ord x2-ehf dat
+~~~
+
 
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
