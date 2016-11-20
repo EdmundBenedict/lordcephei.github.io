@@ -322,12 +322,30 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
   Alternatively, generate energy bands with your favorite graphics tool.
   _bnd1.dat_{: style="color: green"},&nbsp; _bnd2.dat_{: style="color: green"}, &hellip; are in Questaal's [standard form](/docs/misc/fplot/#structure-of-data-files), an easily readable format.
 
++ **-sp[~switches]**:  **plbnds**{: style="color: blue"} sets up plots for [spectral functions](/tutorial/gw/gw_self_energy/).\\
+  1. creates a spectral functions data file _spf.ext_{: style="color: green"} that **gnuplot**{: style="color: blue"} reads to generate the figure.\\
+  2. creates a **gnuplot**{: style="color: blue"} script **gnu.plt**\\
+     Alternatively it writes _spf.ext_{: style="color: green"} in a form that 
+     [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) can read
+  
+  On exit, **plbnds**{: style="color: blue"} will print out a brief error message giving you the instruction to make a postscript (or other) file
+  The first character after **-sp** (assumed to be &thinsp;**'~'**&thinsp; here) delimits the different switches.  Switches are:
+
+  + **lst=_list_** specifies which bands to include in the spectral function.
+    The syntax of integer lists is described on [this page](/docs/input/integerlists/).
+  + **out=eps &thinsp;\|&thinsp; out=svg &thinsp;\|&thinsp; out=png &thinsp;\|&thinsp; out=_i_**.
+    Specify whether **gnuplot**{: style="color: blue"} is to generate a postscript file (**.eps**), a Portable Networks Graphics file (**.eps**),
+    or a Scalable Vector Graphics  (**.svg**).  **_i_** can be 1,2, or 3 which corresponds to these three formats.
+  + **out=lmgf** tells **plbnds**{: style="color: blue"} to write output for the [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) script
+  + **escl=_val_** scales the frequency mesh by **_val_**.  Note:  If you make spectral functions with [**lmfgws**{: style="color: blue"}](/tutorial/gw/gw_self_energy/)
+    and the output is in eV, use **escl=1/13.6**.
+  + **ascal=_val_** scales the spectral function by **_val_**.  Only affects the scale in the colorbar.
+  + **atop=_val_** sets the top of the colorbar scale to  **_val_**.
+
 + **-dat=<i>ext</i>** (may be used in conjunction with `-fplot`)\\
    Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands into one figure.
-
 + **-nocol \| --nocol** (may be used in conjunction with `-fplot`)\\
   Ignore information about color weights.
-  
 + **-merge=file2[,file3] \| -mergep=file2[,file3]**\\
    merges two bands file (one for each spin  in the spin-pol case).\\
    Optional **file3** causes **plbnds**{: style="color: blue"} to write the merged file to _file3_{: style="color: green"}.\\
