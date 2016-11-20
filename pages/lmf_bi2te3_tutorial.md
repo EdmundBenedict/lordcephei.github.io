@@ -44,6 +44,7 @@ The tutorial starts under the heading "Tutorial"; you can see a synopsis of the 
 ~~~
 nano init.bi2te3
 blm init.bi2te3                                 #makes template actrl.bi2te3 and site.bi2te3
+nano actrl.bi2te3                               #change to autobas[pnu=1 loc=1 lmto=3 mto=1 gw=0]
 cp actrl.bi2te3 ctrl.bi2te3
 ~~~
 
@@ -51,8 +52,8 @@ cp actrl.bi2te3 ctrl.bi2te3
 
 ~~~
 lmfa ctrl.bi2te3                                #use lmfa to make basp file, atm file and to get gmax
-cp basp0.bi2te3 basp.bi2te3                       #copy basp0 to recognised basp prefix
-lmfa ctrl.bi2te3                                 #remake atomic density with updated valence-core partitioning
+nano basp0.bi2te3                               #remove PZ=.. from file
+cp basp0.bi2te3 basp.bi2te3                     #copy basp0 to recognised basp prefix
 ~~~
 
     ... to be finished
@@ -90,7 +91,7 @@ SITE
 To create the skeleton input file invoke **blm**{: style="color: blue"}:
 
 ~~~
-$ blm bi2te3
+$ blm init.bi2te3
 $ cp actrl.bi2te3 ctrl.bi2te3
 ~~~
 
@@ -419,8 +420,9 @@ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3
 
 You should **lmf**{: style="color: blue"} reach self-consistency in 9 iterations.
 
-The Harris-Foulkes and Kohn-Sham total energies are **ehf=-126808.3137885** and **ehk=-126808.2492178**
-from the Mattheis construction.  At self-consistency they come together: **ehf=-126808.2950696** and **ehk=-126808.2950608**.
+The Harris-Foulkes and Kohn-Sham total energies are **ehf=-&hellip;.3137885** and **ehk=-&hellip;.2492178**
+from the Mattheis construction.  At self-consistency they come together: **ehf=-&hellip;.2950696** and **ehk=-&hellip;.2950608**.
+(&hellip; is **-126808** -- this large energy comes from the core states.)
 
 The self-consistent value is 18&thinsp;mRy _less binding_ than the Harris-Foulkes energy of the Mattheis construction,
 and 46&thinsp;mRy <i>more binding</i> than the corresponding Kohn-Sham energy.
@@ -431,7 +433,7 @@ is generally closer to the final result than the HK functional, is typical behav
 ##### 5.2 _Convergence in G cutoff_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-g-cutoff)
 
-The _G_ cutoff, [**4.4u**&thinsp;Ry<sup>&minus;1/2</sup>](/tutorial/lmf/lmf_bi2te3_tutorial/#setting-gmax)
+The _G_ cutoff, [**4.4u**&thinsp;Ry<sup>1/2</sup>](/tutorial/lmf/lmf_bi2te3_tutorial/#setting-gmax)
 yields precisions in plane-wave expansions of envelope functions as shown this table:
 
 ~~~
@@ -448,7 +450,7 @@ yields precisions in plane-wave expansions of envelope functions as shown this t
 ~~~
 
 **gmax=4.4** isn't quite large enough to push the error below tolerance (**1.0e-6**), but it is pretty close.
-You can check how well the total energy is converged by increasing **gmax**
+You can check how well the total energy is converged by increasing **gmax**:
 
 ~~~
 $ lmf ctrl.bi2te3 -vgmax=4.4 -vnkabc=3 --quit=band
@@ -675,7 +677,10 @@ You can at this point make the density self-consistent again.
 
 {::nomarkdown}</div>{:/}
 
-With the **-\-optbas** switch you should obtain a self-consistent total energy of **ehf=-126808.306962**.
+In sum, 
+
++ without optimizing the basis, you should achieve total energy **ehf=-126808.2950696** at self-consistency.
++ With the **-\-optbas** switch it should become **ehf=-126808.306962**.
 
 ##### 6.2 _Increasing the number of envelope functions_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
@@ -736,7 +741,7 @@ which increases to 125 orbitals with **lmto=5**:
  suham :  98 augmentation channels, 98 local potential channels  Maximum lmxa=4
 ~~~
 
-At self-consistency you should find that the total energy converges to **ehf=-126808.3134029**.
+At self-consistency you should find that the total energy converges to **ehf=-126808.313403**&thinsp;Ry.
 
 ##### 6.3 _Adding APWs : the PMT method_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
@@ -748,7 +753,7 @@ The combination of smooth Hankel functions with APW's is called the
 Adding APW's provides a systematic way of approaching convergence in the envelope functions.  Some tolerances in the ctrl file should be
 tightened.  If **blm**{: style="color: blue"} with **-\-pmt** they are included automatically.
 That is in fact the easiest way to make the changes but here we just add some tolerances to the **HAM** and **EWALD** categories by hand.
-Modify the bottom of the **HAM category to read**
+Modify the bottom of the **HAM** category to read
 
 ~~~
       FORCES={so==0} ELIND=-0.7 
@@ -756,8 +761,8 @@ Modify the bottom of the **HAM category to read**
 EWALD TOL=1d-16
 ~~~
 
-One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  You cannot add too
-many plane waves, or the overlap matrix does not remain positive definite.  Adding the tolerances above help and so does increasing the
+One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  If you add too
+many plane waves the overlap matrix does not remain positive definite.  Tightening the tolerances above helps, and so does increasing the
 fineness of the density mesh (these points are also used for the PW expansion of the basis).
 
 Note the these tags in the **HAM** category:

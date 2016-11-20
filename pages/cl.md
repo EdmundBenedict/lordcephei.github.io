@@ -1151,6 +1151,11 @@ files in the [_spf_{: style="color: green"}
 format](/docs/input/data_format/#the-spf-file), and makes figures from
 them.
 
+
+**SpectralFunction.sh**{: style="color: blue"} reads a file _spf.ext_{: style="color: green"}
+and writes data _specfun.pm3d_{: style="color: green"} and gnu plotting script
+_gnu.plt_{: style="color: green"}
+
 The script is self-documenting.  For help, try:
 
 ~~~
