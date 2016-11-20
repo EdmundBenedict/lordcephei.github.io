@@ -682,6 +682,8 @@ In sum,
 + without optimizing the basis, you should achieve total energy **ehf=-126808.2950696** at self-consistency.
 + With the **-\-optbas** switch it should become **ehf=-126808.306962**.
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 ##### 6.2 _Increasing the number of envelope functions_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
 
@@ -742,6 +744,8 @@ which increases to 125 orbitals with **lmto=5**:
 ~~~
 
 At self-consistency you should find that the total energy converges to **ehf=-126808.313403**&thinsp;Ry.
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 ##### 6.3 _Adding APWs : the PMT method_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
