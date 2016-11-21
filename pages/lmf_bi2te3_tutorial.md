@@ -754,17 +754,16 @@ You can also use augmented plane waves (APWs) to improve on the basis set.  The 
 the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).  Adding APW's provides a systematic way of making the basis of envelope
 functions complete.
 
-Note the these tags in the **HAM** category:
+These tags in the **HAM** category control how many APWs are added:
 
 ~~~
   PWMODE={pwmode} PWEMIN=0 PWEMAX={pwemax}  # For APW addition to basis
 ~~~
 
-They control how many APWs are added.
-
 To use APW's some tolerances in the ctrl file should be tightened.  If you invoke **blm**{: style="color: blue"} with **-\-pmt** these extra
-tolerances are included automatically.  That is the easiest way to make the changes but here we just add tight tolerances [**HAM\_TOL**](/docs/input/inputfile/#ham) and
-[**EWALD\_TOL**](/docs/input/inputfile/#ewald) by hand.  Insert two lines at the end of the **HAM** category:
+tolerances are included automatically.  That is the easiest way to make the changes but here we just add include tolerances
+[**HAM\_TOL**](/docs/input/inputfile/#ham) and [**EWALD\_TOL**](/docs/input/inputfile/#ewald) by hand.  Insert two lines at the end of the
+**HAM** category:
 
 ~~~
 HAM   
@@ -795,25 +794,13 @@ lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
 ~~~
 
-Monitor how the basis increases
-
-~~~
-$ grep ndham out.lmf
-~~~
-
-~~~
-  Est. min,max PW dimension = 15,26.  Use npwpad = 3 => ndham = 109
-  Est. min,max PW dimension = 48,62.  Use npwpad = 3 => ndham = 145
-  Est. min,max PW dimension = 93,106.  Use npwpad = 3 => ndham = 189
-  Est. min,max PW dimension = 145,164.  Use npwpad = 4 => ndham = 248
-  Est. min,max PW dimension = 196,226.  Use npwpad = 6 => ndham = 312
-  Est. min,max PW dimension = 273,296.  Use npwpad = 5 => ndham = 381
-  Est. min,max PW dimension = 343,370.  Use npwpad = 5 => ndham = 455
-~~~
+and observe how the total energy decreases with **pwemax**.
 
 ~~~
 cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
 ~~~
+
+Draw a picture of the total energy relative to the double-kappa value.
 
 ~~~
 $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'G_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' dat
@@ -821,6 +808,15 @@ $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'G_{max}' -vehf=-126808.3134
 
 ![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
 
+The figure shows that the double-kappa basis (additional 45 orbitals) stabilizes the single-kappa basis by about 18&thinsp;mRy, and that the
+same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (additional 48-62 orbitals).  By further increasing the APW
+cutoff, another 5&thinsp;mRy can be gained.  Note that the APW basis is now quite large: 343-370 orbitals.
+
+To see how many orbitals the APW basis adds, do:
+
+~~~
+$ grep ndham out.lmf
+~~~
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
@@ -848,5 +844,21 @@ _*Note_ The GW implementation allows you to use plane waves, but the QS<i>GW</i>
   6 -126808.3178337 -126808.3178014
   7 -126808.3180709 -126808.3180282
   8 -126808.3182809 -126808.3182207
+
+Monitor how the basis increases
+
+~~~
+$ grep ndham out.lmf
+~~~
+
+~~~
+  Est. min,max PW dimension = 15,26.  Use npwpad = 3 => ndham = 109
+  Est. min,max PW dimension = 48,62.  Use npwpad = 3 => ndham = 145
+  Est. min,max PW dimension = 93,106.  Use npwpad = 3 => ndham = 189
+  Est. min,max PW dimension = 145,164.  Use npwpad = 4 => ndham = 248
+  Est. min,max PW dimension = 196,226.  Use npwpad = 6 => ndham = 312
+  Est. min,max PW dimension = 273,296.  Use npwpad = 5 => ndham = 381
+  Est. min,max PW dimension = 343,370.  Use npwpad = 5 => ndham = 455
+~~~
 
 {:/comment}
