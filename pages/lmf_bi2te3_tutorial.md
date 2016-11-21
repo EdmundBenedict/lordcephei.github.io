@@ -810,7 +810,8 @@ $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.3134
 
 The figure shows that the double-kappa basis (additional 45 orbitals) stabilizes the single-kappa basis by about 18&thinsp;mRy, and that the
 same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (additional 48-62 orbitals).  By further increasing the APW
-cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain is not important.  Note that the APW basis is now quite large: 343-370 orbitals.
+cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain is not important.  Note that the APW basis with
+<i>E</i><sub>max</sub>=7&thinsp;Ry is quite large: 343-370 orbitals.
 
 To see how many orbitals the APW basis adds, do:
 
@@ -841,10 +842,10 @@ in converging the total energy per extra orbital added than plane waves are.
 
 1. Reduce the smooth Hankel basis set of [Section 5](/tutorial/lmf/lmf_bi2te3_tutorial/#self-consistent-lda-calculation-small-basis)
    by eliminating the _f_ orbitals.  This reduces the basis set to 9 orbitals/atom.  You should find that the total energy
-   is **ehf= -126808.271025** without **-\-optbas**, and **ehf=-126808.2801167** with it.
+   is **ehf= -126808.271025** without **-\-optbas**, and **ehf=-126808.280117** with it.
 
 2. Add APWs to this basis, and observe that the total energy converges to the same value.
-   Note also that the LMTO f orbitals are more efficient in converging the total energy than plane waves are.
+   Note also that the LMTO _f_ orbitals are more efficient in converging the total energy than plane waves are.
 
 {::comment}
 
