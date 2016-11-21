@@ -76,6 +76,7 @@ _____________________________________________________________
 
 ### 3. _pldos manual_
 _____________________________________________________________
+[//]: (/docs/misc/pldos/#pldos-manual)
 
 
 Invoke **pldos**{: style="color: blue"} in one of the following ways:

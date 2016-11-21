@@ -1237,6 +1237,13 @@ Command-line switches:
    Example: **lmxbs &thinsp; "-dup=4,4,4,0<=x1&x1<1.01&0<=x2&x2<1.01&0<=x3&x3<1.01&z>0"**\\
    selects sites in a (dimensionless) cube of size 1 and exclude empty spheres.
 
+#### _Switches for_ fplot, plbnds, pldos
+
+Switches for these utilities are found in the
+[fplot manual](/docs/misc/fplot/#fplot-manual),
+[plbnds manual](/docs/misc/plbnds/#plbnds-manual), and
+[pldos manual](/docs/misc/pldos/#pldos-manual).
+
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 

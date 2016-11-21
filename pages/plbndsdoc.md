@@ -329,20 +329,19 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
      Alternatively it writes _spf.ext_{: style="color: green"} in a form that 
      [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) can read.
   
-  On exit, **plbnds**{: style="color: blue"} will print out a brief error message giving you the instruction to make a postscript (or other) file
-  The first character after **-sp** (assumed to be &thinsp;**'~'**&thinsp; here) delimits the different switches.  Switches are:
-
-  + **~lst=_list_**&nbsp; specifies which bands to include in the spectral function.
-    See [this page](/docs/input/integerlists/) for the syntax of integer lists.
-  + **~out=eps &thinsp;\|&thinsp; out=svg &thinsp;\|&thinsp; out=png &thinsp;\|&thinsp; out=_i_**.
-    Specify whether **gnuplot**{: style="color: blue"} is to generate a postscript file (**.eps**), a Portable Networks Graphics file (**.png**),
-    or a Scalable Vector Graphics  (**.svg**).&nbsp;  Or **_i_** = 1, 2, or 3, corresponds to these three formats.
-  + **~out=lmgf**&nbsp; tells **plbnds**{: style="color: blue"} to format _spf.ext_{: style="color: green"} for the [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) script.
-  + **~escl=_val_**&nbsp; scales the frequency mesh by **_val_**.
-    Note:  If you make spectral functions with [**lmfgws**{: style="color: blue"}](/tutorial/gw/gw_self_energy/)
-    and the output is in eV, use **escl=1/13.6**.
-  + **~ascal=_val_**&nbsp; scales the spectral function by **_val_**.  Only affects the scale in the colorbar.
-  + **~atop=_val_** sets the top of the colorbar scale to  **_val_**.<br>
+  On exit, **plbnds**{: style="color: blue"} will print out a brief message giving you the instruction to make a postscript (or other) file.
+  The first character after **-sp** (assumed to be &thinsp;**'~'**&thinsp; here) delimits the different switches.  Switches are:\\
+  **~lst=_list_**&nbsp; specifies which bands to include in the spectral function.
+  See [this page](/docs/input/integerlists/) for the syntax of integer lists.\\
+  **~out=eps &thinsp;\|&thinsp; out=svg &thinsp;\|&thinsp; out=png &thinsp;\|&thinsp; out=_i_**.
+  Specify whether **gnuplot**{: style="color: blue"} is to generate a postscript file (**.eps**), a Portable Networks Graphics file (**.png**),
+  or a Scalable Vector Graphics  (**.svg**).&nbsp;  Or **_i_** = 1, 2, or 3, corresponds to these three formats.\\
+  **~out=lmgf**&nbsp; tells **plbnds**{: style="color: blue"} to format _spf.ext_{: style="color: green"} for 
+  the [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) script.\\
+  **~escl=_val_**&nbsp; scales the frequency mesh by **_val_**.
+  Note:  If you make spectral functions with [**lmfgws**{: style="color: blue"}](/tutorial/gw/gw_self_energy/) and the output is in eV, use **escl=1/13.6**.\\
+  **~ascal=_val_**&nbsp; scales the spectral function by **_val_**.  Only affects the scale in the colorbar.\\
+  **~atop=_val_** sets the top of the colorbar scale to  **_val_**.
 
 + **-dat=<i>ext</i>** (may be used in conjunction with `-fplot`)\\
    Substitute _.ext_ for .dat when writing data files.  This is useful when merging two or more sets of bands into one figure.
