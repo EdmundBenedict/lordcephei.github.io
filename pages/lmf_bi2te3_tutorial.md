@@ -794,7 +794,7 @@ lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=6 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
 lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
 ~~~
 
-and observe how the total energy decreases with **pwemax**.
+and observe how the total energy decreases with **pwemax**.  Use the [**vextract**{: style="color: blue"} tool](/docs/input/commandline/#switches-for-vextract):
 
 ~~~
 cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
@@ -841,24 +841,33 @@ in converging the total energy per extra orbital added than plane waves are.
 
 1. Reduce the smooth Hankel basis set of [Section 5](/tutorial/lmf/lmf_bi2te3_tutorial/#self-consistent-lda-calculation-small-basis)
    by eliminating the _f_ orbitals.  This reduces the basis set to 9 orbitals/atom.  You should find that the total energy
-   is **ehf= -126808.271025**, or
+   is **ehf= -126808.271025** without **-\-optbas**, and **ehf=-126808.2801167** with it.
 
-2. Add APWs to this basis, and observe that the total energy converges to the same value 
-Note also that the LMTO f orbitals are more efficient
-in converging the total energy per extra orbital added than plane waves are.
-
+2. Add APWs to this basis, and observe that the total energy converges to the same value.
+   Note also that the LMTO f orbitals are more efficient in converging the total energy than plane waves are.
 
 {::comment}
 
 _*Note_ The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
 
+  0 -126808.2948426 -126808.2932305
+  1 -126808.3100477 -126808.3100236
   2 -126808.3132747 -126808.3132761
   3 -126808.3153455 -126808.3153454
   4 -126808.3167588 -126808.3167459
   5 -126808.3174566 -126808.3174336
   6 -126808.3178337 -126808.3178014
   7 -126808.3180709 -126808.3180282
-  8 -126808.3182809 -126808.3182207
+
+... additional exercises
+  0 -126808.2796624 -126808.2796629
+  1 -126808.293215 -126808.2926695
+  2 -126808.2995035 -126808.298914
+  3 -126808.3087287 -126808.3081481
+  4 -126808.3152159 -126808.3145659
+  5 -126808.3170362 -126808.3163627
+  6 -126808.3177113 -126808.3170282
+  7 -126808.3180676 -126808.3173768
 
 Monitor how the basis increases
 
@@ -867,9 +876,9 @@ $ grep ndham out.lmf
 ~~~
 
 ~~~
-  Est. min,max PW dimension = 15,26.  Use npwpad = 3 => ndham = 109
-  Est. min,max PW dimension = 48,62.  Use npwpad = 3 => ndham = 145
-  Est. min,max PW dimension = 93,106.  Use npwpad = 3 => ndham = 189
+  Est. min,max PW dimension = 15,  26.  Use npwpad = 3 => ndham = 109
+  Est. min,max PW dimension = 48,  62.  Use npwpad = 3 => ndham = 145
+  Est. min,max PW dimension = 93, 106.  Use npwpad = 3 => ndham = 189
   Est. min,max PW dimension = 145,164.  Use npwpad = 4 => ndham = 248
   Est. min,max PW dimension = 196,226.  Use npwpad = 6 => ndham = 312
   Est. min,max PW dimension = 273,296.  Use npwpad = 5 => ndham = 381

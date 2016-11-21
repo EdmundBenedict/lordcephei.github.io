@@ -1239,6 +1239,8 @@ Command-line switches:
 
 #### _Switches for_ fplot, plbnds, pldos
 
+[//]: (/docs/input/commandline/#switches-for-fplot-plbnds-pldos)
+
 Switches for these utilities are found in the
 [fplot manual](/docs/misc/fplot/#fplot-manual),
 [plbnds manual](/docs/misc/plbnds/#plbnds-manual), and
