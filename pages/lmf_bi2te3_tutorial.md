@@ -402,8 +402,8 @@ You can plot the data, or just see by inspection that the energy is converged to
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-#### 5. _Self-consistent LDA calculation, minimal basis_
-[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#self-consistent-lda-calculation-minimal-basis)
+#### 5. _Self-consistent LDA calculation, small basis_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#self-consistent-lda-calculation-small-basis)
 
 In the following we will use **nkabc=3**, though after convergence is reached we might consider increasing it a little.  Before doing the
 calculation you can use your text editor to set **nkabc=3** and **gmax=4.4**, or continue to set assign values from the command line.
@@ -803,14 +803,14 @@ cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
 Draw a picture of the total energy relative to the double-kappa value.
 
 ~~~
-$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'G_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' dat
+$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' dat
 ~~~
 
 ![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
 
 The figure shows that the double-kappa basis (additional 45 orbitals) stabilizes the single-kappa basis by about 18&thinsp;mRy, and that the
 same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (additional 48-62 orbitals).  By further increasing the APW
-cutoff, another 5&thinsp;mRy can be gained.  Note that the APW basis is now quite large: 343-370 orbitals.
+cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain is not important.  Note that the APW basis is now quite large: 343-370 orbitals.
 
 To see how many orbitals the APW basis adds, do:
 
@@ -819,7 +819,6 @@ $ grep ndham out.lmf
 ~~~
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
-
 
 #### _Modifying the input file for GW_
 
@@ -832,6 +831,22 @@ Compare _actrl.bi2te3_{: style="color: green"} generated with the **-\-gw** swit
     AUTOBAS[PNU=1 LOC=1 LMTO=5 MTO=4 GW=1]
 
 The basis is similar to **LMTO=4** but **EH** has been set a little deeper. This helps the QS<i>GW</i> implementation interpolate between _k_-points. The larger basis makes a minor difference to the valence bands; but the conduction bands change, especially the higher in energy you go.
+
+Note also that the LMTO f orbitals are more efficient
+in converging the total energy per extra orbital added than plane waves are.
+
+
+### _Additional exercises_
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises)
+
+1. Reduce the smooth Hankel basis set of [Section 5](/tutorial/lmf/lmf_bi2te3_tutorial/#self-consistent-lda-calculation-small-basis)
+   by eliminating the _f_ orbitals.  This reduces the basis set to 9 orbitals/atom.  You should find that the total energy
+   is **ehf= -126808.271025**, or
+
+2. Add APWs to this basis, and observe that the total energy converges to the same value 
+Note also that the LMTO f orbitals are more efficient
+in converging the total energy per extra orbital added than plane waves are.
+
 
 {::comment}
 
