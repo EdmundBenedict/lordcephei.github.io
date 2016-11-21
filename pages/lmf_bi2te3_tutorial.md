@@ -750,9 +750,9 @@ See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 ##### 6.3 _Adding APWs : the PMT method_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
 
-You can also use augmented plane waves (APWs) to improve on the basis set.
-The combination of smooth Hankel functions with APW's is called the
-[PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).
+You can also use augmented plane waves (APWs) to improve on the basis set.  The combination of smooth Hankel functions with APW's is called
+the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).  Adding APW's provides a systematic way of making the basis of envelope
+functions complete.
 
 Note the these tags in the **HAM** category:
 
@@ -760,12 +760,11 @@ Note the these tags in the **HAM** category:
   PWMODE={pwmode} PWEMIN=0 PWEMAX={pwemax}  # For APW addition to basis
 ~~~
 
-They tags control how many APWs are added.
+They control how many APWs are added.
 
-Adding APW's provides a systematic way of approaching convergence in the envelope functions.  Some tolerances in the ctrl file should be
-tightened.  If you invoke **blm**{: style="color: blue"} with **-\-pmt** these extra tolerances are included automatically.
-That is he easiest way to make the changes but here we just add some tolerances to the **HAM** and **EWALD** categories by hand.
-Insert two lines at the end of the **HAM** category:
+To use APW's some tolerances in the ctrl file should be tightened.  If you invoke **blm**{: style="color: blue"} with **-\-pmt** these extra
+tolerances are included automatically.  That is the easiest way to make the changes but here we just add tight tolerances [**HAM\_TOL**](/docs/input/inputfile/#ham) and
+[**EWALD\_TOL**](/docs/input/inputfile/#ewald) by hand.  Insert two lines at the end of the **HAM** category:
 
 ~~~
 HAM   
@@ -777,9 +776,12 @@ EWALD TOL=1d-16
 
 One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  If you add too
 many plane waves the overlap matrix does not remain positive definite.  Tightening the tolerances above helps, and so does increasing the
-fineness of the density mesh (these points are also used for the PW expansion of the basis).
+fineness of the density mesh, as these points are also used for the PW expansion of the basis.
 
-Run **lmf**{: style="color: blue"}
+**PWMODE=11** adds APWs in a standard way: envelope functions of the form <i>e</i><sup><i>i</i><b>(k+G)&middot;r</b></sup> are added to the smooth Hankel basis.
+You must specify the PW cutoffs.  Here you can specify both the lower and upper since the smooth Hankels will cover most of the lower part of the space.
+
+With these extra considerations, run **lmf**{: style="color: blue"} as follows
 
 ~~~
 rm -f out.lmf
