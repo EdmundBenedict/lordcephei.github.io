@@ -808,7 +808,7 @@ Draw a picture of the total energy relative to the double-kappa value.  The [**f
 shown in the box below will generate a postscript file; the figure actually shown has been elaborated a little.  The red circle shows the
 self-consistent double-kappa result of Sec. 6.2.  The light grey line follows the PMT procedure as above, but taking for the LMTO part
 a smaller, optimized _spd_ single kappa basis (see [Additional exercises](/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises)).
-Numbers in parenthesis are the number of LMTO's.  The red circle is the 2-kappa basis without APWs
+Numbers in parenthesis are the number of LMTO's.  The red circle is the 2-kappa basis without APWs; the purple is the LAPW basis without LMTOs.
 
 ~~~
 $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
