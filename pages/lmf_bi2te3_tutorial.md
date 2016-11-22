@@ -748,7 +748,7 @@ At self-consistency you should find that the total energy converges to **ehf=-12
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 ##### 6.3 _Adding APWs : the PMT method_
-[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions)
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#adding-apws--the-pmt-method)
 
 You can also use augmented plane waves (APWs) to improve on the basis set.  The combination of smooth Hankel functions with APW's is called
 the [PMT basis set](http://dx.doi.org/10.1103/PhysRevB.81.125117).  Adding APW's provides a systematic way of making the basis of envelope
@@ -773,13 +773,16 @@ HAM
 EWALD TOL=1d-16
 ~~~
 
-One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  If you add too
-many plane waves the overlap matrix does not remain positive definite.  Tightening the tolerances above helps, and so does increasing the
-fineness of the density mesh, as these points are also used for the PW expansion of the basis.  
-(As a last resort, you can use the [*HAM_OVEPS**](/docs/input/inputfile/#ham) switch, but it is  better to reduceg the rank of one or the other basis sets.)
+One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  If you add too many
+plane waves the overlap matrix does not remain positive definite.  Tightening the tolerances above helps, and so does increasing the
+fineness of the density mesh, as these points are also used for the PW expansion of the basis.
 
-**PWMODE=11** adds APWs in a standard way: envelope functions of the form <i>e</i><sup><i>i</i><b>(k+G)&middot;r</b></sup> are added to the smooth Hankel basis.
-You must specify the PW cutoffs.  Here you can specify both the lower and upper since the smooth Hankels will cover most of the lower part of the space.
+*Note:*{: style="color: red"} as a last resort, you can stabilize the overlap with the [**HAM_OVEPS**](/docs/input/inputfile/#ham) switch,
+but it is better to reduce the rank of the LMTO or APW basis sets.
+
+**PWMODE=11** adds APWs in a standard way: envelope functions of the form <i>e</i><sup><i>i</i><b>(k+G)&middot;r</b></sup> are added to the
+smooth Hankel basis.  You must specify the PW cutoffs.  Here you can specify both the lower and upper bounds since the smooth Hankels will
+efficiently cover most of the lower part of the space.
 
 With these extra considerations, run **lmf**{: style="color: blue"} as follows
 
@@ -804,10 +807,10 @@ cat save.bi2te3 | vextract i pwemax ehf ehk | tee etot.bi2te3
 Draw a picture of the total energy relative to the double-kappa value.  The [**fplot**{: style="color: blue"}](/docs/misc/fplot/) command
 shown in the box below will generate a postscript file; the figure actually shown has been elaborated a little.  The red circle shows the
 self-consistent double-kappa result of Sec. 6.2.  The light grey line follows the PMT procedure as above, but taking for the LMTO part
-an optimized _spd_ single kappa basis (see Additional exercises).
+a smaller, optimized _spd_ single kappa basis (see [Additional exercises](/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises)).
 
 ~~~
-$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
+$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
 ~~~
 
 ![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
@@ -817,7 +820,7 @@ same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (addi
 cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain is not important.  Note that the APW basis with
 <i>E</i><sub>max</sub>=7&thinsp;Ry is quite large: 343-370 APWs.
 
-Note that the APW basis is generally less efficient than the LMTO basis.  To reach a precision comparable to the 2-kappa basis (125 orbitals),
+Note that the APW basis is generally less efficient than the LMTO basis.  To reach a precision comparable to the 2-kappa basis (125 orbitals)
 starting from the 1-kappa _spd_ basis, about 160 APWs are needed, or about 200 orbitals all told.
 
 To see how many orbitals the APW basis adds, do:
@@ -853,7 +856,7 @@ in converging the total energy per extra orbital added than plane waves are.
 
 2. Add APWs to this basis, and observe that the total energy converges to the same value.
    Note also that the LMTO _f_ orbitals are more efficient in converging the total energy than plane waves are.
-   You should get something similar to the grey line in the Figure of [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions).
+   You should get something similar to the grey line in the Figure of [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#adding-apws--the-pmt-method).
 
 {::comment}
 
