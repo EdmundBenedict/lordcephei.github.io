@@ -24,7 +24,8 @@ _________________________
 [Mark van Schilfgaarde](http://www.kcl.ac.uk/nms/depts/physics/people/academicstaff/van-Schilfgaarde-.aspx) *(King’s College London, U.K.)*  Primary Developer
 
 [Takao Kotani](http://newton.damp.tottori-u.ac.jp/wiki/index.php/Tkotani) *(Tottori University, Japan)*  Primary developer of the GW package.
-Professor Kotani maintains his code at github.com/tkotani/ecalj.  Both the one-body and the GW core were originally the same, and they have many similarities.
+Professor Kotani maintains his code at github.com/tkotani/ecalj.  Both the one-body and the GW code were the same in 2007.
+They have diverged since then but have many similarities.
 
 [Dimitar Pashov](https://kclpure.kcl.ac.uk/portal/dimitar.pashov.html) *(King’s College London, U.K.)*
 Primary developer of the tight-binding package and the Jigsaw Puzzle Orbitals.  Primary Questaal suite maintainer.
@@ -32,10 +33,10 @@ Primary developer of the tight-binding package and the Jigsaw Puzzle Orbitals.  
 [Walter Lambrecht](http://physics.case.edu/faculty/walter-lambrecht/) *(Case Western Reserve, Ohio)* 
 Added several features to the ASA and full-potential codes, e.g. LDA+U and the optics packages.
 
+[Lorenzo Sponza](https://scholar.google.sk/citations?user=vtDqbNQAAAAJ&hl=en) *(King's College London, U.K.)*  Primary developer of a QSGW+DMFT implementation
+
 [Paolo Pisanti](p.pisanti13@gmail.com) *(King's College London, U.K.)*
 Primary developer of interface between this package and Rutger's DMFT
-
-[Lorenzo Sponza](https://scholar.google.sk/citations?user=vtDqbNQAAAAJ&hl=en) *(King's College London, U.K.)*  Primary developer of a QSGW+DMFT implementation
 
 [Sergei Faleev](gs01sfx@hotmail.com) Primary developer of Quasiparticle Self-Consistency in GW, and nonequilibrium Keldysh transport.
 
