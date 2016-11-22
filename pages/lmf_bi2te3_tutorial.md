@@ -801,9 +801,10 @@ and observe how the total energy decreases with **pwemax**.  Use the [**vextract
 cat save.bi2te3 | vextract i pwemax ehf ehk | tee etot.bi2te3
 ~~~
 
-Draw a picture of the total energy relative to the double-kappa value.  The [**fplot**{: style="color: blue"}](/docs/misc/fplot/) command shown will generate a figure;
-but one shown has been elaborated a little.  The red circle shows the self-consistent double-kappa result.  The light grey line shows follows the PMT
-procedure as above, but using for the LMTO part an optimized _spd_ single kappa basis (see Additional exercises)
+Draw a picture of the total energy relative to the double-kappa value.  The [**fplot**{: style="color: blue"}](/docs/misc/fplot/) command
+shown in the box below will generate a postscript file; the figure actually shown has been elaborated a little.  The red circle shows the
+self-consistent double-kappa result of Sec. 6.2.  The light grey line follows the PMT procedure as above, but taking for the LMTO part
+an optimized _spd_ single kappa basis (see Additional exercises).
 
 ~~~
 $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
@@ -811,10 +812,13 @@ $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.3134
 
 ![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
 
-The figure shows that the double-kappa basis (additional 45 orbitals) stabilizes the single-kappa basis by about 18&thinsp;mRy, and that the
-same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (additional 48-62 orbitals).  By further increasing the APW
+The figure shows that the double-kappa basis (additional 45 orbitals) stabilizes the single-kappa _spdf_ basis by about 18&thinsp;mRy, and that the
+same can be accomplished with APWs with a plane-wave cutoff of 2&thinsp;Ry (additional 48-62 APWs).  By further increasing the APW
 cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain is not important.  Note that the APW basis with
-<i>E</i><sub>max</sub>=7&thinsp;Ry is quite large: 343-370 orbitals.
+<i>E</i><sub>max</sub>=7&thinsp;Ry is quite large: 343-370 APWs.
+
+Note that the APW basis is generally less efficient than the LMTO basis.  To reach a precision comparable to the 2-kappa basis (125 orbitals),
+starting from the 1-kappa _spd_ basis, about 160 APWs are needed, or about 200 orbitals all told.
 
 To see how many orbitals the APW basis adds, do:
 
