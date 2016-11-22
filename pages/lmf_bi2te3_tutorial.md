@@ -823,7 +823,7 @@ cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain i
 
 Note that the APW basis is generally less efficient than the LMTO basis.  To reach a precision comparable to the 2-kappa basis (125 orbitals)
 starting from the 1-kappa _spd_ basis, about 160 APWs are needed, or about 200 orbitals all told.  The power of the PMT method can be 
-compared against a straight LAPW basis with LMTOs (see purple line in the Figure).
+compared against a straight LAPW basis.  About 300 APWs are needed to achieve the convergence of the double kappa basis. See purple line in the Figure.
 
 To see how many orbitals the APW basis adds, do:
 
