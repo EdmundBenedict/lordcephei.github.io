@@ -766,7 +766,7 @@ tolerances are included automatically.  That is the easiest way to make the chan
 **HAM** category:
 
 ~~~
-HAM   
+HAM
 ...
       FORCES={so==0} ELIND=-0.7
       TOL=1d-16
@@ -808,6 +808,7 @@ Draw a picture of the total energy relative to the double-kappa value.  The [**f
 shown in the box below will generate a postscript file; the figure actually shown has been elaborated a little.  The red circle shows the
 self-consistent double-kappa result of Sec. 6.2.  The light grey line follows the PMT procedure as above, but taking for the LMTO part
 a smaller, optimized _spd_ single kappa basis (see [Additional exercises](/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises)).
+Numbers in parenthesis are the number of LMTO's.  The red circle is the 2-kappa basis without APWs
 
 ~~~
 $ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
@@ -821,7 +822,8 @@ cutoff, another 5&thinsp;mRy can be gained.  For most purposes this extra gain i
 <i>E</i><sub>max</sub>=7&thinsp;Ry is quite large: 343-370 APWs.
 
 Note that the APW basis is generally less efficient than the LMTO basis.  To reach a precision comparable to the 2-kappa basis (125 orbitals)
-starting from the 1-kappa _spd_ basis, about 160 APWs are needed, or about 200 orbitals all told.
+starting from the 1-kappa _spd_ basis, about 160 APWs are needed, or about 200 orbitals all told.  The power of the PMT method can be 
+compared against a straight LAPW basis with LMTOs (see purple line in the Figure).
 
 To see how many orbitals the APW basis adds, do:
 
@@ -857,6 +859,9 @@ in converging the total energy per extra orbital added than plane waves are.
 2. Add APWs to this basis, and observe that the total energy converges to the same value.
    Note also that the LMTO _f_ orbitals are more efficient in converging the total energy than plane waves are.
    You should get something similar to the grey line in the Figure of [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#adding-apws--the-pmt-method).
+
+3. Try an all LAPW basis : use **pwmode=12**.  You should get something similar to the purple line in the Figure of
+   [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#adding-apws--the-pmt-method).  Results start to get reasonable around **pwemax=4.5**.
 
 {::comment}
 
