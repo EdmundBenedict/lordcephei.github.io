@@ -331,6 +331,7 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
   
   On exit, **plbnds**{: style="color: blue"} will print out a brief message giving you the instruction to make a postscript (or other) file.
   The first character after **-sp** (assumed to be &thinsp;**'~'**&thinsp; here) delimits the different switches.  Switches are:
+
   + **~lst=_list_**&nbsp; specifies which bands to include in the spectral function.
     See [this page](/docs/input/integerlists/) for the syntax of integer lists.\\
   + **~out=eps &thinsp;\|&thinsp; out=svg &thinsp;\|&thinsp; out=png &thinsp;\|&thinsp; out=_i_**.
