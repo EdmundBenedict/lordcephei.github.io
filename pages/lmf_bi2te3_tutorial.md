@@ -775,7 +775,8 @@ EWALD TOL=1d-16
 
 One problem with the **PMT** method is that the smoooth-Hankel and APW basis set span nearly the same hilbert space.  If you add too
 many plane waves the overlap matrix does not remain positive definite.  Tightening the tolerances above helps, and so does increasing the
-fineness of the density mesh, as these points are also used for the PW expansion of the basis.
+fineness of the density mesh, as these points are also used for the PW expansion of the basis.  
+(As a last resort, you can use the [*HAM_OVEPS**](/docs/input/inputfile/#ham) switch, but it is  better to reduceg the rank of one or the other basis sets.)
 
 **PWMODE=11** adds APWs in a standard way: envelope functions of the form <i>e</i><sup><i>i</i><b>(k+G)&middot;r</b></sup> are added to the smooth Hankel basis.
 You must specify the PW cutoffs.  Here you can specify both the lower and upper since the smooth Hankels will cover most of the lower part of the space.
@@ -797,13 +798,15 @@ lmf ctrl.bi2te3 -vpwmode=11 -vpwemax=7 -vgmax=8 -vnkabc=3 --quit=band >> out.lmf
 and observe how the total energy decreases with **pwemax**.  Use the [**vextract**{: style="color: blue"} tool](/docs/input/commandline/#switches-for-vextract):
 
 ~~~
-cat save.bi2te3 | vextract i pwemax ehf ehk | tee dat
+cat save.bi2te3 | vextract i pwemax ehf ehk | tee etot.bi2te3
 ~~~
 
-Draw a picture of the total energy relative to the double-kappa value.
+Draw a picture of the total energy relative to the double-kappa value.  The [**fplot**{: style="color: blue"}](/docs/misc/fplot/) command shown will generate a figure;
+but one shown has been elaborated a little.  The red circle shows the self-consistent double-kappa result.  The light grey line shows follows the PMT
+procedure as above, but using for the LMTO part an optimized _spd_ single kappa basis (see Additional exercises)
 
 ~~~
-$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' dat
+$ fplot -frme 0,.8,0,.5 -frmt th=3,1,1 -tmy 2.5 -xl 'E_{max}' -vehf=-126808.313403 -s circ -ord '(x2-ehf)*1000' etot.bi2te3
 ~~~
 
 ![Convergence in total energy with respect to APW plane wave cutoff](/assets/img/bi2te3-energy-convergence-lapw.svg)
@@ -846,29 +849,20 @@ in converging the total energy per extra orbital added than plane waves are.
 
 2. Add APWs to this basis, and observe that the total energy converges to the same value.
    Note also that the LMTO _f_ orbitals are more efficient in converging the total energy than plane waves are.
+   You should get something similar to the grey line in the Figure of [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#increasing-the-number-of-envelope-functions).
 
 {::comment}
 
 _*Note_ The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
 
-  0 -126808.2948426 -126808.2932305
-  1 -126808.3100477 -126808.3100236
-  2 -126808.3132747 -126808.3132761
-  3 -126808.3153455 -126808.3153454
-  4 -126808.3167588 -126808.3167459
-  5 -126808.3174566 -126808.3174336
-  6 -126808.3178337 -126808.3178014
-  7 -126808.3180709 -126808.3180282
-
-... additional exercises
-  0 -126808.2796624 -126808.2796629
-  1 -126808.293215 -126808.2926695
-  2 -126808.2995035 -126808.298914
-  3 -126808.3087287 -126808.3081481
-  4 -126808.3152159 -126808.3145659
-  5 -126808.3170362 -126808.3163627
-  6 -126808.3177113 -126808.3170282
-  7 -126808.3180676 -126808.3173768
+  0 -126808.2948426 -126808.2796624     0
+  1 -126808.3100477 -126808.293215     26
+  2 -126808.3132747 -126808.2995035    62
+  3 -126808.3153455 -126808.3087287   106
+  4 -126808.3167588 -126808.3152159   164
+  5 -126808.3174566 -126808.3170362   226
+  6 -126808.3178337 -126808.3177113   296
+  7 -126808.3180709 -126808.3180676   370
 
 Monitor how the basis increases
 
