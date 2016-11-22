@@ -333,10 +333,10 @@ Optional switches perform the following functions.  A reference to &nbsp;**<i>ex
   The first character after **-sp** (assumed to be &thinsp;**'~'**&thinsp; here) delimits the different switches.  Switches are:
 ^
   + **~lst=_list_**&nbsp; specifies which bands to include in the spectral function.
-    See [this page](/docs/input/integerlists/) for the syntax of integer lists.\\
+    See [this page](/docs/input/integerlists/) for the syntax of integer lists.
   + **~out=eps &thinsp;\|&thinsp; out=svg &thinsp;\|&thinsp; out=png &thinsp;\|&thinsp; out=_i_**.
     Specify whether **gnuplot**{: style="color: blue"} is to generate a postscript file (**.eps**), a Portable Networks Graphics file (**.png**),
-    or a Scalable Vector Graphics  (**.svg**).&nbsp;  Or **_i_** = 1, 2, or 3, corresponds to these three formats.
+    or a Scalable Vector Graphics  (**.svg**).&nbsp;  **_i_** = 1, 2, or 3, corresponds to these three formats.
   + **~out=lmgf**&nbsp; tells **plbnds**{: style="color: blue"} to format _spf.ext_{: style="color: green"} for the 
     [**SpectralFunction.sh**{: style="color: blue"}](/docs/input/commandline/#switches-for-spectralfunctionsh) script.
   + **~escl=_val_**&nbsp; scales the frequency mesh by **_val_**.
