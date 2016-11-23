@@ -474,7 +474,7 @@ output](/docs/outputs/lmf_output/#forces).
 nucleus displaces.  The effect is usually very small.  Forces should be exactly consistent with the energy if the shape of the partial
 waves is frozen, however, which you can do with [**HAM\_FRZWF**](/docs/input/inputfile/#ham).
 
-To what extent the basis set affects the forces is taken up in Section [6.4](/tutorial/lmf/lmf_bi2te3_tutorial/#forces-and-basis-set-completeness).
+To what extent the basis set affects the forces is taken up in the [Additional Exercises](/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises).
 
 ##### 5.4 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
@@ -835,14 +835,12 @@ $ grep ndham out.lmf
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
-##### 6.4 _Forces and basis set completeness
+##### 6.4 _Energy band structure and basis set completeness
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#forces-and-basis-set-completeness)
-
-
 
 #### _Modifying the input file for GW_
 
-_GW_ calculations demand more of the basis set because unuoccupied states are important. To set up a job in preparation for a _GW_ calculation, invoke **blm** as :
+_GW_ calculations demand more of the basis set because unoccupied states are important. To set up a job in preparation for a _GW_ calculation, invoke **blm** as :
 
     $ blm --gw bi2te3
 

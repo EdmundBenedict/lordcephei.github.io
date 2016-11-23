@@ -1103,8 +1103,8 @@ The final forces give a measure of the error in the LDA predicting structure sin
 site positions were taken from experiment.  10&thinsp;mRy/a.u. is a fairly small force,
 implying that LDA lattice positions will be close to experimental ones.
 
-To what extent the basis set affects the forces is taken up in the 
-[Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/).
+To what extent the basis set affects the forces is taken up in Additional Exercises in
+the [Bi<sub>2</sub>Te<sub>3</sub> tutorial](/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises).
 
 Forces are used in [molecular statics](xx), and also to compute [phonons](guy).
 
