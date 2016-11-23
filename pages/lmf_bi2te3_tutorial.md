@@ -850,6 +850,7 @@ The basis is similar to **LMTO=4** but **EH** has been set a little deeper. This
 Note also that the LMTO f orbitals are more efficient
 in converging the total energy per extra orbital added than plane waves are.
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
 ### _Additional exercises_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#additional-exercises)
@@ -876,6 +877,9 @@ in converging the total energy per extra orbital added than plane waves are.
    2-kappa                    |  7.5    | 13.1
    1-kappa(opt)+ APW(pwemax=2)  |  8.0    | 13.3
    1-kappa(opt)+ APW(pwemax=6)  |  8.0    | 13.4
+
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 
 {::comment}
 
