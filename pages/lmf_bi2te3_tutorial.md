@@ -474,6 +474,8 @@ output](/docs/outputs/lmf_output/#forces).
 nucleus displaces.  The effect is usually very small.  Forces should be exactly consistent with the energy if the shape of the partial
 waves is frozen, however, which you can do with [**HAM\_FRZWF**](/docs/input/inputfile/#ham).
 
+To what extent the basis set affects the forces is taken up in Section [6.4](/tutorial/lmf/lmf_bi2te3_tutorial/#forces-and-basis-set-completeness).
+
 ##### 5.4 _Convergence in LMXA_
 [//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#convergence-in-lmxa)
 
@@ -833,6 +835,11 @@ $ grep ndham out.lmf
 
 See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
 
+##### 6.4 _Forces and basis set completeness
+[//]: (/tutorial/lmf/lmf_bi2te3_tutorial/#forces-and-basis-set-completeness)
+
+
+
 #### _Modifying the input file for GW_
 
 _GW_ calculations demand more of the basis set because unuoccupied states are important. To set up a job in preparation for a _GW_ calculation, invoke **blm** as :
@@ -863,6 +870,18 @@ in converging the total energy per extra orbital added than plane waves are.
 3. Try an all LAPW basis : use **pwmode=12**.  You should get something similar to the purple line in the Figure of
    [Section 6.3](/tutorial/lmf/lmf_bi2te3_tutorial/#adding-apws--the-pmt-method).  Results start to get reasonable around **pwemax=4.5**.
 
+4. At self-consistency, the forces should reach convergence for given basis set, as described in the
+   [annotated **lmf**{: style="color: blue"} output](/docs/outputs/lmf_output/#forces).  Forces should be derivatives of the total energy
+   wrt nuclear displacements.  As the basis set becomes complete, the forces should stop changing.  Confirm that this is the case by varying
+   the basis set.  Bi<sub>2</sub>Te<sub>3</sub> has 5 atoms; two of the Te atoms have one force equal and opposite, and the two Bi another
+   force, also equal and opposite.  You should find something like the following
+
+   Basis              		  |  F(Te)  | F(Bi)
+   1-kappa(optimized) 		  |  10.6   | 15.7
+   2-kappa            		  |  7.5    | 13.1
+   1-kappa(opt)+ APW(Emax=2)  |  8.0    | 13.3
+   1-kappa(opt)+ APW(Emax=2)  |  8.0    | 13.4
+
 {::comment}
 
 _*Note_ The GW implementation allows you to use plane waves, but the QS<i>GW</i> part of it does not, as yet.
@@ -892,4 +911,59 @@ $ grep ndham out.lmf
   Est. min,max PW dimension = 343,370.  Use npwpad = 5 => ndham = 455
 ~~~
 
+unopt 1k
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  638.00     0.00    0.00 -627.23     0.00    0.00   10.78
+   3    0.00    0.00 -638.00     0.00    0.00  627.23     0.00    0.00  -10.78
+   4    0.00    0.00 -276.03     0.00    0.00  259.89     0.00    0.00  -16.14
+   5    0.00    0.00  276.03     0.00    0.00 -259.89     0.00    0.00   16.14
+
+
+opt 1k
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  639.72     0.00    0.00 -629.10     0.00    0.00   10.62
+   3    0.00    0.00 -639.72     0.00    0.00  629.09     0.00    0.00  -10.62
+   4    0.00    0.00 -315.01     0.00    0.00  299.30     0.00    0.00  -15.71
+   5    0.00    0.00  315.01     0.00    0.00 -299.30     0.00    0.00   15.71
+
+2k
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  583.87     0.00    0.00 -576.38     0.00    0.00    7.49
+   3    0.00    0.00 -583.87     0.00    0.00  576.38     0.00    0.00   -7.49
+   4    0.00    0.00 -284.88     0.00    0.00  271.81     0.00    0.00  -13.07
+   5    0.00    0.00  284.88     0.00    0.00 -271.81     0.00    0.00   13.07
+
+1kopt+pwemax=2
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  640.42     0.00    0.00 -632.42     0.00    0.00    8.00
+   3    0.00    0.00 -640.42     0.00    0.00  632.42     0.00    0.00   -8.00
+   4    0.00    0.00 -303.18     0.00    0.00  289.88     0.00    0.00  -13.30
+   5    0.00    0.00  303.18     0.00    0.00 -289.88     0.00    0.00   13.30
+ Maximum Harris force = 13.3 mRy/au (site 5)  Max eval correction = 0.2
+
+1kopt+pwemax=4
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00  898.79     0.00    0.00 -890.53     0.00    0.00    8.27
+   3    0.00    0.00 -898.79     0.00    0.00  890.53     0.00    0.00   -8.27
+   4    0.00    0.00 -409.44     0.00    0.00  396.04     0.00    0.00  -13.40
+   5    0.00    0.00  409.44     0.00    0.00 -396.04     0.00    0.00   13.40
+
+1kopt+pwemax=4
+ Forces, with eigenvalue correction
+  ib           estatic                  eigval                    total
+   1    0.00    0.00    0.00     0.00    0.00    0.00     0.00    0.00    0.00
+   2    0.00    0.00 1129.27     0.00    0.00-1121.27     0.00    0.00    8.01
+   3    0.00    0.00-1129.27     0.00    0.00 1121.27     0.00    0.00   -8.01
+   4    0.00    0.00 -455.18     0.00    0.00  441.81     0.00    0.00  -13.37
+   5    0.00    0.00  455.18     0.00    0.00 -441.81     0.00    0.00   13.37
+ Maximum Harris force = 13.4 mRy/au (site 5)  Max eval correction = 0.7
+
+
 {:/comment}
+
