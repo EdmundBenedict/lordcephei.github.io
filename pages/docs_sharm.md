@@ -44,7 +44,7 @@ The <i>Y<sub>lm</sub></i> and Y<i><sub>lm</sub></i> are related as follows:
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
 \qquad\qquad\qquad
-\quad\quad\quad\quad\quad\enskip (1)
+\quad\quad\quad\quad\quad\ (1)
 \\
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
@@ -63,7 +63,7 @@ Or equivalently,
 $$
 \mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
 \qquad\qquad\qquad
-\quad\quad\quad\quad\quad\enskip (4)
+\quad\quad\quad\quad\quad\ (4)
 \\
 \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
            [ Y_{lm}(\hat{\bf r}) + iY_{l-m}(\hat{\bf r}) ]
