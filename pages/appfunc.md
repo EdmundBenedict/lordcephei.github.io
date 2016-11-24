@@ -101,6 +101,8 @@ The test case
 
 demonstrates the method to obtain results for a metallic system.
 
+See [Table of Contents](/functionality/application/#table-of-contents)
+
 ##### _Obtaining a self-energy in Dynamical Mean Field Theory_
 
 See [this document](/docs/code/dmftoverview/) and [this tutorial](/tutorial/qsgw_dmft/dmft0/).
@@ -113,8 +115,13 @@ See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/appl
 
 ##### _Spectral Functions_
 
-For spectral functions based on the ASA Green's functions, see
-[this document](/docs/code/cpadoc/)
+For spectral functions based on the ASA Green's functions, in
+particular spectral functions in the context of the Coherent Potential
+Approximation, see [this document](/docs/code/cpadoc/).  For spectral
+functions from _GW_, see
+[this tutorial](/tutorial/gw/gw_self_energy/).  For those in Dynamical
+Mean Field Theory, see
+[the DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ##### _Molecular Statics_
 
@@ -142,13 +149,17 @@ For spectral functions based on the ASA Green's functions, see
 
 See [this web page](/docs/numerics/bzintegration/).
 
+See [Table of Contents](/functionality/application/#table-of-contents)
+
 ##### _Adding a Homogenous Background_
 
 ##### _Building a Supercell_
 
-##### _Band Edge Finder_
+##### _Band Edge and Effective Mass Finder_
 
-See [this tutorial](/tutorial/lmf/lmf_bandedge/)
+Finding band edges in complex semiconductors and insulators can be a tedious exercise.
+[This tutorial](/tutorial/lmf/lmf_bandedge/) explains a tool that automates the process
+and also gives effective mass tensors around band extrema.
 
 ##### _Point Defects in Large Supercells_
 
@@ -173,13 +184,13 @@ how to specify rotations.
 Lattice data (lattice vectors and site positions) can be read in different
 ways.  See [this page](/docs/input/sitefile/).
 
-##### _Ordering of m Quantum Numbers for a given l_
+##### _Ordering of Angular Momentum Quantum Numbers _l_ and _m_
 
-The Questaal codes use real harmonics <i>Y<sub>lm</sub></i>.
-The <i>Y<sub>lm</sub></i> are functions of solid angle, while
-<i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and _z_.
-These polynomials (apart from a normalization) are ordered as follows
-for _l_=0&hellip;3:
+The Questaal codes use real harmonics <i>Y<sub>lm</sub></i>.  The
+<i>Y<sub>lm</sub></i> are functions of solid angle, while
+<i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and
+_z_.  These polynomials (apart from a normalization) are ordered as
+follows for _l_=0&hellip;3:
 
    |-|-|-|-|
   index  | l |   m |    polynomial
@@ -200,3 +211,5 @@ for _l_=0&hellip;3:
      14  | 3 |   1 |       <i>x</i>(5<i>z</i><sup>2</sup>&minus;1)
      15  | 3 |   2 |       <i>z</i>(<i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>)
      16  | 3 |   3 |       <i>x</i>(<i>x</i><sup>2</sup>&minus;3<i>y</i><sup>2</sup>)
+
+See [Table of Contents](/functionality/application/#table-of-contents)
