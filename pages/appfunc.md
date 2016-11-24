@@ -99,15 +99,22 @@ The test case
 
     $ gwd/test/test.gwd fe 1
 
-Demonstrates the method to obtain results for a metallic system
+demonstrates the method to obtain results for a metallic system.
 
-##### _Obtaining a self-energy in Dynamiccal Mean Field Theory_
+##### _Obtaining a self-energy in Dynamical Mean Field Theory_
+
+See [this document](/docs/code/dmftoverview/) and [this tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ##### _Dielectric Response and Optics_
+
+See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/application/optics/)
 
 ##### _Spin Susceptibility and Magnetic Exchange Interactions_
 
 ##### _Spectral Functions_
+
+For spectral functions based on the ASA Green's functions, see
+[this document](/docs/code/cpadoc/)
 
 ##### _Molecular Statics_
 
@@ -171,7 +178,6 @@ ways.  See [this page](/docs/input/sitefile/).
 The Questaal codes use real harmonics <i>Y<sub>lm</sub></i>.
 The <i>Y<sub>lm</sub></i> are functions of solid angle, while
 <i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and _z_.
-
 These polynomials (apart from a normalization) are ordered as follows
 for _l_=0&hellip;3:
 
