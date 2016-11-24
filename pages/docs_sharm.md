@@ -70,12 +70,10 @@ $$
 
 $$
  \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
-           [ Y_{lm}(\hat{\bf r}) + iy_{l-m}(\hat{\bf r}) ]. \\
+           [ Y_{lm}(\hat{\bf r}) + iy_{l-m}(\hat{\bf r}) ]
 \quad\quad\quad\quad (5)
-$$
-
-$$
- \mathrm{Y}_{l-m}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
+\\
+\mathrm{Y}_{l-m}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ Y_{lm}(\hat{\bf r}) - iy_{l-m}(\hat{\bf r}) ].
 \quad\quad\quad\quad (6)
 $$
@@ -97,7 +95,7 @@ See\\
 Princeton University Press, 1960,\\
 (2) M.E.Rose, Elementary Theory of angular Momentum,
 John Wiley \& Sons, INC. 1957,\\
-(3) Jackson, Electrodynamics.\\
+(3) Jackson, Electrodynamics.
 
 Definitions (7) and (8) of spherical harmonics are the same in these books.
 Jackson's definition of $$P_l^m$$ differs by a phase factor $$(-1)^m$$, 
