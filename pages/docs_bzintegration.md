@@ -26,7 +26,7 @@ A uniform mesh is the optimal general purpose quadrature for analytic, periodic 
     
 $$f(x)=\Sigma_{i=0:n-1} C_{i}cos(2\pi ix/L) + S_{i}sin(2\pi ix/L)$$
 
-for a function periodic in *L*.      
+for a function periodic in *L*.
 
 Thus when integrating analytic functions, such as the single particle sum for the energy bands of an insulator, the uniform mesh is a good general purpose quadrature. In order to return the discussion to the three dimensional BZ, make the substitution $i \if G$ where **G** is a reciprocal lattice vector (some integer multiple of $G_{1}$, $G_{2}$, $G_{3}$). The band energy can be represented in a Fourier series 
 

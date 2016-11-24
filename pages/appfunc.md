@@ -94,7 +94,7 @@ Density of states relates heavily to other topics. You may want to take a look a
 	
 *   k-resolved DoS
 
-##### _Obtaining quasipartice energy bands from 1-shot GW_
+##### _Obtaining quasiparticle Energy Bands From 1-shot GW_
 The test case
 
     $ gwd/test/test.gwd fe 1
@@ -103,13 +103,13 @@ demonstrates the method to obtain results for a metallic system.
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
-##### _Obtaining a self-energy in Dynamical Mean Field Theory_
+##### _Obtaining a Self-Energy in Dynamical Mean Field Theory_
 
 See [this document](/docs/code/dmftoverview/) and [this tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ##### _Dielectric Response and Optics_
 
-See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/application/optics/)
+See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/application/optics/).
 
 ##### _Spin Susceptibility and Magnetic Exchange Interactions_
 
@@ -117,11 +117,11 @@ See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/appl
 
 For spectral functions based on the ASA Green's functions, in
 particular spectral functions in the context of the Coherent Potential
-Approximation, see [this document](/docs/code/cpadoc/).  For spectral
+Approximation, see [this document](/docs/code/spectral-functions/).  For spectral
 functions from _GW_, see
 [this tutorial](/tutorial/gw/gw_self_energy/).  For those in Dynamical
-Mean Field Theory, see
-[the DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
+Mean Field Theory, see the
+[DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ##### _Molecular Statics_
 
@@ -153,13 +153,13 @@ See [Table of Contents](/functionality/application/#table-of-contents)
 
 ##### _Adding a Homogenous Background_
 
-##### _Building a Supercell_
-
 ##### _Band Edge and Effective Mass Finder_
 
 Finding band edges in complex semiconductors and insulators can be a tedious exercise.
 [This tutorial](/tutorial/lmf/lmf_bandedge/) explains a tool that automates the process
 and also gives effective mass tensors around band extrema.
+
+##### _Building a Supercell_
 
 ##### _Point Defects in Large Supercells_
 
@@ -167,12 +167,12 @@ and also gives effective mass tensors around band extrema.
 
 ##### _Spin Dynamics_
 
-##### _How The Code Defines Integer Lists in Various Contexts_
+##### _How to Make Integer Lists in Various Contexts_
 
 The syntax for integer lists is described [here](/docs/input/integerlists/).
 In some contexts lists can consist of real numbers.  The same rules apply.
 
-##### _How The Code Defines Rotations in Various Contexts_
+##### _How to Define Rotations in Various Contexts_
 
 Rotations are used for crystal axes, spin quantization axes, and in 
 a few other contexts.  They are constructed by a succession of angles
@@ -184,7 +184,7 @@ how to specify rotations.
 Lattice data (lattice vectors and site positions) can be read in different
 ways.  See [this page](/docs/input/sitefile/).
 
-##### _Ordering of Angular Momentum Quantum Numbers _l_ and _m_
+##### _Ordering of Angular Momentum Quantum Numbers_ l _and_ m
 
 The Questaal codes use real harmonics <i>Y<sub>lm</sub></i>.  The
 <i>Y<sub>lm</sub></i> are functions of solid angle, while
