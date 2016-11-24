@@ -44,15 +44,11 @@ The <i>Y<sub>lm</sub></i> and Y<i><sub>lm</sub></i> are related as follows:
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
  \quad\quad\quad\quad (1)
-$$
-
-$$
+\\
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
  \quad\quad\quad\quad (2)
-$$
-
-$$
+\\
  Y_{l-m}(\hat{\bf r})
   \equiv \frac{1}{\sqrt{2}i}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) - \mathrm{Y}_{l-m}(\hat{\bf r}) ].
@@ -66,7 +62,7 @@ Or equivalently,
 $$
 \mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
 \qquad\qquad\qquad
-\quad\quad\quad\quad (4)
+\quad\quad\quad\quad\quad (4)
 \\
 \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
            [ Y_{lm}(\hat{\bf r}) + iY_{l-m}(\hat{\bf r}) ]
@@ -81,7 +77,7 @@ The definition of $$\mathrm{Y}_{lm}(\hat{\bf r})$$ are
 
 $$
 \mathrm{Y}_{lm}(\theta, \phi)
-=(-1)^m \left[ \frac{(2l+1)(l-m)!}{4 \pi (l+m)!} \right]^{\frac{1}{2}} P^m_l(\cos(\theta)) e^{i m \phi}, \\
+=(-1)^m \left[ \frac{(2l+1)(l-m)!}{4 \pi (l+m)!} \right]^{\frac{1}{2}} P^m_l(\cos(\theta)) e^{i m \phi},
 \quad\quad\quad\quad (7)
 \\
 P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
@@ -92,7 +88,7 @@ See\\
 (1) A.R.Edmonds, Angular Momentum in quantum Mechanics, 
 Princeton University Press, 1960,\\
 (2) M.E.Rose, Elementary Theory of angular Momentum,
-John Wiley \& Sons, INC. 1957,\\
+John Wiley & Sons, INC. 1957,\\
 (3) Jackson, Electrodynamics.
 
 Definitions (7) and (8) of spherical harmonics are the same in these books.
