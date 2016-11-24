@@ -5,7 +5,7 @@ permalink: "/docs/numerics/spherical_harmonics/"
 header: no
 ---
 
-Objects with basis sets defined 
+Questaal objects with basis sets defined 
 by spherical harmonics, such as LMTOs, order the harmonics as
 <i>m</i>=&minus;<i>l</i>, &minus;<i>l</i>+1, &hellip; 0, &hellip; <i>l</i>.
 
@@ -53,7 +53,7 @@ $$
  Y_{l-m}(\hat{\bf r})
   \equiv \frac{1}{\sqrt{2}i}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) - \mathrm{Y}_{l-m}(\hat{\bf r}) ].
-\quad\quad\quad (3)
+\quad\quad\quad\, (3)
 $$
 
 where $$m>0$$. 
@@ -99,8 +99,8 @@ but his $$\mathrm{Y}_{lm}$$ are the same as Eq. 7.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Associated_Legendre_polynomials) follows Jackson's convention for $$P_l^m$$.
 
-Wikipedia (wiki/Spherical\_harmonics) refer to a ``quantum
-qmechanics'' defnition of spherical harmonics (following Messiah;
+Wikipedia (wiki/Spherical\_harmonics) refer to a "quantum
+mechanics" defnition of spherical harmonics (following Messiah;
 Tannoudji).  It differs from Jackson by a factor $$(-1)^m$$.  This is
 apparently the definition K. Haule uses in his CTQMC code.
 
