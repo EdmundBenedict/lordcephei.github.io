@@ -65,16 +65,15 @@ Or equivalently,
 
 $$
 \mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
+\qquad
 \quad\quad\quad\quad (4)
-$$
-
-$$
- \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
-           [ Y_{lm}(\hat{\bf r}) + iy_{l-m}(\hat{\bf r}) ]
+\\
+\mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
+           [ Y_{lm}(\hat{\bf r}) + iY_{l-m}(\hat{\bf r}) ]
 \quad\quad\quad\quad (5)
 \\
 \mathrm{Y}_{l-m}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
-           [ Y_{lm}(\hat{\bf r}) - iy_{l-m}(\hat{\bf r}) ].
+           [ Y_{lm}(\hat{\bf r}) - iY_{l-m}(\hat{\bf r}) ].
 \quad\quad\quad\quad (6)
 $$
 
