@@ -5,23 +5,41 @@ permalink: "/docs/numerics/spherical_harmonics/"
 header: no
 ---
 
-### _Table of Contents_
-{:.no_toc}
-*  Auto generated table of contents
-{:toc} 
-
-### _Documentation_
-_____________________________________________________________
-
-
 Objects with basis sets defined 
-by spherical harmonics, such as LMTOs, order the spherical harmonics as
+by spherical harmonics, such as LMTOs, order the harmonics as
 <i>m</i>=&minus;<i>l</i>, &minus;<i>l</i>+1, &hellip; 0, &hellip; <i>l</i>.
 
-The Questaal codes uses real harmonics $$Y_{lm}(\hat{\bf r})$$,
+The Questaal codes use real harmonics $$Y_{lm}(\hat{\bf r})$$,
 instead of the usual spherical (complex) harmonics $$\mathrm{Y}_{lm}(\hat{\bf r})$$.
-They are related as follows:
+The
+<i>Y<sub>lm</sub></i> are functions of solid angle, while
+<i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and
+_z_.  These polynomials (apart from a normalization) are ordered as
+follows for _l_=0&hellip;3:
 
+   |-|-|-|-|
+  index  | l |   m |    polynomial
+   |-:|-|-:|:-
+     1   | 0 |   0 |       1
+     2   | 1 |  -1 |       _y_
+     3   | 1 |   0 |       _z_
+     4   | 1 |   1 |       _x_
+     5   | 2 |  -2 |       _xy_
+     6   | 2 |  -1 |       _yz_
+     7   | 2 |   0 |       3_z_<sup>2</sup>&minus;1
+     8   | 2 |   1 |       <i>xz</i>
+     9   | 2 |   2 |       <i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>
+     10  | 3 |  -3 |       <i>y</i>(3<i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>)
+     11  | 3 |  -2 |       <i>xyz</i>
+     12  | 3 |  -1 |       <i>y</i>(5<i>z</i><sup>2</sup>&minus;1)
+     13  | 3 |   0 |       <i>z</i>(5<i>z</i><sup>2</sup>&minus;3)
+     14  | 3 |   1 |       <i>x</i>(5<i>z</i><sup>2</sup>&minus;1)
+     15  | 3 |   2 |       <i>z</i>(<i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>)
+     16  | 3 |   3 |       <i>x</i>(<i>x</i><sup>2</sup>&minus;3<i>y</i><sup>2</sup>)
+
+
+
+The <i>Y<sub>lm</sub></i> and Y<i><sub>lm</sub></i> are related as follows:
 
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
