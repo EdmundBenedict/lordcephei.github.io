@@ -175,7 +175,9 @@ The <i>Y<sub>lm</sub></i> are functions of solid angle, while
 These polynomials (apart from a normalization) are ordered as follows
 for _l_=0&hellip;3:
 
+   |-|-|-|-|
   index  | l |   m |    polynomial
+   |-:|-|-:|:-
      1   | 0 |   0 |       1
      2   | 1 |  -1 |       _y_
      3   | 1 |   0 |       _z_
