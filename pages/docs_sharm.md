@@ -44,7 +44,7 @@ The <i>Y<sub>lm</sub></i> and Y<i><sub>lm</sub></i> are related as follows:
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
 \qquad\qquad\qquad
-\quad\quad\quad\quad\quad\ (1)
+\quad\quad\quad\quad\quad\quad\ (1)
 \\
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
@@ -53,7 +53,7 @@ $$
  Y_{l-m}(\hat{\bf r})
   \equiv \frac{1}{\sqrt{2}i}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) - \mathrm{Y}_{l-m}(\hat{\bf r}) ].
- \quad\quad\quad\quad (3)
+\quad\quad\quad (3)
 $$
 
 where $$m>0$$. 
@@ -79,10 +79,10 @@ The definition of $$\mathrm{Y}_{lm}(\hat{\bf r})$$ are
 $$
 \mathrm{Y}_{lm}(\theta, \phi)
 =(-1)^m \left[ \frac{(2l+1)(l-m)!}{4 \pi (l+m)!} \right]^{\frac{1}{2}} P^m_l(\cos(\theta)) e^{i m \phi},
-\quad (7)
+\ (7)
 \\
 P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
-\qquad
+\qquad\qquad
 \quad\quad\quad\quad (8)
 $$
 
