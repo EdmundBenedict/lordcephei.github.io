@@ -10,10 +10,6 @@ header: no
 *  Auto generated table of contents
 {:toc} 
 
-### _Purpose_
-_____________________________________________________________
-{:.no_toc}
-
 ### _Documentation_
 _____________________________________________________________
 
@@ -24,49 +20,61 @@ by spherical harmonics, such as LMTOs, order the spherical harmonics as
 
 The Questaal codes uses real harmonics $$Y_{lm}(\hat{\bf r})$$,
 instead of the usual spherical (complex) harmonics $$\mathrm{Y}_{lm}(\hat{\bf r})$$.
+They are related as follows:
+
 
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
+ \quad\quad\quad\quad (1)
 $$
 
 $$
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
+ \quad\quad\quad\quad (2)
 $$
 
 $$
  Y_{l-m}(\hat{\bf r})
   \equiv \frac{1}{\sqrt{2}i}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) - \mathrm{Y}_{l-m}(\hat{\bf r}) ].
+ \quad\quad\quad\quad (3)
 $$
 
 where $$m>0$$. 
 
 Or equivalently,
-\begin{equation}
- \mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
-\end{equation}
 
-\begin{equation}
+$$
+\mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
+\quad\quad\quad\quad (4)
+$$
+
+$$
  \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
            [ Y_{lm}(\hat{\bf r}) + iy_{l-m}(\hat{\bf r}) ]. \\
-\end{equation}
+\quad\quad\quad\quad (5)
+$$
 
-\begin{equation}
+$$
  \mathrm{Y}_{l-m}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ Y_{lm}(\hat{\bf r}) - iy_{l-m}(\hat{\bf r}) ].
-\end{equation}
+\quad\quad\quad\quad (6)
+$$
 
 The definition of $$\mathrm{Y}_{lm}(\hat{\bf r})$$ are
-\begin{equation}
+
+$$
 \mathrm{Y}_{lm}(\theta, \phi)
 =(-1)^m \left[ \frac{(2l+1)(l-m)!}{4 \pi (l+m)!} \right]^{\frac{1}{2}} P^m_l(\cos(\theta)) e^{i m \phi}, \\
-\end{equation}
-\begin{equation}
-P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
-\end{equation}
+ \quad\quad\quad\quad (1)
+$$
 
-\noindent See\\
+$$
+P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
+$$
+
+See\\
 (1) A.R.Edmonds, Angular Momentum in quantum Mechanics, 
 Princeton University Press, 1960,\\
 (2) M.E.Rose, Elementary Theory of angular Momentum,
