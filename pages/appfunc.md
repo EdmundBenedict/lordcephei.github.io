@@ -133,15 +133,17 @@ Demonstrates the method to obtain results for a metallic system
 
 ##### _Techniques for Brillouin Zone Integration_
 
+See [this web page](/docs/numerics/bzintegration/).
+
 ##### _Adding a Homogenous Background_
 
 ##### _Building a Supercell_
 
 ##### _Band Edge Finder_
 
-##### _Point Defects in Large Supercells_
+See [this tutorial](/tutorial/lmf/lmf_bandedge/)
 
-##### _Rotate The Crystal Coordinates_
+##### _Point Defects in Large Supercells_
 
 ##### _Special Quasirandom Structures_
 
@@ -149,8 +151,44 @@ Demonstrates the method to obtain results for a metallic system
 
 ##### _How The Code Defines Integer Lists in Various Contexts_
 
+The syntax for integer lists is described [here](/docs/input/integerlists/).
+In some contexts lists can consist of real numbers.  The same rules apply.
+
 ##### _How The Code Defines Rotations in Various Contexts_
+
+Rotations are used for crystal axes, spin quantization axes, and in 
+a few other contexts.  They are constructed by a succession of angles
+around specified axes.  [This page](/docs/input/rotations/) explains
+how to specify rotations.
 
 ##### _How Site Positions are Read by the Input File_
 
+Lattice data (lattice vectors and site positions) can be read in different
+ways.  See [this page](/docs/input/sitefile/).
+
 ##### _Ordering of m Quantum Numbers for a given l_
+
+The Questaal codes use real harmonics <i>Y<sub>lm</sub></i>.
+The <i>Y<sub>lm</sub></i> are functions of solid angle, while
+<i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and _z_.
+
+These polynomials (apart from a normalization) are ordered as follows
+for _l_=0&hellip;3:
+
+  index  | l |   m |    polynomial
+     1   | 0 |   0 |       1
+     2   | 1 |  -1 |       _y_
+     3   | 1 |   0 |       _z_
+     4   | 1 |   1 |       _x_
+     5   | 2 |  -2 |       _xy_
+     6   | 2 |  -1 |       _yz_
+     7   | 2 |   0 |       3_z_<sup>2</sup>&minus;1
+     8   | 2 |   1 |       <i>xz</i>
+     9   | 2 |   2 |       <i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>
+     10  | 3 |  -3 |       <i>y</i>(3<i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>)
+     11  | 3 |  -2 |       <i>xyz</i>
+     12  | 3 |  -1 |       <i>y</i>(5<i>z</i><sup>2</sup>&minus;1)
+     13  | 3 |   0 |       <i>z</i>(5<i>z</i><sup>2</sup>&minus;3)
+     14  | 3 |   1 |       <i>x</i>(5<i>z</i><sup>2</sup>&minus;1)
+     15  | 3 |   2 |       <i>z</i>(<i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup>)
+     16  | 3 |   3 |       <i>x</i>(<i>x</i><sup>2</sup>&minus;3<i>y</i><sup>2</sup>)
