@@ -88,16 +88,16 @@ $$
 
 See\\
 (1) A.R.Edmonds, Angular Momentum in quantum Mechanics, 
-Princeton University Press, 1960,\\
+Princeton University Press, 1960\\
 (2) M.E.Rose, Elementary Theory of angular Momentum,
-John Wiley & Sons, INC. 1957,\\
+John Wiley & Sons, INC. 1957\\
 (3) Jackson, Electrodynamics.
 
 Definitions (7) and (8) of spherical harmonics are the same in these books.
 Jackson's definition of $$P_l^m$$ differs by a phase factor $$(-1)^m$$, 
 but his $$\mathrm{Y}_{lm}$$ are the same as Eq. 7.
 
-Wikipedia (wiki/Associated\_Legendre\_polynomials) follows Jackson's convention for $$P_l^m$$.
+[Wikipedia](https://en.wikipedia.org/wiki/Associated_Legendre_polynomials) follows Jackson's convention for $$P_l^m$$.
 
 Wikipedia (wiki/Spherical\_harmonics) refer to a ``quantum
 qmechanics'' defnition of spherical harmonics (following Messiah;
