@@ -18,27 +18,27 @@ _____________________________________________________________
 _____________________________________________________________
 
 
+Objects with basis sets defined 
+by spherical harmonics, such as LMTOs, order the spherical harmonics as
+<i>m</i>=&minus;<i>l</i>, &minus;<i>l</i>+1, &hellip; 0, &hellip; <i>l</i>.
+
 The Questaal codes uses real harmonics $$Y_{lm}(\hat{\bf r})$$,
 instead of the usual spherical (complex) harmonics $$\mathrm{Y}_{lm}(\hat{\bf r})$$.
 
-Hamiltonians, eigenfunctions, and objects with basis sets defined 
-by spherical harmonics (e.g. LMTOs) order them as
-<i>m</i>=&minus;<i>l</i>, &minus;<i>l</i>+1, &hellip; 0, &hellip; <i>l</i>.
-
-\begin{equation}
+$$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
-\end{equation}
+$$
 
-\begin{equation}
+$$
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
-\end{equation}
+$$
 
-\begin{equation}
+$$
  Y_{l-m}(\hat{\bf r})
   \equiv \frac{1}{\sqrt{2}i}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) - \mathrm{Y}_{l-m}(\hat{\bf r}) ].
-\end{equation}
+$$
 
 where $$m>0$$. 
 
