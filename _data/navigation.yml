@@ -105,6 +105,8 @@
       content:
       - title: "Brillouin zone integration"
         url: "/bzintegration/"
+      - title: "Definition of Spherical Harmonics"
+        url: "/spherical_harmonics/"
   - title: "Error Messages"
     url: "/error_messages/"
 
