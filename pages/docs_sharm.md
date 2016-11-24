@@ -44,7 +44,7 @@ The <i>Y<sub>lm</sub></i> and Y<i><sub>lm</sub></i> are related as follows:
 $$
  Y_{l0}(\hat{\bf r}) \equiv \mathrm{Y}_{l0}(\hat{\bf r})
 \qquad\qquad\qquad
-\quad\quad\quad\quad\quad\quad\ (1)
+\quad\quad\quad\quad\quad\quad\quad (1)
 \\
  Y_{lm}(\hat{\bf r}) \equiv \frac{1}{\sqrt{2}}
            [ (-1)^m \mathrm{Y}_{lm}(\hat{\bf r}) + \mathrm{Y}_{l-m}(\hat{\bf r}) ].
@@ -83,7 +83,7 @@ $$
 \\
 P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
 \qquad\qquad
-\quad\quad\quad\quad (8)
+\quad\quad\quad\ (8)
 $$
 
 See\\
