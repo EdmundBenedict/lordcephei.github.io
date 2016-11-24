@@ -65,7 +65,7 @@ Or equivalently,
 
 $$
 \mathrm{Y}_{l0}(\hat{\bf r}) \equiv Y_{l0}(\hat{\bf r})
-\qquad
+\qquad\qquad\qquad
 \quad\quad\quad\quad (4)
 \\
 \mathrm{Y}_{lm}(\hat{\bf r}) \equiv \frac{(-1)^m}{\sqrt{2}}
@@ -82,11 +82,10 @@ The definition of $$\mathrm{Y}_{lm}(\hat{\bf r})$$ are
 $$
 \mathrm{Y}_{lm}(\theta, \phi)
 =(-1)^m \left[ \frac{(2l+1)(l-m)!}{4 \pi (l+m)!} \right]^{\frac{1}{2}} P^m_l(\cos(\theta)) e^{i m \phi}, \\
- \quad\quad\quad\quad (1)
-$$
-
-$$
+\quad\quad\quad\quad (7)
+\\
 P^m_l(x) = \frac{(1-x^2)^{m/2}}{2^l l!}\frac{d^{l+m} \ \ }{dx^{l+m}} (x^2-1)^l
+\quad\quad\quad\quad (8)
 $$
 
 See\\
