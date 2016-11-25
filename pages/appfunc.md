@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Questaal Functionalities by Physical Application"
+title: "Questaal Functionalities by Physical Property"
 permalink: "/functionality/application/"
 header: no
 ---
@@ -8,12 +8,12 @@ header: no
 ### _Purpose_
 {:.no_toc}
 _____________________________________________________________
-This page serves as a list of the capabilities of the Questaal suite organized by physical application.
+This page capabilities of the Questaal suite organized by physical property.
 
-____________________________________________________________
 
 ### _Table of Contents_
 {:.no_toc}
+____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
@@ -25,28 +25,29 @@ _____________________________________________________________
 This page points to a number of capabilities in the Questaal package.
 A detailed explanation of the capabilities of each package within the suite can be found on the [package page](/docs/package_overview/).
 
-Where tutorials exists that explain a feature in more detail, this page will point them.
-Tutorials do not yet exist for many features.  As a stopgap, this page refers to
-a script in the source directory that illustrates the feature.  For definiteness, we assume that the
-source directory is called _~/lm_{: style="color: green"}.
+Where tutorials exists that explain a feature in some detail, this page will point to them.
+However, tutorials do not yet exist for many features.
+
+As a stopgap, this page refers to a script in the source directory that tests the feature.
+For definiteness, we assume that the source directory is called _~/lm_{: style="color: green"}.
 
 ### _Drawing Energy Bands_
 _____________________________________________________________
-Energy bands can be drawn with the _lmf_{: style="color: blue"}, _lm_{: style="color: blue"}, _tbe_{: style="color: blue"}, _lmgf_{: style="color: blue"} and _lumpy_{: style="color: blue"} codes.
+Energy bands can be drawn with the **lmf**{: style="color: blue"}, **lm**{: style="color: blue"}, **tbe**{: style="color: blue"}, **lmgf**{: style="color: blue"} and **lumpy**{: style="color: blue"} codes.
 
-The _lmf_{: style="color: blue"} code can generate energy bands as shown in the test
+**lmf**{: style="color: blue"} can generate energy bands as shown in this test:
 
     $ ~/lm/fp/test/test.fp co
 
 ### _Drawing Fermi Surfaces_
 _____________________________________________________________
-Fermi surfaces can be drawn with the _lmf_{: style="color: blue"} and _lm_{: style="color: blue"} codes.
-An illustration can be found here
+Fermi surfaces can be drawn with the **lmf***{: style="color: blue"} and **lm**{: style="color: blue"} codes.
+An illustration can be found here:
 
 
     $ ~/lm/fp/test/test.fp fe 1
 
-You can perform the steps by hand:
+Alternatively, perform the steps by hand:
 
 ~~~
 $ cp ~/lm/fp/test/ctrl.fe ~/lm/fp/test/fs.fe .
@@ -58,18 +59,19 @@ $ fplot -f ~/lm/fp/test/plot.fs0
 ~~~
 
 ### _Density Of States_
-All of the codes have some ability to generate either total Density of States (DOS), and
+All of the band codes have the ability to generate the total Density of States (DOS), and most
 can resolve them in different ways.
 
-Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz)
-to true.  They are written to file _dos.ext_{: style="color: green"}, one DOS
-in the nonmagnetic case and two in the spin-polarized case.\\
+Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz). 
+DOS are written to file _dos.ext_{: style="color: green"} (one DOS
+in the nonmagnetic case and two in the spin-polarized case).\\
 _Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](/docs/input/inputfile/#bz) is zero.
 
-The **pldos**{: style="color: blue"} tool will render _dos.ext_{: style="color: green"} into more user friendly formats, and perform other
-functions.
+The [**pldos**{: style="color: blue"}](/docs/misc/pldos/) tool will render _dos.ext_{: style="color: green"} into more user friendly
+formats, and perform other functions.
 
-_lmf_{: style="color: blue"} and _lm_{: style="color: blue"} can generate a partial DOS with the [-\-pdos](/docs/input/commandline/#pdos) switch.
+**lmf**{: style="color: blue"} and **lm**{: style="color: blue"} can generate partial densities-of-states with the
+  [-\-pdos](/docs/input/commandline/#pdos) switch.
 
 #### _lmf_
 
@@ -80,7 +82,9 @@ and resolve DOS by wave number <b>k</b>, as part of the [optics package](/applic
 
 #### _lm_
 
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pdos).
+A detailed tutorial for **lm**{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pdos).
+
+Features of the optics package also work with **lm**{: style="color: blue"}.
 
 ### _Mulliken Analysis and Core Level Spectroscopy_
 _____________________________________________________________
@@ -88,17 +92,19 @@ _____________________________________________________________
 
 Mulliken Analysis and Core Level Spectroscopy are are closely related to densities of states.
 
-The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using switches
-**-\-mull** or **-\-cls**.  **-\-mull**  is very similar to **-\-pdos**.  Both resolve the total DOS into projections:
-**-\-pdos** projects onto [partial waves](/docs/package_overview/#linear-methods-in-band-theory "linear methods") in augmentation spheres;
-**-\-mull** projects onto basis functions.
+The **lmf**{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using switches
+**-\-mull** or **-\-cls**.  **-\-mull**  is very similar to **-\-pdos**:  both resolve the total DOS into projections.
+
++ **-\-pdos** projects onto [partial waves](/docs/package_overview/#linear-methods-in-band-theory "linear methods") in augmentation spheres
++ **-\-mull** projects onto basis functions.
+
 Both switches have several options; for **-\-mull**  see [here](/docs/input/commandline/#pdos); for **-\-cls**  see [here](/docs/input/commandline/#cls).
 
 A usage guide for Mulliken analysis, including how the switch is
 actually used, can be found [here](/tutorial/lmf/mulliken/).  For core-level spectroscopy,
 see [this tutorial](/tutorial/lmf/cls/).
 
-For k-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
+For _k_-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
 
     $ ~/lm/fp/test/test.fp fe 1
 
@@ -125,33 +131,34 @@ See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/appl
 ### _Spin Susceptibility and Magnetic Exchange Interactions_
 _____________________________________________________________
 
-See [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
+For spin susceptibility in the ASA-Green's function scheme, see [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
+
+For a demonstration of the transverse susceptibility in the _GW_ frameowork, try
+
+    $ gwd/test/test.gwd zbmnas 6
 
 ### _Properties of Disordered Materials and the Coherent Potential Approximation_
 _____________________________________________________________
 
 
-The ASA Green's function code **lmgf**{: style="color: blue"}
-can treat chemical and spin disorder, and both at the same time, with
-the Coherent Potential approximation.  See [this tutorial](/docs/code/cpadoc/).
+The ASA Green's function code **lmgf**{: style="color: blue"} can treat chemical and spin disorder, and both at the same time, with the
+Coherent Potential approximation.  See [this tutorial](/docs/code/cpadoc/).
 
 ### _Spectral Functions_
 _____________________________________________________________
 
+For spectral functions :
 
-For spectral functions based on the ASA Green's functions, in
-particular spectral functions in the context of the Coherent Potential
-Approximation, see [this document](/docs/code/spectral-functions/).  For spectral
-functions from _GW_, see
-[this tutorial](/tutorial/gw/gw_self_energy/).  For those in Dynamical
-Mean Field Theory, see the.
-[DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
++ based on the ASA Green's functions, in particular spectral functions in the context of the Coherent Potential
+  Approximation, see [this document](/docs/code/spectral-functions/).  
++ Calculated from _GW_, see [this tutorial](/tutorial/gw/gw_self_energy/).
++ calculated in Dynamical Mean Field Theory, see the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ### _Molecular Statics_
 _____________________________________________________________
 
 
-For now, see this test
+For a demonstration, see this test
 
     $ ~/lm/fp/test/test.fp te
 
@@ -190,15 +197,42 @@ There are no tutorials as yet.  But try
 ### _Spin Orbit Coupling_
 _____________________________________________________________
 
+There are no tutorials as yet.  But try
+
+    $ ~/lm/fp/test/test.fp felz 4
+    $ ~/lm/fp/test/test.fp coptso
+
 ### _Fully Relativistic Dirac Equation_
 _____________________________________________________________
+
+The Dirac equation is implemented in the ASA, in codes **lm**{: style="color: blue"}
+and **lmgf**{: style="color: blue"}.
+
+**lmfa**{: style="color: blue"} will generate core levels from the Dirac equation.
+Sse [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels).
+
+There is no tutorial as yet.  See this demonstration:
+
+    $ ~/lm/gf/test/test.frgf ni
+
 
 ### _Application of External Scalar Potential_
 _____________________________________________________________
 
+For the **lmf**{: style="color: blue"} code, try the following demonstration:
+
+    $ ~/lm/fp/test/test.fp mgo
 
 ### _Application of External Zeeman B Field_
 _____________________________________________________________
+
+In the ASA, try the following demonstrations
+
+    $ ~/lm/nc/test/test.nc 5 6
+
+In the FP code, try the following demonstration
+
+    $ ~/lm/fp/test/test.fp gdn
 
 ### _Using Functionals Other Than LDA_
 _____________________________________________________________
@@ -210,7 +244,8 @@ _____________________________________________________________
 ### _Techniques for Brillouin Zone Integration_
 _____________________________________________________________
 
-See [this web page](/docs/numerics/bzintegration/).
+Techniques for 
+Brillouin zone integrate are  described some detail [here](/docs/numerics/bzintegration/).
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
