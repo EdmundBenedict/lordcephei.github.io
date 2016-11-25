@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Making the dynamical GW self energy"
+title: "The RPA and RPA+BSE Dielectric functions"
 subheadline: ""
 show_meta: false
 teaser: ""
@@ -42,6 +42,10 @@ Needs filling in
 ### _Introduction_
 
 ### _Dielectric function in the RPA_
+
+#### With local fields
+
+#### Without local fields
 
 ### _Ladder Diagrams_
 
