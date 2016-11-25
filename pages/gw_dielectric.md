@@ -14,7 +14,7 @@ header: no
 _____________________________________________________________
 
 This tutorial explains how to use the _GW_ code to calculate the
-dielectric function &epsilon;(<b>k</b>,<i>&omega;</i>)
+dielectric function <i>&epsilon;</i>(<b>k</b>,<i>&omega;</i>)
 
 ### _Table of Contents_
 _____________________________________________________________
