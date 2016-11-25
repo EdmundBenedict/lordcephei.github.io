@@ -8,7 +8,7 @@ header: no
 ### _Purpose_
 {:.no_toc}
 _____________________________________________________________
-This page serves as a list of the capabilities of the suite sorted by physical application.
+This page serves as a list of the capabilities of the Questaal suite organized by physical application.
 
 ____________________________________________________________
 
@@ -27,7 +27,7 @@ A detailed explanation of the capabilities of each package within the suite can 
 
 Where tutorials exists that explain a feature in more detail, this page will point them.
 Tutorials do not yet exist for many features.  As a stopgap, this page refers to
-a script in the source directory that illustrates the feature.  For the purposes of this page, the
+a script in the source directory that illustrates the feature.  For definiteness, we assume that the
 source directory is called _~/lm_{: style="color: green"}.
 
 ### _Physical Applications_
@@ -59,7 +59,8 @@ $ fplot -f ~/lm/fp/test/plot.fs0
 ~~~
 
 ##### _Density Of States_
-All of the codes have some ability to generate either full or partial Density of States (DOS).
+All of the codes have some ability to generate either total Density of States (DOS), and
+can resolve them in different ways.
 
 Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz)
 to true.  They are written to file _dos.ext_{: style="color: green"}, one DOS
@@ -69,29 +70,29 @@ _Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](
 The **pldos**{: style="color: blue"} tool will render _dos.ext_{: style="color: green"} into more user friendly formats, and perform other
 functions.
 
-_lmf_{: style="color: blue"} and _lm_{: style="color: blue"} can generate a partial DOS with the [-\-pdos](/docs/input/commandline/#pdos)** switch.
+_lmf_{: style="color: blue"} and _lm_{: style="color: blue"} can generate a partial DOS with the [-\-pdos](/docs/input/commandline/#pdos) switch.
 
 ###### _lmf_
 
-For partial dos, see [this tutorial](/tutorial/lmf/pdos/).
+For partial DOS, see [this tutorial](/tutorial/lmf/pdos/).
 
-**lmf**{: style="color: blue"} an also generate joint density-of-states, project DOS onto particular orbitals,
+**lmf**{: style="color: blue"} can also generate joint density-of-states, project DOS onto particular orbitals,
 and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
 
 ###### _lm_
 
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/).
+A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pdos).
 
 ##### _Mulliken Analysis and Core Level Spectroscopy_
 
 Mulliken Analysis and Core Level Spectroscopy are are closely related to densities of states.
 
-The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using the switches
-`--mull` or `--cls`.  Both switches have several options, as documented [here](/docs/input/commandline/#pdos).
+The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using switches
+**-\-mull** or **-\-cls**.  `--mull` is verysimilar to **-\-pdos**.
+Both switches have several options; for **-\-mull**  see [here](/docs/input/commandline/#pdos); for **-\-cls**  see [here](/docs/input/commandline/#cls).
 
-A full usage guide for Mulliken analysis, including how the switch is
-actually used, can be found
-[here](/tutorial/lmf/mulliken/).  For core-level spectroscopy,
+A usage guide for Mulliken analysis, including how the switch is
+actually used, can be found [here](/tutorial/lmf/mulliken/).  For core-level spectroscopy,
 see [this tutorial](/tutorial/lmf/cls/).
 
 For k-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
@@ -119,7 +120,7 @@ See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/appl
 
 See [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
 
-##### _Properties of Disordered Materials and the Coherent Potential Approximation]
+##### _Properties of Disordered Materials and the Coherent Potential Approximation_
 
 The ASA Green's function code **lmgf**{: style="color: blue"}
 can treat chemical and spin disorder, and both at the same time, with
