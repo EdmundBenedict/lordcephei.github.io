@@ -88,7 +88,9 @@ A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [he
 Mulliken Analysis and Core Level Spectroscopy are are closely related to densities of states.
 
 The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using switches
-**-\-mull** or **-\-cls**.  `--mull` is verysimilar to **-\-pdos**.
+**-\-mull** or **-\-cls**.  **-\-mull**  is very similar to **-\-pdos**.  Both resolve the total DOS into projections:
+**-\-pdos** projects onto [partial waves](/docs/package_overview/#linear-methods-in-band-theory "linear methods") in augmentation spheres;
+**-\-mull** projects onto basis functions.
 Both switches have several options; for **-\-mull**  see [here](/docs/input/commandline/#pdos); for **-\-cls**  see [here](/docs/input/commandline/#cls).
 
 A usage guide for Mulliken analysis, including how the switch is
