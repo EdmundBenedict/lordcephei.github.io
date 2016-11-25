@@ -10,8 +10,8 @@ header: no
 ---
 
 ### _Purpose_
+{:.no_toc}
 _____________________________________________________________
-
 
 This tutorial explains how to use the _GW_ code to calculate the
 dielectric function &epsilon;(<b>k</b>,<i>&omega;</i>)
@@ -25,8 +25,8 @@ _____________________________________________________________
 
 
 ### _Preliminaries_
+{:.no_toc}
 _____________________________________________________________
-
 
 This tutorial assumes the GW executables are in **~/bin/code2**.
 
