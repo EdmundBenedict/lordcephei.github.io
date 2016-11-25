@@ -159,6 +159,8 @@
         url: "/qsgw_si/"
       - title: "QSGW Tutorial for Fe"
         url: "/qsgw_fe/"
+      - title: "The Dielectric function"
+        url: "/gw_dielectric/"
       - title: "The GW Self-energy and Spectral Function"
         url: "/gw_self_energy/"
       - title: "1-shot GW tutorial"
