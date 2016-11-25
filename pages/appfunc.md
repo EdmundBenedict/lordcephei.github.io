@@ -186,15 +186,16 @@ ways.  See [this page](/docs/input/sitefile/).
 
 ##### _Angular Momentum in the Questaal suite_
 
-Questaal codes use real harmonics <i>Y<sub>lm</sub></i> by default.
-The ASA codes will, however work with spherical harmonics Y<i><sub>lm</sub></i> 
+Questaal codes use real harmonics <i>Y<sub>lm</sub></i> by default,
+which are real linear combination of spherical harmonics Y<i><sub>lm</sub></i>.
+The ASA codes will, however, use true spherical harmonics
 if you set [**OPTIONS_SHARM**](/docs/input/inputfile/#options) to true.
-
-[This page](/docs/numerics/spherical_harmonics/) 
-documents Questaal's conventions for real and spherical harmonics.
 
 The <i>Y<sub>lm</sub></i> are functions of solid angle, while
 <i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and
-_z_, which are shown for _l_=0&hellip;3: [here](/docs/numerics/spherical_harmonics/) .
+_z_.  [This page](/docs/numerics/spherical_harmonics/) 
+documents Questaal's conventions for real and spherical harmonics.
+and shows the polynomial forms of hte <i>Y<sub>lm</sub></i> 
+for _l_=0&hellip;3.
 
 See [Table of Contents](/functionality/application/#table-of-contents)
