@@ -1,6 +1,6 @@
 ---
 layout: page-fullwidth
-title: "Functionalities Of The Suite By Physical Application"
+title: "Questaal Functionalities by Physical Application"
 permalink: "/functionality/application/"
 header: no
 ---
@@ -30,17 +30,16 @@ Tutorials do not yet exist for many features.  As a stopgap, this page refers to
 a script in the source directory that illustrates the feature.  For definiteness, we assume that the
 source directory is called _~/lm_{: style="color: green"}.
 
-### _Physical Applications_
+### _Drawing Energy Bands_
 _____________________________________________________________
-
-##### _Drawing Energy Bands_
 Energy bands can be drawn with the _lmf_{: style="color: blue"}, _lm_{: style="color: blue"}, _tbe_{: style="color: blue"}, _lmgf_{: style="color: blue"} and _lumpy_{: style="color: blue"} codes.
 
 The _lmf_{: style="color: blue"} code can generate energy bands as shown in the test
 
     $ ~/lm/fp/test/test.fp co
 
-##### _Drawing Fermi Surfaces_
+### _Drawing Fermi Surfaces_
+_____________________________________________________________
 Fermi surfaces can be drawn with the _lmf_{: style="color: blue"} and _lm_{: style="color: blue"} codes.
 An illustration can be found here
 
@@ -58,7 +57,7 @@ $ mc -r:open bnds.fe -shft=0 -w b2 -r:open bnds.fe -shft=0 -w b3 -r:open bnds.fe
 $ fplot -f ~/lm/fp/test/plot.fs0
 ~~~
 
-##### _Density Of States_
+### _Density Of States_
 All of the codes have some ability to generate either total Density of States (DOS), and
 can resolve them in different ways.
 
@@ -72,18 +71,20 @@ functions.
 
 _lmf_{: style="color: blue"} and _lm_{: style="color: blue"} can generate a partial DOS with the [-\-pdos](/docs/input/commandline/#pdos) switch.
 
-###### _lmf_
+#### _lmf_
 
 For partial DOS, see [this tutorial](/tutorial/lmf/pdos/).
 
 **lmf**{: style="color: blue"} can also generate joint density-of-states, project DOS onto particular orbitals,
 and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
 
-###### _lm_
+#### _lm_
 
 A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pdos).
 
-##### _Mulliken Analysis and Core Level Spectroscopy_
+### _Mulliken Analysis and Core Level Spectroscopy_
+_____________________________________________________________
+
 
 Mulliken Analysis and Core Level Spectroscopy are are closely related to densities of states.
 
@@ -101,7 +102,7 @@ For k-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
 
     $ ~/lm/fp/test/test.fp fe 1
 
-##### _Obtaining quasiparticle Energy Bands From 1-shot GW_
+### _Obtaining quasiparticle Energy Bands From 1-shot GW_
 The test case
 
     $ gwd/test/test.gwd fe 1
@@ -110,25 +111,33 @@ demonstrates the method to obtain results for a metallic system.
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
-##### _Obtaining a Self-Energy in Dynamical Mean Field Theory_
+### _Obtaining a Self-Energy in Dynamical Mean Field Theory_
+_____________________________________________________________
+
 
 See [this document](/docs/code/dmftoverview/) and [this tutorial](/tutorial/qsgw_dmft/dmft0/).
 
-##### _Dielectric Response and Optics_
+### _Dielectric Response and Optics_
+_____________________________________________________________
 
 See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/application/optics/).
 
-##### _Spin Susceptibility and Magnetic Exchange Interactions_
+### _Spin Susceptibility and Magnetic Exchange Interactions_
+_____________________________________________________________
 
 See [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
 
-##### _Properties of Disordered Materials and the Coherent Potential Approximation_
+### _Properties of Disordered Materials and the Coherent Potential Approximation_
+_____________________________________________________________
+
 
 The ASA Green's function code **lmgf**{: style="color: blue"}
 can treat chemical and spin disorder, and both at the same time, with
 the Coherent Potential approximation.  See [this tutorial](/docs/code/cpadoc/).
 
-##### _Spectral Functions_
+### _Spectral Functions_
+_____________________________________________________________
+
 
 For spectral functions based on the ASA Green's functions, in
 particular spectral functions in the context of the Coherent Potential
@@ -138,13 +147,17 @@ functions from _GW_, see
 Mean Field Theory, see the.
 [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
-##### _Molecular Statics_
+### _Molecular Statics_
+_____________________________________________________________
+
 
 For now, see this test
 
     $ ~/lm/fp/test/test.fp te
 
-##### _Molecular Dynamics_
+### _Molecular Dynamics_
+_____________________________________________________________
+
 
 **lmf**{: style="color: blue"} can do molecular dynamics, but other DFT codes
 do it better with iterative diagonalization.
@@ -152,7 +165,9 @@ do it better with iterative diagonalization.
 The [empirical tight-binding](/tutorial/tbe/tbectrl/) code has an efficient 
 implementation.
 
-##### _Noncollinear Magnetism_
+### _Noncollinear Magnetism_
+_____________________________________________________________
+
 
 This is available only in the ASA at present.
 There are no tutorials as yet.  However, the source code has a number
@@ -160,7 +175,8 @@ of tests that illustrate noncollinear magnetism.  Try
 
     $ ~/lm/nc/test/test.nc --list
 
-##### _Spin Statistics: Relaxation of Spin Quantization Axis_
+### _Spin Statistics: Relaxation of Spin Quantization Axis_
+_____________________________________________________________
 
 **lm**{: style="color: blue"} and **lmgf**{: style="color: blue"}
 can perform "spin statics" --- the analog of molecular statics where
@@ -171,66 +187,85 @@ There are no tutorials as yet.  But try
 
     $ ~/lm/gf/test/test.gf nife
 
-##### _Spin Orbit Coupling_
+### _Spin Orbit Coupling_
+_____________________________________________________________
 
-##### _Fully Relativistic Dirac Equation_
+### _Fully Relativistic Dirac Equation_
+_____________________________________________________________
 
-##### _Application of External Scalar Potential_
+### _Application of External Scalar Potential_
+_____________________________________________________________
 
-##### _Application of External Zeeman B Field_
 
-##### _Using Functionals Other Than LDA_
+### _Application of External Zeeman B Field_
+_____________________________________________________________
 
-##### _LDA+U_
+### _Using Functionals Other Than LDA_
+_____________________________________________________________
 
-##### _Techniques for Brillouin Zone Integration_
+
+### _LDA+U_
+_____________________________________________________________
+
+### _Techniques for Brillouin Zone Integration_
+_____________________________________________________________
 
 See [this web page](/docs/numerics/bzintegration/).
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
-##### _Adding a Homogenous Background_
+### _Adding a Homogenous Background_
+_____________________________________________________________
 
-##### _Band Edge and Effective Mass Finder_
+### _Band Edge and Effective Mass Finder_
+_____________________________________________________________
 
 Finding band edges in complex semiconductors and insulators can be a tedious exercise.
 [This tutorial](/tutorial/lmf/lmf_bandedge/) explains a tool that automates the process
 and also gives effective mass tensors around band extrema.
 
-##### _Building a Supercell_
+### _Building a Supercell_
+_____________________________________________________________
 
 For now, look at these tests:
 
     $ ~/lm/testing/test.lmscell --list
 
-##### _Point Defects in Large Supercells_
+### _Point Defects in Large Supercells_
+_____________________________________________________________
 
-##### _Special Quasirandom Structures_
+### _Special Quasirandom Structures_
+_____________________________________________________________
 
 For now, do this test for an SQS structure of NiO
 
     $ ~/lm/testing/test.lmscell 4
 
-##### _Spin Dynamics_
+### _Spin Dynamics_
+_____________________________________________________________
 
-##### _How to Make Integer Lists in Various Contexts_
+
+### _Other Notes_
+_____________________________________________________________
+
+#### _How to Make Integer Lists in Various Contexts_
 
 The syntax for integer lists is described [here](/docs/input/integerlists/).
 In some contexts lists can consist of real numbers.  The same rules apply.
 
-##### _How to Define Rotations in Various Contexts_
+#### _How to Define Rotations in Various Contexts_
 
 Rotations are used for crystal axes, spin quantization axes, and in
 a few other contexts.  They are constructed by a succession of angles
 around specified axes.  [This page](/docs/input/rotations/) explains
 how to specify rotations.
 
-##### _How Site Positions are Read by the Input File_
+#### _How Site Positions are Read by the Input File_
 
 Lattice data (lattice vectors and site positions) can be read in different
 ways.  See [this page](/docs/input/sitefile/).
 
-##### _Angular Momentum in the Questaal suite_
+#### _Angular Momentum in the Questaal suite_
 
 Questaal codes use real harmonics <i>Y<sub>lm</sub></i> by default,
 which are real linear combination of spherical harmonics Y<i><sub>lm</sub></i>.
