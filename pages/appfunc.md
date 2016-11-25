@@ -238,8 +238,28 @@ In the FP code, try the following demonstration
 _____________________________________________________________
 
 
+**lmf**{: style="color: blue"} demonstrates the PBE functional with this test:
+
+The ASA code demonstrates the PBE functional with this test:
+
+    $ ~/lm/fp/test/test.fp te
+
+The ASA code **lm**{: style="color: blue"}
+demonstrates the PBE functional with this test:
+
+    $ ~/lm/testing/test.lm kfese
+
+See [this annoated output]((/docs/outputs/lmf_output/#lda-functionals)
+
 ### _LDA+U_
 _____________________________________________________________
+
+The following tests illustrate LDA+U in the **lmf**{: style="color: blue"} code
+
+    $ ~/lm/fp/test/test.fp cdte
+    $ ~/lm/fp/test/test.fp gdn
+    $ ~/lm/fp/test/test.fp eras
+    $ ~/lm/fp/test/test.fp er
 
 ### _Techniques for Brillouin Zone Integration_
 _____________________________________________________________
@@ -249,8 +269,13 @@ Brillouin zone integrate are  described some detail [here](/docs/numerics/bzinte
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
-### _Adding a Homogenous Background_
+### _Adding a Homogenous Background Density_
 _____________________________________________________________
+
+Try the following demonstration:
+
+    $ ~/lm/fp/test/test.fp c
+
 
 ### _Band Edge and Effective Mass Finder_
 _____________________________________________________________
