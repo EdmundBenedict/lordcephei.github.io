@@ -59,6 +59,7 @@ $ fplot -f ~/lm/fp/test/plot.fs0
 ~~~
 
 ### _Density Of States_
+_____________________________________________________________
 All of the band codes have the ability to generate the total Density of States (DOS), and most
 can resolve them in different ways.
 
@@ -109,6 +110,8 @@ For _k_-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
     $ ~/lm/fp/test/test.fp fe 1
 
 ### _Obtaining quasiparticle Energy Bands From 1-shot GW_
+_____________________________________________________________
+
 The test case
 
     $ gwd/test/test.gwd fe 1
@@ -133,7 +136,7 @@ _____________________________________________________________
 
 For spin susceptibility in the ASA-Green's function scheme, see [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
 
-For a demonstration of the transverse susceptibility in the _GW_ frameowork, try
+For a demonstration of the transverse magnetic susceptibility in the _GW_ frameowork, try
 
     $ gwd/test/test.gwd zbmnas 6
 
@@ -208,13 +211,12 @@ _____________________________________________________________
 The Dirac equation is implemented in the ASA, in codes **lm**{: style="color: blue"}
 and **lmgf**{: style="color: blue"}.
 
-**lmfa**{: style="color: blue"} will generate core levels from the Dirac equation.
-Sse [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels).
-
 There is no tutorial as yet.  See this demonstration:
 
     $ ~/lm/gf/test/test.frgf ni
 
+**lmfa**{: style="color: blue"} will generate core levels from the Dirac equation.
+See [this tutorial](/tutorial/lmf/lmf_pbte_tutorial/#relativistic-core-levels).
 
 ### _Application of External Scalar Potential_
 _____________________________________________________________
