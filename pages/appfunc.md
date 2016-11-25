@@ -70,17 +70,26 @@ The _lmf_{: style="color: blue"} code can generate a partial DOS as detailed in 
 
 From these commands you can then plot the resultant _dos.gas_{: style="color: green"} file with your desired plotting program, although some extra manipulation of the data file to get it in to the correct format may be required.
 
+###### _lm_
+A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
+
+##### _Mulliken Analysis and Core Level Spectroscopy_
+
+These tools are closely related to densities of states.
+
 The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using the switches
 
     --mull
 	--cls
 
-For Mulliken analysis and CLS respectively, these should be used with the _lmf_ command. A full usage guide for Mulliken analysis, including how the switch is actually used, can be found [here](https://lordcephei.github.io/tutorial/lmf/lmf_mulliken/). A usage guide for the _cls_ switch will be created shortly.
+Both switches have several options, as documented [here](/docs/input/commandline/#pdos).
 
-###### _lm_
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
+A full usage guide for Mulliken analysis, including how the switch is
+actually used, can be found
+[here](https://lordcephei.github.io/tutorial/lmf/lmf_mulliken/). A
+usage guide for the _cls_ switch will be created shortly.  
 
-Density of states relates heavily to other topics. You may want to take a look at
+Meanwhile you may want to take a look at
 
 *   Core Level Spectroscopy:
     This is exemplified in the test:
@@ -93,6 +102,9 @@ Density of states relates heavily to other topics. You may want to take a look a
 	    $ fp/test/test.fp fe 2
 	
 *   k-resolved DoS
+
+
+
 
 ##### _Obtaining quasiparticle Energy Bands From 1-shot GW_
 The test case
