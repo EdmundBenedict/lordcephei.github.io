@@ -22,17 +22,17 @@ _____________________________________________________________
 *  Auto generated table of contents
 {:toc}
 
-_____________________________________________________________
-
 ### _Preliminaries_
 {:.no_toc}
+_____________________________________________________________
 The input file structure is briefly described in this [lmf tutorial for Pbte](https://lordcephei.github.io/lmf_tutorial/), which you may wish to go through first.
 
 Executables **blm**{: style="color: blue"}, **lmchk**{: style="color: blue"}, **lmfa**{: style="color: blue"}, and **lmf**{: style="color: blue"} are required and are assumed to be in your path.
 
-_____________________________________________________________
+
 
 ### _Command summary_
+_____________________________________________________________
 
 The tutorial starts under the heading "Tutorial"; you can see a synopsis of the commands by clicking on the box below.
 

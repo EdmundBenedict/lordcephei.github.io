@@ -5,106 +5,98 @@ permalink: "/functionality/application/"
 header: no
 ---
 
+### _Purpose_
+{:.no_toc}
+_____________________________________________________________
+This page serves as a list of the capabilities of the suite sorted by physical application.
+
 ____________________________________________________________
 
 ### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
-{:toc}  
+{:toc}
 
-### _Purpose_
+### _Preliminaries_
+{:.no_toc}
 _____________________________________________________________
-This page serves as a list of the capabilities of the suite sorted by physical application. A detailed explanation of the capabilities of each package within the suite can be found on the [package page](/docs/package_overview/).
+
+
+This page points to a number of capabilities in the Questaal package.
+A detailed explanation of the capabilities of each package within the suite can be found on the [package page](/docs/package_overview/).
+
+Where tutorials exists that explain a feature in more detail, this page will point them.
+Tutorials do not yet exist for many features.  As a stopgap, this page refers to
+a script in the source directory that illustrates the feature.  For the purposes of this page, the
+source directory is called _~/lm_{: style="color: green"}.
 
 ### _Physical Applications_
 _____________________________________________________________
 
 ##### _Drawing Energy Bands_
-Energy bands can be drawn with the _lmf_{: style="color: blue"}, _lm_{: style="color: blue"}, _tbe_{: style="color: blue"}, _lmgf_{: style="color: blue"} and _lumpy_{: style="color: blue"} codes.   
+Energy bands can be drawn with the _lmf_{: style="color: blue"}, _lm_{: style="color: blue"}, _tbe_{: style="color: blue"}, _lmgf_{: style="color: blue"} and _lumpy_{: style="color: blue"} codes.
 
-<div onclick="elm = document.getElementById('lmf_energybands'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show/hide lmf instructions.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="lmf_energybands">{:/}
-	
 The _lmf_{: style="color: blue"} code can generate energy bands as shown in the test
 
-    $ fp/test/test.fp co
-
-And an accompanying tutorial can be found [here](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/generating-energy-bands.html) [Please note, this is an old-style tutorial and will not be supported in future. It will eventually be ported over but for now this is the main source.]
-
-{::nomarkdown}</div>{:/}
+    $ ~/lm/fp/test/test.fp co
 
 ##### _Drawing Fermi Surfaces_
 Fermi surfaces can be drawn with the _lmf_{: style="color: blue"} and _lm_{: style="color: blue"} codes.
+An illustration can be found here
 
-<div onclick="elm = document.getElementById('lm_fermisurfaces'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show/hide lm instructions.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="lm_fermisurfaces">{:/}
-	
-The _lm_{: style="color: blue"} code can generate energy bands as shown in [this](http://titus.phy.qub.ac.uk/packages/LMTO/v7.11/doc/FStutorial.html) tutorial. [Please note, this is an old-style tutorial and will not be supported in future. It will eventually be ported over but for now this is the main source.]
 
-{::nomarkdown}</div>{:/}
+    $ ~/lm/fp/test/test.fp fe 1
 
-<div onclick="elm = document.getElementById('lmf_fermisurfaces'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Click to show/hide lmf instructions.</button></div>
-{::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="lmf_fermisurfaces">{:/}
-
-A tutorial detailing the steps to drawing a Fermi surface with the _lmf_{: style="color: blue"} codes can be found [here](/tutorial/lmf/fermisurface/). A quick rundown of the commands needed is shown here:
+You can perform the steps by hand:
 
 ~~~
-find or create a ctrl.fe file
+$ cp ~/lm/fp/test/ctrl.fe ~/lm/fp/test/fs.fe .
 $ lmfa fe
+$ lmf fe
 $ lmf fe --iactiv --band~con~fn=fs
 $ mc -r:open bnds.fe -shft=0 -w b2 -r:open bnds.fe -shft=0 -w b3 -r:open bnds.fe -shft=0 -w b4 -r:open bnds.fe -shft=0 -w b5
-$ fplot -f plot.fs0
+$ fplot -f ~/lm/fp/test/plot.fs0
 ~~~
-
-{::nomarkdown}</div>{:/}
 
 ##### _Density Of States_
 All of the codes have some ability to generate either full or partial Density of States (DOS).
 
+Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz)
+to true.  They are written to file _dos.ext_{: style="color: green"}, one DOS
+in the nonmagnetic case and two in the spin-polarized case.\\
+_Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](/docs/input/inputfile/#bz) is zero.
+
+The **pldos**{: style="color: blue"} tool will render _dos.ext_{: style="color: green"} into more user friendly formats, and perform other
+functions.
+
+_lmf_{: style="color: blue"} and _lm_{: style="color: blue"} can generate a partial DOS with the [-\-pdos](/docs/input/commandline/#pdos)** switch.
+
 ###### _lmf_
-The _lmf_{: style="color: blue"} code can generate a partial DOS as detailed in [this tutorial](https://lordcephei.github.io/tutorial/lmf/lmf_pdos/). A quick rundown of the process consists of (using _GaS_ as our example material):
 
-    lmfa gas
-	lmf gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --rs=1,0 -vnit=1
-	lmdos gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --dos:npts=1001:window=-1.2,.7
+For partial dos, see [this tutorial](/tutorial/lmf/pdos/).
 
-From these commands you can then plot the resultant _dos.gas_{: style="color: green"} file with your desired plotting program, although some extra manipulation of the data file to get it in to the correct format may be required.
+**lmf**{: style="color: blue"} an also generate joint density-of-states, project DOS onto particular orbitals,
+and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
 
 ###### _lm_
-A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/)
+
+A detailed tutorial for _lm_{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pbte_tutorial/).
 
 ##### _Mulliken Analysis and Core Level Spectroscopy_
 
-These tools are closely related to densities of states.
+Mulliken Analysis and Core Level Spectroscopy are are closely related to densities of states.
 
 The _lmf_{: style="color: blue"} package can also perform Mulliken analysis or Core-Level Spectroscopy (CLS) using the switches
-
-    --mull
-	--cls
-
-Both switches have several options, as documented [here](/docs/input/commandline/#pdos).
+`--mull` or `--cls`.  Both switches have several options, as documented [here](/docs/input/commandline/#pdos).
 
 A full usage guide for Mulliken analysis, including how the switch is
 actually used, can be found
-[here](https://lordcephei.github.io/tutorial/lmf/lmf_mulliken/). A
-usage guide for the _cls_ switch will be created shortly.  
+[here](/tutorial/lmf/mulliken/).  For core-level spectroscopy,
+see [this tutorial](/tutorial/lmf/cls/).
 
-Meanwhile you may want to take a look at
+For k-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
 
-*   Core Level Spectroscopy:
-    This is exemplified in the test:
-	
-	    $ fp/test/test.fp fe 2
-
-*   Mulliken analysis:
-    This is exemplified in the test:
-	
-	    $ fp/test/test.fp fe 2
-	
-*   k-resolved DoS
-
-
-
+    $ ~/lm/fp/test/test.fp fe 1
 
 ##### _Obtaining quasiparticle Energy Bands From 1-shot GW_
 The test case
@@ -125,6 +117,14 @@ See [this document](/docs/properties/optics/) and [this tutorial](/tutorial/appl
 
 ##### _Spin Susceptibility and Magnetic Exchange Interactions_
 
+See [this tutorial](/tutorial/lmgf/lmgf/#b-magnetic-exchange-interactions).
+
+##### _Properties of Disordered Materials and the Coherent Potential Approximation]
+
+The ASA Green's function code **lmgf**{: style="color: blue"}
+can treat chemical and spin disorder, and both at the same time, with
+the Coherent Potential approximation.  See [this tutorial](/docs/code/cpadoc/).
+
 ##### _Spectral Functions_
 
 For spectral functions based on the ASA Green's functions, in
@@ -132,22 +132,45 @@ particular spectral functions in the context of the Coherent Potential
 Approximation, see [this document](/docs/code/spectral-functions/).  For spectral
 functions from _GW_, see
 [this tutorial](/tutorial/gw/gw_self_energy/).  For those in Dynamical
-Mean Field Theory, see the
+Mean Field Theory, see the.
 [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ##### _Molecular Statics_
 
+For now, see this test
+
+    $ ~/lm/fp/test/test.fp te
+
 ##### _Molecular Dynamics_
+
+**lmf**{: style="color: blue"} can do molecular dynamics, but other DFT codes
+do it better with iterative diagonalization.
+
+The [empirical tight-binding](/tutorial/tbe/tbectrl/) code has an efficient 
+implementation.
 
 ##### _Noncollinear Magnetism_
 
+This is available only in the ASA at present.
+There are no tutorials as yet.  However, the source code has a number
+of tests that illustrate noncollinear magnetism.  Try
+
+    $ ~/lm/nc/test/test.nc --list
+
 ##### _Spin Statistics: Relaxation of Spin Quantization Axis_
+
+**lm**{: style="color: blue"} and **lmgf**{: style="color: blue"}
+can perform "spin statics" --- the analog of molecular statics where
+the spin quantization axis is relaxed to where the off-diagonal parts
+of the spin density matrix vanish.
+
+There are no tutorials as yet.  But try
+
+    $ ~/lm/gf/test/test.gf nife
 
 ##### _Spin Orbit Coupling_
 
 ##### _Fully Relativistic Dirac Equation_
-
-##### _Coherent Potential Approximation_
 
 ##### _Application of External Scalar Potential_
 
@@ -173,9 +196,17 @@ and also gives effective mass tensors around band extrema.
 
 ##### _Building a Supercell_
 
+For now, look at these tests:
+
+    $ ~/lm/testing/test.lmscell --list
+
 ##### _Point Defects in Large Supercells_
 
 ##### _Special Quasirandom Structures_
+
+For now, do this test for an SQS structure of NiO
+
+    $ ~/lm/testing/test.lmscell 4
 
 ##### _Spin Dynamics_
 
@@ -186,7 +217,7 @@ In some contexts lists can consist of real numbers.  The same rules apply.
 
 ##### _How to Define Rotations in Various Contexts_
 
-Rotations are used for crystal axes, spin quantization axes, and in 
+Rotations are used for crystal axes, spin quantization axes, and in
 a few other contexts.  They are constructed by a succession of angles
 around specified axes.  [This page](/docs/input/rotations/) explains
 how to specify rotations.
@@ -205,9 +236,9 @@ if you set [**OPTIONS_SHARM**](/docs/input/inputfile/#options) to true.
 
 The <i>Y<sub>lm</sub></i> are functions of solid angle, while
 <i>Y<sub>lm</sub>r<sup>l</sup></i> are polynomials in _x_, _y_, and
-_z_.  [This page](/docs/numerics/spherical_harmonics/) 
+_z_.  [This page](/docs/numerics/spherical_harmonics/)
 documents Questaal's conventions for real and spherical harmonics.
-and shows the polynomial forms of hte <i>Y<sub>lm</sub></i> 
+and shows the polynomial forms of hte <i>Y<sub>lm</sub></i>
 for _l_=0&hellip;3.
 
 See [Table of Contents](/functionality/application/#table-of-contents)
