@@ -58,7 +58,7 @@ Integrated and total DOS:
 
 ~~~
 lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
-fplot -frme:xor=-0.00081:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+fplot -frme:xor=-0.0006:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
 lmf -vnkabc=16 fe --quit=band --dos:rdm
 cp dos.fe tdos.fe
 fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
@@ -116,12 +116,37 @@ OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 ESCISS=0 LTET={lteto} ALLTRANS=T # ESM
 
 Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With the
 additions to the ctrl file, you can generate it immediately.  The
-following generate both the DOS and the number-of states (NOS), or
+following generates the number-of states (NOS), or
 integrated DOS.  At the Fermi level the total number of electrons should be 8.
+
+    lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
+    fplot -frme:xor=-0.00081:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+    open fplot.ps
+
+_Notes_{: style="color: red"}: 
+
++ the Fermi level should come out to **-0.00081**&thinsp;Ry.
+
+
+To make the DOS
+
+lmf -vnkabc=16 fe --quit=band --dos:rdm
+cp dos.fe tdos.fe
+fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+
+
 
 <div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+
+fplot -frme:xor=-0.00081:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+lmf -vnkabc=16 fe --quit=band --dos:rdm
+cp dos.fe tdos.fe
+fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+
+
+
 ![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
 {::nomarkdown}</div>{:/}
 
@@ -207,6 +232,6 @@ _Notes_{: style="color: red"}:
 {::comment}
 
 First figure
-fplot -frme:xor=-0.00081:yab=8 -.3,-.3+.6,1.1,1.6 -lt 1,col=1,0,0 -ord x2+x3 dos.fe -frme .5,1,1.1,1.6 -frmt th=3,1,1 -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+fplot -frme:xor=-0.000599:yab=8 -.3,-.3+.6,1.1,1.6 -lt 1,col=1,0,0 -ord x2+x3 dos.fe -frme .5,1,1.1,1.6 -frmt th=3,1,1 -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
 
 {:/comment}
