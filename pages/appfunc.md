@@ -79,6 +79,7 @@ For partial DOS, see [this tutorial](/tutorial/lmf/pdos/).
 
 **lmf**{: style="color: blue"} can also generate joint density-of-states, project DOS onto particular orbitals,
 and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
+See [this tutorial](/tutorial/gw/fe_optics/) illustrating some of these features.
 
 #### lm
 
