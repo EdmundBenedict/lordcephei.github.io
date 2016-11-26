@@ -87,31 +87,28 @@ A detailed tutorial for **lm**{: style="color: blue"} partial DOS can be found [
 
 Features of the optics package also work with **lm**{: style="color: blue"}.
 
-#### lmgf
+#### lmgf and lmpg
 
 **lmgf**{: style="color: blue"} can make partial DOS.  It can either do it by Pade extrapolation to the
 real axis of Im&thinsp;<i>G</i> calculated on the contour in the complex plane, or you can choose a contour
-close to the real axis and generated DOS that way.  The latter is more accurate, but more time consuming.
+close to the real axis and generate DOS directly.  The latter is more accurate, but more time consuming.
 
-DOS are equivalent to spectral functions, though generally spectral
-functions are applied to DOS when there is some scattering to spread
-out the pole <i>&delta</i>(<i>E&minus;E</i><sub>0</sub> from a
-noninteracting eigenstate at energy <i>E</i><sub>0</sub>.
 
 ### _Spectral Functions_
 _____________________________________________________________
 
-For spectral functions :
+DOS are equivalent to spectral functions, though generally spectral
+functions refer to DOS when there is some scattering to spread
+out the pole <i>&delta;</i>(<i>E&minus;E</i><sub>0</sub>) from a
+noninteracting eigenstate at energy <i>E</i><sub>0</sub>.
 
-+ based on the ASA Green's functions, in particular spectral functions in the context of the Coherent Potential
-  Approximation, see [this document](/docs/code/spectral-functions/).
-+ Calculated from _GW_, see [this tutorial](/tutorial/gw/gw_self_energy/).
-+ calculated in Dynamical Mean Field Theory, see the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
+Codes calculate spectral functions for interacting electrons in several contexts:
 
-
-
-
-
++ Calculated from _GW_. see [this tutorial](/tutorial/gw/gw_self_energy/).
++ Calculated in Dynamical Mean Field Theory. See the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
++ The ASA Green's function code **lmgf**{: style="color: blue"} will calculate spectral functions in the context of the Coherent Potential
+  Approximation, see [this document](/docs/code/spectral-functions/).  Electrons aren't interacting in the many-body sense here; disorder
+  causes scattering which has the same effect.
 
 ### _Mulliken Analysis and Core Level Spectroscopy_
 _____________________________________________________________
