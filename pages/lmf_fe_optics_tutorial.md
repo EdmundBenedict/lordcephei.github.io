@@ -29,7 +29,7 @@ _____________________________________________________________
 
 You should first carry out the LDA self-consistency steps in the [QSGW Tutorial for Fe](/tutorial/gw/qsgw_fe/).
 This tutorial is written assuming you stopped at the LDA level (step 1).  However the tutorial equally applies
-if you want the same results at the QS5<i>GW</i> level (step 2).
+if you want the same results at the QS<i>GW</i> level (step 2).
 
 To view the postscript file, this document assumes you are using the apple-style **open**{: style="color: blue"} command.
 
@@ -94,7 +94,7 @@ This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutoria
 ### 1. _Self-consistent_ LDA _calculation for Fe_
 
 Do step 1 of the [QSGW Tutorial for Fe](/tutorial/gw/qsgw_fe/#self-consistent-lda-calculation-for-fe).
-To do the tutorial at the QS<i>GW</i> level, also do step 2.
+To follow this tutorial at the QS<i>GW</i> level, also complete step 2.
 
 ### 2. _Setup for Optics_
 
@@ -112,7 +112,7 @@ OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 ESCISS=0 LTET={lteto} ALLTRANS=T # ESM
         PART={lpart}
 ~~~
 
-### 3. _Total NOS and DOS_
+### 3. _Total Number and Density of States_
 
 Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With the
 additions to the ctrl file, you can generate it immediately.  The
@@ -120,21 +120,20 @@ following generate both the DOS and the number-of states (NOS), or
 integrated DOS.  At the Fermi level the total number of electrons should be 8.
 
 
-### 4. _Resolve DOS into <i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> symmetry.
+### 4. _Resolve DOS into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.
 
 In Fe the <i>d</i> orbitals are of primary interest.  Spherical
 harmonics for _l_=2 split under cubic symmetry into
-<i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> symmetry.  In
+<i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.  In
 this section we resolve the spin-1 DOS into those symmetries.
 
 [Optics **MODE=-5**](tutorial/application/optics/#further-optics-modes) generates
-the spin 1 DOS.  We already have this information from Step 3, but this mode works with
-the **-\-jdos** switch, which enables you to project the DOS into orbitals of your choice,
+the spin 1 DOS.  Step 3 already supplied this information, but this optics branch works 
+in concert with the **-\-jdos** switch which enables you to project the DOS into orbitals of your choice,
 using a Mulliken analysis.
-
-**-\-jdos** gives you a lot of flexibility, but you have to do a bit of extra work 
+**-\-jdos** offers you a lot of flexibility, but a bit of extra work is needed
 to identify which orbitals in the LMTO basis set are associated with
-<i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> symmetry.
+<i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.
 
 Run **lmf**{: style="color: blue"} with a high verbosity, stopping early:
 
@@ -151,36 +150,48 @@ You should see this output:
 ~~~
 
 It tells you that channels 5:9 (first kappa), 21:25 (second kappa) and 26:30 (local orbitals)
-are associated with the Fe _d_ orbitals.  In each of the group of 5, three orbitals
-are of <i>t</i><sub>2g</sub></i> character and two <i>e</i><sub>g</sub></i> character.
-The <i>t</i><sub>2g</sub></i> are the _xy_, _xz_, and _yz_, orbitals; the
+are associated with the Fe _d_ orbitals.  In each group of 5 orbitals, three three of them
+are of <i>t</i><sub>2g</sub> character and two <i>e</i><sub>g</sub> character.
+The <i>t</i><sub>2g</sub> are the _xy_, _xz_, and _yz_, orbitals; the <i>e</i><sub>g</sub> 
 have 3_z_<sup>2</sup>&minus;1 and <i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup> character.
-(At the &Gamma; point in the Brillouin zone, the Fe _d_ states are three-fold and two-fold degenerate, 
-according to their character).
+At the &Gamma; point in the Brillouin zone, the Fe _d_ states are three-fold and two-fold degenerate, 
+according to their character.
 
 To know which of the 5 orbitals belong to each class, consult the
 [spherical harmonics](/docs/numerics/spherical_harmonics/) page.  The
-table indicates that the first, second, and fourth orbitals are the
-<i>t</i><sub>2g</sub></i>, and orbitals 3 and 5 are the
-<i>e</i><sub>g</sub></i>.  Since the _d_ orbitals appear three times,
-the there are 9 and 6 <i>t</i><sub>2g</sub></i> and
-<i>e</i><sub>g</sub></i> orbitals, respectively.
+table indicates that the first, second, and fourth orbitals with _l_=2 are
+<i>t</i><sub>2g</sub>, and orbitals 3 and 5 are the
+<i>e</i><sub>g</sub>.  Since the _d_ orbitals appear three times in the basis,
+there are 9 and 6 <i>t</i><sub>2g</sub> and
+<i>e</i><sub>g</sub> orbitals, respectively.
 
-Comparing to the table we can see that channels 5,6,8,21,22,24,26,27,29 are the
-<i>t</i><sub>2g</sub></i> orbitals, and chnnels 7,9,23,25,28,30 are the 
-<i>e</i><sub>g</sub></i>.
+Comparing to the table obove channels 5,6,8,21,22,24,26,27,29 can be identified as
+<i>t</i><sub>2g</sub> orbitals, and channels 7,9,23,25,28,30 the 
+<i>e</i><sub>g</sub>.
+
+Now run **lmf**{: style="color: blue"} as in the following:
 
 ~~~
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
 ~~~
 
-**lmf**{: style="color: blue"} prints out messages like this:
+_Notes_{: style="color: red"}: 
 
-~~~
- optics: restrict transitions to : occ=(1,4) unocc=(2,6)
-~~~
++ You can Mulliken-project one (**-\-jdosw**) or two (**-\-jdosw** and **-\-jdosw2**) combinations of orbitals
++ This special Mulliken projected DOS **MODE=-5** requires the enhanced tetrahedron integrator (**LTET=3**).
++ You can of course use more or fewer _k_ points.
++ A file _jdos.fe_{: style="color: green"} should be written to disk.
+  _jdos.fe_{: style="color: green"} will contain 2 columns, 3 if (**-\-jdosw**) is used, 
+  and 4 if (**-\-jdosw2**) is also used.  Columns 1 and 2 are the total DOS; columns 3 and 4 are the 
+  Mulliken projected DOS from orbitals in (**-\-jdosw**) and (**-\-jdosw2**).
++ **lmf**{: style="color: blue"} prints out messages like this:
 
-But they are not relevant for the DOS.
+  ~~~
+   optics: restrict transitions to : occ=(1,4) unocc=(2,6)
+  ~~~
+
+  This message is not relevant for the DOS.
+
 
 
 ### _Additional exercises_
