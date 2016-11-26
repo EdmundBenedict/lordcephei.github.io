@@ -147,9 +147,9 @@ _Notes:_{: style="color: red"}
   less than 0.2&thinsp;Ry, or about 2.2&thinsp;eV, as noted in the 
   [QSGW tutorial](/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe).
 
-<div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('dos'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Click here to make or view figures of the DOS and NOS.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+{::nomarkdown}<div style="display:none;padding:0px;" id="dos">{:/}
 
 The following uses the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make postscript files.
 
@@ -244,9 +244,9 @@ _Notes_{: style="color: red"}:
 
   This message is not relevant for the DOS.
 
-<div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+<div onclick="elm = document.getElementById('pdos'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Click here to make or view figures that show how the DOS is partitioned into components.</div>
-{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+{::nomarkdown}<div style="display:none;padding:0px;" id="pdos">{:/}
 
 As a sanity check, the total DOS in _jdos.fe_{: style="color: green"} should match _tdos.fe_{: style="color: green"}
 
