@@ -59,9 +59,16 @@ Total DOS and integrated DOS
 ~~~
 lmf -vnkabc=16 fe --quit=band --dos:rdm
 cp dos.fe tdos.fe
-fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
 lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
-fplot -frme:xor=-0.0006:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+~~~
+
+Plot the total DOS and integrated DOS
+
+~~~
+fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+open fplot.ps
+fplot -frme:xor=-0.000599:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+open fplot.ps
 ~~~
 
 Identify the <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> orbitals
@@ -72,8 +79,12 @@ Make the Mulliken <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> majority spin D
 
 ~~~
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
-fplot tdos.fe -lt 2,col=1,0,0  jdos.fe
-fplot -lt 1,col=0,0,0  jdos.fe -lt 1,col=.7,.7,.7 -ord x3+x4 jdos.fe -lt 2,col=1,0,0 -ord x3 jdos.fe -lt 2,col=0,1,0 -ord x4 jdos.fe
+~~~
+
+Compare resolved to total DOS
+
+~~~
+fplot -lt 1,col=0,0,0  jdos.fe -lt 1,col=.6,.6,.6 -ord x3+x4 jdos.fe -lt 2,col=1,0,0 -ord x3 jdos.fe -lt 2,col=0,1,0 -ord x4 jdos.fe
 ~~~
 
 Further resolve the DOS by _k_:
@@ -118,12 +129,12 @@ to the ctrl file, you can generate it immediately.
 
 The following generates the total DOS, saving it into file _tdos.fe_{: style="color: green"}:
 
-    lmf -vnkabc=16 fe --quit=band --dos:rdm
-    cp dos.fe tdos.fe
+    $ lmf -vnkabc=16 fe --quit=band --dos:rdm
+    $ cp dos.fe tdos.fe
 
 and the following generates the number-of states (NOS), or integrated DOS:
 
-    lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
+    $ lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
 
 _Notes:_{: style="color: red"}
 
@@ -144,13 +155,13 @@ The following uses the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) uti
 
 For the DOS:
 
-    fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
-    open fplot.ps
+    $ fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+    $ open fplot.ps
 
 For the combined spin&uarr; + spin&darr; NOS:
 
-    fplot -frme:xor=-0.000599:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
-    open fplot.ps
+    $ fplot -frme:xor=-0.000599:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+    $ open fplot.ps
 
 The figures should look like like those shown below.  In the left figure the vertical
 axis is aligned with the Fermi level, and the horizontal axis lies at 8 electrons.
@@ -212,7 +223,7 @@ Comparing to the table above, channels 5,6,8, 21,22,24, and 26,27,29 can be iden
 Run **lmf**{: style="color: blue"} as follows:
 
 ~~~
-lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
+$ lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
 ~~~
 
 _Notes_{: style="color: red"}: 
@@ -233,6 +244,35 @@ _Notes_{: style="color: red"}:
 
   This message is not relevant for the DOS.
 
+<div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Click here to make or view figures that show how the DOS is partitioned into components.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+
+As a sanity check, the total DOS in _jdos.fe_{: style="color: green"} should match _tdos.fe_{: style="color: green"}
+
+    $ fplot tdos.fe -lt 2,col=1,0,0  jdos.fe
+
+The black and red dashed lines should lie on top of one another.
+
+Make a Figure drawing:
+
+1. the total spin&uar; DOS; 
+2. the sum of <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> DOS in light grey;
+3. the <i>t</i><sub>2g</sub> DOS in red;
+4. the <i>e</i><sub>g</sub> DOS in green
+
+    $ fplot -lt 1,col=0,0,0  jdos.fe -lt 1,col=.7,.7,.7 -ord x3+x4 jdos.fe -lt 2,col=1,0,0 -ord x3 jdos.fe -lt 2,col=0,1,0 -ord x4 jdos.fe
+
+the figure should look similar to this:
+
+![Fe total NOS and DOS](/assets/img/Fe-pDOS.svg)
+{::nomarkdown}</div>{:/}
+
+In the interval (&minus;0.35,0)&thinsp;Ry, the grey almost superimposes on the black.  This shows that almost all the
+DOS in that interval is of Fe _d_ character.  Below &minus;0.4 and above 0, a difference in the two appears: the _d_ bandwidth has been exhausted and
+what remains is mostly of Fe _s_ character.  You can also see that the 
+<i>t</i><sub>2g</sub> is a somewhat wider than the <i>e</i><sub>g</sub>.
+
 ### 5. _Further Resolve DOS by_ k
 
 In the previous section the DOS were resolved into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> character.
@@ -244,13 +284,13 @@ or just do
 
 Use **OPTICS_PART=2** to resolve by _k_; we will use
 **OPTICS_PART=12** to write the output to a binary file _poptb.fe_{:
-style="color: green"}, since resolving DOS into 140 distinct _k_
-channels and three kinds of DOS creates a large file.  The channels
-are ordered as
+style="color: green"}, since resolving DOS into 145 distinct _k_
+channels and three kinds of DOS creates a large file.  Column 1 is the energy.
+The DOS channels are ordered as
 
-|    -    |   -      | : - :                 | : - :
+|    -    |   -      | :---:                 | :---:
 |         |  total   | <i>t</i><sub>2g</sub> | <i>e</i><sub>g</sub>
- columns  |  2:141   | 142:281               | 282:421
+ columns  |  2:146   | 147:291               | 292:436
 
 Repeat the previous calculation adding a variable **-vlpart=12**:
 
