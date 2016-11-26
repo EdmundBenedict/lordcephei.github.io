@@ -46,7 +46,7 @@ ________________________________________________________________________________
 <div onclick="elm = document.getElementById('foobar'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';"><button type="button" class="button tiny radius">Commands - Click to show.</button></div>
 {::nomarkdown}<div style="display:none;margin:0px 25px 0px 25px;"id="foobar">{:/}
 
-LDA self-consistency (starting from  _init.fe_{: style="color: green"})
+1. LDA self-consistency (starting from  _init.fe_{: style="color: green"})
 
 ~~~
 nano init.fe
@@ -54,7 +54,6 @@ blm --nit=20 --nk=16 --gmax=7.9 --mag --nkgw=8 --gw fe
 cp actrl.fe ctrl.fe
 lmfa fe
 cat basp0.fe | sed -e 's/\(Fe.*\)/\1 PZ=0 0 4.5'/ > basp.fe
-nano basp.fe
 lmf fe > out.lmf
 ~~~
 
@@ -67,7 +66,7 @@ lmf fe --band:fn=syml
 cp bnds.fe bnds.lda
 ~~~
 
-QSGW self-consistency
+2. QSGW self-consistency
 
 ~~~
 lmfgwd --jobgw=-1 --sigw --ib=1:9 ctrl.fe
