@@ -577,7 +577,7 @@ Command-line switches:
    approximation (see option **core**)
 
    To comply with this restriction, all three groups of numbers may be given sets of integers.  Supposing your lattice vectors are
-   **p1**, **p2**, and **p3**, which the smooth mesh having (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
+   **p1**, **p2**, and **p3**, and the smooth mesh has (**n1**,**n2**,**n3**) divisions.  Then the vector (**l1**=**#1**,**#2**,**#3**) corresponds to\\
       &emsp; **v1 = #1/n1 p1 + #2/n2 p2 + #3/n3 p3** \\
    Specify the origin (a point through which the plane must pass) by\\
       &emsp; **~o=i1,i2,i3**\\
@@ -654,7 +654,7 @@ Command-line switches:
 :  Add external potential.  Not documented yet.
 ^
 {::nomarkdown}<a name="wrhoat"></a>{:/}**-\-wrhoat**
-:  Write partial atomic densities to atom files
+:  Write partial atomic densities to atom files.
 ^
 {::nomarkdown}<a name="wrhomt"></a>{:/}**-\-wrhomt &thinsp;\|&thinsp; -\-wpotmt**
 :  Not documented yet.
@@ -664,7 +664,7 @@ Command-line switches:
 (/docs/input/commandline/#optics)
 {:/comment}
 
-<i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
+<i>The following switches concern the optics branch of both</i> **lmf**{: style="color: blue"} <i>and</i> **lm**{: style="color: blue"}.
 
 **-\-jdosw &thinsp;\|&thinsp; -\-jdosw2**
 :  Channels for optical properties.  See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry)
@@ -678,7 +678,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 {::nomarkdown} <a name="editors"></a> {:/}
 
 <i>The following switches invoke editors.
-Invoke the editor to see see their usage.</i>
+Invoke the editor to see see its usage.</i>
 
 **-\-chimedit**
 :  Magnetic susceptibility editor
