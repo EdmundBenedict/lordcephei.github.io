@@ -64,10 +64,9 @@ All of the band codes have the ability to generate the total Density of States (
 Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz). 
 DOS are written to file _dos.ext_{: style="color: green"} (one DOS
 in the nonmagnetic case and two in the spin-polarized case).\\
-_Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](/docs/input/inputfile/#bz) is zero.
-
 The [**pldos**{: style="color: blue"}](/docs/misc/pldos/) tool will render _dos.ext_{: style="color: green"} into more user friendly
 formats, and perform other functions.
+_Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](/docs/input/inputfile/#bz) is zero.
 
 Codes can also resolve DOS in different ways.
 

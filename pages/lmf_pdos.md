@@ -56,7 +56,11 @@ We then run
 
     $ lmdos gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --dos:npts=1001:window=-1.2,.7
 
-Which makes use of the previously generated files and generates the _dos.gas_{: style="color: green"} file which contains our partial DOS information. This can be plotted with your preferred plotting tool, although some manipulation of the data in the file may be required.   
+Which makes use of the previously generated files and generates the _dos.gas_{: style="color: green"} file which contains our partial DOS information. This can be plotted with your preferred plotting tool, although some manipulation of the data in the file may be required.
+*Note:*{: style="color: red"}: if you include **rdm** in the **\-\-dos** switch, e.g.
+**-\-dos:rdm:npts=1001:window=-1.2,.7**, the DOS will be written in the
+[Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays),
+which is easily parsed by many graphics packages.
 
 A plotting tool is included in the suite, **fplot**{: style="color: blue"}, which can be used to generate a postscript file. We must first prepare the _dos.gas_{: style="color: green"} file with another program in the suite, _pldos_{: style="color: blue"}, with the command
 
