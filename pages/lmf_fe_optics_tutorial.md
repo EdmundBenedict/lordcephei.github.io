@@ -76,7 +76,14 @@ fplot tdos.fe -lt 2,col=1,0,0  jdos.fe
 fplot -lt 1,col=0,0,0  jdos.fe -lt 1,col=.7,.7,.7 -ord x3+x4 jdos.fe -lt 2,col=1,0,0 -ord x3 jdos.fe -lt 2,col=0,1,0 -ord x4 jdos.fe
 ~~~
 
-{::nomarkdown}</div>{:/}
+Further resolve the DOS by _k_:
+
+~~~
+lmf fe -vlteto=3 -voptmod=-5 -vnk=16 -vlpart=12 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
+~~~
+
+A file _poptb.fe_{: style="color: green"} should be generated.
+
 
 ### _Introduction_
 
@@ -242,9 +249,30 @@ or just do
 
     lmf --input | grep -A 10 OPTICS_PART
 
-Use **OPTICS_PART=2** to resolve by _k_; we will use **OPTICS_PART=12** to write
-the output to a binary file.  Resolving DOS into 140 distinct _k_ channels creates
-a large file.
+Use **OPTICS_PART=2** to resolve by _k_; we will use
+**OPTICS_PART=12** to write the output to a binary file _poptb.fe_{:
+style="color: green"}, since resolving DOS into 140 distinct _k_
+channels and three kinds of DOS creates a large file.  The channels
+are ordered as
+
+|         |  total  |  t2g    | eg
+ columns  |  2:141   | 142:281 | 282:421)
+
+Repeat the previous calculation adding an extra variable
+
+~~~
+lmf fe -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
+~~~
+
+This should create a file _poptb.fe_{: style="color: green"}.
+
+To confirm that the _k_ resolved DOS sum to the total DOS, do:
+
+~~~
+mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a12 -csum -ccat jdos.fe -coll 1,2 -- -px:5
+mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a13 -csum -ccat jdos.fe -coll 1,3 -- -px:5
+mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a14 -csum -ccat jdos.fe -coll 1,4 -- -px:5
+~~~
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
