@@ -53,7 +53,7 @@ nano init.fe
 blm --nit=20 --nk=16 --gmax=7.9 --mag --nkgw=8 --gw fe
 cp actrl.fe ctrl.fe
 lmfa fe
-cp basp0.fe basp.fe
+cat basp0.fe | sed -e 's/\(Fe.*\)/\1 PZ=0 0 4.5'/ > basp.fe
 nano basp.fe
 lmf fe > out.lmf
 ~~~
@@ -151,7 +151,7 @@ Supply either the space group ([Im-3m](http://www.periodictable.com/Properties/A
 or the bcc lattice vectors.
 
 The input file setup and self-consistent cycle are very similar to [the PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/); review it first if
-you are not familiar with the structure of [input file](/docs/input/inputfile/), _ctrl.fe_{: style="color: green"}, or how to set up an LDA
+you are not familiar with the structure of the [input file](/docs/input/inputfile/), _ctrl.fe_{: style="color: green"}, or how to set up an LDA
 calculation from structural information.
 
 Run **blm**{: style="color: blue"} this way:
@@ -213,6 +213,11 @@ You should see a line beginning with **Fe**.  Append **PZ=0 0 4.5** to the line 
 ~~~
 
 This adds a 4_d_ state (local orbital) to the basis.
+
+_Note:_{: style="color: red"} To make this addition without a text editor, do
+
+    $ cat basp0.fe | sed -e 's/\(Fe.*\)/\1 PZ=0 0 4.5'/ > basp.fe
+
 
 #### Self-consistency in the LDA
 {::comment}
@@ -281,7 +286,7 @@ $ cp bnds.fe bnds.lda
 
 The latter command renames _bnds.fe_{: style="color: green"} for future use.
 
-### QSGW _calculation for Fe_
+### 2. QSGW _calculation for Fe_
 {::comment}
 /tutorial/gw/qsgw_fe/#qsgw-calculation-for-fe
 {:/comment}
