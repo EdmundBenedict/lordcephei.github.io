@@ -200,9 +200,24 @@ There are no tutorials as yet.  But try
 ### _Spin Orbit Coupling_
 _____________________________________________________________
 
-There are no tutorials as yet.  But try
+There are no tutorials as yet.  This test demonstrates 
+the addition of <i>&lambda;L&middot;S></i> into the band code **lm**{: style="color: blue"}:
+
+    $ ~/lm/nc/test/test.so
+
+Thistest combines CPA and spin orbit coupling in **lmgf**{: style="color: blue"}:
+
+    $ ~/lm/gf/test/test.gf fe2b
+
+A basic test using **lmf**{: style="color: blue"}), comparing 
+<i>&lambda;L<sub>z</sub>S<sub>z</sub>></i> to <i>&lambda;L&middot;S></i>:
 
     $ ~/lm/fp/test/test.fp felz 4
+
+The following provides an extensive test of SO coupling, resolving contribution by site,
+and scaling <i>&lambda;L&middot;S></i> to extract the dependence on 
+<i>&lambda;</i>
+
     $ ~/lm/fp/test/test.fp coptso
 
 ### _Fully Relativistic Dirac Equation_
@@ -225,6 +240,20 @@ For the **lmf**{: style="color: blue"} code, try the following demonstration:
 
     $ ~/lm/fp/test/test.fp mgo
 
+### _Fixed spin-moment_
+_____________________________________________________________
+
+
+One technique stabilize self-consistency in difficut magnetic calculations,
+or to extract quantities such as the magnetic susceptibility, you can
+imposed a fixed magnetic moment by imposing distinct Fermi levels for
+each spin.  This is equivalent to imposing a static, <i>q></i>=0 Zeeman field.
+
+The following tests demonstrate the fixed-spin moment technique
+
+    $ fp/test/test.fp felz
+    $ fp/test/test.fp ni
+
 ### _Application of External Zeeman B Field_
 _____________________________________________________________
 
@@ -238,7 +267,6 @@ In the FP code, try the following demonstration
 
 ### _Using Functionals Other Than LDA_
 _____________________________________________________________
-
 
 **lmf**{: style="color: blue"} demonstrates the PBE functional with this test:
 
@@ -256,18 +284,16 @@ See [this annoated output]((/docs/outputs/lmf_output/#lda-functionals)
 ### _LDA+U_
 _____________________________________________________________
 
-The following tests illustrate LDA+U in the **lmf**{: style="color: blue"} code
+The following tests illustrate LDA+U in the **lmf**{: style="color: blue"} code:
 
     $ ~/lm/fp/test/test.fp cdte
     $ ~/lm/fp/test/test.fp gdn
     $ ~/lm/fp/test/test.fp eras
     $ ~/lm/fp/test/test.fp er
 
-### _Techniques for Brillouin Zone Integration_
-_____________________________________________________________
+In the ASA, try
 
-Techniques for 
-Brillouin zone integrate are  described some detail [here](/docs/numerics/bzintegration/).
+    $ ~/lm/testing/test.lm er
 
 See [Table of Contents](/functionality/application/#table-of-contents)
 
@@ -296,6 +322,8 @@ For now, look at these tests:
 ### _Point Defects in Large Supercells_
 _____________________________________________________________
 
+Tutorials are in progress.  If you are interested contact us.
+
 ### _Special Quasirandom Structures_
 _____________________________________________________________
 
@@ -306,9 +334,22 @@ For now, do this test for an SQS structure of NiO
 ### _Spin Dynamics_
 _____________________________________________________________
 
+No tutorials yet, sorry.
+
+### _Phonons_
+_____________________________________________________________
+
+No tutorials yet, sorry.
+
+See [Table of Contents](/functionality/application/#table-of-contents)
 
 ### _Other Notes_
 _____________________________________________________________
+
+#### _Techniques for Brillouin Zone Integration_
+
+Techniques for 
+Brillouin zone integration are described some detail [here](/docs/numerics/bzintegration/).
 
 #### _How to Make Integer Lists in Various Contexts_
 
