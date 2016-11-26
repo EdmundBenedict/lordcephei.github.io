@@ -74,18 +74,44 @@ formats, and perform other functions.
 **lmf**{: style="color: blue"} and **lm**{: style="color: blue"} can generate partial densities-of-states with the
   [-\-pdos](/docs/input/commandline/#pdos) switch.
 
-#### _lmf_
+#### lmf
 
 For partial DOS, see [this tutorial](/tutorial/lmf/pdos/).
 
 **lmf**{: style="color: blue"} can also generate joint density-of-states, project DOS onto particular orbitals,
 and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
 
-#### _lm_
+#### lm
 
 A detailed tutorial for **lm**{: style="color: blue"} partial DOS can be found [here](/tutorial/asa/lm_pdos).
 
 Features of the optics package also work with **lm**{: style="color: blue"}.
+
+#### lmgf
+
+**lmgf**{: style="color: blue"} can make partial DOS.  It can either do it by Pade extrapolation to the
+real axis of Im&thinsp;<i>G</i> calculated on the contour in the complex plane, or you can choose a contour
+close to the real axis and generated DOS that way.  The latter is more accurate, but more time consuming.
+
+DOS are equivalent to spectral functions, though generally spectral
+functions are applied to DOS when there is some scattering to spread
+out the pole <i>&delta</i>(<i>E&minus;E</i><sub>0</sub> from a
+noninteracting eigenstate at energy <i>E</i><sub>0</sub>.
+
+### _Spectral Functions_
+_____________________________________________________________
+
+For spectral functions :
+
++ based on the ASA Green's functions, in particular spectral functions in the context of the Coherent Potential
+  Approximation, see [this document](/docs/code/spectral-functions/).
++ Calculated from _GW_, see [this tutorial](/tutorial/gw/gw_self_energy/).
++ calculated in Dynamical Mean Field Theory, see the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
+
+
+
+
+
 
 ### _Mulliken Analysis and Core Level Spectroscopy_
 _____________________________________________________________
@@ -146,16 +172,6 @@ _____________________________________________________________
 
 The ASA Green's function code **lmgf**{: style="color: blue"} can treat chemical and spin disorder, and both at the same time, with the
 Coherent Potential approximation.  See [this tutorial](/docs/code/cpadoc/).
-
-### _Spectral Functions_
-_____________________________________________________________
-
-For spectral functions :
-
-+ based on the ASA Green's functions, in particular spectral functions in the context of the Coherent Potential
-  Approximation, see [this document](/docs/code/spectral-functions/).  
-+ Calculated from _GW_, see [this tutorial](/tutorial/gw/gw_self_energy/).
-+ calculated in Dynamical Mean Field Theory, see the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 
 ### _Molecular Statics_
 _____________________________________________________________
