@@ -50,7 +50,7 @@ cat basp0.fe | sed -e 's/\(Fe.*\)/\1 PZ=0 0 4.5'/ > basp.fe
 lmf fe > out.lmf
 ~~~
 
-Edit the ctrl file to add extra BZ and OPTICS tags.
+Edit the ctrl file to add **BZ** and **OPTICS** tags.
 
     nano ctrl.fe
 
@@ -64,11 +64,11 @@ lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
 fplot -frme:xor=-0.0006:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
 ~~~
 
-Identify the <i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> orbitals
+Identify the <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> orbitals
 
     lmf fe --pr60 --quit=ham
 
-Make the Mulliken <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> DOS
+Make the Mulliken <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> majority spin DOS
 
 ~~~
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
@@ -86,16 +86,7 @@ lmf fe -vlteto=3 -voptmod=-5 -vnk=16 -vlpart=12 --quit=band --jdosw=5,6,8,21,22,
 
 ### _Introduction_
 
-This tutorial carries out a QS<i>GW</i> calculation for Fe, a ferromagnet with a fairly large moment of 2.2<i>&mu;<sub>B</sub></i>.
-
-Quasiparticle Self-Consistent _GW_ (QS<i>GW</i>) is a special form of self-consistency within _GW_.  Its advantages are briefly described in
-the [overview](/docs/code/gwoverview/), and also in the summary of the [basic QSGW tutorial](/tutorial/gw/qsgw_si/#qsgw-summary).
-Self-consistency is rather necessary in magnetic systems, because the magnetic moment is not reliably described by 1-shot GW, and is
-somewhat ill-defined.  For the most part magnetic moments predicted by QSGW are significantly better than the LDA.  Moments in itinerant
-magnets,  however, tend to be overestimated because diagrams with spin fluctuations (absent in _GW_) tend to reduce the magnetic
-moment. This is true for both QS_GW_ and _LDA_.
-
-This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si).
+This tutorial is intended to show various ways in which DOS can be decomposed.
 
 ### 1. _Self-consistent_ LDA _calculation for Fe_
 
@@ -111,24 +102,26 @@ Append the following lines to _ctrl.fe_{: style="color: green"}.
 BZ      NPTS=1001 DOS=-.7 .8 SAVDOS=T
 % const optmod=0 lteto=3 lpart=0
 % ifdef (optmod==-5|optmod==-6)
-OPTICS  MODE={optmod} NPTS=1001 WINDOW=-.7 .8 ESCISS=0 LTET={lteto}
+OPTICS  MODE={optmod} NPTS=1001 WINDOW=-.7 .8 LTET={lteto}
 % else
-OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 ESCISS=0 LTET={lteto} ALLTRANS=T # ESMR=.1
+OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 LTET={lteto}
 %endif
         PART={lpart}
 ~~~
+
+The reasons for these extra tags will become clear in the tutorial.
 
 ### 3. _Total Number and Density of States_
 
 Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With **BZ** added
 to the ctrl file, you can generate it immediately.
 
-The following generates the total DOS, saving it into file _tdos.fe_{: style="color: green"}.
+The following generates the total DOS, saving it into file _tdos.fe_{: style="color: green"}:
 
     lmf -vnkabc=16 fe --quit=band --dos:rdm
     cp dos.fe tdos.fe
 
-and the following generates the number-of states (NOS), or integrated DOS
+and the following generates the number-of states (NOS), or integrated DOS:
 
     lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
 
@@ -136,7 +129,8 @@ _Notes:_{: style="color: red"}
 
 + the Fermi level should come out to **-0.000599**&thinsp;Ry.
 + At the Fermi level the total number of electrons should be 8.
-+ the **:rdm** tag is not necessary, but it causes **lmf**{: style="color: blue"} to write the file in 
++ the **:rdm** tag is not necessary (DOS will be written wether the entire **\-\-dos** switch is present), 
+  but it causes **lmf**{: style="color: blue"} to write the file in 
   an easy to read [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
 + The majority and minority DOS are roughly similar, but spin split by slightly
   less than 0.2&thinsp;Ry, or about 2.2&thinsp;eV, as noted in the 
@@ -146,7 +140,7 @@ _Notes:_{: style="color: red"}
 Click here to make or view figures of the DOS and NOS.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
 
-The following uses [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make a postscript files.
+The following uses the [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make postscript files.
 
 For the DOS:
 
@@ -162,7 +156,7 @@ The figures should look like like those shown below.  In the left figure the ver
 axis is aligned with the Fermi level, and the horizontal axis lies at 8 electrons.
 You can confirm that the integrated DOS crosses 8 at <i>E<sub>F</sub></i>.
 
-In the second figure DOS are resolved by spin (red for majority spin, green for minority spin).
+In the right figure DOS are resolved by spin (red for majority spin, green for minority spin).
 
 ![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
 {::nomarkdown}</div>{:/}
@@ -254,13 +248,13 @@ style="color: green"}, since resolving DOS into 140 distinct _k_
 channels and three kinds of DOS creates a large file.  The channels
 are ordered as
 
-|         |  total  |  t2g    | eg
- columns  |  2:141   | 142:281 | 282:421)
+|         |  total   |  <i>t</i><sub>2g</sub>    | <i>e</i><sub>g</sub>
+ columns  |  2:141   | 142:281                   | 282:421
 
-Repeat the previous calculation adding an extra variable
+Repeat the previous calculation adding a variable **-vlpart=12**:
 
 ~~~
-lmf fe -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
+$ lmf fe -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
 ~~~
 
 This should create a file _poptb.fe_{: style="color: green"}.
