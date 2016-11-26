@@ -10,7 +10,7 @@ ____________________________________________________________
 ### _Table of Contents_
 {:.no_toc}
 *  Auto generated table of contents
-{:toc} 
+{:toc}
 
 ### _Purpose_
 _____________________________________________________________
@@ -35,9 +35,9 @@ Building a partial DOS using the **lmf**{: style="color: blue"} code is exemplif
     $ ~/lm/fp/test/test.fp co 3
     $ ~/lm/fp/test/test.fp gas 2
 
-Should you want a more in depth look, or a practical example, these are good places to start. We will use these as a base and go through the steps required to generate the partial DOS.   
+Should you want a more in depth look, or a practical example, these are good places to start. We will use these as a base and go through the steps required to generate the partial DOS.
 
-An input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/tutorial/lmf/ctrlfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.   
+An input file is needed for the material of which the partial DOS should be found. A tutorial detailing the steps required to generate a basic input file can be found [here](https://lordcephei.github.io/tutorial/lmf/ctrlfile/). While this tutorial concerns itself with Cr3Si6, the steps involved are applicable to most other materials.
 
 In this tutorial we will use the material Gallium Arsenide, GaAs. Our input file, created previously, will be referred to as _ctrl.gas_{: style="color: green"} and should be named as such.
 
@@ -56,18 +56,17 @@ We then run
 
     $ lmdos gas -vpdos=t --pdos~lcut=2,2,1,1~mode=1 --dos:npts=1001:window=-1.2,.7
 
-Which makes use of the previously generated files and generates the _dos.gas_{: style="color: green"} file which contains our partial DOS information. This can be plotted with your preferred plotting tool, although some manipulation of the data in the file may be required.
-*Note:*{: style="color: red"}: if you include **rdm** in the **\-\-dos** switch, e.g.
-**-\-dos:rdm:npts=1001:window=-1.2,.7**, the DOS will be written in the
-[Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays),
+Which makes use of the previously generated files and generates the _dos.gas_{: style="color: green"} file which contains our partial DOS information. This can be plotted with your preferred plotting tool, although some manipulation of the data in the file may be required.\\
+*Note*{: style="color: red"}: if you include **rdm** in the **\-\-dos** switch, e.g.
+&thinsp;**-\-dos:rdm:npts=1001:window=-1.2,.7**, DOS will be written in the [Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays),
 which is easily parsed by many graphics packages.
 
-A plotting tool is included in the suite, **fplot**{: style="color: blue"}, which can be used to generate a postscript file. We must first prepare the _dos.gas_{: style="color: green"} file with another program in the suite, _pldos_{: style="color: blue"}, with the command
+The graphics tool [**fplot**{: style="color: blue"}](/docs/misc/fplot/) will generate a postscript figure. We must first process _dos.gas_{: style="color: green"} with another program in the suite, [**pldos**{: style="color: blue"}](/docs/misc/pldos/), with the command
 
     $ echo 15 7 -1.2 0.7 | pldos -fplot -lst="1;2;3;4;5;6" dos.gas
 
-Which generates a _plot.dos_{: style="color: green"} file readable by **fplot**{: style="color: blue"}. We follow this with an **fplot**{: style="color: blue"} command
+This generates a script file _plot.dos_{: style="color: green"} readable by **fplot**{: style="color: blue"}, and some data files in the Questaal format for two-dimensional arrays](/docs/input/data_format/#standard-data-formats-for-2d-arrays).  Next follow this with an **fplot**{: style="color: blue"} command
 
-    $ fplot -disp -pr10 -f plot.dos
+    $ fplot -pr10 -f plot.dos
 
-Which should result in a viewable image of the partial DOS.
+which creates a postscript file, _fplot.ps_{: style="color: green"}.
