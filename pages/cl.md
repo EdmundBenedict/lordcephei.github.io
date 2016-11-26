@@ -667,7 +667,8 @@ Command-line switches:
 <i>The following switches concern the optics branch of</i> **lmf**{: style="color: blue"}.
 
 **-\-jdosw &thinsp;\|&thinsp; -\-jdosw2**
-:  Channels for optical properties.  See optics documentation.
+:  Channels for optical properties.  See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry)
+   for an example.
 ^
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.

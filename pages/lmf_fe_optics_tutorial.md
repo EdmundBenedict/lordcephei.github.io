@@ -168,11 +168,11 @@ harmonics for _l_=2 split under cubic symmetry into
 <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.  In
 this section we resolve the spin-1 DOS into those symmetries.
 
-[Optics **MODE=-5**](tutorial/application/optics/#further-optics-modes)
+Optics [**MODE=-5**](tutorial/application/optics/#further-optics-modes)
 generates the spin 1 DOS.  Step 3 already supplied this information,
-but the optics **MODE=-5** branch works in concert with the
+but the optics **MODE=-5** works in concert with the
 **-\-jdos** switch which enables you to project the DOS into orbitals
-of your choice, using a Mulliken analysis.  **-\-jdos** offers you a
+of your choosing, using a Mulliken analysis.  **-\-jdos** offers a
 lot of flexibility, but a bit of extra work is needed to identify
 which orbitals in the LMTO basis set are associated with
 <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.
@@ -248,7 +248,7 @@ style="color: green"}, since resolving DOS into 140 distinct _k_
 channels and three kinds of DOS creates a large file.  The channels
 are ordered as
 
-|         |  total   |  <i>t</i><sub>2g</sub>    | <i>e</i><sub>g</sub>
+|         |  total   | : <i>t</i><sub>2g</sub> : | : <i>e</i><sub>g</sub> :
  columns  |  2:141   | 142:281                   | 282:421
 
 Repeat the previous calculation adding a variable **-vlpart=12**:
