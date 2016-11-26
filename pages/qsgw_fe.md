@@ -115,7 +115,7 @@ moment. This is true for both QS_GW_ and _LDA_.
 
 This tutorial proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si).
 
-### _Self-consistent_ LDA _calculation for Fe_
+### 1. _Self-consistent_ LDA _calculation for Fe_
 {::comment}
 /tutorial/gw/qsgw_fe/#self-consistent-lda-calculation-for-fe
 {:/comment}
