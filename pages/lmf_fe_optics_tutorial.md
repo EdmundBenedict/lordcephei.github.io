@@ -68,7 +68,7 @@ Identify the <i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> orbitals
 
     lmf fe --pr60 --quit=ham
 
-Make the 
+Make the Mulliken <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> DOS
 
 ~~~
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
@@ -236,7 +236,15 @@ _Notes_{: style="color: red"}:
 ### 5. _Further Resolve DOS by_ k
 
 In the previous section the DOS were resolved into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> character.
-Here it is further resolved by k.
+Here it is further resolved by k.  To accomplish this use the **OPTICS_PART** tag.
+To see its function, look at the [web documentation](/docs/input/inputfile/#optics)
+or just do
+
+    lmf --input | grep -A 10 OPTICS_PART
+
+Use **OPTICS_PART=2** to resolve by _k_; we will use **OPTICS_PART=12** to write
+the output to a binary file.  Resolving DOS into 140 distinct _k_ channels creates
+a large file.
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
