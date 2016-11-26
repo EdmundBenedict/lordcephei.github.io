@@ -248,8 +248,9 @@ style="color: green"}, since resolving DOS into 140 distinct _k_
 channels and three kinds of DOS creates a large file.  The channels
 are ordered as
 
-|         |  total   | : <i>t</i><sub>2g</sub> : | : <i>e</i><sub>g</sub> :
- columns  |  2:141   | 142:281                   | 282:421
+|    -    |   -      | : - :                 | : - :
+|         |  total   | <i>t</i><sub>2g</sub> | <i>e</i><sub>g</sub>
+ columns  |  2:141   | 142:281               | 282:421
 
 Repeat the previous calculation adding a variable **-vlpart=12**:
 
