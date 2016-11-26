@@ -476,7 +476,7 @@ $ rdfile plot.2bands
 <div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
-![Particle in a Box Example](/assets/img/bnds-fe.svg)
+![Fe energy bands](/assets/img/bnds-fe.svg)
 {::nomarkdown}</div>{:/}
 
 ~~~

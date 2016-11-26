@@ -119,39 +119,43 @@ additions to the ctrl file, you can generate it immediately.  The
 following generate both the DOS and the number-of states (NOS), or
 integrated DOS.  At the Fermi level the total number of electrons should be 8.
 
+<div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
+Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
+![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
+{::nomarkdown}</div>{:/}
 
-### 4. _Resolve DOS into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.
+### 4. _Resolve DOS into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry_
 
 In Fe the <i>d</i> orbitals are of primary interest.  Spherical
 harmonics for _l_=2 split under cubic symmetry into
 <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.  In
 this section we resolve the spin-1 DOS into those symmetries.
 
-[Optics **MODE=-5**](tutorial/application/optics/#further-optics-modes) generates
-the spin 1 DOS.  Step 3 already supplied this information, but this optics branch works 
-in concert with the **-\-jdos** switch which enables you to project the DOS into orbitals of your choice,
-using a Mulliken analysis.
-**-\-jdos** offers you a lot of flexibility, but a bit of extra work is needed
-to identify which orbitals in the LMTO basis set are associated with
+[Optics **MODE=-5**](tutorial/application/optics/#further-optics-modes)
+generates the spin 1 DOS.  Step 3 already supplied this information,
+but the optics **MODE=-5** branch works in concert with the
+**-\-jdos** switch which enables you to project the DOS into orbitals
+of your choice, using a Mulliken analysis.  **-\-jdos** offers you a
+lot of flexibility, but a bit of extra work is needed to identify
+which orbitals in the LMTO basis set are associated with
 <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry.
 
 Run **lmf**{: style="color: blue"} with a high verbosity, stopping early:
 
     lmf fe --pr60 --quit=ham
 
-You should see this output:
-
+You should see this table:
 
 ~~~
  Orbital positions in hamiltonian, resolved by l:
  Site  Spec  Total    By l ...
    1   Fe    1:30   1:1(s)   2:4(p)   5:9(d)   10:16(f) 17:17(s) 18:20(p) 21:25(d) 26:30(d)
- suham :  25 augmentation channels, 25 local potential channels  Maximum lmxa=4
 ~~~
 
 It tells you that channels 5:9 (first kappa), 21:25 (second kappa) and 26:30 (local orbitals)
 are associated with the Fe _d_ orbitals.  In each group of 5 orbitals, three three of them
-are of <i>t</i><sub>2g</sub> character and two <i>e</i><sub>g</sub> character.
+are of <i>t</i><sub>2g</sub> character and two of <i>e</i><sub>g</sub> character.
 The <i>t</i><sub>2g</sub> are the _xy_, _xz_, and _yz_, orbitals; the <i>e</i><sub>g</sub> 
 have 3_z_<sup>2</sup>&minus;1 and <i>x</i><sup>2</sup>&minus;<i>y</i><sup>2</sup> character.
 At the &Gamma; point in the Brillouin zone, the Fe _d_ states are three-fold and two-fold degenerate, 
@@ -159,17 +163,17 @@ according to their character.
 
 To know which of the 5 orbitals belong to each class, consult the
 [spherical harmonics](/docs/numerics/spherical_harmonics/) page.  The
-table indicates that the first, second, and fourth orbitals with _l_=2 are
+table indicates that the first, second, and fourth _l_=2 orbitals are
 <i>t</i><sub>2g</sub>, and orbitals 3 and 5 are the
 <i>e</i><sub>g</sub>.  Since the _d_ orbitals appear three times in the basis,
 there are 9 and 6 <i>t</i><sub>2g</sub> and
 <i>e</i><sub>g</sub> orbitals, respectively.
 
-Comparing to the table obove channels 5,6,8,21,22,24,26,27,29 can be identified as
-<i>t</i><sub>2g</sub> orbitals, and channels 7,9,23,25,28,30 the 
+Comparing to the table above, channels 5,6,8, 21,22,24, and 26,27,29 can be identified as
+<i>t</i><sub>2g</sub> orbitals, and channels 7,9, 23,25, and 28,30 the 
 <i>e</i><sub>g</sub>.
 
-Now run **lmf**{: style="color: blue"} as in the following:
+Run **lmf**{: style="color: blue"} as follows:
 
 ~~~
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
@@ -177,13 +181,14 @@ lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29
 
 _Notes_{: style="color: red"}: 
 
-+ You can Mulliken-project one (**-\-jdosw**) or two (**-\-jdosw** and **-\-jdosw2**) combinations of orbitals
++ You can Mulliken-project one (**-\-jdosw**) or two (**-\-jdosw** and **-\-jdosw2**) combinations of orbitals.
 + This special Mulliken projected DOS **MODE=-5** requires the enhanced tetrahedron integrator (**LTET=3**).
 + You can of course use more or fewer _k_ points.
 + A file _jdos.fe_{: style="color: green"} should be written to disk.
   _jdos.fe_{: style="color: green"} will contain 2 columns, 3 if (**-\-jdosw**) is used, 
   and 4 if (**-\-jdosw2**) is also used.  Columns 1 and 2 are the total DOS; columns 3 and 4 are the 
   Mulliken projected DOS from orbitals in (**-\-jdosw**) and (**-\-jdosw2**).
++ **--quit=band** avoids overwriting the density restart file.
 + **lmf**{: style="color: blue"} prints out messages like this:
 
   ~~~
@@ -199,3 +204,9 @@ _Notes_{: style="color: red"}:
 
 
 
+{::comment}
+
+First figure
+fplot -frme:xor=-0.00081:yab=8 -.3,-.3+.6,1.1,1.6 -lt 1,col=1,0,0 -ord x2+x3 dos.fe -frme .5,1,1.1,1.6 -frmt th=3,1,1 -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+
+{:/comment}
