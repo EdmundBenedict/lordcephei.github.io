@@ -60,9 +60,7 @@ $ fplot -f ~/lm/fp/test/plot.fs0
 
 ### _Density Of States_
 _____________________________________________________________
-All of the band codes have the ability to generate the total Density of States (DOS), and most
-can resolve them in different ways.
-
+All of the band codes have the ability to generate the total Density of States (DOS).
 Total DOS are automatically generated when you set [**BZ\_SAVDOS**](/docs/input/inputfile/#bz). 
 DOS are written to file _dos.ext_{: style="color: green"} (one DOS
 in the nonmagnetic case and two in the spin-polarized case).\\
@@ -70,6 +68,8 @@ _Note:_{: style="color: red"} this switch will not be active if [**BZ\_METAL**](
 
 The [**pldos**{: style="color: blue"}](/docs/misc/pldos/) tool will render _dos.ext_{: style="color: green"} into more user friendly
 formats, and perform other functions.
+
+Codes can also resolve DOS in different ways.
 
 **lmf**{: style="color: blue"} and **lm**{: style="color: blue"} can generate partial densities-of-states with the
   [-\-pdos](/docs/input/commandline/#pdos) switch.
@@ -92,19 +92,19 @@ Features of the optics package also work with **lm**{: style="color: blue"}.
 **lmgf**{: style="color: blue"} can make partial DOS.  It can either do it by Pade extrapolation to the
 real axis of Im&thinsp;<i>G</i> calculated on the contour in the complex plane, or you can choose a contour
 close to the real axis and generate DOS directly.  The latter is more accurate, but more time consuming.
+For a demonstration, try
 
+    $ ~/lm/gf/test/test.gf nife
 
 ### _Spectral Functions_
 _____________________________________________________________
 
-DOS are equivalent to spectral functions, though generally spectral
-functions refer to DOS when there is some scattering to spread
-out the pole <i>&delta;</i>(<i>E&minus;E</i><sub>0</sub>) from a
-noninteracting eigenstate at energy <i>E</i><sub>0</sub>.
+DOS are equivalent to spectral functions, though generally spectral functions refer to DOS when there is some scattering to spread out the
+pole <i>&delta;</i>(<i>E&minus;E</i><sub>0</sub>) in Im&thinsp;<i>G</i> from a noninteracting eigenstate at energy <i>E</i><sub>0</sub>.
 
 Codes calculate spectral functions for interacting electrons in several contexts:
 
-+ Calculated from _GW_. see [this tutorial](/tutorial/gw/gw_self_energy/).
++ Calculated from _GW_. See [this tutorial](/tutorial/gw/gw_self_energy/).
 + Calculated in Dynamical Mean Field Theory. See the [DMFT tutorial](/tutorial/qsgw_dmft/dmft0/).
 + The ASA Green's function code **lmgf**{: style="color: blue"} will calculate spectral functions in the context of the Coherent Potential
   Approximation, see [this document](/docs/code/spectral-functions/).  Electrons aren't interacting in the many-body sense here; disorder
@@ -182,8 +182,8 @@ For a demonstration, see this test
 _____________________________________________________________
 
 
-**lmf**{: style="color: blue"} can do molecular dynamics, but other DFT codes
-do it better with iterative diagonalization.
+**lmf**{: style="color: blue"} can do molecular dynamics, but other DFT codes that 
+use iterative diagonalization generally are more efficient.
 
 The [empirical tight-binding](/tutorial/tbe/tbectrl/) code has an efficient 
 implementation.
@@ -206,7 +206,7 @@ can perform "spin statics" --- the analog of molecular statics where
 the spin quantization axis is relaxed to where the off-diagonal parts
 of the spin density matrix vanish.
 
-There are no tutorials as yet.  But try
+There are no tutorials as yet.  But try:
 
     $ ~/lm/gf/test/test.gf nife
 
