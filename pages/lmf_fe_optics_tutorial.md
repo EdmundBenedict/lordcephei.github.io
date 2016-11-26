@@ -82,8 +82,7 @@ Further resolve the DOS by _k_:
 lmf fe -vlteto=3 -voptmod=-5 -vnk=16 -vlpart=12 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
 ~~~
 
-A file _poptb.fe_{: style="color: green"} should be generated.
-
+{::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
 
 ### _Introduction_
 
