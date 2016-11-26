@@ -13,8 +13,8 @@ header: no
 {:.no_toc}
 _____________________________________________________________
 
-This tutorial explains how to use the _GW_ code to calculate the
-dielectric function <i>&epsilon;</i>(<b>k</b>,<i>&omega;</i>)
+This tutorial explains how to calculate the dielectric function <i>&epsilon;</i>(<b>k</b>,<i>&omega;</i>) within the Random Phase
+Approximation, and with the addition of ladder diagrams (RPA+BSE).
 
 ### _Table of Contents_
 _____________________________________________________________

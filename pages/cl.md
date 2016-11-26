@@ -997,10 +997,10 @@ Command-line options:
    + **mode=#**   compute quantities other than the DOS.\\
      +  **#=0**   &ensp;Standard DOS, i.e. &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E(<b>k</b>)-E</i>)
      +  **#=1**   &ensp;Ballistic conductance, Landauer formula, i.e.
-                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<i>E</i>(<b>k</b>)\\
+                  &nbsp; &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<i>E</i>(<b>k</b>)\\
                   In this mode, you must supply vector **vec** to indicate which direction the gradient is to be projected.
      +  **#=2**   &ensp;diffusive conductivity in the relaxation time approximation
-                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;_1<i>E</i>(<b>k</b>) &middot; &nabla;_2<i>E</i>(<b>k</b>)
+                  &int; <i>d</i><sup>3</sup><b>k</b> <i>&delta;</i>(<i>E</i>(<b>k</b>)-<i>E</i>) &nabla;<sub>1</sub><i>E</i>(<b>k</b>) &middot; &nabla;<sub>2</sub><i>E</i>(<b>k</b>)
                   In this mode you must supply both **vec** and **vec2**.
    + **vec=#1,#2,#3**:   **k** direction vector 1 for **mode=1** or **mode=2**.
    + **vec2=#1,#2,#3**:  **k** direction vector 2 for **mode=2**.
@@ -1014,7 +1014,7 @@ Command-line options:
      weights by class.  It is incompatible with the **-\-pdos** switch which stores weights by site.
 
    _Example_: compute the ballistic conductance in the z direction over an energy range (-0.8,0.5)Ry:\\
-   **--dos:mode=1:npts=501:window=-.8,.5:vec=0,0,1**
+   **-\-dos:mode=1:npts=501:window=-.8,.5:vec=0,0,1**
 ^
 **-\-cls**
 :  tells **lmdos**{: style="color: blue"} that the _moms.ext_{: style="color: green"} holds data for core-level (EELS) spectrosopy (**lmf**{: style="color: blue"} output).

@@ -13,7 +13,7 @@
   side: left
   prefix: "/functionality"
   dropdown:
-  - title: "By Physical Application"
+  - title: "By Physical Property"
     url: "/application/"
   - title: "By Suite Program"
     url: "/program/"
