@@ -1,4 +1,4 @@
-mf---
+---
 layout: page-fullwidth
 title: "QSGW Tutorial: Optics and resolved DOS in Fe"
 subheadline: ""
