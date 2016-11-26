@@ -117,15 +117,12 @@ OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 ESCISS=0 LTET={lteto} ALLTRANS=T # ESM
 Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With **BZ** added
 to the ctrl file, you can generate it immediately.
 
-The following generates the DOS, and uses the the 
-[**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make a picture
-(red for majority spin, green for minority spin):
+The following generates the total DOS, saving it into file _tdos.fe_{: style="color: green"}.
 
     lmf -vnkabc=16 fe --quit=band --dos:rdm
     cp dos.fe tdos.fe
 
-and the following generates the number-of states (NOS), or
-integrated DOS, with a picture of the combined spin&uarr;+spin&darr; NOS:
+and the following generates the number-of states (NOS), or integrated DOS
 
     lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
 
@@ -133,6 +130,8 @@ _Notes:_{: style="color: red"}
 
 + the Fermi level should come out to **-0.000599**&thinsp;Ry.
 + At the Fermi level the total number of electrons should be 8.
++ the **:rdm** tag is not necessary, but it causes **lmf**{: style="color: blue"} to write the file in 
+  an easy to read [Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays) for 2D arrays.
 + The majority and minority DOS are roughly similar, but spin split by slightly
   less than 0.2&thinsp;Ry, or about 2.2&thinsp;eV, as noted in the 
   [QSGW tutorial](/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe).
@@ -141,12 +140,14 @@ _Notes:_{: style="color: red"}
 Click here to make or view figures of the DOS and NOS.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
 
+The following uses [**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make a postscript files.
+
 For the DOS:
 
     fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
     open fplot.ps
 
-for the NOS:
+For the combined spin&uarr; + spin&darr; NOS:
 
     fplot -frme:xor=-0.000599:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
     open fplot.ps
@@ -154,6 +155,8 @@ for the NOS:
 The figures should look like like those shown below.  In the left figure the vertical
 axis is aligned with the Fermi level, and the horizontal axis lies at 8 electrons.
 You can confirm that the integrated DOS crosses 8 at <i>E<sub>F</sub></i>.
+
+In the second figure DOS are resolved by spin (red for majority spin, green for minority spin).
 
 ![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
 {::nomarkdown}</div>{:/}
