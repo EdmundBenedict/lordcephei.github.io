@@ -81,7 +81,7 @@ For partial DOS, see [this tutorial](/tutorial/lmf/pdos/).
 and resolve DOS by wave number <b>k</b>, as part of the [optics package](/application/opt-part/).
 [This tutorial](/tutorial/gw/fe_optics/) illustrates how the _d_ partial DOS in Fe can be resolved into
 <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> components, and how those components
-are resolved at a particular _k_ point.
+can resolved at a special _k_ point.
 
 #### lm
 

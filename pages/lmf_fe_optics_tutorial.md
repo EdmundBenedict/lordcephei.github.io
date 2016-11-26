@@ -54,14 +54,14 @@ Edit the ctrl file to add extra BZ and OPTICS tags.
 
     nano ctrl.fe
 
-Integrated and total DOS:
+Total DOS and integrated DOS
 
 ~~~
-lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
-fplot -frme:xor=-0.0006:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
 lmf -vnkabc=16 fe --quit=band --dos:rdm
 cp dos.fe tdos.fe
 fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
+fplot -frme:xor=-0.0006:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
 ~~~
 
 Identify the <i>t</i><sub>2g</sub></i> and <i>e</i><sub>g</sub></i> orbitals
@@ -102,7 +102,7 @@ This optics tutorial requires some additional tags to the input file.
 Append the following lines to _ctrl.fe_{: style="color: green"}.
 
 ~~~
-BZ      NPTS=1001 BZJOB=1 DOS=-.7 .8 SAVDOS=T
+BZ      NPTS=1001 DOS=-.7 .8 SAVDOS=T
 % const optmod=0 lteto=3 lpart=0
 % ifdef (optmod==-5|optmod==-6)
 OPTICS  MODE={optmod} NPTS=1001 WINDOW=-.7 .8 ESCISS=0 LTET={lteto}
@@ -114,38 +114,46 @@ OPTICS  MODE={optmod} NPTS=301 WINDOW=0 1 ESCISS=0 LTET={lteto} ALLTRANS=T # ESM
 
 ### 3. _Total Number and Density of States_
 
-Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With the
-additions to the ctrl file, you can generate it immediately.  The
-following generates the number-of states (NOS), or
-integrated DOS.  At the Fermi level the total number of electrons should be 8.
+Total DOS are generated automatically when **BZ\_SAVDOS=T**.  With **BZ** added
+to the ctrl file, you can generate it immediately.
+
+The following generates the DOS, and uses the the 
+[**fplot**{: style="color: blue"}](/docs/misc/fplot/) utility to make a picture
+(red for majority spin, green for minority spin):
+
+    lmf -vnkabc=16 fe --quit=band --dos:rdm
+    cp dos.fe tdos.fe
+
+and the following generates the number-of states (NOS), or
+integrated DOS, with a picture of the combined spin&uarr;+spin&darr; NOS:
 
     lmf -vnkabc=16 fe --quit=band --dos:rdm:idos
-    fplot -frme:xor=-0.00081:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
-    open fplot.ps
 
-_Notes_{: style="color: red"}: 
+_Notes:_{: style="color: red"}
 
-+ the Fermi level should come out to **-0.00081**&thinsp;Ry.
-
-
-To make the DOS
-
-lmf -vnkabc=16 fe --quit=band --dos:rdm
-cp dos.fe tdos.fe
-fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
-
-
++ the Fermi level should come out to **-0.000599**&thinsp;Ry.
++ At the Fermi level the total number of electrons should be 8.
++ The majority and minority DOS are roughly similar, but spin split by slightly
+  less than 0.2&thinsp;Ry, or about 2.2&thinsp;eV, as noted in the 
+  [QSGW tutorial](/tutorial/gw/gw_self_energy/#compare-interacting-and-independent-particle-density-of-states-in-fe).
 
 <div onclick="elm = document.getElementById('bnds'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-Run the commands in the box below to create and view the postscript file, or click here to see the figure.</div>
+Click here to make or view figures of the DOS and NOS.</div>
 {::nomarkdown}<div style="display:none;padding:0px;" id="bnds">{:/}
 
-fplot -frme:xor=-0.00081:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
-lmf -vnkabc=16 fe --quit=band --dos:rdm
-cp dos.fe tdos.fe
-fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+For the DOS:
 
+    fplot -lt 1,col=1,0,0 -colsy 2 tdos.fe -lt 1,col=0,1,0 -colsy 3 tdos.fe
+    open fplot.ps
 
+for the NOS:
+
+    fplot -frme:xor=-0.000599:yab=8 0,1,0,1 -lt 1,col=1,0,0 -ord x2+x3 dos.fe
+    open fplot.ps
+
+The figures should look like like those shown below.  In the left figure the vertical
+axis is aligned with the Fermi level, and the horizontal axis lies at 8 electrons.
+You can confirm that the integrated DOS crosses 8 at <i>E<sub>F</sub></i>.
 
 ![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
 {::nomarkdown}</div>{:/}
