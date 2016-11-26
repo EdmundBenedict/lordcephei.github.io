@@ -233,7 +233,10 @@ _Notes_{: style="color: red"}:
 
   This message is not relevant for the DOS.
 
+### 5. _Further Resolve DOS by_ k
 
+In the previous section the DOS were resolved into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> character.
+Here it is further resolved by k.
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)

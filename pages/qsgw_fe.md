@@ -493,3 +493,4 @@ excellent, though a considerable discrepancy with LDA remains.
 
 1. Tetrahedron vs sampling vs fermi function, and METAL modes
 
+2. Test the PBE functional
