@@ -678,8 +678,7 @@ Command-line switches:
    For single DOS, use **-\-jdosw~_list_** and optionally **-\-jdosw2~_list_**.
 
    Data is written to [file _jdos.ext_{: style="color: green"}](/docs/input/data_format/#file-jdos).
-
-   See [this tutorial](tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
+   See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
 ^
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.

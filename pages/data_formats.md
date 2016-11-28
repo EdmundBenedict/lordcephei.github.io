@@ -547,7 +547,7 @@ total if it exists (**-\-jdosw**), and fourth the second Mulliken projection if 
 |    -    |   -      | :---: | :---:
 | Energy  |  total   | Mull1 | Mull2
 
-See [this tutorial](tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
+See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
 
 #### Files sdos, seia, pes, pesqp
 [//]: (/docs/input/data_format/#files-sdos-seia-pes-pesqp)
