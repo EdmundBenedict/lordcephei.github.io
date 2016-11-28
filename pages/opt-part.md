@@ -11,11 +11,12 @@ header: no
 ### _Purpose_
 {:.no_toc}
 This tutorial is designed to describe the procedure and output of **OPTICS_PART=1**,**OPTICS_PART=2** and **OPTICS_PART=3**. 
+See also [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-by-k), which resolves the density-of-states in a magnetic metal.
 
 ### _Prerequsites_
 This tutorial follows from the [self-consistent](/tutorial/asa/lm_pbte_tutorial/) and [optics](http://lordcephei.github.io/docs-equ-optics/) tutorial preformed on PbTe, it is highly recomended that you go through those before this tutorial, for this tutorials the **lm**{: style="color: blue"} or  **lmf**{: style="color: blue"} are needed.
 
-### _Individual band to band contribution _
+### _Resolve by Individual Band to Band Contributions_
 
 The imaginary part of the dielectric function and density of states can both be resolved  by band to band contribution, to preform  such calculation it is only necessery to set **OPTICS_PART=1** with in the control file, such that
 
@@ -31,7 +32,11 @@ It is worth noting that caution should be taken with such settings as the output
 
 
 ### _Resolving by k-points_
-In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the contribution to the optical properites by individual k-points, this calculation can be prefomed simply by adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
+
+In both the **lm**{: style="color: blue"} and **lmf**{: style="color: blue"} implementations of the code it is possible to separate the
+contribution to the optical properites by individual k-points.
+_Note:_{: style="color: red"} You can also _k_-resolve the density-of-states, as described in [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-by-k).
+This calculation can be performed by adding **PART=2** to the optics category, however few additional steps are needed to interpret the output. Lets start by running an optics calculation for PbTe with the following setup in the control file:
 
    OPTICS  MODE=1 NPTS=1001 WINDOW=0 1 ESCISS=0 LTET=3
            PART=2
