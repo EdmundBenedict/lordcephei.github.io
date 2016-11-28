@@ -126,13 +126,10 @@ The **lmf**{: style="color: blue"} package can also perform Mulliken analysis or
 
 Both switches have several options; for **-\-mull**  see [here](/docs/input/commandline/#pdos); for **-\-cls**  see [here](/docs/input/commandline/#cls).
 
-A usage guide for Mulliken analysis, including how the switch is
-actually used, can be found [here](/tutorial/lmf/mulliken/).  For core-level spectroscopy,
-see [this tutorial](/tutorial/lmf/cls/).
+A usage guide for Mulliken analysis, including how the switch is actually used, can be found [here](/tutorial/lmf/mulliken/).  For
+core-level spectroscopy, see [this tutorial](/tutorial/lmf/cls/).
 
-For _k_-resolved DOS, and the projection of _k_ resolved DOS onto orbitals, try
-
-    $ ~/lm/fp/test/test.fp fe 1
+For _k_-resolved DOS, and as well as joint projection of _k_ resolved and Mulliken resolved DOS onto orbitals, see [this tutorial](/tutorial/gw/fe_optics/).
 
 ### _Obtaining quasiparticle Energy Bands From 1-shot GW_
 _____________________________________________________________
