@@ -679,6 +679,10 @@ Command-line switches:
 
    Data is written to [file _jdos.ext_{: style="color: green"}](/docs/input/data_format/#file-jdos).
    See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
+
+   Lists are parsed in **subs/getjdosw.f**{: style="color: green"}; _jdos.ext_{: style="color: green"} is written in routine optin2 in
+   **optics/optint.f**{: style="color: green"}.
+
 ^
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.

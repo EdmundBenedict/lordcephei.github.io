@@ -590,7 +590,7 @@ It contains a 1-line header consisting of values for **qcut** to be explained be
 The header is followed by a sequence of lines:
 
 ~~~
-[   E          q-q0        A(up)          A(dn)    ( this line is not present in the file)]
+[    w         q-q0        A(up)          A(dn)    ( this line is not present in the file)]
   -1.00000   0.00000      0.004900      0.004423
   -1.00000   0.01040      0.004896      0.004420
   -1.00000   0.02080      0.004886      0.004411
