@@ -543,8 +543,8 @@ single or joint DOS when using the optics package (**OPTICS\|MODE**<0)
 File is written in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 Data is written up to four columns as shown in the box below.
 
-|    -    |   -      | :---: | :---:
-| Energy  |  total   | Mull1 | Mull2
+|    -    |   -         | :---: | :---:
+| Energy  |  total dos  | Mull1 | Mull2
 
 See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
 
