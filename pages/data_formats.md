@@ -542,7 +542,9 @@ single or joint DOS when using the optics package (**OPTICS\|MODE**<0)
 
 File is written in [standard Questaal format](/docs/input/data_format/#standard-data-formats-for-2d-arrays).
 Data is written up to four columns; the third is the first Mulliken projection of the 
-total if it exists (**-\-jdosw**), and fourth the second Mulliken projection if it exists (**-\-jdosw2**)
+total if it exists (**-\-jdosw**), and fourth the second Mulliken projection if it exists (**-\-jdosw2**).
+
+See [this tutorial](tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
 
 #### Files sdos, seia, pes, pesqp
 [//]: (/docs/input/data_format/#files-sdos-seia-pes-pesqp)
