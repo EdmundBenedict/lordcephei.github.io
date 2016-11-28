@@ -231,7 +231,8 @@ $ lmf fe -vlteto=3 -voptmod=-5 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,
 
 _Notes_{: style="color: red"}: 
 
-+ You can Mulliken-project one (**-\-jdosw**) or two (**-\-jdosw** and **-\-jdosw2**) combinations of orbitals.
++ You can project onto one (**-\-jdosw**) or two (**-\-jdosw** and **-\-jdosw2**) combinations of orbitals, 
+  using Mulliken projection.
 + This special Mulliken projected DOS **MODE=-5** requires the enhanced tetrahedron integrator (**LTET=3**).
 + You can of course use more or fewer _k_ points.
 + A file _jdos.fe_{: style="color: green"} should be written to disk.
