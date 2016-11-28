@@ -667,7 +667,19 @@ Command-line switches:
 <i>The following switches concern the optics branch of both</i> **lmf**{: style="color: blue"} <i>and</i> **lm**{: style="color: blue"}.
 
 **-\-jdosw &thinsp;\|&thinsp; -\-jdosw2**
-:  Channels for optical properties.  See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry)
+:  Mulliken projection of channels for optical properties. 
+
+   You can project onto one linear combination of basis functions (**-\-jdosw**) or two (also use **-\-jdosw2**).
+
+   For joint DOS and optics, use **-\-jdosw~_list1_~_list2_** or **-\-jdosw2~_list1_~_list2_**.
+   _list1_ refers to occupied states, _list2_ to unoccupied states.\\
+   Use [integer list syntax](/docs/input/integerlists/) for _list1_ and _list2_.
+   
+   For single DOS, use **-\-jdosw~_list** and optionally **-\-jdosw2~_list_**.
+
+   Data is written to [file _jdos.ext_{: style="color: green"}](/docs/input/data_format/#file-jdos).
+
+See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry)
    for an example.
 ^
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**

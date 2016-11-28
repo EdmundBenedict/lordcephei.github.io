@@ -172,7 +172,10 @@ In the right figure DOS are resolved by spin (red for majority spin, green for m
 ![Fe total NOS and DOS](/assets/img/Fe-DOS.svg)
 {::nomarkdown}</div>{:/}
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 ### 4. _Resolve DOS into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> symmetry_
+[//]: (tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry)
 
 In Fe the <i>d</i> orbitals are of primary interest.  Spherical
 harmonics for _l_=2 split under cubic symmetry into
@@ -274,6 +277,7 @@ what remains is mostly of Fe _s_ character.  You can also see that the
 <i>t</i><sub>2g</sub> is a somewhat wider than the <i>e</i><sub>g</sub>.
 
 ### 5. _Further Resolve DOS by_ k
+[//]: (tutorial/gw/fe_optics/#further-resolve-dos-by-k)
 
 In the previous section the DOS were resolved into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> character.
 Here it is further resolved by k.  To accomplish this use the **OPTICS_PART** tag.
