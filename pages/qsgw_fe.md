@@ -18,8 +18,7 @@ This tutorial begins with with a self-consistent LDA calculation for Fe, a bcc m
 It proceeds in a manner similar to the [basic QSGW tutorial](/tutorial/gw/qsgw_si);
 it also forms a starting point for other tutorials, for example
 the calculation of the [dynamical self-energy](/tutorial/gw/gw_self_energy/),
-and [_k_-resolved DOS](/tutorial/gw/fe_optics/), and as well as joint projection of _k_ resolved and Mulliken resolved DOS onto orbitals.
-
+another for [_k_-resolved DOS](/tutorial/gw/fe_optics/), and as well as combined of _k_-resolved and Mulliken-resolved DOS.
 
 ### _Table of Contents_
 {:.no_toc}
