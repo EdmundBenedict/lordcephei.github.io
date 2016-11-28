@@ -277,8 +277,8 @@ DOS in that interval is of Fe _d_ character.  Below &minus;0.4 and above 0, a di
 what remains is mostly of Fe _s_ character.  You can also see that the 
 <i>t</i><sub>2g</sub> is a somewhat wider than the <i>e</i><sub>g</sub>.
 
-### 5. _Further Resolve DOS by_ k
-[//]: (/tutorial/gw/fe_optics/#further-resolve-dos-by-k)
+### 5. _Resolve DOS by_ k
+[//]: (/tutorial/gw/fe_optics/#resolve-dos-by-k)
 
 In the previous section the DOS were resolved into <i>t</i><sub>2g</sub> and <i>e</i><sub>g</sub> character.
 Here it is further resolved by k.  To accomplish this use the **OPTICS_PART** tag.
@@ -312,6 +312,43 @@ mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a
 mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a13 -csum -ccat jdos.fe -coll 1,3 -- -px:5
 mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a14 -csum -ccat jdos.fe -coll 1,4 -- -px:5
 ~~~
+
+###3 5.1 _DOS Heat Maps_
+[//]: (/tutorial/gw/fe_optics/#dos-heat-maps)
+
+The _k_ resolved DOS can be used to make a "heat map" of the Fermi surface.
+For this invoke the optics editor with **-\---popted** :
+
+    $ lmf fe --rs=1,0 -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
+
+You will be prompted for an instruction:
+
+     Option : 
+
+Typing **? enter"" will give you a menu of options
+
+As with many of the editors you can string a sequence of instructions on
+the command line: the editor will treat them as though you entered them
+interactively.  Instructions are delimited by the character immediately following
+**-\-popted** e.g.
+
+    '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
+
+Here &thinsp;**:**&thinsp; is the delimiter.  These instruction do:
+
++ **:readb** reads binary file _poptb.ext_{: style="color: green"}
++ **:npol 3** tells the editor that the file has three "polarizations."
+    In this case "polarizations" refer to total DOS, 1st and 2nd Mulliken DOS.
++ **:kshowe -0.01 1 sort ds,q3** causes the editor to 
+    + print out the DOS at <i>&omega;</i>=-0.01&thinsp;Ry
+    + print out the DOS for the first "polarization" (i.e. total DOS in this case).
+    + sort the list by increasing length, and for two vectors of the same length
+      by the z component of **k**.
++ **:kmape 0.05 1** causes the editor to 
++ **:saveka**
++ **:q**
+
+
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
