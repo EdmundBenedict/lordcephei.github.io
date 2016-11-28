@@ -671,18 +671,16 @@ Command-line switches:
 
    You can project onto one linear combination of basis functions (**-\-jdosw**) or two (also use **-\-jdosw2**).
 
-   For joint DOS and optics, use **-\-jdosw~_list1_~_list2_** and **-\-jdosw2~_list1_~_list2_** for the second projection.
+   + For joint DOS and optics, use **-\-jdosw~_list1_~_list2_** and **-\-jdosw2~_list1_~_list2_** for the second projection.
    _list1_ refers to occupied states, _list2_ to unoccupied states.
+   + For single DOS, use **-\-jdosw~_list1_** and optionally **-\-jdosw2~_list1_**.
+
    Use [integer list syntax](/docs/input/integerlists/) for _list1_ and _list2_.
-   
-   For single DOS, use **-\-jdosw~_list_** and optionally **-\-jdosw2~_list_**.
 
-   Data is written to [file _jdos.ext_{: style="color: green"}](/docs/input/data_format/#file-jdos).
-   See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
-
-   Lists are parsed in **subs/getjdosw.f**{: style="color: green"}; _jdos.ext_{: style="color: green"} is written in routine optin2 in
+   Data is written to [file _jdos.ext_{: style="color: green"}](/docs/input/data_format/#file-jdos); source code is found in
    **optics/optint.f**{: style="color: green"}.
 
+   See [this tutorial](/tutorial/gw/fe_optics/#resolve-dos-into-itisub2gsub-and-ieisubgsub-symmetry) for an example.
 ^
 **-\-opt:read &thinsp;\|&thinsp; -\-opt:write**
 :  Read or write optical matrix elements.  See optics documentation.
