@@ -235,10 +235,8 @@ _Notes_{: style="color: red"}:
   using Mulliken projection.
 + This special Mulliken projected DOS **MODE=-5** requires the enhanced tetrahedron integrator (**LTET=3**).
 + You can of course use more or fewer _k_ points.
-+ A file _jdos.fe_{: style="color: green"} should be written to disk.
-  _jdos.fe_{: style="color: green"} will contain 2 columns, 3 if (**-\-jdosw**) is used, 
-  and 4 if (**-\-jdosw2**) is also used.  Columns 1 and 2 are the total DOS; columns 3 and 4 are the 
-  Mulliken projected DOS from orbitals in (**-\-jdosw**) and (**-\-jdosw2**).
++ A file _jdos.fe_{: style="color: green"} should be written to disk with total and the two Mulliken-projected DOS in the format 
+  described [here](/docs/input/data_format/#file-jdos).
 + **--quit=band** avoids overwriting the density restart file.
 + **lmf**{: style="color: blue"} prints out messages like this:
 
@@ -303,8 +301,7 @@ Repeat the previous calculation adding a variable **-vlpart=12**:
 $ lmf fe -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 --quit=band --jdosw=5,6,8,21,22,24,26,27,29 --jdosw2=7,9,23,25,28,30
 ~~~
 
-This should create a file _poptb.fe_{: style="color: green"}.
-
+This should create a binary file _poptb.fe_{: style="color: green"}.
 To confirm that the _k_ resolved DOS sum to the total DOS, do:
 
 ~~~
@@ -313,47 +310,48 @@ mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a
 mc -br poptb.fe -split a 1,nr+1 1,2,'(nc-1)/3'+2,'(nc-1)/3*2'+2,'(nc-1)/3*3'+2 a11 a14 -csum -ccat jdos.fe -coll 1,4 -- -px:5
 ~~~
 
-###3 5.1 _DOS Heat Maps_
+#### 5.1 _DOS Heat Maps_
 [//]: (/tutorial/gw/fe_optics/#dos-heat-maps)
 
-The _k_ resolved DOS can be used to make a "heat map" of the Fermi surface.
-For this invoke the optics editor with **-\---popted** :
+The _k_ resolved DOS can be used to make a "heat map" of the Fermi surface, that is a tabulation of the 
+DOS for all _k_ points in the Brillouin Zone for a specific energy.
 
-    $ lmf fe --rs=1,0 -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
+This is accomplished with optics editor, which you invoke with **-\---popted** :
+
+    $ lmf fe --rs=1,0 -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 --popted
 
 You will be prompted for an instruction:
 
      Option : 
 
-Typing **? enter"" will give you a menu of options
+Typing **? <enter>** will give you a menu of options.
 
-As with many of the editors you can string a sequence of instructions on
+As with many of the Questaal editors you can string a sequence of instructions on
 the command line: the editor will treat them as though you entered them
 interactively.  Instructions are delimited by the character immediately following
-**-\-popted** e.g.
+**-\-popted**.  In the present case, try
 
-    '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
+    $ lmf fe --rs=1,0 -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
 
-Here &thinsp;**:**&thinsp; is the delimiter.  These instruction do:
+Here &thinsp;**:**&thinsp; is the delimiter.  These instructions do the following
 
-+ **:readb** reads binary file _poptb.ext_{: style="color: green"}
-+ **:npol 3** tells the editor that the file has three "polarizations."
-    In this case "polarizations" refer to total DOS, 1st and 2nd Mulliken DOS.
-+ **:kshowe -0.01 1 sort ds,q3** causes the editor to 
-    + print out the DOS at <i>&omega;</i>=-0.01&thinsp;Ry
-    + print out the DOS for the first "polarization" (i.e. total DOS in this case).
-    + sort the list by increasing length, and for two vectors of the same length
-      by the z component of **k**.
-+ **:kmape 0.05 1** causes the editor to 
-+ **:saveka**
-+ **:q**
-
-
++ **:readb**&nbsp; reads binary file _poptb.ext_{: style="color: green"}
++ **:npol 3**&nbsp; tells the editor that the file has three "polarizations."
+    In this case "polarizations" refer to total DOS, and first and second Mulliken DOS.
++ **:kshowe -0.01 1 sort ds,q3**&nbsp; causes the editor to :
+    + print out the DOS at <i>&omega;</i>=&minus;0.01&thinsp;Ry
+    + print out the DOS for the first "polarization" (total DOS in this case).
+    + sort the list (1) by increasing length, and for two vectors of the same length
+      by the third component of **k**.  Results are printed to standard output.
++ **:kmape 0.05 1**&nbsp; causes the editor to :
+    + Map DOS(_&omega;_=0.05&thinsp;Ry) to each point in the full BZ
+    + Maps the first polarization
+    + Results are kept in an internal array
++ **:saveka**&nbsp; saves the data generated **kmape** to an ASCII file, _pka.ext_{: style="color: green"}.
++ **:q**&nbsp; quits the editor.
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
-
-
 
 {::comment}
 
