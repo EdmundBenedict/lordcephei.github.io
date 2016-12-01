@@ -324,7 +324,7 @@ You will be prompted for an instruction:
 
      Option : 
 
-Typing &thinsp;<b>? \<enter\></b>&thinsp; will give you a menu of options.
+Typing &nbsp;<b>? \<enter\></b>&nbsp; will give you a menu of options.
 
 As with many of the Questaal editors you can string a sequence of instructions on
 the command line: the editor will treat them as though you entered them
