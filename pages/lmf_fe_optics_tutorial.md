@@ -328,27 +328,27 @@ Typing &thinsp;<b>? \<enter\></b>&thinsp; will give you a menu of options.
 
 As with many of the Questaal editors you can string a sequence of instructions on
 the command line: the editor will treat them as though you entered them
-interactively.  Instructions are delimited by the character immediately following
+interactively.  Separate instructions are delimited by the character immediately following
 **-\-popted**.  In the present case, try
 
     $ lmf fe --rs=1,0 -vlteto=3 -voptmod=-5 -vlpart=12 -vnk=16 '--popted:readb:npol 3:kshowe -0.01 1 sort ds,q3:kmape 0.05 1:saveka:q'
 
-Here &thinsp;**:**&thinsp; is the delimiter.  These instructions do the following
+**:**&thinsp; was used as the delimiter.  These instructions do the following:
 
-+ **:readb**&nbsp; reads binary file _poptb.ext_{: style="color: green"}
-+ **:npol 3**&nbsp; tells the editor that the file has three "polarizations."
++ **:readb**&emsp; reads binary file _poptb.ext_{: style="color: green"}
++ **:npol 3**&emsp; tells the editor that the file has three "polarizations."
     In this case "polarizations" refer to total DOS, and first and second Mulliken DOS.
-+ **:kshowe -0.01 1 sort ds,q3**&nbsp; causes the editor to :
++ **:kshowe -0.01 1 sort ds,q3**&emsp; causes the editor to :
     + print out the DOS at <i>&omega;</i>=&minus;0.01&thinsp;Ry
     + print out the DOS for the first "polarization" (total DOS in this case).
     + sort the list (1) by increasing length, and for two vectors of the same length
       by the third component of **k**.  Results are printed to standard output.
-+ **:kmape 0.05 1**&nbsp; causes the editor to :
++ **:kmape 0.05 1**&emsp; causes the editor to :
     + Map DOS(_&omega;_=0.05&thinsp;Ry) to each point in the full BZ
     + Maps the first polarization
     + Results are kept in an internal array
-+ **:saveka**&nbsp; saves the data generated **kmape** to an ASCII file, _pka.ext_{: style="color: green"}.
-+ **:q**&nbsp; quits the editor.
++ **:saveka**&emsp; saves the data generated **kmape** to an ASCII file, _pka.ext_{: style="color: green"}.
++ **:q**&emsp; quits the editor.
 
 ### _Additional exercises_
 [//]: (/tutorial/gw/qsgw_fe/#additional-exercises)
