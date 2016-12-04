@@ -267,20 +267,20 @@ Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a v
 
 Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
 
-    Tag   |  purpose
-    emom  |  generate the output ASA moments, needed for self-consistency
-   noemom |  suppress generation of the output ASA moments
-    idos  |  make integrated properties, such as the sum of one-electron energies
-  noidos  |
-    dmat  |  make the density-matrix G_<sub>RL,R'L'</sub>
-    sdmat |  make the site-diagonal density-matrix G_<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
-    pdos  |  Make the partial density of states (this has never been checked)
-    p3    |  Use third order potential functions
-  shftef  |  Find charge neutrality point by shifting the Fermi level, rather than adding a constant potential shift
-    frzvc |  Suppress saving the constant potential shift used to determine charge neutrality
-    padtol|  Set the tolerance for maximum potential shift permissible by Pade interpolation, as described above
+  Tag   |  purpose
+  emom  |  generate the output ASA moments, needed for self-consistency
+ noemom |  suppress generation of the output ASA moments
+  idos  |  make integrated properties, such as the sum of one-electron energies
+ noidos |
+  dmat  |  make the density-matrix G_<sub>RL,R'L'</sub>
+  sdmat |  make the site-diagonal density-matrix G_<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
+  pdos  |  Make the partial density of states (this has never been checked)
+    p3  |  Use third order potential functions
+ shftef |  Find charge neutrality point by shifting the Fermi level, rather than adding a constant potential shift
+  frzvc |  Suppress saving the constant potential shift used to determine charge neutrality
+  padtol|  Set the tolerance for maximum potential shift permissible by Pade interpolation, as described above
 
- The following are for the CPA:
+ The following are specific to the CPA:
 
   omgtol  |  Tolerance in the Omega potential, CPA self-consistency
   omgmix  |  How much of prior iterations to mix, CPA self-consistency
