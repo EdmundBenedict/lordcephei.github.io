@@ -267,7 +267,7 @@ Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a v
 
 Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
 
-  Tag   |  purpose
+**Tag** |  **purpose**
   emom  |  generate the output ASA moments, needed for self-consistency
  noemom |  suppress generation of the output ASA moments
   idos  |  make integrated properties, such as the sum of one-electron energies
@@ -347,12 +347,14 @@ Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-site
 Sphere magnetic moments are tabulated in the printout at the end of **mode 10**, and the start of **mode 11**.
 If you are importing exchange parameters (file _jr.ext_{: style="color: green"} , e.g. from the full-potential code, you will want to supply the moments calculated from that program.)
 
+See [Table of Contents](/docs/code/#table-of-contents)
+
 ### _Test cases and examples_
 _____________________________________________________________
 
 This script:
 
-    $ gf/test/test.gf
+    $ gf/test/test.gf --all
 
 carries out a number of tests, which also demonstrate various branches of the code. To see the materials and corresponding tests try
 
