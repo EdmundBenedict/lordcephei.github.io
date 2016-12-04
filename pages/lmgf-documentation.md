@@ -272,9 +272,9 @@ Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **ta
  noemom |  suppress generation of the output ASA moments
   idos  |  make integrated properties, such as the sum of one-electron energies
  noidos |  reverse of idos
-  dmat  |  make the density-matrix G_<sub>RL,R'L'</sub>
-  sdmat |  make the site-diagonal density-matrix G_<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
-  pdos  |  Make the partial density of states (this has never been checked)
+  dmat  |  make the density-matrix G<sub>RL,R'L'</sub>
+  sdmat |  make the site-diagonal density-matrix G<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
+  pdos  |  Make the partial density of states (this has not been checked recently).
     p3  |  Use third order potential functions
  shftef |  Find charge neutrality point by shifting the Fermi level, rather than adding a constant potential shift
   frzvc |  Suppress saving the constant potential shift used to determine charge neutrality
