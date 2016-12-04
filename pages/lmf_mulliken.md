@@ -66,6 +66,9 @@ Which should result in a viewable image of the Mulliken DOS.
 
 ### _Other Resources_
 
+[This tutorial](tutorial/gw/fe_optics/) on ferromagnetic Fe use the optics branch of the code to make densities-of-states and a limited
+ability for Mulliken analysis.  Doing DOS or Mulliken analysis using the optics code enables you to resolve these quantities by wave number _k_.
+
 Performing a Mulliken analysis using the **lmf**{: style="color: blue"} code is exemplified in three test cases
 
     $ ~/lm/fp/test/test.fp fe 2
