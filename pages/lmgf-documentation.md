@@ -263,9 +263,9 @@ Switch `--sites:pair:site-list` applies to mode 11 as well as mode 10; see [comm
 ##### _The_ GF\_GFOPTS _token_
 [//]: (/docs/code/lmgf/#the-gfgfopts-token)
 
-Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a variety of different things.
+The **GF** category has a token **GFOPTS=_tag;tag;&hellip;**, causes **gfasa**{: style="color: green"} to perform a variety of special purpose functions.
 
-Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
+Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **tag1;tag2;...** .
 
 **Tag** |  **purpose**
   emom  |  generate the output ASA moments, needed for self-consistency
