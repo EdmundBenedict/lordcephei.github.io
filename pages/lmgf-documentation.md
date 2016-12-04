@@ -294,7 +294,7 @@ Options are entered as a sequence of tags delimited by a semicolons:&nbsp; **tag
    sfrot  |  Rotate the GF in spin space by this angle around the y axis
 
 
-See [Table of Contents](/docs/code/#table-of-contents)
+See [Table of Contents](/docs/code/lmgf/#table-of-contents)
 
 ### _lmgf-specific command-line arguments_
 {::comment}
@@ -347,7 +347,7 @@ Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-site
 Sphere magnetic moments are tabulated in the printout at the end of **mode 10**, and the start of **mode 11**.
 If you are importing exchange parameters (file _jr.ext_{: style="color: green"} , e.g. from the full-potential code, you will want to supply the moments calculated from that program.)
 
-See [Table of Contents](/docs/code/#table-of-contents)
+See [Table of Contents](/docs/code/lmgf/#table-of-contents)
 
 ### _Test cases and examples_
 _____________________________________________________________
