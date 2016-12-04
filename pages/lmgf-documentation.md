@@ -78,6 +78,7 @@ _____________________________________________________________
 For each energy point, the BZ integration is accomplished by routine in **gf/gfibz.f**{: style="color: green"}, which loops over all irreducible points, generating the "scattering path operator" $$g$$ and the corresponding $$g$$ for all the points in the star of $$k$$ to generate a properly symmetrized $$g$$. Within the ASA, second-generation LMTO, $$g$$ is converted to proper Green's function $$G$$, corresponding to the orthogonal gamma representation by an energy scaling. The scaling is carried out in routine **gf/gfg2g.f**{: style="color: green"}. Next the various integrated quantities sought are assembled (done by **gf/gfidos.f**{: style="color: green"}). The potential shift to satisfy charge neutrality is found, and stored in _vshft.ext_{: style="color: green"}. The I/O is handled by routine **subs/iovshf.f**{: style="color: green"}.
 
 ### _GF specific input_
+[//]: (/docs/code/lmgf/#gf-specific-input)
 _____________________________________________________________
 
 #### _Energy integration_
@@ -260,24 +261,39 @@ For more details, see [command-line arguments](/docs/code/lmgf/#lmgf-specific-co
 Switch `--sites:pair:site-list` applies to mode 11 as well as mode 10; see [command-line arguments](/docs/code/lmgf/#lmgf-specific-command-line-arguments).
 
 ##### _The_ GF\_GFOPTS _token_
+[//]: (/docs/code/lmgf/#the-gfgfopts-token)
 
 Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a variety of different things.
 
-Options are entered as a series of strings **string1;string2;...**  
+Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
 
-Option strings are:
+Tags are:
 
-    emom   generate the output ASA moments, needed for self-consistency
-    idos   make integrated properties, such as the sum of one-electron energies
-    dmat   make the density-matrix G_RL,R'L'
-    sdmat  make the site-diagonal density-matrix G_RL,RL'
-           The density matrix is written to a file 'dmat'
-    pdos   Make the partial density of states (this has never been checked)
-    p3     Use third order potential functions
-    padtol Set the tolerance for maximum potential shift permissible by
-           Pade interpolation, as described above
-    frzvc  Suppress saving the constant potential shift used 
-           to determine charge neutrality
+    :-:   | :-      |
+    Tag	  |  purpose
+    emom  |  generate the output ASA moments, needed for self-consistency
+   noemom |  suppress generation of the output ASA moments
+    idos  |  make integrated properties, such as the sum of one-electron energies
+  noidos  |
+    dmat  |  make the density-matrix G_<sub>RL,R'L'</sub>
+    sdmat |  make the site-diagonal density-matrix G_<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
+    pdos  |  Make the partial density of states (this has never been checked)
+    p3    |  Use third order potential functions
+  shftef  |  Find charge neutrality point by shifting the Fermi level, rather than adding a constant potential shift
+    frzvc |  Suppress saving the constant potential shift used to determine charge neutrality
+    padtol|  Set the tolerance for maximum potential shift permissible by Pade interpolation, as described above
+
+  CPA     |  The following are for the CPA:
+  omgtol  |  Tolerance in the Omega potential, CPA self-consistency
+  omgmix  |  How much of prior iterations to mix, CPA self-consistency
+  nitmax  |  Maximum number of iterations for CPA self-consistency
+    lotf  |  Learn on-the-fly
+ specfun  |  Make spectral function
+  specfr  |  Make spectral function resolved by site
+ specfrl  |  Make spectral function resolved by site and l
+    dmsv  |  Record density matrix to file
+      dz  |  Shift Omega potential by dz
+   sfrot  |  Rotate the GF in spin space by this angle around the y axis
 
 
 ### _lmgf-specific command-line arguments_
