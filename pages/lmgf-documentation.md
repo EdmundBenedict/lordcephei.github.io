@@ -271,7 +271,7 @@ Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **st
   emom  |  generate the output ASA moments, needed for self-consistency
  noemom |  suppress generation of the output ASA moments
   idos  |  make integrated properties, such as the sum of one-electron energies
- noidos |
+ noidos |  reverse of idos
   dmat  |  make the density-matrix G_<sub>RL,R'L'</sub>
   sdmat |  make the site-diagonal density-matrix G_<sub>RL,RL'</sub>. The density matrix is written to _dmat.ext_{: style="color: green"}.
   pdos  |  Make the partial density of states (this has never been checked)
@@ -293,6 +293,8 @@ Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **st
       dz  |  Shift Omega potential by dz
    sfrot  |  Rotate the GF in spin space by this angle around the y axis
 
+
+See [Table of Contents](/docs/code/#table-of-contents)
 
 ### _lmgf-specific command-line arguments_
 {::comment}
