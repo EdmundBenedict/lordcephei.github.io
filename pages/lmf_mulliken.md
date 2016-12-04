@@ -15,7 +15,9 @@ ____________________________________________________________
 ### _Purpose_
 _____________________________________________________________
 
-This tutorial demonstrates how to perform mulliken analysis using the full potential band code **lmf**{: style="color: blue"}.
+This tutorial demonstrates how to perform Mulliken analysis using the full potential band code **lmf**{: style="color: blue"}.
+See also [this tutorial](tutorial/gw/fe_optics/) which does Mulliken analysis in a different way, and resolves densities-of-states by wave number _k_.
+
 
 ### _Preliminaries_
 _____________________________________________________________
