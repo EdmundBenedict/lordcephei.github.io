@@ -263,7 +263,7 @@ Switch `--sites:pair:site-list` applies to mode 11 as well as mode 10; see [comm
 ##### _The_ GF\_GFOPTS _token_
 [//]: (/docs/code/lmgf/#the-gfgfopts-token)
 
-The **GF** category has a token **GFOPTS=_tag;tag;&hellip;**, causes **lmgf**{: style="color: blue"} to perform a variety of special purpose functions.
+The **GF** category has a token **GFOPTS=tag;tag;&hellip;**, which causes **lmgf**{: style="color: blue"} to perform a variety of special purpose functions.
 
 Options are entered as a sequence of tags delimited by a semicolons:&nbsp; **tag1;tag2;...** .
 
