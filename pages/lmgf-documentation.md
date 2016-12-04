@@ -267,7 +267,7 @@ Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a v
 
 Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
 
-    Tag	  |  purpose
+    Tag   |  purpose
     emom  |  generate the output ASA moments, needed for self-consistency
    noemom |  suppress generation of the output ASA moments
     idos  |  make integrated properties, such as the sum of one-electron energies
@@ -281,6 +281,7 @@ Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **st
     padtol|  Set the tolerance for maximum potential shift permissible by Pade interpolation, as described above
 
  The following are for the CPA:
+
   omgtol  |  Tolerance in the Omega potential, CPA self-consistency
   omgmix  |  How much of prior iterations to mix, CPA self-consistency
   nitmax  |  Maximum number of iterations for CPA self-consistency
