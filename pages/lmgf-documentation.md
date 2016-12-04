@@ -185,12 +185,12 @@ _____________________________________________________________
 
 ##### _The_ GF\_MODE _token_
 
-Token **MODE=** controls what **lmgf**{: style="color: blue"} calculates. Options are **MODE=1**, **MODE=10**, **MODE=11**, **MODE=26**, described below.
+**MODE=<i>n</i>** controls what **lmgf**{: style="color: blue"} calculates. Options are **MODE=1**, **MODE=10**, **MODE=11**, **MODE=26**, described below.
 
-**MODE=1** goes through the usual cycle calling **gfasa**{: style="color: green"}. It performs a function analogous to
+**MODE=1** goes through the self-conistency cycle, calling **gfasa**{: style="color: green"}. It performs a function analogous to
 **bndasa**{: style="color: green"} in the band program, generating output density, moments, and optionally other quantities such as density-of-states.
 
-Taken with the special integration contour **mode=2** (see **EMESH** above), $$N(E)$$ and its integral are computed and tabulated over the window specified.
+Taken with the special integration contour **mode=2** (see **EMESH** above), the density-ofstates $$D(E)$$ and its integral are computed and tabulated over the window specified.
 
 <div onclick="elm = document.getElementById('mode2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of this special purpose mode.
@@ -201,7 +201,7 @@ With the following sample input segment:
     % const ef=-0.025725
     BZ      EMESH=5 2 {ef} {ef+.002*4} .001 0
 
-the integration would be tabulated for five points ef, ef+.002, ef+.004, ef+.006, ef+.008 like so (spin-polarized case)
+The integration will be tabulated for five points ef, ef+.002, ef+.004, ef+.006, ef+.008 like so (spin-polarized case)
 
            Re z       Im z   spin       dos           idos
         -0.025725   0.001000   1      13.55272       0.00000
@@ -220,21 +220,21 @@ the integration would be tabulated for five points ef, ef+.002, ef+.004, ef+.006
         -0.017725   0.001000   2       9.31350       0.05787
         -0.017725   0.001000   t      30.14428       0.18045
 
-If the partial DOS is generated, the usual tokens in the BZ category specifying the window (**DOS=**) and number of points (**NPTS=**) are overridden by the parameters in **EMESH**.
+If the partial DOS is generated, the usual tokens in the [**BZ** category](/docs/input/inputfile/#bz) specifying the window (**DOS=**) and number of points (**NPTS=**) are overridden by the parameters in **EMESH**.
 
 {::nomarkdown}</div>{:/}
 
-**MODE=10** invokes a special branch that computes magnetic exchange interactions using a linear response technique.
+**MODE=10** invokes a special branch that computes magnetic exchange interactions using a linear response technique.  (The source code has its entry point in **gf/exasa.f**{: style="color: green"}.)
 
 <div onclick="elm = document.getElementById('mode10'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of mode 10.
 </div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode10">{:/}
 
-In particular, $$J_{ij}$$ is computed for pairs of sites $$(i,j)$$, where the $$J$$'s are the parameters in the Heisenberg hamiltonian
+In particular, $$J_{ij}$$ is computed for pairs of sites $$(i,j)$$, where the _J_'s are the parameters in the Heisenberg hamiltonian
 
 $$E(s_i, s_j) = \sum_{ij} J_{ij} s_i s_j$$
 
-Thus, the _J_'s are coefficients to energy changes for small rotations of the spins. It can be computed from a change in the band energy, and small rotations can be done analytically.
+Thus, the _J_'s are coefficients to energy changes for small rotations of the spins. They can be computed from a change in the band energy; changes from small rotations are done analytically.
 
 Taken with the usual elliptical integration contour, the _J_'s are computed by energy integration to the Fermi level. Taken with the special integration contour **mode=2** (see EMESH above), **dJ/dE** is computed instead. There is a shell script
 
