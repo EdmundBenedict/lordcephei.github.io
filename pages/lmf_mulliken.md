@@ -16,7 +16,7 @@ ____________________________________________________________
 _____________________________________________________________
 
 This tutorial demonstrates how to perform Mulliken analysis using the full potential band code **lmf**{: style="color: blue"}.
-See also [this tutorial](tutorial/gw/fe_optics/) which does Mulliken analysis in a different way, and resolves densities-of-states by wave number _k_.
+See also [this tutorial](/tutorial/gw/fe_optics/) which does Mulliken analysis in a different way, and resolves densities-of-states by wave number _k_.
 
 
 ### _Preliminaries_
@@ -64,9 +64,11 @@ Which generates a _plot.dos_{: style="color: green"} file readable by **fplot**{
 
 Which should result in a viewable image of the Mulliken DOS.
 
+See [Table of Contents](/tutorial/lmf/lmf_bi2te3_tutorial/#table-of-contents)
+
 ### _Other Resources_
 
-[This tutorial](tutorial/gw/fe_optics/) on ferromagnetic Fe use the optics branch of the code to make densities-of-states and a limited
+[This tutorial](/tutorial/gw/fe_optics/) on ferromagnetic Fe use the optics branch of the code to make densities-of-states and a limited
 ability for Mulliken analysis.  Doing DOS or Mulliken analysis using the optics code enables you to resolve these quantities by wave number _k_.
 
 Performing a Mulliken analysis using the **lmf**{: style="color: blue"} code is exemplified in three test cases
