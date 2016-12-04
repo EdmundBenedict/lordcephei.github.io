@@ -12,18 +12,18 @@ header: no
 {:.no_toc}
 _____________________________________________________________
 *  Auto generated table of contents
-{:toc} 
+{:toc}
 
 ### _Purpose_
 _____________________________________________________________
 
-This package implements the ASA local spin-density approximation using Green's functions. The Green's functions are contructed by approximating KKR multiple-scattering theory with an analytic potential function. The approximation to KKR is essentially similar to the linear approximation employed in band methods such as LMTO and LAPW. It can be shown that this approximation is nearly equivalent to the LMTO hamiltonian without the "combined correction" term. With this package a new program, **lmgf**{: style="color: blue"} is added to the suite of executables. **lmgf**{: style="color: blue"} plays approximately the same role as the LMTO-ASA band program **lm**{: style="color: blue"}: you can use **lmgf**{: style="color: blue"} to make a self-consistent density as you can do with **lm**{: style="color: blue"}. A potential is generated from 
+This package implements the ASA local spin-density approximation using Green's functions. The Green's functions are contructed by approximating KKR multiple-scattering theory with an analytic potential function. The approximation to KKR is essentially similar to the linear approximation employed in band methods such as LMTO and LAPW. It can be shown that this approximation is nearly equivalent to the LMTO hamiltonian without the "combined correction" term. With this package a new program, **lmgf**{: style="color: blue"} is added to the suite of executables. **lmgf**{: style="color: blue"} plays approximately the same role as the LMTO-ASA band program **lm**{: style="color: blue"}: you can use **lmgf**{: style="color: blue"} to make a self-consistent density as you can do with **lm**{: style="color: blue"}. A potential is generated from
 [energy moments](/docs/code/asaoverview/#generation-of-the-sphere-potential-and-energy-moments-q) $$Q_0$$, $$Q_1$$, and $$Q_2$$, in the same way as the **lm**{: style="color: blue"} code.  **lmgf**{: style="color: blue"} is a Green's function method: Green's functions have less information than wave functions, so in one sense the things you can do with **lmgf**{: style="color: blue"} are more limited: you cannot make the bands directly, for example. However, **lmgf**{: style="color: blue"} enables you to do things you cannot with **lm**{: style="color: blue"}. The most imprortant ones are:
 
-+ Calculate magnetic exchange interactions 
++ Calculate magnetic exchange interactions
 + Calculate magnetic susceptibility (spin-spin, spin-orbit, orbit-orbit parts)
 + Calculate [properties of disordered materials](/docs/code/cpadoc/), either chemically disordered or spin disorder from finite temperature, within the Coherent Potential Approximation, or CPA.
-+ Calculate the ASA static susceptibility at $$q=0$$ to help converge calculations to self-consistency. 
++ Calculate the ASA static susceptibility at $$q=0$$ to help converge calculations to self-consistency.
 
 
 ### _Structure of Green's function program_
@@ -35,7 +35,7 @@ In contrast to band methods (implemented in **lm**{: style="color: blue"}) where
 
 This fact highlights the strengths and weaknesses of a Green's function approach. Energy-integrated properties such as the moments, must be obtained by integrating over energy. Calculating $$G$$ explicitly at a family of energies is more cumbersome than diaonalizing a hamiltonian. On the other hand, Green's function methods are naturally suited to contexts where the energy-dependence is needed anyway. CPA theory yields an energy-dependent potential; Green's functions are a natural way to implement it. Similarly, noninteracting susceptibilities can be expressed as G×G (`×' implies either convolution or product, depending on the space you are working in).
 
-**lmgf**{: style="color: blue"} always loops over some energy contour; what contour you use depends on the context as described below. **gfasa**{: style="color: green"} accumulates various kinds of data for each mesh point, such as the point's contribution from energy moments used in an ASA self-consistent cycle. Finally, an estimate for the Fermi level $$E_F$$ is determined using a from Pade approximation. If the original guess for $$E_F$$ is sufficiently close, the cycle is finished as in **lm**{: style="color: blue"}. If the estimate is too far off, a new energy mesh is taken and the process is repeated. 
+**lmgf**{: style="color: blue"} always loops over some energy contour; what contour you use depends on the context as described below. **gfasa**{: style="color: green"} accumulates various kinds of data for each mesh point, such as the point's contribution from energy moments used in an ASA self-consistent cycle. Finally, an estimate for the Fermi level $$E_F$$ is determined using a from Pade approximation. If the original guess for $$E_F$$ is sufficiently close, the cycle is finished as in **lm**{: style="color: blue"}. If the estimate is too far off, a new energy mesh is taken and the process is repeated.
 
 ### _Energy Contours, Potential Shifts and the Determination of the Fermi Level_
 _____________________________________________________________
@@ -44,24 +44,24 @@ For energy-integrated properties, a very fine energy mesh would be required if t
 
 To integrate quantities over occupied states, integration to the Fermi level _E<sub>F</sub>_ is required. _E<sub>F</sub>_ is not known but must be fixed by charge neutrality. Thus $$E_F$$ must be guessed at and iteratively refined until the charge neutrality condition is satisfied. **lmgf**{: style="color: blue"} does not vary _E<sub>F</sub>_; the user specifies it at the outset. Instead **lmgf**{: style="color: blue"} looks for a constant potential shift that satisfies charge neutrality; this must be searched for iteratively. Both the potential shift and $$E_F$$ are maintained in a file _vshft.ext_{: style="color: green"}. Inspection of _vshft.ext_{: style="color: green"} may look unecessarily complicated; it's because you can use the file to add site-dependent shifts. _vshft.ext_{: style="color: green"} is also used by the layer Green's function code **lmpg**{: style="color: blue"}, which requires extra information about shifts on the left and right leads.
 
-Metals and nonmetals are distinguished in that in the latter case, there is no DOS in the gap and therefore the Fermi level (or potential shift) cannot be specified precisely. 
+Metals and nonmetals are distinguished in that in the latter case, there is no DOS in the gap and therefore the Fermi level (or potential shift) cannot be specified precisely.
 
-**Metal case** (set by **BZ_METAL=1**): once the $$k$$- and energy-points are summed over and the deviation from charge neutrality is determined, the code will attempt to find the potential shift that fixes charge neutrality. 
+**Metal case** (set by **BZ_METAL=1**): once the $$k$$- and energy-points are summed over and the deviation from charge neutrality is determined, the code will attempt to find the potential shift that fixes charge neutrality.
 
 <div onclick="elm = document.getElementById('metal'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of how the Fermi level is found for a metal.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="metal">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="metal">{:/}
 
 It finds the Fermi level in one of two ways:
 
 + Using a Pade approximant, **lmgf**{: style="color: blue"} interpolates the diagonal elements of G. The interpolation is used to evaluate the GF on the starting elliptical contour shifted rigidly by a constant, and the shift is iterated until the charge-neutrality condition is satisfied. At this stage, there are two possibilities:
 
   1\. repeat the integration of $$G$$ over $$k$$ and the energy contour with the constant shift added to the potential.
-  
+
   2\. Assume that the Pade-approximant to the diagonal $$G$$ is a sufficiently good estimate for the actual $$G$$.
-  
+
   If the potential shift is larger than a user-specifed tolerance (see padtol in **GF_GFOPTS** below), option 1 is taken and the Pade shift re-evaluated. A new Pade estimate is made for the potential shift requiring charge neutrality, and it is tested once against the user-specified tolerance.
-  
+
   When the shift falls below the tolerance, option 2 is taken and **lmgf**{: style="color: blue"} proceeds to the next step. The user is advised to monitor these shifts and the deviation from charge neutrality.
 
 + The charge is integrated in a contour near the real axis subsequent to the elliptical contour. In this mode, the determination of the potential shift is accomplished by continuing the integration contour on the real axis starting from the originally estimated Fermi level. A trapezoidal rule is used (or Simpson's rule using a Pade approximate for the midpoint), and new energy points are computed and integrals accumulated until charge neutrality is found. There is no iterative scheme as with the Pade approximation. This option tends to be a little less accurate than the Pade, but somewhat more stable as it is less susceptible to interpolation errors.
@@ -70,7 +70,7 @@ One last comment about the METAL case: by default the program will save the pote
 
 {::nomarkdown}</div>{:/}
 
-**Nonmetal case** (set by **BZ METAL=0**): **lmgf**{: style="color: blue"} will not attempt to shift the potential, or ensure charge neutrality. The user is cautioned to to pay rather closer attention to deviations from charge neutrality. It can happen because of numerical integration errors, or because your assumed Fermi level does not fall within the gap. You can use **METAL=1** even if the material is a nonmetal. 
+**Nonmetal case** (set by **BZ METAL=0**): **lmgf**{: style="color: blue"} will not attempt to shift the potential, or ensure charge neutrality. The user is cautioned to to pay rather closer attention to deviations from charge neutrality. It can happen because of numerical integration errors, or because your assumed Fermi level does not fall within the gap. You can use **METAL=1** even if the material is a nonmetal.
 
 ##### _Some details concerning how lmgf works internally_
 _____________________________________________________________
@@ -84,11 +84,11 @@ _____________________________________________________________
 #### _Energy integration_
 _____________________________________________________________
 
-Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates). 
+Green's functions are always performed on some energy contour, which is discretized into a mesh of points in the complex energy plane. (A description of the various kinds of contours this code uses is documented in the comments to **gf/emesh.f**{: style="color: green"}.) $$G$$ is "spikey" for energies on the real axis (it has poles where there are eigenstates).
 
 ##### _The_ BZ_EMESH _token_
 
-To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane. 
+To compute energy-integrated properties such as magnetic moments or the static susceptibility, the calculation is most efficiently done by deforming the contour in an ellipse in the complex plane.
 
 At other times you want properties on the real axis, e.g. density-of-states or spectral functions. You specify the contour in category **BZ** as:
 
@@ -108,23 +108,23 @@ Right now there are the following contours:
     EMESH= nz 10 emin emax ecc eps
 
            ecc is the eccentricity of the ellipse, ranging from 0 (circle) to 1 (line)
-           eps is a 'bunching' parameter that, as made larger, tends to bunch points near emax.  
+           eps is a 'bunching' parameter that, as made larger, tends to bunch points near emax.
                As a rule, e2=0 is good, or maybe e2=.5 to emphasize points near the Fermi level.
 
- After the integration is completed, there will be some deviation from charge neutrality, because emax will not exactly correspond to the Fermi level. This deviation is ignored if **METAL=0**; otherwise, the mesh is rigidly shifted by a constant amount, and the diagonal GF interpolated using a Pade approximant to the shifted mesh. The shifting+interpolation is iterated until charge neutrality is found, as described in section 2. If the rigid shift exceeds a specified tolerance, the Pade interpolation may be suspect. Thus, the entire cycle is repeated from scratch, on the shifted mesh where the shift is estimated by Pade. 
+ After the integration is completed, there will be some deviation from charge neutrality, because emax will not exactly correspond to the Fermi level. This deviation is ignored if **METAL=0**; otherwise, the mesh is rigidly shifted by a constant amount, and the diagonal GF interpolated using a Pade approximant to the shifted mesh. The shifting+interpolation is iterated until charge neutrality is found, as described in section 2. If the rigid shift exceeds a specified tolerance, the Pade interpolation may be suspect. Thus, the entire cycle is repeated from scratch, on the shifted mesh where the shift is estimated by Pade.
 
 **mode=0**: a uniform mesh of points between emin and emax, with a constant imaginary component.
 
     EMESH= nz 0 emin emax Im-z [... + possible args for layer geometry.]
            Im-z is the (constant) imaginary component.
 
-This mode is generally not recommended for self-consistent cycles because the GF has a lot of structure close to the real axis (small $${\rm Im}\, z$$), while shifting off the real axis introduces errors. It is used, however, in other contexts, e.g. transport. 
+This mode is generally not recommended for self-consistent cycles because the GF has a lot of structure close to the real axis (small $${\rm Im}\, z$$), while shifting off the real axis introduces errors. It is used, however, in other contexts, e.g. transport.
 
-**mode=110**: is a contour input specific to nonequilibrium Green's function. 
+**mode=110**: is a contour input specific to nonequilibrium Green's function.
 
 <div onclick="elm = document.getElementById('mode110'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of this special purpose mode.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode110">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode110">{:/}
 
 The nonequilibrium Green's function requires additional information for the energy window between the left and right leads. (The nonequilibrium Green's function is implemented for the layer geometry in **lmpg**{: style="color: blue"}.) Thus the integration proceeds in two parts: first an integration on an elliptical path is taken to the left Fermi level (as in **mode=10**). Then an integration over is performed on the nonequilibrium contour, i.e. the energy window from the left to the right Fermi level. This integration is performed on a uniform mesh close to the real axis, as in **mode=0**. For the nonequilibrium contour, three additional pieces of information must be supplied:
 
@@ -144,20 +144,20 @@ The last argument plays the role of **delne** specifically for computing the sel
 
 <div onclick="elm = document.getElementById('mode310'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of this special purpose mode.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode310">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode310">{:/}
 
 a Gaussian quadrature on an ellipse to a trial emax, as in **mode 2**. However, the search for the Fermi level is not done by Pade approximant, as in **mode 10**. Instead, a second integration proceeds along a uniform mesh from emax to some (Fermi) energy which satisfies charge neutrality. This procedure is not iterative.
 
     EMESH= nz 310 emin emax e1 e2 delz
 
            e1 and e2 are just as in mode 10
-           delz      is the spacing between energy points for the 
+           delz      is the spacing between energy points for the
                      second integration on the uniform mesh.
 
 
 {::nomarkdown}</div>{:/}
 
-**mode=2**: is the same contour as mode=0. However, it is designed for cases when you want to resolve the energy dependence of some quantity, such as the DOS or magnetic exchange coupling. These are discussed in the GF category below. 
+**mode=2**: is the same contour as mode=0. However, it is designed for cases when you want to resolve the energy dependence of some quantity, such as the DOS or magnetic exchange coupling. These are discussed in the GF category below.
 
 ##### _Modifications of energy contour for layer geometry_
 {::comment}
@@ -187,14 +187,14 @@ _____________________________________________________________
 
 Token **MODE=** controls what **lmgf**{: style="color: blue"} calculates. Options are **MODE=1**, **MODE=10**, **MODE=11**, **MODE=26**, described below.
 
-**MODE=1** goes through the usual cycle calling **gfasa**{: style="color: green"}. It performs a function analogous to 
+**MODE=1** goes through the usual cycle calling **gfasa**{: style="color: green"}. It performs a function analogous to
 **bndasa**{: style="color: green"} in the band program, generating output density, moments, and optionally other quantities such as density-of-states.
 
 Taken with the special integration contour **mode=2** (see **EMESH** above), $$N(E)$$ and its integral are computed and tabulated over the window specified.
 
 <div onclick="elm = document.getElementById('mode2'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of this special purpose mode.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode2">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode2">{:/}
 
 With the following sample input segment:
 
@@ -224,11 +224,11 @@ If the partial DOS is generated, the usual tokens in the BZ category specifying 
 
 {::nomarkdown}</div>{:/}
 
-**MODE=10** invokes a special branch that computes magnetic exchange interactions using a linear response technique. 
+**MODE=10** invokes a special branch that computes magnetic exchange interactions using a linear response technique.
 
 <div onclick="elm = document.getElementById('mode10'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
 <b>Click here</b> for description of mode 10.
-</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode10">{:/} 
+</div>{::nomarkdown}<div style="display:none;padding:0px;" id="mode10">{:/}
 
 In particular, $$J_{ij}$$ is computed for pairs of sites $$(i,j)$$, where the $$J$$'s are the parameters in the Heisenberg hamiltonian
 
@@ -242,7 +242,7 @@ Taken with the usual elliptical integration contour, the _J_'s are computed by e
 
 (invoke with no arguments to see usage) that will collect some of the ouput for you into tables. The data are collected into file **dj0dz**{: style="color: green"}. For an example illustrating this mode, invoke
 
-    $ gf/test/test.gf co 5 
+    $ gf/test/test.gf co 5
 
 This test computes the exchange coupling both for the usual elliptical contour and resolves the energy-dependence of _J_ in a small window near the Fermi level.
 
@@ -256,7 +256,7 @@ For more details, see [command-line arguments](/docs/code/lmgf/#lmgf-specific-co
 
 {::nomarkdown}</div>{:/}
 
-**MODE=11** is an exchange branch that is run after **MODE=10**. It prints out the $$J_{ij}$$ and does several other analyses. 
+**MODE=11** is an exchange branch that is run after **MODE=10**. It prints out the $$J_{ij}$$ and does several other analyses.
 
 Switch `--sites:pair:site-list` applies to mode 11 as well as mode 10; see [command-line arguments](/docs/code/lmgf/#lmgf-specific-command-line-arguments).
 
@@ -267,9 +267,6 @@ Token **GFOPTS=** option-list causes **gfasa**{: style="color: green"} to do a v
 
 Options are entered as a sequence of tags delimited by a semicolon:&thinsp; **string1;string2;...** .
 
-Tags are:
-
-    :-:   | :-      |
     Tag	  |  purpose
     emom  |  generate the output ASA moments, needed for self-consistency
    noemom |  suppress generation of the output ASA moments
@@ -283,7 +280,7 @@ Tags are:
     frzvc |  Suppress saving the constant potential shift used to determine charge neutrality
     padtol|  Set the tolerance for maximum potential shift permissible by Pade interpolation, as described above
 
-  CPA     |  The following are for the CPA:
+ The following are for the CPA:
   omgtol  |  Tolerance in the Omega potential, CPA self-consistency
   omgmix  |  How much of prior iterations to mix, CPA self-consistency
   nitmax  |  Maximum number of iterations for CPA self-consistency
@@ -307,7 +304,7 @@ _____________________________________________________________
 
 The following are specific to the exchange calculation **modes 10** and **11**:
 
-    --sites[:pair]:site-list  Make the exchange parameters J_ij only for 
+    --sites[:pair]:site-list  Make the exchange parameters J_ij only for
           sites i in the site list.  In mode 11, option :pair means
           that only parameters J_ij where both i and j are printed.
 
@@ -330,8 +327,8 @@ Running **lmgf**{: style="color: blue"} using **MODE=11** without any **\-\-site
         scl=#   scales the parameters by #
         tol=#   writes only parameters with energy > tol
 
-    --rcut=# 
-      Truncates the range of the R.S exchange paremeters ... 
+    --rcut=#
+      Truncates the range of the R.S exchange paremeters ...
       useful to assist in the determination of the effect distant neighbors.
 
     --2xmsh
