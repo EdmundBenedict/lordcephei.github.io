@@ -433,7 +433,7 @@ for a fuller description.
 Command-line switches:
 
 + **-\-plotwf**
-  + Writes atomic wave functions to files <i>wfa\_</i>{: style="color: green"}spid<i>{: style="color: green"}.ext</i>{: style="color: green"}.
+  + Writes atomic wave functions to files <i>wfa\_</i>spid{: style="color: green"}<i>.ext</i>{: style="color: green"}.
 
 + **-\-dumprho**
   + Dumps atomic density and potential to disk, file _out.ext_{: style="color: green"}.  Operates interactively.
@@ -445,6 +445,7 @@ Command-line switches:
   + Turns on autofind **EH,RSMH** (also accomplished through **HAM_AUTOBAS**)
 
    Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-basp**):
+
    + **~eh=#**:&ensp;       Specify fixed **EH**
    + **~eh2=#**:&ensp;      Specify fixed **EH2**
    + **~incrlmx**:&thinsp;  Include **RSMH,EH** to one higher _l_ when writing _basp0.ext_{: style="color: green"}.
