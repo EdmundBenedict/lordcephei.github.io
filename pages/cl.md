@@ -204,7 +204,7 @@ Command-line switches:
 + **-\-nit=#**
   + specify max number of iterations to self-consistency
 
-+ **-\-omax=#1 \| -\-omax=#1,#2,#3**
++ **-\-omax=#1 &nbsp; \| &nbsp; -\-omax=#1,#2,#3**
   + Set maximum sphere overlaps to **#1**. **#2** and **#3** concern overlaps for empty spheres.
 
 + **-\-pmt**
