@@ -195,8 +195,8 @@ Command-line switches:
 + **-\-nk=#1[,#2,#3]**
   + k-mesh for BZ integration
 
-+ **-\-nkgw=#[,#,#]**
-  + Same as -\-nk but applies to _GW_ _k_-mesh
++ **-\-nkgw=#1[,#2,#3]**
+  + Same as **-\-nk** but applies to _GW_ _k_-mesh
 
 + **-\-gmax=#**
   + specify mesh density cutoff **GMAX**; see [this tutorial]((/tutorial/lmf/lmf_pbte_tutorial/#estimate-for-gmax)
@@ -207,8 +207,11 @@ Command-line switches:
 + **-\-omax=#1 &nbsp; \| &nbsp; -\-omax=#1,#2,#3**
   + Set maximum sphere overlaps to **#1**. **#2** and **#3** concern overlaps for empty spheres.
 
-+ **-\-pmt**
-  + Tighten some tolerances for use with the [PMT basis](/docs/code/fpoverview/#augmented-plane-waves).
++ **-\-pmt[:emax=#]**
+  + Set up for use the [PMT basis](/docs/code/fpoverview/#augmented-plane-waves). It:
+    + sets tight tolerances for **HAM_TOL** and **EWALD_TOL**
+    + sets **HAM_PWMODE=11**
+    + Optional **semax** sets **HAM_PWEMAX**
 
 + **-\-scala=#**
   + multiply ALAT by #, and PLAT and POS by 1/#
