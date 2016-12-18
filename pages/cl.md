@@ -211,7 +211,7 @@ Command-line switches:
   + Set up for use the [PMT basis](/docs/code/fpoverview/#augmented-plane-waves). It:
     + sets tight tolerances for **HAM_TOL** and **EWALD_TOL**
     + sets **HAM_PWMODE=11**
-    + Optional **semax** sets **HAM_PWEMAX**
+    + Optional **:emax** sets **HAM_PWEMAX**
 
 + **-\-scala=#**
   + multiply ALAT by #, and PLAT and POS by 1/#
