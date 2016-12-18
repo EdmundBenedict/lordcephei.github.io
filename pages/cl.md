@@ -204,6 +204,9 @@ Command-line switches:
 + **-\-nit=#**
   + specify max number of iterations to self-consistency
 
++ **-\-omax=#1 \| -\-omax=#1,#2,#3**
+  + Set maximum sphere overlaps to **#1**. **#2** and **#3** concern overlaps for empty spheres.
+
 + **-\-pmt**
   + Tighten some tolerances for use with the [PMT basis](/docs/code/fpoverview/#augmented-plane-waves).
 
@@ -218,6 +221,10 @@ Command-line switches:
 
 + **-\-xpos**
   + write site positions as multiples of PLAT
+
++ **-\-xshft=# \| -\-xshftx=#**
+  + Shift site positions by a uniform translation, Cartesian coordinates (**xshft**
+    or as multiples of lattice vectors (**xshftx**).
 
 + **-\-wsrmax=#**
   + when finding sphere radii, do not permit any radius to exceed #
