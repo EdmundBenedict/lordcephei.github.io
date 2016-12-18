@@ -421,6 +421,35 @@ Note : without it a blank line is inserted before sub-bullets
 
 See [Table of Contents](/docs/input/commandline/#table-of-contents)
 
+#### _Switches for_ lmfa
+{::comment}
+(/docs/input/commandline/#switches-for-lmfa)
+{:/comment}
+
+**lmfa**{: style="color: blue"} makes atomic densities and basis set parameters for the crystal code
+**lmf**{: style="color: blue"}.  See the [PbTe tutorial][/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis]
+for a fuller description.
+
+Command-line switches:
+
++ **-\-plotwf**
+  + Writes atomic wave functions to files <i>wfa\_</i>{: style="color: green"}spid<i>{: style="color: green"}.ext</i>{: style="color: green"}.
+
++ **-\-dumprho**
+  + Dumps atomic density and potential to disk, file _out.ext_{: style="color: green"}.  Operates interactively.
+
++ **-\-norscnst**
+  + In optimization of s.m. Hankel basis, do not constrain rsm < rmt
+
++ **-\-basp[~eh=#~eh2=#~incrlmx]**
+  + Turns on autofind **EH,RSMH** (also accomplished through **HAM_AUTOBAS**)
+
+   Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
+
+   + **~eh=#**:&ensp;       Specify **EH**
+   + **~eh2=#**:&ensp;      Specify **EH2**
+   + **~incrlmx**:&thinsp;  Include **RSMH,EH** to _basp0.ext_{: style="color: green"} for one higher _l_.
+                            Parameter will be used only if **SPEC_ATOM_LMX** is also increased.
 #### _Switches for_ lmf
 {::comment}
 (/docs/input/commandline/#switches-for-lmf)
