@@ -427,7 +427,7 @@ See [Table of Contents](/docs/input/commandline/#table-of-contents)
 {:/comment}
 
 **lmfa**{: style="color: blue"} makes atomic densities and basis set parameters for the crystal code
-**lmf**{: style="color: blue"}.  See the [PbTe tutorial][/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis]
+**lmf**{: style="color: blue"}.  See the [PbTe tutorial](/tutorial/lmf/lmf_pbte_tutorial/#initial-setup-free-atomic-density-and-parameters-for-basis)
 for a fuller description.
 
 Command-line switches:
@@ -444,12 +444,12 @@ Command-line switches:
 + **-\-basp[~eh=#~eh2=#~incrlmx]**
   + Turns on autofind **EH,RSMH** (also accomplished through **HAM_AUTOBAS**)
 
-   Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-band**):
+   Options below are delimited by &thinsp;**~**&thinsp; (or the first character following **-\-basp**):
+   + **~eh=#**:&ensp;       Specify fixed **EH**
+   + **~eh2=#**:&ensp;      Specify fixed **EH2**
+   + **~incrlmx**:&thinsp;  Include **RSMH,EH** to one higher _l_ when writing _basp0.ext_{: style="color: green"}.
+                            Extra RSMH,EH is used only if **SPEC_ATOM_LMX** is also increased.
 
-   + **~eh=#**:&ensp;       Specify **EH**
-   + **~eh2=#**:&ensp;      Specify **EH2**
-   + **~incrlmx**:&thinsp;  Include **RSMH,EH** to _basp0.ext_{: style="color: green"} for one higher _l_.
-                            Parameter will be used only if **SPEC_ATOM_LMX** is also increased.
 #### _Switches for_ lmf
 {::comment}
 (/docs/input/commandline/#switches-for-lmf)
