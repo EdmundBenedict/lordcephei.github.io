@@ -433,7 +433,7 @@ for a fuller description.
 Command-line switches:
 
 + **-\-plotwf**
-  + Writes atomic wave functions to files <i>wfa\_</i>spid{: style="color: green"}<i>.ext</i>{: style="color: green"}.
+  + Writes atomic wave functions to files <i>wfa</i>{: style="color: green"}\_spid<i>.ext</i>{: style="color: green"}.
 
 + **-\-dumprho**
   + Dumps atomic density and potential to disk, file _out.ext_{: style="color: green"}.  Operates interactively.
