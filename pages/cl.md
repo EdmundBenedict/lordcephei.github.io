@@ -720,8 +720,8 @@ Command-line switches:
    renders the first _f_ block of hamiltonian diagonal (assuming the first site has _spdf_ orbitals)
    with energy -1.5Ry in the majority channel and +1.4Ry in the minority channel.
 
-   Note that basis sets typicaly have more than one orbital per _l_.  If you are trying to isolate a particular _l_ or _m_, 
-   you should include all basis functions with a particular (site, _l_, and _m_) in _list_.
+   Note that basis sets typicaly have more than one orbital per _l_.  To isolate a particular _l_ or _lm_, 
+   include all basis functions with a particular (site, _l_) or (site, _lm_) in _list_.
 
 {::nomarkdown} <a name="optics"></a> {:/}
 {::comment}
