@@ -705,13 +705,13 @@ Command-line switches:
 
    To set the diagonal part by hand, use **~e=#1,#2**.  **#1** specifies the eigenvalue of spin 1, **#2** of spin 2.
 
-   **_list_** is an integer list of orbitals in the hamiltonian, whose syntax is described [here](/docs/input/integerlists).
+   **_list_** is an integer list of orbitals in the hamiltonian, integer lists are described [here](/docs/input/integerlists).\\
    To see how the basis is ordered, run **lmf**{: style="color: blue"} with
 
        lmf --pr55 --quit=ham ...
 
-   and inspect for table following the header\\
-   &emsp;&emsp;**Orbital positions in hamiltonian, resolved by l:**\\
+   and inspect the table following this header:\\
+   &emsp;&emsp;**Orbital positions in hamiltonian, resolved by l:**
 
    _Example:_
 
