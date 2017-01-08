@@ -699,22 +699,29 @@ Command-line switches:
 {::nomarkdown}<a name="wrhomt"></a>{:/}**-\-wrhomt &thinsp;\|&thinsp; -\-wpotmt**
 :  Not documented yet.
 ^
-{::nomarkdown}<a name="zhblock"></a>{:/}**-\-zhblockt &thinsp;\|&thinsp; -\-zhblock[~e=#1[,#2]]~list**
+{::nomarkdown}<a name="zhblock"></a>{:/}-\-zhblock[~e=#1[,#2]]~list**
 :  Zeros out the off-diagonal parts of the hamiltonian and overlap matrices.
    Diagonal parts are retained.
 
-   To set the diagonal part by hand, use `~e=#1,#2*`*.  **#1** specifies the eigenvalue of spin 1, **#2** of spin 2.
+   To set the diagonal part by hand, use **~e=#1,#2**.  **#1** specifies the eigenvalue of spin 1, **#2** of spin 2.
 
    **_list_** is an integer list of orbitals in the hamiltonian.
    To see how the hamiltonian is ordered, run lmf with 
 
        lmf --pr55 --quit=ham ...
 
-   and look for table beginning 
-
-   Orbital positions in hamiltonian, resolved by l:
-
+   and look for table following the header\\
+   &emsp;&emsp;**Orbital positions in hamiltonian, resolved by l:**\\
    The syntax for integer lists is described [here](/docs/input/integerlists).
+
+   _Example:_
+
+       lmf gdn --zhblock~e=-1.5,1.4~10:16 gdn
+
+   renders the first _f_ blocks of hamiltonian diagonal (assuming the first site has _spdf_ orbitals)
+   with energy -1.5Ry in the majority channel and +1.4Ry in the minority channel.
+
+   Note that if the basis has a second envelope function, it should also be included in _list_.
 
 {::nomarkdown} <a name="optics"></a> {:/}
 {::comment}
