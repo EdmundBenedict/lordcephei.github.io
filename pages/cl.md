@@ -705,7 +705,7 @@ Command-line switches:
 
    To set the diagonal part by hand, use **~e=#1,#2**.  **#1** specifies the eigenvalue of spin 1, **#2** of spin 2.
 
-   **_list_** is an integer list of orbitals in the hamiltonian, integer lists are described [here](/docs/input/integerlists).\\
+   **_list_** is an integer list of orbitals in the hamiltonian; integer lists are described [here](/docs/input/integerlists).\\
    To see how the basis is ordered, run **lmf**{: style="color: blue"} with
 
        lmf --pr55 --quit=ham ...
@@ -719,7 +719,9 @@ Command-line switches:
 
    renders the first _f_ block of hamiltonian diagonal (assuming the first site has _spdf_ orbitals)
    with energy -1.5Ry in the majority channel and +1.4Ry in the minority channel.\\
-   Note that if the basis has a second envelope function, it should also be included in _list_.
+
+   Note that basis sets typicaly have more two envelope functions.  If you are trying to isolate a particular _l_ or _m_, 
+   you should include all basis functions with a particular (site, _l_, and _m_) in _list_.
 
 {::nomarkdown} <a name="optics"></a> {:/}
 {::comment}
