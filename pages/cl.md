@@ -470,7 +470,7 @@ Command-line switches:
 
 Command line switches with links are organized by function in the table below.  Use the links for quick reference.
 
-| Affects program flow       | **[-\-ef](/docs/input/commandline/#ef)**&nbsp; **[-\-no-fixef0](/docs/input/commandline/#nofixef0)**&nbsp; **[-\-oldvc](/docs/input/commandline/#oldvc)**&nbsp; [**-\-optbas**](/docs/input/commandline/#optbas)&nbsp; **[-\-quit](/docs/input/commandline/#pr)**&nbsp; **[-\-rdbasp](/docs/input/commandline/#rdbasp)**<br>**[-\-rhopos](/docs/input/commandline/#rhopos)**&nbsp; **[-\-rpos](/docs/input/commandline/#rpos)**&nbsp; **[-\-rs](/docs/input/commandline/#rs)**&nbsp; **[-\-shorten=no](/docs/input/commandline/#shortenno)**&nbsp; **[-\-symsig](/docs/input/commandline/#symsig)**&nbsp; **[-\-vext](/docs/input/commandline/#vext)**
+| Affects program flow       | **[-\-ef](/docs/input/commandline/#ef)**&nbsp; **[-\-no-fixef0](/docs/input/commandline/#nofixef0)**&nbsp; **[-\-oldvc](/docs/input/commandline/#oldvc)**&nbsp; [**-\-optbas**](/docs/input/commandline/#optbas)&nbsp; **[-\-quit](/docs/input/commandline/#pr)**&nbsp; **[-\-rdbasp](/docs/input/commandline/#rdbasp)**<br>**[-\-rhopos](/docs/input/commandline/#rhopos)**&nbsp; **[-\-rpos](/docs/input/commandline/#rpos)**&nbsp; **[-\-rs](/docs/input/commandline/#rs)**&nbsp; **[-\-shorten=no](/docs/input/commandline/#shortenno)**&nbsp; **[-\-symsig](/docs/input/commandline/#symsig)**&nbsp; **[-\-vext](/docs/input/commandline/#vext)**&nbsp; **[-\-zhblock](/docs/input/commandline/#zhblock)**
 | Additional files generated | [**-\-band**](/docs/input/commandline/#band)&nbsp; **[-\-cls](/docs/input/commandline/#cls)**&nbsp; **[-\-cv](/docs/input/commandline/#cv)**&nbsp;**[-\-wforce](/docs/input/commandline/#wforce)**&nbsp; **[-\-mull](/docs/input/commandline/#pdos)**&nbsp; **[-\-pdos](/docs/input/commandline/#pdos)**&nbsp;<br>**[-\-wden](/docs/input/commandline/#wden)**&nbsp; **[-\-wpos](/docs/input/commandline/#wpos)**&nbsp; **[-\-wrhomt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wpotmt](/docs/input/commandline/#wrhomt)**&nbsp; **[-\-wrhoat](/docs/input/commandline/#wrhoat)** |
 | Additional printout        | **[-\-efrnge](/docs/input/commandline/#efrnge)**&nbsp; **[-\-pr](/docs/input/commandline/#pr)**&nbsp; **[-\-SOefield](/docs/input/commandline/#SOefield)** |
 | [Optics specific](/docs/input/commandline/#optics) | **-\-jdosw**&nbsp; **-\-jdosw2**&nbsp; **-\-opt**
@@ -698,6 +698,23 @@ Command-line switches:
 ^
 {::nomarkdown}<a name="wrhomt"></a>{:/}**-\-wrhomt &thinsp;\|&thinsp; -\-wpotmt**
 :  Not documented yet.
+^
+{::nomarkdown}<a name="zhblock"></a>{:/}**-\-zhblockt &thinsp;\|&thinsp; -\-zhblock[~e=#1[,#2]]~list**
+:  Zeros out the off-diagonal parts of the hamiltonian and overlap matrices.
+   Diagonal parts are retained.
+
+   To set the diagonal part by hand, use `~e=#1,#2*`*.  **#1** specifies the eigenvalue of spin 1, **#2** of spin 2.
+
+   **_list_** is an integer list of orbitals in the hamiltonian.
+   To see how the hamiltonian is ordered, run lmf with 
+
+       lmf --pr55 --quit=ham ...
+
+   and look for table beginning 
+
+   Orbital positions in hamiltonian, resolved by l:
+
+   The syntax for integer lists is described [here](/docs/input/integerlists).
 
 {::nomarkdown} <a name="optics"></a> {:/}
 {::comment}
