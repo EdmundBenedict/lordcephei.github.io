@@ -699,7 +699,7 @@ Command-line switches:
 {::nomarkdown}<a name="wrhomt"></a>{:/}**-\-wrhomt &thinsp;\|&thinsp; -\-wpotmt**
 :  Not documented yet.
 ^
-{::nomarkdown}<a name="zhblock"></a>{:/}-\-zhblock[~e=#1[,#2]]~list**
+{::nomarkdown}<a name="zhblock"></a>{:/}**-\-zhblock[~e=#1[,#2]]~list**
 :  Zeros out the off-diagonal parts of the hamiltonian and overlap matrices.
    Diagonal parts are retained.
 
@@ -718,9 +718,9 @@ Command-line switches:
        lmf gdn --zhblock~e=-1.5,1.4~10:16 gdn
 
    renders the first _f_ block of hamiltonian diagonal (assuming the first site has _spdf_ orbitals)
-   with energy -1.5Ry in the majority channel and +1.4Ry in the minority channel.\\
+   with energy -1.5Ry in the majority channel and +1.4Ry in the minority channel.
 
-   Note that basis sets typicaly have more two envelope functions.  If you are trying to isolate a particular _l_ or _m_, 
+   Note that basis sets typicaly have more than one orbital per _l_.  If you are trying to isolate a particular _l_ or _m_, 
    you should include all basis functions with a particular (site, _l_, and _m_) in _list_.
 
 {::nomarkdown} <a name="optics"></a> {:/}
